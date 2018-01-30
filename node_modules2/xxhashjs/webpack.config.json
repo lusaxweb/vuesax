@@ -1,0 +1,8 @@
+{
+	"entry": "./lib/index.js"
+,	"output": {
+		"path": "./build"
+	,	"filename": "xxhash.js"
+	,	"library": "XXH"
+	}
+}

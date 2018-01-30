@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "properties": {
+    "config": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "ctx": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
+    },
+    "exec": {
+      "type": "boolean"
+    },
+    "parser": {
+      "type": [ "string", "object" ]
+    },
+    "syntax": {
+      "type": [ "string", "object" ]
+    },
+    "stringifier": {
+      "type": [ "string", "object" ]
+    },
+    "plugins": {
+      "anyOf": [
+        { "type": "array" },
+        { "type": "object" },
+        { "instanceof": "Function" }
+      ]
+    },
+    "sourceMap": {
+      "type": [ "string", "boolean" ]
+    }
+  },
+  "additionalProperties": true
+}

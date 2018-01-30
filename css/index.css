@@ -1,0 +1,8 @@
+:root {
+  --default: 80, 80, 80;
+  --primary: 0, 138, 251;
+  --danger: 244, 85, 85;
+  --success: 70, 201, 58;
+
+  /* hover */
+}
