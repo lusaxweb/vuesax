@@ -5,3 +5,11 @@
 # vuesax
 
 Frontend Vue Components
+
+# install
+
+NPM
+
+`
+  npm install vuesax
+`

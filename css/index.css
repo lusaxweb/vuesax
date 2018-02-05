@@ -1,8 +1,11 @@
 :root {
-  --default: 80, 80, 80;
-  --primary: 0, 138, 251;
-  --danger: 244, 85, 85;
+  --default: 150, 150, 150;
+  /* --primary: 0, 138, 251; */
+  --primary: 31, 116, 255;
+  --danger: 255, 71, 87;
+  /* --danger: 244, 85, 85; */
   --success: 70, 201, 58;
-
+  --dark:30, 30, 30;
+  --warning:255,186,0;
   /* hover */
 }
