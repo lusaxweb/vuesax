@@ -75,7 +75,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ({
 
-/***/ "011j":
+/***/ "ESC+":
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
@@ -87,6 +87,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+
+// EXTERNAL MODULE: ./css/index.css
+var css = __webpack_require__("SZiR");
+var css_default = /*#__PURE__*/__webpack_require__.n(css);
 
 // CONCATENATED MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/babel-loader/lib!C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/selector.js?type=script&index=0!./components/vsButton.vue
 //
@@ -105,7 +109,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-// import '../css/index.css'
+
 /* harmony default export */ var vsButton = ({
   name: 'vs-button',
   props: ['vsType'],
@@ -168,14 +172,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     }
   }
 });
-// CONCATENATED MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/template-compiler?{"id":"data-v-66be7966","hasScoped":false,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/selector.js?type=template&index=0!./components/vsButton.vue
+// CONCATENATED MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/template-compiler?{"id":"data-v-5e1f64b7","hasScoped":false,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/selector.js?type=template&index=0!./components/vsButton.vue
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('button',{class:[_vm.vsType?_vm.clasex:'vs-button-primary-filled',{'filled':_vm.vsType?_vm.vsType.search('filled')!=-1:false,'border':_vm.vsType?_vm.vsType.search('border')!=-1:false}],attrs:{"type":"button","name":"button"},on:{"click":function($event){_vm.$emit('click')},"blur":function($event){_vm.btnBlur($event)}}},[_c('span',{staticClass:"text"},[_vm._t("default")],2)])}
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ var selectortype_template_index_0_components_vsButton = (esExports);
 // CONCATENATED MODULE: ./components/vsButton.vue
 function injectStyle (ssrContext) {
-  __webpack_require__("011j")
+  __webpack_require__("ESC+")
 }
 var normalizeComponent = __webpack_require__("mUJo")
 /* script */
@@ -239,6 +243,13 @@ const vuesax = {
 // Vuesax.version = '__VERSION__'
 /* harmony default export */ var index = __webpack_exports__["default"] = (vuesax);
 
+
+/***/ }),
+
+/***/ "SZiR":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
