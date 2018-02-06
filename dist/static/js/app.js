@@ -87,8 +87,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-var components_namespaceObject = {};
-__webpack_require__.d(components_namespaceObject, "vsButton", function() { return components_vsButton; });
 
 // CONCATENATED MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/babel-loader/lib!C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/selector.js?type=script&index=0!./components/vsButton.vue
 //
@@ -204,42 +202,39 @@ var Component = normalizeComponent(
 
 /* harmony default export */ var components_vsButton = (Component.exports);
 
-// CONCATENATED MODULE: ./components/index.js
-
-
-
-
 // CONCATENATED MODULE: ./index.js
 // import Vue from 'vue'
-// import vsButton from './components/vsButton.vue'
+
 // import vsSelect from './components/vsSelect.vue'
 // import './css/index.css'
-// export default {
-//   install(Vue, options) {
-//     //buttons
-//     // Vue.component(vsButton.name,vsButton)
-//     //selects
-//     // Vue.component(vsSelect.name,vsSelect)
-//   	Vue.mixin({
-//       mounted() {
-//         console.log('hola mundo')
-//       }
-//     });
-//
-//   }
-// };
+const vuesax = {
+  install(Vue, options) {
+    //buttons
+    Vue.component(components_vsButton.name,components_vsButton)
+    //selects
+    // Vue.component(vsSelect.name,vsSelect)
+  	Vue.mixin({
+      mounted() {
+        console.log('hola mundo')
+      }
+    });
+
+  }
+};
+/* harmony export (immutable) */ __webpack_exports__["vuesax"] = vuesax;
+
 
 // export default Vuesax;
 
 
 
-
-
-let vuesax = Vue => {
-  Object.values(components_namespaceObject).forEach((vsComponent) => {
-    Vue.use(vsComponent)
-  })
-}
+// import * as vsComponents from './components'
+//
+// let vuesax = Vue => {
+//   Object.values(vsComponents).forEach((vsComponent) => {
+//     Vue.use(vsComponent)
+//   })
+// }
 
 // Vuesax.version = '__VERSION__'
 /* harmony default export */ var index = __webpack_exports__["default"] = (vuesax);
