@@ -17,6 +17,10 @@ export const vuesax = {
   }
 };
 
+if (typeof window !== 'undefined' && window.Vue) {
+  window.Vue.use(vuesax)
+}
+
 // export default Vuesax;
 
 
