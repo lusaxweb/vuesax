@@ -228,6 +228,10 @@ const vuesax = {
 /* harmony export (immutable) */ __webpack_exports__["vuesax"] = vuesax;
 
 
+if (typeof window !== 'undefined' && window.Vue) {
+  window.Vue.use(vuesax)
+}
+
 // export default Vuesax;
 
 
