@@ -14,8 +14,9 @@
 </template>
 
 <script>
-import '../css/index.css'
+// import '../css/index.css'
 export default {
+  name:'vs-button',
   props:[
     'vsType',
   ],
