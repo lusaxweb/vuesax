@@ -369,4 +369,4 @@ module.exports = function normalizeComponent (
 
 /******/ });
 });
-//# sourceMappingURL=app.js.map
+//# sourceMappingURL=vuesax.js.map

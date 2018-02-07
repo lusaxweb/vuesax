@@ -5,7 +5,7 @@
   "author": "ldrovira <luisdanielrovira8@gmail.com>",
   "homepage": "https://lusaxweb.github.io/vuesax/#/",
   "main": "dist/js/vuesax.js",
-  "unpkg": "dist/js/vuesax.js",
+  "unpkg": "dist/js/vuesax.min.js",
   "private": false,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
