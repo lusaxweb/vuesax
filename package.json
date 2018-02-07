@@ -3,7 +3,9 @@
   "version": "2.0.7",
   "description": "interface UI developer",
   "author": "ldrovira <luisdanielrovira8@gmail.com>",
-  "main": "index.js",
+  "homepage": "https://lusaxweb.github.io/vuesax/#/",
+  "main": "dist/js/vuesax.js",
+  "unpkg": "dist/js/vuesax.js",
   "private": false,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
