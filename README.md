@@ -1,5 +1,11 @@
 <p align="center">
 <a href="https://lusaxweb.github.io/vuesax/#/"><img src="https://lusaxweb.github.io/vuesax/static2/img/vuesax-logo-2.0ab2286.png" alt="Build Status"></a>
+  </p>
+  <p align="center">
+  <a href="https://travis-ci.org/vuetifyjs/vuetify">
+    <img src="https://travis-ci.org/lusaxweb/vuesax.svg?branch=master" alt="travis ci badge">
+  </a>
+  
 </p>
 
 # Introduccion
