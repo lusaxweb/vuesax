@@ -9,7 +9,16 @@
   --warning:255,186,0;
   /* hover */
 }
-
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  list-style: none;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  outline: none;
+  text-transform: none;
+  text-decoration: none;
+}
 .vs-width-12 {
   width: 100%;
 }
