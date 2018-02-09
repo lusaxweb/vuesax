@@ -1,148 +1,338 @@
 <template lang="html">
-  <div class="con-select">
-    <div :class="{'mostando':visible}" @click="visible=!visible" class="vsSelect-value">
-      {{claveMostar}}
+  <div :class="{'abierto':visible,'disabledx':disabled}" @click="clickSelect" ref="vsSelect" class="vs-select">
+    <label for="">{{label}}</label>
+    <!-- @click="visible=!visible,clickInputSelect()" -->
+    <div :title="seleccionado" class="con-input-select">
+      <span>{{seleccionado}}</span>
+      <i class="i-icon material-icons">expand_more</i>
+      <!--  -->
+      <input ref="inputHidden" @blur="blurx()"  @focus="visible=true,clickInputSelect()"  class="input-hidden" type="text" name="" value="">
     </div>
-    <transition v-on:enter="enter" name="fade">
-      <div v-show="visible" class="div-ul">
-
-    <ul >
-      <li :class="{'activo':valorMostar == option[valor]}" @click="clickOption(option[valor])" v-for="option in vsOptions">
-        {{option[clave]}}
-      </li>
-    </ul>
-  </div>
-  </transition>
+    <transition name="fade">
+    <div ref="conUlSelect"  :class="{'visiblex':visible}" v-if="visible" :style="{'top':topx+'px','left':leftx+'px','width':widthx+'px'}" class="con-ul-select">
+      <ul :class="{'scrollx':scroll}">
+        <li :class="{'activo':seleccionadoValue==option.value}" :style="{'transition':'transform .2s ease '+index/30+'s , background .2s ease,opacity .2s ease '+index/30+'s'}" v-for="option,index in options" @click="clickOption($event)" :data-value="option.value">{{option.text}}</li>
+      </ul>
+    </div>
+    </transition>
   </div>
 </template>
 
 <script>
+import 'material-design-icons/iconfont/material-icons.css'
 export default {
   name:'vs-select',
-  props:{
-    "value": {},
-    vsOptions:{},
-    "clave":{},
-    "valor":{}
-  },
+  props:[
+    'label',
+    'options',
+    'value',
+    'disabled'
+  ],
   data(){
-    return{
-      vModel:this.value,
+    return {
+      scroll:false,
       visible:false,
+      topx:0,
+      leftx:0,
+      widthx:0,
     }
   },
   watch:{
-    vModel(){
-      this.$emit('change')
-    },
-    visible(despues,antes){
-      console.log("antes===>",antes);
-      console.log("despues===>",despues);
-      if(!antes){
+    visible(){
+      if(this.visible){
+        setTimeout( ()=> {
 
+            let selects = document.querySelectorAll('.con-ul-select')
+            if(selects.length==1){
+              console.log("paso en 1");
+              if(document.querySelector('.con-ul-select').clientHeight>=300){
+              this.scroll = true
+              }
+            } else {
+              console.log("paso en 2",selects);
+              if(selects[1].clientHeight>=300){
+                this.scroll = true
+              }
+            }
+
+        }, 400);
+        setTimeout( ()=> {
+          console.log();
+          var elx = this.$el.querySelector('.con-ul-select')
+          var elx2 = document.querySelectorAll('.con-ul-select')
+          var elxUl = document.querySelector('.con-ul-select ul');
+          for (var i = 0; i < elx2.length; i++) {
+            mousewheelx(elx2[i])
+          }
+          function mousewheelx(el){
+            console.log();
+          el.querySelector('.con-ul-select ul').scrollTop = el.querySelector('.con-ul-select ul .activo').offsetTop
+          if(el.clientHeight>=300){
+            el.addEventListener('mousewheel',function(e){
+              // console.log($(".con-codes").scrollTop());
+                    if(e.wheelDelta /120 > 0) {
+                        // console.log('scrolling up !');
+                        if(el.querySelector('.con-ul-select ul').scrollTop==0){
+                          el.querySelector('.con-ul-select ul').style.paddingTop = '25px'
+                          setTimeout(function () {
+                            el.querySelector('.con-ul-select ul').style.paddingTop = '0px'
+                          }, 300);
+                        }
+                    }
+                    else{
+                      if((el.querySelector('.con-ul-select ul').scrollHeight - el.querySelector('.con-ul-select ul').scrollTop) === el.querySelector('.con-ul-select ul').clientHeight){
+                        el.querySelector('.con-ul-select ul').style.paddingBottom = '30px'
+                        setTimeout(function () {
+                          el.querySelector('.con-ul-select ul').style.paddingBottom = '0px'
+                        }, 300);
+                      }
+                        // console.log('scrolling down !');
+                    }
+                });
+          }
+
+              if(elx){
+
+                document.body.insertBefore(elx, document.body.firstChild)
+                elx.scrollIntoView()
+              }
+              }
+        }, 1);
+
+      } else {
+        this.scroll = false
       }
     }
   },
   methods:{
-    enter: function (el) {
-  // ...
-  let elx = el.querySelectorAll(".activo")
-  let lix = elx[0].offsetHeight
-  let ulx = el.querySelectorAll("ul")[0].offsetHeight-lix
-  console.log(lix);
-  el.querySelectorAll("ul")[0].scrollTop = elx[0].offsetTop - ulx/2;
-},
-    clickOption(valor){
-      // console.log(valor);
-      this.vModel=valor
-      this.$emit('input',valor)
-      let bodyx = document.getElementsByTagName('body')[0]
-      bodyx.classList.remove("vs-select")
+    clickSelect(){
+      if(!this.disabled){
+        this.$refs.inputHidden.focus()
+      }
+    },
+    blurx(){
       this.visible=false
+    },
+    clickOption(evt){
+      this.visible=false
+      this.$emit('input',evt.target.dataset.value);
+      this.$emit('change',evt.target.dataset.value);
+    },
+    clickInputSelect(){
+      this.topx = this.$refs.vsSelect.querySelector('.con-input-select').getBoundingClientRect().top
+      this.leftx = this.$refs.vsSelect.querySelector('.con-input-select').getBoundingClientRect().left
+      this.widthx = this.$refs.vsSelect.querySelector('.con-input-select').offsetWidth
     }
   },
   computed:{
-    valorMostar(){
-      let valuex = this.vModel
-      let options = this.vsOptions
-      options = options.filter((item)=>{
-        return item[this.valor] == valuex
+    seleccionado(){
+      let seleccionadox = this.options.filter((item) => {
+        return item.value == this.value
       })
-      return options[0][this.valor]
+      return seleccionadox[0].text
     },
-    claveMostar(){
-      let valuex = this.vModel
-      let options = this.vsOptions
-      options = options.filter((item)=>{
-        return item[this.valor] == valuex
+    seleccionadoValue(){
+      let seleccionadox = this.options.filter((item) => {
+        return item.value == this.value
       })
-      return options[0][this.clave]
+      return seleccionadox[0].value
     }
   },
+  mounted() {
+    function getParents(e) {
+      var result = [];
+      for (var p = e && e.parentElement; p; p = p.parentElement) {
+        result.push(p);
+      }
+      return result;
+    }
+    window.addEventListener('mousewheel', (e) => {
+      var parents = getParents(e.toElement);
+      parents = parents.filter((item) => {
+        return item.className.search('con-ul-select')!=-1
+      })
+      if(parents.length==0){
+        this.visible=false
+      }
+    })
+},
 }
 </script>
 
-<style lang="css">
-/* .fade-enter-active, .fade-leave-active {
-  transition: opacity .2s cubic-bezier(0.4, 0.0, 0.2, 1),transform .3s cubic-bezier(0.4, 0.0, 0.2, 1);
+<style lang="css" scoped>
+.disabledx {
+  pointer-events: none;
+}
+.disabledx .con-input-select {
+  background: rgb(240, 240, 240);
+  color: rgba(0, 0, 0, 0.4);
+  box-shadow:inset 0px 0px 10px 0px rgba(0, 0, 0,.1);
+}
+.disabledx .con-input-select span::selection {
+  background: transparent !important;
+}
+.disabledx .con-input-select i {
+  color: rgba(0, 0, 0, 0.2) !important;
+}
+.disabledx label {
+  color: rgba(0, 0, 0, 0.4) !important;
+}
+.con-ul-select ul::-webkit-scrollbar{
+  width: 0px;
+}
+.con-ul-select ul::-webkit-scrollbar-thumb{
+  background: rgba(230, 230, 230,0);
+  border-radius: 5px;
+}
+.scrollx::-webkit-scrollbar{
+  width: 5px !important;
+}
+.scrollx::-webkit-scrollbar-thumb{
+  background: rgba(230, 230, 230,1) !important;
+}
+.fade-enter-active, .fade-leave-active {
+  transition: all .4s;
+}
+/* .fade-enter-active li, .fade-leave-active li {
+  transition: all .5s;
 } */
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
-  transform: translate(0,-50%) scale(.8) scaleY(.5)  !important;
-  border-radius: 50px;
-  overflow: hidden;
-}
-.fade-enter ul, .fade-leave-to ul {
-}
-.vsSelect-value {
-  padding: 10px;
-  border-radius: 5px;
-  background: transparent;
-  cursor: pointer;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  color: rgba(0, 0, 0, 0.8);
-  transition: all .3s ease, color .1s ease .2s;
-}
-.mostando {
-  transition: color .1s;
-  transform: scaley(6);
-  color: transparent;
-  opacity: 0
-}
-.con-select {
-  /* max-width: 200px; */
-  min-width: 200px;
-  position: relative;
-}
-.con-select .div-ul {
-  position: absolute;
-  display: block;
-  width: 100%;
-  transition: all .2s cubic-bezier(0.4, 0.0, 0.2, 1),transform .3s cubic-bezier(0.4, 0.0, 0.2, 1);
-  transform: translate(0,-50%);
-  top: 50%;
-}
-.con-select ul {
-  padding: 5px;
-  width: 100%;
-  max-height: 300px;
-  overflow: auto;
-  background: rgb(255, 255, 255);
-  box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.1);
-  position: relative;
+  transform: translate(0,0px) scale(0.950) !important;
+  box-shadow: 0px 10px 0px -5px rgba(0, 0, 0, 0);
 
+}
 
-  display: block;
-}
-.con-select ul li {
-  padding: 10px;
-  cursor: pointer;
-  transition: all .2s ease;
-}
-.con-select ul li:hover {
-  background: rgb(245, 245, 245);
-}
-.con-select ul li.activo {
-  background: rgb(230, 230, 230);
-}
+  .input-hidden {
+    width: 1px;
+height: 1px;
+margin: -1px;
+padding: 0;
+overflow: hidden;
+position: absolute;
+clip: rect(0 0 0 0);
+border: 0;
+  }
+  .vs-select {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    padding: 8px;
+    /* width: 100%; */
+  }
+  .vs-select label{
+    width: 100%;
+    color: rgba(0, 0, 0, 0.8);
+    padding-left: 5px;
+    transition: all .4s ease;
+    font-size: 15px;
+    padding-bottom: 4px;
+  }
+  .abierto label {
+    transform: translate(0,-5px);
+  }
+  .con-input-select {
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding-right: 25px;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    transition: all .3s ease;
+    color: rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+  }
+  .con-input-select span{
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    display: block;
+  }
+  .abierto .con-input-select {
+    border: 1px solid rgba(0, 0, 0, 0);
+    color: rgba(0, 0, 0, 0);
+    transform: scale(1.050);
+  }
+  .con-ul-select {
+      position: absolute;
+      background: rgb(255, 255, 255);
+      box-shadow: 0px 10px 40px -5px rgba(0, 0, 0, 0.15);
+      border-radius: 20px;
+      z-index: 10000;
+      backface-visibility: hidden;
+      padding: 5px;
+      transform: translate3d(0,0,0);
+  }
+  .visiblex  {
+    border-radius: 5px !important;
+  }
+  .con-ul-select ul{
+
+    overflow: hidden;
+    /* padding-right: 5px; */
+    /* overflow: auto; */
+    transition: all .3s ease;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+  .scrollx {
+    padding-right: 5px;
+  }
+    .visiblex ul {
+      overflow: auto !important;
+          max-height:300px;
+          height: 100%;
+    }
+  .con-ul-select li {
+    backface-visibility: hidden;
+    padding: 10px;
+    /* padding-bottom: 7px;
+    padding-top: 6px; */
+    cursor: pointer;
+    margin-bottom: 4px;
+    background: rgb(255, 255, 255);
+    padding-left: 5px;
+    width: 100%;
+    border-radius: 4px;
+    transform: translate(0);
+    opacity: 1;
+    /* transition: all .3s ease; */
+
+    color: rgba(0, 0, 0, 0.7);
+  }
+  .con-ul-select li:last-child {
+    margin-bottom: 0px;
+  }
+  .con-ul-select li:hover {
+    background: rgb(248, 248, 248);
+  }
+
+  .fade-enter li, .fade-leave-to li /* .fade-leave-active below version 2.1.8 */ {
+    transform: translate(0,-15px) ;
+    opacity: 0 ;
+  }
+  .activo {
+    background: rgba(var(--primary),.1) !important;
+    color: rgba(var(--primary),1) !important;
+    /* opacity: 1 !important; */
+    /* transform: translate(0,0) !important; */
+  }
+  .i-icon {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translate(0,-50%);
+    font-weight: lighter;
+    color: rgba(0, 0, 0, 0.5);
+    transition: all .3s ease;
+    font-size: 18px;
+  }
+  .abierto .i-icon  {
+    transform: translate(0,-50%) rotate(-180deg);
+    opacity: 0;
+  }
 </style>

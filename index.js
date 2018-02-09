@@ -1,13 +1,13 @@
 // import Vue from 'vue'
 import vsButton from './components/vsButton.vue'
-// import vsSelect from './components/vsSelect.vue'
+import vsSelect from './components/vsSelect.vue'
 // import './css/index.css'
 export const vuesax = {
   install(Vue, options) {
     //buttons
     Vue.component(vsButton.name,vsButton)
     //selects
-    // Vue.component(vsSelect.name,vsSelect)
+    Vue.component(vsSelect.name,vsSelect)
   	Vue.mixin({
       mounted() {
         console.log('hola mundo')

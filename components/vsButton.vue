@@ -99,7 +99,17 @@ export default {
   button:active {
     opacity: .7;
   }
-
+  button:disabled {
+    opacity: .4;
+    pointer-events: none;
+  }
+   button:disabled .text {
+    /* opacity: .8; */
+    pointer-events: none;
+  }
+   button:disabled span::selection{
+    background: transparent !important;
+  }
   .relleno {
     width: 0px;
     height: 0px;
