@@ -3,7 +3,7 @@
   </p>
   <p align="center">
   <a href="https://travis-ci.org/vuetifyjs/vuetify">
-    <img src="https://travis-ci.org/lusaxweb/vuesax.svg?branch=master" alt="travis ci badge">
+
   </a>
   
 </p>
