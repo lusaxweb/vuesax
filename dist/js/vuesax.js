@@ -75,6 +75,13 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ({
 
+/***/ "+wbR":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "4xWM":
 /***/ (function(module, exports) {
 
@@ -206,8 +213,8 @@ var Component = normalizeComponent(
 
 /* harmony default export */ var components_vsButton = (Component.exports);
 
-// EXTERNAL MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/material-design-icons/iconfont/material-icons.css
-var material_icons = __webpack_require__("LyE4");
+// EXTERNAL MODULE: ./css/iconfont/material-icons.css
+var material_icons = __webpack_require__("tQxq");
 var material_icons_default = /*#__PURE__*/__webpack_require__.n(material_icons);
 
 // CONCATENATED MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/babel-loader/lib!C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/selector.js?type=script&index=0!./components/vsSelect.vue
@@ -371,14 +378,14 @@ var material_icons_default = /*#__PURE__*/__webpack_require__.n(material_icons);
     });
   }
 });
-// CONCATENATED MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/template-compiler?{"id":"data-v-f234d91e","hasScoped":true,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/selector.js?type=template&index=0!./components/vsSelect.vue
+// CONCATENATED MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/template-compiler?{"id":"data-v-3a66401c","hasScoped":true,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/selector.js?type=template&index=0!./components/vsSelect.vue
 var vsSelect_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"vsSelect",staticClass:"vs-select",class:{'abierto':_vm.visible,'disabledx':_vm.disabled},on:{"click":_vm.clickSelect}},[_c('label',{attrs:{"for":""}},[_vm._v(_vm._s(_vm.label))]),_vm._v(" "),_c('div',{staticClass:"con-input-select",attrs:{"title":_vm.seleccionado}},[_c('span',[_vm._v(_vm._s(_vm.seleccionado))]),_vm._v(" "),_c('i',{staticClass:"i-icon material-icons"},[_vm._v("expand_more")]),_vm._v(" "),_c('input',{ref:"inputHidden",staticClass:"input-hidden",attrs:{"type":"text","name":"","value":""},on:{"blur":function($event){_vm.blurx()},"focus":function($event){_vm.visible=true,_vm.clickInputSelect()}}})]),_vm._v(" "),_c('transition',{attrs:{"name":"fade"}},[(_vm.visible)?_c('div',{ref:"conUlSelect",staticClass:"con-ul-select",class:{'visiblex':_vm.visible},style:({'top':_vm.topx+'px','left':_vm.leftx+'px','width':_vm.widthx+'px'})},[_c('ul',{class:{'scrollx':_vm.scroll}},_vm._l((_vm.options),function(option,index){return _c('li',{class:{'activo':_vm.seleccionadoValue==option.value},style:({'transition':'transform .2s ease '+index/30+'s , background .2s ease,opacity .2s ease '+index/30+'s'}),attrs:{"data-value":option.value},on:{"click":function($event){_vm.clickOption($event)}}},[_vm._v(_vm._s(option.text))])}))]):_vm._e()])],1)}
 var vsSelect_staticRenderFns = []
 var vsSelect_esExports = { render: vsSelect_render, staticRenderFns: vsSelect_staticRenderFns }
 /* harmony default export */ var selectortype_template_index_0_components_vsSelect = (vsSelect_esExports);
 // CONCATENATED MODULE: ./components/vsSelect.vue
 function vsSelect_injectStyle (ssrContext) {
-  __webpack_require__("arCW")
+  __webpack_require__("+wbR")
 }
 var vsSelect_normalizeComponent = __webpack_require__("mUJo")
 /* script */
@@ -391,7 +398,7 @@ var vsSelect___vue_template_functional__ = false
 /* styles */
 var vsSelect___vue_styles__ = vsSelect_injectStyle
 /* scopeId */
-var vsSelect___vue_scopeId__ = "data-v-f234d91e"
+var vsSelect___vue_scopeId__ = "data-v-3a66401c"
 /* moduleIdentifier (server only) */
 var vsSelect___vue_module_identifier__ = null
 var vsSelect_Component = vsSelect_normalizeComponent(
@@ -449,21 +456,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 /***/ }),
 
-/***/ "LyE4":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ "SZiR":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ "arCW":
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
@@ -577,6 +570,13 @@ module.exports = function normalizeComponent (
   }
 }
 
+
+/***/ }),
+
+/***/ "tQxq":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 

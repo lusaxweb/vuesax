@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import 'material-design-icons/iconfont/material-icons.css'
+import '../css/iconfont/material-icons.css'
 export default {
   name:'vs-select',
   props:[
