@@ -15,8 +15,8 @@ cache:
 before_deploy:
   - rm -rf release
   - mkdir -p release
-  - for file in ./dist/*; do cp "$file" "${file/dist\/vuetify/release/vuetify-${TRAVIS_TAG}}"; done
-  - zip -jr "release/vuetify-${TRAVIS_TAG}.zip" release/*
+  - for file in ./dist/*; do cp "$file" "${file/dist\/vuesax/release/vuesax-${TRAVIS_TAG}}"; done
+  - zip -jr "release/vuesax-${TRAVIS_TAG}.zip" release/*
 
 deploy:
   - provider: npm
