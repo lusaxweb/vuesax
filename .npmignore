@@ -4,24 +4,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-build/
-components/
-config/
-css/
-page/
-static/
-static2/
-app.css
-app.css.map
-index.html
-index.js
-.babelrc
-.npmignore
-.postcssrc.js
-.travis.yml
-package.json
-LICENsE
-
 
 # Editor directories and files
 .idea
