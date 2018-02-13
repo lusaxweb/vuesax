@@ -4,7 +4,9 @@
   "description": "interface UI developer",
   "author": "ldrovira <luisdanielrovira8@gmail.com>",
   "homepage": "https://lusaxweb.github.io/vuesax/#/",
+  "repository": "lusaxweb/vuesax",
   "main": "dist/js/vuesax.js",
+  "module": "dist/js/vuesax.js",
   "unpkg": "dist/js/vuesax.min.js",
   "private": false,
   "scripts": {

@@ -13,8 +13,8 @@ function resolve (dir) {
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
-    'vuesax': './index.js'
-
+    'vuesax': './index.js',
+    "vuesax.min": "./index.js"
   },
   output: {
     path: config.build.assetsRoot,
