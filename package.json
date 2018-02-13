@@ -10,11 +10,12 @@
   "unpkg": "dist/vuesax.min.js",
   "private": false,
   "scripts": {
-    "v":"git version patch"
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "build": "node build/build.js",
-    "build-prod": "WEBPACK_ENV=production webpack"
+    "build-prod": "WEBPACK_ENV=production webpack",
+    "v":"npm version patch",
+    "p":"npm publish"
   },
   "dependencies": {
     "vue": "^2.5.2",
