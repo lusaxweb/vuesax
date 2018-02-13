@@ -3,7 +3,7 @@ import vsButton from './components/vsButton.vue'
 import vsSelect from './components/vsSelect.vue'
 import vsNoti from './components/vsNoti/vsNoti.js'
 // import './css/index.css'
-export const vuesax = {
+const Vuesax = {
   install(Vue, options) {
     //buttons
     Vue.component(vsButton.name,vsButton)
@@ -19,7 +19,7 @@ export const vuesax = {
 };
 
 if (typeof window !== 'undefined' && window.Vue) {
-  window.Vue.use(vuesax)
+  window.Vue.use(Vuesax)
 }
 
 // export default Vuesax;
@@ -35,4 +35,4 @@ if (typeof window !== 'undefined' && window.Vue) {
 // }
 
 // Vuesax.version = '__VERSION__'
-export default vuesax
+export default Vuesax

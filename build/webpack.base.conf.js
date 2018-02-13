@@ -22,7 +22,7 @@ module.exports = {
     // publicPath: process.env.NODE_ENV === 'production'
     //   ? config.build.assetsPublicPath
     //   : config.dev.assetsPublicPath,
-      library: 'vuesax',
+      library: 'Vuesax',
       libraryTarget: 'umd',
       umdNamedDefine: true
   },

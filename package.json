@@ -5,8 +5,7 @@
   "author": "ldrovira <luisdanielrovira8@gmail.com>",
   "homepage": "https://lusaxweb.github.io/vuesax/#/",
   "repository": "lusaxweb/vuesax",
-  "main": "dist/vuesax.js",
-  "module": "dist/vuesax.js",
+  "main": "index.js",
   "unpkg": "dist/vuesax.min.js",
   "private": false,
   "scripts": {
