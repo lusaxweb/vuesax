@@ -75,7 +75,14 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ({
 
-/***/ "4xWM":
+/***/ "54gY":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "5xWW":
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
@@ -186,7 +193,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ var selectortype_template_index_0_components_vsButton = (esExports);
 // CONCATENATED MODULE: ./components/vsButton.vue
 function injectStyle (ssrContext) {
-  __webpack_require__("4xWM")
+  __webpack_require__("5xWW")
 }
 var normalizeComponent = __webpack_require__("mUJo")
 /* script */
@@ -385,7 +392,7 @@ var vsSelect_esExports = { render: vsSelect_render, staticRenderFns: vsSelect_st
 /* harmony default export */ var selectortype_template_index_0_components_vsSelect = (vsSelect_esExports);
 // CONCATENATED MODULE: ./components/vsSelect.vue
 function vsSelect_injectStyle (ssrContext) {
-  __webpack_require__("piIl")
+  __webpack_require__("54gY")
 }
 var vsSelect_normalizeComponent = __webpack_require__("mUJo")
 /* script */
@@ -773,13 +780,6 @@ module.exports = function normalizeComponent (
 
 /***/ }),
 
-/***/ "piIl":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ "tQxq":
 /***/ (function(module, exports) {
 
@@ -789,4 +789,3 @@ module.exports = function normalizeComponent (
 
 /******/ });
 });
-//# sourceMappingURL=vuesax.js.map
