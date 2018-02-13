@@ -1,6 +1,7 @@
 // import Vue from 'vue'
 import vsButton from './components/vsButton.vue'
 import vsSelect from './components/vsSelect.vue'
+import vsNoti from './components/vsNoti/vsNoti.js'
 // import './css/index.css'
 export const vuesax = {
   install(Vue, options) {
@@ -9,8 +10,8 @@ export const vuesax = {
     //selects
     Vue.component(vsSelect.name,vsSelect)
   	Vue.mixin({
-      mounted() {
-        console.log('hola mundo')
+      methods:{
+        vsNoti
       }
     });
 
