@@ -5,11 +5,12 @@
   "author": "ldrovira <luisdanielrovira8@gmail.com>",
   "homepage": "https://lusaxweb.github.io/vuesax/#/",
   "repository": "lusaxweb/vuesax",
-  "main": "dist/js/vuesax.js",
-  "module": "dist/js/vuesax.js",
-  "unpkg": "dist/js/vuesax.min.js",
+  "main": "dist/vuesax.js",
+  "module": "dist/vuesax.js",
+  "unpkg": "dist/vuesax.min.js",
   "private": false,
   "scripts": {
+    "v":"git version patch"
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "build": "node build/build.js",
