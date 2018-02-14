@@ -8,9 +8,8 @@
   max-width: 250px;
   transition: all .3s ease;
   box-shadow: 0px 12px 0px 0px rgba(0, 0, 0, 0.0);
-  padding: 7px;
+  padding: 13px;
   padding-left: 10px;
-
   /* padding-right: 10px; */
 }
 .con-icon {

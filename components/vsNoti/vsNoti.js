@@ -13,8 +13,6 @@ export default function(text,type='white',position='bottom-right',icon,functiox,
     position = 'bottom-right'
   }
 
-
-
   let conNotix = document.createElement('div')
   conNotix.classList.add('vs-noti-contenedor')
   conNotix.classList.add('vs-'+type);

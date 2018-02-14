@@ -82,6 +82,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ }),
 
+/***/ "5olQ":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "5xWW":
 /***/ (function(module, exports) {
 
@@ -439,8 +446,6 @@ var vsNoti_default = /*#__PURE__*/__webpack_require__.n(vsNoti);
     position = 'bottom-right'
   }
 
-
-
   let conNotix = document.createElement('div')
   conNotix.classList.add('vs-noti-contenedor')
   conNotix.classList.add('vs-'+type);
@@ -618,8 +623,76 @@ function moverNotis(position){
   // console.log(hx);
 }
 
+// CONCATENATED MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/babel-loader/lib!C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/selector.js?type=script&index=0!./components/vsSwitch.vue
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ var vsSwitch = ({
+  name: 'vs-switch',
+  props: ['value', 'vsType', 'vsIcon'],
+  methods: {
+    backgroundx: function backgroundx() {
+      if (this.value) {
+        if (/[#()]/i.test(this.vsType)) {
+          return this.vsType;
+        } else {
+          return 'rgb(var(--' + this.vsType + '))';
+        }
+      }
+    }
+  },
+  mounted: function mounted() {}
+});
+// CONCATENATED MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/template-compiler?{"id":"data-v-1aedea6f","hasScoped":false,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/selector.js?type=template&index=0!./components/vsSwitch.vue
+var vsSwitch_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('button',{ref:"switchx",staticClass:"con-switch",class:[{'switch-activo':_vm.value}],style:({'background':_vm.backgroundx()}),on:{"click":function($event){_vm.$emit('input',!_vm.value),_vm.$emit('change',!_vm.value)}}},[_c('span',{staticClass:"switch-circle"}),_vm._v(" "),_c('i',{staticClass:"material-icons"},[_vm._v(_vm._s(_vm.vsIcon))])])}
+var vsSwitch_staticRenderFns = []
+var vsSwitch_esExports = { render: vsSwitch_render, staticRenderFns: vsSwitch_staticRenderFns }
+/* harmony default export */ var selectortype_template_index_0_components_vsSwitch = (vsSwitch_esExports);
+// CONCATENATED MODULE: ./components/vsSwitch.vue
+function vsSwitch_injectStyle (ssrContext) {
+  __webpack_require__("5olQ")
+}
+var vsSwitch_normalizeComponent = __webpack_require__("mUJo")
+/* script */
+
+
+/* template */
+
+/* template functional */
+var vsSwitch___vue_template_functional__ = false
+/* styles */
+var vsSwitch___vue_styles__ = vsSwitch_injectStyle
+/* scopeId */
+var vsSwitch___vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var vsSwitch___vue_module_identifier__ = null
+var vsSwitch_Component = vsSwitch_normalizeComponent(
+  vsSwitch,
+  selectortype_template_index_0_components_vsSwitch,
+  vsSwitch___vue_template_functional__,
+  vsSwitch___vue_styles__,
+  vsSwitch___vue_scopeId__,
+  vsSwitch___vue_module_identifier__
+)
+
+/* harmony default export */ var components_vsSwitch = (vsSwitch_Component.exports);
+
 // CONCATENATED MODULE: ./index.js
 // import Vue from 'vue'
+
 
 
 
@@ -630,6 +703,8 @@ const Vuesax = {
     Vue.component(components_vsButton.name,components_vsButton)
     //selects
     Vue.component(components_vsSelect.name,components_vsSelect)
+    //switch
+    Vue.component(components_vsSwitch.name,components_vsSwitch)
   	Vue.mixin({
       methods:{
         vsNoti: vsNoti_vsNoti

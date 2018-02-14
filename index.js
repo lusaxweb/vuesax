@@ -2,6 +2,7 @@
 import vsButton from './components/vsButton.vue'
 import vsSelect from './components/vsSelect.vue'
 import vsNoti from './components/vsNoti/vsNoti.js'
+import vsSwitch from './components/vsSwitch.vue'
 // import './css/index.css'
 const Vuesax = {
   install(Vue, options) {
@@ -9,6 +10,8 @@ const Vuesax = {
     Vue.component(vsButton.name,vsButton)
     //selects
     Vue.component(vsSelect.name,vsSelect)
+    //switch
+    Vue.component(vsSwitch.name,vsSwitch)
   	Vue.mixin({
       methods:{
         vsNoti
