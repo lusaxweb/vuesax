@@ -1069,7 +1069,19 @@ function moverNotis(position){
   // console.log(hx);
 }
 
+// EXTERNAL MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/babel-runtime/helpers/typeof.js
+var helpers_typeof = __webpack_require__("WxTP");
+var typeof_default = /*#__PURE__*/__webpack_require__.n(helpers_typeof);
+
 // CONCATENATED MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/babel-loader/lib!C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/selector.js?type=script&index=0!./components/vsSwitch.vue
+
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1088,28 +1100,86 @@ function moverNotis(position){
 
 /* harmony default export */ var vsSwitch = ({
   name: 'vs-switch',
-  props: ['value', 'vsType', 'vsIcon'],
-  methods: {
-    backgroundx: function backgroundx() {
-      if (this.value) {
-        if (/[#()]/i.test(this.vsType)) {
-          return this.vsType;
+  props: ['vsValue', 'value', 'vsType', 'vsIcon', 'disabled'],
+  computed: {
+    valueArray: function valueArray() {
+      var arrayx = this.value;
+      if (typeof_default()(this.value) == 'object' && this.value != null) {
+        if (arrayx.includes(this.vsValue)) {
+          return true;
         } else {
-          return 'rgb(var(--' + this.vsType + '))';
+          return false;
+        }
+      } else if (typeof this.value == 'string' || this.value == '' || this.value == null) {
+        if (this.value == this.vsValue) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    }
+  },
+  methods: {
+    Clickx: function Clickx() {
+      var _this = this;
+
+      console.log("paso");
+      if (typeof_default()(this.value) == 'object' && this.value != null) {
+        var valueOld = this.value;
+        if (this.$refs.componentex.classList.contains('switch-activo')) {
+          var valuenew = valueOld.filter(function (item) {
+            return item.indexOf(_this.vsValue) == -1;
+          });
+          this.$emit('input', valuenew);
+          this.$emit('click', valuenew);
+          this.$emit('change', valuenew);
+        } else {
+          valueOld.push(this.vsValue);
+          this.$emit('input', valueOld);
+          this.$emit('click', valueOld);
+          this.$emit('change', valueOld);
+        }
+      } else if (typeof this.value == 'boolean') {
+        this.$emit('input', !this.value);
+      } else if (typeof this.value == 'string' || this.value == '' || this.value == null) {
+        if (this.value == this.vsValue) {
+          this.$emit('input', null);
+        } else {
+          this.$emit('input', this.vsValue);
+        }
+      }
+    },
+    backgroundx: function backgroundx() {
+      var arrayx = this.value;
+      if (typeof this.value == 'boolean') {
+        if (this.value) {
+          if (/[#()]/i.test(this.vsType)) {
+            return this.vsType;
+          } else {
+            return 'rgb(var(--' + this.vsType + '))';
+          }
+        }
+      } else if (typeof_default()(this.value) == 'object') {
+        if (arrayx.includes(this.vsValue)) {
+          if (/[#()]/i.test(this.vsType)) {
+            return this.vsType;
+          } else {
+            return 'rgb(var(--' + this.vsType + '))';
+          }
         }
       }
     }
   },
   mounted: function mounted() {}
 });
-// CONCATENATED MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/template-compiler?{"id":"data-v-59001bac","hasScoped":false,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/selector.js?type=template&index=0!./components/vsSwitch.vue
-var vsSwitch_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('button',{ref:"switchx",staticClass:"con-switch",class:[{'switch-activo':_vm.value}],style:({'background':_vm.backgroundx()}),on:{"click":function($event){_vm.$emit('input',!_vm.value),_vm.$emit('change',!_vm.value)}}},[_c('span',{staticClass:"switch-circle"}),_vm._v(" "),_c('i',{staticClass:"material-icons"},[_vm._v(_vm._s(_vm.vsIcon))])])}
+// CONCATENATED MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/template-compiler?{"id":"data-v-57437c2f","hasScoped":true,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/selector.js?type=template&index=0!./components/vsSwitch.vue
+var vsSwitch_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('label',{attrs:{"for":""}},[_c('button',{ref:"componentex",staticClass:"con-switch",class:[{'switch-activo':typeof _vm.value == 'boolean'?_vm.value:_vm.valueArray}],style:({'background':_vm.backgroundx()}),attrs:{"disabled":_vm.disabled},on:{"click":_vm.Clickx}},[_c('span',{staticClass:"switch-circle"}),_vm._v(" "),_c('i',{staticClass:"material-icons"},[_vm._v(_vm._s(_vm.vsIcon))])]),_vm._v(" "),_c('span',[_vm._t("default")],2)])}
 var vsSwitch_staticRenderFns = []
 var vsSwitch_esExports = { render: vsSwitch_render, staticRenderFns: vsSwitch_staticRenderFns }
 /* harmony default export */ var selectortype_template_index_0_components_vsSwitch = (vsSwitch_esExports);
 // CONCATENATED MODULE: ./components/vsSwitch.vue
 function vsSwitch_injectStyle (ssrContext) {
-  __webpack_require__("z6TR")
+  __webpack_require__("T64L")
 }
 var vsSwitch_normalizeComponent = __webpack_require__("mUJo")
 /* script */
@@ -1122,7 +1192,7 @@ var vsSwitch___vue_template_functional__ = false
 /* styles */
 var vsSwitch___vue_styles__ = vsSwitch_injectStyle
 /* scopeId */
-var vsSwitch___vue_scopeId__ = null
+var vsSwitch___vue_scopeId__ = "data-v-57437c2f"
 /* moduleIdentifier (server only) */
 var vsSwitch___vue_module_identifier__ = null
 var vsSwitch_Component = vsSwitch_normalizeComponent(
@@ -1135,10 +1205,6 @@ var vsSwitch_Component = vsSwitch_normalizeComponent(
 )
 
 /* harmony default export */ var components_vsSwitch = (vsSwitch_Component.exports);
-
-// EXTERNAL MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/babel-runtime/helpers/typeof.js
-var helpers_typeof = __webpack_require__("WxTP");
-var typeof_default = /*#__PURE__*/__webpack_require__.n(helpers_typeof);
 
 // CONCATENATED MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/babel-loader/lib!C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/selector.js?type=script&index=0!./components/vsCheckBox.vue
 
@@ -1251,8 +1317,88 @@ var vsCheckBox_Component = vsCheckBox_normalizeComponent(
 
 /* harmony default export */ var components_vsCheckBox = (vsCheckBox_Component.exports);
 
+// CONCATENATED MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/babel-loader/lib!C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/selector.js?type=script&index=0!./components/vsRadio.vue
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ var vsRadio = ({
+  name: 'vs-radio',
+  props: ['vsColor',
+  // 'vsType',
+  'value', 'vsValue', 'disabled'],
+  computed: {
+    backgroundx: function backgroundx() {
+      if (this.vsColor) {
+        if (/[#()]/i.test(this.vsColor)) {
+          return this.vsColor;
+        } else {
+          return 'rgb(var(--' + this.vsColor + '))';
+        }
+      } else {
+        return 'rgb(var(--primary))';
+      }
+    }
+  },
+  methods: {
+    clickx: function clickx() {
+      this.$emit('input', this.vsValue);
+      this.$emit('click', this.vsValue);
+      this.$emit('change', this.vsValue);
+    }
+  }
+});
+// CONCATENATED MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/template-compiler?{"id":"data-v-ee99f084","hasScoped":true,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/selector.js?type=template&index=0!./components/vsRadio.vue
+var vsRadio_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"con-radio",class:{'disabledx':_vm.disabled,'vsActivo':_vm.value?_vm.value.search(_vm.vsValue)!=-1:false},on:{"click":_vm.clickx}},[_c('span',{staticClass:"vs-radio"},[_c('div',{staticClass:"vs-circle",style:({'background':_vm.backgroundx,'boxShadow':'0px 0px 5px 0px '+_vm.backgroundx})}),_vm._v(" "),_c('div',{staticClass:"vs-border",style:({'border':'2px solid rgb(170, 170, 170)'})})]),_vm._v(" "),_c('span',{staticClass:"textx",style:({'color':_vm.value?_vm.value.search(_vm.vsValue)!=-1?_vm.backgroundx:'rgba(0,0,0,.7)':false})},[_vm._t("default")],2)])}
+var vsRadio_staticRenderFns = []
+var vsRadio_esExports = { render: vsRadio_render, staticRenderFns: vsRadio_staticRenderFns }
+/* harmony default export */ var selectortype_template_index_0_components_vsRadio = (vsRadio_esExports);
+// CONCATENATED MODULE: ./components/vsRadio.vue
+function vsRadio_injectStyle (ssrContext) {
+  __webpack_require__("evwa")
+}
+var vsRadio_normalizeComponent = __webpack_require__("mUJo")
+/* script */
+
+
+/* template */
+
+/* template functional */
+var vsRadio___vue_template_functional__ = false
+/* styles */
+var vsRadio___vue_styles__ = vsRadio_injectStyle
+/* scopeId */
+var vsRadio___vue_scopeId__ = "data-v-ee99f084"
+/* moduleIdentifier (server only) */
+var vsRadio___vue_module_identifier__ = null
+var vsRadio_Component = vsRadio_normalizeComponent(
+  vsRadio,
+  selectortype_template_index_0_components_vsRadio,
+  vsRadio___vue_template_functional__,
+  vsRadio___vue_styles__,
+  vsRadio___vue_scopeId__,
+  vsRadio___vue_module_identifier__
+)
+
+/* harmony default export */ var components_vsRadio = (vsRadio_Component.exports);
+
 // CONCATENATED MODULE: ./index.js
 // import Vue from 'vue'
+
 
 
 
@@ -1269,6 +1415,8 @@ const Vuesax = {
     Vue.component(components_vsSwitch.name,components_vsSwitch)
     //checkBox
     Vue.component(components_vsCheckBox.name,components_vsCheckBox)
+    //radio
+    Vue.component(components_vsRadio.name,components_vsRadio)
   	Vue.mixin({
       methods:{
         vsNoti: vsNoti_vsNoti
@@ -1699,6 +1847,13 @@ module.exports = $export;
 
 /***/ }),
 
+/***/ "T64L":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "Te4x":
 /***/ (function(module, exports) {
 
@@ -1993,6 +2148,13 @@ module.exports = function (it) {
   return IObject(defined(it));
 };
 
+
+/***/ }),
+
+/***/ "evwa":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -2388,13 +2550,6 @@ module.exports = function (fn, that, length) {
   };
 };
 
-
-/***/ }),
-
-/***/ "z6TR":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ })
 
