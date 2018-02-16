@@ -30,7 +30,6 @@ export default {
           return `rgb(var(--${this.vsType}))`
         }
       }
-
     }
   },
   mounted(){
