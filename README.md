@@ -16,7 +16,7 @@ Vuesax es una libreria de frontend basada en vue js que te ayuda a desarrollar m
 <!DOCTYPE html>
 <html>
 <head>
-  <link href="https://cdn.jsdelivr.net/npm/vuesax@2.0.28/dist/vuesax.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuesax/dist/vuesax.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
 </head>
 <body>
@@ -25,7 +25,7 @@ Vuesax es una libreria de frontend basada en vue js que te ayuda a desarrollar m
   </div>
 
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vuesax@2.0.28/dist/js/vuesax.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuesax/dsit/vuesax.js"></script>
   <script>
     new Vue({
       el: '#app'
