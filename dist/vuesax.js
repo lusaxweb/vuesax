@@ -1396,8 +1396,67 @@ var vsRadio_Component = vsRadio_normalizeComponent(
 
 /* harmony default export */ var components_vsRadio = (vsRadio_Component.exports);
 
+// CONCATENATED MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/babel-loader/lib!C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/selector.js?type=script&index=0!./components/vsInput.vue
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ var vsInput = ({
+  name: 'vs-input',
+  props: ['value', 'vsLabelPlaceholder', 'vsPlaceholder', 'vsLabel', 'disabled', 'vsIcon', 'vsIconAfter'],
+  data: function data() {
+    return {
+      focusx: false
+    };
+  },
+
+  computed: {}
+});
+// CONCATENATED MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/template-compiler?{"id":"data-v-140e5791","hasScoped":true,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/selector.js?type=template&index=0!./components/vsInput.vue
+var vsInput_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"con-input",class:{'vsIconx':_vm.vsIcon, 'vs-icon-after':_vm.vsIconAfter, 'disabledx':_vm.disabled}},[_c('label',{staticClass:"label",class:{'focusLabel':_vm.focusx, 'disabledxlabel':_vm.disabled},attrs:{"for":""}},[_vm._v(_vm._s(_vm.vsLabel))]),_vm._v(" "),_c('input',{ref:"inputx",staticClass:"vs-input",attrs:{"disabled":_vm.disabled,"type":"text"},domProps:{"value":_vm.value},on:{"input":function($event){_vm.$emit('input',$event.target.value)},"focus":function($event){_vm.focusx=true},"blur":function($event){_vm.focusx=false}}}),_vm._v(" "),(!_vm.vsLabelPlaceholder)?_c('span',{staticClass:"placeholder",class:{'noPlaceholder':_vm.value.length>0?true:_vm.focusx},on:{"click":function($event){_vm.$refs.inputx.focus()}}},[_vm._v(_vm._s(_vm.vsPlaceholder))]):_vm._e(),_vm._v(" "),(_vm.vsLabelPlaceholder)?_c('span',{staticClass:"placeholder",class:{'noPlaceholderLabel':_vm.value.length>0?true:_vm.focusx},on:{"click":function($event){_vm.$refs.inputx.focus()}}},[_vm._v(_vm._s(_vm.vsLabelPlaceholder))]):_vm._e(),_vm._v(" "),(_vm.vsIcon)?_c('span',{staticClass:"iconx"},[_c('i',{staticClass:"material-icons"},[_vm._v(_vm._s(_vm.vsIcon))])]):_vm._e()])}
+var vsInput_staticRenderFns = []
+var vsInput_esExports = { render: vsInput_render, staticRenderFns: vsInput_staticRenderFns }
+/* harmony default export */ var selectortype_template_index_0_components_vsInput = (vsInput_esExports);
+// CONCATENATED MODULE: ./components/vsInput.vue
+function vsInput_injectStyle (ssrContext) {
+  __webpack_require__("lNRf")
+}
+var vsInput_normalizeComponent = __webpack_require__("mUJo")
+/* script */
+
+
+/* template */
+
+/* template functional */
+var vsInput___vue_template_functional__ = false
+/* styles */
+var vsInput___vue_styles__ = vsInput_injectStyle
+/* scopeId */
+var vsInput___vue_scopeId__ = "data-v-140e5791"
+/* moduleIdentifier (server only) */
+var vsInput___vue_module_identifier__ = null
+var vsInput_Component = vsInput_normalizeComponent(
+  vsInput,
+  selectortype_template_index_0_components_vsInput,
+  vsInput___vue_template_functional__,
+  vsInput___vue_styles__,
+  vsInput___vue_scopeId__,
+  vsInput___vue_module_identifier__
+)
+
+/* harmony default export */ var components_vsInput = (vsInput_Component.exports);
+
 // CONCATENATED MODULE: ./index.js
 // import Vue from 'vue'
+
 
 
 
@@ -1417,6 +1476,8 @@ const Vuesax = {
     Vue.component(components_vsCheckBox.name,components_vsCheckBox)
     //radio
     Vue.component(components_vsRadio.name,components_vsRadio)
+    //input
+    Vue.component(components_vsInput.name,components_vsInput)
   	Vue.mixin({
       methods:{
         vsNoti: vsNoti_vsNoti
@@ -2191,6 +2252,13 @@ module.exports = function (exec) {
 
 exports.f = {}.propertyIsEnumerable;
 
+
+/***/ }),
+
+/***/ "lNRf":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 

@@ -5,6 +5,7 @@ import vsNoti from './components/vsNoti/vsNoti.js'
 import vsSwitch from './components/vsSwitch.vue'
 import vsCheckbox from './components/vsCheckBox.vue'
 import vsRadio from './components/vsRadio.vue'
+import vsInput from './components/vsInput.vue'
 // import './css/index.css'
 const Vuesax = {
   install(Vue, options) {
@@ -18,6 +19,8 @@ const Vuesax = {
     Vue.component(vsCheckbox.name,vsCheckbox)
     //radio
     Vue.component(vsRadio.name,vsRadio)
+    //input
+    Vue.component(vsInput.name,vsInput)
   	Vue.mixin({
       methods:{
         vsNoti
