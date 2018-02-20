@@ -1,11 +1,35 @@
 <template lang="html">
-  <div :class="{'vsIconx':vsIcon, 'vs-icon-after':vsIconAfter, 'disabledx':disabled}" class="con-input">
+  <div :class="[validar,{'con-focus':focusx,'vsIconx':vsIcon, 'vs-icon-after':vsIconAfter, 'disabledx':disabled}]" class="con-input">
     <label :class="{'focusLabel':focusx, 'disabledxlabel':disabled}" class="label" for="">{{vsLabel}}</label>
-    <input :disabled="disabled" :value="value" @input="$emit('input',$event.target.value)" ref="inputx" @focus="focusx=true" @blur="focusx=false"  class="vs-input" type="text">
+
+    <input
+    :type="vsType=='password'?'password':'text'"
+    @keydown="validarKeypress($event,$event.target.value)"
+    :style="{'border':`1px solid ${focusx?backgroundx:'rgba(0, 0, 0, 0.150)'}`,'caretColor': backgroundx}"
+    :disabled="disabled"
+    :value="value"
+    @input="$emit('input',$event.target.value)"
+    ref="inputx"
+    @focus="focusx=true"
+    @blur="focusx=false"
+    class="vs-input">
+
     <span v-if="!vsLabelPlaceholder" @click="$refs.inputx.focus()" :class="{'noPlaceholder':value.length>0?true:focusx}" class="placeholder">{{vsPlaceholder}}</span>
-    <span v-if="vsLabelPlaceholder" @click="$refs.inputx.focus()" :class="{'noPlaceholderLabel':value.length>0?true:focusx}" class="placeholder">{{vsLabelPlaceholder}}</span>
+    <span :style="{'color':focusx?backgroundx:'rgba(0, 0, 0, 0.30)'}" v-if="vsLabelPlaceholder" @click="$refs.inputx.focus()" :class="{'noPlaceholderLabel':value.length>0?true:focusx}" class="placeholder">{{vsLabelPlaceholder}}</span>
 
     <span v-if="vsIcon" class="iconx"><i class="material-icons">{{vsIcon}}</i></span>
+
+    <div :title="validar=='input-mal'?vsDangerText:null" class="icon-validar-mal">
+      <i class="material-icons">error</i>
+    </div>
+    <div :title="validar=='input-bien'?vsSuccessText:null" class="icon-validar-bien">
+      <i class="material-icons">check_circle</i>
+    </div>
+
+    <!-- <div v-if="vsType=='number'" class="con-number-btns">
+      <button @click="$emit('input',Number($refs.inputx.value)+1),focusx=true" @focus="focusx=true" @blur="focusx=false" class="material-icons">expand_less</button>
+      <button @click="$emit('input',Number($refs.inputx.value)-1),focusx=true" @focus="focusx=true" @blur="focusx=false" class="material-icons">expand_more</button>
+    </div> -->
   </div>
 </template>
 
@@ -19,7 +43,14 @@ export default {
     'vsLabel',
     'disabled',
     'vsIcon',
-    'vsIconAfter'
+    'vsIconAfter',
+    'vsColor',
+    'vsType',
+    'vsDangerText',
+    'vsSuccessText',
+    'vsMax',
+    'vsMin',
+    'vsValid'
   ],
   data(){
     return {
@@ -27,6 +58,103 @@ export default {
     }
   },
   computed:{
+    validar(){
+      if(this.vsType){
+        //email
+        if(this.value.length > 0){
+
+          if(this.vsType=='email'){
+              if (/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(this.value)){
+                if(this.vsValid!=undefined){
+                  this.$emit('update:vsValid', true)
+                }
+                return 'input-bien'
+
+              } else {
+                if(this.vsValid!=undefined){
+                  this.$emit('update:vsValid', false)
+                }
+                return 'input-mal'
+              }
+          } else if (this.vsType=='number'&&this.vsMax||this.vsMin) {
+            if (Number(this.value) <= Number(this.vsMax) && Number(this.value) >= Number(this.vsMin)){
+              if(this.vsValid!=undefined){
+                this.$emit('update:vsValid', true)
+              }
+              return 'input-bien'
+            } else {
+              if(this.vsValid!=undefined){
+                this.$emit('update:vsValid', false)
+              }
+              return 'input-mal'
+            }
+          } else if (this.vsType=='url') {
+            if (/[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/i.test(this.value)){
+              if(this.vsValid!=undefined){
+                this.$emit('update:vsValid', true)
+              }
+              return 'input-bien'
+            } else {
+              if(this.vsValid!=undefined){
+                this.$emit('update:vsValid', false)
+              }
+              return 'input-mal'
+            }
+          } else if (this.vsType=='password') {
+            if (/^(?=.*[\d])(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*])[\w!@#$%^&*]{8,}$/i.test(this.value)){
+              if(this.vsValid!=undefined){
+                this.$emit('update:vsValid', true)
+              }
+              return 'input-bien'
+            } else {
+              if(this.vsValid!=undefined){
+                this.$emit('update:vsValid', false)
+              }
+              return 'input-mal'
+            }
+          }
+        } else {
+          if(this.vsValid!=undefined){
+            this.$emit('update:vsValid', false)
+          }
+        }
+
+      } else {
+
+        return false
+      }
+    },
+    backgroundx(){
+      if(this.vsColor){
+        if(/[#()]/i.test(this.vsColor)){
+          return this.vsColor
+        } else {
+          return `rgb(var(--${this.vsColor}))`
+        }
+      } else {
+        return 'rgb(var(--primary))'
+      }
+    }
+  },
+  methods:{
+    validarKeypress(evt,value){
+      if(this.vsType){
+        if(this.vsType=='email'){
+          var rgx = /[-\a-zA-Z0-9_@.]/;
+          if( ! rgx.test(evt.key)) {
+            evt.preventDefault()
+          }
+        }
+        if(this.vsType=='number'){
+          var rgx = /[0-9]/;
+          if(evt.key!='Backspace'&&evt.key!='Delete'){
+            if( ! rgx.test(evt.key)) {
+              evt.preventDefault()
+            }
+          }
+        }
+      }
+    }
   }
 }
 </script>
@@ -46,7 +174,7 @@ export default {
     position: relative;
     top: 0px;
     width: 100%;
-    caret-color: rgba(var(--primary),.8)
+
   }
     .vs-input:focus {
       box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.150);
@@ -119,7 +247,7 @@ export default {
     border: 1px solid rgba(var(--primary),.7);
   }
   .vsIconx input:focus ~ .iconx i{
-    color: rgb(var(--primary)) !important;
+    color: rgb(var(--primary))
   }
   .vsIconx .noPlaceholderLabel{
     left: 8px !important;
@@ -164,5 +292,120 @@ export default {
   }
   .vs-icon-after .placeholder{
     left: 12px;
+  }
+
+
+  .input-mal input {
+    caret-color: auto !important;
+  }
+  .input-mal input,.input-mal .iconx{
+    border: 1px solid rgb(var(--danger)) !important;
+  }
+  .input-mal label,.input-mal i{
+    color: rgb(var(--danger)) !important;
+  }
+  .input-mal.vsIconx .noPlaceholderLabel {
+    color: rgb(var(--danger)) !important;
+  }
+  .input-mal .noPlaceholderLabel {
+    color: rgb(var(--danger)) !important;
+  }
+
+
+  .icon-validar-mal {
+      position: absolute;
+      right: 5px;
+      top: -8px;
+      transition: all .3s ease;
+      cursor: default;
+  }
+  .icon-validar-mal i {
+    font-size: 14px;
+    color:rgb(var(--danger));
+    opacity:0;
+    transition: all .3s ease;
+    /* transform: scale(.5); */
+    backface-visibility: hidden;
+    transform: translate3d(0,0);
+  }
+  .input-mal .icon-validar-mal i {
+    opacity: 1;
+    transform: scale(1);
+  }
+  .input-mal .icon-validar-mal {
+    top: -15px;
+  }
+
+
+
+  .input-bien.con-focus input {
+    caret-color: auto !important;
+  }
+  .input-bien.con-focus input,.input-bien.con-focus .iconx{
+    border: 1px solid rgb(var(--success)) !important;
+  }
+  .input-bien.con-focus label,.input-bien.con-focus i{
+    color: rgb(var(--success)) !important;
+  }
+  .input-bien.con-focus.vsIconx .noPlaceholderLabel {
+    color: rgb(var(--success)) !important;
+  }
+  .input-bien.con-focus .noPlaceholderLabel {
+    color: rgb(var(--success)) !important;
+  }
+
+  .icon-validar-bien {
+      position: absolute;
+      right: 5px;
+      top: -8px;
+      transition: all .3s ease;
+      cursor: default;
+  }
+  .icon-validar-bien i {
+    font-size: 14px;
+    color:rgb(var(--success));
+    opacity:0;
+    transition: all .3s ease;
+    /* transform: scale(.5); */
+    backface-visibility: hidden;
+    transform: translate3d(0,0);
+  }
+  .input-bien .icon-validar-bien i {
+    opacity: 1;
+    transform: scale(1);
+  }
+  .input-bien .icon-validar-bien {
+    top: -15px;
+  }
+
+  .con-number-btns {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    /* background: rgb(158, 240, 41); */
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 25px;
+  }
+  .con-number-btns i {
+    font-size: 14px;
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    top: 2px;
+    left: 0px;
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+  }
+  .con-number-btns i:last-child {
+    bottom: 2px;
+    top: auto;
   }
 </style>
