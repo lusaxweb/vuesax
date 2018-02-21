@@ -878,12 +878,24 @@ var vsNoti_default = /*#__PURE__*/__webpack_require__.n(vsNoti);
 
 // CONCATENATED MODULE: ./components/vsNoti/vsNoti.js
 
-/* harmony default export */ var vsNoti_vsNoti = (function(text,type='white',position='bottom-right',icon,functiox,fixed){
+/* harmony default export */ var vsNoti_vsNoti = (function(parameters){
+  // text,type='white',position='bottom-right',icon,functiox,fixed
+  let text = parameters.text?parameters.text:null
+  let type = parameters.color?parameters.color:'white'
+  let position = parameters.position?parameters.position:'bottom-right'
+  let icon = parameters.icon?parameters.icon:null
+  let functiox = parameters.click?parameters.click:null
+  let fixed = parameters.fixed?parameters.fixed:null
+
+  // new
+  let title = parameters.title?parameters.title:null
+
   if(text==null){
-    console.warn('vsNoti not parameters text');
-    text = 'vsNoti not parameters text'
+    text = 'Vuesax: $vsNotify not parameters text'
     icon = 'warning'
     type = 'warning'
+    console.warn(text);
+    return
   }
   if(type==null){
     type = 'white'
@@ -898,6 +910,10 @@ var vsNoti_default = /*#__PURE__*/__webpack_require__.n(vsNoti);
   conNotix.classList.add('vs-'+position);
 
   let arrayPosition = position.split('-')
+
+
+
+
 
 if(position.search('center')==-1){
   conNotix.style[arrayPosition[0]] = '15px';
@@ -948,15 +964,26 @@ if(position.search('bottom-center')!=-1){
     //   rellenox.style.top = '100%'
     // }
     rellenox.style.top = '50%'
-    rellenox.style.width = conNotix.offsetWidth*3 + 'px'
-    rellenox.style.height = conNotix.offsetWidth*3 + 'px'
+    rellenox.style.width = conNotix.offsetWidth*3.5 + 'px'
+    rellenox.style.height = conNotix.offsetWidth*3.5 + 'px'
     moverNotis(position)
   }, 100);
 
+
+
   let notix = document.createElement('div')
-  conNotix.appendChild(notix)
   notix.innerHTML = text
   notix.classList.add('vs-noti')
+
+  // create titlex
+  if(title){
+    let titlex = document.createElement('h3')
+    titlex.innerHTML = title
+    titlex.classList.add('vs-noti-title')
+    notix.prepend(titlex)
+  }
+
+  conNotix.appendChild(notix)
 
 
 
@@ -1019,26 +1046,26 @@ function eliminarx(contenedor,position,conNotix,fluent){
   fluent.style.height = conNotix.offsetHeight*5+'px'
   fluent.style.width = conNotix.offsetHeight*5+'px'
   if (position.search('top-center')!=-1) {
-    contenedor.style.opacity = 0
     contenedor.style.top = '-20px'
+    contenedor.style.opacity = 0
   }
   if (position.search('bottom-center')!=-1) {
-    contenedor.style.opacity = 0
     contenedor.style.bottom = '-20px'
+    contenedor.style.opacity = 0
   }
-  setTimeout(function () {
+
     if(position.search('left')!=-1){
-      contenedor.style.left = '-300px'
-      contenedor.style.opacity = 0
+      contenedor.style.left = '-400px'
     } else if (position.search('right')!=-1){
-      contenedor.style.right = '-300px'
-      contenedor.style.opacity = 0
+      contenedor.style.right = '-400px'
     }
-  }, 200);
+    setTimeout(function () {
+      contenedor.style.opacity = 0
+    }, 100);
     setTimeout(function () {
       contenedor.remove()
       moverNotis(position)
-    }, 300);
+    }, 200);
 }
 
 function moverNotis(position){
@@ -1408,26 +1435,146 @@ var vsRadio_Component = vsRadio_normalizeComponent(
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ var vsInput = ({
   name: 'vs-input',
-  props: ['value', 'vsLabelPlaceholder', 'vsPlaceholder', 'vsLabel', 'disabled', 'vsIcon', 'vsIconAfter'],
+  props: ['value', 'vsLabelPlaceholder', 'vsPlaceholder', 'vsLabel', 'disabled', 'vsIcon', 'vsIconAfter', 'vsColor', 'vsType', 'vsDangerText', 'vsSuccessText', 'vsMax', 'vsMin', 'vsValid'],
   data: function data() {
     return {
       focusx: false
     };
   },
 
-  computed: {}
+  computed: {
+    validar: function validar() {
+      if (this.vsType) {
+        //email
+        if (this.value.length > 0) {
+
+          if (this.vsType == 'email') {
+            if (/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(this.value)) {
+              if (this.vsValid != undefined) {
+                this.$emit('update:vsValid', true);
+              }
+              return 'input-bien';
+            } else {
+              if (this.vsValid != undefined) {
+                this.$emit('update:vsValid', false);
+              }
+              return 'input-mal';
+            }
+          } else if (this.vsType == 'number' && this.vsMax || this.vsMin) {
+            if (Number(this.value) <= Number(this.vsMax) && Number(this.value) >= Number(this.vsMin)) {
+              if (this.vsValid != undefined) {
+                this.$emit('update:vsValid', true);
+              }
+              return 'input-bien';
+            } else {
+              if (this.vsValid != undefined) {
+                this.$emit('update:vsValid', false);
+              }
+              return 'input-mal';
+            }
+          } else if (this.vsType == 'url') {
+            if (/[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/i.test(this.value)) {
+              if (this.vsValid != undefined) {
+                this.$emit('update:vsValid', true);
+              }
+              return 'input-bien';
+            } else {
+              if (this.vsValid != undefined) {
+                this.$emit('update:vsValid', false);
+              }
+              return 'input-mal';
+            }
+          } else if (this.vsType == 'password') {
+            if (/^(?=.*[\d])(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*])[\w!@#$%^&*]{8,}$/i.test(this.value)) {
+              if (this.vsValid != undefined) {
+                this.$emit('update:vsValid', true);
+              }
+              return 'input-bien';
+            } else {
+              if (this.vsValid != undefined) {
+                this.$emit('update:vsValid', false);
+              }
+              return 'input-mal';
+            }
+          }
+        } else {
+          if (this.vsValid != undefined) {
+            this.$emit('update:vsValid', false);
+          }
+        }
+      } else {
+
+        return false;
+      }
+    },
+    backgroundx: function backgroundx() {
+      if (this.vsColor) {
+        if (/[#()]/i.test(this.vsColor)) {
+          return this.vsColor;
+        } else {
+          return 'rgb(var(--' + this.vsColor + '))';
+        }
+      } else {
+        return 'rgb(var(--primary))';
+      }
+    }
+  },
+  methods: {
+    validarKeypress: function validarKeypress(evt, value) {
+      if (this.vsType) {
+        if (this.vsType == 'email') {
+          var rgx = /[-\a-zA-Z0-9_@.]/;
+          if (!rgx.test(evt.key)) {
+            evt.preventDefault();
+          }
+        }
+        if (this.vsType == 'number') {
+          var rgx = /[0-9]/;
+          if (evt.key != 'Backspace' && evt.key != 'Delete') {
+            if (!rgx.test(evt.key)) {
+              evt.preventDefault();
+            }
+          }
+        }
+      }
+    }
+  }
 });
-// CONCATENATED MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/template-compiler?{"id":"data-v-140e5791","hasScoped":true,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/selector.js?type=template&index=0!./components/vsInput.vue
-var vsInput_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"con-input",class:{'vsIconx':_vm.vsIcon, 'vs-icon-after':_vm.vsIconAfter, 'disabledx':_vm.disabled}},[_c('label',{staticClass:"label",class:{'focusLabel':_vm.focusx, 'disabledxlabel':_vm.disabled},attrs:{"for":""}},[_vm._v(_vm._s(_vm.vsLabel))]),_vm._v(" "),_c('input',{ref:"inputx",staticClass:"vs-input",attrs:{"disabled":_vm.disabled,"type":"text"},domProps:{"value":_vm.value},on:{"input":function($event){_vm.$emit('input',$event.target.value)},"focus":function($event){_vm.focusx=true},"blur":function($event){_vm.focusx=false}}}),_vm._v(" "),(!_vm.vsLabelPlaceholder)?_c('span',{staticClass:"placeholder",class:{'noPlaceholder':_vm.value.length>0?true:_vm.focusx},on:{"click":function($event){_vm.$refs.inputx.focus()}}},[_vm._v(_vm._s(_vm.vsPlaceholder))]):_vm._e(),_vm._v(" "),(_vm.vsLabelPlaceholder)?_c('span',{staticClass:"placeholder",class:{'noPlaceholderLabel':_vm.value.length>0?true:_vm.focusx},on:{"click":function($event){_vm.$refs.inputx.focus()}}},[_vm._v(_vm._s(_vm.vsLabelPlaceholder))]):_vm._e(),_vm._v(" "),(_vm.vsIcon)?_c('span',{staticClass:"iconx"},[_c('i',{staticClass:"material-icons"},[_vm._v(_vm._s(_vm.vsIcon))])]):_vm._e()])}
+// CONCATENATED MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/template-compiler?{"id":"data-v-2eb3924a","hasScoped":true,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/selector.js?type=template&index=0!./components/vsInput.vue
+var vsInput_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"con-input",class:[_vm.validar,{'con-focus':_vm.focusx,'vsIconx':_vm.vsIcon, 'vs-icon-after':_vm.vsIconAfter, 'disabledx':_vm.disabled}]},[_c('label',{staticClass:"label",class:{'focusLabel':_vm.focusx, 'disabledxlabel':_vm.disabled},attrs:{"for":""}},[_vm._v(_vm._s(_vm.vsLabel))]),_vm._v(" "),_c('input',{ref:"inputx",staticClass:"vs-input",style:({'border':("1px solid " + (_vm.focusx?_vm.backgroundx:'rgba(0, 0, 0, 0.150)')),'caretColor': _vm.backgroundx}),attrs:{"type":_vm.vsType=='password'?'password':'text',"disabled":_vm.disabled},domProps:{"value":_vm.value},on:{"keydown":function($event){_vm.validarKeypress($event,$event.target.value)},"input":function($event){_vm.$emit('input',$event.target.value)},"focus":function($event){_vm.focusx=true},"blur":function($event){_vm.focusx=false}}}),_vm._v(" "),(!_vm.vsLabelPlaceholder)?_c('span',{staticClass:"placeholder",class:{'noPlaceholder':_vm.value.length>0?true:_vm.focusx},on:{"click":function($event){_vm.$refs.inputx.focus()}}},[_vm._v(_vm._s(_vm.vsPlaceholder))]):_vm._e(),_vm._v(" "),(_vm.vsLabelPlaceholder)?_c('span',{staticClass:"placeholder",class:{'noPlaceholderLabel':_vm.value.length>0?true:_vm.focusx},style:({'color':_vm.focusx?_vm.backgroundx:'rgba(0, 0, 0, 0.30)'}),on:{"click":function($event){_vm.$refs.inputx.focus()}}},[_vm._v(_vm._s(_vm.vsLabelPlaceholder))]):_vm._e(),_vm._v(" "),(_vm.vsIcon)?_c('span',{staticClass:"iconx"},[_c('i',{staticClass:"material-icons"},[_vm._v(_vm._s(_vm.vsIcon))])]):_vm._e(),_vm._v(" "),_c('div',{staticClass:"icon-validar-mal",attrs:{"title":_vm.validar=='input-mal'?_vm.vsDangerText:null}},[_c('i',{staticClass:"material-icons"},[_vm._v("error")])]),_vm._v(" "),_c('div',{staticClass:"icon-validar-bien",attrs:{"title":_vm.validar=='input-bien'?_vm.vsSuccessText:null}},[_c('i',{staticClass:"material-icons"},[_vm._v("check_circle")])])])}
 var vsInput_staticRenderFns = []
 var vsInput_esExports = { render: vsInput_render, staticRenderFns: vsInput_staticRenderFns }
 /* harmony default export */ var selectortype_template_index_0_components_vsInput = (vsInput_esExports);
 // CONCATENATED MODULE: ./components/vsInput.vue
 function vsInput_injectStyle (ssrContext) {
-  __webpack_require__("lNRf")
+  __webpack_require__("VIvZ")
 }
 var vsInput_normalizeComponent = __webpack_require__("mUJo")
 /* script */
@@ -1440,7 +1587,7 @@ var vsInput___vue_template_functional__ = false
 /* styles */
 var vsInput___vue_styles__ = vsInput_injectStyle
 /* scopeId */
-var vsInput___vue_scopeId__ = "data-v-140e5791"
+var vsInput___vue_scopeId__ = "data-v-2eb3924a"
 /* moduleIdentifier (server only) */
 var vsInput___vue_module_identifier__ = null
 var vsInput_Component = vsInput_normalizeComponent(
@@ -1466,6 +1613,8 @@ var vsInput_Component = vsInput_normalizeComponent(
 // import './css/index.css'
 const Vuesax = {
   install(Vue, options) {
+    Vue.prototype.$vsNotify = vsNoti_vsNoti
+    Vue.prototype.$vsNotify.confirm = vsNoti_vsNoti
     //buttons
     Vue.component(components_vsButton.name,components_vsButton)
     //selects
@@ -1483,6 +1632,15 @@ const Vuesax = {
         vsNoti: vsNoti_vsNoti
       }
     });
+
+    // Register a global custom directive called `v-focus`
+    Vue.directive('focus', {
+      // When the bound element is inserted into the DOM...
+      inserted: function (el) {
+        // Focus the element
+        el.focus()
+      }
+    })
 
   }
 };
@@ -1505,6 +1663,28 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 // Vuesax.version = '__VERSION__'
 /* harmony default export */ var index = __webpack_exports__["default"] = (Vuesax);
+
+//
+// bind(el, binding, vnode) {
+//   let interval = null;
+//   let startTime;
+//   const handler = () => vnode.context[binding.expression].apply();
+//   const clear = () => {
+//     if (new Date() - startTime < 100) {
+//       handler();
+//     }
+//     clearInterval(interval);
+//     interval = null;
+//   };
+//
+//   on(el, 'mousedown', (e) => {
+//     if (e.button !== 0) return;
+//     startTime = new Date();
+//     once(document, 'mouseup', clear);
+//     clearInterval(interval);
+//     interval = setInterval(handler, 100);
+//   });
+// }
 
 
 /***/ }),
@@ -2029,6 +2209,13 @@ module.exports = function (name) {
 
 /***/ }),
 
+/***/ "VIvZ":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "VdYW":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2252,13 +2439,6 @@ module.exports = function (exec) {
 
 exports.f = {}.propertyIsEnumerable;
 
-
-/***/ }),
-
-/***/ "lNRf":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ }),
 

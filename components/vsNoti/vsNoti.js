@@ -1,10 +1,22 @@
 import './vsNoti.css'
-export default function(text,type='white',position='bottom-right',icon,functiox,fixed){
+export default function(parameters){
+  // text,type='white',position='bottom-right',icon,functiox,fixed
+  let text = parameters.text?parameters.text:null
+  let type = parameters.color?parameters.color:'white'
+  let position = parameters.position?parameters.position:'bottom-right'
+  let icon = parameters.icon?parameters.icon:null
+  let functiox = parameters.click?parameters.click:null
+  let fixed = parameters.fixed?parameters.fixed:null
+
+  // new
+  let title = parameters.title?parameters.title:null
+
   if(text==null){
-    console.warn('vsNoti not parameters text');
-    text = 'vsNoti not parameters text'
+    text = 'Vuesax: $vsNotify not parameters text'
     icon = 'warning'
     type = 'warning'
+    console.warn(text);
+    return
   }
   if(type==null){
     type = 'white'
@@ -19,6 +31,10 @@ export default function(text,type='white',position='bottom-right',icon,functiox,
   conNotix.classList.add('vs-'+position);
 
   let arrayPosition = position.split('-')
+
+
+
+
 
 if(position.search('center')==-1){
   conNotix.style[arrayPosition[0]] = '15px';
@@ -69,15 +85,26 @@ if(position.search('bottom-center')!=-1){
     //   rellenox.style.top = '100%'
     // }
     rellenox.style.top = '50%'
-    rellenox.style.width = conNotix.offsetWidth*3 + 'px'
-    rellenox.style.height = conNotix.offsetWidth*3 + 'px'
+    rellenox.style.width = conNotix.offsetWidth*3.5 + 'px'
+    rellenox.style.height = conNotix.offsetWidth*3.5 + 'px'
     moverNotis(position)
   }, 100);
 
+
+
   let notix = document.createElement('div')
-  conNotix.appendChild(notix)
   notix.innerHTML = text
   notix.classList.add('vs-noti')
+
+  // create titlex
+  if(title){
+    let titlex = document.createElement('h3')
+    titlex.innerHTML = title
+    titlex.classList.add('vs-noti-title')
+    notix.prepend(titlex)
+  }
+
+  conNotix.appendChild(notix)
 
 
 
@@ -140,26 +167,26 @@ function eliminarx(contenedor,position,conNotix,fluent){
   fluent.style.height = conNotix.offsetHeight*5+'px'
   fluent.style.width = conNotix.offsetHeight*5+'px'
   if (position.search('top-center')!=-1) {
-    contenedor.style.opacity = 0
     contenedor.style.top = '-20px'
+    contenedor.style.opacity = 0
   }
   if (position.search('bottom-center')!=-1) {
-    contenedor.style.opacity = 0
     contenedor.style.bottom = '-20px'
+    contenedor.style.opacity = 0
   }
-  setTimeout(function () {
+
     if(position.search('left')!=-1){
-      contenedor.style.left = '-300px'
-      contenedor.style.opacity = 0
+      contenedor.style.left = '-400px'
     } else if (position.search('right')!=-1){
-      contenedor.style.right = '-300px'
-      contenedor.style.opacity = 0
+      contenedor.style.right = '-400px'
     }
-  }, 200);
+    setTimeout(function () {
+      contenedor.style.opacity = 0
+    }, 100);
     setTimeout(function () {
       contenedor.remove()
       moverNotis(position)
-    }, 300);
+    }, 200);
 }
 
 function moverNotis(position){

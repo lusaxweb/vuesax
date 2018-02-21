@@ -9,6 +9,8 @@ import vsInput from './components/vsInput.vue'
 // import './css/index.css'
 const Vuesax = {
   install(Vue, options) {
+    Vue.prototype.$vsNotify = vsNoti
+    Vue.prototype.$vsNotify.confirm = vsNoti
     //buttons
     Vue.component(vsButton.name,vsButton)
     //selects
@@ -26,6 +28,15 @@ const Vuesax = {
         vsNoti
       }
     });
+
+    // Register a global custom directive called `v-focus`
+    Vue.directive('focus', {
+      // When the bound element is inserted into the DOM...
+      inserted: function (el) {
+        // Focus the element
+        el.focus()
+      }
+    })
 
   }
 };
@@ -48,3 +59,25 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 // Vuesax.version = '__VERSION__'
 export default Vuesax
+
+//
+// bind(el, binding, vnode) {
+//   let interval = null;
+//   let startTime;
+//   const handler = () => vnode.context[binding.expression].apply();
+//   const clear = () => {
+//     if (new Date() - startTime < 100) {
+//       handler();
+//     }
+//     clearInterval(interval);
+//     interval = null;
+//   };
+//
+//   on(el, 'mousedown', (e) => {
+//     if (e.button !== 0) return;
+//     startTime = new Date();
+//     once(document, 'mouseup', clear);
+//     clearInterval(interval);
+//     interval = setInterval(handler, 100);
+//   });
+// }
