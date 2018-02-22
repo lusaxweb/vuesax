@@ -126,8 +126,11 @@ export default {
   opacity: 1;
   transition: all .250s ease;
   transform: translate(100%,0%);
+  top: 0px;
+  left: 0px;
   width: 100%;
   height: 100%;
+  display: block;
 }
 .cuadro i {
   font-size: 18px;

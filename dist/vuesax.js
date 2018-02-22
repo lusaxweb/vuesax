@@ -504,6 +504,13 @@ module.exports = function (it) {
 
 /***/ }),
 
+/***/ "IDYm":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "Imef":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1310,14 +1317,14 @@ var vsSwitch_Component = vsSwitch_normalizeComponent(
     }
   }
 });
-// CONCATENATED MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/template-compiler?{"id":"data-v-29ea52fe","hasScoped":true,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/selector.js?type=template&index=0!./components/vsCheckBox.vue
+// CONCATENATED MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/template-compiler?{"id":"data-v-2c07d94a","hasScoped":true,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/selector.js?type=template&index=0!./components/vsCheckBox.vue
 var vsCheckBox_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('label',{ref:"checkBoxx",staticClass:"con-check",class:[{'disabledx':_vm.disabled,'checkBoxActivo':typeof _vm.value == 'boolean'?_vm.value:_vm.valueArray}],attrs:{"disabled":_vm.disabled},on:{"click":_vm.checkBoxClick}},[_c('span',{staticClass:"cuadro",style:({'border':!_vm.value?'2px solid rgb(160, 160, 160)':'2px solid '+_vm.backgroundx()})},[_c('i',{staticClass:"material-icons"},[_vm._v("check")]),_vm._v(" "),_c('span',{staticClass:"afterx",style:({'background':_vm.backgroundx()})})]),_vm._v(" "),_vm._t("default")],2)}
 var vsCheckBox_staticRenderFns = []
 var vsCheckBox_esExports = { render: vsCheckBox_render, staticRenderFns: vsCheckBox_staticRenderFns }
 /* harmony default export */ var selectortype_template_index_0_components_vsCheckBox = (vsCheckBox_esExports);
 // CONCATENATED MODULE: ./components/vsCheckBox.vue
 function vsCheckBox_injectStyle (ssrContext) {
-  __webpack_require__("Q35d")
+  __webpack_require__("m2xl")
 }
 var vsCheckBox_normalizeComponent = __webpack_require__("mUJo")
 /* script */
@@ -1330,7 +1337,7 @@ var vsCheckBox___vue_template_functional__ = false
 /* styles */
 var vsCheckBox___vue_styles__ = vsCheckBox_injectStyle
 /* scopeId */
-var vsCheckBox___vue_scopeId__ = "data-v-29ea52fe"
+var vsCheckBox___vue_scopeId__ = "data-v-2c07d94a"
 /* moduleIdentifier (server only) */
 var vsCheckBox___vue_module_identifier__ = null
 var vsCheckBox_Component = vsCheckBox_normalizeComponent(
@@ -1601,6 +1608,48 @@ var vsInput_Component = vsInput_normalizeComponent(
 
 /* harmony default export */ var components_vsInput = (vsInput_Component.exports);
 
+// EXTERNAL MODULE: ./components/vsMessageBox/vsMessageBox.css
+var vsMessageBox = __webpack_require__("IDYm");
+var vsMessageBox_default = /*#__PURE__*/__webpack_require__.n(vsMessageBox);
+
+// CONCATENATED MODULE: ./components/vsMessageBox/vsMessageBox.js
+
+const message = function(parameters) {
+  //parameters
+  let text = parameters.text
+
+  // contenedor
+  let conx = document.createElement('div')
+  conx.classList = "con-message"
+
+  let messagex = document.createElement('div')
+  messagex.classList = "vs-message"
+  messagex.innerHTML = text
+  conx.appendChild(messagex)
+  document.body.insertBefore(conx, document.body.firstChild);
+
+  // animation
+  setTimeout(function () {
+    messagex.style.transform = "scale(1.050)"
+    conx.style.opacity = "1"
+    setTimeout(function () {
+      messagex.style.transform = "scale(1)"
+    }, 200);
+  }, 10);
+
+  //events
+  conx.addEventListener('click',function(e){
+    if(e.target.className=='con-message'){
+      messagex.style.transform = "scale(.8)"
+      conx.style.opacity = "0"
+      setTimeout(function () {
+        conx.remove()
+      }, 300);
+    }
+
+  })
+}
+
 // CONCATENATED MODULE: ./index.js
 // import Vue from 'vue'
 
@@ -1610,11 +1659,15 @@ var vsInput_Component = vsInput_normalizeComponent(
 
 
 
+
+
+// import 'prefixfree'
 // import './css/index.css'
 const Vuesax = {
   install(Vue, options) {
     Vue.prototype.$vsNotify = vsNoti_vsNoti
-    Vue.prototype.$vsNotify.confirm = vsNoti_vsNoti
+    Vue.prototype.$vs = {}
+    Vue.prototype.$vs.message = message
     //buttons
     Vue.component(components_vsButton.name,components_vsButton)
     //selects
@@ -1751,13 +1804,6 @@ __webpack_require__("4db7");
 __webpack_require__("+Rib");
 module.exports = __webpack_require__("b5sM").f('iterator');
 
-
-/***/ }),
-
-/***/ "Q35d":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -2439,6 +2485,13 @@ module.exports = function (exec) {
 
 exports.f = {}.propertyIsEnumerable;
 
+
+/***/ }),
+
+/***/ "m2xl":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
