@@ -7,6 +7,8 @@ import vsCheckbox from './components/vsCheckBox.vue'
 import vsRadio from './components/vsRadio.vue'
 import vsInput from './components/vsInput.vue'
 import {message} from './components/vsMessageBox/vsMessageBox.js'
+import {confirm} from './components/vsMessageBox/vsMessageBox.js'
+import {prompt} from './components/vsMessageBox/vsMessageBox.js'
 
 // import 'prefixfree'
 // import './css/index.css'
@@ -14,7 +16,9 @@ const Vuesax = {
   install(Vue, options) {
     Vue.prototype.$vsNotify = vsNoti
     Vue.prototype.$vs = {}
-    Vue.prototype.$vs.message = message
+    Vue.prototype.$vs.alert = message
+    Vue.prototype.$vs.confirm = confirm
+    Vue.prototype.$vs.prompt = prompt
     //buttons
     Vue.component(vsButton.name,vsButton)
     //selects

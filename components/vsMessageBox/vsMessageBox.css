@@ -1,9 +1,9 @@
-.con-message {
+.vs-con-message {
   width: 100%;
   height: 100%;
   top: 0px;
   left: 0px;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.4);
   z-index: 10000;
   position: fixed;
   display: flex;
@@ -11,14 +11,169 @@
   justify-content: center;
   opacity: 0;
   transition: all .250s ease;
+  backface-visibility: visible;
+  backface-visibility: visible;
 }
 .vs-message {
   position: relative;
-  width: 200px;
-  height: 100px;
+  min-width: 350px;
+  max-width: 500px;
+  min-height: 150px;
   background: rgb(255, 255, 255);
-  box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.3);
-  border-radius: 5px;
+  box-shadow: 0px 12px 25px -6px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
   transform: scale(.6);
-  transition: all .250s ease;
+  transition: all .20s ease;
+  backface-visibility: visible;
+  display: block;
+  padding-bottom: 50px;
+}
+.vs-header {
+  width: 100%;
+  position: relative;
+  display: block;
+  padding: 10px;
+  background: rgb(240,240,240);
+  border-radius: 20px 20px 5px 5px;
+}
+.vs-header h3 {
+  font-weight: normal;
+
+  opacity: 0;
+  transform: translate(0,10px);
+  transition: all .2s  ease;
+}
+.vs-no-color {
+  color: rgba(0,0,0,.8) !important;
+}
+.vs-text {
+  /* background: rgb(255, 255, 255); */
+  padding: 15px;
+  color: rgba(0,0,0,.8);
+}
+.vs-x {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  background: rgb(255, 255, 255);
+  width: 37px;
+  border-radius: 5px;
+  height: 37px;
+  opacity: 0;
+  border-radius: 50%;
+  transform:scale(.2)  translate(0px,0px);
+  backface-visibility: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 12px 25px -6px rgba(0, 0, 0, 0.250);
+  cursor: pointer;
+  transition: all .3s ease;
+  color:rgba(0,0,0,.7);
+  z-index: 200;
+}
+.vs-x i {
+  font-size: 20px;
+}
+.vs-x:hover {
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.250);
+  background: rgb(240,240,240);
+  transform: translate(6px,-8px);
+
+}
+.vs-x:active {
+  box-shadow: 0px 12px 25px -6px rgba(0, 0, 0, 0.250);
+  transform: translate(7px,-7px);
+  background: rgb(255, 255, 255);
+}
+.vs-con-btns {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: absolute;
+  bottom: 0px;
+  /* transform: translate(0,10px); */
+  left: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding: 4px;
+  opacity: 0;
+  transition: all .3s ease;
+  transform: translate(0,10px);
+}
+.vs-p {
+  opacity: 0;
+  transform: translate(0,10px);
+  transition: all .3s  ease;
+}
+.vs-confirm {
+  /* box-shadow: 0px 12px 25px -6px rgba(0, 0, 0, 0.3); */
+  padding: 10px;
+  border: 0px;
+  border-radius: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  cursor: pointer;
+  background: rgb(255, 255, 255);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.8);
+  transition: all .3s ease;
+}
+.vs-confirm:hover {
+  background: rgb(240, 240, 240);
+  border: 1px solid rgb(240, 240, 240);
+}
+.vs-color .vs-confirm {
+  color: rgb(255, 255, 255);
+}
+.vs-color .vs-confirm:hover {
+  opacity: .9;
+  box-shadow: 0px 12px 25px -6px rgba(0, 0, 0, 0.250);
+}
+
+
+
+/* confirm */
+
+
+.vs-cancel {
+  padding: 10px;
+  border: 0px;
+  border-radius: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  cursor: pointer;
+  background: rgb(255, 255, 255);
+  border: 1px solid rgba(0, 0, 0, 0.0);
+  color: rgba(0, 0, 0, 0.8);
+  transition: all .3s ease;
+  margin-right: 10px;
+  color: rgba(0,0,0,.6);
+}
+.vs-cancel:hover {
+  color: rgba(0,0,0,.8);
+  background: rgb(240, 240, 240);
+    border: 1px solid rgb(240, 240, 240);
+}
+
+
+/* prompt */
+
+.vs-con-message .vs-input {
+  width: 100%;
+  /* width: calc(100% - 20px); */
+
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  /* margin: 10px; */
+  margin-top: 15px;
+  margin-bottom: 15px;
+  transition: all .3s ease;
+}
+.vs-con-message .vs-input:not([type='color']){
+padding: 9px;
+}
+.input-mal {
+  border: 1px solid rgba(var(--danger),.7)
 }
