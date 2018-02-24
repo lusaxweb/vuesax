@@ -5,13 +5,13 @@
   </br>
   
   <p align="center">
-  <a href="https://travis-ci.org/vuetifyjs/vuetify">
+  <a href="https://travis-ci.org/lusaxweb/vuesax">
     <img src="https://img.shields.io/travis/lusaxweb/vuesax.svg" alt="travis ci badge">
   </a>
-  <a href="https://www.npmjs.com/package/vuetify">
+  <a href="https://www.npmjs.com/package/vuesax">
     <img src="https://img.shields.io/npm/dm/vuesax.svg" alt="Downloads">
   </a>
-  <a href="https://www.npmjs.com/package/vuetify">
+  <a href="https://www.npmjs.com/package/vuesax">
     <img src="https://img.shields.io/npm/v/vuesax.svg" alt="Version">
   </a>
 </p>
