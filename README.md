@@ -16,7 +16,7 @@
   </a>
 </p>
 
-# Introduccion
+# Introduction
 
 Vuesax is a frontend library based on vue js that helps you develop faster and with a visual impact in a few steps is in the process of growth and progress.
 
