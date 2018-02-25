@@ -14,6 +14,7 @@
   <a href="https://www.npmjs.com/package/vuesax">
     <img src="https://img.shields.io/npm/v/vuesax.svg" alt="Version">
   </a>
+  <a href="https://www.npmjs.com/package/vuesax"><img src="https://img.shields.io/npm/l/vuesax.svg" /></a>
 </p>
 
 # Introduction
