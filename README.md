@@ -64,6 +64,11 @@ Recent versions of Firefox, Chrome, Edge, Opera and Safari. IE10+
 </html>
 ```
 
+# CDN
+
+- https://unpkg.com/vuesax/dist/vuesax.min.js
+- https://unpkg.com/vuesax/dist/vuesax.min.css
+
 # install en Proyecto NPM
 ``` bash
 # npm
