@@ -14,15 +14,20 @@
   <a href="https://www.npmjs.com/package/vuesax">
     <img src="https://img.shields.io/npm/v/vuesax.svg" alt="Version">
   </a>
+  <a href="https://www.npmjs.com/package/vuesax"><img src="https://img.shields.io/npm/l/vuesax.svg" /></a>
 </p>
 
 # Introduction
 
 Vuesax is a frontend library based on vue js that helps you develop faster and with a visual impact in a few steps is in the process of growth and progress.
 
+
 # Demo and Documentation
 
 [Demo](https://lusaxweb.github.io/vuesax/#/docs/getting-started)
+
+# Browser Support
+Recent versions of Firefox, Chrome, Edge, Opera and Safari. IE10+
 
 # Quick-start CDN
 
