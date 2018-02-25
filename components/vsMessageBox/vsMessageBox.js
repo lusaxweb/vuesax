@@ -380,7 +380,7 @@ if(color!=null){
       quitarMessage(messagex,conx)
       confirm(valuex.value)
     } else {
-      valuex.classList.add('input-mal')
+      valuex.classList.add('input-mal-box')
       valuex.focus()
       messagex.style.transform = "scale(1.030)"
       setTimeout(function () {

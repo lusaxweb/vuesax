@@ -125,3 +125,10 @@
 .vs-noti-listo .vs-noti-title {
   opacity: 1;
 }
+
+@media only screen and (max-width: 400px) {
+
+  .vs-noti-contenedor {
+    max-width: calc(100% - 20px);
+  }
+}

@@ -15,6 +15,7 @@
   backface-visibility: visible;
 }
 .vs-message {
+  width: calc(100% - 30px);
   position: relative;
   min-width: 350px;
   max-width: 500px;
@@ -174,6 +175,14 @@
 .vs-con-message .vs-input:not([type='color']){
 padding: 9px;
 }
-.input-mal {
+.input-mal-box {
   border: 1px solid rgba(var(--danger),.7)
+}
+
+
+@media only screen and (max-width: 450px) {
+  .vs-message{
+    min-width: auto;
+
+  }
 }
