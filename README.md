@@ -26,7 +26,7 @@ Vuesax is a frontend library based on vue js that helps you develop faster and w
 [Demo](https://lusaxweb.github.io/vuesax/#/docs/getting-started)
 
 # Browser Support
-Modern browsers and Internet Explorer 10+.
+Recent versions of Firefox, Chrome, Edge, Opera and Safari. IE10+
 
 # Quick-start CDN
 
