@@ -23,7 +23,7 @@ Vuesax is a frontend library based on vue js that helps you develop faster and w
 
 # Components
 
-- [Bottons](https://lusaxweb.github.io/vuesax/#/docs/buttons)
+- [Buttons](https://lusaxweb.github.io/vuesax/#/docs/buttons)
 - [Selects](https://lusaxweb.github.io/vuesax/#/docs/selects)
 - [Notifications](https://lusaxweb.github.io/vuesax/#/docs/Notifications)
 - [Switch](https://lusaxweb.github.io/vuesax/#/docs/switch)
