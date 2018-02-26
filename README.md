@@ -31,6 +31,7 @@ Vuesax is a frontend library based on vue js that helps you develop faster and w
 - [Radio](https://lusaxweb.github.io/vuesax/#/docs/radio)
 - [Input](https://lusaxweb.github.io/vuesax/#/docs/input)
 - [Dialogs](https://lusaxweb.github.io/vuesax/#/docs/messageBox)
+- [Tabs](https://lusaxweb.github.io/vuesax/#/docs/tabs)
 
 # Demo and Documentation
 
