@@ -2026,8 +2026,147 @@ if(color!=null){
   }
 }
 
+// CONCATENATED MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/babel-loader/lib!C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/selector.js?type=script&index=0!./components/tabs/tabs.vue
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ var tabs = ({
+  name: 'vs-tabs',
+  props: ['vsType', 'vsColor', 'vsPosition'],
+  data: function data() {
+    return {
+      vsTabs: []
+    };
+  },
+
+  methods: {
+    clickLiTab: function clickLiTab(tab, index) {
+      console.log("tab", tab._props.disabled);
+      for (var i = 0; i < this.vsTabs.length; i++) {
+        this.vsTabs[i]._data.activo = false;
+      }
+      tab._data.activo = true;
+      // console.log("tab",tab.data);
+      console.log("click", index);
+    }
+  },
+  mounted: function mounted() {
+    this.vsTabs[0]._data.activo = true;
+  }
+});
+// CONCATENATED MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/template-compiler?{"id":"data-v-2b3be4ba","hasScoped":true,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/selector.js?type=template&index=0!./components/tabs/tabs.vue
+var tabs_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"con-tabs",class:[_vm.vsType?_vm.vsType:'','vs-'+_vm.vsPosition]},[_c('ul',{staticClass:"ul-tabs"},_vm._l((_vm.vsTabs),function(vsTab,index){return _c('li',{class:{'tab-disabledx':vsTab._props.disabled,'tab-activo':vsTab._data.activo},on:{"click":function($event){_vm.clickLiTab(vsTab,index)}}},[_c('span',{staticClass:"tabtext",style:({'color':vsTab._data.activo?_vm.vsColor?_vm.vsColor:'rgb(var(--primary))':''})},[_vm._v("\n        "+_vm._s(vsTab.vsLabel)+"\n      ")]),_vm._v(" "),_c('span',{staticClass:"cuadro",style:({'border-bottom':_vm.vsType=='border-bottom'?'2px solid '+_vm.vsColor:'','background':vsTab._data.activo?_vm.vsColor?_vm.vsColor:'rgb(var(--primary))':''})})])})),_vm._v(" "),_c('div',{staticClass:"contiene-tabs"},[_vm._t("default")],2)])}
+var tabs_staticRenderFns = []
+var tabs_esExports = { render: tabs_render, staticRenderFns: tabs_staticRenderFns }
+/* harmony default export */ var tabs_tabs = (tabs_esExports);
+// CONCATENATED MODULE: ./components/tabs/tabs.vue
+function tabs_injectStyle (ssrContext) {
+  __webpack_require__("nVtn")
+}
+var tabs_normalizeComponent = __webpack_require__("mUJo")
+/* script */
+
+
+/* template */
+
+/* template functional */
+var tabs___vue_template_functional__ = false
+/* styles */
+var tabs___vue_styles__ = tabs_injectStyle
+/* scopeId */
+var tabs___vue_scopeId__ = "data-v-2b3be4ba"
+/* moduleIdentifier (server only) */
+var tabs___vue_module_identifier__ = null
+var tabs_Component = tabs_normalizeComponent(
+  tabs,
+  tabs_tabs,
+  tabs___vue_template_functional__,
+  tabs___vue_styles__,
+  tabs___vue_scopeId__,
+  tabs___vue_module_identifier__
+)
+
+/* harmony default export */ var components_tabs_tabs = (tabs_Component.exports);
+
+// CONCATENATED MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/babel-loader/lib!C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/selector.js?type=script&index=0!./components/tabs/tab.vue
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ var tab = ({
+  name: 'vs-tab',
+  props: ['vsLabel', 'disabled'],
+  data: function data() {
+    return {
+      activo: false
+    };
+  },
+  created: function created() {
+    // console.log("hola tab",this.$parent);
+    this.$parent.vsTabs.push(this);
+  }
+});
+// CONCATENATED MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/template-compiler?{"id":"data-v-57586614","hasScoped":true,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/selector.js?type=template&index=0!./components/tabs/tab.vue
+var tab_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('transition',{attrs:{"name":"fade"}},[(_vm.activo)?_c('div',{staticClass:"con-tab"},[_vm._t("default")],2):_vm._e()])}
+var tab_staticRenderFns = []
+var tab_esExports = { render: tab_render, staticRenderFns: tab_staticRenderFns }
+/* harmony default export */ var tabs_tab = (tab_esExports);
+// CONCATENATED MODULE: ./components/tabs/tab.vue
+function tab_injectStyle (ssrContext) {
+  __webpack_require__("zfwu")
+}
+var tab_normalizeComponent = __webpack_require__("mUJo")
+/* script */
+
+
+/* template */
+
+/* template functional */
+var tab___vue_template_functional__ = false
+/* styles */
+var tab___vue_styles__ = tab_injectStyle
+/* scopeId */
+var tab___vue_scopeId__ = "data-v-57586614"
+/* moduleIdentifier (server only) */
+var tab___vue_module_identifier__ = null
+var tab_Component = tab_normalizeComponent(
+  tab,
+  tabs_tab,
+  tab___vue_template_functional__,
+  tab___vue_styles__,
+  tab___vue_scopeId__,
+  tab___vue_module_identifier__
+)
+
+/* harmony default export */ var components_tabs_tab = (tab_Component.exports);
+
 // CONCATENATED MODULE: ./index.js
 // import Vue from 'vue'
+
+
 
 
 
@@ -2060,6 +2199,12 @@ const Vuesax = {
     Vue.component(components_vsRadio.name,components_vsRadio)
     //input
     Vue.component(components_vsInput.name,components_vsInput)
+    //tabs
+    Vue.component(components_tabs_tabs.name,components_tabs_tabs)
+    //tab
+    Vue.component(components_tabs_tab.name,components_tabs_tab)
+
+
   	Vue.mixin({
       methods:{
         vsNoti: vsNoti_vsNoti
@@ -2985,6 +3130,13 @@ module.exports = function normalizeComponent (
 
 /***/ }),
 
+/***/ "nVtn":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "p0o+":
 /***/ (function(module, exports) {
 
@@ -3231,6 +3383,13 @@ module.exports = function (fn, that, length) {
   };
 };
 
+
+/***/ }),
+
+/***/ "zfwu":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 

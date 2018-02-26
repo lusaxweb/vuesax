@@ -9,6 +9,8 @@ import vsInput from './components/vsInput.vue'
 import {message} from './components/vsMessageBox/vsMessageBox.js'
 import {confirm} from './components/vsMessageBox/vsMessageBox.js'
 import {prompt} from './components/vsMessageBox/vsMessageBox.js'
+import vsTabs from './components/tabs/tabs.vue'
+import vsTab from './components/tabs/tab.vue'
 
 // import 'prefixfree'
 // import './css/index.css'
@@ -31,6 +33,12 @@ const Vuesax = {
     Vue.component(vsRadio.name,vsRadio)
     //input
     Vue.component(vsInput.name,vsInput)
+    //tabs
+    Vue.component(vsTabs.name,vsTabs)
+    //tab
+    Vue.component(vsTab.name,vsTab)
+
+
   	Vue.mixin({
       methods:{
         vsNoti
