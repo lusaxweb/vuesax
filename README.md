@@ -21,6 +21,16 @@
 
 Vuesax is a frontend library based on vue js that helps you develop faster and with a visual impact in a few steps is in the process of growth and progress.
 
+# Components
+
+- [Bottons](https://lusaxweb.github.io/vuesax/#/docs/buttons)
+- [Selects](https://lusaxweb.github.io/vuesax/#/docs/selects)
+- [Notifications](https://lusaxweb.github.io/vuesax/#/docs/Notifications)
+- [Switch](https://lusaxweb.github.io/vuesax/#/docs/switch)
+- [CheckBox](https://lusaxweb.github.io/vuesax/#/docs/checkBox)
+- [Radio](https://lusaxweb.github.io/vuesax/#/docs/radio)
+- [Input](https://lusaxweb.github.io/vuesax/#/docs/input)
+- [Dialogs](https://lusaxweb.github.io/vuesax/#/docs/messageBox)
 
 # Demo and Documentation
 
@@ -53,6 +63,11 @@ Recent versions of Firefox, Chrome, Edge, Opera and Safari. IE10+
 </body>
 </html>
 ```
+
+# CDN
+
+- https://unpkg.com/vuesax/dist/vuesax.min.js
+- https://unpkg.com/vuesax/dist/vuesax.min.css
 
 # install en Proyecto NPM
 ``` bash
