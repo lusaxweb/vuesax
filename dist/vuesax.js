@@ -374,6 +374,13 @@ module.exports = (
 
 /***/ }),
 
+/***/ "B/P4":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = { "default": __webpack_require__("F3i5"), __esModule: true };
+
+/***/ }),
+
 /***/ "DVK/":
 /***/ (function(module, exports) {
 
@@ -419,6 +426,15 @@ module.exports = function (TO_STRING) {
       : TO_STRING ? s.slice(i, i + 2) : (a - 0xd800 << 10) + (b - 0xdc00) + 0x10000;
   };
 };
+
+
+/***/ }),
+
+/***/ "F3i5":
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__("xT2k");
+module.exports = __webpack_require__("WsAY").Math.sign;
 
 
 /***/ }),
@@ -2163,8 +2179,211 @@ var tab_Component = tab_normalizeComponent(
 
 /* harmony default export */ var components_tabs_tab = (tab_Component.exports);
 
+// EXTERNAL MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/babel-runtime/core-js/math/sign.js
+var sign = __webpack_require__("B/P4");
+var sign_default = /*#__PURE__*/__webpack_require__.n(sign);
+
+// CONCATENATED MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/babel-loader/lib!C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/selector.js?type=script&index=0!./components/slider/slider.vue
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ var slider = ({
+  name: 'vsSlider',
+  props: ['disabled', 'value', 'vsColor', 'vsMin'],
+  data: function data() {
+    return {
+      numerox: this.value,
+      numeroMostrar: this.value,
+      verNumero: false,
+      valuex: 0,
+      ancho: 0
+    };
+  },
+  mounted: function mounted() {
+    this.ancho = this.$refs.lineaSlider.offsetWidth;
+    window.addEventListener('resize', this.resizex);
+  },
+
+  watch: {
+    numeroMostrar: function numeroMostrar() {
+      this.$emit('change', this.numeroMostrar);
+    }
+  },
+  methods: {
+    resizex: function resizex() {
+      // console.log(this.$refs.lineaSlider.clientWidth);
+      this.ancho = this.$refs.lineaSlider.offsetWidth;
+      this.numerox = this.numeroMostrar;
+    },
+    mousedownx: function mousedownx(event) {
+      event.preventDefault();
+      window.addEventListener('mousemove', this.mouseMovex);
+      window.addEventListener('mouseup', this.removeEvents);
+    },
+    mouseMovex: function mouseMovex(event) {
+      if (this.disabled) {
+        return;
+      }
+      this.verNumero = true;
+      var lineaPintada = this.$refs.lineaPintada;
+      var linea = this.$refs.lineaSlider;
+      var circle = this.$refs.circle;
+      var x = event.clientX;
+      var valorx = x - (linea.getBoundingClientRect().left + circle.offsetWidth / 2);
+      // console.log(this.vsMin);
+      if (this.vsMin) {
+        if (valorx / this.ancho * 100 <= this.vsMin) {
+          valorx = valorx;
+          // console.log('entro');
+        }
+      } else {
+        if (sign_default()(valorx) == -1) {
+          valorx = 0;
+        }
+      }
+
+      if (valorx > this.ancho) {
+        valorx = this.ancho;
+      }
+
+      this.valuex = valorx;
+
+      var obtenerPorcentaje = 0;
+      var porcentajex = 0;
+      // if(this.vsMin){
+      //
+      // } else {
+      obtenerPorcentaje = valorx / this.ancho * 100;
+      porcentajex = Math.round(obtenerPorcentaje);
+      // }
+      // circle.style.left = valorx  + 'px'
+      // lineaPintada.style.width = valorx + 10  + 'px'
+      this.numerox = porcentajex;
+      this.numeroMostrar = porcentajex;
+      this.$emit('input', porcentajex);
+      // }
+      // circle.style.left = (e.clientX - circle.offsetWidth/2) - this.ancho/2 + 'px'
+    },
+    removeEvents: function removeEvents(event) {
+      if (this.disabled) {
+        return;
+      }
+      this.verNumero = false;
+      var linea = this.$refs.lineaSlider;
+      var obtenerPorcentaje = this.valuex / this.ancho * 100;
+      var porcentajex = Math.round(obtenerPorcentaje);
+
+      this.numerox = porcentajex;
+      this.$emit('input', porcentajex);
+      window.removeEventListener('mousemove', this.mouseMovex);
+      window.removeEventListener('mouseup', this.removeEvents);
+    },
+    clickLinea: function clickLinea(evt) {
+      if (evt.target.className != 'linea-slider' && evt.target.className != 'linea-pintada' || this.disabled) {
+        return;
+      }
+      var linea = this.$refs.lineaSlider;
+      var circle = this.$refs.circle;
+      var lineaPintada = this.$refs.lineaPintada;
+
+      console.log(evt);
+      console.log(evt.layerX + 'px');
+      console.log(this.ancho + 'px');
+
+      lineaPintada.style.width = evt.layerX + 'px';
+
+      this.verNumero = true;
+      var obtenerPorcentaje = evt.layerX / this.ancho * 100;
+      var porcentajex = Math.round(obtenerPorcentaje);
+      circle.style.left = evt.layerX - circle.offsetWidth / 2 + 'px';
+      this.numeroMostrar = porcentajex;
+      this.$emit('input', porcentajex);
+    }
+  }
+});
+// CONCATENATED MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/template-compiler?{"id":"data-v-96553920","hasScoped":false,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/selector.js?type=template&index=0!./components/slider/slider.vue
+var slider_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"con-slider",class:{'s-d':_vm.disabled}},[_c('div',{ref:"lineaSlider",staticClass:"linea-slider",on:{"click":function($event){_vm.clickLinea($event)}}},[_c('div',{ref:"lineaPintada",staticClass:"linea-pintada",style:({'background':_vm.vsColor,'width':_vm.numerox+1+'%'})}),_vm._v(" "),_c('div',{ref:"circle",staticClass:"circle-slider",style:({'background':_vm.vsColor,'left':_vm.numerox+'%'}),on:{"mouseenter":function($event){_vm.verNumero=true},"mouseleave":function($event){_vm.verNumero=false},"mousedown":_vm.mousedownx}},[_c('div',{staticClass:"con-numero-slider",class:{'hoverx':_vm.verNumero},style:({'background':_vm.vsColor})},[_c('span',[_vm._v(_vm._s(this.numeroMostrar))])])])])])}
+var slider_staticRenderFns = []
+var slider_esExports = { render: slider_render, staticRenderFns: slider_staticRenderFns }
+/* harmony default export */ var slider_slider = (slider_esExports);
+// CONCATENATED MODULE: ./components/slider/slider.vue
+function slider_injectStyle (ssrContext) {
+  __webpack_require__("TC91")
+}
+var slider_normalizeComponent = __webpack_require__("mUJo")
+/* script */
+
+
+/* template */
+
+/* template functional */
+var slider___vue_template_functional__ = false
+/* styles */
+var slider___vue_styles__ = slider_injectStyle
+/* scopeId */
+var slider___vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var slider___vue_module_identifier__ = null
+var slider_Component = slider_normalizeComponent(
+  slider,
+  slider_slider,
+  slider___vue_template_functional__,
+  slider___vue_styles__,
+  slider___vue_scopeId__,
+  slider___vue_module_identifier__
+)
+
+/* harmony default export */ var components_slider_slider = (slider_Component.exports);
+
 // CONCATENATED MODULE: ./index.js
 // import Vue from 'vue'
+
 
 
 
@@ -2203,6 +2422,8 @@ const Vuesax = {
     Vue.component(components_tabs_tabs.name,components_tabs_tabs)
     //tab
     Vue.component(components_tabs_tab.name,components_tabs_tab)
+    //slider
+    Vue.component(components_slider_slider.name,components_slider_slider)
 
 
   	Vue.mixin({
@@ -2666,6 +2887,13 @@ module.exports = $export;
 
 /***/ }),
 
+/***/ "TC91":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "Te4x":
 /***/ (function(module, exports) {
 
@@ -2904,6 +3132,18 @@ var getWindowNames = function (it) {
 
 module.exports.f = function getOwnPropertyNames(it) {
   return windowNames && toString.call(it) == '[object Window]' ? getWindowNames(it) : gOPN(toIObject(it));
+};
+
+
+/***/ }),
+
+/***/ "ZBSP":
+/***/ (function(module, exports) {
+
+// 20.2.2.28 Math.sign(x)
+module.exports = Math.sign || function sign(x) {
+  // eslint-disable-next-line no-self-compare
+  return (x = +x) == 0 || x != x ? x : x < 0 ? -1 : 1;
 };
 
 
@@ -3355,6 +3595,17 @@ module.exports = {};
 
 var document = __webpack_require__("W9uE").document;
 module.exports = document && document.documentElement;
+
+
+/***/ }),
+
+/***/ "xT2k":
+/***/ (function(module, exports, __webpack_require__) {
+
+// 20.2.2.28 Math.sign(x)
+var $export = __webpack_require__("SZ/P");
+
+$export($export.S, 'Math', { sign: __webpack_require__("ZBSP") });
 
 
 /***/ }),

@@ -11,6 +11,7 @@ import {confirm} from './components/vsMessageBox/vsMessageBox.js'
 import {prompt} from './components/vsMessageBox/vsMessageBox.js'
 import vsTabs from './components/tabs/tabs.vue'
 import vsTab from './components/tabs/tab.vue'
+import vsSlider from './components/slider/slider.vue'
 
 // import 'prefixfree'
 // import './css/index.css'
@@ -37,6 +38,8 @@ const Vuesax = {
     Vue.component(vsTabs.name,vsTabs)
     //tab
     Vue.component(vsTab.name,vsTab)
+    //slider
+    Vue.component(vsSlider.name,vsSlider)
 
 
   	Vue.mixin({
