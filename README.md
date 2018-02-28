@@ -91,6 +91,10 @@ import Vuesax from 'vuesax'
 import 'vuesax/dist/vuesax.css'
 Vue.use(Vuesax)
 ```
+## Backers
+
+Support us with a monthly donation and help us continue our activities. [[Become a backer](https://opencollective.com/vuesax#backer)]
+
 
 ## Lusaxweb
 
