@@ -167,6 +167,7 @@ export default {
       min-width: 70px;
     }
   .con-input-number button{
+    margin: 0px !important;
     border-radius: 50%;
     border: 0px;
     width: 32px;

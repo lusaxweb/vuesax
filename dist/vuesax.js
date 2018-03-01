@@ -2516,14 +2516,14 @@ var slider_Component = slider_normalizeComponent(
     }
   }
 });
-// CONCATENATED MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/template-compiler?{"id":"data-v-9a933b32","hasScoped":true,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/selector.js?type=template&index=0!./components/vsInputNumber/vsInputNumber.vue
+// CONCATENATED MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/template-compiler?{"id":"data-v-1e00aaca","hasScoped":true,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/selector.js?type=template&index=0!./components/vsInputNumber/vsInputNumber.vue
 var vsInputNumber_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{class:'vs-'+_vm.vsSize},[_c('div',{staticClass:"con-input-number",class:[{'con-plus':_vm.pulsandoPlus,'con-menos':_vm.pulsandoMenos,'disabledx':_vm.disabled}],style:({'color':_vm.vsColor?/[#()]/.test(_vm.vsColor)?_vm.vsColor:("rgb(var(--" + _vm.vsColor + "))"):'rgb(var(--primary))','background':_vm.vsColor?/[#()]/.test(_vm.vsColor)?_vm.vsColor:("rgb(var(--" + _vm.vsColor + "))"):'rgb(var(--primary))'})},[_c('button',{directives:[{name:"repeat-click",rawName:"v-repeat-click",value:(_vm.menos),expression:"menos"}],class:{'no-mas':_vm.vsMin?_vm.value<=_vm.vsMin:false},attrs:{"type":"button","name":"button"},on:{"mousedown":function($event){_vm.pulsandoMenos=true},"mouseup":function($event){_vm.pulsandoMenos=false},"mouseleave":function($event){_vm.pulsandoMenos=false}}},[_c('i',{staticClass:"material-icons"},[_vm._v("remove")])]),_vm._v(" "),_c('div',{staticClass:"numberx"},[_c('input',{class:{'plus':_vm.pulsandoPlus,'menos':_vm.pulsandoMenos},style:({'width':_vm.value.toString().length*17+'px'}),attrs:{"type":"text","name":"","value":""},domProps:{"value":_vm.value},on:{"blur":_vm.blurx,"keydown":function($event){_vm.validarKeypress($event,$event.target.value)},"input":function($event){_vm.$emit('input',$event.target.value)}}})]),_vm._v(" "),_c('div',{},[_c('button',{directives:[{name:"repeat-click",rawName:"v-repeat-click",value:(_vm.mas),expression:"mas"}],class:{'no-mas':_vm.vsMax?_vm.value>=_vm.vsMax:false},attrs:{"type":"button","name":"button"},on:{"mousedown":function($event){_vm.pulsandoPlus=true},"mouseup":function($event){_vm.pulsandoPlus=false},"mouseleave":function($event){_vm.pulsandoPlus=false}}},[_c('i',{staticClass:"material-icons"},[_vm._v("add")])])])])])}
 var vsInputNumber_staticRenderFns = []
 var vsInputNumber_esExports = { render: vsInputNumber_render, staticRenderFns: vsInputNumber_staticRenderFns }
 /* harmony default export */ var vsInputNumber_vsInputNumber = (vsInputNumber_esExports);
 // CONCATENATED MODULE: ./components/vsInputNumber/vsInputNumber.vue
 function vsInputNumber_injectStyle (ssrContext) {
-  __webpack_require__("kGEH")
+  __webpack_require__("SU85")
 }
 var vsInputNumber_normalizeComponent = __webpack_require__("mUJo")
 /* script */
@@ -2536,7 +2536,7 @@ var vsInputNumber___vue_template_functional__ = false
 /* styles */
 var vsInputNumber___vue_styles__ = vsInputNumber_injectStyle
 /* scopeId */
-var vsInputNumber___vue_scopeId__ = "data-v-9a933b32"
+var vsInputNumber___vue_scopeId__ = "data-v-1e00aaca"
 /* moduleIdentifier (server only) */
 var vsInputNumber___vue_module_identifier__ = null
 var vsInputNumber_Component = vsInputNumber_normalizeComponent(
@@ -2998,6 +2998,13 @@ module.exports = !__webpack_require__("V5XO") && !__webpack_require__("gHxa")(fu
 
 /***/ }),
 
+/***/ "SU85":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "SZ/P":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3443,13 +3450,6 @@ module.exports = function (exec) {
 
 exports.f = {}.propertyIsEnumerable;
 
-
-/***/ }),
-
-/***/ "kGEH":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ }),
 
