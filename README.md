@@ -91,6 +91,10 @@ import Vuesax from 'vuesax'
 import 'vuesax/dist/vuesax.css'
 Vue.use(Vuesax)
 ```
+## Become a Patron
+
+Vuesax is an open source MIT project if you want to contribute to keep improving, If you are interested in supporting this project, please consider becoming a patron. [[patron](https://www.patreon.com/bePatron?c=1567892)]
+
 ## Backers
 
 Support us with a monthly donation and help us continue our activities. [[Become a backer](https://opencollective.com/vuesax#backer)]
