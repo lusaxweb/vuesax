@@ -2381,8 +2381,178 @@ var slider_Component = slider_normalizeComponent(
 
 /* harmony default export */ var components_slider_slider = (slider_Component.exports);
 
+// CONCATENATED MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/babel-loader/lib!C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/selector.js?type=script&index=0!./components/vsInputNumber/vsInputNumber.vue
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+// var pulse = setInterval(function(){ console.log("hola") }, 1000);
+
+/* harmony default export */ var vsInputNumber = ({
+  name: 'vs-input-number',
+  directives: {
+    repeatClick: {
+      bind: function bind(el, binding, vnode) {
+        var intervalx = null;
+        var startT = void 0;
+        var functionx = function functionx() {
+          return vnode.context[binding.expression].apply();
+        };
+        var bucle = function bucle() {
+          if (new Date() - startT < 100) {
+            functionx();
+          }
+          clearInterval(intervalx);
+          intervalx = null;
+        };
+        var eventx = function eventx(e) {
+          if (e.button !== 0) return;
+          startT = new Date();
+          var escuchando = function escuchando() {
+            if (bucle) {
+              bucle.apply(this, arguments);
+            }
+            el.removeEventListener('mouseup', escuchando, false);
+          };
+          el.addEventListener('mouseleave', escuchando, false);
+          el.addEventListener('mouseup', escuchando, false);
+          clearInterval(intervalx);
+          intervalx = setInterval(functionx, 100);
+        };
+        el.addEventListener('mousedown', eventx, false);
+      }
+    }
+  },
+  props: ['value', 'vsColor', 'vsMax', 'vsMin', 'disabled', 'vsLabel', 'vsSize'],
+  data: function data() {
+    return {
+      valuex: this.value,
+      pulsandoPlus: false,
+      pulsandoMenos: false
+    };
+  },
+  created: function created() {
+    if (parseInt(this.value) < parseInt(this.vsMin)) {
+      this.$emit('input', this.vsMin);
+    } else if (parseInt(this.value) > parseInt(this.vsMax)) {
+      this.$emit('input', this.vsMax);
+    }
+  },
+
+  watch: {
+    value: function value() {
+      this.valuex = this.value;
+    }
+  },
+  methods: {
+    blurx: function blurx() {
+      if (this.valuex == '') {
+        this.$emit('input', 0);
+      }
+      if (parseInt(this.value) < parseInt(this.vsMin)) {
+        console.log("entro");
+        this.$emit('input', this.vsMin);
+      } else if (parseInt(this.value) > parseInt(this.vsMax)) {
+        console.log("entro");
+        this.$emit('input', this.vsMax);
+      }
+    },
+    validarKeypress: function validarKeypress(evt, value) {
+      var rgx = /[0-9]/;
+      if (evt.key != 'Backspace' && evt.key != 'Delete' && evt.key != 'ArrowLeft' && evt.key != 'ArrowRight' && evt.key != 'ArrowUp' && evt.key != 'ArrowDown') {
+        if (!rgx.test(evt.key)) {
+          evt.preventDefault();
+        }
+      } else if (evt.key == 'ArrowDown') {
+        this.menos();
+      } else if (evt.key == 'ArrowUp') {
+        this.mas();
+      }
+    },
+    mas: function mas() {
+      if (this.valuex === '') {
+        this.valuex = 0;
+      }
+      if (this.vsMax ? parseInt(this.value) < parseInt(this.vsMax) : true) {
+        var valueNew = parseInt(this.valuex) + 1;
+        this.$emit('input', valueNew);
+      }
+    },
+    menos: function menos() {
+      if (this.valuex === '') {
+        this.valuex = 0;
+      }
+      if (this.vsMin ? parseInt(this.value) > parseInt(this.vsMin) : true) {
+        var valueNew = parseInt(this.valuex) - 1;
+        this.$emit('input', valueNew);
+      }
+    }
+  }
+});
+// CONCATENATED MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/template-compiler?{"id":"data-v-9a933b32","hasScoped":true,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/selector.js?type=template&index=0!./components/vsInputNumber/vsInputNumber.vue
+var vsInputNumber_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{class:'vs-'+_vm.vsSize},[_c('div',{staticClass:"con-input-number",class:[{'con-plus':_vm.pulsandoPlus,'con-menos':_vm.pulsandoMenos,'disabledx':_vm.disabled}],style:({'color':_vm.vsColor?/[#()]/.test(_vm.vsColor)?_vm.vsColor:("rgb(var(--" + _vm.vsColor + "))"):'rgb(var(--primary))','background':_vm.vsColor?/[#()]/.test(_vm.vsColor)?_vm.vsColor:("rgb(var(--" + _vm.vsColor + "))"):'rgb(var(--primary))'})},[_c('button',{directives:[{name:"repeat-click",rawName:"v-repeat-click",value:(_vm.menos),expression:"menos"}],class:{'no-mas':_vm.vsMin?_vm.value<=_vm.vsMin:false},attrs:{"type":"button","name":"button"},on:{"mousedown":function($event){_vm.pulsandoMenos=true},"mouseup":function($event){_vm.pulsandoMenos=false},"mouseleave":function($event){_vm.pulsandoMenos=false}}},[_c('i',{staticClass:"material-icons"},[_vm._v("remove")])]),_vm._v(" "),_c('div',{staticClass:"numberx"},[_c('input',{class:{'plus':_vm.pulsandoPlus,'menos':_vm.pulsandoMenos},style:({'width':_vm.value.toString().length*17+'px'}),attrs:{"type":"text","name":"","value":""},domProps:{"value":_vm.value},on:{"blur":_vm.blurx,"keydown":function($event){_vm.validarKeypress($event,$event.target.value)},"input":function($event){_vm.$emit('input',$event.target.value)}}})]),_vm._v(" "),_c('div',{},[_c('button',{directives:[{name:"repeat-click",rawName:"v-repeat-click",value:(_vm.mas),expression:"mas"}],class:{'no-mas':_vm.vsMax?_vm.value>=_vm.vsMax:false},attrs:{"type":"button","name":"button"},on:{"mousedown":function($event){_vm.pulsandoPlus=true},"mouseup":function($event){_vm.pulsandoPlus=false},"mouseleave":function($event){_vm.pulsandoPlus=false}}},[_c('i',{staticClass:"material-icons"},[_vm._v("add")])])])])])}
+var vsInputNumber_staticRenderFns = []
+var vsInputNumber_esExports = { render: vsInputNumber_render, staticRenderFns: vsInputNumber_staticRenderFns }
+/* harmony default export */ var vsInputNumber_vsInputNumber = (vsInputNumber_esExports);
+// CONCATENATED MODULE: ./components/vsInputNumber/vsInputNumber.vue
+function vsInputNumber_injectStyle (ssrContext) {
+  __webpack_require__("kGEH")
+}
+var vsInputNumber_normalizeComponent = __webpack_require__("mUJo")
+/* script */
+
+
+/* template */
+
+/* template functional */
+var vsInputNumber___vue_template_functional__ = false
+/* styles */
+var vsInputNumber___vue_styles__ = vsInputNumber_injectStyle
+/* scopeId */
+var vsInputNumber___vue_scopeId__ = "data-v-9a933b32"
+/* moduleIdentifier (server only) */
+var vsInputNumber___vue_module_identifier__ = null
+var vsInputNumber_Component = vsInputNumber_normalizeComponent(
+  vsInputNumber,
+  vsInputNumber_vsInputNumber,
+  vsInputNumber___vue_template_functional__,
+  vsInputNumber___vue_styles__,
+  vsInputNumber___vue_scopeId__,
+  vsInputNumber___vue_module_identifier__
+)
+
+/* harmony default export */ var components_vsInputNumber_vsInputNumber = (vsInputNumber_Component.exports);
+
 // CONCATENATED MODULE: ./index.js
 // import Vue from 'vue'
+
 
 
 
@@ -2424,6 +2594,8 @@ const Vuesax = {
     Vue.component(components_tabs_tab.name,components_tabs_tab)
     //slider
     Vue.component(components_slider_slider.name,components_slider_slider)
+    //InputNumber
+    Vue.component(components_vsInputNumber_vsInputNumber.name,components_vsInputNumber_vsInputNumber)
 
 
   	Vue.mixin({
@@ -2440,7 +2612,28 @@ const Vuesax = {
         el.focus()
       }
     })
-
+// Vue.directive('vs-repeat-click', {
+//   bind(el, binding, vnode) {
+//     let interval = null;
+//     let startTime;
+//     const handler = () => vnode.context[binding.expression].apply();
+//     const clear = () => {
+//       if (new Date() - startTime < 100) {
+//         handler();
+//       }
+//       clearInterval(interval);
+//       interval = null;
+//     };
+//
+//     on(el, 'mousedown', (e) => {
+//       if (e.button !== 0) return;
+//       startTime = new Date();
+//       once(document, 'mouseup', clear);
+//       clearInterval(interval);
+//       interval = setInterval(handler, 100);
+//     });
+//   }
+// })
   }
 };
 
@@ -3250,6 +3443,13 @@ module.exports = function (exec) {
 
 exports.f = {}.propertyIsEnumerable;
 
+
+/***/ }),
+
+/***/ "kGEH":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 

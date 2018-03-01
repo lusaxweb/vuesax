@@ -1,9 +1,9 @@
 <p align="center">
 <a href="https://lusaxweb.github.io/vuesax/#/"><img src="https://lusaxweb.github.io/vuesax/static2/img/vuesax-logo-2.0ab2286.png" alt="vuesax"></a>
   </p>
-  
+
   </br>
-  
+
   <p align="center">
   <a href="https://travis-ci.org/lusaxweb/vuesax">
     <img src="https://img.shields.io/travis/lusaxweb/vuesax.svg" alt="travis ci badge">
@@ -33,10 +33,11 @@ Vuesax is a frontend library based on vue js that helps you develop faster and w
 - [Dialogs](https://lusaxweb.github.io/vuesax/#/docs/messageBox)
 - [Tabs](https://lusaxweb.github.io/vuesax/#/docs/tabs)
 - [Slider](https://lusaxweb.github.io/vuesax/#/docs/slider)
+- [InputNumber](https://lusaxweb.github.io/vuesax/#/docs/inputNumber)
 
 # Demo and Documentation
 
-[Demo](https://lusaxweb.github.io/vuesax/#/docs/getting-started)
+[Documentation](https://lusaxweb.github.io/vuesax/#/)
 
 # Browser Support
 Recent versions of Firefox, Chrome, Edge, Opera and Safari. IE10+

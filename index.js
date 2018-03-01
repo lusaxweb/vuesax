@@ -12,6 +12,7 @@ import {prompt} from './components/vsMessageBox/vsMessageBox.js'
 import vsTabs from './components/tabs/tabs.vue'
 import vsTab from './components/tabs/tab.vue'
 import vsSlider from './components/slider/slider.vue'
+import vsInputNumber from './components/vsInputNumber/vsInputNumber.vue'
 
 // import 'prefixfree'
 // import './css/index.css'
@@ -40,6 +41,8 @@ const Vuesax = {
     Vue.component(vsTab.name,vsTab)
     //slider
     Vue.component(vsSlider.name,vsSlider)
+    //InputNumber
+    Vue.component(vsInputNumber.name,vsInputNumber)
 
 
   	Vue.mixin({
@@ -56,7 +59,28 @@ const Vuesax = {
         el.focus()
       }
     })
-
+// Vue.directive('vs-repeat-click', {
+//   bind(el, binding, vnode) {
+//     let interval = null;
+//     let startTime;
+//     const handler = () => vnode.context[binding.expression].apply();
+//     const clear = () => {
+//       if (new Date() - startTime < 100) {
+//         handler();
+//       }
+//       clearInterval(interval);
+//       interval = null;
+//     };
+//
+//     on(el, 'mousedown', (e) => {
+//       if (e.button !== 0) return;
+//       startTime = new Date();
+//       once(document, 'mouseup', clear);
+//       clearInterval(interval);
+//       interval = setInterval(handler, 100);
+//     });
+//   }
+// })
   }
 };
 
