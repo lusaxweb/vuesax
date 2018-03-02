@@ -79,9 +79,11 @@ export default {
       this.numerox = this.numeroMostrar
     },
     mousedownx(event){
-      event.preventDefault();
+      // event.preventDefault();
       window.addEventListener('mousemove', this.mouseMovex);
       window.addEventListener('mouseup', this.removeEvents);
+      window.addEventListener('touchmove', this.mouseMovex);
+      window.addEventListener('touchend', this.removeEvents);
     },
     mouseMovex(event){
       if(this.disabled){

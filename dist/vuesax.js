@@ -2262,9 +2262,11 @@ var sign_default = /*#__PURE__*/__webpack_require__.n(sign);
       this.numerox = this.numeroMostrar;
     },
     mousedownx: function mousedownx(event) {
-      event.preventDefault();
+      // event.preventDefault();
       window.addEventListener('mousemove', this.mouseMovex);
       window.addEventListener('mouseup', this.removeEvents);
+      window.addEventListener('touchmove', this.mouseMovex);
+      window.addEventListener('touchend', this.removeEvents);
     },
     mouseMovex: function mouseMovex(event) {
       if (this.disabled) {
@@ -2347,14 +2349,14 @@ var sign_default = /*#__PURE__*/__webpack_require__.n(sign);
     }
   }
 });
-// CONCATENATED MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/template-compiler?{"id":"data-v-96553920","hasScoped":false,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/selector.js?type=template&index=0!./components/slider/slider.vue
+// CONCATENATED MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/template-compiler?{"id":"data-v-4ec8ce25","hasScoped":false,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/selector.js?type=template&index=0!./components/slider/slider.vue
 var slider_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"con-slider",class:{'s-d':_vm.disabled}},[_c('div',{ref:"lineaSlider",staticClass:"linea-slider",on:{"click":function($event){_vm.clickLinea($event)}}},[_c('div',{ref:"lineaPintada",staticClass:"linea-pintada",style:({'background':_vm.vsColor,'width':_vm.numerox+1+'%'})}),_vm._v(" "),_c('div',{ref:"circle",staticClass:"circle-slider",style:({'background':_vm.vsColor,'left':_vm.numerox+'%'}),on:{"mouseenter":function($event){_vm.verNumero=true},"mouseleave":function($event){_vm.verNumero=false},"mousedown":_vm.mousedownx}},[_c('div',{staticClass:"con-numero-slider",class:{'hoverx':_vm.verNumero},style:({'background':_vm.vsColor})},[_c('span',[_vm._v(_vm._s(this.numeroMostrar))])])])])])}
 var slider_staticRenderFns = []
 var slider_esExports = { render: slider_render, staticRenderFns: slider_staticRenderFns }
 /* harmony default export */ var slider_slider = (slider_esExports);
 // CONCATENATED MODULE: ./components/slider/slider.vue
 function slider_injectStyle (ssrContext) {
-  __webpack_require__("TC91")
+  __webpack_require__("veot")
 }
 var slider_normalizeComponent = __webpack_require__("mUJo")
 /* script */
@@ -2550,8 +2552,132 @@ var vsInputNumber_Component = vsInputNumber_normalizeComponent(
 
 /* harmony default export */ var components_vsInputNumber_vsInputNumber = (vsInputNumber_Component.exports);
 
+// EXTERNAL MODULE: ./src/directives/vsTooltip.css
+var vsTooltip = __webpack_require__("hPvu");
+var vsTooltip_default = /*#__PURE__*/__webpack_require__.n(vsTooltip);
+
+// CONCATENATED MODULE: ./src/directives/vsTooltip.js
+
+
+/* harmony default export */ var directives_vsTooltip = ({
+  inserted: function inserted(el, binding, vnode) {
+    // console.log("el=>",el);
+    // console.log("binding=>",binding);
+    // console.log('vnode=>',vnode);
+    var delayx = 0;
+    var valuex = null;
+    var colorx = 'rgb(70, 70, 70)';
+    var active = true;
+
+    if (typeof_default()(binding.value) == 'object') {
+      valuex = binding.value.text;
+      // if(binding.value.hasOwnProperty('delay')){
+      delayx = binding.value.delay || 0;
+      // }
+      // if(binding.value.hasOwnProperty('color')){
+      colorx = binding.value.color ? /[#()]/.test(binding.value.color) ? binding.value.color : 'rgb(var(--' + binding.value.color + '))' : 'rgb(70, 70, 70)';
+      // }
+    } else if (typeof binding.value == 'string') {
+      valuex = binding.value;
+    }
+
+    el.classList.add('vs-tooltipx');
+
+    var tooltipx = document.createElement("div");
+    tooltipx.classList = 'vs-tooltip';
+
+    if (typeof_default()(binding.value) == 'object') {
+      if (binding.value.hasOwnProperty('position')) {
+        tooltipx.classList.add('vs-tooltip-' + binding.value.position);
+      }
+    }
+
+    var ramdomx = Math.floor(Math.random() * 1000 + 1);
+    tooltipx.classList.add('vs-tooltip' + ramdomx);
+    tooltipx.innerHTML = '\n      <p>\n      ' + valuex + '\n      </p>\n    ';
+    tooltipx.style.background = colorx;
+    console.log("paso");
+    var mouseEnterx = function mouseEnterx(event) {
+
+      var coords = event.toElement.getBoundingClientRect();
+      document.body.insertBefore(tooltipx, document.body.firstChild);
+
+      if (typeof_default()(binding.value) == 'object') {
+        if (binding.value.position == 'left') {
+          tooltipx.style.top = coords.top + event.target.clientHeight + 'px';
+          tooltipx.style.left = coords.left - (tooltipx.clientWidth + 8) + 'px';
+        } else if (binding.value.position == 'right') {
+          tooltipx.style.top = coords.top + event.target.clientHeight + 'px';
+          tooltipx.style.left = coords.left + (event.target.clientWidth + 8) + 'px';
+        } else if (binding.value.position == 'bottom') {
+          tooltipx.style.top = coords.top + (event.target.clientHeight * 2 + 5) + 'px';
+          tooltipx.style.left = coords.left - (tooltipx.clientWidth / 2 - event.target.clientWidth / 2) + 'px';
+        } else if (binding.value.position == 'top' || binding.value.position == undefined) {
+          tooltipx.style.top = coords.top + 'px';
+          tooltipx.style.left = coords.left - (tooltipx.clientWidth / 2 - event.target.clientWidth / 2) + 'px';
+        }
+      } else {
+        tooltipx.style.top = coords.top + 'px';
+        tooltipx.style.left = coords.left - (tooltipx.clientWidth / 2 - event.target.clientWidth / 2) + 'px';
+      }
+
+      setTimeout(function () {
+        tooltipx.style.transform = 'translateY(calc(-100% - 7px))';
+        tooltipx.style.opacity = '1';
+        el.removeEventListener('mouseEnterx', mouseEnterx, false);
+      }, delayx);
+      el.addEventListener('mouseleave', mousex);
+    };
+
+    el.addEventListener('mouseenter', mouseEnterx);
+
+    var mousex = function mousex(event) {
+      var coords = event.toElement.getBoundingClientRect();
+      tooltipx.style.transform = 'translateY(-90%)';
+      tooltipx.style.opacity = '0';
+      setTimeout(function () {
+        if (document.querySelector('.vs-tooltip' + ramdomx)) {
+          document.querySelector('.vs-tooltip' + ramdomx).remove();
+          el.removeEventListener('mouseleave', mousex, false);
+        }
+      }, 200);
+      el.addEventListener('mouseEnterx', mouseEnterx, false);
+    };
+
+    el.addEventListener('mouseleave', mousex);
+
+    //window scroll
+    window.addEventListener('mousewheel', function (e) {
+      if (document.querySelector('.vs-tooltip' + ramdomx)) {
+        tooltipx.style.transform = 'translateY(-90%)';
+        tooltipx.style.opacity = '0';
+        setTimeout(function () {
+          if (document.querySelector('.vs-tooltip' + ramdomx)) {
+            document.querySelector('.vs-tooltip' + ramdomx).remove();
+            el.removeEventListener('mouseleave', mousex, false);
+          }
+        }, 200);
+        el.addEventListener('mouseEnterx', mouseEnterx, false);
+      }
+    });
+    window.addEventListener('touchmove', function (e) {
+      if (document.querySelector('.vs-tooltip' + ramdomx)) {
+        tooltipx.style.transform = 'translateY(-90%)';
+        tooltipx.style.opacity = '0';
+        setTimeout(function () {
+          if (document.querySelector('.vs-tooltip' + ramdomx)) {
+            document.querySelector('.vs-tooltip' + ramdomx).remove();
+            el.removeEventListener('mouseleave', mousex, false);
+          }
+        }, 200);
+        el.addEventListener('mouseEnterx', mouseEnterx, false);
+      }
+    });
+  }
+});
 // CONCATENATED MODULE: ./index.js
 // import Vue from 'vue'
+
 
 
 
@@ -2603,7 +2729,6 @@ const Vuesax = {
         vsNoti: vsNoti_vsNoti
       }
     });
-
     // Register a global custom directive called `v-focus`
     Vue.directive('focus', {
       // When the bound element is inserted into the DOM...
@@ -2612,6 +2737,7 @@ const Vuesax = {
         el.focus()
       }
     })
+    Vue.directive('tooltip', directives_vsTooltip)
 // Vue.directive('vs-repeat-click', {
 //   bind(el, binding, vnode) {
 //     let interval = null;
@@ -3087,13 +3213,6 @@ module.exports = $export;
 
 /***/ }),
 
-/***/ "TC91":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ "Te4x":
 /***/ (function(module, exports) {
 
@@ -3453,6 +3572,13 @@ exports.f = {}.propertyIsEnumerable;
 
 /***/ }),
 
+/***/ "hPvu":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "m2xl":
 /***/ (function(module, exports) {
 
@@ -3787,6 +3913,13 @@ module.exports = function () { /* empty */ };
 
 module.exports = {};
 
+
+/***/ }),
+
+/***/ "veot":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 

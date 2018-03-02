@@ -13,6 +13,7 @@ import vsTabs from './components/tabs/tabs.vue'
 import vsTab from './components/tabs/tab.vue'
 import vsSlider from './components/slider/slider.vue'
 import vsInputNumber from './components/vsInputNumber/vsInputNumber.vue'
+import tooltip from './src/directives/vsTooltip.js'
 
 // import 'prefixfree'
 // import './css/index.css'
@@ -50,7 +51,6 @@ const Vuesax = {
         vsNoti
       }
     });
-
     // Register a global custom directive called `v-focus`
     Vue.directive('focus', {
       // When the bound element is inserted into the DOM...
@@ -59,6 +59,7 @@ const Vuesax = {
         el.focus()
       }
     })
+    Vue.directive('tooltip', tooltip)
 // Vue.directive('vs-repeat-click', {
 //   bind(el, binding, vnode) {
 //     let interval = null;
