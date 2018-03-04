@@ -10,7 +10,10 @@
       <!-- <select  name="">
 
       </select> -->
-      <button class="input-hidden"  @focus="visible=true,clickInputSelect()" @blur="blurx()" ref="inputHidden" type="button" name="button"></button>
+      <select class="input-hidden"  @focus="visible=true,clickInputSelect()" @blur="blurx()" @change="clickOptionSelect($event)" ref="inputHidden" name="">
+        <option v-for="option,index in options" :selected="seleccionadoValue==option.value" :value="option.value"></option>
+      </select>
+      <!-- <button  type="button" name="button"></button> -->
     </div>
     <transition name="fade">
     <div ref="conUlSelect"  :class="{'visiblex':visible}" v-if="visible" :style="{'top':topx+'px','left':leftx+'px','width':widthx+'px'}" class="con-ul-select">
@@ -121,6 +124,11 @@ export default {
       this.visible=false
       this.$emit('input',evt.target.dataset.value);
       this.$emit('change',evt.target.dataset.value);
+    },
+    clickOptionSelect(evt){
+      this.visible=false
+      this.$emit('input',evt.target.value);
+      this.$emit('change',evt.target.value);
     },
     clickInputSelect(){
       this.topx = this.$refs.vsSelect.querySelector('.con-input-select').getBoundingClientRect().top
