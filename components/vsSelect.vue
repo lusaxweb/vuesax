@@ -18,7 +18,8 @@
       <!-- <button  type="button" name="button"></button> -->
     </div>
     <transition name="fade">
-    <div v-show="validaAncho" ref="conUlSelect"  :class="{'visiblex':visible}" v-if="visible" :style="{'top':topx+'px','left':leftx+'px','width':widthx+'px'}" class="con-ul-select">
+      <!-- v-show="validaAncho" -->
+    <div  ref="conUlSelect"  :class="{'visiblex':visible}" v-if="visible" :style="{'top':topx+'px','left':leftx+'px','width':widthx+'px'}" class="con-ul-select">
       <ul :class="{'scrollx':scroll}">
         <li :class="{'activo':seleccionadoValue==option.value}" :style="{'transition':'transform .2s ease '+index/30+'s , background .2s ease,opacity .2s ease '+index/30+'s'}" v-for="option,index in options" @click="clickOption($event)" :data-value="option.value">{{option.text}}</li>
       </ul>
@@ -170,6 +171,15 @@ export default {
       return result;
     }
     window.addEventListener('mousewheel', (e) => {
+      var parents = getParents(e.toElement);
+      parents = parents.filter((item) => {
+        return item.className.search('con-ul-select')!=-1
+      })
+      if(parents.length==0){
+        this.visible=false
+      }
+    })
+    window.addEventListener('touchmove', (e) => {
       var parents = getParents(e.toElement);
       parents = parents.filter((item) => {
         return item.className.search('con-ul-select')!=-1
