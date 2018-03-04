@@ -6,7 +6,11 @@
       <span>{{seleccionado}}</span>
       <i class="i-icon material-icons">expand_more</i>
       <!--  -->
-      <input ref="inputHidden" @blur="blurx()"  @focus="visible=true,clickInputSelect()"  class="input-hidden" type="text" name="" value="">
+      <!-- <input      type="text" name="" value=""> -->
+      <!-- <select  name="">
+
+      </select> -->
+      <button class="input-hidden"  @focus="visible=true,clickInputSelect()" @blur="blurx()" ref="inputHidden" type="button" name="button"></button>
     </div>
     <transition name="fade">
     <div ref="conUlSelect"  :class="{'visiblex':visible}" v-if="visible" :style="{'top':topx+'px','left':leftx+'px','width':widthx+'px'}" class="con-ul-select">
