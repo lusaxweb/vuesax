@@ -35,6 +35,7 @@ Vuesax is a frontend library based on vue js that helps you develop faster and w
 - [Slider](https://lusaxweb.github.io/vuesax/#/docs/slider)
 - [InputNumber](https://lusaxweb.github.io/vuesax/#/docs/inputNumber)
 - [Tooltip](https://lusaxweb.github.io/vuesax/#/docs/tooltip)
+- [Upload](https://lusaxweb.github.io/vuesax/#/docs/upload)
 
 # Demo and Documentation
 

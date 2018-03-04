@@ -14,6 +14,7 @@ import vsTab from './components/tabs/tab.vue'
 import vsSlider from './components/slider/slider.vue'
 import vsInputNumber from './components/vsInputNumber/vsInputNumber.vue'
 import tooltip from './src/directives/vsTooltip.js'
+import vsUpload from './components/upload/vsUpload.vue'
 
 // import 'prefixfree'
 // import './css/index.css'
@@ -44,6 +45,8 @@ const Vuesax = {
     Vue.component(vsSlider.name,vsSlider)
     //InputNumber
     Vue.component(vsInputNumber.name,vsInputNumber)
+    //upload
+    Vue.component(vsUpload.name,vsUpload)
 
 
   	Vue.mixin({

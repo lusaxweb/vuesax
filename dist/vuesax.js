@@ -406,6 +406,13 @@ module.exports = { "default": __webpack_require__("OcUk"), __esModule: true };
 
 /***/ }),
 
+/***/ "EJYC":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "ElwZ":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2675,8 +2682,294 @@ var vsTooltip_default = /*#__PURE__*/__webpack_require__.n(vsTooltip);
     });
   }
 });
+// EXTERNAL MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/babel-runtime/core-js/json/stringify.js
+var stringify = __webpack_require__("hoiv");
+var stringify_default = /*#__PURE__*/__webpack_require__.n(stringify);
+
+// CONCATENATED MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/babel-loader/lib!C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/selector.js?type=script&index=0!./components/upload/vsUpload.vue
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ var vsUpload = ({
+  name: 'vs-upload',
+  filter: {
+    reverse: function reverse(value) {
+      return value.slice().reverse();
+    }
+  },
+  props: {
+    vsFile: String,
+    multiple: Boolean,
+    arrayFiles: {
+      type: Array,
+      default: function _default() {
+        return [];
+      }
+    },
+    vsFileList: Array
+  },
+  data: function data() {
+    return {
+      url: '',
+      colorx: 'rgb(255, 255, 255)',
+      urlview: '',
+      view: false
+    };
+  },
+  mounted: function mounted() {
+    var elx = this.$refs.viewx;
+    document.body.insertBefore(elx, document.body.firstChild);
+  },
+
+  computed: {
+    reverseImgs: function reverseImgs() {
+      if (this.arrayFiles.length > 0) {
+
+        return JSON.parse(stringify_default()(this.arrayFiles)).slice().reverse();
+      }
+    }
+  },
+  methods: {
+    // multiple
+    agregarImg: function agregarImg() {
+      console.log("hola mundo");
+    },
+    quitarView: function quitarView(evt) {
+      var _this2 = this;
+
+      console.log(evt.target.nodeName);
+      if (evt.target.nodeName != 'IMG') {
+        this.view = false;
+        setTimeout(function () {
+          _this2.urlview = '';
+        }, 250);
+      }
+    },
+    verview: function verview() {
+      this.urlview = this.url;
+      this.view = true;
+    },
+    xUrl: function xUrl() {
+      var _this3 = this;
+
+      this.$refs.conimg.classList.add('oculto');
+      setTimeout(function () {
+        _this3.url = '';
+        _this3.$emit('file', '');
+      }, 250);
+    },
+    multipleUploadx: function multipleUploadx(e) {
+      var _this4 = this;
+
+      var preview = this.$refs.ulmultiple;
+      var file = this.$refs.inputsx.files[0];
+      var reader = new FileReader();
+      var filesx = JSON.parse(stringify_default()(this.vsFileList));
+      reader.onloadend = function () {
+        // preview.src = reader.result;
+        _this4.arrayFiles.push({ src: reader.result });
+        // this.vsFileList.push({name:file.name})
+        console.log(file);
+
+        filesx.push({ name: file.name });
+        console.log(filesx);
+        _this4.$emit('update:vsFileList', filesx);
+      };
+
+      if (file) {
+        reader.readAsDataURL(file);
+      } else {
+        // preview.src = this.url;
+      }
+    },
+    uploadx: function uploadx(e) {
+      console.log("paso");
+      this.$emit('update:vsFile', e.target.value);
+      var _this = this;
+      this.$refs.conimg.classList.remove('oculto');
+      var preview = this.$refs.imgx;
+      var file = this.$refs.inputx.files[0];
+      var reader = new FileReader();
+
+      // reader.onloadend =  ()=> {
+      //   // preview.src = reader.result;
+      //   this.url = reader.result
+      // }
+      //
+      // if (file) {
+      //   reader.readAsDataURL(file);
+      // } else {
+      //   preview.src = this.url;
+      // }
+
+
+      var averagediv = this.$refs.conimg;
+      var averageimage = this.$refs.imgx;
+
+      // obtener color
+      function getaverageColor(imagen) {
+        var r = 0,
+            g = 0,
+            b = 0,
+            count = 0,
+            canvas,
+            ctx,
+            imageData,
+            data,
+            i,
+            n;
+        canvas = document.createElement('canvas');
+        ctx = canvas.getContext("2d");
+        canvas.width = imagen.width;
+        canvas.height = imagen.height;
+        ctx.drawImage(imagen, 0, 0);
+        imageData = ctx.getImageData(0, 0, imagen.width, imagen.height);
+        data = imageData.data;
+        for (i = 0, n = data.length; i < n; i += 4) {
+          ++count;
+          r += data[i];
+          g += data[i + 1];
+          b += data[i + 2];
+        }
+        r = ~~(r / count);
+        g = ~~(g / count);
+        b = ~~(b / count);
+        return [r, g, b];
+      }
+
+      function rgbToHex(arr) {
+        return "#" + ((1 << 24) + (arr[0] << 16) + (arr[1] << 8) + arr[2]).toString(16).slice(1);
+      }
+
+      function uploadImage(e) {
+        var image = new Image();
+        image.src = e.target.result;
+        image.onload = function () {
+          switchImage(this);
+        };
+      }
+      function switchImage(image) {
+        var averagecolor = getaverageColor(image);
+        var color = rgbToHex(averagecolor);
+
+        _this.url = image.src;
+        _this.colorx = color;
+        // averagediv.style.backgroundColor = averagediv.textContent = color;
+      }
+
+      // function setDefaultImage() {
+      //   var image = new Image();
+      //   image.src = "images/average_image.jpg";
+      //   image.onload = function() {
+      //     switchImage(this);
+      //   }
+      // }
+
+
+      file = e.target.files[0];
+      if (!file.type.match(/image.*/)) return;
+      var reader = new FileReader();
+      reader.onload = uploadImage;
+      reader.readAsDataURL(file);
+
+      // this.$emit('file',e.target.value,e)
+    }
+  }
+});
+// CONCATENATED MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/template-compiler?{"id":"data-v-3ac71834","hasScoped":false,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/selector.js?type=template&index=0!./components/upload/vsUpload.vue
+var vsUpload_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"contiene-upload",class:{'con-multiple':_vm.multiple}},[(!_vm.multiple)?_c('div',{staticClass:"con-upload"},[_vm._m(0),_vm._v(" "),_c('input',{ref:"inputx",staticClass:"input-upload",attrs:{"type":"file","name":"","value":""},on:{"change":function($event){_vm.uploadx($event)}}}),_vm._v(" "),_c('div',{}),_vm._v(" "),_c('div',{ref:"conimg",staticClass:"con-img",class:{'oculto':_vm.url==''},style:({'background':_vm.colorx})},[_c('div',{staticClass:"header"},[_c('div',{staticClass:"x-img",on:{"click":function($event){_vm.xUrl(),_vm.colorx='rgb(255, 255, 255)'}}},[_c('i',{staticClass:"material-icons"},[_vm._v("close")])])]),_vm._v(" "),_c('img',{ref:"imgx",attrs:{"src":_vm.url,"alt":""},on:{"click":_vm.verview}})])]):_vm._e(),_vm._v(" "),(_vm.multiple)?_c('div',{staticClass:"con-multiple-upload"},[_c('ul',{ref:"ulmultiple",staticClass:"con-multiples-imgs"},[_vm._l((_vm.reverseImgs),function(file,index){return _c('li',{staticClass:"con-imgs",on:{"click":function($event){_vm.view=true,_vm.urlview=file.src}}},[_c('img',{ref:'vs'+index,refInFor:true,attrs:{"src":file.src,"alt":""}})])}),_vm._v(" "),_c('li',{staticClass:"agregarx"},[_c('input',{ref:"inputsx",staticClass:"input-upload",attrs:{"type":"file","name":"","value":""},on:{"change":function($event){_vm.multipleUploadx($event)}}})])],2)]):_vm._e(),_vm._v(" "),_c('transition',{attrs:{"name":"fade"}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.view),expression:"view"}],ref:"viewx",staticClass:"view-upload",on:{"click":function($event){_vm.quitarView($event)}}},[_c('div',{staticClass:"x-view",on:{"click":function($event){_vm.view=false}}},[_c('i',{staticClass:"material-icons"},[_vm._v("close")])]),_vm._v(" "),_c('img',{attrs:{"src":_vm.urlview,"alt":""}})])])],1)}
+var vsUpload_staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"con-subir"},[_c('h3',[_vm._v("Subir Archivo")]),_vm._v(" "),_c('i',{staticClass:"material-icons"},[_vm._v("publish")])])}]
+var vsUpload_esExports = { render: vsUpload_render, staticRenderFns: vsUpload_staticRenderFns }
+/* harmony default export */ var upload_vsUpload = (vsUpload_esExports);
+// CONCATENATED MODULE: ./components/upload/vsUpload.vue
+function vsUpload_injectStyle (ssrContext) {
+  __webpack_require__("EJYC")
+}
+var vsUpload_normalizeComponent = __webpack_require__("mUJo")
+/* script */
+
+
+/* template */
+
+/* template functional */
+var vsUpload___vue_template_functional__ = false
+/* styles */
+var vsUpload___vue_styles__ = vsUpload_injectStyle
+/* scopeId */
+var vsUpload___vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var vsUpload___vue_module_identifier__ = null
+var vsUpload_Component = vsUpload_normalizeComponent(
+  vsUpload,
+  upload_vsUpload,
+  vsUpload___vue_template_functional__,
+  vsUpload___vue_styles__,
+  vsUpload___vue_scopeId__,
+  vsUpload___vue_module_identifier__
+)
+
+/* harmony default export */ var components_upload_vsUpload = (vsUpload_Component.exports);
+
 // CONCATENATED MODULE: ./index.js
 // import Vue from 'vue'
+
 
 
 
@@ -2722,6 +3015,8 @@ const Vuesax = {
     Vue.component(components_slider_slider.name,components_slider_slider)
     //InputNumber
     Vue.component(components_vsInputNumber_vsInputNumber.name,components_vsInputNumber_vsInputNumber)
+    //upload
+    Vue.component(components_upload_vsUpload.name,components_upload_vsUpload)
 
 
   	Vue.mixin({
@@ -3529,6 +3824,18 @@ module.exports = function (it) {
 
 /***/ }),
 
+/***/ "dvyR":
+/***/ (function(module, exports, __webpack_require__) {
+
+var core = __webpack_require__("WsAY");
+var $JSON = core.JSON || (core.JSON = { stringify: JSON.stringify });
+module.exports = function stringify(it) { // eslint-disable-line no-unused-vars
+  return $JSON.stringify.apply($JSON, arguments);
+};
+
+
+/***/ }),
+
 /***/ "evwa":
 /***/ (function(module, exports) {
 
@@ -3576,6 +3883,13 @@ exports.f = {}.propertyIsEnumerable;
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "hoiv":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = { "default": __webpack_require__("dvyR"), __esModule: true };
 
 /***/ }),
 
