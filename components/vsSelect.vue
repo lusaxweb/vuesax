@@ -1,5 +1,6 @@
 <template lang="html">
   <div :class="{'abierto':visible,'disabledx':disabled}" @click="clickSelect" ref="vsSelect" class="vs-select">
+
     <label for="">{{label}}</label>
     <!-- @click="visible=!visible,clickInputSelect()" -->
     <div :title="seleccionado" class="con-input-select">
@@ -10,13 +11,14 @@
       <!-- <select  name="">
 
       </select> -->
-      <select class="input-hidden"  @focus="visible=true,clickInputSelect()" @blur="blurx()" @change="clickOptionSelect($event)" ref="inputHidden" name="">
+      <!-- class="input-hidden" -->
+      <select  class="input-hidden"  :value="value"  @focus="visible=true,clickInputSelect()" @blur="blurx(),clickOptionSelect($event)" @change="clickOptionSelect($event)" ref="inputHidden" name="">
         <option v-for="option,index in options" :selected="seleccionadoValue==option.value" :value="option.value"></option>
       </select>
       <!-- <button  type="button" name="button"></button> -->
     </div>
     <transition name="fade">
-    <div ref="conUlSelect"  :class="{'visiblex':visible}" v-if="visible" :style="{'top':topx+'px','left':leftx+'px','width':widthx+'px'}" class="con-ul-select">
+    <div v-show="validaAncho" ref="conUlSelect"  :class="{'visiblex':visible}" v-if="visible" :style="{'top':topx+'px','left':leftx+'px','width':widthx+'px'}" class="con-ul-select">
       <ul :class="{'scrollx':scroll}">
         <li :class="{'activo':seleccionadoValue==option.value}" :style="{'transition':'transform .2s ease '+index/30+'s , background .2s ease,opacity .2s ease '+index/30+'s'}" v-for="option,index in options" @click="clickOption($event)" :data-value="option.value">{{option.text}}</li>
       </ul>
@@ -126,6 +128,7 @@ export default {
       this.$emit('change',evt.target.dataset.value);
     },
     clickOptionSelect(evt){
+      // console.log("paso select change");
       this.visible=false
       this.$emit('input',evt.target.value);
       this.$emit('change',evt.target.value);
@@ -137,6 +140,14 @@ export default {
     }
   },
   computed:{
+    validaAncho(){
+      if(window.innerWidth > 500){
+        return true
+      } else {
+        return false
+      }
+
+    },
     seleccionado(){
       let seleccionadox = this.options.filter((item) => {
         return item.value == this.value

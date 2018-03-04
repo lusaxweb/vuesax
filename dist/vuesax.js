@@ -367,13 +367,6 @@ module.exports = (
 
 /***/ }),
 
-/***/ "AKI6":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ "B/P4":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -735,6 +728,8 @@ var material_icons_default = /*#__PURE__*/__webpack_require__.n(material_icons);
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ var vsSelect = ({
@@ -831,6 +826,7 @@ var material_icons_default = /*#__PURE__*/__webpack_require__.n(material_icons);
       this.$emit('change', evt.target.dataset.value);
     },
     clickOptionSelect: function clickOptionSelect(evt) {
+      // console.log("paso select change");
       this.visible = false;
       this.$emit('input', evt.target.value);
       this.$emit('change', evt.target.value);
@@ -842,6 +838,13 @@ var material_icons_default = /*#__PURE__*/__webpack_require__.n(material_icons);
     }
   },
   computed: {
+    validaAncho: function validaAncho() {
+      if (window.innerWidth > 500) {
+        return true;
+      } else {
+        return false;
+      }
+    },
     seleccionado: function seleccionado() {
       var _this2 = this;
 
@@ -880,14 +883,14 @@ var material_icons_default = /*#__PURE__*/__webpack_require__.n(material_icons);
     });
   }
 });
-// CONCATENATED MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/template-compiler?{"id":"data-v-586ea667","hasScoped":true,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/selector.js?type=template&index=0!./components/vsSelect.vue
-var vsSelect_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"vsSelect",staticClass:"vs-select",class:{'abierto':_vm.visible,'disabledx':_vm.disabled},on:{"click":_vm.clickSelect}},[_c('label',{attrs:{"for":""}},[_vm._v(_vm._s(_vm.label))]),_vm._v(" "),_c('div',{staticClass:"con-input-select",attrs:{"title":_vm.seleccionado}},[_c('span',[_vm._v(_vm._s(_vm.seleccionado))]),_vm._v(" "),_c('i',{staticClass:"i-icon material-icons"},[_vm._v("expand_more")]),_vm._v(" "),_c('select',{ref:"inputHidden",staticClass:"input-hidden",attrs:{"name":""},on:{"focus":function($event){_vm.visible=true,_vm.clickInputSelect()},"blur":function($event){_vm.blurx()},"change":function($event){_vm.clickOptionSelect($event)}}},_vm._l((_vm.options),function(option,index){return _c('option',{domProps:{"selected":_vm.seleccionadoValue==option.value,"value":option.value}})}))]),_vm._v(" "),_c('transition',{attrs:{"name":"fade"}},[(_vm.visible)?_c('div',{ref:"conUlSelect",staticClass:"con-ul-select",class:{'visiblex':_vm.visible},style:({'top':_vm.topx+'px','left':_vm.leftx+'px','width':_vm.widthx+'px'})},[_c('ul',{class:{'scrollx':_vm.scroll}},_vm._l((_vm.options),function(option,index){return _c('li',{class:{'activo':_vm.seleccionadoValue==option.value},style:({'transition':'transform .2s ease '+index/30+'s , background .2s ease,opacity .2s ease '+index/30+'s'}),attrs:{"data-value":option.value},on:{"click":function($event){_vm.clickOption($event)}}},[_vm._v(_vm._s(option.text))])}))]):_vm._e()])],1)}
+// CONCATENATED MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/template-compiler?{"id":"data-v-0c13e36d","hasScoped":true,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/selector.js?type=template&index=0!./components/vsSelect.vue
+var vsSelect_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"vsSelect",staticClass:"vs-select",class:{'abierto':_vm.visible,'disabledx':_vm.disabled},on:{"click":_vm.clickSelect}},[_c('label',{attrs:{"for":""}},[_vm._v(_vm._s(_vm.label))]),_vm._v(" "),_c('div',{staticClass:"con-input-select",attrs:{"title":_vm.seleccionado}},[_c('span',[_vm._v(_vm._s(_vm.seleccionado))]),_vm._v(" "),_c('i',{staticClass:"i-icon material-icons"},[_vm._v("expand_more")]),_vm._v(" "),_c('select',{ref:"inputHidden",staticClass:"input-hidden",attrs:{"name":""},domProps:{"value":_vm.value},on:{"focus":function($event){_vm.visible=true,_vm.clickInputSelect()},"blur":function($event){_vm.blurx(),_vm.clickOptionSelect($event)},"change":function($event){_vm.clickOptionSelect($event)}}},_vm._l((_vm.options),function(option,index){return _c('option',{domProps:{"selected":_vm.seleccionadoValue==option.value,"value":option.value}})}))]),_vm._v(" "),_c('transition',{attrs:{"name":"fade"}},[(_vm.visible)?_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.validaAncho),expression:"validaAncho"}],ref:"conUlSelect",staticClass:"con-ul-select",class:{'visiblex':_vm.visible},style:({'top':_vm.topx+'px','left':_vm.leftx+'px','width':_vm.widthx+'px'})},[_c('ul',{class:{'scrollx':_vm.scroll}},_vm._l((_vm.options),function(option,index){return _c('li',{class:{'activo':_vm.seleccionadoValue==option.value},style:({'transition':'transform .2s ease '+index/30+'s , background .2s ease,opacity .2s ease '+index/30+'s'}),attrs:{"data-value":option.value},on:{"click":function($event){_vm.clickOption($event)}}},[_vm._v(_vm._s(option.text))])}))]):_vm._e()])],1)}
 var vsSelect_staticRenderFns = []
 var vsSelect_esExports = { render: vsSelect_render, staticRenderFns: vsSelect_staticRenderFns }
 /* harmony default export */ var selectortype_template_index_0_components_vsSelect = (vsSelect_esExports);
 // CONCATENATED MODULE: ./components/vsSelect.vue
 function vsSelect_injectStyle (ssrContext) {
-  __webpack_require__("AKI6")
+  __webpack_require__("fN/C")
 }
 var vsSelect_normalizeComponent = __webpack_require__("mUJo")
 /* script */
@@ -900,7 +903,7 @@ var vsSelect___vue_template_functional__ = false
 /* styles */
 var vsSelect___vue_styles__ = vsSelect_injectStyle
 /* scopeId */
-var vsSelect___vue_scopeId__ = "data-v-586ea667"
+var vsSelect___vue_scopeId__ = "data-v-0c13e36d"
 /* moduleIdentifier (server only) */
 var vsSelect___vue_module_identifier__ = null
 var vsSelect_Component = vsSelect_normalizeComponent(
@@ -3867,6 +3870,13 @@ module.exports = function (it, tag, stat) {
   if (it && !has(it = stat ? it : it.prototype, TAG)) def(it, TAG, { configurable: true, value: tag });
 };
 
+
+/***/ }),
+
+/***/ "fN/C":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
