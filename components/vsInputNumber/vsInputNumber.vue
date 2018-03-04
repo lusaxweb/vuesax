@@ -14,6 +14,7 @@
         :value="value"
         @keydown="validarKeypress($event,$event.target.value)"
         @input="$emit('input',$event.target.value)"
+        @change="$emit('change',$event.target.value)"
         type="text"
          name=""
           value="">
@@ -84,8 +85,10 @@ export default {
   created(){
     if (parseInt(this.value)<parseInt(this.vsMin)) {
       this.$emit('input',this.vsMin)
+      this.$emit('change',this.vsMin)
     } else if (parseInt(this.value)>parseInt(this.vsMax)) {
       this.$emit('input',this.vsMax)
+      this.$emit('change',this.vsMax)
     }
   },
   watch:{
@@ -97,13 +100,16 @@ export default {
     blurx(){
       if(this.valuex==''){
         this.$emit('input',0)
+        this.$emit('change',0)
       }
       if (parseInt(this.value)<parseInt(this.vsMin)) {
         console.log("entro");
         this.$emit('input',this.vsMin)
+        this.$emit('change',this.vsMin)
       } else if (parseInt(this.value)>parseInt(this.vsMax)) {
         console.log("entro");
         this.$emit('input',this.vsMax)
+        this.$emit('change',this.vsMax)
       }
     },
     validarKeypress(evt,value){
@@ -125,6 +131,7 @@ export default {
       if(this.vsMax?parseInt(this.value)<parseInt(this.vsMax):true){
         let valueNew = parseInt(this.valuex) + 1
         this.$emit('input',valueNew)
+        this.$emit('change',valueNew)
       }
     },
     menos(){
@@ -134,6 +141,7 @@ export default {
       if(this.vsMin?parseInt(this.value)>parseInt(this.vsMin):true){
       let valueNew = parseInt(this.valuex) - 1
       this.$emit('input',valueNew)
+      this.$emit('change',valueNew)
       }
     },
 
