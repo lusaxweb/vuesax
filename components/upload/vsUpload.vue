@@ -31,8 +31,12 @@
 
   <div v-if="multiple" class="con-multiple-upload">
     <ul ref="ulmultiple" class="con-multiples-imgs">
-      <li @click="view=true,urlview=file.src" v-for="file,index in reverseImgs" class="con-imgs">
-        <img :ref="'vs'+index" :src="file.src" alt="">
+      <li  v-for="file,index in reverseImgs" class="con-imgs">
+        <div @click="quitarImage(index)" class="x-img">
+          <i class="material-icons">close</i>
+        </div>
+        <img @click="view=true,urlview=file.src" :ref="'vs'+index" :src="file.src" alt="">
+
       </li>
       <li class="agregarx">
         <input class="input-upload" ref="inputsx"  @change="multipleUploadx($event)" type="file" name="" value="">
@@ -89,11 +93,18 @@ export default {
     reverseImgs(){
       if(this.arrayFiles.length > 0){
 
-        return JSON.parse(JSON.stringify(this.arrayFiles)).slice().reverse();
+        return this.arrayFiles.slice().reverse();
       }
     }
   },
   methods:{
+    quitarImage(index){
+      let filesx = JSON.parse(JSON.stringify(this.vsFileList))
+      filesx.splice(index, 1);
+      this.arrayFiles.splice(index, 1);
+      this.$emit('update:vsFileList', filesx);
+
+    },
     // multiple
     agregarImg(){
       console.log("hola mundo");
@@ -143,7 +154,7 @@ export default {
         // preview.src = this.url;
       }
 
-
+      this.$refs.inputsx.value = ''
     },
     uploadx(e) {
       console.log("paso");
@@ -386,7 +397,7 @@ export default {
   max-height: 100%;
   box-shadow: 0px 2px 14px 0px rgba(0, 0, 0,.4) !important;
   border-radius: 10px;
-  overflow: hidden;
+  /* overflow: hidden; */
   transition: all .3s ease;
 }
 

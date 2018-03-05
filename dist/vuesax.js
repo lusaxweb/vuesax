@@ -406,13 +406,6 @@ module.exports = { "default": __webpack_require__("OcUk"), __esModule: true };
 
 /***/ }),
 
-/***/ "EJYC":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ "ElwZ":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -528,6 +521,13 @@ module.exports = function (it) {
 /***/ }),
 
 /***/ "IDYm":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "IlIN":
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
@@ -2786,6 +2786,10 @@ var stringify_default = /*#__PURE__*/__webpack_require__.n(stringify);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ var vsUpload = ({
   name: 'vs-upload',
@@ -2822,11 +2826,18 @@ var stringify_default = /*#__PURE__*/__webpack_require__.n(stringify);
     reverseImgs: function reverseImgs() {
       if (this.arrayFiles.length > 0) {
 
-        return JSON.parse(stringify_default()(this.arrayFiles)).slice().reverse();
+        return this.arrayFiles.slice().reverse();
       }
     }
   },
   methods: {
+    quitarImage: function quitarImage(index) {
+      var filesx = JSON.parse(stringify_default()(this.vsFileList));
+      filesx.splice(index, 1);
+      this.arrayFiles.splice(index, 1);
+      this.$emit('update:vsFileList', filesx);
+    },
+
     // multiple
     agregarImg: function agregarImg() {
       console.log("hola mundo");
@@ -2878,6 +2889,8 @@ var stringify_default = /*#__PURE__*/__webpack_require__.n(stringify);
       } else {
         // preview.src = this.url;
       }
+
+      this.$refs.inputsx.value = '';
     },
     uploadx: function uploadx(e) {
       console.log("paso");
@@ -2973,14 +2986,14 @@ var stringify_default = /*#__PURE__*/__webpack_require__.n(stringify);
     }
   }
 });
-// CONCATENATED MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/template-compiler?{"id":"data-v-3ac71834","hasScoped":false,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/selector.js?type=template&index=0!./components/upload/vsUpload.vue
-var vsUpload_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"contiene-upload",class:{'con-multiple':_vm.multiple}},[(!_vm.multiple)?_c('div',{staticClass:"con-upload"},[_vm._m(0),_vm._v(" "),_c('input',{ref:"inputx",staticClass:"input-upload",attrs:{"type":"file","name":"","value":""},on:{"change":function($event){_vm.uploadx($event)}}}),_vm._v(" "),_c('div',{}),_vm._v(" "),_c('div',{ref:"conimg",staticClass:"con-img",class:{'oculto':_vm.url==''},style:({'background':_vm.colorx})},[_c('div',{staticClass:"header"},[_c('div',{staticClass:"x-img",on:{"click":function($event){_vm.xUrl(),_vm.colorx='rgb(255, 255, 255)'}}},[_c('i',{staticClass:"material-icons"},[_vm._v("close")])])]),_vm._v(" "),_c('img',{ref:"imgx",attrs:{"src":_vm.url,"alt":""},on:{"click":_vm.verview}})])]):_vm._e(),_vm._v(" "),(_vm.multiple)?_c('div',{staticClass:"con-multiple-upload"},[_c('ul',{ref:"ulmultiple",staticClass:"con-multiples-imgs"},[_vm._l((_vm.reverseImgs),function(file,index){return _c('li',{staticClass:"con-imgs",on:{"click":function($event){_vm.view=true,_vm.urlview=file.src}}},[_c('img',{ref:'vs'+index,refInFor:true,attrs:{"src":file.src,"alt":""}})])}),_vm._v(" "),_c('li',{staticClass:"agregarx"},[_c('input',{ref:"inputsx",staticClass:"input-upload",attrs:{"type":"file","name":"","value":""},on:{"change":function($event){_vm.multipleUploadx($event)}}})])],2)]):_vm._e(),_vm._v(" "),_c('transition',{attrs:{"name":"fade"}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.view),expression:"view"}],ref:"viewx",staticClass:"view-upload",on:{"click":function($event){_vm.quitarView($event)}}},[_c('div',{staticClass:"x-view",on:{"click":function($event){_vm.view=false}}},[_c('i',{staticClass:"material-icons"},[_vm._v("close")])]),_vm._v(" "),_c('img',{attrs:{"src":_vm.urlview,"alt":""}})])])],1)}
+// CONCATENATED MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/template-compiler?{"id":"data-v-5e7f4fc4","hasScoped":false,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/selector.js?type=template&index=0!./components/upload/vsUpload.vue
+var vsUpload_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"contiene-upload",class:{'con-multiple':_vm.multiple}},[(!_vm.multiple)?_c('div',{staticClass:"con-upload"},[_vm._m(0),_vm._v(" "),_c('input',{ref:"inputx",staticClass:"input-upload",attrs:{"type":"file","name":"","value":""},on:{"change":function($event){_vm.uploadx($event)}}}),_vm._v(" "),_c('div',{}),_vm._v(" "),_c('div',{ref:"conimg",staticClass:"con-img",class:{'oculto':_vm.url==''},style:({'background':_vm.colorx})},[_c('div',{staticClass:"header"},[_c('div',{staticClass:"x-img",on:{"click":function($event){_vm.xUrl(),_vm.colorx='rgb(255, 255, 255)'}}},[_c('i',{staticClass:"material-icons"},[_vm._v("close")])])]),_vm._v(" "),_c('img',{ref:"imgx",attrs:{"src":_vm.url,"alt":""},on:{"click":_vm.verview}})])]):_vm._e(),_vm._v(" "),(_vm.multiple)?_c('div',{staticClass:"con-multiple-upload"},[_c('ul',{ref:"ulmultiple",staticClass:"con-multiples-imgs"},[_vm._l((_vm.reverseImgs),function(file,index){return _c('li',{staticClass:"con-imgs"},[_c('div',{staticClass:"x-img",on:{"click":function($event){_vm.quitarImage(index)}}},[_c('i',{staticClass:"material-icons"},[_vm._v("close")])]),_vm._v(" "),_c('img',{ref:'vs'+index,refInFor:true,attrs:{"src":file.src,"alt":""},on:{"click":function($event){_vm.view=true,_vm.urlview=file.src}}})])}),_vm._v(" "),_c('li',{staticClass:"agregarx"},[_c('input',{ref:"inputsx",staticClass:"input-upload",attrs:{"type":"file","name":"","value":""},on:{"change":function($event){_vm.multipleUploadx($event)}}})])],2)]):_vm._e(),_vm._v(" "),_c('transition',{attrs:{"name":"fade"}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.view),expression:"view"}],ref:"viewx",staticClass:"view-upload",on:{"click":function($event){_vm.quitarView($event)}}},[_c('div',{staticClass:"x-view",on:{"click":function($event){_vm.view=false}}},[_c('i',{staticClass:"material-icons"},[_vm._v("close")])]),_vm._v(" "),_c('img',{attrs:{"src":_vm.urlview,"alt":""}})])])],1)}
 var vsUpload_staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"con-subir"},[_c('h3',[_vm._v("Subir Archivo")]),_vm._v(" "),_c('i',{staticClass:"material-icons"},[_vm._v("publish")])])}]
 var vsUpload_esExports = { render: vsUpload_render, staticRenderFns: vsUpload_staticRenderFns }
 /* harmony default export */ var upload_vsUpload = (vsUpload_esExports);
 // CONCATENATED MODULE: ./components/upload/vsUpload.vue
 function vsUpload_injectStyle (ssrContext) {
-  __webpack_require__("EJYC")
+  __webpack_require__("oH9b")
 }
 var vsUpload_normalizeComponent = __webpack_require__("mUJo")
 /* script */
@@ -3007,8 +3020,69 @@ var vsUpload_Component = vsUpload_normalizeComponent(
 
 /* harmony default export */ var components_upload_vsUpload = (vsUpload_Component.exports);
 
+// EXTERNAL MODULE: ./components/vsLoading/vsLoading.css
+var vsLoading = __webpack_require__("IlIN");
+var vsLoading_default = /*#__PURE__*/__webpack_require__.n(vsLoading);
+
+// CONCATENATED MODULE: ./components/vsLoading/vsLoading.js
+
+const vsLoading_vsLoading = function(parameters) {
+
+  let colorx = 'rgb(var(--primary))'
+  let backgroundx = 'rgba(255, 255, 255,.8)'
+  if(parameters !== undefined){
+    if(parameters.hasOwnProperty('color')){
+      colorx = /[#()]/.test(parameters.color)?parameters.color:`rgb(var(--${parameters.color}))`
+    }
+    if (parameters.hasOwnProperty('background')) {
+
+      backgroundx = /[#()]/.test(parameters.background)?parameters.background:`rgb(var(--${parameters.background}))`
+    }
+  }
+
+  // console.log("hola abrir el loading");
+  let conLoading = document.createElement('div')
+  conLoading.classList.add('vs-con-loading')
+  conLoading.style.background = backgroundx
+  conLoading.innerHTML = `
+  <div class="vs-loading-default">
+    <div style="border-left: 4px solid ${colorx}" class="linea1"></div>
+    <div style="border-left: 4px solid ${colorx}" class="linea2"></div>
+    <div style="border-left: 4px solid ${colorx}" class="linea3"></div>
+  </div>
+  `
+
+  document.body.insertBefore(conLoading, document.body.firstChild);
+  setTimeout(function () {
+
+    conLoading.classList.add('loading-activo')
+  }, 10);
+
+  // setTimeout(function () {
+  //   conLoading.style.opacity = 0
+  //   setTimeout(function () {
+  //     conLoading.remove()
+  //   }, 300);
+  // }, time);
+}
+
+const vsLoadingClose = function(parameters) {
+  // console.log("hola close");
+  // return
+    let conLoading = document.querySelector('.vs-con-loading')
+    // setTimeout(function () {
+      conLoading.style.opacity = 0
+      setTimeout(function () {
+        conLoading.remove()
+      }, 300);
+    // }, 2500);
+
+}
+
 // CONCATENATED MODULE: ./index.js
 // import Vue from 'vue'
+
+
 
 
 
@@ -3030,11 +3104,16 @@ var vsUpload_Component = vsUpload_normalizeComponent(
 // import './css/index.css'
 const Vuesax = {
   install(Vue, options) {
-    Vue.prototype.$vsNotify = vsNoti_vsNoti
     Vue.prototype.$vs = {}
+    Vue.prototype.$vs.notify = vsNoti_vsNoti
     Vue.prototype.$vs.alert = message
     Vue.prototype.$vs.confirm = vsMessageBox_confirm
     Vue.prototype.$vs.prompt = vsMessageBox_prompt
+
+    //loading
+    Vue.prototype.$vs.loading = vsLoading_vsLoading
+    Vue.prototype.$vs.loading.close = vsLoadingClose
+
     //buttons
     Vue.component(components_vsButton.name,components_vsButton)
     //selects
@@ -3115,7 +3194,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 // }
 
 // Vuesax.version = '__VERSION__'
-/* harmony default export */ var index = __webpack_exports__["default"] = (Vuesax);
+/* harmony default export */ var index_0 = __webpack_exports__["default"] = (Vuesax);
 
 //
 // bind(el, binding, vnode) {
@@ -4044,6 +4123,13 @@ module.exports = function normalizeComponent (
 /***/ }),
 
 /***/ "nVtn":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "oH9b":
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

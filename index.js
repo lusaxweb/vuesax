@@ -15,16 +15,23 @@ import vsSlider from './components/slider/slider.vue'
 import vsInputNumber from './components/vsInputNumber/vsInputNumber.vue'
 import tooltip from './src/directives/vsTooltip.js'
 import vsUpload from './components/upload/vsUpload.vue'
+import {vsLoading} from './components/vsLoading/vsLoading.js'
+import {vsLoadingClose} from './components/vsLoading/vsLoading.js'
 
 // import 'prefixfree'
 // import './css/index.css'
 const Vuesax = {
   install(Vue, options) {
-    Vue.prototype.$vsNotify = vsNoti
     Vue.prototype.$vs = {}
+    Vue.prototype.$vs.notify = vsNoti
     Vue.prototype.$vs.alert = message
     Vue.prototype.$vs.confirm = confirm
     Vue.prototype.$vs.prompt = prompt
+
+    //loading
+    Vue.prototype.$vs.loading = vsLoading
+    Vue.prototype.$vs.loading.close = vsLoadingClose
+
     //buttons
     Vue.component(vsButton.name,vsButton)
     //selects
