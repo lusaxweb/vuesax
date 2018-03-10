@@ -2271,6 +2271,8 @@ var sign_default = /*#__PURE__*/__webpack_require__.n(sign);
 //
 //
 //
+//
+//
 
 /* harmony default export */ var slider = ({
   name: 'vsSlider',
@@ -2284,12 +2286,22 @@ var sign_default = /*#__PURE__*/__webpack_require__.n(sign);
       ancho: 0
     };
   },
+  created: function created() {
+    this.numerox = this.value;
+  },
   mounted: function mounted() {
+    this.ancho = this.$refs.lineaSlider.offsetWidth;
+    window.addEventListener('resize', this.resizex);
+  },
+  updated: function updated() {
     this.ancho = this.$refs.lineaSlider.offsetWidth;
     window.addEventListener('resize', this.resizex);
   },
 
   watch: {
+    value: function value() {
+      this.numerox = this.value;
+    },
     numeroMostrar: function numeroMostrar() {
       this.$emit('change', this.numeroMostrar);
     }
@@ -2315,8 +2327,14 @@ var sign_default = /*#__PURE__*/__webpack_require__.n(sign);
       var lineaPintada = this.$refs.lineaPintada;
       var linea = this.$refs.lineaSlider;
       var circle = this.$refs.circle;
-      var x = event.clientX;
-      var valorx = x - (linea.getBoundingClientRect().left + circle.offsetWidth / 2);
+      var x = void 0;
+      // console.log(event);
+      if (event.type == 'touchmove') {
+        x = event.targetTouches[0].clientX;
+      } else {
+        x = event.clientX;
+      }
+      var valorx = x - (linea.getBoundingClientRect().left - circle.offsetWidth / 2);
       // console.log(this.vsMin);
       if (this.vsMin) {
         if (valorx / this.ancho * 100 <= this.vsMin) {
@@ -2364,6 +2382,8 @@ var sign_default = /*#__PURE__*/__webpack_require__.n(sign);
       this.$emit('input', porcentajex);
       window.removeEventListener('mousemove', this.mouseMovex);
       window.removeEventListener('mouseup', this.removeEvents);
+      window.removeEventListener('touchmove', this.mouseMovex);
+      window.removeEventListener('touchend', this.removeEvents);
     },
     clickLinea: function clickLinea(evt) {
       if (evt.target.className != 'linea-slider' && evt.target.className != 'linea-pintada' || this.disabled) {
@@ -2380,22 +2400,22 @@ var sign_default = /*#__PURE__*/__webpack_require__.n(sign);
       lineaPintada.style.width = evt.layerX + 'px';
 
       this.verNumero = true;
-      var obtenerPorcentaje = evt.layerX / this.ancho * 100;
+      var obtenerPorcentaje = (evt.layerX + 9) / this.ancho * 100;
       var porcentajex = Math.round(obtenerPorcentaje);
-      circle.style.left = evt.layerX - circle.offsetWidth / 2 + 'px';
+      // circle.style.left = evt.layerX - circle.offsetWidth/2 + 'px'
       this.numeroMostrar = porcentajex;
       this.$emit('input', porcentajex);
     }
   }
 });
-// CONCATENATED MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/template-compiler?{"id":"data-v-4ec8ce25","hasScoped":false,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/selector.js?type=template&index=0!./components/slider/slider.vue
-var slider_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"con-slider",class:{'s-d':_vm.disabled}},[_c('div',{ref:"lineaSlider",staticClass:"linea-slider",on:{"click":function($event){_vm.clickLinea($event)}}},[_c('div',{ref:"lineaPintada",staticClass:"linea-pintada",style:({'background':_vm.vsColor,'width':_vm.numerox+1+'%'})}),_vm._v(" "),_c('div',{ref:"circle",staticClass:"circle-slider",style:({'background':_vm.vsColor,'left':_vm.numerox+'%'}),on:{"mouseenter":function($event){_vm.verNumero=true},"mouseleave":function($event){_vm.verNumero=false},"mousedown":_vm.mousedownx}},[_c('div',{staticClass:"con-numero-slider",class:{'hoverx':_vm.verNumero},style:({'background':_vm.vsColor})},[_c('span',[_vm._v(_vm._s(this.numeroMostrar))])])])])])}
+// CONCATENATED MODULE: C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/template-compiler?{"id":"data-v-805b7892","hasScoped":false,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!C:/Users/pc 01/Documents/vuesax/node_modules/vue-loader/lib/selector.js?type=template&index=0!./components/slider/slider.vue
+var slider_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"con-slider",class:{'s-d':_vm.disabled}},[_c('div',{ref:"lineaSlider",staticClass:"linea-slider",on:{"click":function($event){_vm.clickLinea($event)}}},[_c('div',{ref:"lineaPintada",staticClass:"linea-pintada",style:({'background':_vm.vsColor,'width':_vm.numerox+'%','max-width':_vm.ancho?_vm.ancho+'px':'auto'})},[_c('div',{ref:"circle",staticClass:"circle-slider",style:({'background':_vm.vsColor}),on:{"mouseenter":function($event){_vm.verNumero=true},"mouseleave":function($event){_vm.verNumero=false},"mousedown":_vm.mousedownx,"touchstart":function($event){_vm.mousedownx($event)}}},[_c('div',{staticClass:"con-numero-slider",class:{'hoverx':_vm.verNumero},style:({'background':_vm.vsColor})},[_c('span',[_vm._v(_vm._s(Math.round(this.numerox)>100?100:Math.round(this.numerox))+"%")])])])])])])}
 var slider_staticRenderFns = []
 var slider_esExports = { render: slider_render, staticRenderFns: slider_staticRenderFns }
 /* harmony default export */ var slider_slider = (slider_esExports);
 // CONCATENATED MODULE: ./components/slider/slider.vue
 function slider_injectStyle (ssrContext) {
-  __webpack_require__("veot")
+  __webpack_require__("wH/w")
 }
 var slider_normalizeComponent = __webpack_require__("mUJo")
 /* script */
@@ -4349,7 +4369,7 @@ module.exports = {};
 
 /***/ }),
 
-/***/ "veot":
+/***/ "wH/w":
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

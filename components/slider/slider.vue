@@ -2,16 +2,31 @@
   <div :class="{'s-d':disabled}" class="con-slider"
 
   >
+  <!-- @touchstart="clickLinea($event)" -->
     <div
       ref="lineaSlider"
      @click="clickLinea($event)"
      class="linea-slider">
 
       <div
-      :style="{'background':vsColor,'width':numerox+1+'%'}"
+      :style="{'background':vsColor,'width':numerox+'%','max-width':ancho?ancho+'px':'auto'}"
         ref="lineaPintada"
        class="linea-pintada">
+       <div
 
+       :style="{'background':vsColor}"
+       @mouseenter="verNumero=true"
+       @mouseleave="verNumero=false"
+       @mousedown="mousedownx"
+       @touchstart="mousedownx($event)"
+        ref="circle"
+        class="circle-slider">
+
+        <div :style="{'background':vsColor}" :class="{'hoverx':verNumero}" class="con-numero-slider">
+          <span>{{Math.round(this.numerox)>100?100:Math.round(this.numerox)}}%</span>
+        </div>
+
+      </div>
       </div>
       <!--
       @mouseenter="handleMouseEnter"
@@ -27,20 +42,7 @@
       @keydown.right="onRightKeyDown"
       @keydown.down.prevent="onLeftKeyDown"
       @keydown.up.prevent="onRightKeyDown" -->
-      <div
 
-      :style="{'background':vsColor,'left':numerox+'%'}"
-      @mouseenter="verNumero=true"
-      @mouseleave="verNumero=false"
-      @mousedown="mousedownx"
-       ref="circle"
-       class="circle-slider">
-
-       <div :style="{'background':vsColor}" :class="{'hoverx':verNumero}" class="con-numero-slider">
-         <span>{{this.numeroMostrar}}</span>
-       </div>
-
-     </div>
     </div>
   </div>
 </template>
@@ -63,11 +65,21 @@ export default {
       ancho:0,
     }
   },
+  created(){
+    this.numerox = this.value
+  },
   mounted(){
     this.ancho = this.$refs.lineaSlider.offsetWidth
     window.addEventListener('resize',this.resizex)
   },
+  updated(){
+    this.ancho = this.$refs.lineaSlider.offsetWidth
+    window.addEventListener('resize',this.resizex)
+  },
   watch:{
+    value(){
+      this.numerox = this.value
+    },
     numeroMostrar(){
       this.$emit('change',this.numeroMostrar)
     }
@@ -93,8 +105,14 @@ export default {
       let lineaPintada = this.$refs.lineaPintada
       let linea = this.$refs.lineaSlider
       let circle = this.$refs.circle
-      let x = event.clientX
-      let valorx = x - (linea.getBoundingClientRect().left + circle.offsetWidth/2)
+      let x;
+      // console.log(event);
+      if(event.type=='touchmove'){
+        x = event.targetTouches[0].clientX
+      } else {
+        x = event.clientX
+      }
+      let valorx = x - (linea.getBoundingClientRect().left - circle.offsetWidth/2)
       // console.log(this.vsMin);
       if(this.vsMin){
         if((valorx / this.ancho) * 100<=this.vsMin){
@@ -142,6 +160,8 @@ export default {
       this.$emit('input',porcentajex)
       window.removeEventListener('mousemove', this.mouseMovex);
       window.removeEventListener('mouseup', this.removeEvents);
+      window.removeEventListener('touchmove', this.mouseMovex);
+      window.removeEventListener('touchend', this.removeEvents);
     },
     clickLinea(evt){
       if(evt.target.className != 'linea-slider' && evt.target.className != 'linea-pintada' || this.disabled)
@@ -159,9 +179,9 @@ export default {
       lineaPintada.style.width = evt.layerX + 'px'
 
       this.verNumero = true
-      let obtenerPorcentaje = (evt.layerX / this.ancho) * 100
+      let obtenerPorcentaje = ((evt.layerX + 9)/ this.ancho) * 100
       let porcentajex = Math.round(obtenerPorcentaje)
-      circle.style.left = evt.layerX - circle.offsetWidth/2 + 'px'
+      // circle.style.left = evt.layerX - circle.offsetWidth/2 + 'px'
       this.numeroMostrar = porcentajex
       this.$emit('input',porcentajex)
     }
@@ -199,7 +219,7 @@ export default {
   cursor: pointer;
 }
 .circle-slider {
-  left: 0px;
+  /* left: 0px; */
   top: 50%;
   position: absolute;
   transform: translate(0%,-50%);
@@ -208,6 +228,7 @@ export default {
   border-radius: 50%;
   transition: transform .3s ease;
   background: rgb(var(--primary));
+  right: 0px;
 }
 .circle-slider:active {
   transform:translate(0%,-50%) scale(1.1);
@@ -217,6 +238,7 @@ export default {
   height: 100%;
   background: rgb(var(--primary));
   border-radius: 3px;
+  position: relative;
 }
 .con-numero-slider {
   position: absolute;
