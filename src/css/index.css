@@ -1,0 +1,74 @@
+:root {
+  --default: 150, 150, 150;
+  /* --primary: 0, 138, 251; */
+  --primary: 31, 116, 255;
+  --danger: 255, 71, 87;
+  /* --danger: 244, 85, 85; */
+  --success: 70, 201, 58;
+  --dark:30, 30, 30;
+  --warning:255,186,0;
+  /* hover */
+}
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  list-style: none;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  outline: none;
+  text-transform: none;
+  text-decoration: none;
+}
+
+.vs-w-12 {
+  width: 100%;
+}
+.vs-w-11 {
+  width: 91.66666666666667%;
+}
+.vs-w-10 {
+  width: 83.33333333333333%;
+}
+.vs-w-9 {
+  width: 75%;
+}
+.vs-w-8 {
+  width: 66.66666666666667%;
+}
+.vs-w-7 {
+  width: 58.33333333333333%;
+}
+.vs-w-6 {
+  width: 50%;
+}
+.vs-w-5 {
+  width: 41.66666666666667%;
+}
+.vs-w-4 {
+  width: 33.33333333333333%;
+}
+.vs-w-3 {
+  width: 25%;
+}
+.vs-w-2 {
+  width: 16.66666666666667%;
+}
+.vs-w-1 {
+  width: 8.333333333333333%;
+}
+
+
+/* text align */
+
+.center {
+  text-align: center;
+}
+.left {
+  text-align: left;
+}
+.right {
+  text-align: right;
+}
+.justify {
+  text-align: justify;
+}

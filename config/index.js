@@ -8,7 +8,7 @@ module.exports = {
   dev: {
 
     // Paths
-    assetsSubDirectory: 'static',
+    assetsSubDirectory: 'site/',
     assetsPublicPath: '/',
     proxyTable: {},
 

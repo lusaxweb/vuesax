@@ -22,16 +22,25 @@
   "unpkg": "dist/vuesax.min.js",
   "private": false,
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "dev": "webpack-dev-server --inline --progress --config docs/build/webpack.dev.conf.js",
     "start": "npm run dev",
     "build": "node build/build.js",
+    "build-docs": "node docs/build/build.js",
     "build-prod": "WEBPACK_ENV=production webpack",
     "v": "npm version patch",
     "p": "npm publish"
   },
   "dependencies": {
+    "algoliasearch": "^3.25.1",
+    "highlight.js": "^9.12.0",
+    "jquery": "^3.3.1",
+    "marked": "^0.3.17",
+    "prefixfree": "^1.0.0",
+    "prismjs": "^1.12.2",
     "vue": "^2.5.2",
-    "vue-router": "^3.0.1"
+    "vue-instantsearch": "^1.5.1",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
