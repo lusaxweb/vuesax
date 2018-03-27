@@ -3,7 +3,7 @@ export default {
   description:'Vuesax is a library of vue js components that facilitates the frontend and streamlines the work with great visual quality.',
   codes:[
     {
-      title:'Introduccion',
+      title:'Introduction',
       text:'We are excited that you are interested in contributing to Vuesax. Before submitting your contribution though, please make sure to take a moment and read through the following guidelines.'
     },
     {
