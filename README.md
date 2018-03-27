@@ -1,5 +1,5 @@
 <p align="center">
-<a href="https://lusaxweb.github.io/vuesax/#/"><img src="https://lusaxweb.github.io/vuesax/static2/img/vuesax-logo-2.0ab2286.png" alt="vuesax"></a>
+<a href="https://lusaxweb.github.io/vuesax/#/"><img src="https://lusaxweb.github.io/vuesax/img/vuesax.0ab2286.png" alt="vuesax"></a>
   </p>
 
   </br>
