@@ -57,7 +57,7 @@ Make sure your code lints (npm run dev)
           </div>
        </codex>
 
-        <codex text="true" :float="true" titlex="Flujo de trabajo de desarrollo">
+        <codex text="true" :float="true" titlex="Development workflow">
           <div slot="text">
             After cloning Vuesax, run npm install to fetch its dependencies. Then, you can run several commands:
             <br><br>

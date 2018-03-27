@@ -80,7 +80,7 @@ export default {
 }
 .con-menux {
   position: fixed;
-  z-index: 20000;
+  z-index: 10000;
 }
 .obscuro {
   position: absolute;

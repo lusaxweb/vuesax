@@ -1106,7 +1106,7 @@ export default {
   color: rgb(var(--morado),1);
   width: 40px;
   height: 40px;
-  display: flex;
+  display: flex !important;
   align-items: center;
   justify-content: center;
   border-radius: 0px 10px 10px 0px;
