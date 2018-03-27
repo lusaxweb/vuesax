@@ -294,6 +294,13 @@ module.exports = function () { /* empty */ };
 
 /***/ }),
 
+/***/ "4yFo":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "52gC":
 /***/ (function(module, exports) {
 
@@ -366,13 +373,6 @@ module.exports = __webpack_require__("hJx8");
 /***/ }),
 
 /***/ "88RI":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ "8a4z":
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
@@ -2179,44 +2179,86 @@ var sign_default = /*#__PURE__*/__webpack_require__.n(sign);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ var vsSlider = ({
   name: 'vsSlider',
-  props: ['disabled', 'value', 'vsColor', 'vsMin'],
+  props: {
+    disabled: {
+      type: [Boolean, String],
+      default: false
+    },
+    value: {
+      type: Number,
+      default: 0
+    },
+    vsColor: {
+      type: String,
+      default: 'rgb(var(--primary))'
+    },
+    vsMin: {
+      type: Number
+    },
+    vsStep: {
+      type: Number,
+      default: 1
+    },
+    vsNotPercentage: {
+      type: [Boolean],
+      default: false
+    }
+  },
   data: function data() {
     return {
-      numerox: this.value,
+      sliderValue: this.value,
       numeroMostrar: this.value,
-      verNumero: false,
+      showToolTip: false,
       valuex: 0,
       ancho: 0
     };
   },
   created: function created() {
-    this.numerox = this.value;
+    this.sliderValue = this.value;
   },
   mounted: function mounted() {
-    this.ancho = this.$refs.lineaSlider.offsetWidth;
-    window.addEventListener('resize', this.resizex);
-  },
-  updated: function updated() {
     this.ancho = this.$refs.lineaSlider.offsetWidth;
     window.addEventListener('resize', this.resizex);
   },
 
   watch: {
     value: function value() {
-      this.numerox = this.value;
+      this.sliderValue = this.value;
     },
     numeroMostrar: function numeroMostrar() {
-      this.$emit('change', this.numeroMostrar);
+      this.$emit('change', this.sliderValue);
     }
   },
   methods: {
     resizex: function resizex() {
       // console.log(this.$refs.lineaSlider.clientWidth);
       this.ancho = this.$refs.lineaSlider.offsetWidth;
-      this.numerox = this.numeroMostrar;
+      this.setSliderValue(this.numeroMostrar);
+    },
+    setSliderValue: function setSliderValue(value) {
+      if (value <= 100 && value >= 0) {
+        this.sliderValue = value;
+      }
+    },
+    onRightKeyDown: function onRightKeyDown() {
+      this.setSliderValue(this.sliderValue + this.vsStep);
+      this.$emit('input', this.sliderValue);
+    },
+    onLeftKeyDown: function onLeftKeyDown() {
+      this.setSliderValue(this.sliderValue - this.vsStep);
+      this.$emit('input', this.sliderValue);
     },
     mousedownx: function mousedownx(event) {
       // event.preventDefault();
@@ -2229,7 +2271,7 @@ var sign_default = /*#__PURE__*/__webpack_require__.n(sign);
       if (this.disabled) {
         return;
       }
-      this.verNumero = true;
+      this.showToolTip = true;
       var lineaPintada = this.$refs.lineaPintada;
       var linea = this.$refs.lineaSlider;
       var circle = this.$refs.circle;
@@ -2269,7 +2311,7 @@ var sign_default = /*#__PURE__*/__webpack_require__.n(sign);
       // }
       // circle.style.left = valorx  + 'px'
       // lineaPintada.style.width = valorx + 10  + 'px'
-      this.numerox = porcentajex;
+      this.setSliderValue(porcentajex);
       this.numeroMostrar = porcentajex;
       this.$emit('input', porcentajex);
       // }
@@ -2279,12 +2321,11 @@ var sign_default = /*#__PURE__*/__webpack_require__.n(sign);
       if (this.disabled) {
         return;
       }
-      this.verNumero = false;
-      var linea = this.$refs.lineaSlider;
+      this.showToolTip = false;
       var obtenerPorcentaje = this.valuex / this.ancho * 100;
       var porcentajex = Math.round(obtenerPorcentaje);
 
-      this.numerox = porcentajex;
+      this.setSliderValue(porcentajex);
       this.$emit('input', porcentajex);
       window.removeEventListener('mousemove', this.mouseMovex);
       window.removeEventListener('mouseup', this.removeEvents);
@@ -2292,36 +2333,28 @@ var sign_default = /*#__PURE__*/__webpack_require__.n(sign);
       window.removeEventListener('touchend', this.removeEvents);
     },
     clickLinea: function clickLinea(evt) {
-      if (evt.target.className != 'linea-slider' && evt.target.className != 'linea-pintada' || this.disabled) {
+      var className = evt.target.className;
+
+      if (className !== 'linea-slider' && className !== 'linea-pintada' || this.disabled) {
         return;
       }
-      var linea = this.$refs.lineaSlider;
-      var circle = this.$refs.circle;
-      var lineaPintada = this.$refs.lineaPintada;
-
-      console.log(evt);
-      console.log(evt.layerX + 'px');
-      console.log(this.ancho + 'px');
-
-      lineaPintada.style.width = evt.layerX + 'px';
-
-      this.verNumero = true;
-      var obtenerPorcentaje = (evt.layerX + 9) / this.ancho * 100;
+      this.showToolTip = true;
+      var sliderOffsetLeft = this.$refs.lineaSlider.getBoundingClientRect().left;
+      var obtenerPorcentaje = (evt.clientX - sliderOffsetLeft) / this.ancho * 100;
       var porcentajex = Math.round(obtenerPorcentaje);
-      // circle.style.left = evt.layerX - circle.offsetWidth/2 + 'px'
       this.numeroMostrar = porcentajex;
-      this.$emit('input', porcentajex);
+      this.$emit('input', porcentajex + 1);
     }
   }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-e4fb8642","hasScoped":false,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsSlider/vsSlider.vue
-var vsSlider_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"con-slider",class:{'s-d':_vm.disabled}},[_c('div',{ref:"lineaSlider",staticClass:"linea-slider",on:{"click":function($event){_vm.clickLinea($event)}}},[_c('div',{ref:"lineaPintada",staticClass:"linea-pintada",style:({'background':_vm.vsColor,'width':_vm.numerox+'%','max-width':_vm.ancho?_vm.ancho+'px':'auto'})},[_c('div',{ref:"circle",staticClass:"circle-slider",style:({'background':_vm.vsColor}),on:{"mouseenter":function($event){_vm.verNumero=true},"mouseleave":function($event){_vm.verNumero=false},"mousedown":_vm.mousedownx,"touchstart":function($event){_vm.mousedownx($event)}}},[_c('div',{staticClass:"con-numero-slider",class:{'hoverx':_vm.verNumero},style:({'background':_vm.vsColor})},[_c('span',[_vm._v(_vm._s(Math.round(this.numerox)>100?100:Math.round(this.numerox))+"%")])])])])])])}
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-1f2f076a","hasScoped":false,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsSlider/vsSlider.vue
+var vsSlider_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"con-slider",class:{'s-d':_vm.disabled}},[_c('div',{ref:"lineaSlider",staticClass:"linea-slider",on:{"click":_vm.clickLinea}},[_c('div',{ref:"lineaPintada",staticClass:"linea-pintada",style:({'background':_vm.vsColor,'width':_vm.sliderValue+'%','max-width':_vm.ancho?_vm.ancho+'px':'auto'})},[_c('div',{ref:"circle",staticClass:"circle-slider",style:({'background':_vm.vsColor}),attrs:{"tabindex":"0"},on:{"mouseenter":function($event){_vm.showToolTip=true},"mouseleave":function($event){_vm.showToolTip=false},"mousedown":_vm.mousedownx,"touchstart":function($event){_vm.mousedownx($event)},"focus":function($event){_vm.showToolTip=true},"blur":function($event){_vm.showToolTip=false},"keydown":[function($event){if(!('button' in $event)&&_vm._k($event.keyCode,"left",37,$event.key)){ return null; }if('button' in $event && $event.button !== 0){ return null; }_vm.onLeftKeyDown($event)},function($event){if(!('button' in $event)&&_vm._k($event.keyCode,"right",39,$event.key)){ return null; }if('button' in $event && $event.button !== 2){ return null; }_vm.onRightKeyDown($event)}]}},[_c('span',{staticClass:"circle-interno",style:({'border':'2px solid '+_vm.vsColor})},[_c('span')]),_vm._v(" "),_c('div',{staticClass:"con-numero-slider",class:{'hoverx':_vm.showToolTip},style:({'background':_vm.vsColor})},[_c('span',[_vm._v(_vm._s(Math.round(_vm.sliderValue)>100?100:Math.round(_vm.sliderValue))+_vm._s(_vm.vsNotPercentage?'':'%'))])])])])])])}
 var vsSlider_staticRenderFns = []
 var vsSlider_esExports = { render: vsSlider_render, staticRenderFns: vsSlider_staticRenderFns }
 /* harmony default export */ var vsSlider_vsSlider = (vsSlider_esExports);
 // CONCATENATED MODULE: ./src/components/vsSlider/vsSlider.vue
 function vsSlider_injectStyle (ssrContext) {
-  __webpack_require__("8a4z")
+  __webpack_require__("4yFo")
 }
 var vsSlider_normalizeComponent = __webpack_require__("VU/8")
 /* script */

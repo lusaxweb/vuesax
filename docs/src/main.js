@@ -22,8 +22,8 @@ markedx.install = function (Vue, options) {
 }
 Vue.use(markedx);
 
-import Vuesax from '../../dist/vuesax.js'
-import '../../dist/vuesax.css'
+import Vuesax from '../../index.js'
+// import '../../dist/vuesax.css'
 // import Vuesax from 'vuesax'
 console.log(Vuesax.theme);
 Vue.use(Vuesax);

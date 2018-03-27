@@ -28,6 +28,12 @@
            </div>
          </div>
        </codex>
+
+       <codex text="true" :float="true" titlex="Contribution">
+         <div slot="text">
+           <b>v 3.0.1</b> Updated with the help of <a href="https://twitter.com/jora_cristi">Cristi Jora</a>
+         </div>
+         </codex>
       </div>
     </con-doc>
   </div>
@@ -80,6 +86,13 @@ export default {
           parametros:'1-100',
           descripcion:'Determines by how much slider value should increment/decrement when using arrow keys',
           default:'1'
+        },
+        {
+          name:'vs-not-percentage',
+          type:'Boolean',
+          parametros:'true, false',
+          descripcion:'determines whether the item is displayed as a percentage',
+          default:'false'
         },
       ],
       code1:`

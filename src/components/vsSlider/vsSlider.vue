@@ -26,9 +26,13 @@
        tabindex="0"
         ref="circle"
         class="circle-slider">
+        <!-- :style="{'background':vsColor}" -->
+        <span :style="{'border':'2px solid '+vsColor}" class="circle-interno">
+          <span></span>
+        </span>
 
         <div :style="{'background':vsColor}" :class="{'hoverx':showToolTip}" class="con-numero-slider">
-          <span>{{Math.round(sliderValue)>100?100:Math.round(sliderValue)}}%</span>
+          <span>{{Math.round(sliderValue)>100?100:Math.round(sliderValue)}}{{vsNotPercentage?'':'%'}}</span>
         </div>
 
       </div>
@@ -65,7 +69,8 @@ export default {
       default: 0
     },
     vsColor: {
-      type: String
+      type: String,
+      default:'rgb(var(--primary))'
     },
     vsMin: {
       type: Number
@@ -73,6 +78,10 @@ export default {
     vsStep: {
       type: Number,
       default: 1
+    },
+    vsNotPercentage:{
+      type:[Boolean],
+      default:false,
     }
   },
   data(){
@@ -201,7 +210,7 @@ export default {
       let obtenerPorcentaje = (evt.clientX - sliderOffsetLeft) / this.ancho * 100
       let porcentajex = Math.round(obtenerPorcentaje);
       this.numeroMostrar = porcentajex;
-      this.$emit('input',porcentajex)
+      this.$emit('input',porcentajex + 1)
     }
   }
 }
@@ -217,6 +226,9 @@ export default {
   background: rgb(200, 200, 200) !important;
   cursor: default !important;
 
+}
+.s-d .circle-interno {
+  opacity: 0 !important;
 }
 .s-d .circle-slider .con-numero-slider {
   background: rgb(60, 60, 60) !important;
@@ -241,15 +253,35 @@ export default {
   top: 50%;
   position: absolute;
   transform: translate(0%,-50%);
-  width: 17px;
-  height: 17px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   transition: transform .3s ease;
-  background: rgb(var(--primary));
+  /* background: rgb(var(--primary)); */
+  backface-visibility: visible;
+  background: rgb(255, 255, 255);
   right: 0px;
 }
+.circle-interno {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  transform: scale(1);
+  content: '';
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  transition: all .3s ease;
+  background: rgb(255, 255, 255);
+  backface-visibility: hidden;
+  box-sizing: border-box;
+}
 .circle-slider:active {
-  transform:translate(0%,-50%) scale(1.1);
+  /* transform:translate(0%,-50%) scale(1.1); */
+}
+.circle-slider:active .circle-interno {
+  transform: scale(0);
+  opacity: 1;
 }
 .linea-pintada {
   width: 0px;
@@ -260,7 +292,7 @@ export default {
 }
 .con-numero-slider {
   position: absolute;
-  top: -4px;
+  top: -7px;
   left: 50%;
   transform: translate(-50%,-60%) scale(.5);
   padding: 4px;

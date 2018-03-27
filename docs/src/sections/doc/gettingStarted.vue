@@ -5,6 +5,7 @@
       <codex text="true" :titlex="langx.codes[0].title" doc="doc" :no-codigo="true" >
         <div v-html="$marked(langx.codes[0].text)" slot="text"></div>
       </codex>
+
       <codex text="true" float="true" :titlex="langx.codes[1].title" >
         <div v-html="$marked(langx.codes[1].text)" slot="text"></div>
         <div  slot="ejemplo">
@@ -13,41 +14,18 @@
           </div>
         </div>
       </codex>
-      <codex :titlex="langx.codes[2].title" doc="doc" :code="`
-# npm
-npm install vuesax
 
-
-# yarn
-yarn add vuesax
-      `">
+      <codex :titlex="langx.codes[2].title" doc="doc" :code="langx.codes[2].code">
       <div v-html="$marked(langx.codes[2].text)" slot="text"></div>
-        <!-- <div slot="ejemplo">
-          <div class="con-text">
-            To install Vuesax just run this command in your project with npm and you're done!
-          </div>
-        </div> -->
-      </codex>
-      <codex titlex="Uso" doc="doc" :code="`import Vue from 'vue'
-import Vuesax from 'vuesax'
-
-import 'vuesax/dist/vuesax.css' //agregar los estilos
-Vue.use(Vuesax)`">
-        <div slot="ejemplo">
-          <div class="con-text">
-            Vuesax is a vue js library to use it you have to add the code:
-          </div>
-        </div>
       </codex>
 
-      <codex titlex="Lusaxweb" doc="doc" no-codigo="true">
-        <div slot="ejemplo">
-          <div class="con-text">
-            This library was created and is supported by <a href="http://www.lusaxweb.com.ve/">Lusaxweb</a>
-          </div>
-        </div>
+      <codex text="true" :titlex="langx.codes[3].title" doc="doc" :code="langx.codes[3].code">
+        <div v-html="$marked(langx.codes[3].text)" slot="text"></div>
       </codex>
 
+      <codex text="true" :titlex="langx.codes[4].title" doc="doc" no-codigo="true">
+        <div v-html="$marked(langx.codes[4].text)" slot="text"></div>
+      </codex>
 
       </div>
     </con-doc>
