@@ -74,6 +74,13 @@ export default {
           descripcion:'determina si el objeto esta inhabilitado',
           default:'false'
         },
+        {
+          name:'vs-step',
+          type:'number',
+          parametros:'1-100',
+          descripcion:'Determines by how much slider value should increment/decrement when using arrow keys',
+          default:'1'
+        },
       ],
       code1:`
 <template>
