@@ -5,25 +5,30 @@
   <!-- @touchstart="clickLinea($event)" -->
     <div
       ref="lineaSlider"
-     @click="clickLinea($event)"
+     @click="clickLinea"
      class="linea-slider">
 
       <div
-      :style="{'background':vsColor,'width':numerox+'%','max-width':ancho?ancho+'px':'auto'}"
+      :style="{'background':vsColor,'width':sliderValue+'%','max-width':ancho?ancho+'px':'auto'}"
         ref="lineaPintada"
        class="linea-pintada">
        <div
 
        :style="{'background':vsColor}"
-       @mouseenter="verNumero=true"
-       @mouseleave="verNumero=false"
+       @mouseenter="showToolTip=true"
+       @mouseleave="showToolTip=false"
        @mousedown="mousedownx"
        @touchstart="mousedownx($event)"
+       @focus="showToolTip=true"
+       @blur="showToolTip=false"
+       @keydown.left="onLeftKeyDown"
+       @keydown.right="onRightKeyDown"
+       tabindex="0"
         ref="circle"
         class="circle-slider">
 
-        <div :style="{'background':vsColor}" :class="{'hoverx':verNumero}" class="con-numero-slider">
-          <span>{{Math.round(this.numerox)>100?100:Math.round(this.numerox)}}%</span>
+        <div :style="{'background':vsColor}" :class="{'hoverx':showToolTip}" class="con-numero-slider">
+          <span>{{Math.round(sliderValue)>100?100:Math.round(sliderValue)}}%</span>
         </div>
 
       </div>
@@ -50,45 +55,68 @@
 <script>
 export default {
   name:'vsSlider',
-  props:[
-    'disabled',
-    'value',
-    'vsColor',
-    'vsMin'
-  ],
+  props: {
+    disabled: {
+      type: [Boolean, String],
+      default: false
+    },
+    value: {
+      type: Number,
+      default: 0
+    },
+    vsColor: {
+      type: String
+    },
+    vsMin: {
+      type: Number
+    },
+    vsStep: {
+      type: Number,
+      default: 1
+    }
+  },
   data(){
     return {
-      numerox:this.value,
+      sliderValue:this.value,
       numeroMostrar:this.value,
-      verNumero:false,
+      showToolTip:false,
       valuex:0,
       ancho:0,
     }
   },
   created(){
-    this.numerox = this.value
+    this.sliderValue = this.value
   },
   mounted(){
     this.ancho = this.$refs.lineaSlider.offsetWidth
     window.addEventListener('resize',this.resizex)
   },
-  updated(){
-    this.ancho = this.$refs.lineaSlider.offsetWidth
-    window.addEventListener('resize',this.resizex)
-  },
   watch:{
     value(){
-      this.numerox = this.value
+      this.sliderValue = this.value
     },
     numeroMostrar(){
-      this.$emit('change',this.numeroMostrar)
+      this.$emit('change',this.sliderValue)
     }
   },
   methods:{
     resizex(){
       // console.log(this.$refs.lineaSlider.clientWidth);
       this.ancho = this.$refs.lineaSlider.offsetWidth
-      this.numerox = this.numeroMostrar
+      this.setSliderValue(this.numeroMostrar)
+    },
+    setSliderValue(value){
+      if(value <= 100 && value >= 0) {
+        this.sliderValue = value;
+      }
+    },
+    onRightKeyDown() {
+      this.setSliderValue(this.sliderValue + this.vsStep);
+      this.$emit('input', this.sliderValue)
+    },
+    onLeftKeyDown() {
+      this.setSliderValue(this.sliderValue - this.vsStep);
+      this.$emit('input', this.sliderValue)
     },
     mousedownx(event){
       // event.preventDefault();
@@ -101,7 +129,7 @@ export default {
       if(this.disabled){
         return
       }
-      this.verNumero = true
+      this.showToolTip = true
       let lineaPintada = this.$refs.lineaPintada
       let linea = this.$refs.lineaSlider
       let circle = this.$refs.circle
@@ -141,7 +169,7 @@ export default {
         // }
         // circle.style.left = valorx  + 'px'
         // lineaPintada.style.width = valorx + 10  + 'px'
-        this.numerox = porcentajex
+        this.setSliderValue(porcentajex)
         this.numeroMostrar = porcentajex
         this.$emit('input',porcentajex)
       // }
@@ -151,12 +179,11 @@ export default {
       if(this.disabled){
         return
       }
-      this.verNumero = false
-      let linea = this.$refs.lineaSlider
+      this.showToolTip = false
       let obtenerPorcentaje = (this.valuex / this.ancho) * 100
       let porcentajex = Math.round(obtenerPorcentaje)
 
-      this.numerox = porcentajex
+      this.setSliderValue(porcentajex)
       this.$emit('input',porcentajex)
       window.removeEventListener('mousemove', this.mouseMovex);
       window.removeEventListener('mouseup', this.removeEvents);
@@ -164,25 +191,16 @@ export default {
       window.removeEventListener('touchend', this.removeEvents);
     },
     clickLinea(evt){
-      if(evt.target.className != 'linea-slider' && evt.target.className != 'linea-pintada' || this.disabled)
+      let { className } = evt.target;
+      if(className !== 'linea-slider' && className !== 'linea-pintada' || this.disabled)
       {
         return
       }
-      let linea = this.$refs.lineaSlider
-      let circle = this.$refs.circle
-      let lineaPintada = this.$refs.lineaPintada
-
-      console.log(evt);
-      console.log(evt.layerX + 'px');
-      console.log(this.ancho + 'px');
-
-      lineaPintada.style.width = evt.layerX + 'px'
-
-      this.verNumero = true
-      let obtenerPorcentaje = ((evt.layerX + 9)/ this.ancho) * 100
-      let porcentajex = Math.round(obtenerPorcentaje)
-      // circle.style.left = evt.layerX - circle.offsetWidth/2 + 'px'
-      this.numeroMostrar = porcentajex
+      this.showToolTip = true;
+      const sliderOffsetLeft = this.$refs.lineaSlider.getBoundingClientRect().left;
+      let obtenerPorcentaje = (evt.clientX - sliderOffsetLeft) / this.ancho * 100
+      let porcentajex = Math.round(obtenerPorcentaje);
+      this.numeroMostrar = porcentajex;
       this.$emit('input',porcentajex)
     }
   }
