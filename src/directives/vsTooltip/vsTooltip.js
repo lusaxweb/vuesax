@@ -67,7 +67,6 @@ export default {
       </p>
     `
     tooltipx.style.background = colorx
-    console.log("paso");
     var mouseEnterx = function(event){
 
       let coords = event.toElement.getBoundingClientRect();

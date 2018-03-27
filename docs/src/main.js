@@ -25,7 +25,6 @@ Vue.use(markedx);
 import Vuesax from '../../index.js'
 // import '../../dist/vuesax.css'
 // import Vuesax from 'vuesax'
-console.log(Vuesax.theme);
 Vue.use(Vuesax);
 // console.log(Vuesax);
 Vue.use(InstantSearch);
@@ -51,7 +50,6 @@ var vm = new Vue({
   template: '<App/>',
 })
 
-console.log(vm.lang);
 
 // console.log(vm);
 router.beforeEach((to, from, next) => {

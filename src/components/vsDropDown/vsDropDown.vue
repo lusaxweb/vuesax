@@ -97,7 +97,6 @@ export default {
 
     colorx(){
       if(this.vsColor){
-        console.log("contras=============>",color.contrastColor(this.vsColor));
         if(color.contrastColor(this.vsColor)){
           return 'rgba(0, 0, 0,.8)'
         } else {
@@ -113,9 +112,7 @@ export default {
       }
         let cords = evt.target.getBoundingClientRect()
         let elx = this.$refs.ulDrop
-        // console.log();
         elx.style.left = (cords.left + evt.target.clientWidth)+'px'
-        // console.log(elx.style.right);
         elx.style.top = (cords.top + evt.target.clientHeight)+'px'
         document.body.insertBefore(elx, document.body.firstChild)
         this.visible=!this.visible
@@ -130,7 +127,6 @@ export default {
       window.addEventListener('click',this.clickFuera)
     },
     clickFuera(e){
-      console.log(e);
       if(e.target.closest('.con-drop-ul')==null){
         this.visible = false
         this.removeEventListenerx()
@@ -158,7 +154,6 @@ export default {
     if(this.$slots.hasOwnProperty('button')){
       this.conSlotButton = true
     }
-    console.log();
   }
 }
 </script>

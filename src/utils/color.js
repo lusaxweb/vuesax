@@ -6,7 +6,6 @@ export default {
         let rgbx = this.hexToRgb(elementx)
        c = `rgb(${rgbx.r},${rgbx.g},${rgbx.b})`
       }
-      console.log(c);
       var rgb = c.replace(/^(rgb|rgba)\(/,'').replace(/\)$/,'').replace(/\s/g,'').split(',');
       var yiq = ((rgb[0]*299)+(rgb[1]*587)+(rgb[2]*114))/1000;
       if(yiq >= 128){

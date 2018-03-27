@@ -56,7 +56,6 @@ export default {
   },
   mounted(){
     let idx = this.titlex.replace(/\s/g,'-')
-    console.log(idx);
     this.$parent.codes.push({
       idx:'vs-'+idx,
       title:this.titlex

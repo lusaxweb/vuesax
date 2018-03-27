@@ -57,11 +57,9 @@ export default {
       this.fuera = false
         next()
     })
-    console.log(this.childrenx);
   },
   methods:{
     pushx(ruta){
-      console.log(ruta);
       var _this = this
       this.$router.push(ruta,function(){
         _this.$set(_this.$store.state,'estas',ruta)

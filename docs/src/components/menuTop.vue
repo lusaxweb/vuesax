@@ -39,7 +39,7 @@
 
       </li>
       <li :class="{'li-visible':$store.state.menuVisible}" class="li-no"><input class="colorx" type="color" @change="cambiarColor($event)" name="" value="#1f73ff"></li>
-      <li :class="{'li-visible':$store.state.menuVisible}" class="version li-no"><a href="https://www.npmjs.com/package/vuesax" target="_blank"><span>v2.0.49</span></a></li>
+      <li :class="{'li-visible':$store.state.menuVisible}" class="version li-no"><a href="https://www.npmjs.com/package/vuesax" target="_blank"><span>{{'v'+packageVersion}}</span></a></li>
       <li :class="{'li-visible':$store.state.menuVisible}" class="con-gitHubx li-no"><a class="flaticon-github-logo" target="_blank"  href="https://github.com/lusaxweb/vuesax"></a></li>
     </ul>
   </div>
@@ -50,10 +50,12 @@
 // import {aisIndex} from 'algoliasearch'
 // var client = algoliasearch('EAGFI40K92', '739daed85bd1a07e06f1f3ab545cfffd');
 // var index = client.initIndex('docs');
+import packagex from '../../../package.json'
 export default {
 
   data(){
     return {
+      packageVersion:packagex.version,
       buscarx:'',
       itemsBuscados:[],
       select1:1,

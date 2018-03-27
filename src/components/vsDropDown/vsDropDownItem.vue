@@ -41,7 +41,6 @@ export default {
   created(){
     // console.log();
     this._vsColor = this.$parent.vsColor
-    console.log(this._vsColor);
   }
 }
 </script>
