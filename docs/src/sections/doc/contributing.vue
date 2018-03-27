@@ -2,7 +2,7 @@
   <div class="">
     <con-doc titlex="Contributing" textx="Hi! Thank you for choosing Vuesax..">
       <div slot="codes">
-        <codex text="true" :float="true" titlex="Introduccion">
+        <codex text="true" :float="true" titlex="Introduction">
           <div slot="text">
             We are excited that you are interested in contributing to Vuesax. Before submitting your contribution though, please make sure to take a moment and read through the following guidelines.
           </div>
