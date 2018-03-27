@@ -23,20 +23,24 @@ Vuesax is a frontend library based on vue js that helps you develop faster and w
 
 # Components
 
-- [Buttons](https://lusaxweb.github.io/vuesax/#/docs/buttons)
-- [Selects](https://lusaxweb.github.io/vuesax/#/docs/selects)
-- [Notifications](https://lusaxweb.github.io/vuesax/#/docs/Notifications)
-- [Switch](https://lusaxweb.github.io/vuesax/#/docs/switch)
-- [CheckBox](https://lusaxweb.github.io/vuesax/#/docs/checkBox)
-- [Radio](https://lusaxweb.github.io/vuesax/#/docs/radio)
-- [Input](https://lusaxweb.github.io/vuesax/#/docs/input)
-- [Dialogs](https://lusaxweb.github.io/vuesax/#/docs/messageBox)
-- [Tabs](https://lusaxweb.github.io/vuesax/#/docs/tabs)
-- [Slider](https://lusaxweb.github.io/vuesax/#/docs/slider)
-- [InputNumber](https://lusaxweb.github.io/vuesax/#/docs/inputNumber)
-- [Tooltip](https://lusaxweb.github.io/vuesax/#/docs/tooltip)
-- [Upload](https://lusaxweb.github.io/vuesax/#/docs/upload)
-- [Loading](https://lusaxweb.github.io/vuesax/#/docs/loading)
+- [Buttons](https://lusaxweb.github.io/vuesax/#/en/docs/components/buttons)
+- [Selects](https://lusaxweb.github.io/vuesax/#/en/docs/components/selects)
+- [Notifications](https://lusaxweb.github.io/vuesax/#/en/docs/components/Notifications)
+- [Switch](https://lusaxweb.github.io/vuesax/#/en/docs/components/switch)
+- [CheckBox](https://lusaxweb.github.io/vuesax/#/en/docs/components/checkBox)
+- [Radio](https://lusaxweb.github.io/vuesax/#/en/docs/components/radio)
+- [Input](https://lusaxweb.github.io/vuesax/#/en/docs/components/input)
+- [Dialogs](https://lusaxweb.github.io/vuesax/#/en/docs/components/messageBox)
+- [Tabs](https://lusaxweb.github.io/vuesax/#/en/docs/components/tabs)
+- [Slider](https://lusaxweb.github.io/vuesax/#/en/docs/components/slider)
+- [InputNumber](https://lusaxweb.github.io/vuesax/#/en/docs/components/inputNumber)
+- [Tooltip](https://lusaxweb.github.io/vuesax/#/en/docs/components/tooltip)
+- [Upload](https://lusaxweb.github.io/vuesax/#/en/docs/components/upload)
+- [Loading](https://lusaxweb.github.io/vuesax/#/en/docs/components/loading)
+- [Popup](https://lusaxweb.github.io/vuesax/#/en/docs/components/Popup)
+- [Alert](https://lusaxweb.github.io/vuesax/#/en/docs/components/alert)
+- [Dropdown](https://lusaxweb.github.io/vuesax/#/en/docs/components/dropdown)
+- [Grid](https://lusaxweb.github.io/vuesax/#/en/docs/layout/grid)
 
 # Demo and Documentation
 
