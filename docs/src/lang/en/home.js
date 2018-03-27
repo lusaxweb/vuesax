@@ -18,7 +18,7 @@ export default {
         invert:true,
         image:'responsive',
         id:'con-responsive',
-        h3:'**responsive** components',
+        h3:'**Responsive** components',
         text:'We work with Responsives Components, we strive to be available to everyone in our community.',
         button:'Layout',
         href:'/docs/layout/grid'
@@ -78,7 +78,7 @@ export default {
             },
             {
               text:'Edit page',
-              href:'#'
+              href:'https://github.com/lusaxweb/vuesax/tree/master/docs'
             },
             {
               text:'Latest Releases',
