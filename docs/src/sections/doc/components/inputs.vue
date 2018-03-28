@@ -53,6 +53,11 @@
           <vs-input :vs-valid.sync="validos.number" vs-success-text="Numero Valido" vs-danger-text="El minimo es 10 y el maximo 20" vs-max="20" vs-min="10" vs-type="number" vs-label-placeholder="Number" v-model="value6_2"/>
           <vs-input :vs-valid.sync="validos.url" vs-success-text="Correo Valido" vs-danger-text="El email no cumple con los requisitos" vs-type="url" vs-label-placeholder="url" v-model="value6_3"/>
           <vs-input :vs-valid.sync="validos.password" vs-success-text="Password Valida" vs-danger-text="La contraseña debe tener al menos 8 caracteres, 1 numero, 1 caracter especial" vs-type="password" vs-label-placeholder="Password" v-model="value6_4"/>
+          <vs-input :vs-valid.sync="validos.custom"
+                    vs-success-text="Field is valid"
+                    vs-danger-text="Field must have at least 5 characters"
+                    :vs-validation-function="(value) => value.length > 5"
+                    vs-type="custom" vs-label-placeholder="Custom" v-model="value6_5"/>
          </div>
        </codex>
       </div>
@@ -100,11 +105,13 @@ export default {
       value6_2:'',
       value6_3:'',
       value6_4:'',
+      value6_5: '',
 validos:{
         email:false,
         number:false,
         url:false,
-        password:false
+        password:false,
+        custom: false
       },
       api:[
         {
@@ -183,6 +190,13 @@ validos:{
           parametros:'string',
           descripcion:'texto a mostrar cuando el elemento es valido',
           default:'null'
+        },
+        {
+          name:'vs-validation-function',
+          type:'function',
+          parametros:'value',
+          descripcion:'A custom validation function. Accepts input value as parameter',
+          default:'undefined'
         },
       ],
       code1:`
