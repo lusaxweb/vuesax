@@ -1,7 +1,7 @@
 export default {
     start:{
       h1:'**Vuesax** Frontend <a href="https://vuejs.org/" target="_blank">Vue</a> Components',
-      text:'We love what we do, let us help you to do what you love.',
+      text:'We love what we do. Let us help you do what **You** love.',
       button:'Documentation',
     },
     sections:[
@@ -10,7 +10,7 @@ export default {
         image:'mueble',
         id:'con-mueble',
         h3:'**Experience** design',
-        text:'We love that our users enjoy creating with us, in Vuesax we make this the best experience for you. Because the simple thing is fun.',
+        text:'We love that our users enjoy creating with us. In Vuesax, we make this the best experience for you, because it\'s fun.',
         button:'Components',
         href:'/docs/components/buttons'
       },
@@ -19,7 +19,7 @@ export default {
         image:'responsive',
         id:'con-responsive',
         h3:'**Responsive** components',
-        text:'We work with Responsives Components, we strive to be available to everyone in our community.',
+        text:'We work with Responsive Components, we strive to be available to everyone in our community.',
         button:'Layout',
         href:'/docs/layout/grid'
       },

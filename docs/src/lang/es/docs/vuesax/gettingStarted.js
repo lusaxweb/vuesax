@@ -13,7 +13,7 @@ export default {
     },
     {
       title:'Install in project NPM - YARN',
-      text:"To install Vuesax, run the commands below in your project with npm and you're done!.",
+      text:"To install Vuesax just run this command in your project with npm and you're done!.",
       code:`
       # npm
       npm install vuesax
@@ -25,12 +25,12 @@ export default {
     },
     {
       title:'Use',
-      text:'Vuesax is a vue js library. In order to use it, you have to add the code below:',
+      text:'Vuesax is a vue js library to use it you have to add the code:',
       code:`
       import Vue from 'vue'
       import Vuesax from 'vuesax'
 
-      import 'vuesax/dist/vuesax.css' //vuesax styles
+      import 'vuesax/dist/vuesax.css' //add style
       Vue.use(Vuesax)`
     },
     {

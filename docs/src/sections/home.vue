@@ -17,13 +17,13 @@
     <div class="con-text">
       <h1 class="h1">
         <span class="gradient-top"></span>
-        <span v-html="$marked(lang.home.start.h1)"></span>
+        <span v-html="$marked($t('home.start.h1'))"></span>
       </h1>
-      <h3 v-html="$marked(lang.home.start.text)">
+      <h3 v-html="$marked($t('home.start.text'))">
         <!-- Amamos lo que hacemos, déjanos ayudarte a hacer lo que amas. -->
       </h3>
       <div class="con-btns">
-        <vs-button @click="$router.push('/'+$route.params.lang+'/docs/vuesax/getting-started')" vs-color="rgb(var(--morado))" class="btn-doc" vs-type="primary-filled" :vs-html="$marked(lang.home.start.button)"></vs-button>
+        <vs-button @click="$router.push(`/${$i18n.locale}/docs/vuesax/getting-started`)" vs-color="rgb(var(--morado))" class="btn-doc" vs-type="primary-filled" :vs-html="$marked($t('home.start.button'))"></vs-button>
         <button class="btn-github" type="button" name="button"><a target="_blank" class="flaticon-github-logo" href="https://github.com/lusaxweb/vuesax"></a></button>
       </div>
     </div>
@@ -34,7 +34,7 @@
   </div>
 
 
-  <div v-for="section in lang.home.sections" :id="section.id" :class="section.id" class="con-sec">
+  <div v-for="section in $t('home.sections')" :id="section.id" :class="section.id" class="con-sec">
     <div v-if="!section.invert" class="con-ilus">
       <div :is="section.image"></div>
     </div>
@@ -56,7 +56,7 @@
     <div id="con-footer" class="con-footer">
       <div class="con-sponsor">
         <div class="contiene-sponsor">
-          <h3 v-html="$marked(lang.home.sponsors.title)"></h3>
+          <h3 v-html="$marked($t('home.sponsors.title'))"></h3>
           <vs-button
           @click="patronLink"
           @mouseenter="hoverText=true"
@@ -65,7 +65,7 @@
           vs-radius="20px"
           vs-color="rgb(var(--morado))"
           vs-type="primary-filled"
-          :vs-html="$marked(lang.home.sponsors.button)"/>
+          :vs-html="$marked($t('home.sponsors.button'))"/>
         </div>
         <span :class="{'hoverText':hoverText}" class="text-g">vuesax</span>
       </div>
@@ -80,7 +80,7 @@
 
         <div class="con-links">
           <div class="uls">
-            <ul @mouseenter="lineaLx($event),lineaActiva=true" @mouseleave="linealeave()" v-for="ul in lang.home.footer.uls">
+            <ul @mouseenter="lineaLx($event),lineaActiva=true" @mouseleave="linealeave()" v-for="ul in $t('home.footer.uls')">
               <li class="title">
                 {{ul.title}}
               </li>

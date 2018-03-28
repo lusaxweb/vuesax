@@ -7,9 +7,10 @@ import vuex from 'vuex'
 import 'prefixfree'
 import {store} from './store.js'
 import prism from 'prismjs';
+import messages from './lang'
 import InstantSearch from 'vue-instantsearch';
 import marked from 'marked'
-import lang from './lang/index.js'
+import VueI18n from 'vue-i18n'
 
 const markedx = {}
 markedx.install = function (Vue, options) {
@@ -17,10 +18,15 @@ markedx.install = function (Vue, options) {
   Vue.prototype.$marked = function (valuex) {
     return marked(valuex)
   }
-  Vue.prototype.$lang = lang
-
 }
+
 Vue.use(markedx);
+Vue.use(VueI18n);
+const defaultLang = 'en'
+const i18n = new VueI18n({
+  locale: defaultLang, // set locale
+  messages
+})
 
 import Vuesax from '../../index.js'
 // import '../../dist/vuesax.css'
@@ -34,18 +40,24 @@ Vue.config.productionTip = false
 import './assets/app.css'
 
 Vue.mixin({
-  data() {
-    return {
-      lang:this.$lang[this.$route.params.lang],
+  mounted(){
+    let lang = this.$route.params.lang || defaultLang;
+    if(!isSupportedLang(lang)){
+      lang = defaultLang
     }
+    i18n.locale = lang;
   }
 })
 
+function isSupportedLang(lang){
+  return messages[lang] !== undefined;
+}
 /* eslint-disable no-new */
 var vm = new Vue({
   store,
   el: '#app',
   router,
+  i18n,
   components: { App },
   template: '<App/>',
 })
@@ -53,10 +65,13 @@ var vm = new Vue({
 
 // console.log(vm);
 router.beforeEach((to, from, next) => {
-  if(from.params.lang != to.params.lang){
-    router.go()
-  }
+  let lang = to.params.lang;
+  if(!isSupportedLang(lang) && lang){
+    let path = to.fullPath.substring(lang.length + 1)
+    next({path: `/${defaultLang}${path}`, params: {lang: defaultLang}})
+  } else {
     next()
+  }
 })
 //
 // var setDocumentVariable = function(propertyName, value) {

@@ -60,7 +60,7 @@ export default {
       ]
     },
     {
-      text:'Contact',
+      text:'Más',
       href:'#',
       items:[
         {

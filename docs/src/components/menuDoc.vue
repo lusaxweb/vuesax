@@ -21,13 +21,13 @@
     <ul class="ul-principal">
       <template v-for="li in childrenx">
         <li v-if="li.padre">
-          <router-link :to="'/'+lang.route+'/docs/'+li.path" class="nav-link" active-class="activoPadre">
+          <router-link :to="`/${$i18n.locale}/docs/${li.path}`" class="nav-link" active-class="activoPadre">
             {{li.name}}
           </router-link>
         </li>
         <ul class="ul-hijo">
           <li class="nuevo" v-for="_li in li.children">
-            <router-link :to="'/'+lang.route+'/docs/'+li.path+_li.path" class="nav-link" active-class="activo">
+            <router-link :to="`/${$i18n.locale}/docs/${li.path}${_li.path}`" class="nav-link" active-class="activo">
               {{_li.path.replace('-',' ')}}
               <span v-if="_li.new">{{_li.new}}</span>
             </router-link>
