@@ -8,18 +8,18 @@
     </div>
     <ul class="ul">
       <li>
-        <router-link :to="'/'+$route.params.lang+'/home/'" class="nav-link" active-class="activo">
-          <span v-html="$marked(lang.components.menu.home)"></span>
+        <router-link :to="`/${$i18n.locale}/home/`" class="nav-link" active-class="activo">
+          <span v-html="$marked($t('components.menu.home'))"></span>
         </router-link>
       </li>
       <li>
-        <router-link :to="'/'+$route.params.lang+'/docs/'" class="nav-link" active-class="activo">
-          <span v-html="$marked(lang.components.menu.documentation)"></span>
+        <router-link :to="`/${$i18n.locale}/docs/`" class="nav-link" active-class="activo">
+          <span v-html="$marked($t('components.menu.documentation'))"></span>
         </router-link>
       </li>
       <li class="li-drop">
-        <vs-dropdown :vs-title="lang.components.menu.ecosystemText">
-            <vs-dropdown-item :key="indexP" v-for="padre,indexP in lang.components.menu.ecosystem" vs-group :vs-label="padre.text">
+        <vs-dropdown :vs-title="$t('components.menu.ecosystemText')">
+            <vs-dropdown-item :key="indexP" v-for="padre,indexP in $t('components.menu.ecosystem')" vs-group :vs-label="padre.text">
               <vs-dropdown-item :key="index" v-for="link,index in padre.items">
                 <a class="linkx" :href="link.href">{{link.text}}</a>
               </vs-dropdown-item>
@@ -28,7 +28,7 @@
       </li>
       <li>
 
-          <!-- <vs-dropdown :vs-title="lang.components.menu.translation">
+          <!-- <vs-dropdown :vs-title="$t('components.menu.translation')">
                 <vs-dropdown-item>
                   <a @click="cambiarLang('en')" :class="{'estasx':$route.fullPath.search('/en/')!=-1}" class="linkx" href="#">English</a>
                 </vs-dropdown-item>

@@ -1,13 +1,13 @@
 <template lang="html">
   <div>
-    <con-doc  :titlex="$marked(langx.h1)" :textx="$marked(langx.description)">
+    <con-doc  :titlex="$marked(translations.h1)" :textx="$marked(translations.description)">
       <div slot="codes">
-      <codex text="true" :titlex="langx.codes[0].title" doc="doc" :no-codigo="true" >
-        <div v-html="$marked(langx.codes[0].text)" slot="text"></div>
+      <codex text="true" :titlex="translations.codes[0].title" doc="doc" :no-codigo="true" >
+        <div v-html="$marked(translations.codes[0].text)" slot="text"></div>
       </codex>
 
-      <codex text="true" float="true" :titlex="langx.codes[1].title" >
-        <div v-html="$marked(langx.codes[1].text)" slot="text"></div>
+      <codex text="true" float="true" :titlex="translations.codes[1].title" >
+        <div v-html="$marked(translations.codes[1].text)" slot="text"></div>
         <div  slot="ejemplo">
           <div class="con-iframe">
             <iframe width="100%" height="300" src="//jsfiddle.net/luisdanielroviracontreras/txzqp7ny/6/embedded/html,result/" allowpaymentrequest allowfullscreen="allowfullscreen" frameborder="0"></iframe>
@@ -15,16 +15,16 @@
         </div>
       </codex>
 
-      <codex :titlex="langx.codes[2].title" doc="doc" :code="langx.codes[2].code">
-      <div v-html="$marked(langx.codes[2].text)" slot="text"></div>
+      <codex :titlex="translations.codes[2].title" doc="doc" :code="translations.codes[2].code">
+      <div v-html="$marked(translations.codes[2].text)" slot="text"></div>
       </codex>
 
-      <codex text="true" :titlex="langx.codes[3].title" doc="doc" :code="langx.codes[3].code">
-        <div v-html="$marked(langx.codes[3].text)" slot="text"></div>
+      <codex text="true" :titlex="translations.codes[3].title" doc="doc" :code="translations.codes[3].code">
+        <div v-html="$marked(translations.codes[3].text)" slot="text"></div>
       </codex>
 
-      <codex text="true" :titlex="langx.codes[4].title" doc="doc" no-codigo="true">
-        <div v-html="$marked(langx.codes[4].text)" slot="text"></div>
+      <codex text="true" :titlex="translations.codes[4].title" doc="doc" no-codigo="true">
+        <div v-html="$marked(translations.codes[4].text)" slot="text"></div>
       </codex>
 
       </div>
@@ -48,12 +48,13 @@ export default {
     // component
     // vsButton,
   },
-  created(){
-    this.langx = this.lang.docs.vuesax.gettingStarted
+  computed: {
+    translations(){
+      return this.$t('docs.vuesax.gettingStarted')
+    }
   },
   data(){
     return {
-      langx:null,
       code1:
       `
       <!DOCTYPE html>
