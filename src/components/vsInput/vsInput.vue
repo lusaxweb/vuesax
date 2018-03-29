@@ -3,15 +3,13 @@
     <label :class="{'focusLabel':focusx, 'disabledxlabel':disabled}" class="label" for="">{{vsLabel}}</label>
 
     <input
-    :type="vsType=='password'?'password':'text'"
-    @keydown="validarKeypress($event,$event.target.value)"
+    :type="vsType ? vsType :'text'"
     :style="{'border':`1px solid ${focusx?backgroundx:'rgba(0, 0, 0, 0.150)'}`,'caretColor': backgroundx}"
     :disabled="disabled"
     :value="value"
-    @input="$emit('input',$event.target.value)"
     ref="inputx"
-    @focus="focusx=true"
-    @blur="focusx=false"
+    v-bind="$attrs"
+    v-on="listeners"
     class="vs-input">
 
     <span v-if="!vsLabelPlaceholder" @click="$refs.inputx.focus()" :class="{'noPlaceholder':value.length>0?true:focusx}" class="placeholder">{{vsPlaceholder}}</span>
@@ -34,7 +32,24 @@
 </template>
 
 <script>
+let validations = {
+  email: (value) => {
+    return /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(value);
+  },
+  url: (value) => {
+    return /[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/i.test(value)
+  },
+  password: (value) => {
+    return /^(?=.*[\d])(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*])[\w!@#$%^&*]{8,}$/i.test(value)
+  },
+  number: (value, min, max) => {
+    if(!min || !max) return ! isNaN(value);
+    return Number(value) <= Number(max) && Number(value) >= Number(min)
+  },
+  default: (value) => true
+}
 export default {
+  inheritAttrs: false,
   name:'vs-input',
   props:[
     'value',
@@ -50,7 +65,8 @@ export default {
     'vsSuccessText',
     'vsMax',
     'vsMin',
-    'vsValid'
+    'vsValid',
+    'vsValidationFunction'
   ],
   data(){
     return {
@@ -58,63 +74,35 @@ export default {
     }
   },
   computed:{
+    listeners() {
+      return {
+        ...this.$listeners,
+        focus: this.onFocus,
+        blur: this.onBlur,
+        input: this.onInput,
+        keydown: (evt) => this.validarKeypress(evt, evt.target.value)
+      }
+    },
     validar(){
       if(this.vsType){
         //email
         if(this.value.length > 0){
-
-          if(this.vsType=='email'){
-              if (/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(this.value)){
-                if(this.vsValid!=undefined){
-                  this.$emit('update:vsValid', true)
-                }
-                return 'input-bien'
-
-              } else {
-                if(this.vsValid!=undefined){
-                  this.$emit('update:vsValid', false)
-                }
-                return 'input-mal'
-              }
-          } else if (this.vsType=='number'&&this.vsMax||this.vsMin) {
-            if (Number(this.value) <= Number(this.vsMax) && Number(this.value) >= Number(this.vsMin)){
-              if(this.vsValid!=undefined){
-                this.$emit('update:vsValid', true)
-              }
-              return 'input-bien'
-            } else {
-              if(this.vsValid!=undefined){
-                this.$emit('update:vsValid', false)
-              }
-              return 'input-mal'
-            }
-          } else if (this.vsType=='url') {
-            if (/[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/i.test(this.value)){
-              if(this.vsValid!=undefined){
-                this.$emit('update:vsValid', true)
-              }
-              return 'input-bien'
-            } else {
-              if(this.vsValid!=undefined){
-                this.$emit('update:vsValid', false)
-              }
-              return 'input-mal'
-            }
-          } else if (this.vsType=='password') {
-            if (/^(?=.*[\d])(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*])[\w!@#$%^&*]{8,}$/i.test(this.value)){
-              if(this.vsValid!=undefined){
-                this.$emit('update:vsValid', true)
-              }
-              return 'input-bien'
-            } else {
-              if(this.vsValid!=undefined){
-                this.$emit('update:vsValid', false)
-              }
-              return 'input-mal'
-            }
+          if(this.vsValidationFunction && typeof this.vsValidationFunction === 'function') {
+            validations[this.vsType] = this.vsValidationFunction;
+          }
+          let validationFunction = validations[this.vsType] || validations.default
+          let params = [this.value];
+          if(this.vsType === 'number'){
+            params.push(...[this.vsMin, this.vsMax]);
+          }
+          let validationResult = validationFunction.apply(null, params);
+          let result = Boolean(validationResult);
+          if(this.vsValid !== undefined){
+            this.$emit('update:vsValid', result)
+            return result ? 'input-bien' : 'input-mal'
           }
         } else {
-          if(this.vsValid!=undefined){
+          if(this.vsValid !== undefined){
             this.$emit('update:vsValid', false)
           }
         }
@@ -137,6 +125,17 @@ export default {
     }
   },
   methods:{
+    onFocus(){
+      this.focusx=true;
+      this.$emit('focus')
+    },
+    onBlur(){
+      this.focusx=false;
+      this.$emit('blur')
+    },
+    onInput(evt){
+      this.$emit('input',evt.target.value)
+    },
     validarKeypress(evt,value){
       if(this.vsType){
         if(this.vsType=='email'){
