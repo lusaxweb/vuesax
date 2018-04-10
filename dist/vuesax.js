@@ -4142,7 +4142,6 @@ var vsRow_Component = vsRow_normalizeComponent(
 //
 //
 //
-//
 
 /* harmony default export */ var vsCol = ({
   name: 'vs-col',
@@ -4184,7 +4183,7 @@ var vsRow_Component = vsRow_normalizeComponent(
     }
   }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-0ccc443e","hasScoped":true,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/layout/vsCol.vue
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-cd042260","hasScoped":true,"transformToRequire":{"video":["src","poster"],"source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/layout/vsCol.vue
 var vsCol_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"vs-col",class:[
     'vs-xs-'+_vm.vsXs,
     'vs-sm-'+_vm.vsSm,
@@ -4194,13 +4193,13 @@ var vsCol_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_v
    'display':_vm.vsType,
    'align-items':_vm.vsAlign,
    'margin-left':_vm.vsOffset*100/12+'%',
-   'width':_vm.vsW*100/12+'%'})},[_vm._v("\n   "+_vm._s(_vm.vsXs)+"\n  "),_vm._t("default")],2)}
+   'width':_vm.vsW*100/12+'%'})},[_vm._t("default")],2)}
 var vsCol_staticRenderFns = []
 var vsCol_esExports = { render: vsCol_render, staticRenderFns: vsCol_staticRenderFns }
 /* harmony default export */ var layout_vsCol = (vsCol_esExports);
 // CONCATENATED MODULE: ./src/layout/vsCol.vue
 function vsCol_injectStyle (ssrContext) {
-  __webpack_require__("dB3O")
+  __webpack_require__("UTq4")
 }
 var vsCol_normalizeComponent = __webpack_require__("VU/8")
 /* script */
@@ -4213,7 +4212,7 @@ var vsCol___vue_template_functional__ = false
 /* styles */
 var vsCol___vue_styles__ = vsCol_injectStyle
 /* scopeId */
-var vsCol___vue_scopeId__ = "data-v-0ccc443e"
+var vsCol___vue_scopeId__ = "data-v-cd042260"
 /* moduleIdentifier (server only) */
 var vsCol___vue_module_identifier__ = null
 var vsCol_Component = vsCol_normalizeComponent(
@@ -4838,6 +4837,13 @@ module.exports = !$assign || __webpack_require__("S82l")(function () {
 
 /***/ }),
 
+/***/ "UTq4":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "UuGF":
 /***/ (function(module, exports) {
 
@@ -5119,13 +5125,6 @@ module.exports = function (name) {
   if (name.charAt(0) != '_' && !(name in $Symbol)) defineProperty($Symbol, name, { value: wksExt.f(name) });
 };
 
-
-/***/ }),
-
-/***/ "dB3O":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ }),
 
