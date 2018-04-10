@@ -53,13 +53,13 @@ export default {
     let _this = this
     let el = document.querySelector(_this.vsScroll)
       el.addEventListener('scroll',this.scrollx)
-      // mouse wheel
-      if(this.vsMouseWheel){
-        el.addEventListener('mousewheel',this.mouseWheelx)
-      }
-      if(this.vsKeyboard){
-        window.addEventListener('keyup',this.keyboardx)
-      }
+    //   // mouse wheel
+    //   if(this.vsMouseWheel){
+    //     el.addEventListener('mousewheel',this.mouseWheelx)
+    //   }
+    //   if(this.vsKeyboard){
+    //     window.addEventListener('keyup',this.keyboardx)
+    //   }
 
 
   },

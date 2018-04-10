@@ -140,7 +140,7 @@ export const children = [
           component: Loading
         },
         {
-          new:'new',
+          new:'upload',
           path: 'popup',
           component: popup
         },

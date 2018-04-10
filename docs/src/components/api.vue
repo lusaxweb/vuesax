@@ -6,10 +6,10 @@
         <tr>
           <th>Name</th>
           <th>Type</th>
-          <th>Parametros</th>
-          <th>Descripción</th>
+          <th>Parameters</th>
+          <th>Description</th>
           <th>default</th>
-          <th>Ejemplo</th>
+          <th>Example</th>
         </tr>
       </thead>
       <tbody v-for="tr in data">

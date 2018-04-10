@@ -64,6 +64,20 @@
         </codex>
 
 
+        <codex @click-disabled="disabled1=!disabled1" :disabledx="true" :disabled-value="disabled1" titlex="Color" :code="code7">
+          <div slot="ejemplo">
+            <input type="color" v-model="colorx" name="" value="">
+            <input type="color" v-model="colorx2" name="" value="">
+            <vs-button :vs-color="colorx" :disabled="disabled1" vs-type="primary-filled">Color</vs-button>
+            <vs-button :vs-color="colorx" :disabled="disabled1" vs-type="primary-border">Color</vs-button>
+            <vs-button :vs-color="colorx" :disabled="disabled1" vs-type="primary-flat">Color</vs-button>
+            <vs-button :vs-color="colorx" :disabled="disabled1" vs-type="primary-line-down">Color</vs-button>
+            <vs-button :vs-color="colorx+'/'+colorx2" :disabled="disabled1" vs-type="primary-gradient">Color</vs-button>
+            <vs-button :vs-color="colorx" :disabled="disabled1" vs-type="primary-relief">Color</vs-button>
+          </div>
+        </codex>
+
+
       </div>
     </con-doc>
   </div>
@@ -87,14 +101,48 @@ export default {
   },
   data(){
     return {
+      colorx:'#c72a75',
+      colorx2:'#0fc816',
       disabled1:false,
       api:[
         {
           name:'vs-type',
           type:'String',
-          descripcion:'El tipo de boton',
+          descripcion:'The type of button',
           default:'primary-filled'
         },
+        {
+          name:'vs-color',
+          type:'String',
+          descripcion:'Determine the color of the button',
+          parametros:'rgb|hex in gradient:`color/color2`',
+          default:'primary'
+        },
+        {
+          name:'vs-radius',
+          type:'String',
+          descripcion:'Determines the border-radius of the button',
+          default:'5px'
+        },
+        {
+          name:'vs-padding',
+          type:'String',
+          descripcion:'Determines the paddding of the button',
+          default:'12px'
+        },
+        {
+          name:'vs-color-text',
+          type:'String',
+          descripcion:'Color of the text on the button',
+          default:'primary||White'
+        },
+        {
+          name:'vs-html',
+          type:'html',
+          descripcion:'Add the html inside the button',
+          default:'null'
+        },
+
       ],
 code1:
 `<vs-button vs-type="primary-filled">Primary</vs-button>
@@ -137,6 +185,33 @@ code6:
 <vs-button vs-type="danger-relief">Danger</vs-button>
 <vs-button vs-type="warning-relief">Warning</vs-button>
 <vs-button vs-type="dark-relief">Dark</vs-button>
+`,
+code6:
+`<vs-button vs-type="primary-relief">Primary</vs-button>
+<vs-button vs-type="success-relief">Success</vs-button>
+<vs-button vs-type="danger-relief">Danger</vs-button>
+<vs-button vs-type="warning-relief">Warning</vs-button>
+<vs-button vs-type="dark-relief">Dark</vs-button>
+`,
+code7:`
+<template>
+<input type="color" v-model="colorx" name="" value="">
+<input type="color" v-model="colorx2" name="" value="">
+<vs-button :vs-color="colorx" vs-type="primary-filled">Color</vs-button>
+<vs-button :vs-color="colorx" vs-type="primary-border">Color</vs-button>
+<vs-button :vs-color="colorx" vs-type="primary-flat">Color</vs-button>
+<vs-button :vs-color="colorx" vs-type="primary-line-down">Color</vs-button>
+<vs-button :vs-color="colorx+'/'+colorx2" vs-type="primary-gradient">Color</vs-button>
+<vs-button :vs-color="colorx" vs-type="primary-relief">Color</vs-button>
+</template>
+<script>
+export default {
+data(){
+  colorx:'#c72a75',
+  colorx2:'#0fc816'
+}
+}
+</\script>
 `,
     }
   },

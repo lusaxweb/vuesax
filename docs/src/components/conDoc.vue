@@ -13,10 +13,10 @@
         <api :data="apix">
         </api>
       </div>
-      <div class="linksx">
-        <a v-if="puedesIrAtras" @click="atrasx" href="#">Atras</a>
-        <a @click="siguientex" href="#">Siguiente</a>
-      </div>
+      <!-- <div class="linksx">
+        <a v-if="puedesIrAtras" @click.parent="atrasx" href="#">Atras</a>
+        <a @click.parent="siguientex" href="#">Siguiente</a>
+      </div> -->
     </div>
     </div>
   </div>
@@ -64,20 +64,20 @@ export default {
       console.log(e);
     },
     siguientex(){
-      if($('.ul-hijo').find('.activo').parent().next('li').length==0){
-        return
-      }
+      // if($('.ul-hijo').find('.activo').parent().next('li').length==0){
+      //   return
+      // }
       let urlx = $('.ul-hijo').find('.activo').parent().next('li').find('a')[0].__vue__.to
       console.log(urlx);
-      if(urlx){
+      // if(urlx){
         this.$router.push(urlx)
-      }
+      // }
     },
     atrasx(){
 
-        if($('.ul-hijo').find('.activo').parent().index() == 0){
-          return
-        }
+        // if($('.ul-hijo').find('.activo').parent().index() == 0){
+        //   return
+        // }
 
         let urlx = $('.ul-hijo').find('.activo').parent().prev('li').find('a')[0].__vue__.to
         console.log(urlx);

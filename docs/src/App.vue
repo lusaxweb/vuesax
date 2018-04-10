@@ -28,6 +28,8 @@ export default {
 </script>
 
 <style>
+/* fuente */
+
 .fade2-enter-active, .fade2-leave-active {
   transition: all .3s;
 }

@@ -1,10 +1,10 @@
 <template lang="html">
   <div :class="{'scroll':$store.state.scroll,'en-doc':$store.state.menuVisible}" class="con-menu-top">
     <div @click="$router.push('/')" class="img-menu-grande">
-      <img src="../assets/vuesax.png" alt="vuesax">
+      <img src="../assets/vuesax-perfect1.png" alt="vuesax">
     </div>
     <div @click="$router.push('/')" class="img-menu">
-      <img src="../assets/vuesax-logo-vertical-2.png" alt="">
+      <img src="../assets/vuesax-perfect2.png" alt="">
     </div>
     <ul class="ul">
       <li>

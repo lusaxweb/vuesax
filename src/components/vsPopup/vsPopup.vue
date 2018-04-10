@@ -1,16 +1,26 @@
 <template lang="html">
   <transition name="fadex">
-  <div  v-show="vsActive" ref="conpopup" class="con-popup">
-    <div :class="{'fullscreen':vsFullscreen}" class="vs-popup">
+  <div
+
+  v-show="vsActive" ref="conpopup" class="con-popup">
+    <div
+    v-bind="$attrs"
+      :style="{'background':vsBackgroundColor?/[#()]/.test(vsBackgroundColor)?vsBackgroundColor:`rgba(var(--${vsBackgroundColor}),1)`:'rgb(255,255,255)',
+      'color':colorx,
+      }"
+    :class="{'fullscreen':vsFullscreen}" class="vs-popup">
       <header>
         <h2 v-if="vsTitle!=''">
           {{vsTitle}}
         </h2>
-        <div @click="$emit('vs-cancel')" class="vs-popup-cancel">
+        <div
+        :style="{'background':vsCloseButtonColor?/[#()]/.test(vsCloseButtonColor)?vsCloseButtonColor:`rgba(var(--${vsCloseButtonColor}),1)`:'rgb(250, 250, 250)',
+        'color':colorButtonx
+        }"
+        @click="$emit('vs-cancel')" class="vs-popup-cancel">
           <!-- <span class="flaticon-close"></span> -->
           <i class="material-icons">close</i>
         </div>
-
       </header>
       <div class="con-htmlx">
         <slot>
@@ -22,7 +32,7 @@
 </template>
 
 <script>
-
+import color from '../../utils/color.js'
 export default {
   name:'vs-popup',
   props:{
@@ -37,11 +47,41 @@ export default {
     vsFullscreen:{
       type:Boolean,
       default:false,
-    }
+    },
+    vsCloseButtonColor:{
+      type:String,
+    },
+    vsBackgroundColor:{
+      type:String,
+    },
   },
   data(){
     return {
 
+    }
+  },
+  computed:{
+    colorx(){
+      if(this.vsBackgroundColor){
+        if(color.contrastColor(this.vsBackgroundColor)){
+          return 'rgba(0, 0, 0,.7)'
+        } else {
+          return 'rgba(255, 255, 255,.8)'
+        }
+      } else {
+        return 'rgba(0, 0, 0,.7)'
+      }
+    },
+    colorButtonx(){
+      if(this.vsCloseButtonColor){
+        if(color.contrastColor(this.vsCloseButtonColor)){
+          return 'rgba(0, 0, 0,.7)'
+        } else {
+          return 'rgba(255, 255, 255,.8)'
+        }
+      } else {
+        return 'rgba(0, 0, 0,.7)'
+      }
     }
   },
   mounted(){
@@ -101,7 +141,7 @@ export default {
   padding: 10px;
   position: relative;
   padding-left: 20px;
-  color: rgba(0, 0, 0, 0.7);
+  color: inherit;
 }
 .vs-popup-cancel {
   position: absolute;
@@ -110,18 +150,16 @@ export default {
   width: 50px;
   height: 50px;
   border-radius: 10px;
-  background: rgb(255, 255, 255);
+  /* background: rgb(255, 255, 255); */
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0,.2);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all .3s ease;
-  color: rgba(0, 0, 0, 0.8);
 }
 .vs-popup-cancel:hover {
-  color: rgb(255, 255, 255);
-  background: rgb(var(--primary));
+  transform: scale(1.1);
 }
 .vs-popup-cancel:hover span {
   color: rgb(255, 255, 255);

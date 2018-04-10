@@ -1,13 +1,14 @@
 <template lang="html">
 
     <button
+    ref="btnvuesax"
     @mouseenter="hoverx=true,$emit('mouseenter')"
     @mouseleave="hoverx=false,$emit('mouseleave')"
     :style="{
       'color':vsColorText?/[#()]/.test(vsColorText)?vsColorText:`rgb(var(--${vsColorText}))`:'',
       'border-radius':vsRadius,
-      'background':vsColor?/[#()]/.test(vsColor)?vsColor:`rgb(var(--${vsColor}))`:'',
-      'box-shadow': hoverx?`0px 2px 15px 0px ${/[#()]/.test(vsColor)?vsColor:`rgb(var(--${vsColor}))`}`:'',
+      'background':backgroundx,
+
       }"
     @click="$emit('click',$event)"
     @blur="btnBlur($event)"
@@ -24,12 +25,15 @@
         <slot>
         </slot>
       </span>
+      <div ref="lineax" class="lineax">
+
+      </div>
     </button>
 
 </template>
 
 <script>
-
+import color from '../../utils/color.js'
 export default {
   name:'vs-button',
   props:{
@@ -64,7 +68,39 @@ export default {
       clasex:`vs-button-${this.vsType}`,
     }
   },
+  computed:{
+    backgroundx(){
+      if(/-border/.test(this.vsType)||/-flat/.test(this.vsType)||/-line-down/.test(this.vsType)||/-gradient/.test(this.vsType)){
+        if(/-border/.test(this.vsType)){
+
+        }
+
+    } else {
+      if(this.vsColor){
+        if(/[#()]/.test(this.vsColor)){
+          return this.vsColor
+        } else {
+          return `rgb(var(--${this.vsColor}))`
+        }
+      }
+    }
+    }
+    // 'box-shadow': hoverx?`0px 2px 15px 0px ${/[#()]/.test(vsColor)?vsColor:`rgb(var(--${vsColor}))`}`:'',
+  },
+  updated(){
+    this.vsColorx()
+  },
   mounted(){
+    let _this = this
+    let btn = this.$refs.btnvuesax
+    let colorx = null
+    this.vsColorx()
+    // if(){
+    //
+    // }
+    // btn.style.boxShadow = this.hoverx?`0px 2px 15px 0px ${/[#()]/.test(vsColor)?vsColor:`rgb(var(--${vsColor}))`}`:''
+
+
     let el = this.$el
     el.addEventListener('click', function(event){
       console.log(event);
@@ -82,6 +118,18 @@ export default {
       el.appendChild(elSpan)
 
       let spanx = this.querySelector('.relleno')
+
+      //agregar color personalizado
+
+      if(_this.vsColor){
+        if (/-flat/.test(_this.vsType) || /-border/.test(_this.vsType)) {
+          // btn.style.border = '1px solid '+this.vsColor
+          console.log("click dentro");
+          spanx.style.background = _this.vsColor
+
+        }
+      }
+
       // if(!this.classList.contains('activo')){
       let time = 0.7
       if (this.classList.contains('filled')||event.target.clientWidth>100) {
@@ -110,6 +158,64 @@ export default {
     })
   },
   methods:{
+    vsColorx(){
+      let _this = this
+      let btn = this.$refs.btnvuesax
+      let colorx = null
+      if(this.vsColor){
+
+      if(/[#()]/.test(this.vsColor)){
+        if(/#/.test(this.vsColor)){
+
+          let c = color.hexToRgb(this.vsColor)
+          colorx = function(opacity){
+            return `rgba(${c.r},${c.g},${c.b},${opacity})`;
+          }
+          console.log("paso coloe");
+
+        } else {
+
+          colorx = function(opacity){
+            var rgb = _this.vsColor.replace(/^(rgb|rgba)\(/,'').replace(/\)$/,'').replace(/\s/g,'').split(',');
+            console.log(rgb);
+            return `rgba(${rgb[0]},${rgb[1]},${rgb[2]},${opacity})`;
+          }
+          console.log("paso coloe");
+        }
+      }
+
+      if(/-border/.test(this.vsType)){
+        btn.style.border = '1px solid '+this.vsColor
+        btn.style.color = this.vsColor
+        console.log("entro");
+      } else if (/-flat/.test(this.vsType)) {
+        btn.style.color = this.vsColor
+        btn.addEventListener('mouseover',()=>{
+              btn.style.background = colorx(.1)
+        }),
+        btn.addEventListener('mouseout',()=>{
+          btn.style.background = 'rgb(255, 255, 255)';
+        })
+      } else if (/-filled/.test(this.vsType)) {
+        btn.addEventListener('mouseover',()=>{
+              btn.style.boxShadow = `0px 2px 15px 0px ${colorx(1)}`
+        }),
+        btn.addEventListener('mouseout',()=>{
+          btn.style.boxShadow = `0px 2px 15px 0px ${'rgba(255, 255, 255, 0)'}`
+        })
+      } else if (/-line-down/.test(this.vsType)) {
+        btn.querySelector('.text').style.color = this.vsColor
+        btn.querySelector('.lineax').style.background = this.vsColor
+        btn.style.borderBottom = `2px solid ${colorx(.2)}`
+      } else if (/-gradient/.test(this.vsType)) {
+        let color1 = this.vsColor.split('/')[0]
+        let color2 = this.vsColor.split('/')[1]
+        console.log(color1);
+        console.log(color2);
+        btn.style.background = `linear-gradient(30deg, ${color1} 0%, ${color2} 100%)`
+      }
+  }
+},
     btnBlur(evt){
       // console.log(evt);
       if(!evt.target.classList.contains('filled')){
@@ -379,7 +485,7 @@ export default {
   /* border down */
 
 
-  button[class*='-line-down']::after {
+  button[class*='-line-down'] .lineax {
     position: absolute;
     left: 50%;
     bottom: -2px;
@@ -390,7 +496,7 @@ export default {
     transition: all .3s ease;
     transform: translate(-50%);
   }
-  button[class*='-line-down']:hover::after {
+  button[class*='-line-down']:hover .lineax {
       width: 100%;
   }
   button[class*='-line-down']:hover .text {
@@ -410,22 +516,22 @@ export default {
     border-bottom: 2px solid rgba(var(--primary),.1);
     color: rgb(var(--primary));
   }
-  .vs-button-primary-line-down::after {
+  .vs-button-primary-line-down .lineax {
     background: rgb(var(--primary));
   }
   .vs-button-primary-line-down .text {
-    color: rgb(var(--primary)) !important;
+    color: rgb(var(--primary));
   }
 
   .vs-button-success-line-down {
     border-bottom: 2px solid rgba(var(--success),.1);
     color: rgb(var(--success));
   }
-  .vs-button-success-line-down::after {
+  .vs-button-success-line-down .lineax {
     background: rgb(var(--success));
   }
   .vs-button-success-line-down .text {
-    color: rgb(var(--success)) !important;
+    color: rgb(var(--success));
   }
 
 
@@ -433,11 +539,11 @@ export default {
     border-bottom: 2px solid rgba(var(--danger),.1);
     color: rgb(var(--danger));
   }
-  .vs-button-danger-line-down::after {
+  .vs-button-danger-line-down .lineax {
     background: rgb(var(--danger));
   }
   .vs-button-danger-line-down .text {
-    color: rgb(var(--danger)) !important;
+    color: rgb(var(--danger));
   }
 
 
@@ -445,22 +551,22 @@ export default {
     border-bottom: 2px solid rgba(var(--warning),.1);
     color: rgb(var(--warning));
   }
-  .vs-button-warning-line-down::after {
+  .vs-button-warning-line-down .lineax {
     background: rgb(var(--warning));
   }
   .vs-button-warning-line-down .text {
-    color: rgb(var(--warning)) !important;
+    color: rgb(var(--warning)) ;
   }
 
   .vs-button-dark-line-down {
     border-bottom: 2px solid rgba(var(--dark),.1);
     color: rgb(var(--dark));
   }
-  .vs-button-dark-line-down::after {
+  .vs-button-dark-line-down .lineax {
     background: rgb(var(--dark));
   }
   .vs-button-dark-line-down .text {
-    color: rgb(var(--dark)) !important;
+    color: rgb(var(--dark));
   }
 
   /* gradient */
@@ -530,7 +636,7 @@ export default {
   .vs-button-primary-relief:active {
     opacity: 1;
     transform: translate(0,5px);
-    border-bottom: 4px solid rgba(0, 0, 0, 0.3);
+    border-bottom: 0px solid rgba(0, 0, 0, 0.3);
   }
 
   .vs-button-success-relief {
@@ -540,7 +646,7 @@ export default {
   .vs-button-success-relief:active {
     opacity: 1;
     transform: translate(0,5px);
-    border-bottom: 4px solid rgba(0, 0, 0, 0.3);
+    border-bottom: 0px solid rgba(0, 0, 0, 0.3);
   }
 
   .vs-button-danger-relief {

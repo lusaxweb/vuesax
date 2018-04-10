@@ -283,35 +283,35 @@ export default {
           name:'vs-w',
           type:'number, String',
           parametros:'1-12',
-          descripcion:'Ancho del vs-row o vs-colum',
+          descripcion:'Width of the vs-row or vs-colum',
           default:'12'
         },
         {
           name:'vs-offset',
           type:'number, String',
           parametros:'1-12',
-          descripcion:'distancia a la izquierda del col',
+          descripcion:'distance to the left of the',
           default:'0'
         },
         {
           name:'vs-justify',
           type:'String',
           parametros:'flex-start, center, flex-end, space-around, space-between',
-          descripcion:'defina la alinacion verticalmente de los elementos dentro del vs-row o vs-col',
+          descripcion:'define the alignment vertically of the elements within the vs-row or vs-col',
           default:'null'
         },
         {
           name:'vs-align',
           type:'String',
           parametros:'flex-start, center, flex-end, space-around, space-between',
-          descripcion:'defina la alinacion horizontal de los elementos dentro del vs-row o vs-col',
+          descripcion:'define the horizontal alignment of the elements within the vs-row or vs-col',
           default:'null'
         },
         {
           name:'vs-order',
           type:'Number',
           parametros:'',
-          descripcion:'cambia el orden del vs-col respecto a sus hermanos vs-col',
+          descripcion:'changes the order of the vs-col with respect to his brothers vs-col',
           default:'null'
         },
         {

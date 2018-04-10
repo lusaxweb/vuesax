@@ -8,8 +8,8 @@
            </div>
         <div  slot="ejemplo">
            <!-- //code -->
-           <vs-button @click="popupActivo=true" vs-type="primary-border">open Default popup</vs-button>
-           <vs-popup vs-title="Lorem ipsum dolor sit amet" :vs-active="popupActivo" @vs-cancel="popupActivo=false">
+           <vs-button @click="popupActivo=true" vs-type="primary-border">Open Default popup</vs-button>
+           <vs-popup class="holamundo"  vs-title="Lorem ipsum dolor sit amet" :vs-active="popupActivo" @vs-cancel="popupActivo=false">
              <p>
                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
              </p>
@@ -17,13 +17,15 @@
          </div>
        </codex>
 
+
+
         <codex :float="true" titlex="Nested Popup" :code="code2">
           <div  slot="text">
              <!-- //code -->
            </div>
         <div  slot="ejemplo">
            <!-- //code -->
-           <vs-button @click="popupActivo2=true" vs-type="success-border">open Nested popup</vs-button>
+           <vs-button @click="popupActivo2=true" vs-type="success-border">Open Nested popup</vs-button>
            <vs-popup  vs-title="Lorem ipsum dolor sit amet" :vs-active="popupActivo2" @vs-cancel="popupActivo2=false">
              <p>
                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
@@ -42,13 +44,13 @@
          </div>
        </codex>
 
-        <codex :float="true" titlex="fullscreen Popup" :code="code3">
+        <codex :float="true" titlex="fullscreen " :code="code3">
           <div  slot="text">
              <!-- //code -->
            </div>
         <div  slot="ejemplo">
            <!-- //code -->
-           <vs-button @click="popupActivo4=true" vs-type="danger-border">open fullscreen popup</vs-button>
+           <vs-button @click="popupActivo4=true" vs-type="danger-border">Open fullscreen popup</vs-button>
            <vs-popup vs-fullscreen vs-title="fullscreen" :vs-active="popupActivo4" @vs-cancel="popupActivo4=false">
              <p>
                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -56,6 +58,55 @@
            </vs-popup>
          </div>
        </codex>
+
+       <codex :float="true" titlex="background " :code="code5">
+         <div  slot="text">
+            <!-- //code -->
+          </div>
+       <div  slot="ejemplo">
+          <!-- //code -->
+          <input v-model="colorx" type="color" name="" value="">
+          <vs-button @click="popupActivo5=true" vs-type="warning-border">Open background popup</vs-button>
+
+          <vs-popup :vs-background-color="colorx" vs-title="background" :vs-active="popupActivo5" @vs-cancel="popupActivo5=false">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              <br>
+              <br>
+              e irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+          </vs-popup>
+        </div>
+      </codex>
+
+
+       <codex :float="true" titlex="Color Button" :code="code5">
+         <div  slot="text">
+            <!-- //code -->
+          </div>
+       <div  slot="ejemplo">
+          <!-- //code -->
+          <input v-model="colorx2" type="color" name="" value="">
+          <vs-button @click="popupActivo6=true" vs-type="dark-border">Open color button popup</vs-button>
+
+          <vs-popup :vs-close-button-color="colorx2" vs-title="Color Button" :vs-active="popupActivo6" @vs-cancel="popupActivo6=false">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              <br>
+              <br>
+              e irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+          </vs-popup>
+        </div>
+      </codex>
+
+      <codex text="true" :float="true" titlex="Contribution">
+        <div slot="text">
+          <b>v 3.0.3</b> Updated <a href="https://github.com/lusaxweb/vuesax/issues/23">#23</a> with the help of <a target="_blank" href="https://twitter.com/StuffBySpencer">StuffBySpencer</a>
+        </div>
+        </codex>
+
+
       </div>
     </con-doc>
   </div>
@@ -77,6 +128,10 @@ export default {
       popupActivo2:false,
       popupActivo3:false,
       popupActivo4:false,
+      popupActivo5:false,
+      popupActivo6:false,
+      colorx:"#339898",
+      colorx2:"#dd7617",
       api:[
         {
           name:'vs-active',
