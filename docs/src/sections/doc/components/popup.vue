@@ -59,7 +59,7 @@
          </div>
        </codex>
 
-       <codex :float="true" titlex="background " :code="code5">
+       <codex :float="true" titlex="background " :code="code4">
          <div  slot="text">
             <!-- //code -->
           </div>
@@ -141,6 +141,20 @@ export default {
           default:'false'
         },
         {
+          name:'vs-background-color',
+          type:'String',
+          parametros:'',
+          descripcion:'Change the background color of the component',
+          default:'rgb(255, 255, 255)'
+        },
+        {
+          name:'vs-close-button-color',
+          type:'String',
+          parametros:'',
+          descripcion:'Change the color of the close button',
+          default:'rgb(255, 255, 255)'
+        },
+        {
           name:'vs-cancel',
           type:'function',
           parametros:'',
@@ -213,6 +227,50 @@ code3:`
 <vs-popup vs-fullscreen vs-title="fullscreen" :vs-active="popupActivo" @vs-cancel="popupActivo=false">
   <p>
     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </p>
+</vs-popup>
+</template>
+<script>
+export default {
+  data(){
+    popupActivo:false
+  }
+}
+</\script>
+      `,
+code4:`
+<template>
+<input v-model="colorx" type="color" name="" value="">
+<vs-button @click="popupActivo=true" vs-type="warning-border">Open background popup</vs-button>
+
+<vs-popup :vs-background-color="colorx" vs-title="background" :vs-active="popupActivo" @vs-cancel="popupActivo=false">
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    <br>
+    <br>
+    e irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </p>
+</vs-popup>
+</template>
+<script>
+export default {
+  data(){
+    popupActivo:false
+  }
+}
+</\script>
+      `,
+code5:`
+<template>
+<input v-model="colorx2" type="color" name="" value="">
+<vs-button @click="popupActivo=true" vs-type="dark-border">Open color button popup</vs-button>
+
+<vs-popup :vs-close-button-color="colorx2" vs-title="Color Button" :vs-active="popupActivo" @vs-cancel="popupActivo=false">
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    <br>
+    <br>
+    e irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
   </p>
 </vs-popup>
 </template>

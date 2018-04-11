@@ -57,6 +57,14 @@
                 </div>
               </codex>
 
+              <codex :float="true" titlex="Time" :code="code5">
+                <div slot="ejemplo">
+                  <vs-button @click="$vs.notify({title:'Time default',text:'Lorem ipsum dolor sit amet, consectetur',color:'primary',icon:'query_builder'})" vs-type="primary-flat">Time default</vs-button>
+                  <vs-button @click="$vs.notify({time:4000,title:'Time 4s (4000)',text:'Lorem ipsum dolor sit amet, consectetur',color:'primary',icon:'query_builder'})" vs-type="primary-flat">Time 4s (4000)</vs-button>
+                  <vs-button @click="$vs.notify({time:8000,title:'Time 8s (8000)',text:'Lorem ipsum dolor sit amet, consectetur',color:'primary',icon:'query_builder'})" vs-type="primary-flat">Time 8s (8000)</vs-button>
+                </div>
+              </codex>
+
       </div>
     </con-doc>
   </div>
@@ -92,15 +100,23 @@ export default {
           name:'title',
           type:'string',
           parametros:'string',
-          descripcion:'titulo de la notificacion',
+          descripcion:'Title of the notification',
           default:'null',
           ejemplo:"this.$vs.notify({title:'my title'})"
+        },
+        {
+          name:'time',
+          type:'Number',
+          parametros:'',
+          descripcion:'Waiting time for notification to disappear',
+          default:'null',
+          ejemplo:"this.$vs.notify({time:4000})"
         },
         {
           name:'text',
           type:'string',
           parametros:'string',
-          descripcion:'texto de la notificacion',
+          descripcion:'Notification text',
           default:'null',
           ejemplo:"this.$vs.notify({text:'my text'})"
         },
@@ -108,7 +124,7 @@ export default {
           name:'color',
           type:'string',
           parametros:'RGB, HEX, primary, success, danger, warning, dark',
-          descripcion:'Color de fondo de la notificacion',
+          descripcion:'Background color of the notification',
           default:'null',
           ejemplo:"this.$vs.notify({color:'rgb(97, 17, 237)'})"
         },
@@ -116,7 +132,7 @@ export default {
           name:'position',
           type:'string',
           parametros:'bottom-right, top-right, top-left, bottom-left, bottom-center, top-center',
-          descripcion:'Icono de la Notificacion',
+          descripcion:'Posision in which the notification appears',
           default:'null',
           ejemplo:"this.$vs.notify({posision:'top-center'})"
         },
@@ -124,7 +140,7 @@ export default {
           name:'icon',
           type:'string',
           parametros:'Icon materia',
-          descripcion:'Icono de la Notificacion',
+          descripcion:'Notification Icon',
           default:'null',
           ejemplo:"this.$vs.notify({icon:'email'})"
         },
@@ -132,7 +148,7 @@ export default {
           name:'click',
           type:'function',
           parametros:'function(){ ... }, ()=>{ ... }',
-          descripcion:'Funcion ejecutada al hacer click en la notificacion',
+          descripcion:'Function executed by clicking on the notification',
           default:'null',
           ejemplo:"this.$vs.notify({click:()=>{ ... }})"
         },
@@ -140,7 +156,7 @@ export default {
           name:'fixed',
           type:'boolean',
           parametros:'true, false',
-          descripcion:'quita la eliminacion automatica de la notificacion',
+          descripcion:'Removes the automatic elimination of the notification',
           default:'false',
           ejemplo:"this.$vs.notify({fixed:true})"
         },
@@ -366,6 +382,37 @@ export default {
 
     }
   }
+</\script>
+`,
+code5:`
+<template>
+
+<vs-button @click="$vs.notify({
+  title:'Time default',
+  text:'Lorem ipsum dolor sit amet, consectetur',
+  color:'primary',icon:'query_builder'
+})"
+vs-type="primary-flat">Time default</vs-button>
+<vs-button @click="$vs.notify({
+  time:4000,title:'Time 4s (4000)',
+  text:'Lorem ipsum dolor sit amet, consectetur',
+  color:'primary',icon:'query_builder'
+})"
+vs-type="primary-flat">Time 4s (4000)</vs-button>
+<vs-button @click="$vs.notify({
+  time:8000,title:'Time 8s (8000)',
+  text:'Lorem ipsum dolor sit amet, consectetur',
+  color:'primary',icon:'query_builder'
+})" vs-type="primary-flat">Time 8s (8000)</vs-button>
+
+</template>
+
+<script>
+export default {
+methods:{
+
+}
+}
 </\script>
 `,
 

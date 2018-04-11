@@ -1129,6 +1129,7 @@ var vsNotifications_default = /*#__PURE__*/__webpack_require__.n(vsNotifications
 
     // new
     var title = parameters.title ? parameters.title : null;
+    var time = parameters.time ? parameters.time : 2000;
 
     if (text == null) {
       text = 'Vuesax: $vsNotify not parameters text';
@@ -1269,7 +1270,7 @@ var vsNotifications_default = /*#__PURE__*/__webpack_require__.n(vsNotifications
       if (!fixed) {
         eliminarx(conNotix, position, conNotix, fluent);
       }
-    }, 2000);
+    }, time);
   }
 });
 function eliminarx(contenedor, position, conNotix, fluent) {

@@ -10,6 +10,7 @@ export default {name:'notify',vsfunction(parameters){
 
   // new
   let title = parameters.title?parameters.title:null
+  let time = parameters.time?parameters.time:2000
 
   if(text==null){
     text = 'Vuesax: $vsNotify not parameters text'
@@ -158,7 +159,7 @@ setTimeout(function () {
   if(!fixed){
     eliminarx(conNotix,position,conNotix,fluent)
   }
-}, 2000);
+}, time);
 }
 }
 function eliminarx(contenedor,position,conNotix,fluent){

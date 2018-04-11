@@ -91,6 +91,7 @@ export const children = [
           component: selects
         },
         {
+          new:'upload',
           path: 'Notifications',
           component: notys
         },
