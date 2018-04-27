@@ -15,7 +15,7 @@
     <span v-if="!vsLabelPlaceholder" @click="$refs.inputx.focus()" :class="{'noPlaceholder':value.length>0?true:focusx}" class="placeholder">{{vsPlaceholder}}</span>
     <span :style="{'color':focusx?backgroundx:'rgba(0, 0, 0, 0.30)'}" v-if="vsLabelPlaceholder" @click="$refs.inputx.focus()" :class="{'noPlaceholderLabel':value.length>0?true:focusx}" class="placeholder">{{vsLabelPlaceholder}}</span>
 
-    <span v-if="vsIcon" class="iconx"><i class="material-icons">{{vsIcon}}</i></span>
+    <span v-if="vsIcon" class="iconx" :style="{'border':`1px solid ${focusx?backgroundx:'rgba(0, 0, 0, 0.150)'}`}"><i class="material-icons" :style="{'color':focusx?backgroundx:'rgba(0, 0, 0, 0.30)'}">{{vsIcon}}</i></span>
 
     <div :title="validar=='input-mal'?vsDangerText:null" class="icon-validar-mal">
       <i class="material-icons">error</i>
@@ -241,12 +241,6 @@ export default {
 
   .vsIconx input{
     padding-left: 35px;
-  }
-  .vsIconx input:focus ~ .iconx{
-    border: 1px solid rgba(var(--primary),.7);
-  }
-  .vsIconx input:focus ~ .iconx i{
-    color: rgb(var(--primary))
   }
   .vsIconx .noPlaceholderLabel{
     left: 8px !important;
