@@ -114,3 +114,7 @@ Become a sponsor and get your logo on our README on Github with a link to your s
 ## Lusaxweb
 
 This library was created and is supported by [Lusaxweb](http://www.lusaxweb.com.ve/)
+
+## License
+
+[MIT](https://github.com/lusaxweb/vuesax/blob/master/LICENSE)
