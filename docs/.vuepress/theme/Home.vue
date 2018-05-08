@@ -108,7 +108,7 @@ export default {
       }
     }
   },
-  created(){
+  mounted(){
 
      fetch('https://api.github.com/repos/lusaxweb/vuesax')
   .then(response => response.json())

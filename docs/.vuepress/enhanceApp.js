@@ -1,6 +1,6 @@
 import Vuesax from '../../src/vuesax'
-import Vuecode from 'vuecode.js'
-import 'vuecode.js/dist/vuecode.css'
+import Vuecode from './vuecode.js/dist/vuecode.common.js'
+import './vuecode.js/dist/vuecode.css'
 import demo from './theme/demo.vue'
 import Box from './theme/box.vue'
 export default ({

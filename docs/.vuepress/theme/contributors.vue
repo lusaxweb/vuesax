@@ -34,7 +34,7 @@ export default {
   },
 
 
-  created(){
+  mounted(){
     this.consultContributors()
   },
   watch:{

@@ -1,0 +1,106 @@
+{
+  "_args": [
+    [
+      "vuecode.js@0.0.27",
+      "C:\\vuesax-old-bakup\\vuesax"
+    ]
+  ],
+  "_from": "vuecode.js@0.0.27",
+  "_id": "vuecode.js@0.0.27",
+  "_inBundle": false,
+  "_integrity": "sha512-92uecV44ogxN4+l0eHiS4fwx1koC7hWq4LivorUIWAAhnGGUggeHvEwRDa+4JEudvt1CC+SX3gJ6S0UcWD1A+A==",
+  "_location": "/vuecode.js",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "vuecode.js@0.0.27",
+    "name": "vuecode.js",
+    "escapedName": "vuecode.js",
+    "rawSpec": "0.0.27",
+    "saveSpec": null,
+    "fetchSpec": "0.0.27"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/vuecode.js/-/vuecode.js-0.0.27.tgz",
+  "_spec": "0.0.27",
+  "_where": "C:\\vuesax-old-bakup\\vuesax",
+  "author": {
+    "name": "ldrovira",
+    "email": "luisdanielrovira8@gmail.com"
+  },
+  "babel": {
+    "presets": [
+      "@vue/app"
+    ]
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "bugs": {
+    "url": "https://github.com/lusaxweb/vuecode/issues"
+  },
+  "dependencies": {
+    "escape-html": "^1.0.3",
+    "highlight.js": "^9.12.0",
+    "highlightjs": "^9.10.0",
+    "html2canvas": "^1.0.0-alpha.12",
+    "markdown-it": "^8.4.1",
+    "prismjs": "^1.14.0",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
+    "vue": "^2.5.13",
+    "vuex": "^3.0.1"
+  },
+  "description": "view Code for Vue js",
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.0.0-beta.6",
+    "@vue/cli-plugin-eslint": "^3.0.0-beta.6",
+    "@vue/cli-service": "^3.0.0-beta.6",
+    "vue-template-compiler": "^2.5.13"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ]
+  },
+  "homepage": "https://lusaxweb.github.io/vuecode.org/",
+  "keywords": [
+    "vuecode",
+    "vue",
+    "vuejs",
+    "vue-components",
+    "components",
+    "javascript",
+    "css"
+  ],
+  "license": "MIT",
+  "main": "dist/vuecode.common.js",
+  "name": "vuecode.js",
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lusaxweb/vuecode.git"
+  },
+  "scripts": {
+    "build": "vue build -t lib src/vuecode/index.js --name vuecode",
+    "deploy": "npm run build & git add . & git commit -m 'deploy' & npm run v & npm run p && git push",
+    "lint": "vue-cli-service lint",
+    "p": "npm publish",
+    "serve": "vue-cli-service serve",
+    "v": "npm version patch"
+  },
+  "unpkg": "dist/vuecode.common.js",
+  "version": "0.0.27"
+}
