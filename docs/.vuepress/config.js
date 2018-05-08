@@ -105,11 +105,11 @@ module.exports = {
     repoLabel: 'Contribute!',
     // Optional options for generating "Edit this page" link
     // if your docs are in a different repo from your main project:
-    docsRepo: 'lusaxweb/vuesax',
+    // docsRepo: 'lusaxweb/vuesax',
     // if your docs are not at the root of the repo:
-    docsDir: 'docs',
+    // docsDir: 'docs',
     // if your docs are in a specific branch (defaults to 'master'):
-    docsBranch: 'master',
+    // docsBranch: 'master',
     // defaults to true, set to false to disable
     editLinks: true,
     // custom text for edit link. Defaults to "Edit this page"

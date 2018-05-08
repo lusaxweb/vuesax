@@ -109,7 +109,7 @@ export default {
     }
   },
   mounted(){
-
+    console.log("entro");
      fetch('https://api.github.com/repos/lusaxweb/vuesax')
   .then(response => response.json())
   .then(json => {
