@@ -29,8 +29,7 @@ import Loading from '@/sections/doc/components/Loadings.vue'
 import popup from '@/sections/doc/components/popup.vue'
 import alert from '@/sections/doc/components/alert.vue'
 import dropDown from '@/sections/doc/components/DropDown.vue'
-
-
+import chip from '@/sections/doc/components/chip.vue'
 
 export const children = [
     {
@@ -154,6 +153,11 @@ export const children = [
           new:'new',
           path: 'dropdown',
           component: dropDown
+        },
+        {
+          new:'new',
+          path: 'chip',
+          component: chip
         },
       ]
     },
