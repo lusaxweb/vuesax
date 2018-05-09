@@ -100,6 +100,8 @@ export default {
 
 <style lang="stylus">
 @import './styles/config.styl'
+.repoLink
+  position: relative;
 .iconx {
   margin-left: 0px !important;
 }

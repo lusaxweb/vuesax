@@ -1,5 +1,5 @@
 <template>
-  <transition name="homex">
+
   <div class="con-home">
     <div class="logo-g">
       <img  v-if="data.heroImage" :src="$withBase(data.heroImage)" alt="hero">
@@ -92,7 +92,7 @@
       <Footer/>
   </div>
   </div>
-  </transition>
+
 </template>
 
 <script>
@@ -133,34 +133,10 @@ export default {
 <style lang="stylus">
 @import './styles/config.styl'
 
-.homex-enter-active, .homex-leave-active {
-  transition: all .250s;
-}
-.homex-enter /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-  position: absolute !important;
-  transform: translate(-100%) !important;
-}
-.homex-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-  transform: translate(100%) !important;
-  position: absolute !important;
-}
 
 
-.homex-enter-active .logo-g, .homex-leave-active .logo-g{
-  transition: all .250s .3s;
-}
-.homex-enter .logo-g /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-  position: absolute !important;
-  transform: translate(0,-100%) !important;
-}
-.homex-leave-to .logo-g/* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-  transform: translate(0,100%) !important;
-  position: absolute !important;
-}
+
+
 
 .doc-img
   position: absolute;
@@ -257,9 +233,10 @@ export default {
 .heroBackgroundComponent {
   position: absolute;
   z-index: 0;
-  width: 80%;
+  width: 100%;
   right:  -10%;
   bottom: -10%
+  max-width: 1500px;
   // transform: translate(0,40%);
 }
 .con-img-feature

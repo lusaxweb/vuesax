@@ -1,5 +1,5 @@
 <template>
-  <transition name="pagex">
+
   <div class="page">
     <div class="color">
       <div class="colorMover">
@@ -36,7 +36,6 @@
     <slot name="bottom"/>
     <Footer/>
   </div>
-  </transition>
 </template>
 
 <script>
@@ -137,31 +136,6 @@ function find (page, items, offset) {
 
 <style lang="stylus">
 @import './styles/config.styl'
-
-
-.pagex-enter-active, .pagex-leave-active {
-  transition: all .250s;
-
-}
-.pagex-enter /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-  position: absolute !important;
-  transform: translate(-100%) !important;
-}
-.pagex-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-  position: absolute !important;
-  transform: translate(100%) !important;
-}
-
-.pagex-enter-active .sidebar, .pagex-leave-active .sidebar{
-  transition: all .250s .3s;
-
-}
-
-
-
-
 
 .contentx-enter-active, .contentx-leave-active {
   transition: all .250s;

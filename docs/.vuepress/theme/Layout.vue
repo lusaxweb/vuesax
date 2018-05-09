@@ -12,11 +12,15 @@
     <div class="custom-layout" v-if="$page.frontmatter.layout">
       <component :is="$page.frontmatter.layout"/>
     </div>
-    <Home v-else-if="$page.frontmatter.home"/>
-    <Page v-else :sidebar-items="sidebarItems">
+    <transition name="pagex">
+    <Home v-if="$page.frontmatter.home"/>
+    </transition>
+    <transition name="homex">
+    <Page v-if="!$page.frontmatter.home" :sidebar-items="sidebarItems">
       <slot name="page-top" slot="top"/>
       <slot name="page-bottom" slot="bottom"/>
     </Page>
+    </transition>
   </div>
 </template>
 
@@ -172,6 +176,55 @@ function updateMetaTags (meta, current) {
   }
 }
 </script>
+<style lang="stylus">
+.homex-enter-active, .homex-leave-active {
+  transition: all .250s;
+}
+.homex-enter /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  position: absolute !important;
+  transform: translate(-100%) !important;
+}
+.homex-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translate(100%) !important;
+  position: absolute !important;
+}
 
+.homex-enter-active .logo-g, .homex-leave-active .logo-g{
+  transition: all .250s .3s;
+}
+.homex-enter .logo-g /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  position: absolute !important;
+  transform: translate(0,-100%) !important;
+}
+.homex-leave-to .logo-g/* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translate(0,100%) !important;
+  position: absolute !important;
+}
+//
+
+.pagex-enter-active, .pagex-leave-active {
+  transition: all .250s;
+
+}
+.pagex-enter /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  position: absolute !important;
+  transform: translate(-100%) !important;
+}
+.pagex-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  position: absolute !important;
+  transform: translate(100%) !important;
+}
+
+.pagex-enter-active .sidebar, .pagex-leave-active .sidebar{
+  transition: all .250s .3s;
+
+}
+</style>
 <style src="prismjs/themes/prism-tomorrow.css"></style>
 <style src="./styles/theme.styl" lang="stylus"></style>
