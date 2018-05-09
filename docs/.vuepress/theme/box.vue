@@ -59,6 +59,7 @@ export default {
     border-radius: 6px
     box-shadow: 0 20px 40px -15px rgba(0,0,0,.13)
     margin-bottom: 15px
+    padding-bottom: 10px;
     h2
       border-radius: 6px 6px 0px 0px
       padding: 10px

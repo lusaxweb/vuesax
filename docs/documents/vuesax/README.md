@@ -52,8 +52,9 @@ The core team is monitoring for pull requests. We will review your pull request 
 Before submitting a pull request, please make sure the following is done:
 
 - 1 - Fork the repository and create your branch from proper branch.
-- 2 - run npm install in the repository root.
-- 3 - If you’ve fixed a bug or added code that should be tested, add tests!
+- 2 - run `npm install` in the repository root.
+- 3 - for developing vuesax to work it must have vuepress installed globally if it is not so please install it [vuepress](https://vuepress.vuejs.org/guide/getting-started.html)
+- 4 - If you’ve fixed a bug or added code that should be tested, add tests!
 Make sure your code lints (npm run dev)
 
 </box>
@@ -62,7 +63,7 @@ Make sure your code lints (npm run dev)
 
 ## Development workflow
 
-After cloning Vuesax, run npm install to fetch its dependencies. Then, you can run several commands:
+After cloning Vuesax, run npm install to fetch its dependencies and [vuepress](https://vuepress.vuejs.org/guide/getting-started.html). Then, you can run several commands:
 
 - 1 - `npm run dev` runs vuesax website locally.
 - 2 - `npm run build` To build.
