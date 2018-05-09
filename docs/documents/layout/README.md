@@ -64,7 +64,7 @@ Following is a brief look at how it works:
 
 <box>
 
-## Design concept <!-- #new -->
+## Design concept
 
 With the directive `vs-w` define the width of the column (`vs-col`) its value is **1-12** an example of sizes would be: **12 = 100%,6 = 50%,4 = 25%**
 
@@ -167,7 +167,7 @@ With the directive `vs-w` define the width of the column (`vs-col`) its value is
 </box>
 <box>
 
-## Column offset <!-- #update -->
+## Column offset
 
 To give a distance with respect to the left we have the directive vs-offset that with the same measures `1-12` we add the space specified a serious example `12 = 100%`, `6 = 50%`, `4 = 25%`.
 

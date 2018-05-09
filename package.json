@@ -29,7 +29,8 @@
     "v": "npm version patch",
     "p": "npm publish",
     "deploy": "npm run build & git add . & git commit -m 'deploy' & npm run v & npm run p && git push",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "docs:deploy": "sh deploy.sh"
   },
   "dependencies": {
     "prefixfree": "^1.0.0",

@@ -1,5 +1,6 @@
 <template>
-  <div class="">
+  <transition name="homex">
+  <div class="con-home">
     <div class="logo-g">
       <img  v-if="data.heroImage" :src="$withBase(data.heroImage)" alt="hero">
     </div>
@@ -83,7 +84,7 @@
       {{ data.footer }}
     </div> -->
     <div class="con-contribuitors">
-      <!-- <contributors :title="title" :repo="this.$site.themeConfig.repo" :contributors="contributors"/> -->
+      <contributors :title="title" :repo="this.$site.themeConfig.repo" contributors="all"/>
     </div>
   </div>
 
@@ -91,6 +92,7 @@
       <Footer/>
   </div>
   </div>
+  </transition>
 </template>
 
 <script>
@@ -130,6 +132,35 @@ export default {
 
 <style lang="stylus">
 @import './styles/config.styl'
+
+.homex-enter-active, .homex-leave-active {
+  transition: all .250s;
+}
+.homex-enter /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  position: absolute !important;
+  transform: translate(-100%) !important;
+}
+.homex-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translate(100%) !important;
+  position: absolute !important;
+}
+
+
+.homex-enter-active .logo-g, .homex-leave-active .logo-g{
+  transition: all .250s .3s;
+}
+.homex-enter .logo-g /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  position: absolute !important;
+  transform: translate(0,-100%) !important;
+}
+.homex-leave-to .logo-g/* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translate(0,100%) !important;
+  position: absolute !important;
+}
 
 .doc-img
   position: absolute;
@@ -314,7 +345,6 @@ export default {
   display: block;
   position: relative;
   padding $navbarHeight 2rem 0
-
   width: 100%;
   .hero
     position: relative;

@@ -11,6 +11,7 @@
       @keyup.enter="go(focusIndex)"
       @keyup.up="onUp"
       @keyup.down="onDown">
+    <transition name="suggestionsx">
     <ul class="suggestions"
       v-if="showSuggestions"
       :class="{ 'align-right': alignRight }"
@@ -25,6 +26,7 @@
         </a>
       </li>
     </ul>
+    </transition>
   </div>
 </template>
 
@@ -135,10 +137,20 @@ export default {
 <style lang="stylus">
 @import './styles/config.styl'
 
+
+.suggestionsx-enter-active, .suggestionsx-leave-active {
+  transition: all .2s;
+}
+.suggestionsx-enter, .suggestionsx-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translate(0,-10px);
+}
+
 .search-box
   display inline-block
   position relative
   margin-right 0.5rem
+  z-index: 100;
   input
     cursor pointer
     width 10rem
@@ -160,8 +172,9 @@ export default {
     background #fff
     width 20rem
     position absolute
-    top 1.5rem
-    border 1px solid darken($borderColor, 10%)
+    top 3rem
+    // border 1px solid darken($borderColor, 10%)
+    box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.080)
     border-radius 6px
     padding 0.4rem
     list-style-type none
@@ -171,6 +184,8 @@ export default {
     line-height 1.4
     padding 0.4rem 0.6rem
     border-radius 4px
+    cursor: pointer;
+    transition: all .2s ease;
     a
       color lighten($textColor, 35%)
       .page-title

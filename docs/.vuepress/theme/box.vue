@@ -67,7 +67,9 @@ export default {
       background: rgb(245, 245, 245)
       border-bottom: 0px;
       font-weight: bold;
-      padding-left: 20px !important
+      padding-left: 25px !important
+      a
+        text-decoration: none !important;
     h3
       padding: 10px
       font-weight: bold;

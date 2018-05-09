@@ -1,11 +1,16 @@
 <template>
+  <transition name="pagex">
   <div class="page">
     <div class="color">
       <div class="colorMover">
 
       </div>
     </div>
+
+    <transition name="contentx">
     <Content :custom="false"/>
+    </transition>
+
     <div class="content edit-link" v-if="editLink">
       <a :href="editLink" target="_blank" rel="noopener noreferrer">{{ editLinkText }}</a>
       <OutboundLink/>
@@ -31,6 +36,7 @@
     <slot name="bottom"/>
     <Footer/>
   </div>
+  </transition>
 </template>
 
 <script>
@@ -132,6 +138,45 @@ function find (page, items, offset) {
 <style lang="stylus">
 @import './styles/config.styl'
 
+
+.pagex-enter-active, .pagex-leave-active {
+  transition: all .250s;
+
+}
+.pagex-enter /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  position: absolute !important;
+  transform: translate(-100%) !important;
+}
+.pagex-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  position: absolute !important;
+  transform: translate(100%) !important;
+}
+
+.pagex-enter-active .sidebar, .pagex-leave-active .sidebar{
+  transition: all .250s .3s;
+
+}
+
+
+
+
+
+.contentx-enter-active, .contentx-leave-active {
+  transition: all .250s;
+
+}
+.contentx-enter /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  position: absolute !important;
+  transform: translate(-100%) !important;
+}
+.contentx-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  position: absolute !important;
+  transform: translate(100%) !important;
+}
 .color {
   /* background: radial-gradient(ellipse at 70% 70%,rgba(var(--morado),1) 8%,rgb(198, 45, 191) 42%,rgb(250, 178, 97) 58%); */
   /* background: linear-gradient(45deg, rgba(var(--morado),1) 0%,rgb(198, 45, 191) 50%, rgb(250, 178, 97) 100%); */

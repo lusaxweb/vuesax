@@ -5,7 +5,7 @@
       <span class="arrow" :class="open ? 'down' : 'right'"></span>
     </a>
     <DropdownTransition>
-      <ul class="nav-dropdown" v-show="open">
+      <ul class="nav-dropdown">
         <li
         class="dropdown-item"
         v-for="subItem in item.items"
@@ -56,13 +56,13 @@ export default {
 
 .dropdown-wrapper
   .dropdown-title
-    display block
-    &:hover
-      border-color transparent
-    .arrow
-      vertical-align middle
-      margin-top -1px
-      margin-left 0.4rem
+    // display block
+    // &:hover
+    //   border-color transparent
+    // .arrow
+    //   vertical-align middle
+    //   margin-top -1px
+    //   margin-left 0.4rem
   .nav-dropdown
     .dropdown-item
       color inherit
@@ -109,9 +109,11 @@ export default {
     &.open .dropdown-title
       margin-bottom 0.5rem
     .nav-dropdown
-      transition height .1s ease-out
-      overflow hidden
+      transition all .1s ease-out
+
+      // overflow hidden
       .dropdown-item
+
         h4
           border-top 0
           margin-top 0
@@ -125,7 +127,7 @@ export default {
         .dropdown-subitem
           font-size 14px
           padding-left 1rem
-            
+
 
 
 @media (min-width: $MQMobile)
@@ -133,7 +135,10 @@ export default {
     height 3rem
     &:hover .nav-dropdown
       // override the inline style.
-      display block !important
+      // display block !important
+      visibility: visible !important;
+      transform: translate(0) !important;
+      opacity: 1 !important;
     .dropdown-title .arrow
       // make the arrow always down at desktop
       border-left 4px solid transparent
@@ -141,7 +146,10 @@ export default {
       border-top 6px solid $arrowBgColor
       border-bottom 0
     .nav-dropdown
-      display none
+      // display none
+      visibility: hidden;
+      opacity: 0;
+      transform: translate(0,-10px);
       // Avoid height shaked by clicking
       height auto !important
       box-sizing border-box;
@@ -152,10 +160,15 @@ export default {
       right 0
       background-color #fff
       padding 0.6rem 0
-      border 1px solid #ddd
-      border-bottom-color #ccc
+      box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.080);
+      // border 1px solid #ddd
+      // border-bottom-color #ccc
       text-align left
       border-radius 0.25rem
       white-space nowrap
       margin 0
+      transition: all .3s ease;
+      a
+        &::after
+          display: none !important;
 </style>

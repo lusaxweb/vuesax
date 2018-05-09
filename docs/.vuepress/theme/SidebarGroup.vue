@@ -43,7 +43,7 @@ export default {
   transition color .15s ease
   cursor pointer
   font-size 1.1em
-  font-weight bold
+  // font-weight bold
   // text-transform uppercase
   padding-left 1.5rem
   margin-top 0
