@@ -39,10 +39,11 @@
 - [Tooltip](https://lusaxweb.github.io/vuesax/documents/components/tooltip.html)
 - [Upload](https://lusaxweb.github.io/vuesax/documents/components/upload.html)
 - [Loading](https://lusaxweb.github.io/vuesax/documents/components/loading.html)
-<!-- - [Popup](https://lusaxweb.github.io/vuesax/documents/components/Popup.html)
+- [Grid](https://lusaxweb.github.io/vuesax/documents/layout/)
+<!-- - [Popup](https://lusaxweb.github.io/vuesax/documents/components/popup.html)
 - [Alert](https://lusaxweb.github.io/vuesax/documents/components/alert.html)
 - [Dropdown](https://lusaxweb.github.io/vuesax/documents/components/dropdown.html)
-- [Grid](https://lusaxweb.github.io/vuesax/documents/layout/grid.html) -->
+ -->
 
 # Demo and Documentation
 
