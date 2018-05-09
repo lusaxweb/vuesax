@@ -1,0 +1,46 @@
+	/*
+  	Flaticon icon font: Flaticon
+  	Creation date: 24/04/2018 20:17
+  	*/
+
+@font-face {
+  font-family: "Flaticon";
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff") format("woff"),
+       url("./Flaticon.ttf") format("truetype"),
+       url("./Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {
+  font-family: Flaticon;
+        font-size: 21px;
+font-style: normal;
+}
+
+.flaticon-instagram:before { content: "\f100"; }
+.flaticon-dribbble:before { content: "\f101"; }
+.flaticon-paypal:before { content: "\f102"; }
+.flaticon-slack:before { content: "\f103"; }
+.flaticon-reddit:before { content: "\f104"; }
+.flaticon-twitch:before { content: "\f105"; }
+.flaticon-vimeo:before { content: "\f106"; }
+.flaticon-github:before { content: "\f107"; }
+.flaticon-behance:before { content: "\f108"; }
+.flaticon-pinterest:before { content: "\f109"; }
+.flaticon-snapchat:before { content: "\f10a"; }
+.flaticon-linkedin:before { content: "\f10b"; }
+.flaticon-googlePlus:before { content: "\f10c"; }
+.flaticon-youtube:before { content: "\f10d"; }
+.flaticon-twitter:before { content: "\f10e"; }
+.flaticon-facebook:before { content: "\f10f"; }

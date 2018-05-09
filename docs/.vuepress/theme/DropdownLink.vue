@@ -120,13 +120,17 @@ export default {
           font-size 15px
           height 2rem
           line-height 2rem
+          &::after
+            display: none !important;
         .dropdown-subitem
           font-size 14px
           padding-left 1rem
+            
+
 
 @media (min-width: $MQMobile)
   .dropdown-wrapper
-    height 1.8rem
+    height 3rem
     &:hover .nav-dropdown
       // override the inline style.
       display block !important

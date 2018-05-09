@@ -40,10 +40,10 @@
 <script>
 import api from './api.vue'
 import contributors from './contributors.vue'
-import OutboundLink from './OutboundLink.vue'
-import { resolvePage, normalize, outboundRE, endingSlashRE } from './util'
 import easing from './easing.js'
 import Footer from './Footer.vue'
+import OutboundLink from './OutboundLink.vue'
+import { resolvePage, normalize, outboundRE, endingSlashRE } from './util'
 export default {
   components: { OutboundLink, api, Footer, contributors },
   props: ['sidebarItems'],

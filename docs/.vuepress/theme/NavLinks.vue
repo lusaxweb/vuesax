@@ -11,11 +11,11 @@
     <!-- repo link -->
     <a v-if="repoLink"
       :href="repoLink"
-      class="repo-link"
+      class="repo-link flaticon-github"
       target="_blank"
       rel="noopener noreferrer">
-      {{ repoLabel }}
-      <OutboundLink/>
+      <!-- {{ repoLabel }} -->
+      <!-- <OutboundLink/> -->
     </a>
   </nav>
 </template>
@@ -100,34 +100,54 @@ export default {
 
 <style lang="stylus">
 @import './styles/config.styl'
-
+.iconx {
+  margin-left: 0px !important;
+}
 .nav-links
   display inline-block
   a
-    line-height 1.4rem
+    // line-height 1.25rem
     color inherit
+    padding: .74rem;
+    transition: all .2s ease
+    &:after
+      content: ''
+      display: block
+      position: absolute
+      width: 0%
+      left: 50%
+      transform: translate(-50%)
+      height: 2px
+      background: $accentColor
+      transition: all .2s ease
+      bottom: 0px;
     &:hover, &.router-link-active
       color $accentColor
+    &:hover:after
+      width: 100%
   .nav-item
     cursor: pointer
     position relative
     display inline-block
-    margin-left 1.5rem
-    line-height 2rem
-  .repo-link
+    margin-left 1rem
+    font-weight 500
+    // line-height 2rem
+    position: relative
+  .github-link
     margin-left 1.5rem
 
 @media (max-width: $MQMobile)
   .nav-links
-    .nav-item, .repo-link
+    .nav-item, .github-link
       margin-left 0
 
 @media (min-width: $MQMobile)
-  .nav-links a
-    &:hover, &.router-link-active
-      color $textColor
-  .nav-item > a
-    &:hover, &.router-link-active
-      margin-bottom -2px
-      border-bottom 2px solid lighten($accentColor, 8%)
+  .nav-links
+    a
+      &:hover, &.router-link-active
+        color $accentColor
+        // margin-bottom -2px
+      &:hover:after, &.router-link-active:after
+        width: 100% !important
+        // border-bottom 2px solid lighten($accentColor, 5%)
 </style>
