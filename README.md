@@ -21,7 +21,7 @@
 
 # Introduction
 
-Vuesax is a frontend library based on vue js that helps you develop faster and with a visual impact in a few steps is in the process of growth and progress.
+[Vuesax](https://lusaxweb.github.io/vuesax/) is a frontend library based on [vue js](https://vuejs.org/) that helps you develop faster and with a visual impact in a few steps is in the process of growth and progress.
 
 # Components
 
@@ -32,17 +32,17 @@ Vuesax is a frontend library based on vue js that helps you develop faster and w
 - [CheckBox](https://lusaxweb.github.io/vuesax/documents/components/checkbox.html)
 - [Radio](https://lusaxweb.github.io/vuesax/documents/components/radio.html)
 - [Input](https://lusaxweb.github.io/vuesax/documents/components/input.html)
-- [Dialogs](https://lusaxweb.github.io/vuesax/documents/components/dialogs.html)
+- [Dialogs](https://lusaxweb.github.io/vuesax/documents/components/dialog.html)
 - [Tabs](https://lusaxweb.github.io/vuesax/documents/components/tabs.html)
 - [Slider](https://lusaxweb.github.io/vuesax/documents/components/slider.html)
-- [InputNumber](https://lusaxweb.github.io/vuesax/documents/components/inputNumber.html)
+- [InputNumber](https://lusaxweb.github.io/vuesax/documents/components/number.html)
 - [Tooltip](https://lusaxweb.github.io/vuesax/documents/components/tooltip.html)
 - [Upload](https://lusaxweb.github.io/vuesax/documents/components/upload.html)
 - [Loading](https://lusaxweb.github.io/vuesax/documents/components/loading.html)
-- [Popup](https://lusaxweb.github.io/vuesax/documents/components/Popup.html)
+<!-- - [Popup](https://lusaxweb.github.io/vuesax/documents/components/Popup.html)
 - [Alert](https://lusaxweb.github.io/vuesax/documents/components/alert.html)
 - [Dropdown](https://lusaxweb.github.io/vuesax/documents/components/dropdown.html)
-- [Grid](https://lusaxweb.github.io/vuesax/documents/layout/grid.html)
+- [Grid](https://lusaxweb.github.io/vuesax/documents/layout/grid.html) -->
 
 # Demo and Documentation
 
