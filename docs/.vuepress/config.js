@@ -1,5 +1,6 @@
 
 module.exports = {
+  base: '/vuesax/',
   head: [
     ['title',{},'hola'],
     ['link', { rel: 'icon', href: `/favicon-vuesax.png` }],

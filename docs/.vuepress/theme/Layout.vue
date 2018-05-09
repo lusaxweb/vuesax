@@ -5,14 +5,18 @@
     @touchend="onTouchEnd">
     <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar"/>
     <div class="sidebar-mask" @click="toggleSidebar(false)"></div>
-    <Sidebar :items="sidebarItems" @toggle-sidebar="toggleSidebar"/>
+    <Sidebar :items="sidebarItems" @toggle-sidebar="toggleSidebar">
+      <slot name="sidebar-top" slot="top"/>
+      <slot name="sidebar-bottom" slot="bottom"/>
+    </Sidebar>
     <div class="custom-layout" v-if="$page.frontmatter.layout">
       <component :is="$page.frontmatter.layout"/>
     </div>
-
     <Home v-else-if="$page.frontmatter.home"/>
-
-    <Page v-else :sidebar-items="sidebarItems"/>
+    <Page v-else :sidebar-items="sidebarItems">
+      <slot name="page-top" slot="top"/>
+      <slot name="page-bottom" slot="bottom"/>
+    </Page>
   </div>
 </template>
 
@@ -23,11 +27,8 @@ import Home from './Home.vue'
 import Navbar from './Navbar.vue'
 import Page from './Page.vue'
 import Sidebar from './Sidebar.vue'
-import { pathToComponentName, getTitle, getLang } from '@app/util'
+import { pathToComponentName } from '@app/util'
 import { resolveSidebarItems } from './util'
-import config from '../config.js'
-import './icons/font/flaticon.css'
-
 
 export default {
   components: { Home, Page, Sidebar, Navbar },
@@ -40,11 +41,14 @@ export default {
   computed: {
     shouldShowNavbar () {
       const { themeConfig } = this.$site
+      const { frontmatter } = this.$page
+      if (frontmatter.navbar === false) return false
       return (
-        this.$site.title ||
+        this.$title ||
         themeConfig.logo ||
         themeConfig.repo ||
-        themeConfig.nav
+        themeConfig.nav ||
+        this.$themeLocaleConfig.nav
       )
     },
     shouldShowSidebar () {
@@ -58,13 +62,12 @@ export default {
       )
     },
     sidebarItems () {
-      let resolveSidebarItemsx = resolveSidebarItems(
+      return resolveSidebarItems(
         this.$page,
         this.$route,
         this.$site,
         this.$localePath
       )
-      return resolveSidebarItemsx
     },
     pageClasses() {
       const userPageClass = this.$page.frontmatter.pageClass
@@ -80,16 +83,11 @@ export default {
   },
 
   created () {
-    Vue.prototype.$vueThemes = config.vueThemes
-
-    // window.$hola =
     if (this.$ssrContext) {
-      this.$ssrContext.title = getTitle(this.$title, this.$page)
+      this.$ssrContext.title = this.$title
       this.$ssrContext.lang = this.$lang
       this.$ssrContext.description = this.$page.description || this.$description
     }
-
-
 
   },
 
@@ -97,7 +95,7 @@ export default {
     // update title / meta tags
     this.currentMetaTags = []
     const updateMeta = () => {
-      document.title = getTitle(this.$title, this.$page)
+      document.title = this.$title
       document.documentElement.lang = this.$lang
       const meta = [
         {
@@ -125,17 +123,13 @@ export default {
       nprogress.done()
       this.isSidebarOpen = false
     })
-
-
   },
 
   beforeDestroy () {
     updateMetaTags(null, this.currentMetaTags)
   },
 
-
   methods: {
-
     toggleSidebar (to) {
       this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen
     },
@@ -178,20 +172,6 @@ function updateMetaTags (meta, current) {
   }
 }
 </script>
-<style lang="stylus">
-.fade-enter-active, .fade-leave-active {
-transition: all .30s;
-}
-.fade-enter /* .fade-leave-active below version 2.1.8 */ {
-transform: translate(-100%) !important;
-opacity: 0 !important;
-position: absolute !important;
-}
-.fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-transform: translate(100%) !important;
-opacity: 0 !important;
-position: absolute !important;
-}
-</style>
+
 <style src="prismjs/themes/prism-tomorrow.css"></style>
 <style src="./styles/theme.styl" lang="stylus"></style>

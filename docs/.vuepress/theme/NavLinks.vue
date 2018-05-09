@@ -1,5 +1,5 @@
 <template>
-  <nav class="nav-links" v-if="userLinks.length || githubLink">
+  <nav class="nav-links" v-if="userLinks.length || repoLink">
     <!-- user links -->
     <div
       class="nav-item"
@@ -8,29 +8,22 @@
       <DropdownLink v-if="item.type === 'links'" :item="item"/>
       <NavLink v-else :item="item"/>
     </div>
-    <!-- github link -->
-    <!-- <a v-if="githubLink"
-      :href="githubLink"
-      class="github-link"
+    <!-- repo link -->
+    <a v-if="repoLink"
+      :href="repoLink"
+      class="repo-link"
       target="_blank"
       rel="noopener noreferrer">
-      GitHub
+      {{ repoLabel }}
       <OutboundLink/>
-    </a> -->
-    <div v-if="$vueThemes.linksHome&&$page.frontmatter.home?$vueThemes.linksHome.includes(link):true" v-for="link in Object.keys($vueThemes.links)" class="nav-item iconx">
-      <a
-      target="_blank"
-      :class="[returnLink(link)]"
-      :href="$vueThemes.links[link]">
-      </a>
-    </div>
+    </a>
   </nav>
 </template>
 
 <script>
 import OutboundLink from './OutboundLink.vue'
 import DropdownLink from './DropdownLink.vue'
-import { isActive, resolveNavLinkItem } from './util'
+import { resolveNavLinkItem } from './util'
 import NavLink from './NavLink.vue'
 
 export default {
@@ -41,7 +34,7 @@ export default {
     },
     nav () {
       const { locales } = this.$site
-      if (locales) {
+      if (locales && Object.keys(locales).length > 1) {
         let currentLink = this.$page.path
         const routes = this.$router.options.routes
         const themeLocales = this.$site.themeConfig.locales || {}
@@ -76,74 +69,65 @@ export default {
         })
       }))
     },
-    githubLink () {
+    repoLink () {
       const { repo } = this.$site.themeConfig
       if (repo) {
         return /^https?:/.test(repo)
           ? repo
           : `https://github.com/${repo}`
       }
-    }
-  },
-  methods: {
-    isActive,
-    returnLink(link){
-      return `flaticon-${link}`
-    }
+    },
+    repoLabel () {
+      if (!this.repoLink) return
+      if (this.$site.themeConfig.repoLabel) {
+        return this.$site.themeConfig.repoLabel
+      }
+
+      const repoHost = this.repoLink.match(/^https?:\/\/[^/]+/)[0]
+      const platforms = ['GitHub', 'GitLab', 'Bitbucket']
+      for (let i = 0; i < platforms.length; i++) {
+        const platform = platforms[i]
+        if (new RegExp(platform, 'i').test(repoHost)) {
+          return platform
+        }
+      }
+
+      return 'Source'
+    },
   }
 }
 </script>
 
 <style lang="stylus">
 @import './styles/config.styl'
-.iconx {
-  margin-left: 0px !important;
-}
+
 .nav-links
   display inline-block
   a
-    // line-height 1.25rem
+    line-height 1.4rem
     color inherit
-    padding: .74rem;
-    transition: all .2s ease
-    &:after
-      content: ''
-      display: block
-      position: absolute
-      width: 0%
-      left: 50%
-      transform: translate(-50%)
-      height: 2px
-      background: $accentColor
-      transition: all .2s ease
-      bottom: 0px;
     &:hover, &.router-link-active
       color $accentColor
-    &:hover:after
-      width: 100%
   .nav-item
     cursor: pointer
     position relative
     display inline-block
-    margin-left 1rem
-    font-weight 500
-    // line-height 2rem
-    position: relative
-  .github-link
+    margin-left 1.5rem
+    line-height 2rem
+  .repo-link
     margin-left 1.5rem
 
 @media (max-width: $MQMobile)
   .nav-links
-    .nav-item, .github-link
+    .nav-item, .repo-link
       margin-left 0
 
 @media (min-width: $MQMobile)
-  .nav-links
-    a
-      &:hover, &.router-link-active
-        color $accentColor
-        // margin-bottom -2px
-      &:hover:after, &.router-link-active:after
-        width: 100% !important
-        // border-bottom 2px solid lighten($accentColor, 5%)
+  .nav-links a
+    &:hover, &.router-link-active
+      color $textColor
+  .nav-item > a
+    &:hover, &.router-link-active
+      margin-bottom -2px
+      border-bottom 2px solid lighten($accentColor, 8%)
 </style>

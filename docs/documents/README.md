@@ -1,5 +1,5 @@
 ---
-tag: nuevo
+home: false
 ---
 # Getting Started
 

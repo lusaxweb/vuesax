@@ -1,6 +1,5 @@
 <template>
   <div class="search-box">
-
     <input
       @input="query = $event.target.value"
       aria-label="Search"
@@ -12,7 +11,6 @@
       @keyup.enter="go(focusIndex)"
       @keyup.up="onUp"
       @keyup.down="onDown">
-      <span class="span-icon-search material-icons">search</span>
     <ul class="suggestions"
       v-if="showSuggestions"
       :class="{ 'align-right': alignRight }"
@@ -53,8 +51,8 @@ export default {
         return
       }
 
-      const max = 5
-      const { pages } = this.$site
+      const { pages, themeConfig } = this.$site
+      const max = themeConfig.searchMaxSuggestions || 5
       const localePath = this.$localePath
       const matches = item => (
         item.title &&
@@ -141,35 +139,23 @@ export default {
   display inline-block
   position relative
   margin-right 0.5rem
-  .span-icon-search
-    position: absolute;
-    left: 0px;
-    top: .40rem;
-    left: 6px;
-    font-size: 22px;
-    color: rgb(220,220,220);
-    transition: all .2s ease;
   input
-    cursor text
+    cursor pointer
     width 10rem
     color lighten($textColor, 25%)
     display inline-block
-    border 1px solid darken($borderColor, 6%)
+    border 1px solid darken($borderColor, 10%)
     border-radius 2rem
     font-size 0.9rem
     line-height 2rem
     padding 0 0.5rem 0 2rem
     outline none
     transition all .2s ease
-    // background #fff url(./search.svg) 0.6rem 0.6rem no-repeat
-    background-size .9rem
-    transition: all .2s ease
-    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.0)
+    background #fff url(./search.svg) 0.6rem 0.5rem no-repeat
+    background-size 1rem
     &:focus
       cursor auto
       border-color $accentColor
-    &:focus + .span-icon-search
-      color: $accentColor
   .suggestions
     background #fff
     width 20rem

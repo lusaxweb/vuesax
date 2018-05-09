@@ -1,4 +1,5 @@
 ---
+home: false
 edit: https://github.com/lusaxweb/vuenut
 API:
  - name: vs-w

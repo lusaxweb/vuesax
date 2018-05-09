@@ -1,3 +1,6 @@
+---
+home: false
+---
 # Contributing
 
 <box header>
