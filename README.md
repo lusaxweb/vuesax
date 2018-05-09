@@ -25,14 +25,14 @@ Vuesax is a frontend library based on vue js that helps you develop faster and w
 
 # Components
 
-- [Buttons](https://lusaxweb.github.io/vuesax/documents/components/buttons.html)
+- [Buttons](https://lusaxweb.github.io/vuesax/documents/components/)
 - [Selects](https://lusaxweb.github.io/vuesax/documents/components/selects.html)
-- [Notifications](https://lusaxweb.github.io/vuesax/documents/components/Notifications.html)
+- [Notifications](https://lusaxweb.github.io/vuesax/documents/components/notifications.html)
 - [Switch](https://lusaxweb.github.io/vuesax/documents/components/switch.html)
-- [CheckBox](https://lusaxweb.github.io/vuesax/documents/components/checkBox.html)
+- [CheckBox](https://lusaxweb.github.io/vuesax/documents/components/checkbox.html)
 - [Radio](https://lusaxweb.github.io/vuesax/documents/components/radio.html)
 - [Input](https://lusaxweb.github.io/vuesax/documents/components/input.html)
-- [Dialogs](https://lusaxweb.github.io/vuesax/documents/components/messageBox.html)
+- [Dialogs](https://lusaxweb.github.io/vuesax/documents/components/dialogs.html)
 - [Tabs](https://lusaxweb.github.io/vuesax/documents/components/tabs.html)
 - [Slider](https://lusaxweb.github.io/vuesax/documents/components/slider.html)
 - [InputNumber](https://lusaxweb.github.io/vuesax/documents/components/inputNumber.html)
