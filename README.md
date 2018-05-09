@@ -25,31 +25,31 @@ Vuesax is a frontend library based on vue js that helps you develop faster and w
 
 # Components
 
-- [Buttons](https://lusaxweb.github.io/vuesax/#/en/docs/components/buttons)
-- [Selects](https://lusaxweb.github.io/vuesax/#/en/docs/components/selects)
-- [Notifications](https://lusaxweb.github.io/vuesax/#/en/docs/components/Notifications)
-- [Switch](https://lusaxweb.github.io/vuesax/#/en/docs/components/switch)
-- [CheckBox](https://lusaxweb.github.io/vuesax/#/en/docs/components/checkBox)
-- [Radio](https://lusaxweb.github.io/vuesax/#/en/docs/components/radio)
-- [Input](https://lusaxweb.github.io/vuesax/#/en/docs/components/input)
-- [Dialogs](https://lusaxweb.github.io/vuesax/#/en/docs/components/messageBox)
-- [Tabs](https://lusaxweb.github.io/vuesax/#/en/docs/components/tabs)
-- [Slider](https://lusaxweb.github.io/vuesax/#/en/docs/components/slider)
-- [InputNumber](https://lusaxweb.github.io/vuesax/#/en/docs/components/inputNumber)
-- [Tooltip](https://lusaxweb.github.io/vuesax/#/en/docs/components/tooltip)
-- [Upload](https://lusaxweb.github.io/vuesax/#/en/docs/components/upload)
-- [Loading](https://lusaxweb.github.io/vuesax/#/en/docs/components/loading)
-- [Popup](https://lusaxweb.github.io/vuesax/#/en/docs/components/Popup)
-- [Alert](https://lusaxweb.github.io/vuesax/#/en/docs/components/alert)
-- [Dropdown](https://lusaxweb.github.io/vuesax/#/en/docs/components/dropdown)
-- [Grid](https://lusaxweb.github.io/vuesax/#/en/docs/layout/grid)
+- [Buttons](https://lusaxweb.github.io/vuesax/documents/components/buttons.html)
+- [Selects](https://lusaxweb.github.io/vuesax/documents/components/selects.html)
+- [Notifications](https://lusaxweb.github.io/vuesax/documents/components/Notifications.html)
+- [Switch](https://lusaxweb.github.io/vuesax/documents/components/switch.html)
+- [CheckBox](https://lusaxweb.github.io/vuesax/documents/components/checkBox.html)
+- [Radio](https://lusaxweb.github.io/vuesax/documents/components/radio.html)
+- [Input](https://lusaxweb.github.io/vuesax/documents/components/input.html)
+- [Dialogs](https://lusaxweb.github.io/vuesax/documents/components/messageBox.html)
+- [Tabs](https://lusaxweb.github.io/vuesax/documents/components/tabs.html)
+- [Slider](https://lusaxweb.github.io/vuesax/documents/components/slider.html)
+- [InputNumber](https://lusaxweb.github.io/vuesax/documents/components/inputNumber.html)
+- [Tooltip](https://lusaxweb.github.io/vuesax/documents/components/tooltip.html)
+- [Upload](https://lusaxweb.github.io/vuesax/documents/components/upload.html)
+- [Loading](https://lusaxweb.github.io/vuesax/documents/components/loading.html)
+- [Popup](https://lusaxweb.github.io/vuesax/documents/components/Popup.html)
+- [Alert](https://lusaxweb.github.io/vuesax/documents/components/alert.html)
+- [Dropdown](https://lusaxweb.github.io/vuesax/documents/components/dropdown.html)
+- [Grid](https://lusaxweb.github.io/vuesax/documents/layout/grid.html)
 
 # Demo and Documentation
 
 [Documentation](https://lusaxweb.github.io/vuesax/#/)
 
 # Browser Support
-Recent versions of Firefox, Chrome, Edge, Opera and Safari. IE10+
+Recent versions of **Firefox**, **Chrome**, **Edge**, **Opera** and **Safari**. **IE10+**
 
 # Quick-start CDN
 
@@ -66,7 +66,7 @@ Recent versions of Firefox, Chrome, Edge, Opera and Safari. IE10+
   </div>
 
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vuesax/dsit/vuesax.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuesax/dsit/vuesax.umd.js"></script>
   <script>
     new Vue({
       el: '#app'
@@ -78,8 +78,8 @@ Recent versions of Firefox, Chrome, Edge, Opera and Safari. IE10+
 
 # CDN
 
-- https://unpkg.com/vuesax/dist/vuesax.min.js
-- https://unpkg.com/vuesax/dist/vuesax.min.css
+- https://unpkg.com/vuesax/dist/vuesax.umd.js
+- https://unpkg.com/vuesax/dist/vuesax.css
 
 # install en Proyecto NPM
 ``` bash
