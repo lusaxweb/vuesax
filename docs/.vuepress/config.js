@@ -186,8 +186,9 @@ module.exports = {
           '/documents/components/number',
           '/documents/components/tooltip',
           '/documents/components/upload',
-          '/documents/components/loading'
-         ]
+          '/documents/components/loading',
+          '/documents/components/chip'
+        ]
       },
     ]
   }

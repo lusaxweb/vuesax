@@ -23,6 +23,7 @@ import vsDropdownItem from './vsDropDown/vsDropDownItem.vue'
 import vsAnchor from './vsAnchor/vsAnchor.vue'
 import vsLink from './vsAnchor/vsLink.vue'
 import vsAlert from './vsAlert/vsAlert.vue'
+import vsChip from './vsChip/vsChip.vue'
 
 //layout
 import vsRow from '../layout/vsRow.vue'
@@ -51,6 +52,8 @@ export const vsComponents = {
   vsAnchor,
   vsLink,
   vsAlert,
+  vsChip,
+  
   //layout
   vsRow,
   vsCol,
