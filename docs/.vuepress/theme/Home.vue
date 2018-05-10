@@ -133,11 +133,6 @@ export default {
 <style lang="stylus">
 @import './styles/config.styl'
 
-
-
-
-
-
 .doc-img
   position: absolute;
   transform: translate(-5%);
@@ -414,6 +409,8 @@ export default {
       padding 0 2.5rem
 
 @media (max-width: $MQMobileNarrow)
+  .heroBackgroundComponent
+    right: 0
   .home
     padding-left 1.5rem
     padding-right 1.5rem
