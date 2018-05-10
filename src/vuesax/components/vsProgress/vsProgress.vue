@@ -17,7 +17,7 @@
         'color':colorx // TODO get best color contrast based on background color
       }"
       >
-      <small v-if="vsInside">
+      <small>
         <slot>
         </slot>
       </small>
@@ -33,10 +33,6 @@ export default {
     vsPercent:{
       type:Number,
       default:0
-    },
-    vsInside:{
-      type:Boolean,
-      default:true
     },
     vsColor:{
       type:String,
