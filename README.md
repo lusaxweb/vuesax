@@ -41,7 +41,8 @@
 - [Loading](https://lusaxweb.github.io/vuesax/documents/components/loading.html)
 - [Grid](https://lusaxweb.github.io/vuesax/documents/layout/)
 - [Chip](https://lusaxweb.github.io/vuesax/documents/components/chip.html)
-<!-- - [Popup](https://lusaxweb.github.io/vuesax/documents/components/popup.html)
+- [Popup](https://lusaxweb.github.io/vuesax/documents/components/popup.html)
+<!--
 - [Alert](https://lusaxweb.github.io/vuesax/documents/components/alert.html)
 - [Dropdown](https://lusaxweb.github.io/vuesax/documents/components/dropdown.html)
  -->
