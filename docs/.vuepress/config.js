@@ -187,7 +187,8 @@ module.exports = {
           '/documents/components/tooltip',
           '/documents/components/upload',
           '/documents/components/loading',
-          '/documents/components/chip'
+          '/documents/components/chip',
+          // '/documents/components/popup'
         ]
       },
     ]

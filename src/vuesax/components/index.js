@@ -24,6 +24,7 @@ import vsAnchor from './vsAnchor/vsAnchor.vue'
 import vsLink from './vsAnchor/vsLink.vue'
 import vsAlert from './vsAlert/vsAlert.vue'
 import vsChip from './vsChip/vsChip.vue'
+import vsChips from './vsChip/vsChips.vue'
 
 //layout
 import vsRow from '../layout/vsRow.vue'
@@ -53,6 +54,7 @@ export const vsComponents = {
   vsLink,
   vsAlert,
   vsChip,
+  vsChips,
   
   //layout
   vsRow,
