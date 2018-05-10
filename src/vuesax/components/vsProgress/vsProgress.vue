@@ -11,7 +11,14 @@
         'color':'white',
         'width':vsPercent+'%'
       }">
-      <small v-if="vsInside">{{vsPercent}}%</small>
+    </div>
+    <div
+      class="vs-progress-text"
+      >
+      <small v-if="vsInside">
+        <slot>
+        </slot>
+      </small>
     </div>
   </div>
 </template>
@@ -41,19 +48,29 @@ export default {
 <style lang="css" scoped>
   .vs-progress-background {
     width: 100%;
-    height: 22px;
-    border-radius: 6px;
+    height: 30px;
+    border-radius: 18px;
     background-color: rgba(var(--primary),.1);
     z-index: 50;
     margin: 5px;
   }
+  .vs-progress-foreground:hover {
+    box-shadow: 0px 2px 15px 0px rgb(var(--dark));
+    cursor: pointer;
+  }
   .vs-progress-foreground {
     z-index: 100;
-    height: 22px;
-    border-radius: 6px;
+    height: 30px;
+    border-radius: 18px;
+  }
+  .vs-progress-text {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
+    height: 30px;
+    z-index: 200;
+    margin: 5px;
   }
 </style>
