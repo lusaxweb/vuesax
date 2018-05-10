@@ -326,7 +326,7 @@ export default {
   .hero
     position: relative;
     display: block;
-    z-index: 200;
+    z-index: 1;
     margin-top: -15rem
     padding-left: 3rem
     img
@@ -402,7 +402,11 @@ export default {
     color lighten($textColor, 25%)
 
 @media (max-width: $MQMobile)
+  .logo-g
+    display: none
   .home
+    .hero
+      padding-left 0
     .features
       flex-direction column
     .feature
