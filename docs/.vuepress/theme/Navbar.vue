@@ -100,6 +100,8 @@ export default {
     top 0rem
 
 @media (max-width: $MQMobile)
+  .links
+    line-height 48px
   .navbar
     padding-left 4rem
     .can-hide
