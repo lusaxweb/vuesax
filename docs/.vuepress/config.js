@@ -188,6 +188,7 @@ module.exports = {
           '/documents/components/upload',
           '/documents/components/loading',
           '/documents/components/chip',
+          '/documents/components/progress',
           '/documents/components/popup'
         ]
       },
