@@ -2657,6 +2657,13 @@ module.exports = function () { /* empty */ };
 
 /***/ }),
 
+/***/ "yTgn":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "yi96":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -6531,6 +6538,167 @@ var vsChips_Component = normalizeComponent(
 
 /* harmony default export */ var vsChip_vsChips = (vsChips_Component.exports);
 
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://vuesax//node_modules//.cache//cache-loader"}!./node_modules/babel-loader/lib?{"presets":["C://Users//pc 01//AppData//Roaming//npm//node_modules//@vue//cli-service-global//node_modules//@vue//babel-preset-app//index.js"]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/vuesax/components/vsProgress/vsProgress.vue
+
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ var vsProgress = ({
+  name: 'vs-progress',
+  props: {
+    vsHeight: {
+      type: [Number, String],
+      default: 8
+    },
+    vsIndeterminate: {
+      type: Boolean,
+      default: false
+    },
+    vsPercent: {
+      type: Number,
+      default: 0
+    },
+    vsColor: {
+      type: String,
+      default: 'primary'
+    }
+  },
+  data: function data() {
+    return {
+      percent: 0
+    };
+  },
+  created: function created() {
+    this.percent = 0;
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    setTimeout(function () {
+      _this.percent = _this.vsPercent; // to force animation
+    }, 1000);
+  },
+  computed: {
+    colorx: function colorx() {
+      if (this.vsColor) {
+        if (color.contrastColor(this.vsColor)) {
+          return 'rgba(0, 0, 0,.7)';
+        } else {
+          return 'rgba(255, 255, 255,.8)';
+        }
+      } else {
+        return 'rgba(0, 0, 0,.7)';
+      }
+    }
+  },
+  methods: {
+    returnColorRGB: function returnColorRGB(vsColor) {
+      return color.hexToRgb(vsColor).replace(/[rgb()]/g, '');
+    }
+  }
+});
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-d827da68","hasScoped":true,"optionsId":"0","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/vuesax/components/vsProgress/vsProgress.vue
+var vsProgress_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"vs-progress-background",class:{
+    'vsIndeterminate':_vm.vsIndeterminate,
+    },style:({
+    'height':(_vm.vsHeight + "px"),
+    'background':_vm.vsColor
+    ?/[#()]/.test(_vm.vsColor)
+    ?("rgba(" + (/[#]/.test(_vm.vsColor)?_vm.returnColorRGB(_vm.vsColor):_vm.vsColor.replace(/[rgb()]/g,'')) + ",.1)")
+    :("rgba(var(--" + _vm.vsColor + "),.1)")
+    :'rgba(var(--primary),.1)',
+
+  })},[_c('div',{staticClass:"vs-progress-foreground",style:({
+      'background':_vm.vsColor
+      ?/[#()]/.test(_vm.vsColor)
+      ?_vm.vsColor
+      :("rgba(var(--" + _vm.vsColor + "),1)")
+      :'rgba(var(--primary),1)',
+      'width':_vm.percent+'%'
+    })}),(_vm.vsIndeterminate)?_c('div',{staticClass:"indeterminate-bar",style:({
+    'background':_vm.vsColor?/[#()]/.test(_vm.vsColor)?("rgba(" + (_vm.vsColor.replace(/[rgb()]/g,'')) + ",1)"):("rgba(var(--" + _vm.vsColor + "),1)"):'rgba(var(--primary),1)',
+    'width':_vm.percent+'%'
+  })}):_vm._e()])}
+var vsProgress_staticRenderFns = []
+
+// CONCATENATED MODULE: ./src/vuesax/components/vsProgress/vsProgress.vue
+function vsProgress_injectStyle (context) {
+  __webpack_require__("yTgn")
+}
+/* script */
+
+
+/* template */
+
+/* template functional */
+var vsProgress___vue_template_functional__ = false
+/* styles */
+var vsProgress___vue_styles__ = vsProgress_injectStyle
+/* scopeId */
+var vsProgress___vue_scopeId__ = "data-v-d827da68"
+/* moduleIdentifier (server only) */
+var vsProgress___vue_module_identifier__ = null
+
+var vsProgress_Component = normalizeComponent(
+  vsProgress,
+  vsProgress_render,
+  vsProgress_staticRenderFns,
+  vsProgress___vue_template_functional__,
+  vsProgress___vue_styles__,
+  vsProgress___vue_scopeId__,
+  vsProgress___vue_module_identifier__
+)
+
+/* harmony default export */ var vsProgress_vsProgress = (vsProgress_Component.exports);
+
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://vuesax//node_modules//.cache//cache-loader"}!./node_modules/babel-loader/lib?{"presets":["C://Users//pc 01//AppData//Roaming//npm//node_modules//@vue//cli-service-global//node_modules//@vue//babel-preset-app//index.js"]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/vuesax/layout/vsRow.vue
 //
 //
@@ -6760,6 +6928,7 @@ var vsCol_Component = normalizeComponent(
 
 
 
+
  //layout
 
 
@@ -6787,6 +6956,7 @@ var vsComponents = {
   vsAlert: vsAlert_vsAlert,
   vsChip: vsChip_vsChip,
   vsChips: vsChip_vsChips,
+  vsProgress: vsProgress_vsProgress,
   //layout
   vsRow: layout_vsRow,
   vsCol: layout_vsCol
