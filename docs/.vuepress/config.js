@@ -189,7 +189,8 @@ module.exports = {
           '/documents/components/loading',
           '/documents/components/chip',
           '/documents/components/progress',
-          '/documents/components/popup'
+          '/documents/components/popup',
+          '/documents/components/alert',
         ]
       },
     ]
