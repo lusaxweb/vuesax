@@ -105,6 +105,10 @@ import Vuesax from 'vuesax'
 import 'vuesax/dist/vuesax.css'
 Vue.use(Vuesax)
 ```
+
+## Contribution
+Please make sure to read the [Contributing Guide](https://github.com/lusaxweb/vuesax/blob/master/CONTRIBUTING.md) before making a pull request.
+
 ## Become a Patron
 
 Vuesax is an open source MIT project if you want to contribute to keep improving, If you are interested in supporting this project, please consider becoming a patron. [[patron](https://www.patreon.com/bePatron?c=1567892)]
@@ -113,9 +117,6 @@ Vuesax is an open source MIT project if you want to contribute to keep improving
 
 Support us with a monthly donation and help us continue our activities. [[Become a backer](https://opencollective.com/vuesax#backer)]
 
-## Sponsors
-
-Become a sponsor and get your logo on our README on Github with a link to your site. [[Become a sponsor](https://opencollective.com/vuesax#sponsor)]
 
 ## Lusaxweb
 
