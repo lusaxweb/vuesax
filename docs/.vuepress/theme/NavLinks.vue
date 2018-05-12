@@ -112,6 +112,7 @@ export default {
     color inherit
     padding: .74rem;
     transition: all .2s ease
+    position: relative;
     &:after
       content: ''
       display: block
