@@ -126,7 +126,7 @@ module.exports = {
               { text: 'Twitter', link: 'https://twitter.com/vuesax' },
               { text: 'Facebook', link: 'https://www.facebook.com/vuesax/' },
               { text: 'Behance', link: 'https://www.behance.net/ManuelRovira' },
-              { text: 'Dribble', link: 'https://dribbble.com/ManuelRovira' },
+              { text: 'Dribbble', link: 'https://dribbble.com/ManuelRovira' },
               { text: 'Codepen', link: 'https://codepen.io/lusaxweb/' },
               { text: 'Medium', link: 'https://medium.com/@luisdanielrovira8' }
             ]
