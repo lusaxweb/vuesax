@@ -22,8 +22,8 @@ import vsProgress from './vsProgress'
 
 
 //layout
-import vsRow from '../layout/vsRow'
-import vsCol from '../layout/vsCol'
+import vsRow from '../layout/vsRow/'
+import vsCol from '../layout/vsCol/'
 
 
 

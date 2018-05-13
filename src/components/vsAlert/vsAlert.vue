@@ -22,7 +22,7 @@
       <i class="material-icons">close</i>
     </div>
 
-    <h3 v-if="vsTitle" class="titlex">{{vsTitle}}</h3>
+    <h3 :style="{'background':'$primary'}" v-if="vsTitle" class="titlex">{{vsTitle}}</h3>
     <div class="vs-alert">
       <slot>
       </slot>
@@ -35,6 +35,9 @@
 
 <script>
 import color from '../../utils/color.js'
+
+import style from '../../styles/config.json'
+console.log(style);
 
 export default {
   name:'vs-alert',
@@ -70,8 +73,8 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
-@import '../../styles/config.styl'
+<style lang="css" scoped>
+
 .titlex {
   padding: 15px;
   padding-bottom: 0px;
@@ -127,7 +130,7 @@ export default {
 }
 .con-vs-alert {
   width: 100%;
-  background: alpha($primary,.1)
+  background: rgba(var(--primary),.1);
   border-radius: 10px;
   opacity: 1;
   overflow: hidden;
@@ -142,7 +145,7 @@ export default {
   position: relative;
 }
 .vs-alert b {
-  color: $primary !important;
+  color: rgba(call:var(--primary),1) !important;
 
 }
 </style>
