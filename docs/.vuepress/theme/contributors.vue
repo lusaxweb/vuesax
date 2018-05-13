@@ -39,7 +39,7 @@ export default {
   },
   watch:{
     contributors(){
-      console.log("cambio", this.contributors);
+      // console.log("cambio", this.contributors);
       this.contributorsx = []
       this.consultContributors()
     }
@@ -55,16 +55,16 @@ export default {
         .then(response => response.json())
         .then(json => {
          this.contributorsx = json
-         console.log('response',json);
+         // console.log('response',json);
          // this.star = json.stargazers_count
         })
       } else {
-        console.log('this.contributors',this.contributors);
+        // console.log('this.contributors',this.contributors);
         this.contributors.forEach((item)=>{
           fetch(`https://api.github.com/users/${item}`)
           .then(response => response.json())
           .then(json => {
-            console.log('response',json);
+            // console.log('response',json);
             this.contributorsx.push(json)
           })
         })

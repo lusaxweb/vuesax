@@ -17,7 +17,7 @@
     </div>
     <div class="content">
       <api />
-      <contributors :title="title" :repo="this.$site.themeConfig.repo" :contributors="this.$page.frontmatter.contributors"/>
+      <contributors title="Contributors" :repo="this.$site.themeConfig.repo" :contributors="this.$page.frontmatter.contributors"/>
     </div>
     <div class="content page-nav" v-if="prev || next">
       <p class="inner">

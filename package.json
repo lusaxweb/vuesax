@@ -24,7 +24,7 @@
   "scripts": {
     "dev": "vuepress dev docs",
     "serve": "vue-cli-service serve",
-    "build": "vue build -t lib src/vuesax/index.js --name vuesax",
+    "build": "vue build -t lib src/index.js --name vuesax",
     "lint": "vue-cli-service lint",
     "v": "npm version patch",
     "p": "npm publish",
@@ -42,6 +42,7 @@
     "@vue/cli-plugin-babel": "^3.0.0-beta.6",
     "@vue/cli-plugin-eslint": "^3.0.0-beta.6",
     "@vue/cli-service": "^3.0.0-beta.6",
+    "copy-webpack-plugin": "^4.5.1",
     "vue-template-compiler": "^2.5.13"
   },
   "babel": {

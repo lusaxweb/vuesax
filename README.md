@@ -98,12 +98,36 @@ yarn add vuesax
 
 ## Use
 
+### All components
+
 ```javascript
 import Vue from 'vue'
 import Vuesax from 'vuesax'
 
 import 'vuesax/dist/vuesax.css'
 Vue.use(Vuesax)
+```
+
+### Or use individual components:
+
+```javascript
+import Vue from 'vue'
+import { vsButton, vsSelect, vsPopup } from 'vuesax/dist/components'
+import 'vuesax/dist/vuesax.css'
+
+Vue.use(vsButton)
+Vue.use(vsSelect)
+Vue.use(vsPopup)
+```
+
+### Or use only the functions
+
+```javascript
+import Vue from 'vue'
+import vsFunctions from 'vuesax/dist/functions'
+import 'vuesax/dist/vuesax.css'
+
+Vue.use(vsFunctions)
 ```
 
 ## Contribution
