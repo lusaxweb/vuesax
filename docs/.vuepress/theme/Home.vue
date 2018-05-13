@@ -397,6 +397,8 @@ export default {
     color lighten($textColor, 25%)
 
 @media (max-width: $MQMobile)
+  .homeBackgroundComponent 
+    margin-bottom 100px
   .logo-g
     display: none
   .home
@@ -404,13 +406,28 @@ export default {
       padding-left 0
     .features
       flex-direction column
-    .feature
-      max-width 100%
-      padding 0 2.5rem
+      .feature
+        max-width 100%
+        padding 0
+        margin-bottom 2.5rem
+        flex-direction column
+        .con-text-feature
+          &:nth-child(odd)
+            order 1
+        .con-img-feature
+          padding 0
+          margin 20px
+          &:nth-child(odd)
+            order 0
+  .con-home
+    footer
+      margin-top 200px
+          
 
 @media (max-width: $MQMobileNarrow)
   .heroBackgroundComponent
     right: 0
+    bottom: 0
   .home
     padding-left 1.5rem
     padding-right 1.5rem
@@ -427,7 +444,13 @@ export default {
       .action-button
         font-size 1rem
         padding 0.6rem 1.2rem
-    .feature
-      h2
-        font-size 1.25rem
+    .features
+      padding 0
+      .feature
+        h2
+          font-size 1.25rem
+  footer 
+    .bosque
+      top 60%
+      transform scale(1.5)
 </style>
