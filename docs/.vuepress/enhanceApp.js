@@ -1,4 +1,4 @@
-import Vuesax from '../../src/vuesax'
+import Vuesax from '../../src'
 import Vuecode from './vuecode.js/dist/vuecode.common.js'
 import './vuecode.js/dist/vuecode.css'
 import demo from './theme/demo.vue'

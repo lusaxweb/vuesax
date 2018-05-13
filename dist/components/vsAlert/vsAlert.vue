@@ -35,6 +35,7 @@
 
 <script>
 import color from '../../utils/color.js'
+
 export default {
   name:'vs-alert',
   props:{
@@ -69,7 +70,8 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="stylus" scoped>
+@import '../../styles/config.styl'
 .titlex {
   padding: 15px;
   padding-bottom: 0px;
@@ -125,7 +127,7 @@ export default {
 }
 .con-vs-alert {
   width: 100%;
-  background: rgba(var(--primary),.1);
+  background: alpha($primary,.1)
   border-radius: 10px;
   opacity: 1;
   overflow: hidden;
@@ -140,7 +142,7 @@ export default {
   position: relative;
 }
 .vs-alert b {
-  color: rgb(var(--primary)) !important;
+  color: $primary !important;
 
 }
 </style>
