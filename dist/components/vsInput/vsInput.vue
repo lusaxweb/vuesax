@@ -1,8 +1,13 @@
 <template lang="html">
-  <div :class="[validar,{'con-focus':focusx,'vsIconx':vsIcon, 'vs-icon-after':vsIconAfter, 'disabledx':disabled}]" class="con-input">
+  <div
+  :style="{
+    'width':vsWidth
+  }"
+  :class="[validar,{'con-focus':focusx,'vsIconx':vsIcon, 'vs-icon-after':vsIconAfter, 'disabledx':disabled}]" class="con-input">
     <label :class="{'focusLabel':focusx, 'disabledxlabel':disabled}" class="label" for="">{{vsLabel}}</label>
 
     <input
+
     :type="vsType ? vsType :'text'"
     :style="{'border':`1px solid ${focusx?backgroundx:'rgba(0, 0, 0, 0.150)'}`,'caretColor': backgroundx}"
     :disabled="disabled"
@@ -52,6 +57,7 @@ export default {
   inheritAttrs: false,
   name:'vs-input',
   props:[
+    'vsWidth',
     'value',
     'vsLabelPlaceholder',
     'vsPlaceholder',
