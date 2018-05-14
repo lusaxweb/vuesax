@@ -12,7 +12,7 @@
     v-on="listeners"
     class="vs-input">
 
-    <span v-if="!vsLabelPlaceholder" @click="$refs.inputx.focus()" :class="{'noPlaceholder':value.length>0?true:focusx}" class="placeholder">{{vsPlaceholder}}</span>
+    <span v-if="!vsLabelPlaceholder" @click="$refs.inputx.focus()" :class="{'noPlaceholder':value?value.length>0:false?true:focusx}" class="placeholder">{{vsPlaceholder}}</span>
     <span :style="{'color':focusx?backgroundx:'rgba(0, 0, 0, 0.30)'}" v-if="vsLabelPlaceholder" @click="$refs.inputx.focus()" :class="{'noPlaceholderLabel':value.length>0?true:focusx}" class="placeholder">{{vsLabelPlaceholder}}</span>
 
     <span v-if="vsIcon" class="iconx"><i class="material-icons">{{vsIcon}}</i></span>
@@ -71,6 +71,11 @@ export default {
   data(){
     return {
       focusx:false,
+    }
+  },
+  mounted(){
+    if(this.value == undefined){
+      console.warn("Vuesax: The property of the input v-model is necessary to function properly vs-input component", this.$el)
     }
   },
   computed:{
