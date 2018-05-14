@@ -1,3 +1,21 @@
+---
+API:
+ - name: vs-type
+   type: bind
+   parameters: null
+   description: The type of button to use
+   default: primary-filled
+ - name: vs-color
+   type: RGB, HEX
+   parameters: null
+   description: Change the color of the button
+   default: null
+ - name: vs-width
+   type: String
+   parameters: null
+   description: Determine the width of the button.
+   default: auto
+---
 # Buttons
 
 <box header>

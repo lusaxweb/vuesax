@@ -60,6 +60,11 @@ API:
    parameters: value
    description: A custom validation function. Accepts input value as parameter.
    default: null
+ - name: vs-width
+   type: String
+   parameters:
+   description: Change the width of the default element is 100% automatic for the total of the parent width.
+   default: null
 contributors:
  - cristijora
 ---
