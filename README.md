@@ -44,6 +44,7 @@
 - [Popup](https://lusaxweb.github.io/vuesax/components/popup.html)
 - [Progress](https://lusaxweb.github.io/vuesax/components/progress.html)
 - [Alert](https://lusaxweb.github.io/vuesax/components/alert.html)
+- [Card](https://lusaxweb.github.io/vuesax/components/card.html)
 <!--
 - [Dropdown](https://lusaxweb.github.io/vuesax/components/dropdown.html)
  -->
