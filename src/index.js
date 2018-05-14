@@ -3,16 +3,19 @@ import * as vsComponents from './components'
 import vsFunctions from './functions'
 import vsTooltip from './directives/vsTooltip/vsTooltip.js'
 import easing from './utils/easing.js'
+import vsTheme from './utils/theme.js'
 
 const Vuesax = {
-  theme:{
-    "primary-color":'rgb(51, 186, 77)'
-  },
   install(Vue, options) {
+    //change defaults colors
+    if(options.hasOwnProperty('theme')){
+      if(options.theme.hasOwnProperty('colors')){
+        vsTheme.vsfunction(options.theme.colors)
+      }
+    }
 
     Object.values(vsComponents).forEach((vsComponent) => {
       Vue.use(vsComponent)
-      // Vue.component(vsComponent.name,vsComponent)
     })
 
     vsFunctions(Vue)

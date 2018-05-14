@@ -170,6 +170,13 @@ module.exports = {
          ]
       },
       {
+        title: 'Theme',
+        collapsable: false,
+        children: [
+          'documents/theme/colors',
+         ]
+      },
+      {
         title: 'Components',
         collapsable: false,
         children: [

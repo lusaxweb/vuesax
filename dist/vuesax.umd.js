@@ -6127,13 +6127,18 @@ var vsTooltip_default = /*#__PURE__*/__webpack_require__.n(vsTooltip);
 
 
 
+
 var Vuesax = {
-  theme: {
-    "primary-color": 'rgb(51, 186, 77)'
-  },
   install: function install(Vue, options) {
+    //change defaults colors
+    if (options.hasOwnProperty('theme')) {
+      if (options.theme.hasOwnProperty('colors')) {
+        theme.vsfunction(options.theme.colors);
+      }
+    }
+
     Object.values(components_namespaceObject).forEach(function (vsComponent) {
-      Vue.use(vsComponent); // Vue.component(vsComponent.name,vsComponent)
+      Vue.use(vsComponent);
     });
     functions(Vue);
     Vue.prototype.$vs.easing = easing;
