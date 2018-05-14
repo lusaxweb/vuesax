@@ -1,37 +1,38 @@
+---
+home: true
+heroImage: /vuesax-logo.png
+heroText: <b>Vuesax</b> Frontend <a target="_blank" href="https://vuejs.org/">Vue</a> Components
+heroBackgroundComponent: city
+features:
+- title: <b>Experience</b> design
+  details: We love that our users enjoy creating with us. In Vuesax, we make this the best experience for you, because it's fun.
+  component: mueble
+  github: true
+  button:
+    text: Components
+    link: /components/
 
-# vuesax docs page
+- title: <b>Responsive</b> components
+  details: We work with Responsive <a target="_blank" href="https://vuejs.org/">Components</a>, we strive to be available to everyone in our community.
+  component: responsive
+  github: true
+  button:
+    text: Layout
+    link: /layout/
 
-We are excited that you are interested in contributing to Vuesax. Before submitting your contribution though, please make sure to take a moment and read through the following guidelines.
+- title: Vuesax is <b>open source</b>
+  details: Do you want to participate in our initiative? We are open to receive all kinds of contributions and suggestions..
+  component: openSource
+  github: true
+  button:
+    text: Contributing
+    link: /vuesax/
 
-# Code of Conduct
-
-We have adopted a [Code of Conduct](https://github.com/lusaxweb/vuesax/blob/master/CODE_OF_CONDUCT.md) that we expect project participants to adhere to. Please read the full text so that you can understand what actions will and will not be tolerated.
-
-# Open Development
-All work on Vuesax happens directly on [GitHub](https://github.com/lusaxweb/vuesax/issues). Both core team members and external contributors send pull requests which go through the same review process.
-
-# Bugs
-We are using [GitHub](https://github.com/lusaxweb/vuesax/issues) Issues for bug tracing.
-
-# Proposing a Change
-
-If you intend to change the public API, or make any non-trivial changes to the implementation, we recommend filing an issue. This lets us reach an agreement on your proposal before you put significant effort into it. 
-
-If you’re only fixing a bug, it’s fine to submit a pull request right away but we still recommend to file an issue detailing what you’re fixing. This is helpful in case we don’t accept that specific fix but want to keep track of the issue.
-
-# Sending a Pull Request
-
-The core team is monitoring for pull requests. We will review your pull request and either merge it, request changes to it, or close it with an explanation. 
-
-Before submitting a pull request, please make sure the following is done: 
-
-- Fork the repository and create your branch from proper branch. 
-- run `npm install` in the repository root. 
-- If you’ve fixed a bug or added code that should be tested, add tests! Make sure your code lints (`npm run dev`)
-
-# Development workflow
-
-After cloning Vuesax, run npm install to fetch its dependencies. Then, you can run several commands: 
-
-- `npm run dev` runs vuesax website locally. 
-- `npm run build` To build.
+footer: MIT Licensed | Copyright © 2018-present Evan You
+vueThemes:
+  github: 'https://github.com/lusaxweb/vuesax'
+  actionsLinks:
+  - link: '/vuesax/'
+    text: 'Documents'
+contributors: all
+---

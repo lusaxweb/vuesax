@@ -1,5 +1,7 @@
 <p align="center">
-<a href="https://lusaxweb.github.io/vuesax/#/"><img src="https://github.com/lusaxweb/vuesax/blob/master/docs/src/assets/vuesax.png" alt="vuesax"></a>
+  <a href="https://lusaxweb.github.io/vuesax/">
+<img src="https://github.com/lusaxweb/vuesax/blob/master/public/vuesax-logo.png" alt="vuesax" />
+    </a>
   </p>
 
   </br>
@@ -19,35 +21,40 @@
 
 # Introduction
 
-Vuesax is a frontend library based on vue js that helps you develop faster and with a visual impact in a few steps is in the process of growth and progress.
+[Vuesax](https://lusaxweb.github.io/vuesax/) is a frontend library based on [vue js](https://vuejs.org/) that helps you develop faster and with a visual impact in a few steps is in the process of growth and progress.
 
 # Components
 
-- [Buttons](https://lusaxweb.github.io/vuesax/#/en/docs/components/buttons)
-- [Selects](https://lusaxweb.github.io/vuesax/#/en/docs/components/selects)
-- [Notifications](https://lusaxweb.github.io/vuesax/#/en/docs/components/Notifications)
-- [Switch](https://lusaxweb.github.io/vuesax/#/en/docs/components/switch)
-- [CheckBox](https://lusaxweb.github.io/vuesax/#/en/docs/components/checkBox)
-- [Radio](https://lusaxweb.github.io/vuesax/#/en/docs/components/radio)
-- [Input](https://lusaxweb.github.io/vuesax/#/en/docs/components/input)
-- [Dialogs](https://lusaxweb.github.io/vuesax/#/en/docs/components/messageBox)
-- [Tabs](https://lusaxweb.github.io/vuesax/#/en/docs/components/tabs)
-- [Slider](https://lusaxweb.github.io/vuesax/#/en/docs/components/slider)
-- [InputNumber](https://lusaxweb.github.io/vuesax/#/en/docs/components/inputNumber)
-- [Tooltip](https://lusaxweb.github.io/vuesax/#/en/docs/components/tooltip)
-- [Upload](https://lusaxweb.github.io/vuesax/#/en/docs/components/upload)
-- [Loading](https://lusaxweb.github.io/vuesax/#/en/docs/components/loading)
-- [Popup](https://lusaxweb.github.io/vuesax/#/en/docs/components/Popup)
-- [Alert](https://lusaxweb.github.io/vuesax/#/en/docs/components/alert)
-- [Dropdown](https://lusaxweb.github.io/vuesax/#/en/docs/components/dropdown)
-- [Grid](https://lusaxweb.github.io/vuesax/#/en/docs/layout/grid)
+- [Buttons](https://lusaxweb.github.io/vuesax/components/)
+- [Selects](https://lusaxweb.github.io/vuesax/components/selects.html)
+- [Notifications](https://lusaxweb.github.io/vuesax/components/notifications.html)
+- [Switch](https://lusaxweb.github.io/vuesax/components/switch.html)
+- [CheckBox](https://lusaxweb.github.io/vuesax/components/checkbox.html)
+- [Radio](https://lusaxweb.github.io/vuesax/components/radio.html)
+- [Input](https://lusaxweb.github.io/vuesax/components/input.html)
+- [Dialogs](https://lusaxweb.github.io/vuesax/components/dialog.html)
+- [Tabs](https://lusaxweb.github.io/vuesax/components/tabs.html)
+- [Slider](https://lusaxweb.github.io/vuesax/components/slider.html)
+- [InputNumber](https://lusaxweb.github.io/vuesax/components/number.html)
+- [Tooltip](https://lusaxweb.github.io/vuesax/components/tooltip.html)
+- [Upload](https://lusaxweb.github.io/vuesax/components/upload.html)
+- [Loading](https://lusaxweb.github.io/vuesax/components/loading.html)
+- [Grid](https://lusaxweb.github.io/vuesax/layout/)
+- [Chip](https://lusaxweb.github.io/vuesax/components/chip.html)
+- [Popup](https://lusaxweb.github.io/vuesax/components/popup.html)
+- [Progress](https://lusaxweb.github.io/vuesax/components/progress.html)
+- [Alert](https://lusaxweb.github.io/vuesax/components/alert.html)
+- [Card](https://lusaxweb.github.io/vuesax/components/card.html)
+<!--
+- [Dropdown](https://lusaxweb.github.io/vuesax/components/dropdown.html)
+ -->
 
 # Demo and Documentation
 
 [Documentation](https://lusaxweb.github.io/vuesax/#/)
 
 # Browser Support
-Recent versions of Firefox, Chrome, Edge, Opera and Safari. IE10+
+Recent versions of **Firefox**, **Chrome**, **Edge**, **Opera** and **Safari**. **IE10+**
 
 # Quick-start CDN
 
@@ -64,7 +71,7 @@ Recent versions of Firefox, Chrome, Edge, Opera and Safari. IE10+
   </div>
 
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vuesax/dsit/vuesax.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuesax/dsit/vuesax.umd.js"></script>
   <script>
     new Vue({
       el: '#app'
@@ -76,8 +83,8 @@ Recent versions of Firefox, Chrome, Edge, Opera and Safari. IE10+
 
 # CDN
 
-- https://unpkg.com/vuesax/dist/vuesax.min.js
-- https://unpkg.com/vuesax/dist/vuesax.min.css
+- https://unpkg.com/vuesax/dist/vuesax.umd.js
+- https://unpkg.com/vuesax/dist/vuesax.css
 
 # install en Proyecto NPM
 ``` bash
@@ -92,6 +99,8 @@ yarn add vuesax
 
 ## Use
 
+### All components
+
 ```javascript
 import Vue from 'vue'
 import Vuesax from 'vuesax'
@@ -99,6 +108,32 @@ import Vuesax from 'vuesax'
 import 'vuesax/dist/vuesax.css'
 Vue.use(Vuesax)
 ```
+
+### Or use individual components:
+
+```javascript
+import Vue from 'vue'
+import { vsButton, vsSelect, vsPopup } from 'vuesax/dist/components'
+import 'vuesax/dist/vuesax.css'
+
+Vue.use(vsButton)
+Vue.use(vsSelect)
+Vue.use(vsPopup)
+```
+
+### Or use only the functions
+
+```javascript
+import Vue from 'vue'
+import vsFunctions from 'vuesax/dist/functions'
+import 'vuesax/dist/vuesax.css'
+
+Vue.use(vsFunctions)
+```
+
+## Contribution
+Please make sure to read the [Contributing Guide](https://github.com/lusaxweb/vuesax/blob/master/CONTRIBUTING.md) before making a pull request.
+
 ## Become a Patron
 
 Vuesax is an open source MIT project if you want to contribute to keep improving, If you are interested in supporting this project, please consider becoming a patron. [[patron](https://www.patreon.com/bePatron?c=1567892)]
@@ -107,10 +142,11 @@ Vuesax is an open source MIT project if you want to contribute to keep improving
 
 Support us with a monthly donation and help us continue our activities. [[Become a backer](https://opencollective.com/vuesax#backer)]
 
-## Sponsors
-
-Become a sponsor and get your logo on our README on Github with a link to your site. [[Become a sponsor](https://opencollective.com/vuesax#sponsor)]
 
 ## Lusaxweb
 
 This library was created and is supported by [Lusaxweb](http://www.lusaxweb.com.ve/)
+
+## License
+
+[MIT](https://github.com/lusaxweb/vuesax/blob/master/LICENSE)

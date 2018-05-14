@@ -69,6 +69,7 @@ export default {
     tooltipx.style.background = colorx
     var mouseEnterx = function(event){
 
+
       let coords = event.toElement.getBoundingClientRect();
       document.body.insertBefore(tooltipx, document.body.firstChild);
 

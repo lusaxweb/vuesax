@@ -1,0 +1,16 @@
+<title>vuesax demo</title>
+<script src="https://unpkg.com/vue"></script>
+<script src="./vuesax.umd.js"></script>
+<link rel="stylesheet" href="./vuesax.css">
+
+<div id="app">
+  <demo></demo>
+</div>
+
+<script>
+new Vue({
+  components: {
+    demo: vuesax
+  }
+}).$mount('#app')
+</script>
