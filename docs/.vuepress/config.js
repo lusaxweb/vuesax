@@ -198,6 +198,7 @@ module.exports = {
           '/documents/components/progress',
           '/documents/components/popup',
           '/documents/components/alert',
+          '/documents/components/card',
         ]
       },
     ]

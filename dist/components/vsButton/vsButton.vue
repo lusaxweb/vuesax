@@ -158,7 +158,11 @@ export default {
     vsColorx(){
       let _this = this
       let btn = this.$refs.btnvuesax
-      let colorx = null
+      let colorx = function(opacity){
+        var rgb = _this.vsColor.replace(/^(rgb|rgba)\(/,'').replace(/\)$/,'').replace(/\s/g,'').split(',');
+        // console.log(rgb);
+        return `rgba(${rgb[0]},${rgb[1]},${rgb[2]},${opacity})`;
+      }
       if(this.vsColor){
 
       if(/[#()]/.test(this.vsColor)){
@@ -168,16 +172,8 @@ export default {
           colorx = function(opacity){
             return `rgba(${c.r},${c.g},${c.b},${opacity})`;
           }
-          console.log("paso coloe");
+          // console.log("paso coloe");
 
-        } else {
-
-          colorx = function(opacity){
-            var rgb = _this.vsColor.replace(/^(rgb|rgba)\(/,'').replace(/\)$/,'').replace(/\s/g,'').split(',');
-            console.log(rgb);
-            return `rgba(${rgb[0]},${rgb[1]},${rgb[2]},${opacity})`;
-          }
-          console.log("paso coloe");
         }
       }
 

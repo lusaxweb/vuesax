@@ -8,9 +8,11 @@ import vsTheme from './utils/theme.js'
 const Vuesax = {
   install(Vue, options) {
     //change defaults colors
-    if(options.hasOwnProperty('theme')){
-      if(options.theme.hasOwnProperty('colors')){
-        vsTheme.vsfunction(options.theme.colors)
+    if(options){
+      if(options.hasOwnProperty('theme')){
+        if(options.theme.hasOwnProperty('colors')){
+          vsTheme.vsfunction(options.theme.colors)
+        }
       }
     }
 
