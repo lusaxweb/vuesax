@@ -14,12 +14,9 @@ API:
 Vuesax has the main colors that are maintained throughout the application to facilitate the change and effective operation
 
 </box>
-
-
 <box>
 
 ## Colors Defaults
-
 
 We have a series of colors by default to start the application that are:
 

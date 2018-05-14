@@ -18,6 +18,14 @@
       <SearchBox v-else-if="$site.themeConfig.search !== false"/>
       <NavLinks class="can-hide"/>
     </div>
+    <!-- colors change -->
+    <div class="con-colors-input">
+      <div :style="{
+        'box-shadow': '0px 5px 20px -4px rgba(var(--primary),.9)',
+        'background': 'rgb(var(--primary))'}" class="con-inputx-c">
+        <input @change="changeColor($event.target.value)" type="color" name="" :value="color">
+      </div>
+    </div>
   </header>
 </template>
 
@@ -31,6 +39,7 @@ export default {
   components: { SidebarButton, NavLinks, SearchBox, AlgoliaSearchBox },
   data(){
     return {
+      color: '#008afb',
       shadow:false,
     }
   },
@@ -52,12 +61,44 @@ export default {
       }
     })
   },
+  methods:{
+    changeColor(colorx){
+      this.$vs.theme({
+        primary:colorx // myColorNew
+      })
+    }
+  }
 }
 </script>
 
 <style lang="stylus">
 @import './styles/config.styl'
 //vuesax
+.con-inputx-c {
+  overflow: hidden;
+  display: inline-block;
+  position: relative;
+  // overflow: hidden;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  box-shadow: 0px 0px
+}
+.con-colors-input{
+  position: absolute;
+  right: 15px;
+  top: 11px;
+  display: inline-block;
+}
+.con-colors-input input{
+  border: 0px;
+  background: transparent;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
 .shadow {
   box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.050) !important
 }

@@ -8,6 +8,7 @@
       <DropdownLink v-if="item.type === 'links'" :item="item"/>
       <NavLink v-else :item="item"/>
     </div>
+
     <!-- repo link -->
     <a v-if="repoLink"
       :href="repoLink"
@@ -100,6 +101,9 @@ export default {
 
 <style lang="stylus">
 @import './styles/config.styl'
+
+
+
 .repoLink
   position: relative;
 .iconx {
@@ -107,6 +111,7 @@ export default {
 }
 .nav-links
   display inline-block
+  padding-right: 20px;
   a
     // line-height 1.25rem
     color inherit
