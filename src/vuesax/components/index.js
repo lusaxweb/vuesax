@@ -25,6 +25,11 @@ import vsLink from './vsAnchor/vsLink.vue'
 import vsAlert from './vsAlert/vsAlert.vue'
 import vsChip from './vsChip/vsChip.vue'
 import vsChips from './vsChip/vsChips.vue'
+import vsCard from './vsCard/vsCard.vue'
+import vsCardHeader from './vsCard/vsCardHeader.vue'
+import vsCardMedia from './vsCard/vsCardMedia.vue'
+import vsCardBody from './vsCard/vsCardBody.vue'
+import vsCardActions from './vsCard/vsCardActions.vue'
 
 //layout
 import vsRow from '../layout/vsRow.vue'
@@ -55,6 +60,11 @@ export const vsComponents = {
   vsAlert,
   vsChip,
   vsChips,
+  vsCard,
+  vsCardHeader,
+  vsCardMedia,
+  vsCardBody,
+  vsCardActions,
   
   //layout
   vsRow,
