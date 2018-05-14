@@ -97,7 +97,9 @@ export default {
   },
   methods:{
     returnColorRGB(vsColor){
-      return color.hexToRgb(vsColor).replace(/[rgb()]/g,'')
+      // console.log(vsColor);
+      let colorx = color.hexToRgb(vsColor)
+      return `rgba(${colorx.r},${colorx.g},${colorx.b},.1)`
     }
   }
 }
