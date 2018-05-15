@@ -199,6 +199,7 @@ module.exports = {
           '/components/popup',
           '/components/alert',
           '/components/card',
+          '/components/avatar',
         ]
       },
     ]

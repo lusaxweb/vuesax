@@ -17,6 +17,7 @@ import vsChip from './vsChip'
 import vsChips from './vsChips'
 import vsProgress from './vsProgress'
 import vsCard from './vsCard'
+import vsAvatar from './vsAvatar'
 // import vsAnchor from './vsAnchor'
 // import vsLink from './vsAnchor'
 
@@ -47,6 +48,7 @@ export {
   vsCard,
   vsRow,
   vsCol,
+  vsAvatar,
 
   // en proceso
   // vsDropdown,
