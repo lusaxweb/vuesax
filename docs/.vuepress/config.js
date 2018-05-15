@@ -7,6 +7,7 @@ module.exports = {
   ],
   docsDir: 'docs',
   host:'localhost',
+  port: 7070,
   title: 'Vuesax',
   description: 'We love what we do. Let us help you do what <b>You love.</b>',
   vueThemes:{
@@ -199,6 +200,8 @@ module.exports = {
           '/components/popup',
           '/components/alert',
           '/components/card',
+          '/components/avatar',
+          '/components/list',
         ]
       },
     ]

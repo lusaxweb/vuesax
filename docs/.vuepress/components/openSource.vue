@@ -480,11 +480,9 @@ export default {
 }
 15% {
   opacity: .5;
-  transform: scale(1.035);
 }
 30% {
   opacity: .8;
-  transform: scale(1.010);
 }
 40% {
   opacity: .5;
@@ -492,11 +490,9 @@ export default {
 }
 60% {
     opacity: 1;
-    transform: scale(.990);
 }
 90% {
   opacity: .6;
-  transform: scale(1.020);
 }
 100% {
     opacity: 1;
