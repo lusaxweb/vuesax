@@ -217,7 +217,7 @@ export default {
 
   }
   .noPlaceholderLabel {
-    bottom: 36px;
+    bottom: 40px;
     left: 8px;
     font-size: 12px;
     color: rgba(0, 0, 0, 0.7);
@@ -267,10 +267,10 @@ export default {
   }
   .iconx {
     position: absolute;
-    bottom: 0px;
+    bottom: 0;
+    top: 0;
     left: 0px;
     width: 30px;
-    height: 35px;
     display: flex;
     align-items: center;
     justify-content: center;
