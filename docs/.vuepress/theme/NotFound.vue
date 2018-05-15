@@ -5,6 +5,15 @@
         <a href="https://lusaxweb.github.io/vuesax/">
           <not-found/>
         </a>
+
+      </div>
+      <div class="con-btns-404">
+        <h2>Links</h2>
+        <div class="">
+          <a href="https://lusaxweb.github.io/vuesax/">Vuesax</a>
+          <a href="https://lusaxweb.github.io/vuesax/vuesax/">Documents</a>
+          <a href="https://github.com/lusaxweb/vuesax">Github</a>
+        </div>
       </div>
       <!-- <h1>404</h1>
       <blockquote>{{ getMsg() }}</blockquote> -->
@@ -47,5 +56,22 @@ export default {
   .con-404 svg {
     margin: auto;
     display: block;
+    margin-top: 5%;
+  }
+  .con-btns-404 {
+    position: absolute;
+    bottom: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .con-btns-404 a {
+    font-size: 22px;
+    margin: 15px;
   }
 </style>
