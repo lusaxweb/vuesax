@@ -70,7 +70,7 @@ export default {
       i
         font-size 1.5rem
         margin 10px
-        margin-right: 0px;
+        margin-right 0px
     .card-titles
       width 100%
       display flex
@@ -78,7 +78,7 @@ export default {
       align-items flex-start
       flex-direction column
       padding 8px
-      margin-left: 10px;
+      margin-left 10px
       .card-title
         font-size 1.5rem
       .card-subtitle
