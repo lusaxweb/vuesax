@@ -1,35 +1,40 @@
 ---
 API:
- - name: vs-color
-   type: String
-   parameters: RGB, HEX, primary, success, danger, warning, dark
-   description: Component color
-   default: primary
- - name: vs-title
-   type: String
-   parameters:
-   description: Header title
-   default: null
- - name: vs-subtitle
-   type: String
-   parameters:
-   description: Header subtitle
-   default: null
- - name: vs-icon
-   type: String
-   parameters:
-   description: Header material icon
-   default: null
- - name: vs-background
-   type: String
-   parameters:
-   description: Header background color
-   default: 'primary'
- - name: vs-media
-   type: String
-   parameters:
-   description: Media image src
-   default: null
+  - name: vs-color
+    type: String
+    parameters: RGB, HEX, primary, success, danger, warning, dark
+    description: Component color
+    default: primary
+  - name: vs-title
+    type: String
+    parameters:
+    description: Header title
+    default: null
+  - name: vs-subtitle
+    type: String
+    parameters:
+    description: Header subtitle
+    default: null
+  - name: vs-fill
+    type: Boolean
+    parameters:
+    description: Header filled with color
+    default: false
+  - name: vs-icon
+    type: String
+    parameters:
+    description: Header material icon
+    default: null
+  - name: vs-background
+    type: String
+    parameters:
+    description: Header background color
+    default: 'primary'
+  - name: vs-media
+    type: String
+    parameters:
+    description: Media image src
+    default: null
 contributors:
   - fergardi
 ---
@@ -78,7 +83,7 @@ To add a card we have the components `vs-card`, `vs-card-header`, `vs-card-body`
 
 ## Color
 
-You can change the overall color of the card with property `vs-color` y `vs-background-color` for the component `vs-card-header`.
+You can change the overall color of the card with property `vs-color` and `vs-background-color` for the component `vs-card-header`. You can make the color fill with `vs-fill`.
 
 ::: tip
 Vuesax use the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
@@ -87,7 +92,7 @@ Vuesax use the **Google Material Icons** font library. For a list of all availab
 <vuecode md center>
 <div slot="demo" style="display: flex;">
   <vs-card vs-color="danger">
-    <vs-card-header vs-background-color="danger" vs-title="A nice title" vs-icon="error"></vs-card-header>
+    <vs-card-header vs-background-color="danger" vs-title="A nice title" vs-icon="error" :vs-fill="true"></vs-card-header>
     <vs-card-body>
       <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
     </vs-card-body>
@@ -105,7 +110,7 @@ Vuesax use the **Google Material Icons** font library. For a list of all availab
 <template lang="html">
   <div class="centerx">
     <vs-card vs-color="danger">
-      <vs-card-header vs-background-color="danger" vs-title="A nice title" vs-icon="error"></vs-card-header>
+      <vs-card-header vs-background-color="danger" vs-title="A nice title" vs-icon="error" :vs-fill="true"></vs-card-header>
       <vs-card-body>
         <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
       </vs-card-body>

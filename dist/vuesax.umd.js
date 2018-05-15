@@ -936,6 +936,13 @@ module.exports = function (key) {
 
 /***/ }),
 
+/***/ "Mpo0":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "NNsH":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1981,6 +1988,7 @@ __webpack_require__.d(components_namespaceObject, "vsProgress", function() { ret
 __webpack_require__.d(components_namespaceObject, "vsCard", function() { return components_vsCard; });
 __webpack_require__.d(components_namespaceObject, "vsRow", function() { return layout_vsRow; });
 __webpack_require__.d(components_namespaceObject, "vsCol", function() { return layout_vsCol; });
+__webpack_require__.d(components_namespaceObject, "vsAvatar", function() { return components_vsAvatar; });
 
 // EXTERNAL MODULE: ../Users/pc 01/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/core-js/modules/es7.object.values.js
 var es7_object_values = __webpack_require__("0+C+");
@@ -5357,6 +5365,173 @@ var vsCardMedia_Component = normalizeComponent(
   Vue.component(vsCard_vsCardHeader.name, vsCard_vsCardHeader);
   Vue.component(vsCard_vsCardMedia.name, vsCard_vsCardMedia);
 });
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://vuesax//node_modules//.cache//cache-loader"}!./node_modules/babel-loader/lib?{"presets":["C://Users//pc 01//AppData//Roaming//npm//node_modules//@vue//cli-service-global//node_modules//@vue//babel-preset-app//index.js"]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/components/vsAvatar/vsAvatar.vue
+
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ var vsAvatar = ({
+  name: 'vs-avatar',
+  props: {
+    vsBadge: {
+      type: [Boolean, String, Number],
+      default: false
+    },
+    vsBadgeColor: {
+      default: 'danger',
+      type: String
+    },
+    vsSize: {
+      type: String,
+      default: null
+    },
+    vsSrc: {
+      type: String,
+      default: null
+    },
+    vsIcon: {
+      type: String,
+      default: 'person'
+    },
+    vsTextColor: {
+      type: String,
+      default: 'rgb(255, 255, 255)'
+    },
+    vsText: {
+      type: [String, Number],
+      default: null
+    },
+    vsColor: {
+      type: String,
+      default: 'rgb(195, 195, 195)'
+    }
+  },
+  computed: {
+    returnText: function returnText() {
+      if (this.vsText.length <= 5) {
+        return this.vsText;
+      } else {
+        var exp = /\s/g;
+        var letras = '';
+
+        if (exp.test(this.vsText)) {
+          this.vsText.split(exp).forEach(function (word) {
+            letras += word[0].toUpperCase();
+          });
+        } else {
+          letras = this.vsText[0].toUpperCase();
+        }
+
+        return letras.length > 5 ? letras[0] : letras;
+      }
+    },
+    returnScale: function returnScale() {
+      if (this.vsText) {
+        var lengthx = this.returnText.length;
+
+        if (lengthx <= 5 && lengthx > 1) {
+          return lengthx / (lengthx * 1.50);
+        } else {
+          return 1;
+        }
+      } else {
+        return 1;
+      }
+    }
+  }
+});
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-4fc281f8","hasScoped":false,"optionsId":"0","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsAvatar/vsAvatar.vue
+var vsAvatar_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"con-vs-avatar",class:[_vm.vsSize],style:({
+  'width':/[px]/.test(_vm.vsSize)?("" + _vm.vsSize):null,
+  'height':/[px]/.test(_vm.vsSize)?("" + _vm.vsSize):null,
+  'background':_vm.vsColor?/[#()]/.test(_vm.vsColor)?_vm.vsColor:("rgba(var(--" + _vm.vsColor + "),1)"):'rgb(var(--primary))'
+})},[(_vm.vsBadge && _vm.vsBadge > 0)?_c('div',{staticClass:"dot-count",class:{
+    'badgeNumber':typeof _vm.vsBadge != 'boolean',
+    },style:({
+    'background':_vm.vsBadgeColor?/[#()]/.test(_vm.vsBadgeColor)?_vm.vsBadgeColor:("rgba(var(--" + _vm.vsBadgeColor + "),1)"):'rgb(var(--primary))'
+  })},[_vm._v("\n   "+_vm._s(typeof _vm.vsBadge != 'boolean'?_vm.vsBadge:null)+"\n  ")]):_vm._e(),(_vm.vsSrc)?_c('div',{staticClass:"con-img"},[_c('img',{attrs:{"src":_vm.vsSrc,"alt":""}})]):_c('span',{staticClass:"vs-avatar-text",class:{
+    'material-icons':!_vm.vsText
+    },style:({
+    'transform':("translate(-50%,-50%) scale(" + _vm.returnScale + ")"),
+    'color':_vm.vsTextColor?/[#()]/.test(_vm.vsTextColor)?_vm.vsTextColor:("rgba(var(--" + _vm.vsTextColor + "),1)"):'rgb(var(--primary))'
+  }),attrs:{"title":_vm.vsText}},[_vm._v("\n  "+_vm._s(_vm.vsText?_vm.returnText:_vm.vsIcon)+"\n  ")])])}
+var vsAvatar_staticRenderFns = []
+
+// CONCATENATED MODULE: ./src/components/vsAvatar/vsAvatar.vue
+function vsAvatar_injectStyle (context) {
+  __webpack_require__("Mpo0")
+}
+/* script */
+
+
+/* template */
+
+/* template functional */
+var vsAvatar___vue_template_functional__ = false
+/* styles */
+var vsAvatar___vue_styles__ = vsAvatar_injectStyle
+/* scopeId */
+var vsAvatar___vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var vsAvatar___vue_module_identifier__ = null
+
+var vsAvatar_Component = normalizeComponent(
+  vsAvatar,
+  vsAvatar_render,
+  vsAvatar_staticRenderFns,
+  vsAvatar___vue_template_functional__,
+  vsAvatar___vue_styles__,
+  vsAvatar___vue_scopeId__,
+  vsAvatar___vue_module_identifier__
+)
+
+/* harmony default export */ var vsAvatar_vsAvatar = (vsAvatar_Component.exports);
+
+// CONCATENATED MODULE: ./src/components/vsAvatar/index.js
+
+
+
+/* harmony default export */ var components_vsAvatar = (function (Vue) {
+  Vue.component(vsAvatar_vsAvatar.name, vsAvatar_vsAvatar);
+});
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://vuesax//node_modules//.cache//cache-loader"}!./node_modules/babel-loader/lib?{"presets":["C://Users//pc 01//AppData//Roaming//npm//node_modules//@vue//cli-service-global//node_modules//@vue//babel-preset-app//index.js"]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/layout/vsRow/vsRow.vue
 //
 //
@@ -5549,6 +5724,7 @@ var vsCol_Component = normalizeComponent(
   Vue.component(vsCol_vsCol.name, vsCol_vsCol);
 });
 // CONCATENATED MODULE: ./src/components/index.js
+
 
 
 
