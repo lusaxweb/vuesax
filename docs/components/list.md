@@ -12,13 +12,18 @@ API:
     default: null
   - name: vs-title
     type: String
-    parameters: 
+    parameters:
     description: List primary text
     default: null
   - name: vs-subtitle
     type: String
-    parameters: 
+    parameters:
     description: List secondary text
+    default: null
+  - name: slot="avatar"
+    type: Slot
+    parameters: null
+    description: Slot to add the avatar in the list
     default: null
 contributors:
   - fergardi
@@ -176,6 +181,72 @@ You can add custom content to the item. It will be pushed to the right side.
   </vs-list-item>
   <vs-list-item vs-icon="check" vs-title="Item 2.2" vs-subtitle="Item 2.2">
     <vs-switch vs-color="warning"/>
+  </vs-list-item>
+</vs-list>
+```
+
+</div>
+</vuecode>
+</box>
+
+<box>
+
+## Avatar
+
+You can implement an avatar in the list with the `slot="avatar"` and there is put the component [vs-avatar](/components/avatar.html)
+
+<vuecode md>
+<div slot="demo">
+<vs-list>
+  <vs-list-header vs-title="Group 1" vs-color="danger"></vs-list-header>
+  <vs-list-item vs-title="Item 1.1" vs-subtitle="Item 1.1">
+    <template slot="avatar">
+      <vs-avatar />
+    </template>
+  </vs-list-item>
+  <vs-list-item vs-title="Item 1.2" vs-subtitle="Item 1.2">
+    <template slot="avatar">
+      <vs-avatar vs-text="Vuesax"/>
+    </template>
+  </vs-list-item>
+  <vs-list-header vs-title="Group 2" vs-color="warning"></vs-list-header>
+  <vs-list-item vs-title="Item 2.1" vs-subtitle="Item 2.1">
+    <template slot="avatar">
+      <vs-avatar vs-text="Vue"/>
+    </template>
+  </vs-list-item>
+  <vs-list-item vs-title="Item 2.2" vs-subtitle="Item 2.2">
+    <template slot="avatar">
+      <vs-avatar vs-src="https://avatars2.githubusercontent.com/u/31676496?s=460&v=4"/>
+    </template>
+  </vs-list-item>
+</vs-list>
+</div>
+<div slot="code">
+
+```html
+<vs-list>
+  <vs-list-header vs-title="Group 1" vs-color="danger"></vs-list-header>
+  <vs-list-item vs-title="Item 1.1" vs-subtitle="Item 1.1">
+    <template slot="avatar">
+      <vs-avatar />
+    </template>
+  </vs-list-item>
+  <vs-list-item vs-title="Item 1.2" vs-subtitle="Item 1.2">
+    <template slot="avatar">
+      <vs-avatar vs-text="Vuesax"/>
+    </template>
+  </vs-list-item>
+  <vs-list-header vs-title="Group 2" vs-color="warning"></vs-list-header>
+  <vs-list-item vs-title="Item 2.1" vs-subtitle="Item 2.1">
+    <template slot="avatar">
+      <vs-avatar vs-text="Vue"/>
+    </template>
+  </vs-list-item>
+  <vs-list-item vs-title="Item 2.2" vs-subtitle="Item 2.2">
+    <template slot="avatar">
+      <vs-avatar vs-src="https://avatars2.githubusercontent.com/u/31676496?s=460&v=4"/>
+    </template>
   </vs-list-item>
 </vs-list>
 ```

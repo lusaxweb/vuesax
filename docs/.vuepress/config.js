@@ -201,6 +201,7 @@ module.exports = {
           '/components/alert',
           '/components/card',
           '/components/avatar',
+          '/components/list',
         ]
       },
     ]

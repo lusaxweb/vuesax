@@ -38,8 +38,11 @@ export default {
 
 <style lang="stylus"> // cannot be scoped due to inheritance
   .vs-card
+    > div
+      border-top-right-radius 0 !important
+      border-top-left-radius 0 !important
     > div:first-child
     > div:first-child > img
-      border-top-right-radius 8px
-      border-top-left-radius 8px
+      border-top-right-radius 8px !important
+      border-top-left-radius 8px !important
 </style>

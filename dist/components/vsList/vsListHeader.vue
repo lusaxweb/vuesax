@@ -1,31 +1,31 @@
 <template lang="html">
-  <div class="vs-list-item">
-    <div class="list-avatar">
-      <slot name="avatar">
-      </slot>
-    </div>
+  <div
+    class="vs-list-header"
+    :class="{
+      'with-icon':vsIcon,
+    }"
+    :style="{
+      'color':vsColor?/[#()]/.test(vsColor)?vsColor:`rgba(var(--${vsColor}),1)`:'rgb(244,244,244)',
+      'border-color':vsColor?/[#()]/.test(vsColor)?vsColor:`rgba(var(--${vsColor}),1)`:'rgb(244,244,244)',
+    }">
     <div v-if="vsIcon" class="list-icon">
       <i class="material-icons">{{vsIcon}}</i>
     </div>
     <div class="list-titles">
       <div class="list-title" v-if="vsTitle">{{vsTitle}}</div>
-      <div class="list-subtitle" v-if="vsSubtitle">{{vsSubtitle}}</div>
-    </div>
-    <div class="list-slot">
-      <slot></slot>
+      <!-- <div class="list-subtitle" v-if="vsSubtitle">{{vsSubtitle}}</div> -->
     </div>
   </div>
 </template>
 
 <script>
-import vsAvatar from '../vsAvatar/vsAvatar'
 import color from '../../utils/color.js'
 export default {
-  name:'vs-list-item',
+  name:'vs-list-header',
   props: {
-    vsAvatar:{
-      type:[Boolean,String],
-      default:false,
+    vsColor:{
+      type:String,
+      default:'primary',
     },
     vsTitle:{
       type:String,
@@ -44,11 +44,10 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-  .vs-list-item + .vs-list-item
-    border-top 1px solid rgb(235,235,235)
-  .vs-list-item
-    border-left 1px solid rgb(235,235,235)
-    border-right 1px solid rgb(235,235,235)
+  .vs-list-header
+    border-left 3px solid red
+    background-color rgb(244,244,244)
+    border-left 3px solid rgba(0,0,0,.1)
     display flex
     justify-content center
     align-items center
@@ -56,11 +55,6 @@ export default {
     font-weight 500
     position relative
     white-space nowrap
-    .list-avatar
-      margin-left: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     .list-icon
       display flex
       justify-content center
@@ -81,6 +75,4 @@ export default {
         font-size 1rem
       .list-subtitle
         font-size 0.8rem
-    .list-slot
-      margin-left auto
 </style>

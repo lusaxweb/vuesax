@@ -1,5 +1,7 @@
 <template lang="html">
   <div
+  v-bind="$attrs"
+  v-on="$listeners"
   :class="[vsSize]"
   :style="{
     'width':/[px]/.test(vsSize)?`${vsSize}`:null,
