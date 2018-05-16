@@ -199,6 +199,7 @@ module.exports = {
           '/documents/components/popup',
           '/documents/components/alert',
           '/documents/components/card',
+          '/documents/components/pagination',
         ]
       },
     ]
