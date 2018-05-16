@@ -202,6 +202,7 @@ module.exports = {
           '/components/card',
           '/components/avatar',
           '/components/list',
+          '/documents/components/pagination',
         ]
       },
     ]
