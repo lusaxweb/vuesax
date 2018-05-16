@@ -4,6 +4,7 @@
     @mouseenter="hoverx=true,$emit('mouseenter')"
     @mouseleave="hoverx=false,$emit('mouseleave')"
     :style="{
+      'width':vsWidth,
       'color':vsColorText?/[#()]/.test(vsColorText)?vsColorText:`rgb(var(--${vsColorText}))`:'',
       'border-radius':vsRadius,
       'background':backgroundx,
@@ -36,6 +37,10 @@ import color from '../../utils/color.js'
 export default {
   name:'vs-button',
   props:{
+    vsWidth:{
+      type:String,
+      default:'auto'
+    },
     vsHtml:{
       type:String,
       default:null

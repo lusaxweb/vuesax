@@ -7,6 +7,7 @@ module.exports = {
   ],
   docsDir: 'docs',
   host:'localhost',
+  port: 7070,
   title: 'Vuesax',
   description: 'We love what we do. Let us help you do what <b>You love.</b>',
   vueThemes:{
@@ -115,7 +116,7 @@ module.exports = {
     logo:'/vuesax-logo-vertical.png',
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Documents', link: '/documents/' },
+      { text: 'Documents', link: '/vuesax/' },
       {
         text: 'Ecosystem',
         items: [
@@ -158,47 +159,49 @@ module.exports = {
         title: 'Vuesax',
         collapsable: false,
         children: [
-          '/documents/',
-          '/documents/vuesax/'
+          '/vuesax/',
+          '/vuesax/contributing'
          ]
       },
       {
         title: 'Layout',
         collapsable: false,
         children: [
-          '/documents/layout/',
+          '/layout/',
          ]
       },
       {
         title: 'Theme',
         collapsable: false,
         children: [
-          'documents/theme/colors',
+          '/theme/',
          ]
       },
       {
         title: 'Components',
         collapsable: false,
         children: [
-          '/documents/components/',
-          '/documents/components/selects',
-          '/documents/components/notifications',
-          '/documents/components/switch',
-          '/documents/components/checkbox',
-          '/documents/components/radio',
-          '/documents/components/input',
-          '/documents/components/dialog',
-          '/documents/components/tabs',
-          '/documents/components/slider',
-          '/documents/components/number',
-          '/documents/components/tooltip',
-          '/documents/components/upload',
-          '/documents/components/loading',
-          '/documents/components/chip',
-          '/documents/components/progress',
-          '/documents/components/popup',
-          '/documents/components/alert',
-          '/documents/components/card',
+          '/components/',
+          '/components/selects',
+          '/components/notifications',
+          '/components/switch',
+          '/components/checkbox',
+          '/components/radio',
+          '/components/input',
+          '/components/dialog',
+          '/components/tabs',
+          '/components/slider',
+          '/components/number',
+          '/components/tooltip',
+          '/components/upload',
+          '/components/loading',
+          '/components/chip',
+          '/components/progress',
+          '/components/popup',
+          '/components/alert',
+          '/components/card',
+          '/components/avatar',
+          '/components/list',
           '/documents/components/pagination',
         ]
       },

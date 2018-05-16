@@ -10,7 +10,7 @@ features:
   github: true
   button:
     text: Components
-    link: /documents/components/
+    link: /components/
 
 - title: <b>Responsive</b> components
   details: We work with Responsive <a target="_blank" href="https://vuejs.org/">Components</a>, we strive to be available to everyone in our community.
@@ -18,7 +18,7 @@ features:
   github: true
   button:
     text: Layout
-    link: /documents/layout/
+    link: /layout/
 
 - title: Vuesax is <b>open source</b>
   details: Do you want to participate in our initiative? We are open to receive all kinds of contributions and suggestions..
@@ -26,13 +26,13 @@ features:
   github: true
   button:
     text: Contributing
-    link: /documents/vuesax/
+    link: /vuesax/
 
 footer: MIT Licensed | Copyright © 2018-present Evan You
 vueThemes:
   github: 'https://github.com/lusaxweb/vuesax'
   actionsLinks:
-  - link: '/documents/'
+  - link: '/vuesax/'
     text: 'Documents'
 contributors: all
 ---

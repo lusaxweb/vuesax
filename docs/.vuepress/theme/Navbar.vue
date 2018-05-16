@@ -13,13 +13,13 @@
         <!-- {{ $siteTitle }} -->
       </span>
     </router-link>
-    <div class="links">
+    <div :class="{'linksColor':!$page.frontmatter.home}" class="links">
       <AlgoliaSearchBox v-if="isAlgoliaSearch" :options="algolia"/>
       <SearchBox v-else-if="$site.themeConfig.search !== false"/>
       <NavLinks class="can-hide"/>
     </div>
     <!-- colors change -->
-    <div class="con-colors-input">
+    <div v-if="!$page.frontmatter.home" class="con-colors-input">
       <div :style="{
         'box-shadow': '0px 5px 20px -4px rgba(var(--primary),.9)',
         'background': 'rgb(var(--primary))'}" class="con-inputx-c">
@@ -137,9 +137,11 @@ export default {
   .links
     font-size 0.9rem
     position absolute
-    right 1.5rem
+    right 0rem
     top 0rem
-
+    transition: all .2s ease;
+    &.linksColor
+      right: 1.5rem
 @media (max-width: $MQMobile)
   .links
     line-height 48px
