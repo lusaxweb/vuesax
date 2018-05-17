@@ -27,9 +27,9 @@ The distance between the elements contained in the topbar will be evenly spaced.
 <vuecode md>
 <div slot="demo">
   <vs-topbar style="justify-content: flex-start;">
-    <vs-button vs-type="dark-flat" vs-icon="true"><i class="material-icons">menu</i></vs-button>
+    <vs-button vs-type="dark-flat" vs-radius="50%" vs-icon="menu"></vs-button>
     <h3>This is my cool application topbar title</h3>
-    <vs-button vs-type="dark-flat" vs-icon="true" style="margin-left: auto;"><i class="material-icons">more_vert</i></vs-button>
+    <vs-button vs-type="dark-flat" vs-radius="50%" vs-icon="more_vert" style="margin-left: auto;"></vs-button>
   </vs-topbar>
 </div>
 <div slot="code">
@@ -38,7 +38,7 @@ The distance between the elements contained in the topbar will be evenly spaced.
 <vs-topbar style="justify-content: flex-start;">
   <vs-button vs-type="dark-flat" vs-icon="true"><i class="material-icons">menu</i></vs-button>
   <h3>This is my cool application topbar title</h3>
-  <vs-button vs-type="dark-flat" vs-icon="true" style="margin-left: auto;"><i class="material-icons">more_vert</i></vs-button>
+  <vs-button vs-type="dark-flat" vs-icon="more_vert"></vs-button>
 </vs-topbar>
 ```
 
@@ -50,7 +50,7 @@ The distance between the elements contained in the topbar will be evenly spaced.
 
 ## Color
 
-You can change the color of the ** Topbar ** with the property `vs-color`, the color can be one of the main ones like:` primary`, `success`,` danger`, `warning`,` dark` or **RGB**, **HEX**.
+You can change the color of the **Topbar** with the property `vs-color`, the color can be one of the main ones like:` primary`, `success`,` danger`, `warning`,` dark` or **RGB**, **HEX**.
 
 :::warning
   Only **RGB** and **HEX** colors are supported.
@@ -58,21 +58,18 @@ You can change the color of the ** Topbar ** with the property `vs-color`, the c
 
 <vuecode md>
 <div slot="demo">
-  <vs-topbar vs-color="dark">
-    <vs-button vs-type="primary-relief">This is the first link</vs-button>
-    <vs-button vs-type="success-relief">This is the second link</vs-button>
-    <vs-button vs-type="danger-relief">This is the third link</vs-button>
-    <vs-button vs-type="warning-relief">This is the fourth link</vs-button>
-  </vs-topbar>
+<Demos-Topbar-Colors />
+
 </div>
 <div slot="code">
 
 ```html
-<vs-topbar vs-color="dark">
-  <vs-button vs-type="primary-relief">This is the first link</vs-button>
-  <vs-button vs-type="success-relief">This is the second link</vs-button>
-  <vs-button vs-type="danger-relief">This is the third link</vs-button>
-  <vs-button vs-type="warning-relief">This is the fourth link</vs-button>
+<vs-topbar vs-color="primary">
+  <vs-button vs-color-text="rgb(255, 255, 255)" vs-color="rgba(255, 255, 255, 0.3)" vs-type="dark-flat" vs-radius="50%" vs-icon="menu"></vs-button>
+  <h4>This is my cool application topbar title</h4>
+  <vs-button vs-color-text="rgb(255, 255, 255)" vs-color="rgba(255, 255, 255, 0.3)" vs-type="dark-flat" >Home</vs-button>
+  <vs-button vs-color-text="rgb(255, 255, 255)" vs-color="rgba(255, 255, 255, 0.3)" vs-type="dark-flat" >Documents</vs-button>
+  <vs-button vs-color-text="rgb(255, 255, 255)" vs-color="rgba(255, 255, 255, 0.3)" vs-type="dark-flat" vs-radius="50%" vs-icon="more_vert" style="margin-left: auto;"></vs-button>
 </vs-topbar>
 ```
 

@@ -1,5 +1,6 @@
 <template lang="html">
     <button
+    class="vs-btn"
     ref="btnvuesax"
     @mouseenter="hoverx=true,$emit('mouseenter')"
     @mouseleave="hoverx=false,$emit('mouseleave')"
@@ -18,9 +19,12 @@
         'color':vsColorText?/[#()]/.test(vsColorText)?vsColorText:`rgb(var(--${vsColorText}))`:'',
         'padding':vsPadding}" class="text">
       </span>
-      <span v-else :style="{
+      <span v-else
+
+      :style="{
         'color':vsColorText?/[#()]/.test(vsColorText)?vsColorText:`rgb(var(--${vsColorText}))`:'',
         'padding':vsPadding}" class="text">
+        <span v-if="vsIcon" :class="{'material-icons':vsIcon,'icon-btn':$slots.default}">{{vsIcon}}</span>
         <slot>
         </slot>
       </span>
@@ -65,8 +69,8 @@ export default {
       default:'',
     },
     vsIcon:{
-      type:Boolean,
-      default:false
+      type:String,
+      default:null
     }
   },
   data(){
@@ -113,13 +117,14 @@ export default {
       console.log(event);
       let x
       let y
-      if(event.target.className == 'text'){
+      // if(event.target.className == 'text'){
         x = event.offsetX
         y = event.offsetY
-      } else {
-        x = event.offsetX
-        y = event.offsetY
-      }
+      // } else {
+      //   console.log(event.target.closest('.text').offsetX);
+      //   x = event.target.closest('.text').offsetX
+      //   y = event.target.closest('.text').offsetY
+      // }
       let elSpan = document.createElement("span");
       elSpan.className = 'relleno'
       el.appendChild(elSpan)
@@ -137,18 +142,18 @@ export default {
         }
       }
       let time = 0.5
-      if (event.target.clientWidth>100) {
-        let s = event.target.clientWidth + 60
-        time = event.target.clientWidth/s
+      if (event.target.closest('.vs-btn').clientWidth>100) {
+        let s = event.target.closest('.vs-btn').clientWidth + 60
+        time = event.target.closest('.vs-btn').clientWidth/s
       } else if (this.classList.contains('filled')) {
-        let s = event.target.clientWidth
-        time = event.target.clientWidth/s
+        let s = event.target.closest('.vs-btn').clientWidth
+        time = event.target.closest('.vs-btn').clientWidth/s
       }
         spanx.style.transition = 'width '+time+'s ease,height '+time+'s ease,opacity '+time/1.5+'s ease'
         spanx.style.left = x+'px';
         spanx.style.top = y+'px';
-        spanx.style.width = event.target.clientWidth*3+'px';
-        spanx.style.height = event.target.clientWidth*3+'px';
+        spanx.style.width = event.target.closest('.vs-btn').clientWidth*3+'px';
+        spanx.style.height = event.target.closest('.vs-btn').clientWidth*3+'px';
         spanx.style.opacity = '1';
         this.classList.add('activo')
       if(this.classList.contains('filled')){
@@ -195,14 +200,16 @@ export default {
               btn.style.background = colorx(.1)
         }),
         btn.addEventListener('mouseout',()=>{
-          btn.style.background = 'rgb(255, 255, 255)';
+          btn.style.background = 'transparent';
         })
       } else if (/-filled/.test(this.vsType)) {
+        btn.style.boxShadow = `0px 9px 28px -9px ${colorx(1)}`
         btn.addEventListener('mouseover',()=>{
-              btn.style.boxShadow = `0px 2px 15px 0px ${colorx(1)}`
+          btn.style.boxShadow = `0px 7px 0px -7px ${colorx(1)}`
         }),
         btn.addEventListener('mouseout',()=>{
-          btn.style.boxShadow = `0px 2px 15px 0px ${'rgba(255, 255, 255, 0)'}`
+          // btn.style.boxShadow = `0px 9px 28px -9px ${'rgba(255, 255, 255, 0)'}`
+          btn.style.boxShadow = `0px 9px 28px -9px ${colorx(1)}`
         })
       } else if (/-line-down/.test(this.vsType)) {
         btn.querySelector('.text').style.color = this.vsColor
@@ -336,10 +343,12 @@ export default {
     background: rgb(var(--primary));
     border: 1px solid rgba(255, 255, 255,0);
     color: rgb(255, 255, 255);
-    box-shadow: 0px 0px 0px 0px rgba(var(--primary),.0);
+    box-shadow: 0px 9px 28px -9px rgb(var(--primary));
+
   }
   .vs-button-primary-filled:hover {
-      box-shadow: 0px 2px 15px 0px rgb(var(--primary));
+    box-shadow: 0px 7px 0px -7px rgb(var(--primary));
+    /* box-shadow: 0px 0px 0px 0px rgba(var(--primary),.0); */
   }
   .vs-button-primary-filled .relleno{
     box-shadow:inset 0px 0px 50px 0px rgba(255, 255, 255,.5);
@@ -349,10 +358,12 @@ export default {
     background: rgb(var(--success));
     border: 1px solid rgba(255, 255, 255,0);
     color: rgb(255, 255, 255);
-    box-shadow: 0px 0px 0px 0px rgba(var(--success),.0);
+    /* box-shadow: 0px 0px 0px 0px rgba(var(--success),.0); */
+    box-shadow: 0px 9px 28px -9px rgb(var(--success));
   }
   .vs-button-success-filled:hover {
-      box-shadow: 0px 2px 15px 0px rgb(var(--success));
+      /* box-shadow: 0px 2px 15px 0px rgb(var(--success)); */
+      box-shadow: 0px 7px 0px -7px rgb(var(--success));
   }
   .vs-button-success-filled .relleno{
     box-shadow:inset 0px 0px 50px 0px rgba(255, 255, 255,.5);
@@ -363,10 +374,12 @@ export default {
     background: rgb(var(--danger));
     border: 1px solid rgba(255, 255, 255,0);
     color: rgb(255, 255, 255);
-    box-shadow: 0px 0px 0px 0px rgba(var(--danger),.0);
+    /* box-shadow: 0px 0px 0px 0px rgba(var(--danger),.0); */
+    box-shadow: 0px 9px 28px -9px rgb(var(--danger));
   }
   .vs-button-danger-filled:hover {
-      box-shadow: 0px 2px 15px 0px rgb(var(--danger));
+      /* box-shadow: 0px 2px 15px 0px rgb(var(--danger)); */
+      box-shadow: 0px 7px 0px -7px rgb(var(--danger));
   }
   .vs-button-danger-filled .relleno{
     box-shadow:inset 0px 0px 50px 0px rgba(255, 255, 255,.5);
@@ -377,10 +390,12 @@ export default {
     background: rgb(var(--warning));
     border: 1px solid rgba(255, 255, 255,0);
     color: rgb(255, 255, 255);
-    box-shadow: 0px 0px 0px 0px rgba(var(--warning),.0);
+    /* box-shadow: 0px 0px 0px 0px rgba(var(--warning),.0); */
+    box-shadow: 0px 9px 28px -9px rgb(var(--warning));
   }
   .vs-button-warning-filled:hover {
-      box-shadow: 0px 2px 15px 0px rgb(var(--warning));
+      /* box-shadow: 0px 2px 15px 0px rgb(var(--warning)); */
+      box-shadow: 0px 7px 0px -7px rgb(var(--warning));
   }
   .vs-button-warning-filled .relleno{
     box-shadow:inset 0px 0px 50px 0px rgba(255, 255, 255,.5);
@@ -391,10 +406,12 @@ export default {
     background: rgb(var(--dark));
     border: 1px solid rgba(255, 255, 255,0);
     color: rgb(255, 255, 255);
-    box-shadow: 0px 0px 0px 0px rgba(var(--dark),.0);
+    /* box-shadow: 0px 0px 0px 0px rgba(var(--dark),.0); */
+    box-shadow: 0px 9px 28px -9px rgb(var(--dark));
   }
   .vs-button-dark-filled:hover {
-      box-shadow: 0px 2px 15px 0px rgb(var(--dark));
+      /* box-shadow: 0px 2px 15px 0px rgb(var(--dark)); */
+      box-shadow: 0px 7px 0px -7px rgb(var(--dark));
   }
   .vs-button-dark-filled .relleno{
     box-shadow:inset 0px 0px 50px 0px rgba(255, 255, 255,.3);
@@ -679,7 +696,7 @@ export default {
   }
 
   .vs-button-icon {
-    border-radius: 50%;
+    /* border-radius: 50%; */
     padding: 0;
   }
 
@@ -690,5 +707,7 @@ export default {
     align-items: center;
   }
 
-
+  .icon-btn {
+    margin-right: 4px;
+  }
 </style>
