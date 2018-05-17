@@ -19,6 +19,7 @@ import vsProgress from './vsProgress'
 import vsCard from './vsCard'
 import vsList from './vsList'
 import vsAvatar from './vsAvatar'
+import vsPagination from './vsPagination'
 // import vsAnchor from './vsAnchor'
 // import vsLink from './vsAnchor'
 
@@ -51,6 +52,7 @@ export {
   vsRow,
   vsCol,
   vsAvatar,
+  vsPagination,
 
   // en proceso
   // vsDropdown,

@@ -78,14 +78,24 @@
         </div>
       </div>
     </div>
+
+    <div class="contribuitors">
+      <div class="con-contribuitors">
+        <contributors :title="title" :repo="this.$site.themeConfig.repo" contributors="all"/>
+      </div>
+      <div class="con-svg-trofeos">
+        <trofeos />
+      </div>
+    </div>
+
     <Content custom/>
     </div>
     <!-- <div class="footer" v-if="data.footer">
       {{ data.footer }}
     </div> -->
-    <div class="con-contribuitors">
+    <!-- <div class="con-contribuitors">
       <contributors :title="title" :repo="this.$site.themeConfig.repo" contributors="all"/>
-    </div>
+    </div> -->
   </div>
 
 
@@ -96,11 +106,12 @@
 </template>
 
 <script>
+import trofeos from './trofeos.vue'
 import NavLink from './NavLink.vue'
 import Footer from './Footer.vue'
 import contributors from './contributors.vue'
 export default {
-  components: { NavLink, Footer, contributors },
+  components: { NavLink, Footer, contributors, trofeos },
   data(){
     return {
       star:0,
@@ -132,7 +143,14 @@ export default {
 
 <style lang="stylus">
 @import './styles/config.styl'
-
+.contribuitors
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .con-svg-trofeos
+    display: block;
+    width: 550px;
+    margin-left: 50px
 .doc-img
   position: absolute;
   transform: translate(-5%);
