@@ -203,6 +203,7 @@ module.exports = {
           '/components/avatar',
           '/components/list',
           '/components/pagination',
+          '/components/topbar',
         ]
       },
     ]
