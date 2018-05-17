@@ -47,6 +47,7 @@
 - [Card](https://lusaxweb.github.io/vuesax/components/card.html)
 - [Avatar](https://lusaxweb.github.io/vuesax/components/avatar.html)
 - [List](https://lusaxweb.github.io/vuesax/components/list.html)
+- [Topbar](https://lusaxweb.github.io/vuesax/components/topbar.html)
 <!--
 - [Dropdown](https://lusaxweb.github.io/vuesax/components/dropdown.html)
  -->
@@ -73,7 +74,7 @@ Recent versions of **Firefox**, **Chrome**, **Edge**, **Opera** and **Safari**. 
   </div>
 
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vuesax/dsit/vuesax.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuesax/dist/vuesax.umd.js"></script>
   <script>
     new Vue({
       el: '#app'
