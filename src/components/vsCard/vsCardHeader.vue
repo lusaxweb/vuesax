@@ -2,8 +2,11 @@
   <div
     class="con-vs-card-header"
     :style="{
-      'background-color':vsBackgroundColor?/[#()]/.test(vsBackgroundColor)?vsBackgroundColor:`rgba(var(--${vsBackgroundColor}),1)`:'rgb(244,244,244)',
-      'color':colorx
+      'background-color':vsFill?vsBackgroundColor?/[#()]/.test(vsBackgroundColor)?vsBackgroundColor:`rgba(var(--${vsBackgroundColor}),1)`:'rgb(244,244,244)':'rgb(244,244,244)',
+      'color':vsFill?colorx:vsBackgroundColor?/[#()]/.test(vsBackgroundColor)?vsBackgroundColor:`rgba(var(--${vsBackgroundColor}),1)`:colorx,
+      'border-color':!vsFill?vsBackgroundColor?/[#()]/.test(vsBackgroundColor)?vsBackgroundColor:`rgba(var(--${vsBackgroundColor}),1)`:'rgb(244,244,244)':'transparent',
+      'border-left':!vsFill?'3px solid':'none',
+      'border-top-left-radius':!vsFill?'5px':'inherit'
     }">
       <div v-if="vsIcon" class="card-icon">
         <i class="material-icons">{{vsIcon}}</i>
@@ -35,6 +38,10 @@ export default {
     vsBackgroundColor:{
       type:String,
       default:null,
+    },
+    vsFill:{
+      type:Boolean,
+      default:false,
     }
   },
   computed:{
@@ -69,7 +76,7 @@ export default {
       i
         font-size 1.5rem
         margin 10px
-        margin-right: 0px;
+        margin-right 0px
     .card-titles
       width 100%
       display flex
@@ -77,7 +84,7 @@ export default {
       align-items flex-start
       flex-direction column
       padding 8px
-      margin-left: 10px;
+      margin-left 10px
       .card-title
         font-size 1.5rem
       .card-subtitle

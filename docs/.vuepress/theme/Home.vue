@@ -78,14 +78,24 @@
         </div>
       </div>
     </div>
+
+    <div class="contribuitors">
+      <div class="con-contribuitors">
+        <contributors :title="title" :repo="this.$site.themeConfig.repo" contributors="all"/>
+      </div>
+      <div class="con-svg-trofeos">
+        <trofeos />
+      </div>
+    </div>
+
     <Content custom/>
     </div>
     <!-- <div class="footer" v-if="data.footer">
       {{ data.footer }}
     </div> -->
-    <div class="con-contribuitors">
+    <!-- <div class="con-contribuitors">
       <contributors :title="title" :repo="this.$site.themeConfig.repo" contributors="all"/>
-    </div>
+    </div> -->
   </div>
 
 
@@ -96,11 +106,12 @@
 </template>
 
 <script>
+import trofeos from './trofeos.vue'
 import NavLink from './NavLink.vue'
 import Footer from './Footer.vue'
 import contributors from './contributors.vue'
 export default {
-  components: { NavLink, Footer, contributors },
+  components: { NavLink, Footer, contributors, trofeos },
   data(){
     return {
       star:0,
@@ -132,7 +143,14 @@ export default {
 
 <style lang="stylus">
 @import './styles/config.styl'
-
+.contribuitors
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .con-svg-trofeos
+    display: block;
+    width: 550px;
+    margin-left: 50px
 .doc-img
   position: absolute;
   transform: translate(-5%);
@@ -228,11 +246,16 @@ export default {
 .heroBackgroundComponent {
   position: absolute;
   z-index: 0;
-  width: 100%;
-  right:  -10%;
-  bottom: -10%
-  max-width: 1500px;
+  width: 90%;
+  right:  -5%;
+  bottom: -5%
+  max-width: 1150px;
   // transform: translate(0,40%);
+}
+@media (min-width: 1800px) {
+  .heroBackgroundComponent {
+  max-width: 1500px;
+}
 }
 .con-img-feature
   width: 100%
@@ -376,7 +399,7 @@ export default {
 
     &:last-child
       border-bottom: 0px solid rgba(0, 0, 0, 0.050)
-    &:nth-child(even)
+    &:nth-child(odd)
       .con-text-feature
         order: 3;
     h2
@@ -384,12 +407,11 @@ export default {
       font-weight 500
       border-bottom none
       padding-bottom 0
-      color $accentColor
     p
       color $textColor
     .con-text-feature
       max-width: 500px;
-
+      padding: 30px;
   .footer
     padding 2.5rem
     border-top 1px solid $borderColor
@@ -397,7 +419,7 @@ export default {
     color lighten($textColor, 25%)
 
 @media (max-width: $MQMobile)
-  .homeBackgroundComponent 
+  .homeBackgroundComponent
     margin-bottom 100px
   .logo-g
     display: none
@@ -422,7 +444,7 @@ export default {
   .con-home
     footer
       margin-top 200px
-          
+
 
 @media (max-width: $MQMobileNarrow)
   .heroBackgroundComponent
@@ -449,7 +471,7 @@ export default {
       .feature
         h2
           font-size 1.25rem
-  footer 
+  footer
     .bosque
       top 60%
       transform scale(1.5)

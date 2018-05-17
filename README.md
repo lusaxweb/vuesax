@@ -45,6 +45,8 @@
 - [Progress](https://lusaxweb.github.io/vuesax/components/progress.html)
 - [Alert](https://lusaxweb.github.io/vuesax/components/alert.html)
 - [Card](https://lusaxweb.github.io/vuesax/components/card.html)
+- [Avatar](https://lusaxweb.github.io/vuesax/components/avatar.html)
+- [List](https://lusaxweb.github.io/vuesax/components/list.html)
 <!--
 - [Dropdown](https://lusaxweb.github.io/vuesax/components/dropdown.html)
  -->
