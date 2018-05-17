@@ -49,6 +49,7 @@
 - [List](https://lusaxweb.github.io/vuesax/components/list.html)
 - [Pagination](https://lusaxweb.github.io/vuesax/components/pagination.html)
 - [Topbar](https://lusaxweb.github.io/vuesax/components/topbar.html)
+- [Breadcrumb](https://lusaxweb.github.io/vuesax/components/breadcrumb.html)
 <!--
 - [Dropdown](https://lusaxweb.github.io/vuesax/components/dropdown.html)
  -->
