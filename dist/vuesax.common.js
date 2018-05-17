@@ -443,6 +443,13 @@ module.exports = Object.keys || function keys(O) {
 
 /***/ }),
 
+/***/ "2lBt":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "2pBh":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3268,6 +3275,8 @@ var vsSwitch_Component = Object(component_normalizer["a" /* default */])(
 
 
 
+
+
 //
 //
 //
@@ -3288,20 +3297,33 @@ var vsSwitch_Component = Object(component_normalizer["a" /* default */])(
   computed: {
     valueArray: function valueArray() {
       var arrayx = this.value;
+      var returnx = false;
 
       if (typeof_default()(this.value) == 'object' && this.value != null) {
-        if (arrayx.includes(this.vsValue)) {
-          return true;
+        if (typeof_default()(this.vsValue) == 'object') {
+          var valuex = JSON.stringify(this.vsValue);
+
+          if (JSON.stringify(arrayx).search(valuex) != -1) {
+            returnx = true;
+          } else {
+            returnx = false;
+          }
         } else {
-          return false;
+          if (arrayx.includes(this.vsValue)) {
+            returnx = true;
+          } else {
+            returnx = false;
+          }
         }
       } else if (typeof this.value == 'string' || this.value == '' || this.value == null) {
         if (this.value == this.vsValue) {
-          return true;
+          returnx = true;
         } else {
-          return false;
+          returnx = false;
         }
       }
+
+      return returnx;
     }
   },
   methods: {
@@ -3313,7 +3335,11 @@ var vsSwitch_Component = Object(component_normalizer["a" /* default */])(
 
         if (this.$refs.checkBoxx.classList.contains('checkBoxActivo')) {
           var valuenew = valueOld.filter(function (item) {
-            return item.indexOf(_this.vsValue) == -1;
+            if (typeof_default()(item) == 'object') {
+              return JSON.stringify(item).indexOf(JSON.stringify(_this.vsValue)) == -1;
+            } else {
+              return item.indexOf(_this.vsValue) == -1;
+            }
           });
           this.$emit('input', valuenew);
         } else {
@@ -3343,13 +3369,13 @@ var vsSwitch_Component = Object(component_normalizer["a" /* default */])(
     }
   }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-82ff4a26","hasScoped":true,"optionsId":"1","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsCheckBox/vsCheckBox.vue
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-2c1194a4","hasScoped":true,"optionsId":"1","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsCheckBox/vsCheckBox.vue
 var vsCheckBox_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('label',{ref:"checkBoxx",staticClass:"con-check",class:[{'disabledx':_vm.disabled,'checkBoxActivo':typeof _vm.value == 'boolean'?_vm.value:_vm.valueArray}],attrs:{"disabled":_vm.disabled},on:{"click":_vm.checkBoxClick}},[_c('span',{staticClass:"cuadro",style:({'border':typeof _vm.value == 'boolean'?!_vm.value?'2px solid rgb(160, 160, 160)':'2px solid '+_vm.backgroundx():!_vm.valueArray?'2px solid rgb(160, 160, 160)':'2px solid '+_vm.backgroundx()})},[_c('i',{staticClass:"material-icons"},[_vm._v("check")]),_c('span',{staticClass:"afterx",style:({'background':_vm.backgroundx()})})]),_vm._t("default")],2)}
 var vsCheckBox_staticRenderFns = []
 
 // CONCATENATED MODULE: ./src/components/vsCheckBox/vsCheckBox.vue
 function vsCheckBox_injectStyle (context) {
-  __webpack_require__("zJ67")
+  __webpack_require__("2lBt")
 }
 /* script */
 
@@ -3361,7 +3387,7 @@ var vsCheckBox___vue_template_functional__ = false
 /* styles */
 var vsCheckBox___vue_styles__ = vsCheckBox_injectStyle
 /* scopeId */
-var vsCheckBox___vue_scopeId__ = "data-v-82ff4a26"
+var vsCheckBox___vue_scopeId__ = "data-v-2c1194a4"
 /* moduleIdentifier (server only) */
 var vsCheckBox___vue_module_identifier__ = null
 
@@ -8224,13 +8250,6 @@ exports.f = __webpack_require__("uVaM") ? gOPD : function getOwnPropertyDescript
   if (has(O, P)) return createDesc(!pIE.f.call(O, P), O[P]);
 };
 
-
-/***/ }),
-
-/***/ "zJ67":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ }),
 
