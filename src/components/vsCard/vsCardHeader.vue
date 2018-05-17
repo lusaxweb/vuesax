@@ -63,7 +63,6 @@ export default {
     position relative
     white-space nowrap
     .card-icon
-    .card-icon
       display flex
       justify-content center
       align-items center

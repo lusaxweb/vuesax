@@ -17,6 +17,7 @@ import vsChip from './vsChip'
 import vsChips from './vsChips'
 import vsProgress from './vsProgress'
 import vsCard from './vsCard'
+import vsTopbar from './vsTopbar'
 // import vsAnchor from './vsAnchor'
 // import vsLink from './vsAnchor'
 
@@ -45,6 +46,7 @@ export {
   vsChips,
   vsProgress,
   vsCard,
+  vsTopbar,
   vsRow,
   vsCol,
 
