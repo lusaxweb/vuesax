@@ -26,23 +26,19 @@ The distance between the elements contained in the topbar will be evenly spaced.
 
 <vuecode md>
 <div slot="demo">
-  <vs-topbar>
-    <vs-button vs-type="primary-relief">This is the first link</vs-button>
-    <vs-button vs-type="success-relief">This is the second link</vs-button>
-    <vs-button vs-type="danger-relief">This is the third link</vs-button>
-    <vs-button vs-type="warning-relief">This is the fourth link</vs-button>
-    <vs-button vs-type="dark-relief">This is the fifth link</vs-button>
+  <vs-topbar style="justify-content: flex-start;">
+    <vs-button vs-type="dark-flat" vs-icon="true"><i class="material-icons">menu</i></vs-button>
+    <h3>This is my cool application topbar title</h3>
+    <vs-button vs-type="dark-flat" vs-icon="true" style="margin-left: auto;"><i class="material-icons">more_vert</i></vs-button>
   </vs-topbar>
 </div>
 <div slot="code">
 
 ```html
-<vs-topbar>
-  <vs-button vs-type="primary-relief">This is the first link</vs-button>
-  <vs-button vs-type="success-relief">This is the second link</vs-button>
-  <vs-button vs-type="danger-relief">This is the third link</vs-button>
-  <vs-button vs-type="warning-relief">This is the fourth link</vs-button>
-  <vs-button vs-type="dark-relief">This is the fifth link</vs-button>
+<vs-topbar style="justify-content: flex-start;">
+  <vs-button vs-type="dark-flat" vs-icon="true"><i class="material-icons">menu</i></vs-button>
+  <h3>This is my cool application topbar title</h3>
+  <vs-button vs-type="dark-flat" vs-icon="true" style="margin-left: auto;"><i class="material-icons">more_vert</i></vs-button>
 </vs-topbar>
 ```
 
