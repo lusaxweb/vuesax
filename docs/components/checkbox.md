@@ -243,10 +243,85 @@ You can have several checkBoxs linked to the same array only by using `v-model` 
 <div slot="code">
 
 ```html
+<template lang="html">
+  <div class="">
+    <ul class="centerx">
+      <li class="modelx">
+        {{checkBox1}}
+      </li>
+      <li>
+        <vs-checkbox v-model="checkBox1" vs-value="luis">Luis</vs-checkbox>
+      </li>
+      <li>
+        <vs-checkbox v-model="checkBox1" vs-value="carols">carols</vs-checkbox>
+      </li>
+      <li>
+        <vs-checkbox v-model="checkBox1" vs-value="summer">summer</vs-checkbox>
+      </li>
+      <li>
+        <vs-checkbox v-model="checkBox1" vs-value="lyon">Lyon</vs-checkbox>
+      </li>
+    </ul>
+  </div>
+</template>
 
+<script>
+export default {
+  data(){
+    return {
+      checkBox1:['luis']
+    }
+  }
+}
+</script>
 ```
 
 </div>
 </vuecode>
 
+</box>
+
+
+<box>
+
+## Array Object values
+
+There are times when you need to link an object as a value when selecting a checkBox for it, you only have to put as value in `vs-value` an object either literal or linked.
+
+<vuecode md>
+<div slot="demo">
+  <Demos-Checkbox-Arrayobjects />
+</div>
+<div slot="code">
+
+```html
+<template lang="html">
+  <div class="centerx">
+    <div class="modelx">
+      {{form.regions}}
+    </div>
+    <vs-col v-for="(region, index) in regions" :key="index">
+      <vs-checkbox v-model="form.regions" :vs-value="region" >{{ region.name }}</vs-checkbox>
+    </vs-col>
+  </div>
+</template>
+
+<script>
+export default {
+  data: () => ({
+    form: {
+    regions: []
+  },
+  regions: [
+    { id: 1, name: 'Queensland' },
+    { id: 2, name: 'South Australia' },
+    { id: 3, name: 'New South Wales' },
+  ]
+})
+}
+</script>
+```
+
+</div>
+</vuecode>
 </box>

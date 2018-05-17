@@ -17,6 +17,7 @@ import vsChip from './vsChip'
 import vsChips from './vsChips'
 import vsProgress from './vsProgress'
 import vsCard from './vsCard'
+import vsTopbar from './vsTopbar'
 import vsList from './vsList'
 import vsAvatar from './vsAvatar'
 import vsPagination from './vsPagination'
@@ -49,6 +50,7 @@ export {
   vsChips,
   vsProgress,
   vsCard,
+  vsTopbar,
   vsList,
   vsRow,
   vsCol,

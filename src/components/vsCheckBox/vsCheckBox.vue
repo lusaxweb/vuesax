@@ -26,19 +26,31 @@ export default {
   computed:{
     valueArray(){
       let arrayx = this.value
+      let returnx = false
       if(typeof this.value == 'object' && this.value != null){
-        if(arrayx.includes(this.vsValue)){
-          return true
+        if(typeof this.vsValue == 'object'){
+          let valuex = JSON.stringify(this.vsValue)
+          if(JSON.stringify(arrayx).search(valuex)!=-1){
+            returnx = true
+          } else {
+            returnx = false
+          }
         } else {
-          return false
+          if(arrayx.includes(this.vsValue)){
+            returnx = true
+          } else {
+            returnx = false
+          }
         }
       } else if (typeof this.value == 'string' || this.value == '' || this.value == null) {
         if(this.value == this.vsValue){
-          return true
+          returnx = true
         } else {
-          return false
+          returnx = false
         }
       }
+
+      return returnx
     }
   },
   methods:{
@@ -48,7 +60,11 @@ export default {
         let valueOld = this.value
         if(this.$refs.checkBoxx.classList.contains('checkBoxActivo')){
           let valuenew = valueOld.filter((item) => {
-            return item.indexOf(this.vsValue)==-1
+            if(typeof item == 'object'){
+              return JSON.stringify(item).indexOf(JSON.stringify(this.vsValue))==-1
+            } else {
+              return item.indexOf(this.vsValue)==-1
+            }
           })
           this.$emit('input',valuenew)
         } else {

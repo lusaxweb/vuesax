@@ -1,20 +1,27 @@
 ---
 API:
- - name: vs-type
-   type: bind
-   parameters: null
-   description: The type of button to use
-   default: primary-filled
- - name: vs-color
-   type: RGB, HEX
-   parameters: null
-   description: Change the color of the button
-   default: null
- - name: vs-width
-   type: String
-   parameters: null
-   description: Determine the width of the button.
-   default: auto
+  - name: vs-type
+    type: bind
+    parameters: null
+    description: The type of button to use
+    default: primary-filled
+  - name: vs-color
+    type: RGB, HEX
+    parameters: null
+    description: Change the color of the button
+    default: null
+  - name: vs-width
+    type: String
+    parameters: null
+    description: Determine the width of the button.
+    default: auto
+  - name: vs-icon
+    type: String
+    parameters: Material Icons
+    description: Determine the button icon
+    default: false
+contributors:
+  - fergardi
 ---
 # Buttons
 
@@ -250,6 +257,75 @@ export default {
 
 <style lang="css">
 </style>
+```
+
+</div>
+</vuecode>
+</box>
+
+<!-- Icon -->
+<box>
+
+## Icon
+
+You can add an icon to the button with the property `vs-icon`
+
+::: tip
+Vuesax use the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
+:::
+
+<vuecode md center>
+<div slot="demo">
+<vs-button vs-type="primary-border" vs-icon="home">Home</vs-button>
+<vs-button vs-type="warning-filled" vs-icon="star">Star</vs-button>
+<vs-button vs-type="success-flat" vs-icon="done">Done</vs-button>
+<vs-button vs-type="dark-line-down" vs-icon="menu">menu</vs-button>
+<vs-button vs-type="danger-gradient" vs-icon="favorite">favorite</vs-button>
+</div>
+
+<div slot="code">
+
+```html
+<vs-button vs-type="primary-border" vs-icon="home">Home</vs-button>
+<vs-button vs-type="warning-filled" vs-icon="star">Star</vs-button>
+<vs-button vs-type="success-flat" vs-icon="done">Done</vs-button>
+<vs-button vs-type="dark-line-down" vs-icon="menu">menu</vs-button>
+<vs-button vs-type="danger-gradient" vs-icon="favorite">favorite</vs-button>
+```
+
+</div>
+</vuecode>
+</box>
+
+<box>
+
+## Icon only
+
+You can have a button with only the icon you want with the property `vs-icon` and not add any internal value to the button
+
+:::tip
+  you can use the `vs-radius` property to determine the border-radius of the button, there are many cases in which we need it to be round for example.
+:::
+
+<vuecode md center>
+<div slot="demo">
+<vs-button vs-type="primary-border" vs-icon="search"></vs-button>
+<vs-button vs-type="warning-filled" vs-icon="public"></vs-button>
+<vs-button vs-type="success-flat" vs-icon="photo_camera"></vs-button>
+<vs-button vs-type="dark-line-down" vs-icon="event_note"></vs-button>
+<vs-button vs-type="danger-gradient" vs-icon="person_add"></vs-button>
+<br>
+<br>
+<vs-button vs-radius="50%" vs-type="primary-border" vs-icon="search"></vs-button>
+<vs-button vs-radius="50%" vs-type="warning-filled" vs-icon="public"></vs-button>
+<vs-button vs-radius="50%" vs-type="success-flat" vs-icon="photo_camera"></vs-button>
+<vs-button vs-radius="50%" vs-type="dark-line-down" vs-icon="event_note"></vs-button>
+<vs-button vs-radius="50%" vs-type="danger-gradient" vs-icon="person_add"></vs-button>
+</div>
+<div slot="code">
+
+```html
+
 ```
 
 </div>

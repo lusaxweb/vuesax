@@ -204,6 +204,7 @@ module.exports = {
           '/components/list',
           '/components/pagination',
           '/components/breadcrumb',
+          '/components/topbar',
         ]
       },
     ]
