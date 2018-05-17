@@ -47,6 +47,7 @@
 - [Card](https://lusaxweb.github.io/vuesax/components/card.html)
 - [Avatar](https://lusaxweb.github.io/vuesax/components/avatar.html)
 - [List](https://lusaxweb.github.io/vuesax/components/list.html)
+- [Pagination](https://lusaxweb.github.io/vuesax/components/pagination.html)
 - [Topbar](https://lusaxweb.github.io/vuesax/components/topbar.html)
 <!--
 - [Dropdown](https://lusaxweb.github.io/vuesax/components/dropdown.html)
