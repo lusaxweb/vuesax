@@ -42,7 +42,7 @@ contributors:
 
 ## Default
 
-<!-- The default breadcrumb comes with minimalist styling. More is not always better right ? --> 
+<!-- The default breadcrumb comes with minimalist styling. More is not always better right ? -->
 Use the `vs-items` in order to programatically generate the breadcrumb links.
 
 <vuecode md center>
@@ -108,52 +108,47 @@ Use the `vs-color` directive like for any other component that supports it to cu
 
 <vuecode md center>
 <div slot="demo">
-<vs-breadcrumb vs-color="#3DC9B3"
-:vs-items="
-   [
-     {
-       title: 'Dashboard',
-       url: 'dashboard'
-     },
-     {
-       title: 'Link 1',
-       url: 'link-1'
-     },
-     {
-       title: 'Link 2',
-       disabled: true
-     },
-     {
-       title: 'Active',
-       active: true
-     }
-   ]"
-></vs-breadcrumb>
+  <Demos-Breadcrumb-Color />
 </div>
+
 <div slot="code">
 
 ```html
-<vs-breadcrumb vs-color="#3DC9B3"
-:vs-items="
-   [
-     {
-       title: 'Dashboard',
-       url: 'dashboard'
-     },
-     {
-       title: 'Link 1',
-       url: 'link-1'
-     },
-     {
-       title: 'Link 2',
-       disabled: true
-     },
-     {
-       title: 'Active',
-       active: true
-     }
-   ]"
-></vs-breadcrumb>
+<template lang="html">
+  <div class="centerx">
+    <input v-model="colorx" type="color" name="" value="">
+    <vs-breadcrumb
+    :vs-color="colorx"
+    :vs-items="items"
+    ></vs-breadcrumb>
+  </div>
+</template>
+
+<script>
+export default {
+  data: ()=>({
+    colorx:'#3DC9B3',
+    items:[
+      {
+        title: 'Dashboard',
+        url: 'dashboard'
+      },
+      {
+        title: 'Link 1',
+        url: 'link-1'
+      },
+      {
+        title: 'Link 2',
+        disabled: true
+      },
+      {
+        title: 'Active',
+        active: true
+      }
+    ]
+  })
+}
+</script>
 ```
 
 </div>
