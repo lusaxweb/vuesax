@@ -21,6 +21,7 @@ import vsTopbar from './vsTopbar'
 import vsList from './vsList'
 import vsAvatar from './vsAvatar'
 import vsPagination from './vsPagination'
+import vsBreadcrumb from './vsBreadcrumb'
 // import vsAnchor from './vsAnchor'
 // import vsLink from './vsAnchor'
 
@@ -55,6 +56,7 @@ export {
   vsCol,
   vsAvatar,
   vsPagination,
+  vsBreadcrumb,
 
   // en proceso
   // vsDropdown,
