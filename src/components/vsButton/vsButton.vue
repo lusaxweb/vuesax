@@ -8,12 +8,11 @@
       'color':vsColorText?/[#()]/.test(vsColorText)?vsColorText:`rgb(var(--${vsColorText}))`:'',
       'border-radius':vsRadius,
       'background':backgroundx,
-
       }"
     @click="$emit('click',$event)"
     @blur="btnBlur($event)"
     type="button"
-    :class="[vsType?clasex:'vs-button-primary-filled',{'filled':vsType?vsType.search('filled')!=-1:false,'border':vsType?vsType.search('border')!=-1:false}]"
+    :class="[vsType?clasex:'vs-button-primary-filled',{'filled':vsType?vsType.search('filled')!=-1:false,'border':vsType?vsType.search('border')!=-1:false,'vs-button-icon':vsIcon}]"
     name="button">
       <span v-if="vsHtml" v-html="vsHtml" :style="{
         'color':vsColorText?/[#()]/.test(vsColorText)?vsColorText:`rgb(var(--${vsColorText}))`:'',
@@ -64,6 +63,10 @@ export default {
     vsColorText:{
       type:String,
       default:'',
+    },
+    vsIcon:{
+      type:Boolean,
+      default:false
     }
   },
   data(){
@@ -675,7 +678,17 @@ export default {
     border-bottom: 0px solid rgb(40, 40, 40);
   }
 
+  .vs-button-icon {
+    border-radius: 50%;
+    padding: 0;
+  }
 
+  .vs-button-icon .text {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
 
 </style>

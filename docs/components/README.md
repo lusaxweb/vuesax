@@ -1,20 +1,25 @@
 ---
 API:
- - name: vs-type
-   type: bind
-   parameters: null
-   description: The type of button to use
-   default: primary-filled
- - name: vs-color
-   type: RGB, HEX
-   parameters: null
-   description: Change the color of the button
-   default: null
- - name: vs-width
-   type: String
-   parameters: null
-   description: Determine the width of the button.
-   default: auto
+  - name: vs-type
+    type: bind
+    parameters: null
+    description: The type of button to use
+    default: primary-filled
+  - name: vs-color
+    type: RGB, HEX
+    parameters: null
+    description: Change the color of the button
+    default: null
+  - name: vs-width
+    type: String
+    parameters: null
+    description: Determine the width of the button.
+    default: auto
+  - name: vs-icon
+    type: Boolean
+    parameters: null
+    description: If the button has or not icon
+    default: false
 ---
 # Buttons
 
@@ -250,6 +255,40 @@ export default {
 
 <style lang="css">
 </style>
+```
+
+</div>
+</vuecode>
+</box>
+
+<!-- Icon -->
+<box>
+
+## Icon
+
+Add a nice icon to the button by passing `vs-icon` as `true` and using the button slot with an html icon.
+
+::: tip
+Vuesax use the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
+:::
+
+<vuecode md center>
+<div slot="demo">
+<vs-button vs-type="primary-border" :vs-icon="true"><i class="material-icons">home</i></vs-button>
+<vs-button vs-type="warning-filled" :vs-icon="true"><i class="material-icons">star</i></vs-button>
+<vs-button vs-type="success-flat" :vs-icon="true"><i class="material-icons">done</i></vs-button>
+<vs-button vs-type="dark-line-down" :vs-icon="true"><i class="material-icons">menu</i></vs-button>
+<vs-button vs-type="danger-gradient" :vs-icon="true"><i class="material-icons">favorite</i></vs-button>
+</div>
+
+<div slot="code">
+
+```html
+<vs-button vs-type="primary-border" :vs-icon="true"><i class="material-icons">home</i></vs-button>
+<vs-button vs-type="warning-filled" :vs-icon="true"><i class="material-icons">star</i></vs-button>
+<vs-button vs-type="success-flat" :vs-icon="true"><i class="material-icons">done</i></vs-button>
+<vs-button vs-type="dark-line-down" :vs-icon="true"><i class="material-icons">menu</i></vs-button>
+<vs-button vs-type="danger-gradient" :vs-icon="true"><i class="material-icons">favorite</i></vs-button>
 ```
 
 </div>
