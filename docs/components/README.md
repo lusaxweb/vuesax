@@ -274,21 +274,21 @@ Vuesax use the **Google Material Icons** font library. For a list of all availab
 
 <vuecode md center>
 <div slot="demo">
-<vs-button vs-type="primary-border" vs-icon="true"><i class="material-icons">home</i></vs-button>
-<vs-button vs-type="warning-filled" vs-icon="true"><i class="material-icons">star</i></vs-button>
-<vs-button vs-type="success-flat" vs-icon="true"><i class="material-icons">done</i></vs-button>
-<vs-button vs-type="dark-line-down" vs-icon="true"><i class="material-icons">menu</i></vs-button>
-<vs-button vs-type="danger-gradient" vs-icon="true"><i class="material-icons">favorite</i></vs-button>
+<vs-button vs-type="primary-border" :vs-icon="true"><i class="material-icons">home</i></vs-button>
+<vs-button vs-type="warning-filled" :vs-icon="true"><i class="material-icons">star</i></vs-button>
+<vs-button vs-type="success-flat" :vs-icon="true"><i class="material-icons">done</i></vs-button>
+<vs-button vs-type="dark-line-down" :vs-icon="true"><i class="material-icons">menu</i></vs-button>
+<vs-button vs-type="danger-gradient" :vs-icon="true"><i class="material-icons">favorite</i></vs-button>
 </div>
 
 <div slot="code">
 
 ```html
-<vs-button vs-type="primary-border" vs-icon="true"><i class="material-icons">home</i></vs-button>
-<vs-button vs-type="warning-filled" vs-icon="true"><i class="material-icons">star</i></vs-button>
-<vs-button vs-type="success-flat" vs-icon="true"><i class="material-icons">done</i></vs-button>
-<vs-button vs-type="dark-line-down" vs-icon="true"><i class="material-icons">menu</i></vs-button>
-<vs-button vs-type="danger-gradient" vs-icon="true"><i class="material-icons">favorite</i></vs-button>
+<vs-button vs-type="primary-border" :vs-icon="true"><i class="material-icons">home</i></vs-button>
+<vs-button vs-type="warning-filled" :vs-icon="true"><i class="material-icons">star</i></vs-button>
+<vs-button vs-type="success-flat" :vs-icon="true"><i class="material-icons">done</i></vs-button>
+<vs-button vs-type="dark-line-down" :vs-icon="true"><i class="material-icons">menu</i></vs-button>
+<vs-button vs-type="danger-gradient" :vs-icon="true"><i class="material-icons">favorite</i></vs-button>
 ```
 
 </div>
