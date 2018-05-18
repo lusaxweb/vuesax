@@ -21,12 +21,24 @@
 import '../../css/iconfont/material-icons.css'
 export default {
   name:'vs-select',
-  props:[
-    'label',
-    'options',
-    'value',
-    'disabled'
-  ],
+  props: {
+    label: {
+      type: String,
+      default: () => ''
+    },
+    options: {
+      type: Array | Object,
+      default: () => []
+    },
+    value: {
+      type: Array | Object
+      require: true
+    },
+    disabled: {
+      type: Boolean,
+      default: () => false
+    }
+  },
   data(){
     return {
       scroll:false,
