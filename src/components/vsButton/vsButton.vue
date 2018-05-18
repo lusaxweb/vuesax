@@ -343,11 +343,11 @@ export default {
     background: rgb(var(--primary));
     border: 1px solid rgba(255, 255, 255,0);
     color: rgb(255, 255, 255);
-    box-shadow: 0px 9px 28px -9px rgb(var(--primary));
+    box-shadow: 0px 7px 0px -7px rgb(var(--primary));
 
   }
   .vs-button-primary-filled:hover {
-    box-shadow: 0px 7px 0px -7px rgb(var(--primary));
+    box-shadow: 0px 9px 28px -9px rgb(var(--primary));
     /* box-shadow: 0px 0px 0px 0px rgba(var(--primary),.0); */
   }
   .vs-button-primary-filled .relleno{
@@ -359,11 +359,11 @@ export default {
     border: 1px solid rgba(255, 255, 255,0);
     color: rgb(255, 255, 255);
     /* box-shadow: 0px 0px 0px 0px rgba(var(--success),.0); */
-    box-shadow: 0px 9px 28px -9px rgb(var(--success));
+    box-shadow: 0px 7px 0px -7px rgb(var(--success));
   }
   .vs-button-success-filled:hover {
+    box-shadow: 0px 9px 28px -9px rgb(var(--success));
       /* box-shadow: 0px 2px 15px 0px rgb(var(--success)); */
-      box-shadow: 0px 7px 0px -7px rgb(var(--success));
   }
   .vs-button-success-filled .relleno{
     box-shadow:inset 0px 0px 50px 0px rgba(255, 255, 255,.5);
@@ -375,11 +375,11 @@ export default {
     border: 1px solid rgba(255, 255, 255,0);
     color: rgb(255, 255, 255);
     /* box-shadow: 0px 0px 0px 0px rgba(var(--danger),.0); */
-    box-shadow: 0px 9px 28px -9px rgb(var(--danger));
+    box-shadow: 0px 7px 0px -7px rgb(var(--danger));
   }
   .vs-button-danger-filled:hover {
+    box-shadow: 0px 9px 28px -9px rgb(var(--danger));
       /* box-shadow: 0px 2px 15px 0px rgb(var(--danger)); */
-      box-shadow: 0px 7px 0px -7px rgb(var(--danger));
   }
   .vs-button-danger-filled .relleno{
     box-shadow:inset 0px 0px 50px 0px rgba(255, 255, 255,.5);
@@ -391,11 +391,11 @@ export default {
     border: 1px solid rgba(255, 255, 255,0);
     color: rgb(255, 255, 255);
     /* box-shadow: 0px 0px 0px 0px rgba(var(--warning),.0); */
-    box-shadow: 0px 9px 28px -9px rgb(var(--warning));
+    box-shadow: 0px 7px 0px -7px rgb(var(--warning));
   }
   .vs-button-warning-filled:hover {
+    box-shadow: 0px 9px 28px -9px rgb(var(--warning));
       /* box-shadow: 0px 2px 15px 0px rgb(var(--warning)); */
-      box-shadow: 0px 7px 0px -7px rgb(var(--warning));
   }
   .vs-button-warning-filled .relleno{
     box-shadow:inset 0px 0px 50px 0px rgba(255, 255, 255,.5);
@@ -407,11 +407,11 @@ export default {
     border: 1px solid rgba(255, 255, 255,0);
     color: rgb(255, 255, 255);
     /* box-shadow: 0px 0px 0px 0px rgba(var(--dark),.0); */
-    box-shadow: 0px 9px 28px -9px rgb(var(--dark));
+    box-shadow: 0px 7px 0px -7px rgb(var(--dark));
   }
   .vs-button-dark-filled:hover {
+    box-shadow: 0px 9px 28px -9px rgb(var(--dark));
       /* box-shadow: 0px 2px 15px 0px rgb(var(--dark)); */
-      box-shadow: 0px 7px 0px -7px rgb(var(--dark));
   }
   .vs-button-dark-filled .relleno{
     box-shadow:inset 0px 0px 50px 0px rgba(255, 255, 255,.3);

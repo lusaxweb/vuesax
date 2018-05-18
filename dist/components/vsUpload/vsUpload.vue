@@ -143,7 +143,7 @@ export default {
         // this.vsFileList.push({name:file.name})
         console.log(file);
 
-        filesx.push({name:file.name})
+        filesx.push({file:file})
         console.log(filesx);
         this.$emit('update:vsFileList', filesx)
       }

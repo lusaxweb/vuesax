@@ -140,10 +140,10 @@ export default {
 .img-blur {
   position: absolute !important;
   left: 0px;
-  bottom: -8px;
+  bottom: -5px;
   z-index: 50 !important;
-  filter: blur(6px);
-  opacity: .6;
+  filter: blur(7px);
+  opacity: .5;
 }
 .con-contribuitor h3 {
   text-align: center;

@@ -239,7 +239,7 @@ export default {
       padding-left: 20px
       padding-right: 20px
     &:hover
-      box-shadow: 0px 0px 10px 0px $accentColor
+      box-shadow: 0px 9px 28px -9px $accentColor
 .homeBackgroundComponent {
   margin-bottom: 200px;
 }
