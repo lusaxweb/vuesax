@@ -1,18 +1,50 @@
 <template lang="html">
-  <div :class="{'abierto':visible,'disabledx':disabled}" @click="clickSelect" ref="vsSelect" class="vs-select">
-    <label for="">{{label}}</label>
-    <button type="button" @focus="visible=true" @blur="visible=false" @click="clickInputSelect" :title="seleccionado" class="con-input-select">
-      <span>{{seleccionado}}</span>
+  <div
+    @click="clickSelect"
+    :class="{'abierto':visible,'disabledx':disabled}"
+    ref="vsSelect"
+    class="vs-select"
+  >
+    <!-- // TODO label for what? -->
+    <label for="" v-text="label"></label>
+    <button
+      @click="clickInputSelect"
+      @focus="visible=true"
+      @blur="visible=false"
+      :title="seleccionado"
+      type="button"
+      class="con-input-select"
+    >
+      <span v-text="seleccionado"></span>
       <i class="i-icon material-icons">expand_more</i>
     </button>
     <transition name="fade-select">
-    <div  ref="conUlSelect"  :class="{'visiblex':visible}" v-show="visible" :style="{'top':topx+'px','left':leftx+'px','width':widthx+'px'}" class="con-ul-select">
-      <ul :class="{'scrollx':scroll}">
-        <li  :style="{'transition':'transform .2s ease '+index/30+'s , background .2s ease,opacity .2s ease '+index/30+'s'}" v-for="option,index in options"  >
-          <button @focus="visible=true" @blur="visible=false" :class="{'activo':seleccionadoValue==option.value}" :data-value="option.value" @click="clickOption($event)" type="button" name="button">{{option.text}}</button>
-        </li>
-      </ul>
-    </div>
+      <div
+        v-show="visible"
+        :class="{'visiblex':visible}"
+        :style="{'top':topx+'px','left':leftx+'px','width':widthx+'px'}"
+        ref="conUlSelect"
+        class="con-ul-select"
+      >
+        <ul :class="{'scrollx':scroll}">
+          <li
+            v-for="(option, index) in options"
+            :key="index"
+            :style="{'transition':'transform .2s ease '+index/30+'s , background .2s ease,opacity .2s ease '+index/30+'s'}"
+          >
+            <button
+              v-text="option.text"
+              @click="clickOption($event)"
+              @focus="visible=true"
+              @blur="visible=false"
+              :class="{'activo':seleccionadoValue==option.value}"
+              :data-value="option.value"
+              type="button"
+              name="button"
+            ></button>
+          </li>
+        </ul>
+      </div>
     </transition>
   </div>
 </template>
@@ -31,7 +63,7 @@ export default {
       default: () => []
     },
     value: {
-      type: Array | Object
+      type: Array | Object,
       require: true
     },
     disabled: {
@@ -45,7 +77,7 @@ export default {
       visible:false,
       topx:0,
       leftx:0,
-      widthx:0,
+      widthx:0
     }
   },
   watch:{
@@ -55,9 +87,9 @@ export default {
 
             let selects = document.querySelectorAll('.con-ul-select')
             if(selects.length==1){
-              console.log("paso en 1");
+              //console.log("paso en 1");
               if(document.querySelector('.con-ul-select').clientHeight>=300){
-              this.scroll = true
+                this.scroll = true
               }
             } else {
               console.log("paso en 2",selects);
@@ -68,7 +100,7 @@ export default {
 
         }, 400);
         setTimeout( ()=> {
-          console.log();
+          //console.log();
           var elx = this.$el.querySelector('.con-ul-select')
           var elx2 = document.querySelectorAll('.con-ul-select')
           var elxUl = document.querySelector('.con-ul-select ul');
@@ -76,7 +108,7 @@ export default {
             mousewheelx(elx2[i])
           }
           function mousewheelx(el){
-            console.log();
+          //console.log();
           el.querySelector('.con-ul-select ul').scrollTop = el.querySelector('.con-ul-select ul .activo').offsetTop
           if(el.clientHeight>=300){
             el.addEventListener('mousewheel',function(e){
@@ -103,7 +135,7 @@ export default {
           }
 
               if(elx){
-
+                // TODO detect what it and for what it
                 document.body.insertBefore(elx, document.body.firstChild)
                 elx.scrollIntoView()
               }
