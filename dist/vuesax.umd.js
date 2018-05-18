@@ -2664,7 +2664,6 @@ var es7_array_includes_default = /*#__PURE__*/__webpack_require__.n(es7_array_in
 //
 //
 //
-//
 
 /* harmony default export */ var vsButton = ({
   name: 'vs-button',
@@ -2829,12 +2828,12 @@ var es7_array_includes_default = /*#__PURE__*/__webpack_require__.n(es7_array_in
             btn.style.background = 'transparent';
           });
         } else if (/-filled/.test(this.vsType)) {
-          btn.style.boxShadow = "0px 9px 28px -9px ".concat(colorx(1));
+          btn.style.boxShadow = "0px 7px 0px -7px ".concat(colorx(1));
           btn.addEventListener('mouseover', function () {
-            btn.style.boxShadow = "0px 7px 0px -7px ".concat(colorx(1));
+            btn.style.boxShadow = "0px 9px 28px -9px ".concat(colorx(1));
           }), btn.addEventListener('mouseout', function () {
             // btn.style.boxShadow = `0px 9px 28px -9px ${'rgba(255, 255, 255, 0)'}`
-            btn.style.boxShadow = "0px 9px 28px -9px ".concat(colorx(1));
+            btn.style.boxShadow = "0px 7px 0px -7px ".concat(colorx(1)); // btn.style.boxShadow = `0px 9px 28px -9px ${colorx(1)}`
           });
         } else if (/-line-down/.test(this.vsType)) {
           btn.querySelector('.text').style.color = this.vsColor;
@@ -2863,17 +2862,17 @@ var es7_array_includes_default = /*#__PURE__*/__webpack_require__.n(es7_array_in
     }
   }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-2b456b4d","hasScoped":false,"optionsId":"0","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsButton/vsButton.vue
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-54ce32f5","hasScoped":false,"optionsId":"0","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsButton/vsButton.vue
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('button',{ref:"btnvuesax",staticClass:"vs-btn",class:[_vm.vsType?_vm.clasex:'vs-button-primary-filled',{'filled':_vm.vsType?_vm.vsType.search('filled')!=-1:false,'border':_vm.vsType?_vm.vsType.search('border')!=-1:false,'vs-button-icon':_vm.vsIcon}],style:({
   'width':_vm.vsWidth,
   'color':_vm.vsColorText?/[#()]/.test(_vm.vsColorText)?_vm.vsColorText:("rgb(var(--" + _vm.vsColorText + "))"):'',
   'border-radius':_vm.vsRadius,
   'background':_vm.backgroundx,
-  }),attrs:{"type":"button","name":"button"},on:{"mouseenter":function($event){_vm.hoverx=true,_vm.$emit('mouseenter')},"mouseleave":function($event){_vm.hoverx=false,_vm.$emit('mouseleave')},"click":function($event){_vm.$emit('click',$event)},"blur":function($event){_vm.btnBlur($event)}}},[(_vm.vsHtml)?_c('span',{staticClass:"text",style:({
+  }),attrs:{"type":"button","name":"button"},on:{"mouseenter":function($event){_vm.hoverx=true,_vm.$emit('mouseenter')},"mouseleave":function($event){_vm.hoverx=false,_vm.$emit('mouseleave')},"click":function($event){_vm.$emit('click',$event)},"blur":function($event){_vm.btnBlur($event)}}},[(!_vm.vsHtml)?_c('span',{staticClass:"text",style:({
+  'color':_vm.vsColorText?/[#()]/.test(_vm.vsColorText)?_vm.vsColorText:("rgb(var(--" + _vm.vsColorText + "))"):'',
+  'padding':_vm.vsPadding})},[(_vm.vsIcon)?_c('span',{class:{'material-icons':_vm.vsIcon,'icon-btn':_vm.$slots.default}},[_vm._v(_vm._s(_vm.vsIcon))]):_vm._e(),_vm._t("default")],2):_c('span',{staticClass:"text",style:({
     'color':_vm.vsColorText?/[#()]/.test(_vm.vsColorText)?_vm.vsColorText:("rgb(var(--" + _vm.vsColorText + "))"):'',
-    'padding':_vm.vsPadding}),domProps:{"innerHTML":_vm._s(_vm.vsHtml)}}):_c('span',{staticClass:"text",style:({
-    'color':_vm.vsColorText?/[#()]/.test(_vm.vsColorText)?_vm.vsColorText:("rgb(var(--" + _vm.vsColorText + "))"):'',
-    'padding':_vm.vsPadding})},[(_vm.vsIcon)?_c('span',{class:{'material-icons':_vm.vsIcon,'icon-btn':_vm.$slots.default}},[_vm._v(_vm._s(_vm.vsIcon))]):_vm._e(),_vm._t("default")],2),_c('div',{ref:"lineax",staticClass:"lineax"})])}
+    'padding':_vm.vsPadding}),domProps:{"innerHTML":_vm._s(_vm.vsHtml)}}),_c('div',{ref:"lineax",staticClass:"lineax"})])}
 var staticRenderFns = []
 
 // EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/component-normalizer.js
@@ -7344,24 +7343,26 @@ var vsTooltip_default = /*#__PURE__*/__webpack_require__.n(vsTooltip);
 
     var mouseEnterx = function mouseEnterx(event) {
       var coords = event.toElement.getBoundingClientRect();
+      var scrollTopx = window.pageYOffset || document.documentElement.scrollTop; // console.log(window.pageYOffset);
+
       document.body.insertBefore(tooltipx, document.body.firstChild);
 
       if (typeof_default()(binding.value) == 'object') {
         if (binding.value.position == 'left') {
-          tooltipx.style.top = coords.top + event.target.clientHeight + 'px';
+          tooltipx.style.top = coords.top + event.target.clientHeight + scrollTopx + 'px';
           tooltipx.style.left = coords.left - (tooltipx.clientWidth + 8) + 'px';
         } else if (binding.value.position == 'right') {
-          tooltipx.style.top = coords.top + event.target.clientHeight + 'px';
+          tooltipx.style.top = coords.top + event.target.clientHeight + scrollTopx + 'px';
           tooltipx.style.left = coords.left + (event.target.clientWidth + 8) + 'px';
         } else if (binding.value.position == 'bottom') {
-          tooltipx.style.top = coords.top + (event.target.clientHeight * 2 + 5) + 'px';
+          tooltipx.style.top = coords.top + (event.target.clientHeight * 2 + 5) + scrollTopx + 'px';
           tooltipx.style.left = coords.left - (tooltipx.clientWidth / 2 - event.target.clientWidth / 2) + 'px';
         } else if (binding.value.position == 'top' || binding.value.position == undefined) {
-          tooltipx.style.top = coords.top + 'px';
+          tooltipx.style.top = coords.top + scrollTopx + 'px';
           tooltipx.style.left = coords.left - (tooltipx.clientWidth / 2 - event.target.clientWidth / 2) + 'px';
         }
       } else {
-        tooltipx.style.top = coords.top + 'px';
+        tooltipx.style.top = coords.top + scrollTopx + 'px';
         tooltipx.style.left = coords.left - (tooltipx.clientWidth / 2 - event.target.clientWidth / 2) + 'px';
       }
 

@@ -323,7 +323,7 @@ export default {
       background: $accentColor
       border-radius: 7px;
       &:hover
-        box-shadow: 0px 0px 11px 0px $accentColor
+        box-shadow: 0px 9px 28px -9px $accentColor
 .home-init
   display: flex
   align-items: flex-start;

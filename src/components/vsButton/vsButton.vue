@@ -15,18 +15,17 @@
     type="button"
     :class="[vsType?clasex:'vs-button-primary-filled',{'filled':vsType?vsType.search('filled')!=-1:false,'border':vsType?vsType.search('border')!=-1:false,'vs-button-icon':vsIcon}]"
     name="button">
-      <span v-if="vsHtml" v-html="vsHtml" :style="{
+    <span v-if="!vsHtml"
+    :style="{
+      'color':vsColorText?/[#()]/.test(vsColorText)?vsColorText:`rgb(var(--${vsColorText}))`:'',
+      'padding':vsPadding}" class="text">
+      <span v-if="vsIcon" :class="{'material-icons':vsIcon,'icon-btn':$slots.default}">{{vsIcon}}</span>
+      <slot>
+      </slot>
+    </span>
+      <span v-else v-html="vsHtml" :style="{
         'color':vsColorText?/[#()]/.test(vsColorText)?vsColorText:`rgb(var(--${vsColorText}))`:'',
         'padding':vsPadding}" class="text">
-      </span>
-      <span v-else
-
-      :style="{
-        'color':vsColorText?/[#()]/.test(vsColorText)?vsColorText:`rgb(var(--${vsColorText}))`:'',
-        'padding':vsPadding}" class="text">
-        <span v-if="vsIcon" :class="{'material-icons':vsIcon,'icon-btn':$slots.default}">{{vsIcon}}</span>
-        <slot>
-        </slot>
       </span>
       <div ref="lineax" class="lineax">
 
@@ -203,13 +202,14 @@ export default {
           btn.style.background = 'transparent';
         })
       } else if (/-filled/.test(this.vsType)) {
-        btn.style.boxShadow = `0px 9px 28px -9px ${colorx(1)}`
+        btn.style.boxShadow = `0px 7px 0px -7px ${colorx(1)}`
         btn.addEventListener('mouseover',()=>{
-          btn.style.boxShadow = `0px 7px 0px -7px ${colorx(1)}`
+          btn.style.boxShadow = `0px 9px 28px -9px ${colorx(1)}`
         }),
         btn.addEventListener('mouseout',()=>{
           // btn.style.boxShadow = `0px 9px 28px -9px ${'rgba(255, 255, 255, 0)'}`
-          btn.style.boxShadow = `0px 9px 28px -9px ${colorx(1)}`
+          btn.style.boxShadow = `0px 7px 0px -7px ${colorx(1)}`
+          // btn.style.boxShadow = `0px 9px 28px -9px ${colorx(1)}`
         })
       } else if (/-line-down/.test(this.vsType)) {
         btn.querySelector('.text').style.color = this.vsColor
@@ -242,7 +242,7 @@ export default {
 
 <style lang="css">
 
- button {
+ .vs-btn {
     border: 1px solid rgba(255, 255, 255,0);
     border-radius: 5px;
     border: 0px;
@@ -253,7 +253,7 @@ export default {
     transition: all .2s ease;
     overflow: hidden;
     position: relative;
-    backface-visibility: hidden;
+    /* backface-visibility: hidden; */
     margin: 5px;
   }
   button:active {

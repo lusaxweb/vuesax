@@ -71,24 +71,26 @@ export default {
 
 
       let coords = event.toElement.getBoundingClientRect();
+      let scrollTopx = window.pageYOffset || document.documentElement.scrollTop;
+      // console.log(window.pageYOffset);
       document.body.insertBefore(tooltipx, document.body.firstChild);
 
       if(typeof binding.value == 'object'){
         if(binding.value.position == 'left'){
-          tooltipx.style.top = coords.top + (event.target.clientHeight) + 'px'
+          tooltipx.style.top = coords.top + (event.target.clientHeight) + scrollTopx + 'px'
           tooltipx.style.left = coords.left - (tooltipx.clientWidth+8) + 'px'
         } else if (binding.value.position == 'right') {
-          tooltipx.style.top = coords.top + (event.target.clientHeight) + 'px'
+          tooltipx.style.top = coords.top + (event.target.clientHeight) + scrollTopx + 'px'
           tooltipx.style.left = coords.left + (event.target.clientWidth+8) + 'px'
         } else if (binding.value.position == 'bottom') {
-          tooltipx.style.top = coords.top + (event.target.clientHeight*2 + 5) + 'px'
+          tooltipx.style.top = coords.top + (event.target.clientHeight*2 + 5) + scrollTopx + 'px'
           tooltipx.style.left = coords.left - (tooltipx.clientWidth/2 - event.target.clientWidth/2) + 'px'
         } else if (binding.value.position == 'top'||binding.value.position==undefined) {
-          tooltipx.style.top = coords.top + 'px'
+          tooltipx.style.top = coords.top + scrollTopx + 'px'
           tooltipx.style.left = coords.left - (tooltipx.clientWidth/2 - event.target.clientWidth/2) + 'px'
         }
       } else {
-        tooltipx.style.top = coords.top + 'px'
+        tooltipx.style.top = coords.top + scrollTopx + 'px'
         tooltipx.style.left = coords.left - (tooltipx.clientWidth/2 - event.target.clientWidth/2) + 'px'
       }
 

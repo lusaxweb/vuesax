@@ -89,7 +89,7 @@ export default {
   top: 0px;
 }
 .con-btns-contribuitors button a{
-  padding: 14px;
+  padding: 13px;
   background: $accentColor
   color: rgb(255, 255, 255);
   display: block;
@@ -98,8 +98,7 @@ export default {
   transition: all .3s ease;
 }
 .con-btns-contribuitors button:hover {
-  top: -5px;
-  box-shadow: 0px 8px 12px -5px #5b3cc4 !important;
+  box-shadow: 0px 9px 28px -9px #5b3cc4 !important;
 }
 .allcontribuitors {
   text-align: left !important;
