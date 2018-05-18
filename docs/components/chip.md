@@ -27,9 +27,10 @@ API:
    default: null
 contributors:
   - fergardi
+tag: new
 ---
 
-# Chip
+ # Chip <!--#new-->
 
 <box header>
 

@@ -39,7 +39,7 @@ contributors:
   - fergardi
 ---
 
-# Card
+# Card <!--#new-->
 
 <box header>
 

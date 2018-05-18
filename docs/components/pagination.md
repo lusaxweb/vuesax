@@ -54,7 +54,7 @@ contributors:
  - VicGUTT
 ---
 
-# Pagination
+# Pagination <!--#new-->
 
 <box header>
 

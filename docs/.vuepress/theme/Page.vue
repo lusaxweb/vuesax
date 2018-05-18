@@ -49,6 +49,12 @@ import { resolvePage, normalize, outboundRE, endingSlashRE } from './util'
 export default {
   components: { OutboundLink, api, Footer, contributors },
   props: ['sidebarItems'],
+  methods:{
+    replaceH1(){
+      let h1 = this.$el.querySelector('h1')
+      h1.innerText = 'gola'
+    }
+  },
   computed: {
     prev () {
       const prev = this.$page.frontmatter.prev

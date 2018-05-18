@@ -5,6 +5,15 @@ export default {
   functional: true,
   props: ['item'],
   render (h, { parent: { $page, $site, $route }, props: { item }}) {
+    // console.log(">>>>>>>>>>>>>>>>>>>>>>>>",item);
+    let tag = null
+    if(item.title.search('#new')!=-1){
+      tag = 'new'
+    } else if (item.title.search('#update')!=-1){
+      tag = 'update'
+    }
+    // console.log("$page>",$page.path);
+    // console.log("item>>",item.path);
     // use custom active class matching logic
     // due to edge case of paths ending with / + hash
     const selfActive = isActive($route, item.path)
@@ -13,7 +22,7 @@ export default {
     const active = item.type === 'auto'
       ? selfActive || item.children.some(c => isActive($route, item.basePath + '#' + c.slug))
       : selfActive
-    const link = renderLink(h, item.path, item.title || item.path, active)
+    const link = renderLink(h, item.path, item.title || item.path, active, tag)
     const configDepth = $page.frontmatter.sidebarDepth != null
       ? $page.frontmatter.sidebarDepth
       : $site.themeConfig.sidebarDepth
@@ -29,7 +38,8 @@ export default {
   }
 }
 
-function renderLink (h, to, text, active) {
+function renderLink (h, to, text, active, activeTag) {
+  let textx = activeTag?text.replace('<!--#'+activeTag+'-->',''):text
   return h('router-link', {
     props: {
       to,
@@ -40,7 +50,8 @@ function renderLink (h, to, text, active) {
       active,
       'sidebar-link': true
     }
-  }, text)
+
+  }, [textx,activeTag?h('span',{class: 'span-new-update'},activeTag):null])
 }
 
 function renderChildren (h, children, path, route, maxDepth, depth = 1) {
@@ -57,6 +68,21 @@ function renderChildren (h, children, path, route, maxDepth, depth = 1) {
 
 <style lang="stylus">
 @import './styles/config.styl'
+.span-new-update
+  position: absolute;
+  right: 5px;
+  background: $accentColor
+  color: rgb(255, 255, 255);
+  font-size: 10px;
+  font-weight: lighter !important;
+  border-radius: 5px;
+  padding-bottom: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  line-height: 15px;
+  top: 50%;
+  transform: translate(0,-50%);
+  text-transform: capitalize;
 .sidebar-sub-header
   a
     opacity: 1 !important;
@@ -64,6 +90,7 @@ function renderChildren (h, children, path, route, maxDepth, depth = 1) {
   padding-left 1rem
   font-size 0.95em
 a.sidebar-link
+  position: relative;
   font-weight 400
   display inline-block
   color $textColor

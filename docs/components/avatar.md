@@ -42,7 +42,7 @@ API:
    default: person
 ---
 
-# Avatar
+# Avatar <!--#new-->
 
 <box header>
 

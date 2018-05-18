@@ -23,7 +23,7 @@ API:
 contributors:
   - fergardi
 ---
-# Buttons
+# Buttons <!--#update-->
 
 <box header>
 

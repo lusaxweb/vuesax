@@ -17,7 +17,7 @@ API:
    default: null
 ---
 
-# CheckBox
+# CheckBox <!--#update-->
 
 <box header>
 

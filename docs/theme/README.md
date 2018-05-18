@@ -7,7 +7,7 @@ API:
    default: null
 ---
 
-# Colors
+# Colors <!--#new-->
 
 <box header>
 

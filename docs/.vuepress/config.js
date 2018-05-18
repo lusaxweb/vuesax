@@ -156,6 +156,7 @@ module.exports = {
     ],
     sidebar: [
       {
+        perro:'hola',
         title: 'Vuesax',
         collapsable: false,
         children: [
@@ -195,10 +196,10 @@ module.exports = {
           '/components/tooltip',
           '/components/upload',
           '/components/loading',
-          '/components/chip',
-          '/components/progress',
           '/components/popup',
           '/components/alert',
+          '/components/chip',
+          '/components/progress',
           '/components/card',
           '/components/avatar',
           '/components/list',

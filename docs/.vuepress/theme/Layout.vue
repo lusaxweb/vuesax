@@ -99,7 +99,7 @@ export default {
     // update title / meta tags
     this.currentMetaTags = []
     const updateMeta = () => {
-      document.title = this.$title
+      document.title = this.$title.replace('<!--#new-->','').replace('<!--#update-->','')
       document.documentElement.lang = this.$lang
       const meta = [
         {
