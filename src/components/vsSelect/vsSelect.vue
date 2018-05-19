@@ -5,7 +5,6 @@
     ref="vsSelect"
     class="vs-select"
   >
-    <!-- // TODO label for what? -->
     <label for="" v-text="label"></label>
     <button
       @click="clickInputSelect"
@@ -63,7 +62,7 @@ export default {
       default: () => []
     },
     value: {
-      type: Array | Object,
+      type: Number,
       require: true
     },
     disabled: {
@@ -87,7 +86,7 @@ export default {
 
             let selects = document.querySelectorAll('.con-ul-select')
             if(selects.length==1){
-              //console.log("paso en 1");
+              // console.log("paso en 1");
               if(document.querySelector('.con-ul-select').clientHeight>=300){
                 this.scroll = true
               }
@@ -100,7 +99,7 @@ export default {
 
         }, 400);
         setTimeout( ()=> {
-          //console.log();
+          // console.log();
           var elx = this.$el.querySelector('.con-ul-select')
           var elx2 = document.querySelectorAll('.con-ul-select')
           var elxUl = document.querySelector('.con-ul-select ul');
@@ -108,7 +107,7 @@ export default {
             mousewheelx(elx2[i])
           }
           function mousewheelx(el){
-          //console.log();
+          // console.log();
           el.querySelector('.con-ul-select ul').scrollTop = el.querySelector('.con-ul-select ul .activo').offsetTop
           if(el.clientHeight>=300){
             el.addEventListener('mousewheel',function(e){
@@ -135,7 +134,6 @@ export default {
           }
 
               if(elx){
-                // TODO detect what it and for what it
                 document.body.insertBefore(elx, document.body.firstChild)
                 elx.scrollIntoView()
               }
