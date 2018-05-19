@@ -338,7 +338,17 @@ border: 0;
     padding-left: 5px;
     background: rgb(255, 255, 255);
     text-align: left;
-    margin: 0px !important
+    margin: 0px !important;
+    border: 1px solid rgba(255, 255, 255,0);
+    border-radius: 5px;
+    border: 0px;
+    cursor: pointer;
+    outline: none;
+    transition: all .2s ease;
+    overflow: hidden;
+    position: relative;
+    /* backface-visibility: hidden; */
+    margin: 5px;
   }
   .con-ul-select li:last-child {
     /* margin-bottom: 10px; */
