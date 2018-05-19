@@ -22,6 +22,21 @@ body {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
 }
 
+button {
+   border: 1px solid rgba(255, 255, 255,0);
+   border-radius: 5px;
+   border: 0px;
+   cursor: pointer;
+   outline: none;
+   background: rgb(238, 238, 238);
+   color: rgba(0, 0, 0, 0.7);
+   transition: all .2s ease;
+   overflow: hidden;
+   position: relative;
+   /* backface-visibility: hidden; */
+   margin: 5px;
+ }
+
 .vs-w-12 {
   width: 100%;
 }
