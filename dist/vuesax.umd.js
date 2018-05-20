@@ -565,13 +565,6 @@ module.exports = function (TO_STRING) {
 
 /***/ }),
 
-/***/ "5auH":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ "5mz/":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2952,10 +2945,64 @@ var material_icons_default = /*#__PURE__*/__webpack_require__.n(material_icons);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ var vsSelect = ({
   name: 'vs-select',
-  props: ['label', 'options', 'value', 'disabled'],
+  props: {
+    label: {
+      type: String,
+      default: function _default() {
+        return '';
+      }
+    },
+    options: {
+      type: Array | Object,
+      default: function _default() {
+        return [];
+      }
+    },
+    value: {
+      type: Number,
+      require: true
+    },
+    disabled: {
+      type: Boolean,
+      default: function _default() {
+        return false;
+      }
+    }
+  },
   data: function data() {
     return {
       scroll: false,
@@ -2974,8 +3021,7 @@ var material_icons_default = /*#__PURE__*/__webpack_require__.n(material_icons);
           var selects = document.querySelectorAll('.con-ul-select');
 
           if (selects.length == 1) {
-            console.log("paso en 1");
-
+            // console.log("paso en 1");
             if (document.querySelector('.con-ul-select').clientHeight >= 300) {
               _this.scroll = true;
             }
@@ -2988,8 +3034,7 @@ var material_icons_default = /*#__PURE__*/__webpack_require__.n(material_icons);
           }
         }, 400);
         setTimeout(function () {
-          console.log();
-
+          // console.log();
           var elx = _this.$el.querySelector('.con-ul-select');
 
           var elx2 = document.querySelectorAll('.con-ul-select');
@@ -3000,7 +3045,7 @@ var material_icons_default = /*#__PURE__*/__webpack_require__.n(material_icons);
           }
 
           function mousewheelx(el) {
-            console.log();
+            // console.log();
             el.querySelector('.con-ul-select ul').scrollTop = el.querySelector('.con-ul-select ul .activo').offsetTop;
 
             if (el.clientHeight >= 300) {
@@ -3119,13 +3164,13 @@ var material_icons_default = /*#__PURE__*/__webpack_require__.n(material_icons);
     });
   }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-7f230cac","hasScoped":true,"optionsId":"0","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsSelect/vsSelect.vue
-var vsSelect_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"vsSelect",staticClass:"vs-select",class:{'abierto':_vm.visible,'disabledx':_vm.disabled},on:{"click":_vm.clickSelect}},[_c('label',{attrs:{"for":""}},[_vm._v(_vm._s(_vm.label))]),_c('button',{staticClass:"con-input-select",attrs:{"type":"button","title":_vm.seleccionado},on:{"focus":function($event){_vm.visible=true},"blur":function($event){_vm.visible=false},"click":_vm.clickInputSelect}},[_c('span',[_vm._v(_vm._s(_vm.seleccionado))]),_c('i',{staticClass:"i-icon material-icons"},[_vm._v("expand_more")])]),_c('transition',{attrs:{"name":"fade-select"}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.visible),expression:"visible"}],ref:"conUlSelect",staticClass:"con-ul-select",class:{'visiblex':_vm.visible},style:({'top':_vm.topx+'px','left':_vm.leftx+'px','width':_vm.widthx+'px'})},[_c('ul',{class:{'scrollx':_vm.scroll}},_vm._l((_vm.options),function(option,index){return _c('li',{style:({'transition':'transform .2s ease '+index/30+'s , background .2s ease,opacity .2s ease '+index/30+'s'})},[_c('button',{class:{'activo':_vm.seleccionadoValue==option.value},attrs:{"data-value":option.value,"type":"button","name":"button"},on:{"focus":function($event){_vm.visible=true},"blur":function($event){_vm.visible=false},"click":function($event){_vm.clickOption($event)}}},[_vm._v(_vm._s(option.text))])])}))])])],1)}
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-6b648927","hasScoped":true,"optionsId":"0","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsSelect/vsSelect.vue
+var vsSelect_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"vsSelect",staticClass:"vs-select",class:{'abierto':_vm.visible,'disabledx':_vm.disabled},on:{"click":_vm.clickSelect}},[_c('label',{attrs:{"for":""},domProps:{"textContent":_vm._s(_vm.label)}}),_c('button',{staticClass:"con-input-select",attrs:{"title":_vm.seleccionado,"type":"button"},on:{"click":_vm.clickInputSelect,"focus":function($event){_vm.visible=true},"blur":function($event){_vm.visible=false}}},[_c('span',{domProps:{"textContent":_vm._s(_vm.seleccionado)}}),_c('i',{staticClass:"i-icon material-icons"},[_vm._v("expand_more")])]),_c('transition',{attrs:{"name":"fade-select"}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.visible),expression:"visible"}],ref:"conUlSelect",staticClass:"con-ul-select",class:{'visiblex':_vm.visible},style:({'top':_vm.topx+'px','left':_vm.leftx+'px','width':_vm.widthx+'px'})},[_c('ul',{class:{'scrollx':_vm.scroll}},_vm._l((_vm.options),function(option,index){return _c('li',{key:index,style:({'transition':'transform .2s ease '+index/30+'s , background .2s ease,opacity .2s ease '+index/30+'s'})},[_c('button',{class:{'activo':_vm.seleccionadoValue==option.value},attrs:{"data-value":option.value,"type":"button","name":"button"},domProps:{"textContent":_vm._s(option.text)},on:{"click":function($event){_vm.clickOption($event)},"focus":function($event){_vm.visible=true},"blur":function($event){_vm.visible=false}}})])}))])])],1)}
 var vsSelect_staticRenderFns = []
 
 // CONCATENATED MODULE: ./src/components/vsSelect/vsSelect.vue
 function vsSelect_injectStyle (context) {
-  __webpack_require__("5auH")
+  __webpack_require__("yas0")
 }
 /* script */
 
@@ -3137,7 +3182,7 @@ var vsSelect___vue_template_functional__ = false
 /* styles */
 var vsSelect___vue_styles__ = vsSelect_injectStyle
 /* scopeId */
-var vsSelect___vue_scopeId__ = "data-v-7f230cac"
+var vsSelect___vue_scopeId__ = "data-v-6b648927"
 /* moduleIdentifier (server only) */
 var vsSelect___vue_module_identifier__ = null
 
@@ -8426,6 +8471,13 @@ module.exports = function (key) {
 
 module.exports = function () { /* empty */ };
 
+
+/***/ }),
+
+/***/ "yas0":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
