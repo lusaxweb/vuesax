@@ -161,7 +161,8 @@ module.exports = {
         collapsable: false,
         children: [
           '/vuesax/',
-          '/vuesax/contributing'
+          '/vuesax/contributing',
+          '/vuesax/whyVuesax',
          ]
       },
       {
