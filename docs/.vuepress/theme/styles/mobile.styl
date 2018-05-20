@@ -10,10 +10,12 @@ $mobileSidebarWidth = $sidebarWidth * 0.82
   .page
     padding-left $mobileSidebarWidth
   .content:not(.custom)
-    padding 2rem
+    padding 0rem
 
 // wide mobile
 @media (max-width: $MQMobile)
+  .dropdown-wrapper
+    display none
   .sidebar
     top 0
     padding-top $navbarHeight
@@ -24,14 +26,20 @@ $mobileSidebarWidth = $sidebarWidth * 0.82
   .theme-container.sidebar-open
     .sidebar
       transform translateX(0)
-
+h1
+  font-size 1.3rem !important
+  padding-top 5rem !important
+  a
+    display none
+footer
+  margin-top 100px !important
 // narrow mobile
 @media (max-width: $MQMobileNarrow)
   h1
     font-size 1.9rem
   .content:not(.custom)
-    padding 1.5rem
+    padding 0rem
   .content
     pre, pre[class*="language-"]
-      margin 0.85rem -1.5rem
+      margin 0.85rem 0
       border-radius 0

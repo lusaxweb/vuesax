@@ -1,20 +1,17 @@
 <template lang="html">
   <div class="con-select">
     <vs-select
-      class="vs-w-4"
       label="Peliculas"
       v-model="select1"
       :options="options1"
       ></vs-select>
     <vs-select
-      class="vs-w-4"
       label="Figuras"
       v-model="select3"
       :options="options3"
       ></vs-select>
       <vs-select
         disabled="true"
-        class="vs-w-4"
         label="Colores"
         v-model="select2"
         :options="options2"
@@ -64,5 +61,16 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.con-select .vs-select {
+  width: 100%
+}
+@media (max-width: 550px) {
+  .con-select {
+    flex-direction: column;
+  }
+  .con-select .vs-select {
+    width: 100%
+  }
 }
 </style>

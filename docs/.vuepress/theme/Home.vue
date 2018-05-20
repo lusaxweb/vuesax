@@ -447,6 +447,12 @@ export default {
 
 
 @media (max-width: $MQMobileNarrow)
+  .navbar
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  .con-logo
+    img
+      margin-left: 0px;
+      height: 1.8rem !important
   .heroBackgroundComponent
     right: 0
     bottom: 0
@@ -459,6 +465,7 @@ export default {
         margin 2rem auto 1.2rem
       h1
         font-size 2rem
+        padding-top: 0px !important
       h1, .description, .action
         margin 1.2rem auto
       .description
@@ -475,4 +482,5 @@ export default {
     .bosque
       top 60%
       transform scale(1.5)
+      right: 15% !important
 </style>

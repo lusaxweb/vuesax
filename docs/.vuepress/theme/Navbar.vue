@@ -146,7 +146,7 @@ export default {
   .links
     line-height 48px
   .navbar
-    padding-left 4rem
+    padding-left 3rem
     .can-hide
       display none
 </style>

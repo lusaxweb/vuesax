@@ -58,23 +58,33 @@ export default {
   computed: {
     prev () {
       const prev = this.$page.frontmatter.prev
+      let prevx = null
       if (prev === false) {
         return
       } else if (prev) {
-        return resolvePage(this.$site.pages, prev, this.$route.path)
+        prevx = resolvePage(this.$site.pages, prev, this.$route.path)
       } else {
-        return resolvePrev(this.$page, this.sidebarItems)
+        prevx = resolvePrev(this.$page, this.sidebarItems)
       }
+      if(prevx){
+        prevx.title = prevx.title.replace('<!--#new-->','').replace('<!--#update-->','')
+      }
+      return prevx
     },
     next () {
       const next = this.$page.frontmatter.next
+      let netx = null
       if (next === false) {
         return
       } else if (next) {
-        return resolvePage(this.$site.pages, next, this.$route.path)
+        netx = resolvePage(this.$site.pages, next, this.$route.path)
       } else {
-        return resolveNext(this.$page, this.sidebarItems)
+        netx = resolveNext(this.$page, this.sidebarItems)
       }
+      if(netx){
+        netx.title = netx.title.replace('<!--#new-->','').replace('<!--#update-->','')
+      }
+      return netx
     },
     editLink () {
       const {
@@ -284,4 +294,16 @@ function find (page, items, offset) {
         margin-left: 10px
 .header-anchor
   transition: all .3s ease !important;
+
+@media (max-width: 550px)
+  .page-nav.content
+    span
+      font-size: 12px !important
+  .color
+    display: none;
+  .edit-link
+    text-align: center;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 </style>

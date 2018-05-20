@@ -65,4 +65,17 @@ export default {
   background: rgb(var(--dark)) !important;
   box-shadow: 0px 15px 40px -10px rgba(var(--dark),.9);
 }
+@media (max-width: 550px) {
+  .con-colors ul {
+    display: block !important;
+    padding-left: 0px;
+  }
+  .con-colors ul li {
+    margin-left: 0px !important;
+    height: auto !important;
+    padding: 10px;
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+}
 </style>

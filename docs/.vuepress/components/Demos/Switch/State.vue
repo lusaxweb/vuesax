@@ -45,4 +45,10 @@ export default {
     margin-left: 10px;
     margin-right: 10px;
   }
+  @media (max-width: 550px) {
+    .con-s {
+      flex-direction: column;
+      align-items: baseline;
+    }
+  }
 </style>

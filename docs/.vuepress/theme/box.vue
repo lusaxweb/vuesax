@@ -87,4 +87,16 @@ export default {
 
 .con-demo pre
   border-radius: 10px !important;
+
+@media (max-width: 550px)
+  .con-box
+    .box
+      h2
+        font-size: 16px;
+      p, li
+        font-size: 11px;
+      .vs-row
+        p
+          margin: 0px !important;
+          width: 100%;
 </style>

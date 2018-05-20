@@ -148,10 +148,16 @@ export default {
   .nav-links
     .nav-item, .github-link
       margin-left 0
-
+      a
+        padding: 0px !important;
+    .repo-link
+      display: none !important;
+.links
+  right 1.5rem !important
 @media (min-width: $MQMobile)
   .nav-links
     a
+
       &:hover, &.router-link-active
         color $accentColor
         // margin-bottom -2px
