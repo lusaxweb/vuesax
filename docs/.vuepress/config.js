@@ -207,6 +207,7 @@ module.exports = {
           '/components/pagination',
           '/components/breadcrumb',
           '/components/topbar',
+          /*New Component*/
         ]
       },
     ]
