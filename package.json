@@ -1,6 +1,6 @@
 {
   "name": "vuesax",
-  "version": "3.0.28",
+  "version": "3.0.29",
   "description": "Components for Vue js",
   "license": "MIT",
   "author": "ldrovira <luisdanielrovira8@gmail.com>",
@@ -32,7 +32,7 @@
     "docs:build": "vuepress build docs",
     "docs:deploy": "sh deploy.sh",
     "deployx": "npm run docs:deploy && npm run deploy",
-    "new:component":"sh scripts/newComponent.sh"
+    "new:component": "sh scripts/newComponent.sh"
   },
   "dependencies": {
     "prefixfree": "^1.0.0",
