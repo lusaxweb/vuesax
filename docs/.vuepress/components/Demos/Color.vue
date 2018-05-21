@@ -18,6 +18,11 @@ export default {
       colorx:'#c72a75',
       colorx2:'#0fc816'
     }
+  },
+  methods:{
+    consolex(){
+      console.log("hola soy un log");
+    }
   }
 }
 </script>

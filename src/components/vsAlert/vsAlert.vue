@@ -1,6 +1,8 @@
 <template lang="html">
   <transition name="fade">
   <div
+  v-bind="$attrs"
+  v-on="$listeners"
   :class="{
     'con-icon':vsIcon,
     }"
@@ -37,7 +39,6 @@
 import color from '../../utils/color.js'
 
 import style from '../../styles/config.json'
-console.log(style);
 
 export default {
   name:'vs-alert',
@@ -67,9 +68,6 @@ export default {
       default:null,
     }
   },
-  created(){
-
-  }
 }
 </script>
 

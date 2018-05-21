@@ -1,16 +1,19 @@
 <template lang="html">
   <div class="con-select">
     <vs-select
+      class="selectExample"
       label="Peliculas"
       v-model="select1"
       :options="options1"
       ></vs-select>
     <vs-select
+    class="selectExample"
       label="Figuras"
       v-model="select3"
       :options="options3"
       ></vs-select>
       <vs-select
+      class="selectExample"
         disabled="true"
         label="Colores"
         v-model="select2"
@@ -52,11 +55,19 @@ export default {
         {text:'Trapecio circular',value:12},
       ]
     }
+  },
+  methods:{
+    prueba(){
+      console.log("prueba de focsu");
+    }
   }
 }
 </script>
 
 <style lang="css">
+.selectExample {
+  margin: 10px;
+}
 .con-select {
   display: flex;
   align-items: center;

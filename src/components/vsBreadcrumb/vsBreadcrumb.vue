@@ -1,5 +1,8 @@
 <template lang="html">
-  <nav class="vs-breadcrumb" :class="`vs-align-${vsAlign}`" aria-label="breadcrumb">
+  <nav
+  v-bind="$attrs"
+  v-on="$listeners"
+  class="vs-breadcrumb" :class="`vs-align-${vsAlign}`" aria-label="breadcrumb">
     <ol>
       <slot></slot>
       <li

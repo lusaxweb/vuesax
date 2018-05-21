@@ -1,5 +1,7 @@
 <template lang="html">
     <button
+    v-bind="$attrs"
+    v-on="$listeners"
     class="vs-btn"
     ref="btnvuesax"
     @mouseenter="hoverx=true,$emit('mouseenter')"
