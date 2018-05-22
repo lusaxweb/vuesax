@@ -35,6 +35,11 @@ API:
     parameters:
     description: Media image src
     default: null
+  - name: actionable
+    type: Bool
+    parameters:
+    description: Hover effect
+    default: false
 contributors:
   - fergardi
 ---
@@ -126,6 +131,82 @@ Vuesax use the **Google Material Icons** font library. For a list of all availab
 
 <script>
 export default {
+}
+</script>
+```
+
+</div>
+</vuecode>
+
+</box>
+
+<box>
+
+## Avatar and actionable state
+
+You can pass custom component as a child of `vs-card-header` <br>
+The actionable state enable a hover effect
+
+<script>
+export default {
+  methods: {
+    vClick() {
+      alert('Click!')
+    }
+  }
+}
+</script>
+
+<vuecode md center>
+<div slot="demo" style="display: flex;">
+  <vs-card actionable @vs-click="vClick()">
+    <vs-card-header vs-title="A nice title" :vs-fill="true">
+      <vs-avatar vs-size="large" vs-src="https://avatars2.githubusercontent.com/u/31676496?s=460&v=4"/>
+    </vs-card-header>
+    <vs-card-body>
+      <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
+    </vs-card-body>
+  </vs-card>
+  <vs-card actionable>
+    <vs-card-header vs-title="A nice title" vs-subtitle="A nice subtitle"  :vs-fill="true">
+      <vs-avatar vs-size="large" vs-text="Luis Daniel"/>
+    </vs-card-header>
+    <vs-card-body>
+      <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
+    </vs-card-body>
+  </vs-card>
+</div>
+<div slot="code">
+
+```html
+<template lang="html">
+  <div class="centerx">
+    <vs-card actionable @vs-click="vClick()">
+      <vs-card-header vs-title="A nice title" :vs-fill="true">
+        <vs-avatar vs-size="large" vs-src="https://avatars2.githubusercontent.com/u/31676496?s=460&v=4"/>
+      </vs-card-header>
+      <vs-card-body>
+        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
+      </vs-card-body>
+    </vs-card>
+    <vs-card actionable>
+      <vs-card-header vs-title="A nice title" vs-subtitle="A nice subtitle"  :vs-fill="true">
+        <vs-avatar vs-size="large" vs-text="Luis Daniel"/>
+      </vs-card-header>
+      <vs-card-body>
+        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
+      </vs-card-body>
+    </vs-card>
+  </div>
+</template>
+
+<script>
+export default {
+  methods: {
+    vClick() {
+      alert('Click!')
+    }
+  }
 }
 </script>
 ```
