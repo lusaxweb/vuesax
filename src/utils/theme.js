@@ -1,9 +1,7 @@
 import color from './color.js'
 export default {
   name:'theme',
-  vsfunction(json){
-    console.log(json);
-
+  vsfunction(json,isServer){
     for (var clave in json) {
       let colorx
       if(/^[rgb(]/g.test(json[clave])){
@@ -15,7 +13,7 @@ export default {
       } else {
         colorx = json[clave]
       }
-      color.setCssVariable('--'+clave,colorx)
+      color.setCssVariable('--'+clave,colorx,isServer)
     }
   },
 }

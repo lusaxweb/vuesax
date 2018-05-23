@@ -14,8 +14,12 @@ export default {
         return false
       }
   },
-  setCssVariable(propertyName, value) {
-    document.documentElement.style.setProperty(propertyName, value);
+  setCssVariable(propertyName, value, isServer) {
+    if(!isServer){
+      document.documentElement.style.setProperty(propertyName, value);
+    } else if (!process.server) {
+      document.documentElement.style.setProperty(propertyName, value);
+    } 
   },
   hexToRgb(hex) {
     // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")

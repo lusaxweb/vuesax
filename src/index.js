@@ -19,7 +19,7 @@ const Vuesax = {
     if(options){
       if(options.hasOwnProperty('theme')){
         if(options.theme.hasOwnProperty('colors')){
-          vsTheme.vsfunction(options.theme.colors)
+          vsTheme.vsfunction(options.theme.colors, options.server)
         }
       }
     }
