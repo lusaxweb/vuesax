@@ -16,7 +16,7 @@ export default {
   },
   setCssVariable(propertyName, value, isServer) {
     // if(!isServer || process.browser){
-    if(typeof window !== 'undefined'){
+    if(typeof window !== 'undefined' || process.browser){
       document.documentElement.style.setProperty(propertyName, value);
     }
     // }
