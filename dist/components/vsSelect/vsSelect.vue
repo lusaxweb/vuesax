@@ -122,7 +122,12 @@ export default {
 
 .vs-component.con-select
   position: relative;
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   .inputx
+    width: 100%;
     padding: 8px;
     cursor: pointer;
     border: 1px solid rgba(0, 0, 0, 0.1)
