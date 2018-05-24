@@ -1,18 +1,16 @@
 <template lang="html">
+  <!-- @blur="btnBlur($event)" -->
     <button
     v-bind="$attrs"
-    v-on="$listeners"
+    v-on="listeners"
     class="vs-btn"
     ref="btnvuesax"
-    @mouseenter="hoverx=true,$emit('mouseenter')"
-    @mouseleave="hoverx=false,$emit('mouseleave')"
     :style="{
       'width':vsWidth,
       'color':vsColorText?/[#()]/.test(vsColorText)?vsColorText:`rgb(var(--${vsColorText}))`:'',
       'border-radius':vsRadius,
       'background':backgroundx,
       }"
-    @blur="btnBlur($event)"
     type="button"
     :class="[vsType?clasex:'vs-button-primary-filled',{'filled':vsType?vsType.search('filled')!=-1:false,'border':vsType?vsType.search('border')!=-1:false,'vs-button-icon':vsIcon}]"
     name="button">
@@ -80,6 +78,14 @@ export default {
     }
   },
   computed:{
+    listeners() {
+      return {
+        ...this.$listeners,
+        blur: this.btnBlur,
+        mouseenter: this.onMouseenter,
+        mouseleave: this.onMouseleave,
+      }
+    },
     backgroundx(){
       if(/-border/.test(this.vsType)||/-flat/.test(this.vsType)||/-line-down/.test(this.vsType)||/-gradient/.test(this.vsType)){
         if(/-border/.test(this.vsType)){
@@ -168,6 +174,14 @@ export default {
     })
   },
   methods:{
+    onMouseenter(){
+      this.hoverx=true
+      this.$emit('mouseenter')
+    },
+    onMouseleave(){
+      this.hoverx=false
+      this.$emit('mouseleave')
+    },
     vsColorx(){
       let _this = this
       let btn = this.$refs.btnvuesax

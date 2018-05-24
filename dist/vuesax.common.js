@@ -2887,6 +2887,10 @@ var es6_regexp_replace_default = /*#__PURE__*/__webpack_require__.n(es6_regexp_r
 var es6_regexp_split = __webpack_require__("iiot");
 var es6_regexp_split_default = /*#__PURE__*/__webpack_require__.n(es6_regexp_split);
 
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/objectSpread.js
+var objectSpread = __webpack_require__("Biqn");
+var objectSpread_default = /*#__PURE__*/__webpack_require__.n(objectSpread);
+
 // EXTERNAL MODULE: ./src/utils/color.js
 var color = __webpack_require__("n5ki");
 
@@ -2895,8 +2899,7 @@ var color = __webpack_require__("n5ki");
 
 
 
-//
-//
+
 //
 //
 //
@@ -2976,6 +2979,13 @@ var color = __webpack_require__("n5ki");
     };
   },
   computed: {
+    listeners: function listeners() {
+      return objectSpread_default()({}, this.$listeners, {
+        blur: this.btnBlur,
+        mouseenter: this.onMouseenter,
+        mouseleave: this.onMouseleave
+      });
+    },
     backgroundx: function backgroundx() {
       if (/-border/.test(this.vsType) || /-flat/.test(this.vsType) || /-line-down/.test(this.vsType) || /-gradient/.test(this.vsType)) {
         if (/-border/.test(this.vsType)) {}
@@ -3060,6 +3070,14 @@ var color = __webpack_require__("n5ki");
     });
   },
   methods: {
+    onMouseenter: function onMouseenter() {
+      this.hoverx = true;
+      this.$emit('mouseenter');
+    },
+    onMouseleave: function onMouseleave() {
+      this.hoverx = false;
+      this.$emit('mouseleave');
+    },
     vsColorx: function vsColorx() {
       var _this = this;
 
@@ -3130,17 +3148,17 @@ var color = __webpack_require__("n5ki");
     }
   }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-162b1674","hasScoped":false,"optionsId":"1","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsButton/vsButton.vue
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-25c0d5a8","hasScoped":false,"optionsId":"1","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsButton/vsButton.vue
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('button',_vm._g(_vm._b({ref:"btnvuesax",staticClass:"vs-btn",class:[_vm.vsType?_vm.clasex:'vs-button-primary-filled',{'filled':_vm.vsType?_vm.vsType.search('filled')!=-1:false,'border':_vm.vsType?_vm.vsType.search('border')!=-1:false,'vs-button-icon':_vm.vsIcon}],style:({
-  'width':_vm.vsWidth,
-  'color':_vm.vsColorText?/[#()]/.test(_vm.vsColorText)?_vm.vsColorText:("rgb(var(--" + _vm.vsColorText + "))"):'',
-  'border-radius':_vm.vsRadius,
-  'background':_vm.backgroundx,
-  }),attrs:{"type":"button","name":"button"},on:{"mouseenter":function($event){_vm.hoverx=true,_vm.$emit('mouseenter')},"mouseleave":function($event){_vm.hoverx=false,_vm.$emit('mouseleave')},"blur":function($event){_vm.btnBlur($event)}}},'button',_vm.$attrs,false),_vm.$listeners),[(!_vm.vsHtml)?_c('span',{staticClass:"text",style:({
-  'color':_vm.vsColorText?/[#()]/.test(_vm.vsColorText)?_vm.vsColorText:("rgb(var(--" + _vm.vsColorText + "))"):'',
-  'padding':_vm.vsPadding})},[(_vm.vsIcon)?_c('span',{class:{'material-icons':_vm.vsIcon,'icon-btn':_vm.$slots.default}},[_vm._v(_vm._s(_vm.vsIcon))]):_vm._e(),_vm._t("default")],2):_c('span',{staticClass:"text",style:({
+    'width':_vm.vsWidth,
     'color':_vm.vsColorText?/[#()]/.test(_vm.vsColorText)?_vm.vsColorText:("rgb(var(--" + _vm.vsColorText + "))"):'',
-    'padding':_vm.vsPadding}),domProps:{"innerHTML":_vm._s(_vm.vsHtml)}}),_c('div',{ref:"lineax",staticClass:"lineax"})])}
+    'border-radius':_vm.vsRadius,
+    'background':_vm.backgroundx,
+    }),attrs:{"type":"button","name":"button"}},'button',_vm.$attrs,false),_vm.listeners),[(!_vm.vsHtml)?_c('span',{staticClass:"text",style:({
+    'color':_vm.vsColorText?/[#()]/.test(_vm.vsColorText)?_vm.vsColorText:("rgb(var(--" + _vm.vsColorText + "))"):'',
+    'padding':_vm.vsPadding})},[(_vm.vsIcon)?_c('span',{class:{'material-icons':_vm.vsIcon,'icon-btn':_vm.$slots.default}},[_vm._v(_vm._s(_vm.vsIcon))]):_vm._e(),_vm._t("default")],2):_c('span',{staticClass:"text",style:({
+      'color':_vm.vsColorText?/[#()]/.test(_vm.vsColorText)?_vm.vsColorText:("rgb(var(--" + _vm.vsColorText + "))"):'',
+      'padding':_vm.vsPadding}),domProps:{"innerHTML":_vm._s(_vm.vsHtml)}}),_c('div',{ref:"lineax",staticClass:"lineax"})])}
 var staticRenderFns = []
 
 // EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/component-normalizer.js
