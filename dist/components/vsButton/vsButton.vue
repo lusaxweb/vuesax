@@ -250,6 +250,7 @@ export default {
         spanx.remove()
       }, 200);
     }
+    this.$emit('blur',evt)
     }
   }
 }
