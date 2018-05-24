@@ -15,11 +15,9 @@ export default {
       }
   },
   setCssVariable(propertyName, value, isServer) {
-    if(!isServer){
+    if(!isServer || process.browser){
       document.documentElement.style.setProperty(propertyName, value);
-    } else if (!process.server) {
-      document.documentElement.style.setProperty(propertyName, value);
-    } 
+    }
   },
   hexToRgb(hex) {
     // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")

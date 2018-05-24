@@ -7933,9 +7933,7 @@ module.exports = __webpack_require__("q+MV").f('iterator');
     }
   },
   setCssVariable: function setCssVariable(propertyName, value, isServer) {
-    if (!isServer) {
-      document.documentElement.style.setProperty(propertyName, value);
-    } else if (!process.server) {
+    if (!isServer || process.browser) {
       document.documentElement.style.setProperty(propertyName, value);
     }
   },
