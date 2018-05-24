@@ -12,7 +12,6 @@
       'border-radius':vsRadius,
       'background':backgroundx,
       }"
-    @click="$emit('click',$event)"
     @blur="btnBlur($event)"
     type="button"
     :class="[vsType?clasex:'vs-button-primary-filled',{'filled':vsType?vsType.search('filled')!=-1:false,'border':vsType?vsType.search('border')!=-1:false,'vs-button-icon':vsIcon}]"
