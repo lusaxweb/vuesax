@@ -7886,7 +7886,9 @@ var Vuesax = {
     if (options) {
       if (options.hasOwnProperty('theme')) {
         if (options.theme.hasOwnProperty('colors')) {
-          theme.vsfunction(options.theme.colors, options.server);
+          if (document != undefined) {
+            theme.vsfunction(options.theme.colors, options.server);
+          }
         }
       }
     }
