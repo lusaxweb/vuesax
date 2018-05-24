@@ -39,8 +39,7 @@
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "vue": "^2.5.2",
-    "vuecode.js": "0.0.27",
-    "vuex": "^3.0.1"
+    "vuecode.js": "0.0.27"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0-beta.6",

@@ -796,6 +796,13 @@ module.exports = {"colorprueba":"240, 91, 28"}
 
 /***/ }),
 
+/***/ "4uvn":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "58SC":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2889,6 +2896,10 @@ __webpack_require__.d(components_namespaceObject, "vsBreadcrumb", function() { r
 // EXTERNAL MODULE: ../Users/pc 01/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/core-js/modules/es7.object.values.js
 var es7_object_values = __webpack_require__("0+C+");
 var es7_object_values_default = /*#__PURE__*/__webpack_require__.n(es7_object_values);
+
+// EXTERNAL MODULE: ./src/css/iconfont/material-icons.css
+var material_icons = __webpack_require__("4uvn");
+var material_icons_default = /*#__PURE__*/__webpack_require__.n(material_icons);
 
 // EXTERNAL MODULE: ./src/css/index.css
 var css = __webpack_require__("OGwZ");
@@ -7832,6 +7843,7 @@ var vsTooltip_default = /*#__PURE__*/__webpack_require__.n(vsTooltip);
   }
 });
 // CONCATENATED MODULE: ./src/index.js
+
 
 
 

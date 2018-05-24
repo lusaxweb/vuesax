@@ -1,3 +1,4 @@
+import './css/iconfont/material-icons.css'
 import './css/index.css'
 import * as vsComponents from './components'
 import vsFunctions from './functions'
