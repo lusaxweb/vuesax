@@ -79,6 +79,7 @@ export default {
     optionClick(index){
       let selected = this.options[index!='no-index'?index:this.theseIndex]
       this.$emit('input',selected.value);
+      this.$emit('change',selected.value);
       this.valuex = selected.text
       this.theseIndex = index!='no-index'?index:this.theseIndex
       this.visible = false
