@@ -8,6 +8,7 @@ import vsTheme from './utils/theme.js'
 
 const Vuesax = {
   install(Vue, options) {
+
     // Register a global custom directive called `v-focus`
     Vue.directive('focus', {
       // When the bound element is inserted into the DOM...
@@ -20,7 +21,9 @@ const Vuesax = {
     if(options){
       if(options.hasOwnProperty('theme')){
         if(options.theme.hasOwnProperty('colors')){
-          vsTheme.vsfunction(options.theme.colors, options.server)
+          if (typeof window !== 'undefined' || process.browser) {
+            vsTheme.vsfunction(options.theme.colors, options.server)
+          }
         }
       }
     }

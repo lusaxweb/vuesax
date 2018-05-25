@@ -20,7 +20,7 @@
         keyboard_arrow_down
       </i>
       <transition name="fade-select">
-        <vs-select-options :style="{'top':`${topx}px`,'left':`${leftx}px`, 'width':`${widthx}px`}" v-show="visible" :active-index="theseIndex" @option-click="optionClick" :options="options"/>
+        <vs-select-options :vs-clave-text="vsClaveText" :style="{'top':`${topx}px`,'left':`${leftx}px`, 'width':`${widthx}px`}" v-show="visible" :active-index="theseIndex" @option-click="optionClick" :options="options"/>
       </transition>
   </div>
 </template>
@@ -33,6 +33,14 @@ export default {
     vsSelectOptions
   },
   props:{
+    vsClaveValue:{
+      default:null,
+      type:String,
+    },
+    vsClaveText:{
+      default:null,
+      type:String,
+    },
     disabled:{
       type:[Boolean,String],
       default:false,
@@ -78,9 +86,9 @@ export default {
     },
     optionClick(index){
       let selected = this.options[index!='no-index'?index:this.theseIndex]
-      this.$emit('input',selected.value);
-      this.$emit('change',selected.value);
-      this.valuex = selected.text
+      this.$emit('input',vsClaveValue?selected[vsClaveValue]:selected.value);
+      this.$emit('change',vsClaveValue?selected[vsClaveValue]:selected.value);
+      this.valuex = vsClaveText?selected[vsClaveText]:selected.text
       this.theseIndex = index!='no-index'?index:this.theseIndex
       this.visible = false
       this.$refs.inputx.blur()
@@ -95,7 +103,7 @@ export default {
         return item.value == this.value
       })
       this.theseIndex = _index
-      this.valuex = _value.text
+      this.valuex = vsClaveText?_value[vsClaveText]:_value.text
     }
   }
 }

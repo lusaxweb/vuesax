@@ -2,7 +2,7 @@
   <div ref="options" class="vs-component con-options">
     <ul>
       <li :class="{'activeItem':activeIndex==index}" v-for="option,index in options">
-        <button @click="$emit('option-click',index)" type="button" name="button">{{option.text}}</button>
+        <button @click="$emit('option-click',index)" type="button" name="button">{{vsClaveText?option[vsClaveText]:option.text}}</button>
       </li>
     </ul>
   </div>
@@ -11,6 +11,10 @@
 <script>
 export default {
   props:{
+    vsClaveText:{
+      type:String,
+      default:null,
+    },
     activeIndex:{
       type:Number,
       default: 0,
