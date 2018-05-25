@@ -1,7 +1,7 @@
 <p align="center">
   <a href="https://lusaxweb.github.io/vuesax/">
 <img src="https://github.com/lusaxweb/vuesax/blob/master/public/vuesax-logo.png" alt="vuesax" />
-<img src="https://github.com/lusaxweb/vuesax/blob/master/docs/.vuepress/public/landing.gif" alt="vuesax" />
+<img src="https://github.com/lusaxweb/vuesax/blob/master/public/vuesax-components.gif" alt="vuesax" />
    </a>
   </p>
 
