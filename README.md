@@ -4,7 +4,9 @@
 <img src="https://github.com/lusaxweb/vuesax/blob/master/public/vuesax-components.gif" alt="vuesax" />
    </a>
   </p>
+  
   </br>
+  
   <p align="center">
   <a href="https://travis-ci.org/lusaxweb/vuesax">
     <img src="https://img.shields.io/travis/lusaxweb/vuesax.svg" alt="travis ci badge">
@@ -51,9 +53,6 @@ The framework is focused on facilitating the development of applications, improv
 - [Pagination](https://lusaxweb.github.io/vuesax/components/pagination.html)
 - [Topbar](https://lusaxweb.github.io/vuesax/components/topbar.html)
 - [Breadcrumb](https://lusaxweb.github.io/vuesax/components/breadcrumb.html)
-<!--
-- [Dropdown](https://lusaxweb.github.io/vuesax/components/dropdown.html)
- -->
 
 # Demo and Documentation
 
@@ -127,7 +126,7 @@ Vue.use(vsSelect)
 Vue.use(vsPopup)
 ```
 
-### Or use only the functions
+### Or use only the functions:
 
 ```javascript
 import Vue from 'vue'
@@ -147,7 +146,6 @@ Vuesax is an open source MIT project if you want to contribute to keep improving
 ## Backers
 
 Support us with a monthly donation and help us continue our activities. [[Become a backer](https://opencollective.com/vuesax#backer)]
-
 
 ## Lusaxweb
 
