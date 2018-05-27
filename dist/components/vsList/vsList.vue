@@ -24,4 +24,7 @@ export default {
       border-radius 0px 0px 8px 8px
       border-bottom: 1px solid rgb(235, 235, 235) !important
 
+  .vs-list .vs-list-item {
+    border-top 1px solid rgb(235,235,235)
+  }
 </style>

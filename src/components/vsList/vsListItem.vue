@@ -44,8 +44,6 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-  .vs-list-item + .vs-list-item
-    border-top 1px solid rgb(235,235,235)
   .vs-list-item
     border-left 1px solid rgb(235,235,235)
     border-right 1px solid rgb(235,235,235)
