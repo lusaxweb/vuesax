@@ -4,9 +4,7 @@
 <img src="https://github.com/lusaxweb/vuesax/blob/master/public/vuesax-components.gif" alt="vuesax" />
    </a>
   </p>
-
   </br>
-
   <p align="center">
   <a href="https://travis-ci.org/lusaxweb/vuesax">
     <img src="https://img.shields.io/travis/lusaxweb/vuesax.svg" alt="travis ci badge">
