@@ -52,14 +52,18 @@ export default {
     }
   },
   mounted(){
+    if(this.$page.frontmatter.home){
+      window.addEventListener('scroll',(e)=>{
+        if(e.target.scrollingElement.scrollTop > 350){
+          this.shadow = true
+        } else {
+          this.shadow = false
+        }
+      })
+    } else {
+      this.shadow = true
+    }
 
-    window.addEventListener('scroll',(e)=>{
-      if(e.target.scrollingElement.scrollTop > 350){
-        this.shadow = true
-      } else {
-        this.shadow = false
-      }
-    })
   },
   methods:{
     changeColor(colorx){

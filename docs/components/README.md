@@ -325,7 +325,18 @@ You can have a button with only the icon you want with the property `vs-icon` an
 <div slot="code">
 
 ```html
-
+<vs-button vs-type="primary-border" vs-icon="search"></vs-button>
+<vs-button vs-type="warning-filled" vs-icon="public"></vs-button>
+<vs-button vs-type="success-flat" vs-icon="photo_camera"></vs-button>
+<vs-button vs-type="dark-line-down" vs-icon="event_note"></vs-button>
+<vs-button vs-type="danger-gradient" vs-icon="person_add"></vs-button>
+<br>
+<br>
+<vs-button vs-radius="50%" vs-type="primary-border" vs-icon="search"></vs-button>
+<vs-button vs-radius="50%" vs-type="warning-filled" vs-icon="public"></vs-button>
+<vs-button vs-radius="50%" vs-type="success-flat" vs-icon="photo_camera"></vs-button>
+<vs-button vs-radius="50%" vs-type="dark-line-down" vs-icon="event_note"></vs-button>
+<vs-button vs-radius="50%" vs-type="danger-gradient" vs-icon="person_add"></vs-button>
 ```
 
 </div>

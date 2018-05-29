@@ -1,5 +1,7 @@
 <template>
   <div class="sidebar">
+    <div class="c-sidebar">
+
     <NavLinks/>
     <slot name="top"/>
     <ul class="sidebar-links" v-if="items.length">
@@ -14,6 +16,7 @@
       </li>
     </ul>
     <slot name="bottom"/>
+  </div>
   </div>
 </template>
 
@@ -71,7 +74,13 @@ function resolveOpenGroupIndex (route, items) {
 
 <style lang="stylus">
 @import './styles/config.styl'
-
+.c-sidebar
+  width: calc(100% - 5px)
+  margin-right: 5px;
+  overflow: auto;
+  height: calc(100% - 10px);
+  margin-top: 5px;
+  padding-right: 5px;
 .sidebar
   ul
     padding 0
@@ -79,7 +88,7 @@ function resolveOpenGroupIndex (route, items) {
     list-style-type none
   a
     display inline-block
-    
+
   .nav-links
     display none
     border-bottom 1px solid $borderColor

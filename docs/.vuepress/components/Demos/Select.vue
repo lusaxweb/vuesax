@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="con-select">
+  <div class="con-select-example">
     <vs-select
       class="selectExample"
       label="Peliculas"
@@ -68,7 +68,7 @@ export default {
 .selectExample {
   margin: 10px;
 }
-.con-select {
+.con-select-example {
   display: flex;
   align-items: center;
   justify-content: center;

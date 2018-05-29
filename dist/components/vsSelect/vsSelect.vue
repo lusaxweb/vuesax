@@ -1,5 +1,5 @@
 <template lang="html">
-  <div :class="{'activo-select':visible}" class="vs-component con-select">
+  <div :class="{'activo-select':visible, 'disabledx-select':disabled}" class="vs-component con-select">
     <input
       ref="inputx"
       v-bind="$attrs"
@@ -20,7 +20,7 @@
         keyboard_arrow_down
       </i>
       <transition name="fade-select">
-        <vs-select-options :style="{'top':`${topx}px`,'left':`${leftx}px`, 'width':`${widthx}px`}" v-show="visible" :active-index="theseIndex" @option-click="optionClick" :options="options"/>
+        <vs-select-options ref="options"   @blur="visible = false"  @focus="visible = false" :vs-clave-text="vsClaveText" :style="{'top':`${topx}px`,'left':`${leftx}px`, 'width':`${widthx}px`}" v-show="visible" :active-index="theseIndex" @option-click="optionClick" :options="options"/>
       </transition>
   </div>
 </template>
@@ -33,6 +33,14 @@ export default {
     vsSelectOptions
   },
   props:{
+    vsClaveValue:{
+      default:null,
+      type:String,
+    },
+    vsClaveText:{
+      default:null,
+      type:String,
+    },
     disabled:{
       type:[Boolean,String],
       default:false,
@@ -57,15 +65,26 @@ export default {
   methods:{
     changePosition(){
       let scrollTopx = window.pageYOffset || document.documentElement.scrollTop;
-      this.topx = this.$refs.inputx.getBoundingClientRect().top + scrollTopx
-      this.leftx = this.$refs.inputx.getBoundingClientRect().left
-      this.widthx = this.$refs.inputx.offsetWidth
+      console.dir();
+      if(this.$refs.inputx.getBoundingClientRect().top + 300 >= window.innerHeight) {
+        console.dir(this.$refs.options.$el);
+        setTimeout( ()=> {
+          this.topx = (this.$refs.inputx.getBoundingClientRect().top - this.$refs.options.$el.clientHeight + this.$refs.inputx.clientHeight) + scrollTopx
+          this.leftx = this.$refs.inputx.getBoundingClientRect().left
+        }, 100);
+
+      } else {
+        this.topx = this.$refs.inputx.getBoundingClientRect().top + scrollTopx
+        this.leftx = this.$refs.inputx.getBoundingClientRect().left
+        this.widthx = this.$refs.inputx.offsetWidth
+      }
+
     },
     blurx(){
-      setTimeout((event) => {
+      // setTimeout((event) => {
           this.$emit('blur', event)
           this.visible = false
-      }, 100);
+      // }, 100);
     },
     navigateOptions(orientation){
       if(orientation == 'next'){
@@ -78,9 +97,9 @@ export default {
     },
     optionClick(index){
       let selected = this.options[index!='no-index'?index:this.theseIndex]
-      this.$emit('input',selected.value);
-      this.$emit('change',selected.value);
-      this.valuex = selected.text
+      this.$emit('input',this.vsClaveValue?selected[this.vsClaveValue]:selected.value);
+      this.$emit('change',this.vsClaveValue?selected[this.vsClaveValue]:selected.value);
+      this.valuex = this.vsClaveText?selected[this.vsClaveText]:selected.text
       this.theseIndex = index!='no-index'?index:this.theseIndex
       this.visible = false
       this.$refs.inputx.blur()
@@ -95,7 +114,7 @@ export default {
         return item.value == this.value
       })
       this.theseIndex = _index
-      this.valuex = _value.text
+      this.valuex = this.vsClaveText?_value[this.vsClaveText]:_value.text
     }
   }
 }
@@ -127,6 +146,10 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+  background: rgb(255, 255, 255);
+  border-radius: 6px;
+  &.disabledx-select
+    background: rgb(235, 235, 235)
   .inputx
     width: 100%;
     padding: 8px;
@@ -135,11 +158,14 @@ export default {
     border-radius: 6px;
     padding-right: 20px;
     transition: all .2s ease;
+    z-index: 100;
+    background: transparent
   .icon-select
     position: absolute;
     right: 6px;
     font-size: 16px;
     transition: all .2s ease;
+    z-index: 10;
 
 
 </style>
