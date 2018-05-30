@@ -97,7 +97,7 @@ export default {
     validar(){
       if(this.vsType){
         //email
-        if(this.value.length > 0){
+        if(this.value.length > 0 || typeof this.value === 'number'){
           if(this.vsValidationFunction && typeof this.vsValidationFunction === 'function') {
             validations[this.vsType] = this.vsValidationFunction;
           }
