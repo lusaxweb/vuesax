@@ -157,7 +157,7 @@ export default {
         }
         if(this.vsType=='number'){
           var rgx = /[0-9]/;
-          if(evt.key!='Backspace'&&evt.key!='Delete'){
+          if(evt.key!='Backspace'&&evt.key!='Delete'&&evt.key!='Tab'){
             if( ! rgx.test(evt.key)) {
               evt.preventDefault()
             }

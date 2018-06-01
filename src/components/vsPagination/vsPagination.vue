@@ -1,5 +1,5 @@
 <template lang="html">
-  <nav aria-label="Page pagination" role="navigation">
+  <nav class="vs-component" aria-label="Page pagination" role="navigation">
     <ul :class="['vs-pagination', vsType ? `vs-pager-${vsType}` : '', vsRounded ? 'vs-pager-rounded' : '']">
       <li><button @click="previousPage()" :disabled="onFirstPage() ? true : false"><i class="material-icons">{{vsPrevIcon}}</i></button></li>
       <li v-for="(page, index) in pages" :key="index">

@@ -17,11 +17,11 @@
   text-transform: none;
   text-decoration: none;
 }
-body {
+/* .vs-component {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
-}
+} */
 
-button {
+.vs-component button {
    border: 1px solid rgba(255, 255, 255,0);
    border-radius: 5px;
    border: 0px;
