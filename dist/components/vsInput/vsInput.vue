@@ -17,7 +17,7 @@
     v-on="listeners"
     class="vs-input">
 
-    <span v-if="!vsLabelPlaceholder" @click="$refs.inputx.focus()" :class="{'noPlaceholder':value?value.length>0:false?true:focusx}" class="placeholder">{{vsPlaceholder}}</span>
+    <span v-if="!vsLabelPlaceholder" @click="$refs.inputx.focus()" :class="{'noPlaceholder':value?(value.length>0 || typeof value === 'number'):false?true:focusx}" class="placeholder">{{vsPlaceholder}}</span>
     <span :style="{'color':focusx?backgroundx:'rgba(0, 0, 0, 0.30)'}" v-if="vsLabelPlaceholder" @click="$refs.inputx.focus()" :class="{'noPlaceholderLabel':value.length>0?true:focusx}" class="placeholder">{{vsLabelPlaceholder}}</span>
 
     <span v-if="vsIcon" class="iconx"><i class="material-icons">{{vsIcon}}</i></span>
@@ -97,7 +97,7 @@ export default {
     validar(){
       if(this.vsType){
         //email
-        if(this.value.length > 0){
+        if(this.value.length > 0 || typeof this.value === 'number'){
           if(this.vsValidationFunction && typeof this.vsValidationFunction === 'function') {
             validations[this.vsType] = this.vsValidationFunction;
           }

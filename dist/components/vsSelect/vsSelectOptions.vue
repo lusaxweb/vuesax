@@ -2,7 +2,18 @@
   <div ref="options" class="vs-component con-options">
     <ul>
       <li :class="{'activeItem':activeIndex==index}" v-for="option,index in options">
-        <button @blur="$emit('blur')" @focus="$emit('focus')" @click="$emit('option-click',index),$emit('focus')" type="button" name="button">{{vsClaveText?option[vsClaveText]:option.text}}</button>
+        <button
+          v-html="TextColor(option)"
+          @blur="$emit('blur')"
+          @focus="$emit('focus')" @click="$emit('option-click',vsClaveValue?option[vsClaveValue]:option.value),$emit('focus')"
+          type="button"
+          name="button">
+        </button>
+      </li>
+      <li v-if="options.length == 0">
+        <button type="button" name="button">
+          No data Avalible
+        </button>
       </li>
     </ul>
   </div>
@@ -11,6 +22,15 @@
 <script>
 export default {
   props:{
+    vsAutocomplete:{
+      default:false,
+      type:Boolean
+    },
+    valuex:{},
+    vsClaveValue:{
+      type:String,
+      default:null,
+    },
     vsClaveText:{
       type:String,
       default:null,
@@ -30,6 +50,35 @@ export default {
   },
 
   methods:{
+    TextColor(option){
+      let text = option.text
+      let textInit = option.text
+      function MaysPrimera(string){
+        return string.charAt(0).toUpperCase() + string.slice(1);
+      }
+      if(this.vsClaveText){
+        text = this.option[this.vsClaveText]
+      }
+      if(this.vsAutocomplete){
+        let indexOfx = text.toUpperCase().indexOf(this.valuex.toUpperCase())
+        if(indexOfx!=-1){
+          text = text.toLowerCase().replace(this.valuex.toLowerCase(),`<span class="sub">${indexOfx<1?MaysPrimera(this.valuex):this.valuex}</span>`)
+        }
+      }
+      return text
+    },
+    letters(event){
+      console.log(event);
+      var letters = /^[A-Za-z]+$/;
+      let options = JSON.parse(JSON.stringify(this.options))
+      options = options.map((item)=>{
+        return item.keyx = item.text[0]
+      })
+      console.log(options);
+      if(letters.test(event.key)){
+
+      }
+    },
     insertBody(){
       let elx = this.$refs.options
       document.body.insertBefore(elx, document.body.firstChild)
@@ -39,6 +88,10 @@ export default {
 </script>
 
 <style lang="stylus">
+.sub {
+  background: rgba(0, 0, 0,.1) !important;
+  // text-transform: capitalize !important;
+}
 .vs-component.con-options ul::-webkit-scrollbar {
   width: 5px;
 }
@@ -80,6 +133,10 @@ export default {
         text-align: left;
         transition: all .2s ease
         border-radius: 5px;
+        text-transform: lowercase;
+        &::first-letter
+          text-transform: capitalize
+
         &:hover
           background: rgb(245, 245, 245);
 
