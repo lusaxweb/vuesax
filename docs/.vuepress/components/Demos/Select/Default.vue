@@ -27,11 +27,11 @@ export default {
   name:'',
   data(){
     return {
-      select1:1,
+      select1:0,
       select2:1,
       select3:1,
       options1:[
-        {text:'IT',value:1},
+        {text:'IT',value:0},
         {text:'Blade Runner',value:2},
         {text:'Thor Ragnarok',value:3},
       ],

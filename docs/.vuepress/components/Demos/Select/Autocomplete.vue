@@ -31,20 +31,20 @@ export default {
   data(){
     return {
       select1:1,
-      select2:1,
-      select3:1,
+      select2:0,
+      select3:0,
       options1:[
         {text:'IT',value:1},
         {text:'Blade Runner',value:2},
         {text:'Thor Ragnarok',value:3},
       ],
       options2:[
-        {text:'Rojo',value:1},
+        {text:'Rojo',value:0},
         {text:'Verde',value:2},
         {text:'Azul',value:3},
       ],
       options3:[
-        {text:'Cuadrado',value:1},
+        {text:'Cuadrado',value:0},
         {text:'Rectángulo',value:2},
         {text:'Rombo',value:3},
         {text:'Romboide',value:4},

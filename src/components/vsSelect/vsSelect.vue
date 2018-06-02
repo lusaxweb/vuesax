@@ -111,7 +111,7 @@ export default {
       // console.log(letters.test(event.key[0]));
       if(event.key != 'ArrowDown' && event.key != 'ArrowUp'&& event.key != 'Enter'){
       //   this.autocomplete = false
-      console.log("hola asdasd");
+      // console.log("hola asdasd");
       this.changePosition()
       this.arrows = true
     } else {
@@ -170,20 +170,24 @@ export default {
       this.valuex = this.options[this.theseIndex].text
       this.valueSelected = this.options[this.theseIndex].value
 
-      console.log(">>>>valuex",this.valuex);
+      // console.log(">>>>valuex",this.valuex);
     },
     optionClick(value){
-      let _value = value || this.valueSelected
+      // console.log("value>>>>>>>",value);
+      let _value = value
+      if(!value && value!=0){
+        _value = this.valueSelected
+      }
       let index = 0
-      console.log(_value);
-      console.log(this.valueSelected);
+      // console.log(_value);
+      // console.log(this.valueSelected);
       let optionx = this.options.forEach((item,index_item)=>{
         if(this.vsClaveValue?item[this.vsClaveValue]:item.value == _value) {
           index = index_item
           this.valueSelected = this.vsClaveValue?selected[this.vsClaveValue]:item.value
         }
       })
-      console.log(optionx);
+      // console.log(optionx);
       let selected = this.options[index!='no-index'?index:this.theseIndex]
       this.$emit('input',this.vsClaveValue?selected[this.vsClaveValue]:selected.value);
       this.$emit('change',this.vsClaveValue?selected[this.vsClaveValue]:selected.value);

@@ -1,6 +1,6 @@
 <template>
 
-  <div class="con-home">
+  <div class="con-home vs-component">
     <div class="logo-g">
       <img  v-if="data.heroImage" :src="$withBase(data.heroImage)" alt="hero">
     </div>
@@ -19,7 +19,7 @@
     <div class="hero">
 
       <h1 v-if="data.heroText" v-html="data.heroText"></h1>
-      <h1 v-else>{{$title || 'hello'}}</h1>
+      <!-- <h1 v-else>{{$title || 'hello'}}</h1> -->
       <p v-html="data.tagline || $description || 'Welcome to your VuePress site'" class="description"></p>
       <p class="action" v-if="data.actionText && data.actionLink">
         <NavLink class="action-button" :item="actionLink"/>
@@ -81,7 +81,7 @@
 
     <div class="contribuitors">
       <div class="con-contribuitors">
-        <contributors :title="title" :repo="this.$site.themeConfig.repo" contributors="all"/>
+        <contributors :title="'Contributors'" :repo="this.$site.themeConfig.repo" contributors="all"/>
       </div>
       <div class="con-svg-trofeos">
         <trofeos />
@@ -223,11 +223,10 @@ export default {
   justify-content: flex-start;
   padding-top: 10px;
   button
-    background: $accentColor
+    background: $accentColor !important
     border: 0px;
     border-radius: 6px;
     color: rgb(255, 255, 255);
-
     cursor: pointer;
     transition: all .2s ease;
 

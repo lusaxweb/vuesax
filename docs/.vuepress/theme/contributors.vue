@@ -10,7 +10,12 @@
       </li>
     </ul>
     <div v-if="contributors == 'all'" class="con-btns-contribuitors">
-      <button type="button" name="button"><a href="https://github.com/lusaxweb/vuesax/graphs/contributors">Contribuitors</a></button>
+      <button type="button" name="button">
+        <!-- <a href="">Contribuitors</a> -->
+        <router-link
+          to="/contributors/"
+        >Contribuitors</router-link>
+      </button>
     </div>
   </div>
 </template>

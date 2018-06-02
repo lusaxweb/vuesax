@@ -16,7 +16,7 @@
     <Home v-if="$page.frontmatter.home"/>
     </transition>
     <transition name="homex">
-    <Page v-if="!$page.frontmatter.home" :sidebar-items="sidebarItems">
+    <Page v-if="!$page.frontmatter.home&&!$page.frontmatter.layout" :sidebar-items="sidebarItems">
       <slot name="page-top" slot="top"/>
       <slot name="page-bottom" slot="bottom"/>
     </Page>
