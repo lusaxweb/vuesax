@@ -1,5 +1,5 @@
 <template lang="html">
-  <div :class="{'activo-select':visible, 'disabledx-select':disabled, 'vsAutocomplete':vsAutocomplete}" class="vs-component con-select">
+  <div :class="{'activo-select':visible, 'disabledx-select':disabled, 'vsAutocomplete':vsAutocomplete || vsMultiple}" class="vs-component con-select">
     <input
       ref="inputx"
       @blur="blurx"
@@ -22,12 +22,15 @@
       </i>
       <transition name="fade-select">
         <vs-select-options
+          :vs-max-selected="vsMaxSelected"
+          v-model="value"
+          :vsMultiple="vsMultiple"
           :vsAutocomplete="vsAutocomplete"
           :valuex="valuex"
           :vs-clave-value="vsClaveValue"
           ref="options"
           @blur="visible = false"
-          @focus="visible = false"
+          @focus="vsMultiple?visible = true:visible = false"
           :vs-clave-text="vsClaveText"
           :style="{'top':`${topx}px`,'left':`${leftx}px`, 'width':`${widthx}px`}"
           v-show="visible"
@@ -46,6 +49,14 @@ export default {
     vsSelectOptions
   },
   props:{
+    vsMaxSelected:{
+      default:null,
+      type:[Number,String]
+    },
+    vsMultiple:{
+      default:false,
+      type:Boolean
+    },
     vsAutocomplete:{
       default:false,
       type:Boolean
@@ -85,7 +96,8 @@ export default {
   computed:{
     optionsFilter(){
       let options = JSON.parse(JSON.stringify(this.options))
-      if(this.valuex != '' && this.vsAutocomplete && this.arrows){
+
+      if(this.valuex != '' && this.vsAutocomplete && this.arrows && this.options){
         options = options.filter((item,index)=>{
           return item.text.toUpperCase().indexOf(this.valuex.toUpperCase()) != -1
         })
@@ -133,22 +145,23 @@ export default {
       if(this.$refs.inputx.getBoundingClientRect().top + 300 >= window.innerHeight) {
         console.dir(this.$refs.options.$el);
         setTimeout( ()=> {
-          if(this.vsAutocomplete){
+          if(this.vsAutocomplete || this.vsMultiple){
             this.topx = (this.$refs.inputx.getBoundingClientRect().top - this.$refs.options.$el.clientHeight) + scrollTopx
-
           } else {
             this.topx = (this.$refs.inputx.getBoundingClientRect().top - this.$refs.options.$el.clientHeight + this.$refs.inputx.clientHeight) + scrollTopx
-
           }
-          this.leftx = this.$refs.inputx.getBoundingClientRect().left
         }, 1);
 
       } else {
-        this.topx = this.vsAutocomplete?(this.$refs.inputx.getBoundingClientRect().top + this.$refs.inputx.clientHeight) + scrollTopx:this.$refs.inputx.getBoundingClientRect().top + scrollTopx
-        this.leftx = this.$refs.inputx.getBoundingClientRect().left
-        this.widthx = this.$refs.inputx.offsetWidth
+        this.topx = this.vsAutocomplete || this.vsMultiple?(this.$refs.inputx.getBoundingClientRect().top + this.$refs.inputx.clientHeight) + scrollTopx:this.$refs.inputx.getBoundingClientRect().top + scrollTopx
       }
 
+
+      setTimeout( () => {
+        this.leftx = this.$refs.inputx.getBoundingClientRect().left
+        this.widthx = this.$refs.inputx.offsetWidth
+      }, 1);
+      console.log("paso por this.changePosition()>>>>>>>>",this.leftx);
     },
     blurx(){
       // setTimeout((event) => {
@@ -173,7 +186,34 @@ export default {
       // console.log(">>>>valuex",this.valuex);
     },
     optionClick(value){
-      // console.log("value>>>>>>>",value);
+      // multiple
+
+      if(this.vsMultiple){
+        let [__value] = this.options.filter((item,index)=>{
+          if(this.vsClaveValue?item[this.vsClaveValue]:item.value == value){
+            return true
+          }
+        })
+        console.log(__value);
+        let _index = 0
+        let [oldValue] = JSON.parse(JSON.stringify(this.value)).filter((item,index)=>{
+          if(this.vsClaveValue?item[this.vsClaveValue]:item.value == value){
+            _index = index
+            return true
+          }
+        })
+        console.log("oldValue>>",oldValue);
+        if(oldValue){
+          this.value.splice(_index,1)
+        } else {
+          this.value.push(__value)
+        }
+        this.visible = true
+        this.getValue()
+
+      } else {
+
+
       let _value = value
       if(!value && value!=0){
         _value = this.valueSelected
@@ -195,18 +235,46 @@ export default {
       this.theseIndex = index!='no-index'?index:this.theseIndex
       this.visible = false
       this.$refs.inputx.blur()
+
+      }
+      this.changePosition()
     },
     getValue(){
       let _index = 0
       let optionsx = JSON.parse(JSON.stringify(this.options))
       let [_value] = optionsx.filter((item,index)=>{
-        if(item.value == this.value){
+        if(this.vsClaveValue?item[this.vsClaveValue]:item.value == this.value){
           _index = index
         }
-        return item.value == this.value
+        return this.vsClaveValue?item[this.vsClaveValue]:item.value == this.value
       })
       this.theseIndex = _index
-      this.valuex = this.vsClaveText?_value[this.vsClaveText]:_value.text
+
+      if(_value){
+        this.valuex = this.vsClaveText?_value[this.vsClaveText]: _value.text
+      } else if (this.vsMultiple) {
+        // console.log();
+        console.log("_value",_value,this.$el);
+        let __value = this.options.filter((item,index)=>{
+          let returnx = false
+          this.value.forEach((item_value)=>{
+            if(this.vsClaveValue?item[this.vsClaveValue]:item.value == item_value.value){
+              returnx = true
+            }
+          })
+          return returnx
+        })
+        console.log("__value>>>>",__value);
+        let textValue = ''
+        __value.forEach((item,index)=>{
+          if(index==0){
+            textValue += `${item.text}`
+          } else {
+            textValue += `, ${item.text}`
+          }
+        })
+        this.valuex = textValue
+      }
     }
   }
 }

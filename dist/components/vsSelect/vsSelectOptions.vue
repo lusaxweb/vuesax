@@ -1,8 +1,13 @@
 <template lang="html">
   <div ref="options" class="vs-component con-options">
     <ul>
-      <li :class="{'activeItem':activeIndex==index}" v-for="option,index in options">
+      <li :class="{'activeItem':vsMultiple?includesx(option):activeIndex==index}" v-for="option,index in options">
+        <i v-if="vsMultiple" :class="{'active-icon-multiple':includesx(option)}" class="material-icons icon-multi">
+          check_circle
+        </i>
         <button
+          :disabled="vsMultiple?includesx(option)?false:vsMaxSelected==value.length:false"
+          :class="{'con-iconx-multi':vsMultiple}"
           v-html="TextColor(option)"
           @blur="$emit('blur')"
           @focus="$emit('focus')" @click="$emit('option-click',vsClaveValue?option[vsClaveValue]:option.value),$emit('focus')"
@@ -22,6 +27,15 @@
 <script>
 export default {
   props:{
+    value:{},
+    vsMaxSelected:{
+      default:null,
+      type:[Number,String]
+    },
+    vsMultiple:{
+      default:false,
+      type:Boolean
+    },
     vsAutocomplete:{
       default:false,
       type:Boolean
@@ -50,6 +64,17 @@ export default {
   },
 
   methods:{
+    includesx(option){
+      console.log(this.value);
+      console.log(option);
+      let returnx = false
+      let value = JSON.parse(JSON.stringify(this.value)).filter((item)=>{
+        if(this.vsClaveValue?option[this.vsClaveValue]:item.value == option.value){
+          returnx = true
+        }
+      })
+      return returnx
+    },
     TextColor(option){
       let text = option.text
       let textInit = option.text
@@ -121,6 +146,20 @@ export default {
       list-style: none;
       width: 100%
       padding: 0px;
+      position: relative;
+      .icon-multi
+        position: absolute;
+        z-index: 100;
+        font-size: 17px;
+        top: 50%;
+        left: 3px;
+        transform: translate(-100%,-50%);
+        backface-visibility: hidden;
+        transition: all .2s ease;
+        opacity: 0;
+        &.active-icon-multiple
+          opacity: 1
+          transform: translate(0px,-50%);
       &:not(.activeItem)
         button
           background: transparent
@@ -140,7 +179,11 @@ export default {
         &:hover
           background: rgb(245, 245, 245);
 
+
 @css {
+  .activeItem button.con-iconx-multi {
+    padding-left: 24px !important;
+  }
   .activeItem button{
     background: rgba(var(--primary),.1);
     font-weight: bold;
