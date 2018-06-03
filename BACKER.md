@@ -2,11 +2,11 @@
 
 You can join them in supporting Vuesax.js by [Patreon](https://www.patreon.com/luisdanielroviracontreras)
 
-### $100+
+## $100+
 
-### $50+
+## $50+
 
-### $10+
+## $10+
 
-### $2+
+## $2+
 
