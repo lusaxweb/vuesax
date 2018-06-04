@@ -1,0 +1,40 @@
+	/*
+  	Flaticon icon font: Flaticon
+  	Creation date: 01/05/2018 00:43
+  	*/
+
+@font-face {
+  font-family: "Flaticon2";
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff") format("woff"),
+       url("./Flaticon.ttf") format("truetype"),
+       url("./Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon2";
+    src: url("./Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+[class^="flaticon2-"]:before, [class*=" flaticon2-"]:before,
+[class^="flaticon2-"]:after, [class*=" flaticon2-"]:after {
+  font-family: Flaticon2;
+        font-size: 21px;
+font-style: normal;
+
+}
+
+.flaticon2-invert-vc:before { content: "\f100"; }
+.flaticon2-copy-content-vc:before { content: "\f101"; }
+.flaticon2-arrows-vc:before { content: "\f102"; }
+.flaticon2-minimize-vc:before { content: "\f103"; }
+.flaticon2-menu-vc:before { content: "\f104"; }
+.flaticon2-jsfiddle-logo-vc:before { content: "\f105"; }
+.flaticon2-code-vc:before { content: "\f106"; }
+.flaticon2-3d-outlined-shape-vc:before { content: "\f107"; }
+.flaticon2-github-logo-vc:before { content: "\f108"; }

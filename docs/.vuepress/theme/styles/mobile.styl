@@ -1,0 +1,45 @@
+@require './config'
+
+$mobileSidebarWidth = $sidebarWidth * 0.82
+
+// narrow desktop / iPad
+@media (max-width: $MQNarrow)
+  .sidebar
+    font-size 15px
+    width $mobileSidebarWidth
+  .page
+    padding-left $mobileSidebarWidth
+  .content:not(.custom)
+    padding 0rem
+
+// wide mobile
+@media (max-width: $MQMobile)
+  .dropdown-wrapper
+    display none
+  .sidebar
+    top 0
+    padding-top $navbarHeight
+    transform translateX(-100%)
+    transition transform .2s ease
+  .page
+    padding-left 0
+  .theme-container.sidebar-open
+    .sidebar
+      transform translateX(0)
+  h1
+    font-size 1.3rem !important
+    padding-top 5rem !important
+    a
+      display none
+  footer
+    margin-top 100px !important
+// narrow mobile
+@media (max-width: $MQMobileNarrow)
+  h1
+    font-size 1.9rem
+  .content:not(.custom)
+    padding 0rem
+  .content
+    pre, pre[class*="language-"]
+      margin 0.85rem 0
+      border-radius 0
