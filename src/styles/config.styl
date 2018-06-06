@@ -122,3 +122,10 @@ paddinger(min, max, step)
 paddinger(1, 5, 1) 
 paddinger(5, 100, 5)
 
+fontsizer(min, max, step)
+  .ft{min}
+    font-size (min px)
+  if min < max
+    fontsizer(min + step, max, step)
+
+fontsizer(5, 100, 5)
