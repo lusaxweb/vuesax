@@ -60,13 +60,10 @@ export default {
   },
   mounted(){
     this.insertBody()
-    console.log("paso");
   },
 
   methods:{
     includesx(option){
-      console.log(this.value);
-      console.log(option);
       let returnx = false
       let value = JSON.parse(JSON.stringify(this.value)).filter((item)=>{
         if(this.vsClaveValue?option[this.vsClaveValue]:item.value == option.value){
@@ -93,13 +90,11 @@ export default {
       return text
     },
     letters(event){
-      console.log(event);
       var letters = /^[A-Za-z]+$/;
       let options = JSON.parse(JSON.stringify(this.options))
       options = options.map((item)=>{
         return item.keyx = item.text[0]
       })
-      console.log(options);
       if(letters.test(event.key)){
 
       }

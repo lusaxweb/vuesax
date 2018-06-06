@@ -107,23 +107,8 @@ export default {
   },
   methods:{
     letters(event){
-      // console.log(event);
-      // this.theseIndex = 0
       var letters = /[A-Za-z0-9]/;
-      // // var arrows = /ArrowDown/
-      // // let options = JSON.parse(JSON.stringify(this.options))
-      // //
-      // // options = options.map((item)=>{
-      // //   return item.keyx = item.text[0]
-      // // })
-      // if(!letters.test(event.key)){
-      //   return
-      // }
-      // console.log(event.key);
-      // console.log(letters.test(event.key[0]));
       if(event.key != 'ArrowDown' && event.key != 'ArrowUp'&& event.key != 'Enter'){
-      //   this.autocomplete = false
-      // console.log("hola asdasd");
       this.changePosition()
       this.arrows = true
     } else {
@@ -161,7 +146,6 @@ export default {
         this.leftx = this.$refs.inputx.getBoundingClientRect().left
         this.widthx = this.$refs.inputx.offsetWidth
       }, 1);
-      console.log("paso por this.changePosition()>>>>>>>>",this.leftx);
     },
     blurx(){
       // setTimeout((event) => {
@@ -183,7 +167,6 @@ export default {
       this.valuex = this.options[this.theseIndex].text
       this.valueSelected = this.options[this.theseIndex].value
 
-      // console.log(">>>>valuex",this.valuex);
     },
     optionClick(value){
       // multiple
@@ -194,7 +177,6 @@ export default {
             return true
           }
         })
-        console.log(__value);
         let _index = 0
         let [oldValue] = JSON.parse(JSON.stringify(this.value)).filter((item,index)=>{
           if(this.vsClaveValue?item[this.vsClaveValue]:item.value == value){
@@ -202,7 +184,6 @@ export default {
             return true
           }
         })
-        console.log("oldValue>>",oldValue);
         if(oldValue){
           this.value.splice(_index,1)
         } else {
@@ -219,15 +200,14 @@ export default {
         _value = this.valueSelected
       }
       let index = 0
-      // console.log(_value);
-      // console.log(this.valueSelected);
+
       let optionx = this.options.forEach((item,index_item)=>{
         if(this.vsClaveValue?item[this.vsClaveValue]:item.value == _value) {
           index = index_item
           this.valueSelected = this.vsClaveValue?selected[this.vsClaveValue]:item.value
         }
       })
-      // console.log(optionx);
+
       let selected = this.options[index!='no-index'?index:this.theseIndex]
       this.$emit('input',this.vsClaveValue?selected[this.vsClaveValue]:selected.value);
       this.$emit('change',this.vsClaveValue?selected[this.vsClaveValue]:selected.value);
@@ -253,8 +233,6 @@ export default {
       if(_value){
         this.valuex = this.vsClaveText?_value[this.vsClaveText]: _value.text
       } else if (this.vsMultiple) {
-        // console.log();
-        console.log("_value",_value,this.$el);
         let __value = this.options.filter((item,index)=>{
           let returnx = false
           this.value.forEach((item_value)=>{
@@ -264,7 +242,6 @@ export default {
           })
           return returnx
         })
-        console.log("__value>>>>",__value);
         let textValue = ''
         __value.forEach((item,index)=>{
           if(index==0){

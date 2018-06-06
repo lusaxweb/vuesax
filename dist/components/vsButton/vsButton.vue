@@ -120,17 +120,12 @@ export default {
 
     let el = this.$el
     el.addEventListener('click', function(event){
-      console.log(event);
       let x
       let y
-      // if(event.target.className == 'text'){
+
         x = event.offsetX
         y = event.offsetY
-      // } else {
-      //   console.log(event.target.closest('.text').offsetX);
-      //   x = event.target.closest('.text').offsetX
-      //   y = event.target.closest('.text').offsetY
-      // }
+
       let elSpan = document.createElement("span");
       elSpan.className = 'relleno'
       el.appendChild(elSpan)
@@ -141,8 +136,7 @@ export default {
 
       if(_this.vsColor){
         if (/-flat/.test(_this.vsType) || /-border/.test(_this.vsType)) {
-          // btn.style.border = '1px solid '+this.vsColor
-          console.log("click dentro");
+
           spanx.style.background = _this.vsColor
 
         }
@@ -187,7 +181,6 @@ export default {
       let btn = this.$refs.btnvuesax
       let colorx = function(opacity){
         var rgb = _this.vsColor.replace(/^(rgb|rgba)\(/,'').replace(/\)$/,'').replace(/\s/g,'').split(',');
-        // console.log(rgb);
         return `rgba(${rgb[0]},${rgb[1]},${rgb[2]},${opacity})`;
       }
       if(this.vsColor){
@@ -199,7 +192,6 @@ export default {
           colorx = function(opacity){
             return `rgba(${c.r},${c.g},${c.b},${opacity})`;
           }
-          // console.log("paso coloe");
 
         }
       }
@@ -207,7 +199,6 @@ export default {
       if(/-border/.test(this.vsType)){
         btn.style.border = '1px solid '+this.vsColor
         btn.style.color = this.vsColor
-        console.log("entro");
       } else if (/-flat/.test(this.vsType)) {
         btn.style.color = this.vsColor
         btn.addEventListener('mouseover',()=>{
@@ -233,8 +224,7 @@ export default {
       } else if (/-gradient/.test(this.vsType)) {
         let color1 = this.vsColor.split('/')[0]
         let color2 = this.vsColor.split('/')[1]
-        console.log(color1);
-        console.log(color2);
+
         btn.style.background = `linear-gradient(30deg, ${color1} 0%, ${color2} 100%)`
       }
   }

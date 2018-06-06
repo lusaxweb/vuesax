@@ -92,12 +92,10 @@ export default {
 
             let selects = document.querySelectorAll('.con-ul-select')
             if(selects.length==1){
-              // console.log("paso en 1");
               if(document.querySelector('.con-ul-select').clientHeight>=300){
                 this.scroll = true
               }
             } else {
-              // console.log("paso en 2",selects);
               if(selects[1].clientHeight>=300){
                 this.scroll = true
               }
@@ -105,7 +103,6 @@ export default {
 
         }, 400);
         setTimeout( ()=> {
-          // console.log();
           var elx = this.$el.querySelector('.con-ul-select')
           var elx2 = document.querySelectorAll('.con-ul-select')
           var elxUl = document.querySelector('.con-ul-select ul');
@@ -113,13 +110,10 @@ export default {
             mousewheelx(elx2[i])
           }
           function mousewheelx(el){
-          // console.log();
           el.querySelector('.con-ul-select ul').scrollTop = el.querySelector('.con-ul-select ul .activo').offsetTop
           if(el.clientHeight>=300){
             el.addEventListener('mousewheel',function(e){
-              // console.log($(".con-codes").scrollTop());
                     if(e.wheelDelta /120 > 0) {
-                        // console.log('scrolling up !');
                         if(el.querySelector('.con-ul-select ul').scrollTop==0){
                           el.querySelector('.con-ul-select ul').style.paddingTop = '25px'
                           setTimeout(function () {
@@ -134,7 +128,6 @@ export default {
                           el.querySelector('.con-ul-select ul').style.paddingBottom = '0px'
                         }, 300);
                       }
-                        // console.log('scrolling down !');
                     }
                 });
           }
@@ -148,7 +141,6 @@ export default {
 
       } else {
         this.scroll = false
-        console.log("entro en quitar");
         document.removeEventListener('keydown',this.arrows)
       }
     }
@@ -189,14 +181,11 @@ export default {
       this.visible=false
     },
     clickOption(evt){
-      console.log("entro qui");
       this.visible=false
       this.$emit('input',evt.target.dataset.value);
       this.$emit('change',evt.target.dataset.value);
     },
     clickOptionSelect(evt){
-      // console.log("paso select change");
-      // this.visible=false
       this.$emit('input',evt.target.value);
       this.$emit('change',evt.target.value);
     },

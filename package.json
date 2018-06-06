@@ -35,6 +35,7 @@
     "new:component": "sh scripts/newComponent.sh"
   },
   "dependencies": {
+    "material-design-icons": "^3.0.1",
     "prefixfree": "^1.0.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",

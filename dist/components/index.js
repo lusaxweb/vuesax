@@ -22,6 +22,7 @@ import vsList from './vsList'
 import vsAvatar from './vsAvatar'
 import vsPagination from './vsPagination'
 import vsBreadcrumb from './vsBreadcrumb'
+import vsSideBar from './vsSideBar'
 //New Component import
 
 // import vsAnchor from './vsAnchor'
@@ -59,6 +60,7 @@ export {
   vsAvatar,
   vsPagination,
   vsBreadcrumb,
+  vsSideBar,
   //New Component export
 
   // en proceso

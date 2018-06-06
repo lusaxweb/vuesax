@@ -1,9 +1,7 @@
 import './vsTooltip.css'
 export default {
   update(el,binding,vnode){
-    // console.log("el=>",el);
-    // console.log("binding=>",binding);
-    // console.log('vnode=>',vnode);
+
     let valuex = null
     let keyx = el.dataset.keyx
 
@@ -23,6 +21,8 @@ export default {
     }
   },
   inserted(el, binding, vnode) {
+
+
     var ramdomx = Math.floor((Math.random() * 1000) + 1)
     el.dataset.keyx = 'vs-tooltip'+ramdomx
     // console.log("el=>",el);

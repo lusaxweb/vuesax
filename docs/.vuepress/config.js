@@ -208,6 +208,7 @@ module.exports = {
           '/components/pagination',
           '/components/breadcrumb',
           '/components/topbar',
+          '/components/sideBar',
           /*New Component*/
         ]
       },
