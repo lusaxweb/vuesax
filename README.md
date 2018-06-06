@@ -4,9 +4,9 @@
 <img src="https://github.com/lusaxweb/vuesax/blob/master/public/vuesax-components.gif" alt="vuesax" />
    </a>
   </p>
-  
+
   </br>
-  
+
   <p align="center">
   <a href="https://travis-ci.org/lusaxweb/vuesax">
     <img src="https://img.shields.io/travis/lusaxweb/vuesax.svg" alt="travis ci badge">
@@ -53,6 +53,7 @@ The framework is focused on facilitating the development of applications, improv
 - [Pagination](https://lusaxweb.github.io/vuesax/components/pagination.html)
 - [Topbar](https://lusaxweb.github.io/vuesax/components/topbar.html)
 - [Breadcrumb](https://lusaxweb.github.io/vuesax/components/breadcrumb.html)
+- [SideBar](https://lusaxweb.github.io/vuesax/components/sideBar.html)
 
 # Demo and Documentation
 
