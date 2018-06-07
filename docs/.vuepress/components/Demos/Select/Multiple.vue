@@ -16,7 +16,7 @@
       class="selectExample"
       label="Peliculas"
       v-model="select2"
-      :options="options1"
+      :options="options2"
       ></vs-select>
       <span class="modelx">{{select2}}</span>
   </div>
@@ -27,21 +27,27 @@ export default {
   name:'',
   data(){
     return {
-      select1:[{text:'Romboide',value:4}],
-      select2:[{text:'Rectángulo',value:2}],
+      select1:[{text: 'Red', value: 1}],
+      select2:[{text: 'Romboid', value: 4}],
       options1:[
-        {text:'Cuadrado',value:1},
-        {text:'Rectángulo',value:2},
-        {text:'Rombo',value:3},
-        {text:'Romboide',value:4},
-        {text:'Trapecio',value:5},
-        {text:'Triángulo',value:6},
-        {text:'Polígono',value:7},
-        {text:'Polígono regular',value:8},
-        {text:'Circunferencia',value:9},
-        {text:'Círculo',value:10},
-        {text:'Sector circular',value:11},
-        {text:'Trapecio circular',value:12},
+        {text: 'Red', value: 1},
+        {text: 'Green', value: 2},
+        {text: 'Blue', value: 3},
+        {text: 'Purple', value: 4},
+      ],
+      options2:[
+        {text: 'Square', value: 1},
+        {text: 'Rectangle', value: 2},
+        {text: 'Rombo', value: 3},
+        {text: 'Romboid', value: 4},
+        {text: 'Trapeze', value: 5},
+        {text: 'Triangle', value: 6},
+        {text: 'Polygon', value: 7},
+        {text: 'Regular polygon', value: 8},
+        {text: 'Circumference', value: 9},
+        {text: 'Circle', value: 10},
+        {text: 'Circular sector', value: 11},
+        {text: 'Circular trapeze', value: 12},
       ]
     }
   },

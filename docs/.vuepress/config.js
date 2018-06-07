@@ -117,7 +117,7 @@ module.exports = {
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Documents', link: '/vuesax/' },
-      { text: 'Contributors', link: '/contributors/' },
+      { text: 'Contribuitors', link: '/contribuitors/' },
       {
         text: 'Ecosystem',
         items: [
@@ -157,7 +157,6 @@ module.exports = {
     ],
     sidebar: [
       {
-        perro:'hola',
         title: 'Vuesax',
         collapsable: false,
         children: [

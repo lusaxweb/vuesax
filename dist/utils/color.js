@@ -1,4 +1,7 @@
 export default {
+  rColor(colorx){
+    return colorx?/[#()]/.test(colorx)?colorx:`rgba(var(--${colorx}),1)`:'rgb(var(--primary))'
+  },
   contrastColor(elementx) {
     let c = elementx
       if(/[#]/g.test(elementx)){

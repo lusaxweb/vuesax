@@ -1,168 +1,183 @@
 <template lang="html">
-  <label ref="checkBoxx" :disabled="disabled" :class="[{'disabledx':disabled,'checkBoxActivo':typeof value == 'boolean'?value:valueArray}]" @click="checkBoxClick" class="con-check">
-    <span :style="{'border':typeof value == 'boolean'?!value?'2px solid rgb(160, 160, 160)':'2px solid '+backgroundx():!valueArray?'2px solid rgb(160, 160, 160)':'2px solid '+backgroundx()}" class="cuadro">
-      <i class="material-icons">check</i>
-      <span :style="{'background':backgroundx()}" class="afterx"></span>
+  <div class="vs-component con-vs-checkbox">
+    <input
+      v-bind="$attrs"
+      v-on="listeners"
+      type="checkbox"
+      :checked="isChecked || $attrs.checked"
+      value="">
+    <span
+      :style="{
+        'border': `2px solid ${$attrs.checked?$attrs.checked?giveColor(vsColor):'rgb(180, 180, 180)':isChecked?giveColor(vsColor):'rgb(180, 180, 180)'}`
+        }"
+      class="checkbox_x">
+      <span :style="{
+        'background':giveColor(vsColor)
+        }" class="_check"></span>
+      <i
+        :style="{
+          'color':giveColor(vsColor)
+        }"
+        class="material-icons">
+        {{vsIcon}}
+      </i>
     </span>
+    <span class="con-slot-label">
       <slot>
       </slot>
-  </label>
+    </span>
+  </div>
 </template>
 
 <script>
+import _color from '../../utils/color.js'
 export default {
+  inheritAttrs: false,
   name:'vs-checkbox',
-  props:[
-    'vs-value',
-    'value',
-    'vsColor',
-    'disabled'
-  ],
-  data(){
-    return {
-
+  props:{
+    vsColor:{
+      default:'primary',
+      type:String,
+    },
+    value:{},
+    vsIcon:{
+      default:'check',
+      type:String
+    },
+    vsValue:{
+      type:[Boolean,Array,String,Number,Object],
+      default:false
     }
   },
   computed:{
-    valueArray(){
-      let arrayx = this.value
-      let returnx = false
-      if(typeof this.value == 'object' && this.value != null){
-        if(typeof this.vsValue == 'object'){
-          let valuex = JSON.stringify(this.vsValue)
-          if(JSON.stringify(arrayx).search(valuex)!=-1){
-            returnx = true
-          } else {
-            returnx = false
-          }
-        } else {
-          if(arrayx.includes(this.vsValue)){
-            returnx = true
-          } else {
-            returnx = false
-          }
-        }
-      } else if (typeof this.value == 'string' || this.value == '' || this.value == null) {
-        if(this.value == this.vsValue){
-          returnx = true
-        } else {
-          returnx = false
-        }
-      }
+    listeners(){
+      return {
+        ...this.$listeners,
+        change: (event) => {
+          this.toggleValue()
 
-      return returnx
-    }
-  },
-  methods:{
-    checkBoxClick(){
-
-      if(typeof this.value == 'object'&&this.value != null){
-        let valueOld = this.value
-        if(this.$refs.checkBoxx.classList.contains('checkBoxActivo')){
-          let valuenew = valueOld.filter((item) => {
-            if(typeof item == 'object'){
-              return JSON.stringify(item).indexOf(JSON.stringify(this.vsValue))==-1
-            } else {
-              return item.indexOf(this.vsValue)==-1
-            }
-          })
-          this.$emit('input',valuenew)
-        } else {
-          valueOld.push(this.vsValue)
-          this.$emit('input',valueOld)
-        }
-
-      } else if (typeof this.value == 'boolean') {
-        this.$emit('input',!this.value)
-      } else if (typeof this.value == 'string' || this.value == '' || this.value == null) {
-        if(this.value == this.vsValue){
-          this.$emit('input',null)
-        } else {
-          this.$emit('input',this.vsValue)
         }
       }
     },
-    backgroundx(){
-      if(this.vsColor){
-        if(/[#()]/i.test(this.vsColor)){
-          return this.vsColor
-        } else {
-          return `rgb(var(--${this.vsColor}))`
-        }
-      } else {
-        return 'rgb(var(--primary))'
-      }
-    }
+    isChecked(){
+      return this.isArrayx() ? this.isArrayIncludes() : this.value
+    },
   },
+  methods:{
+    giveColor(color){
+      return _color.rColor(color)
+    },
+    toggleValue(){
+      if(this.isArrayx()){
+        this.setArray()
+      } else if (typeof(this.vsValue) == 'string' ) {
+        this.setValueString()
+      }
+      else {
+        this.$emit('input',!this.value)
+        this.$emit('change',!this.value)
+      }
+    },
+    setArray(){
+      const value = this.value.slice(0) // Copy Array.
+      if(this.isArrayIncludes()){
+        value.splice(value.indexOf(this.vsValue),1) // delete value
+        this.$emit('input', value)
+        this.$emit('change', value)
+      } else {
+        value.push(this.vsValue) // add value new
+        this.$emit('input', value)
+        this.$emit('change', value)
+      }
+    },
+    setValueString(){
+      if(this.value == this.vsValue){
+        this.$emit('input', null)
+        this.$emit('change', null)
+      } else {
+        this.$emit('input', this.vsValue)
+        this.$emit('change', this.vsValue)
+      }
+    },
+    isArrayIncludes(){
+      let modelx = this.value
+      let value = this.vsValue
+      return modelx.includes(value)
+    },
+    isArrayx(){
+      return Array.isArray(this.value)
+    }
+  }
 }
 </script>
 
-<style lang="css" scoped>
-.disabledx {
-  pointer-events: none;
-  opacity: .4;
-}
-.disabledx .cuadro {
-  box-shadow:inset 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-}
-.con-check {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  margin: 5px;
-  color: rgba(0, 0, 0, 0.7);
-}
-.con-check::selection {
-  background: transparent;
-}
-.cuadro {
-  width: 22px;
-  height: 22px;
-  border: 2px solid rgb(180, 180, 180);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 8px;
-  border-radius: 3px;
+<style lang="stylus">
+.con-vs-checkbox
   position: relative;
-  overflow: hidden;
-  transition: all .2s ease;
-  backface-visibility: hidden;
-}
-.con-check:active .cuadro{
-  transform: rotate(20deg);
-}
-.checkBoxActivo:active .cuadro {
-  transform: rotate(70deg) !important;
-}
-.afterx {
-  position: absolute;
-  background: rgb(var(--primary));
-  opacity: 1;
-  transition: all .250s ease;
-  transform: translate(100%,0%);
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
   display: block;
-}
-.cuadro i {
-  font-size: 18px;
-  color: rgb(255, 255, 255);
-  z-index: 100;
-  transform: rotate(-90deg);
-  opacity: 0;
-  transition: all .3s ease .1s;
-}
-.checkBoxActivo .cuadro {
-  transform: rotate(90deg);
-}
-.checkBoxActivo .cuadro i{
-  opacity: 1
-}
-.checkBoxActivo .afterx {
-  transform: translate(0,0);
-}
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5px;
+  margin-right: 5px;
+  input[type="checkbox"]
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 200;
+    cursor: pointer;
+    background: rgb(85, 215, 117);
+    &:active:checked
+      & + span.checkbox_x
+        span._check
+          transform: translate(3px) !important;
+        i
+          transform: translate(6px) !important;
+    // &:active:not(:checked)
+    //   & + span.checkbox_x
+    //     span._check
+    //       transform: translate(70%) !important;
+    &:checked
+      & + span.checkbox_x
+        transform: rotate(0deg) !important;
+        span._check
+          transform: translate(0);
+        i
+          opacity: 1;
+          transform: translate(0) !important;
+          color: rgb(255, 255, 255) !important;
+  span.checkbox_x
+    transition: all .2s ease;
+    cursor: pointer;
+    position: relative;
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-90deg);
+    overflow: hidden;
+    box-sizing: border-box;
+    margin-right: 5px;
+    span._check {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0px;
+      transform: translate(100%);
+      transform-origin: right;
+      transition: all .20s ease
+      z-index: 10;
+    }
+    i
+      backface-visibility: visible;
+      transition: all .2s ease-out;
+      z-index: 100;
+      font-size: 19px;
+      opacity: 0;
+      transform: translate(30px);
+      transform-origin: center;
 </style>

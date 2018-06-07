@@ -1,19 +1,19 @@
 <template lang="html">
-  <div v-if="contributorsx.length > 0" class="con-contribuitor">
-    <h3 :class="{'allcontribuitors':contributors == 'all'}">{{title || 'Contributors of'}} <b>Vuesax</b>  </h3>
+  <div v-if="contribuitorsx.length > 0" class="con-contribuitor">
+    <h3 :class="{'allcontribuitors':Contribuitors == 'all'}">{{title || 'Contribuitors of'}} <b>Vuesax</b>  </h3>
     <ul>
-      <li :title="contributor.login" v-for="contributor in contributorsx">
+      <li :title="contributor.login" v-for="contributor in contribuitorsx">
         <a target="_blank" :href="contributor.html_url">
           <img :src="contributor.avatar_url" alt="">
           <img class="img-blur" :src="contributor.avatar_url" alt="">
         </a>
       </li>
     </ul>
-    <div v-if="contributors == 'all'" class="con-btns-contribuitors">
+    <div v-if="contribuitors == 'all'" class="con-btns-contribuitors">
       <button type="button" name="button">
         <!-- <a href="">Contribuitors</a> -->
         <router-link
-          to="/contributors/"
+          to="/contribuitors/"
         >Contribuitors</router-link>
       </button>
     </div>
@@ -27,7 +27,7 @@ export default {
       default:null,
       type:String,
     },
-    contributors:{
+    contribuitors:{
       type:[Array, String],
       default:null
     },
@@ -38,7 +38,7 @@ export default {
   },
   data(){
     return {
-      contributorsx:[],
+      contribuitorsx:[],
     }
   },
 
@@ -47,34 +47,30 @@ export default {
     this.consultContributors()
   },
   watch:{
-    contributors(){
-      // console.log("cambio", this.contributors);
-      this.contributorsx = []
+    contribuitors(){
+      // console.log("cambio", this.Contribuitors);
+      this.Contribuitorsx = []
       this.consultContributors()
     }
   },
   methods:{
     consultContributors(){
-      if(!this.contributors) {
+      if(!this.contribuitors) {
         return
       }
 
-      if(this.contributors == 'all'){
-        fetch('https://api.github.com/repos/'+this.repo+'/contributors')
+      if(this.contribuitors == 'all'){
+        fetch('https://api.github.com/repos/'+this.repo+'/contribuitors')
         .then(response => response.json())
         .then(json => {
-         this.contributorsx = json
-         // console.log('response',json);
-         // this.star = json.stargazers_count
+         this.contribuitorsx = json
         })
       } else {
-        // console.log('this.contributors',this.contributors);
-        this.contributors.forEach((item)=>{
+        this.contribuitors.forEach((item)=>{
           fetch(`https://api.github.com/users/${item}`)
           .then(response => response.json())
           .then(json => {
-            // console.log('response',json);
-            this.contributorsx.push(json)
+            this.contribuitorsx.push(json)
           })
         })
 

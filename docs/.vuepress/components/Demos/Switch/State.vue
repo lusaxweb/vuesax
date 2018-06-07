@@ -28,6 +28,11 @@ export default {
       switch3:true,
       switch4:false,
     }
+  },
+  methods:{
+    logx(){
+      console.log("hola mundo");
+    }
   }
 }
 </script>

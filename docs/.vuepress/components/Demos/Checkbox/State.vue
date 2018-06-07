@@ -2,7 +2,7 @@
   <div class="">
     <ul class="centerx">
       <li>
-        <vs-checkbox v-model="checkBox1">Primary - active</vs-checkbox>
+        <vs-checkbox @change="logx" v-model="checkBox1">Primary - active</vs-checkbox>
       </li>
       <li>
         <vs-checkbox v-model="checkBox2">Primary - inactive</vs-checkbox>
@@ -25,6 +25,11 @@ export default {
       checkBox2:false,
       checkBox3:true,
       checkBox4:false,
+    }
+  },
+  methods:{
+    logx(value){
+      console.log("hola check",value);
     }
   }
 }

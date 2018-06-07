@@ -1212,13 +1212,6 @@ exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O) {
 
 /***/ }),
 
-/***/ "AR+m":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ "ArFY":
 /***/ (function(module, exports) {
 
@@ -1529,6 +1522,13 @@ module.exports = function (key) {
 /***/ }),
 
 /***/ "JSgv":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "Jciw":
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
@@ -2663,7 +2663,7 @@ var objectSpread = __webpack_require__("Biqn");
 var objectSpread_default = /*#__PURE__*/__webpack_require__.n(objectSpread);
 
 // EXTERNAL MODULE: ./src/utils/color.js
-var color = __webpack_require__("n5ki");
+var utils_color = __webpack_require__("n5ki");
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://vuesax//node_modules//.cache//cache-loader"}!./node_modules/babel-loader/lib?{"presets":["C://Users//pc 01//AppData//Roaming//npm//node_modules//@vue//cli-service-global//node_modules//@vue//babel-preset-app//index.js"]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/components/vsButton/vsButton.vue
 
@@ -2854,7 +2854,7 @@ var color = __webpack_require__("n5ki");
       if (this.vsColor) {
         if (/[#()]/.test(this.vsColor)) {
           if (/#/.test(this.vsColor)) {
-            var c = color["a" /* default */].hexToRgb(this.vsColor);
+            var c = utils_color["a" /* default */].hexToRgb(this.vsColor);
 
             colorx = function colorx(opacity) {
               return "rgba(".concat(c.r, ",").concat(c.g, ",").concat(c.b, ",").concat(opacity, ")");
@@ -3490,8 +3490,8 @@ var typeof_default = /*#__PURE__*/__webpack_require__.n(helpers_typeof);
 //
 //
 //
-//
 /* harmony default export */ var vsSwitch = ({
+  inheritAttrs: false,
   name: 'vs-switch',
   props: ['vsValue', 'value', 'vsType', 'vsIcon', 'disabled'],
   computed: {
@@ -3516,8 +3516,6 @@ var typeof_default = /*#__PURE__*/__webpack_require__.n(helpers_typeof);
   methods: {
     Clickx: function Clickx() {
       var _this = this;
-
-      console.log(this.value);
 
       if (typeof_default()(this.value) == 'object' && this.value != null) {
         var valueOld = this.value;
@@ -3575,13 +3573,13 @@ var typeof_default = /*#__PURE__*/__webpack_require__.n(helpers_typeof);
   },
   mounted: function mounted() {}
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-39eae7aa","hasScoped":true,"optionsId":"2","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsSwitch/vsSwitch.vue
-var vsSwitch_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('label',{attrs:{"for":""}},[_c('button',{ref:"componentex",staticClass:"con-switch",class:[{'switch-activo':typeof _vm.value == 'boolean'?_vm.value:_vm.valueArray}],style:({'background':_vm.backgroundx()}),attrs:{"disabled":_vm.disabled},on:{"click":_vm.Clickx}},[_c('span',{staticClass:"switch-circle"}),_c('i',{staticClass:"material-icons"},[_vm._v(_vm._s(_vm.vsIcon))])]),_c('span',[_vm._t("default")],2)])}
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-79f00032","hasScoped":true,"optionsId":"2","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsSwitch/vsSwitch.vue
+var vsSwitch_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('label',{attrs:{"for":""}},[_c('button',_vm._g(_vm._b({ref:"componentex",staticClass:"con-switch",class:[{'switch-activo':typeof _vm.value == 'boolean'?_vm.value:_vm.valueArray}],style:({'background':_vm.backgroundx()}),attrs:{"disabled":_vm.disabled},on:{"click":_vm.Clickx}},'button',_vm.$attrs,false),_vm.$listeners),[_c('span',{staticClass:"switch-circle"}),_c('i',{staticClass:"material-icons"},[_vm._v(_vm._s(_vm.vsIcon))])]),_c('span',[_vm._t("default")],2)])}
 var vsSwitch_staticRenderFns = []
 
 // CONCATENATED MODULE: ./src/components/vsSwitch/vsSwitch.vue
 function vsSwitch_injectStyle (context) {
-  __webpack_require__("uSQ6")
+  __webpack_require__("Jciw")
 }
 /* script */
 
@@ -3593,7 +3591,7 @@ var vsSwitch___vue_template_functional__ = false
 /* styles */
 var vsSwitch___vue_styles__ = vsSwitch_injectStyle
 /* scopeId */
-var vsSwitch___vue_scopeId__ = "data-v-39eae7aa"
+var vsSwitch___vue_scopeId__ = "data-v-79f00032"
 /* moduleIdentifier (server only) */
 var vsSwitch___vue_module_identifier__ = null
 
@@ -3616,117 +3614,137 @@ var vsSwitch_Component = Object(component_normalizer["a" /* default */])(
 /* harmony default export */ var components_vsSwitch = (function (Vue) {
   Vue.component(vsSwitch_vsSwitch.name, vsSwitch_vsSwitch);
 });
-// EXTERNAL MODULE: ../Users/pc 01/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/core-js/modules/es6.regexp.search.js
-var es6_regexp_search = __webpack_require__("YjWS");
-var es6_regexp_search_default = /*#__PURE__*/__webpack_require__.n(es6_regexp_search);
-
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://vuesax//node_modules//.cache//cache-loader"}!./node_modules/babel-loader/lib?{"presets":["C://Users//pc 01//AppData//Roaming//npm//node_modules//@vue//cli-service-global//node_modules//@vue//babel-preset-app//index.js"]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/components/vsCheckBox/vsCheckBox.vue
 
 
 
 
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ var vsCheckBox = ({
+  inheritAttrs: false,
   name: 'vs-checkbox',
-  props: ['vs-value', 'value', 'vsColor', 'disabled'],
-  data: function data() {
-    return {};
+  props: {
+    vsColor: {
+      default: 'primary',
+      type: String
+    },
+    value: {},
+    vsIcon: {
+      default: 'check',
+      type: String
+    },
+    vsValue: {
+      type: [Boolean, Array, String, Number, Object],
+      default: false
+    }
   },
   computed: {
-    valueArray: function valueArray() {
-      var arrayx = this.value;
-      var returnx = false;
+    listeners: function listeners() {
+      var _this = this;
 
-      if (typeof_default()(this.value) == 'object' && this.value != null) {
-        if (typeof_default()(this.vsValue) == 'object') {
-          var valuex = JSON.stringify(this.vsValue);
-
-          if (JSON.stringify(arrayx).search(valuex) != -1) {
-            returnx = true;
-          } else {
-            returnx = false;
-          }
-        } else {
-          if (arrayx.includes(this.vsValue)) {
-            returnx = true;
-          } else {
-            returnx = false;
-          }
+      return objectSpread_default()({}, this.$listeners, {
+        change: function change(event) {
+          _this.toggleValue();
         }
-      } else if (typeof this.value == 'string' || this.value == '' || this.value == null) {
-        if (this.value == this.vsValue) {
-          returnx = true;
-        } else {
-          returnx = false;
-        }
-      }
-
-      return returnx;
+      });
+    },
+    isChecked: function isChecked() {
+      return this.isArrayx() ? this.isArrayIncludes() : this.value;
     }
   },
   methods: {
-    checkBoxClick: function checkBoxClick() {
-      var _this = this;
-
-      if (typeof_default()(this.value) == 'object' && this.value != null) {
-        var valueOld = this.value;
-
-        if (this.$refs.checkBoxx.classList.contains('checkBoxActivo')) {
-          var valuenew = valueOld.filter(function (item) {
-            if (typeof_default()(item) == 'object') {
-              return JSON.stringify(item).indexOf(JSON.stringify(_this.vsValue)) == -1;
-            } else {
-              return item.indexOf(_this.vsValue) == -1;
-            }
-          });
-          this.$emit('input', valuenew);
-        } else {
-          valueOld.push(this.vsValue);
-          this.$emit('input', valueOld);
-        }
-      } else if (typeof this.value == 'boolean') {
+    giveColor: function giveColor(color) {
+      return utils_color["a" /* default */].rColor(color);
+    },
+    toggleValue: function toggleValue() {
+      if (this.isArrayx()) {
+        this.setArray();
+      } else if (typeof this.vsValue == 'string') {
+        this.setValueString();
+      } else {
         this.$emit('input', !this.value);
-      } else if (typeof this.value == 'string' || this.value == '' || this.value == null) {
-        if (this.value == this.vsValue) {
-          this.$emit('input', null);
-        } else {
-          this.$emit('input', this.vsValue);
-        }
+        this.$emit('change', !this.value);
       }
     },
-    backgroundx: function backgroundx() {
-      if (this.vsColor) {
-        if (/[#()]/i.test(this.vsColor)) {
-          return this.vsColor;
-        } else {
-          return "rgb(var(--".concat(this.vsColor, "))");
-        }
+    setArray: function setArray() {
+      var value = this.value.slice(0); // Copy Array.
+
+      if (this.isArrayIncludes()) {
+        value.splice(value.indexOf(this.vsValue), 1); // delete value
+
+        this.$emit('input', value);
+        this.$emit('change', value);
       } else {
-        return 'rgb(var(--primary))';
+        value.push(this.vsValue); // add value new
+
+        this.$emit('input', value);
+        this.$emit('change', value);
       }
+    },
+    setValueString: function setValueString() {
+      if (this.value == this.vsValue) {
+        this.$emit('input', null);
+        this.$emit('change', null);
+      } else {
+        this.$emit('input', this.vsValue);
+        this.$emit('change', this.vsValue);
+      }
+    },
+    isArrayIncludes: function isArrayIncludes() {
+      var modelx = this.value;
+      var value = this.vsValue;
+      return modelx.includes(value);
+    },
+    isArrayx: function isArrayx() {
+      return Array.isArray(this.value);
     }
   }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-2c1194a4","hasScoped":true,"optionsId":"2","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsCheckBox/vsCheckBox.vue
-var vsCheckBox_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('label',{ref:"checkBoxx",staticClass:"con-check",class:[{'disabledx':_vm.disabled,'checkBoxActivo':typeof _vm.value == 'boolean'?_vm.value:_vm.valueArray}],attrs:{"disabled":_vm.disabled},on:{"click":_vm.checkBoxClick}},[_c('span',{staticClass:"cuadro",style:({'border':typeof _vm.value == 'boolean'?!_vm.value?'2px solid rgb(160, 160, 160)':'2px solid '+_vm.backgroundx():!_vm.valueArray?'2px solid rgb(160, 160, 160)':'2px solid '+_vm.backgroundx()})},[_c('i',{staticClass:"material-icons"},[_vm._v("check")]),_c('span',{staticClass:"afterx",style:({'background':_vm.backgroundx()})})]),_vm._t("default")],2)}
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-1c88ccaa","hasScoped":false,"optionsId":"2","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsCheckBox/vsCheckBox.vue
+var vsCheckBox_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"vs-component con-vs-checkbox"},[_c('input',_vm._g(_vm._b({attrs:{"type":"checkbox","value":""},domProps:{"checked":_vm.isChecked || _vm.$attrs.checked}},'input',_vm.$attrs,false),_vm.listeners)),_c('span',{staticClass:"checkbox_x",style:({
+      'border': ("2px solid " + (_vm.$attrs.checked?_vm.$attrs.checked?_vm.giveColor(_vm.vsColor):'rgb(180, 180, 180)':_vm.isChecked?_vm.giveColor(_vm.vsColor):'rgb(180, 180, 180)'))
+      })},[_c('span',{staticClass:"_check",style:({
+      'background':_vm.giveColor(_vm.vsColor)
+      })}),_c('i',{staticClass:"material-icons",style:({
+        'color':_vm.giveColor(_vm.vsColor)
+      })},[_vm._v("\n      "+_vm._s(_vm.vsIcon)+"\n    ")])]),_c('span',{staticClass:"con-slot-label"},[_vm._t("default")],2)])}
 var vsCheckBox_staticRenderFns = []
 
 // CONCATENATED MODULE: ./src/components/vsCheckBox/vsCheckBox.vue
 function vsCheckBox_injectStyle (context) {
-  __webpack_require__("AR+m")
+  __webpack_require__("do4J")
 }
 /* script */
 
@@ -3738,7 +3756,7 @@ var vsCheckBox___vue_template_functional__ = false
 /* styles */
 var vsCheckBox___vue_styles__ = vsCheckBox_injectStyle
 /* scopeId */
-var vsCheckBox___vue_scopeId__ = "data-v-2c1194a4"
+var vsCheckBox___vue_scopeId__ = null
 /* moduleIdentifier (server only) */
 var vsCheckBox___vue_module_identifier__ = null
 
@@ -4829,7 +4847,7 @@ var vsUpload_Component = Object(component_normalizer["a" /* default */])(
   computed: {
     colorx: function colorx() {
       if (this.vsBackgroundColor) {
-        if (color["a" /* default */].contrastColor(this.vsBackgroundColor)) {
+        if (utils_color["a" /* default */].contrastColor(this.vsBackgroundColor)) {
           return 'rgba(0, 0, 0,.7)';
         } else {
           return 'rgba(255, 255, 255,.8)';
@@ -4840,7 +4858,7 @@ var vsUpload_Component = Object(component_normalizer["a" /* default */])(
     },
     colorButtonx: function colorButtonx() {
       if (this.vsCloseButtonColor) {
-        if (color["a" /* default */].contrastColor(this.vsCloseButtonColor)) {
+        if (utils_color["a" /* default */].contrastColor(this.vsCloseButtonColor)) {
           return 'rgba(0, 0, 0,.7)';
         } else {
           return 'rgba(255, 255, 255,.8)';
@@ -4997,7 +5015,7 @@ var vsPopup_Component = Object(component_normalizer["a" /* default */])(
   computed: {
     colorx: function colorx() {
       if (this.vsColor) {
-        if (color["a" /* default */].contrastColor(this.vsColor)) {
+        if (utils_color["a" /* default */].contrastColor(this.vsColor)) {
           return 'rgba(0, 0, 0,.8)';
         } else {
           return 'rgba(255, 255, 255,.8)';
@@ -5542,7 +5560,7 @@ var vsChips_Component = Object(component_normalizer["a" /* default */])(
   computed: {
     colorx: function colorx() {
       if (this.vsColor) {
-        if (color["a" /* default */].contrastColor(this.vsColor)) {
+        if (utils_color["a" /* default */].contrastColor(this.vsColor)) {
           return 'rgba(0, 0, 0,.7)';
         } else {
           return 'rgba(255, 255, 255,.8)';
@@ -5555,7 +5573,7 @@ var vsChips_Component = Object(component_normalizer["a" /* default */])(
   methods: {
     returnColorRGB: function returnColorRGB(vsColor) {
       // console.log(vsColor);
-      var colorx = color["a" /* default */].hexToRgb(vsColor);
+      var colorx = utils_color["a" /* default */].hexToRgb(vsColor);
       return "rgba(".concat(colorx.r, ",").concat(colorx.g, ",").concat(colorx.b, ",.1)");
     }
   }
@@ -5836,7 +5854,7 @@ var vsCardBody_Component = Object(component_normalizer["a" /* default */])(
   computed: {
     colorx: function colorx() {
       if (this.vsBackgroundColor) {
-        if (color["a" /* default */].contrastColor(this.vsBackgroundColor)) {
+        if (utils_color["a" /* default */].contrastColor(this.vsBackgroundColor)) {
           return 'rgba(0, 0, 0,.7)';
         } else {
           return 'rgba(255, 255, 255,.8)';
@@ -5980,7 +5998,7 @@ var vsCardMedia_Component = Object(component_normalizer["a" /* default */])(
   computed: {
     colorx: function colorx() {
       if (this.vsColor) {
-        if (color["a" /* default */].contrastColor(this.vsColor)) {
+        if (utils_color["a" /* default */].contrastColor(this.vsColor)) {
           return 'rgba(0, 0, 0,.7)';
         } else {
           return 'rgba(255, 255, 255,.8)';
@@ -7017,6 +7035,10 @@ var vsSidebarItem_Component = Object(component_normalizer["a" /* default */])(
 
 /* harmony default export */ var vsSideBar_vsSidebarItem = (vsSidebarItem_Component.exports);
 
+// EXTERNAL MODULE: ../Users/pc 01/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/core-js/modules/es6.regexp.search.js
+var es6_regexp_search = __webpack_require__("YjWS");
+var es6_regexp_search_default = /*#__PURE__*/__webpack_require__.n(es6_regexp_search);
+
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://vuesax//node_modules//.cache//cache-loader"}!./node_modules/babel-loader/lib?{"presets":["C://Users//pc 01//AppData//Roaming//npm//node_modules//@vue//cli-service-global//node_modules//@vue//babel-preset-app//index.js"]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/components/vsSideBar/vsSidebarGroup.vue
 
 
@@ -7566,6 +7588,13 @@ module.exports = function (it) {
 
 /***/ }),
 
+/***/ "do4J":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "dsxj":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8056,6 +8085,9 @@ module.exports = __webpack_require__("q+MV").f('iterator');
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
+  rColor: function rColor(colorx) {
+    return colorx ? /[#()]/.test(colorx) ? colorx : "rgba(var(--".concat(colorx, "),1)") : 'rgb(var(--primary))';
+  },
   contrastColor: function contrastColor(elementx) {
     var c = elementx;
 
@@ -8754,13 +8786,6 @@ function _iterableToArray(iter) {
 }
 
 module.exports = _iterableToArray;
-
-/***/ }),
-
-/***/ "uSQ6":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ }),
 

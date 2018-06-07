@@ -1,17 +1,17 @@
 <template lang="html">
   <label for="">
-    <button :disabled="disabled" ref="componentex" :style="{'background':backgroundx()}" @click="Clickx" class="con-switch" :class="[{'switch-activo':typeof value == 'boolean'?value:valueArray}]">
-      <!-- <span v-show="!value" ref="offx" class="off">
-      <slot name='off'>
-    </slot>
-  </span> -->
-  <span class="switch-circle"></span>
-  <i class="material-icons">{{vsIcon}}</i>
-  <!-- <span v-show="value" ref="onx" class="on">
-  <slot name='on'>
-</slot>
-</span> -->
-</button>
+    <button
+      v-bind="$attrs"
+      v-on="$listeners"
+      :disabled="disabled"
+      ref="componentex"
+      :style="{'background':backgroundx()}"
+      @click="Clickx"
+      class="con-switch"
+      :class="[{'switch-activo':typeof value == 'boolean'?value:valueArray}]">
+      <span class="switch-circle"></span>
+      <i class="material-icons">{{vsIcon}}</i>
+    </button>
 <span>
   <slot>
   </slot>
@@ -19,9 +19,9 @@
 
   </label>
 </template>
-<!-- rgba(var(--${vsType}),.4) -->
 <script>
 export default {
+  inheritAttrs: false,
   name:'vs-switch',
   props:[
     'vsValue',
@@ -51,7 +51,6 @@ export default {
   },
   methods:{
     Clickx(){
-      console.log(this.value);
       if(typeof this.value == 'object'&&this.value != null){
         let valueOld = this.value
         if(this.$refs.componentex.classList.contains('switch-activo')){
