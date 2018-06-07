@@ -2,7 +2,6 @@
   <div class="con-select-example">
     <vs-select
       class="selectExample"
-      label="Peliculas"
       v-model="select1"
       :options="options1"
       ></vs-select>

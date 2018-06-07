@@ -225,9 +225,14 @@ export default {
 
 <style lang="stylus">
 @import '../theme/styles/config.styl'
+.con-contenedores
+  margin-top: 20px;
 .con-contributors
-  overflow-x: hidden;
+  // overflow-x: hidden;
+  width: 100%;
+  overflow: hidden;
   ul.menu
+    margin-top: 20px;
     width: 100%;
     display: flex;
     align-items: center;

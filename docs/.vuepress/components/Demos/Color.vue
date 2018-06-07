@@ -16,14 +16,9 @@ export default {
   data(){
     return {
       colorx:'#c72a75',
-      colorx2:'#0fc816'
+      colorx2:'#5252e8'
     }
   },
-  methods:{
-    consolex(){
-      console.log("hola soy un log");
-    }
-  }
 }
 </script>
 

@@ -259,8 +259,6 @@ export default {
     transition: all .2s ease;
     overflow: hidden;
     position: relative;
-    /* backface-visibility: hidden; */
-    margin: 5px;
   }
   button:active {
     opacity: .7;

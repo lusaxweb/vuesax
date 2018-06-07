@@ -2,9 +2,8 @@
   <div :class="{'activo-select':visible, 'disabledx-select':disabled, 'vsAutocomplete':vsAutocomplete || vsMultiple}" class="vs-component con-select">
     <input
       ref="inputx"
-      @blur="blurx"
       v-bind="$attrs"
-      v-on="$listeners"
+      v-on="listeners"
       @click.stop
       :disabled="disabled"
       @keydown="letters($event)"
@@ -44,6 +43,7 @@
 <script>
 import vsSelectOptions from './vsSelectOptions'
 export default {
+  inheritAttrs: false,
   name:'vs-select',
   components:{
     vsSelectOptions
@@ -92,8 +92,18 @@ export default {
   }),
   mounted(){
     this.getValue()
+    console.log(this.$attrs);
   },
   computed:{
+    classx(){
+      return this.class
+    },
+    listeners(){
+      return {
+        ...this.$listeners,
+        blur: this.blurx
+      }
+    },
     optionsFilter(){
       let options = JSON.parse(JSON.stringify(this.options))
 
