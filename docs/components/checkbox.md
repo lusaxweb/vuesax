@@ -15,6 +15,11 @@ API:
    parameters: primary, success, danger, warning, dark, RGB, HEX
    description: Value if different from a boolean.
    default: null
+ - name: vs-icon
+   type: String
+   parameters: Material icons
+   description: Change the checkBox icon.
+   default: checked
 ---
 
 # CheckBox <!--#update-->
@@ -318,6 +323,69 @@ export default {
     { id: 3, name: 'New South Wales' },
   ]
 })
+}
+</script>
+```
+
+</div>
+</vuecode>
+</box>
+
+
+<box>
+
+## Change Icon
+
+There are times when we need to change the internal icon to make a different reference to be in check for it we have the property `vs-icon`
+
+<vuecode md>
+<div slot="demo">
+  <Demos-Checkbox-Icons />
+</div>
+<div slot="code">
+
+```html
+<template lang="html">
+  <div class="">
+    <ul class="centerx">
+      <li>
+        <vs-checkbox v-model="checkBox1">Primary</vs-checkbox>
+      </li>
+      <li>
+        <vs-checkbox vs-icon="sms" vs-color="success" v-model="checkBox2">sms</vs-checkbox>
+      </li>
+      <li>
+        <vs-checkbox vs-icon="close" vs-color="danger" v-model="checkBox3">Cancel</vs-checkbox>
+      </li>
+      <li>
+        <vs-checkbox vs-icon="attach_file" vs-color="warning" v-model="checkBox4">File</vs-checkbox>
+      </li>
+      <li>
+        <vs-checkbox vs-icon="format_bold" vs-color="dark" v-model="checkBox5">Bold</vs-checkbox>
+      </li>
+      <li>
+        <vs-checkbox vs-icon="location_searching" vs-color="rgb(38, 187, 174)" v-model="checkBox6">location</vs-checkbox>
+      </li>
+      <li>
+        <vs-checkbox vs-icon="camera_alt" vs-color="#720ea8" v-model="checkBox7">Camera</vs-checkbox>
+      </li>
+    </ul>
+  </div>
+</template>
+
+<script>
+export default {
+  data(){
+    return {
+      checkBox1:true,
+      checkBox2:true,
+      checkBox3:true,
+      checkBox4:true,
+      checkBox5:true,
+      checkBox6:true,
+      checkBox7:true,
+    }
+  }
 }
 </script>
 ```

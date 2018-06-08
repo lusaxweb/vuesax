@@ -176,7 +176,7 @@ export default {
       backface-visibility: visible;
       transition: all .2s ease-out;
       z-index: 100;
-      font-size: 19px;
+      font-size: 18px;
       opacity: 0;
       transform: translate(30px);
       transform-origin: center;
