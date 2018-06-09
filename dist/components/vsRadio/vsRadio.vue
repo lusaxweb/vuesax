@@ -1,131 +1,138 @@
 <template lang="html">
-  <div :class="{'disabledx':disabled,'vsActivo':value?value.search(vsValue)!=-1:false}" @click="clickx" class="con-radio">
-    <span  class="vs-radio">
-      <div :style="{'background':backgroundx,'boxShadow':'0px 0px 5px 0px '+backgroundx}" class="vs-circle">
-
-      </div>
-      <div :style="{'border':'2px solid rgb(170, 170, 170)'}" class="vs-border">
-
-      </div>
-    </span>
-    <span class="textx" :style="{'color':value?value.search(vsValue)!=-1?backgroundx:'rgba(0,0,0,.7)':false}">
-      <slot>
-      </slot>
-    </span>
-  </div>
+  <label class="vs-component con-vs-radio">
+    <input
+      v-on="listeners"
+      v-bind="$attrs"
+      :checked="isChecked"
+      type="radio" name="">
+      <span
+        class="vs-radiox">
+        <span
+          :style="{
+              'border': `2px solid ${isChecked?giveColor(vsColor):'rgb(200, 200, 200)'}`
+            }"
+          class="vs-radiox-borde"></span>
+        <span
+        :style="{
+            'background': giveColor(vsColor),
+            'box-shadow': `0px 3px 12px 0px ${giveColor(vsColor,.4)}`
+          }"
+          class="vs-radiox-circle">
+        </span>
+      </span>
+      <span class="vs-radiox-labelx">
+        <slot>
+        </slot>
+      </span>
+  </label>
 </template>
 
 <script>
+import _color from '../../utils/color.js'
 export default {
   name:'vs-radio',
-  props:[
-    'vsColor',
-    // 'vsType',
-    'value',
-    'vsValue',
-    'disabled',
-  ],
+  inheritAttrs:false,
+  props:{
+    value:{},
+    vsValue:{},
+    vsColor:{
+      default:'primary',
+      type:String
+    }
+  },
   computed:{
-    backgroundx(){
-      if(this.vsColor){
-        if(/[#()]/i.test(this.vsColor)){
-          return this.vsColor
-        } else {
-          return `rgb(var(--${this.vsColor}))`
-        }
-      } else {
-        return 'rgb(var(--primary))'
+    listeners(){
+      return {
+        ...this.$listeners,
+        input: (event) => this.$emit('input', this.vsValue)
       }
+    },
+    attrs(){
+      let attrsx = JSON.parse(JSON.stringify(this.$attrs))
+      console.log(attrsx);
+      return {
+        attrsx
+      }
+    },
+    isChecked(){
+      return this.vsValue == this.value
     }
   },
   methods:{
-    clickx(){
-      this.$emit('input',this.vsValue);
-      this.$emit('click',this.vsValue);
-      this.$emit('change',this.vsValue);
-    }
+    giveColor(color,opacity){
+      return _color.rColor(color,opacity)
+    },
+
   }
 }
 </script>
 
-<style lang="css" scoped>
-.textx {
-  transition: all .3s ease;
-}
-.disabledx {
-  opacity: .4;
-  pointer-events: none;
-}
-.disabledx::selection span{
-  background: transparent !important;
-}
-.con-radio {
-  padding: 5px;
-  cursor: pointer;
+<style lang="stylus">
+.con-vs-radio
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  color: rgba(0, 0, 0, 0.7);
-}
-.vs-radio {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  display: block;
-  margin-right: 7px;
+  &:hover
+    .vs-radiox-borde
+      border: 2px solid rgb(160, 160, 160) !important;
+  .vs-radiox-labelx
+    margin-left: 5px;
+  input[type="radio"]
+    position: absolute;
+    left: 0px;
+    opacity: 0;
+    width: 20px;
+    width: 20px;
+    &:checked
+      + .vs-radiox
+        cursor: default;
+        .vs-radiox-circle
+          transform: scale(1) !important;
+          opacity: 1 !important;
+        .vs-radiox-borde
+          opacity: 0;
+          transform: scale(.3) !important;
+    &:active
+      + .vs-radiox
+        .vs-radiox-circle
+          // transform: scale(1.1) !important;
+        .vs-radiox-borde
+          transform: scale(1.1) !important;
+    &:disabled
+      + .vs-radiox
+        opacity: .4 !important;
+        .vs-radiox-circle
+          pointer-events: none;
+        .vs-radiox-borde
+          border: 2px solid rgb(180, 180, 180) !important
+          background: rgb(210, 210, 210)
+          pointer-events: none;
+  .vs-radiox
+    width: 18px;
+    height: 18px;
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.vs-circle {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  transform: scale(.4);
-  opacity: 0;
-  transition: all .3s ease;
-  position: absolute;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-}
-.vs-border {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  transform: scale(1);
-  opacity: 1;
-  transition: all .3s ease;
-}
-.vsActivo .vs-circle{
-  opacity: 1;
-  transform: scale(1);
-}
-.vsActivo .vs-border{
-  opacity: 0;
-  transform: scale(.4);
-}
-.con-radio:active .vs-border{
-  transform: scale(1.1);
-}
-.vsActivo:active .vs-circle{
-  transform: scale(1.1);
-}
+    display: block;
+    border-radius: 50%;
+    cursor: pointer;
+    .vs-radiox-borde
+      border-radius: 50%;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0px;
+      transition: all .25s ease;
+      background: transparent;
+      top: 0px;
+    .vs-radiox-circle
+      transition: all .25s ease;
+      transform: scale(.1);
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      position: absolute;
+      left: 0px;
+      top: 0px;
 
-.vs-bottom {
-  box-shadow: 0px 5px 20px -2px rgba(0, 0, 0, 0.1);
-  margin: 4px;
-  border-radius: 5px;
-  padding: 10px;
-  padding-top: 7px;
-  padding-bottom: 7px;
-  transition: all .3s ease;
-}
-.vs-bottom.vsActivo {
-  box-shadow:inset 0px 0px 15px 0px rgba(0, 0, 0, 0.150)
-}
 </style>
-
-
-<!-- <input type="radio" id="contactChoice1" name="contact" value="email"> -->

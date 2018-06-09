@@ -55,7 +55,6 @@ export default {
         ...this.$listeners,
         change: (event) => {
           this.toggleValue()
-
         }
       }
     },

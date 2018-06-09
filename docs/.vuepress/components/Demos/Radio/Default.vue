@@ -22,7 +22,12 @@
 export default {
   data(){
     return {
-      radios1:'luis',
+      radios1:'lyon',
+    }
+  },
+  methods:{
+    logx(){
+      console.log("hola mundo");
     }
   }
 }

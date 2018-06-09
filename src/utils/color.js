@@ -1,6 +1,29 @@
 export default {
-  rColor(colorx){
-    return colorx?/[#()]/.test(colorx)?colorx:`rgba(var(--${colorx}),1)`:'rgb(var(--primary))'
+  rColor(colorx,opacity=1){
+    if(/^[#]/.test(colorx)){
+      let c = this.hexToRgb(colorx)
+      colorx = `rgba(${c.r},${c.g},${c.b},${opacity})`
+    } else if (/^[rgb]/.test(colorx)){
+      let colorSplit = colorx.split(')')[0].replace('rgb','rgba')
+      colorSplit += `,${opacity})`
+      colorx = colorSplit
+    }
+
+    let vscolors = ['primary','success','danger','warning','dark']
+    if(colorx){
+      if(/[#()]/.test(colorx)){
+        return colorx
+      } else {
+        if(vscolors.includes(colorx)){
+          return `rgba(var(--${colorx}),${opacity})`
+        } else {
+          console.warn(`[Vuesax] : The color of the component can not be processed, only colors are accepted (RGB or HEX), or the color is not one of the main ones ${JSON.stringify(vscolors)} The unprocessed color is > ${colorx}`);
+          return `rgba(var(--primary),${opacity})`
+        }
+      }
+    } else {
+      return `rgba(var(--primary),${opacity})`
+    }
   },
   contrastColor(elementx) {
     let c = elementx
