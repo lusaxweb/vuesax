@@ -31,8 +31,7 @@ import Home from './Home.vue'
 import Navbar from './Navbar.vue'
 import Page from './Page.vue'
 import Sidebar from './Sidebar.vue'
-import { pathToComponentName } from '@app/util'
-import { resolveSidebarItems } from './util'
+import { resolveSidebarItems, pathToComponentName } from './util'
 import './icons/font/flaticon.css'
 export default {
   components: { Home, Page, Sidebar, Navbar },
