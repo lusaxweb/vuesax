@@ -1,5 +1,5 @@
 <template lang="html">
-  <footer>
+  <footer class="footerx_theme">
     <bosque class="bosque"/>
 
       <svg class="svg-piso" xmlns="http://www.w3.org/2000/svg" viewBox="4209.3 4660 1514.932 404">
@@ -59,7 +59,7 @@ export default {
 <style lang="stylus" scoped>
 @import './styles/config.styl'
 
-footer
+footer.footerx_theme
   width 100%
   height auto
   background #110d26
@@ -175,4 +175,3 @@ footer
     margin-bottom 20px
     width 50%
 </style>
-

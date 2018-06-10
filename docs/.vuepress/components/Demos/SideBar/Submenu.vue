@@ -57,7 +57,7 @@
       </vs-sidebar-group>
 
       <vs-sidebar-item @click="actives=15" :vs-active="actives==15" vs-icon="verified_user">
-         Setings
+         Configurations
       </vs-sidebar-item>
       <vs-sidebar-item @click="actives=16" :vs-active="actives==16" vs-icon="account_box">
          Perfile

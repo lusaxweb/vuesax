@@ -1,59 +1,44 @@
 ---
 API:
- - name: $vs.alert()
-   type: Function
-   parameters: Object, JSON
-   description: Function that runs the Alert dialog.
-   default: null
- - name: $vs.confirm()
-   type: Function
-   parameters: Object, JSON
-   description: Function that executes the Confirm dialog.
-   default: null
- - name: $vs.prompt()
-   type: Function
-   parameters: Object, JSON
-   description: Function that executes the dialog prompt.
-   default: null
- - name: color
-   type: String
-   parameters: primary, success, danger, warning, dark, RGB, HEX
-   description: Dialog color.
-   default: null
- - name: title
+ - name: vs-active.sync
+   type: Boolean
+   parameters: null
+   description: Define if the dialog is active (visible).
+   default: false
+ - name: vs-title
    type: String
    parameters: null
-   description: Title dialog.
-   default: null
- - name: text
+   description: Main title of the dialog.
+   default: Dialog
+ - name: vs-color
    type: String
    parameters: null
-   description: Text dialog.
-   default: null
- - name: textConfirm
-   type: String
+   description: Dialog color and accept buttons.
+   default: primary
+ - name: vs-accept
+   type: function
    parameters: null
-   description: Text of the confirm button in the dialog.
+   description: function that is executed when the user approves the dialog.
    default: null
- - name: textCancel
-   type: String
+ - name: vs-cancel
+   type: function
    parameters: null
-   description: Cancel button text in the dialog.
+   description: Function that executes the user cancel the dialog.
    default: null
- - name: confirm
-   type: Function
-   parameters: (value) only in the dialog prompt
-   description: Function that is executed when confirming the dialog.
+ - name: vs-type
+   type: String
+   parameters: alert , confirm, prompt
+   description: Determine the type of dialog.
+   default: alert
+ - name: slot="input"
+   type: Slot
+   parameters: null
+   description: slot to put the input at the prompt.
    default: null
- - name: cancel
-   type: Function
-   parameters: (value) only in the dialog prompt
-   description: Function that is executed when canceling in the dialog.
-   default: null
- - name: input
-   type: Object
-   parameters: placeholder, type, maxLength, value
-   description: Parameters of the dialog prompt input (in the type parameter the inputs are not allowed checkBox, radio or button).
+ - name: vs-is-valid
+   type: Boolean
+   parameters: null
+   description: Determines if it is valid to be able to accept at the prompt.
    default: null
 ---
 
@@ -65,30 +50,11 @@ API:
 
 </box>
 
-
 <box>
 
 ## Alert
 
-To inform the user you can use the alert type dialogs by calling the `$vs.alert` function, the parameters are:
-
-  - title
-  - text
-  - textConfirm
-  - color
-  - confirm
-
-```js
-this.$vs.alert({
-  title:'Dialog alert Default',
-  text:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-  textConfirm:'Aceptar',
-  color:'rgb(233, 112, 197)',
-  confirm:()=>{
-    // Function a ejecutar cuando se confirma
-  },
-})
-```
+To implement a dialog we have the `vs-dialog` component, which as a required parameter is the` vs-active` that determines when the dialog is active and visible to the user.
 
 <vuecode md>
 <div slot="demo">
@@ -99,43 +65,51 @@ this.$vs.alert({
 ```html
 <template lang="html">
   <div class="centerx">
-    <vs-button @click="alert('primary')" vs-type="primary-flat">Alert Primary</vs-button>
-    <vs-button @click="alert('success')" vs-type="success-flat">Alert success</vs-button>
-    <vs-button @click="alert('danger')" vs-type="danger-flat">Alert Danger</vs-button>
-    <vs-button @click="alert('warning')" vs-type="warning-flat">Alert Warning</vs-button>
-    <vs-button @click="alert('dark')" vs-type="dark-flat">Alert dark</vs-button>
-    <vs-button @click="alertColor()" vs-type="primary-gradient">Alert Color RGB || HEX</vs-button>
+    <vs-button @click="openAlert('primary')" vs-type="primary-flat">Alert Primary</vs-button>
+    <vs-button @click="openAlert('success')" vs-type="success-flat">Alert success</vs-button>
+    <vs-button @click="openAlert('danger')" vs-type="danger-flat">Alert Danger</vs-button>
+    <vs-button @click="openAlert('warning')" vs-type="warning-flat">Alert Warning</vs-button>
+    <vs-button @click="openAlert('dark')" vs-type="dark-flat">Alert Dark</vs-button>
+    <vs-button @click="openAlert(null)" vs-type="primary-gradient">Alert Color RGB | HEX</vs-button>
+
+    <!-- Component Dialog - alert -->
+    <vs-dialog
+      :vs-color="colorAlert"
+      :vs-title="titleAlert"
+      @vs-accept="acceptAlert"
+      :vs-active.sync="activeAlert">
+      <!-- Text in Alert -->
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    </vs-dialog>
+
   </div>
 </template>
 
 <script>
 export default {
+  data:()=>({
+    colorAlert:'primary',
+    titleAlert:'Alert',
+    activeAlert:false,
+    valueInput:'',
+  }),
   methods:{
-    alert(color){
-      this.$vs.alert({
-        title:'Dialog alert Default',
-        text:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        textConfirm:'Aceptar',
-        color:color,
-        confirm:()=>{
-
-        },
-      })
+    openAlert(color){
+      this.activeAlert = true
+      this.titleAlert = 'Alert ' + color || this.getColorRandom()
+      this.colorAlert = color || this.getColorRandom()
     },
-    alertColor(){
+    getColorRandom(){
       function getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min)) + min;
       }
-      let color = `rgb(${getRandomInt(0,255)},${getRandomInt(0,255)},${getRandomInt(0,255)})`
-
-      this.$vs.alert({
-        title:'Dialog alert Default',
-        text:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        textConfirm:'Aceptar',
-        color:color,
-        confirm:function(){
-          // console.log("hola esto esta en confirm");
-        },
+      return `rgb(${getRandomInt(0,255)},${getRandomInt(0,255)},${getRandomInt(0,255)})`
+    },
+    acceptAlert(color){
+      this.$vs.notify({
+        color:this.colorAlert,
+        title:'Accept Selected',
+        text:'Lorem ipsum dolor sit amet, consectetur'
       })
     },
   }
@@ -153,13 +127,11 @@ export default {
 
 ## Confirm
 
-There are times when we need the user's confirmation for it, we have the `$ vs.confirm` function that as parameters has::
+You can add a `vs-dialog` of type **confirm** by changing the `vs-type` property.
 
-- title
-- text
-- color
-- confirm
-- cancel
+:::tip
+  To do some action when the user approves or confirms we have the property `@vs-accept="myFunctionAccept"`.
+:::
 
 <vuecode md>
 <div slot="demo">
@@ -170,74 +142,38 @@ There are times when we need the user's confirmation for it, we have the `$ vs.c
 ```html
 <template lang="html">
   <div class="centerx">
-    <vs-button @click="confirm" vs-type="danger-gradient">Run Confirm</vs-button>
+    <vs-button @click="activeConfirm = true" vs-type="danger-gradient">Run Confirm</vs-button>
+    <vs-dialog
+      vs-color="danger"
+      vs-title="Delete Image"
+      vs-type="confirm"
+      @vs-accept="acceptAlert"
+      :vs-active.sync="activeConfirm">
+      You are sure to delete this image?
+    </vs-dialog>
   </div>
 </template>
 
 <script>
 export default {
-  methods:{
-    confirm(){
-      this.$vs.confirm({
-        title:'Dialog Confirm Default',
-        text:'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
-        color:'danger',
-        confirm:()=>{
-          this.$vs.notify({
-            title:'Eliminado',
-            text:'Lorem ipsum dolor sit amet',
-            color:'danger',
-          })
-        },
-        cancel:()=>{
-          console.log("cancel click");
-          this.$vs.notify({
-            title:'Cancel',
-            text:'Lorem ipsum dolor sit amet',
-          })
-        }
-      })
-    },
-  }
+  data:()=>({
+    activeConfirm:false
+  }),
+    methods:{
+      acceptAlert(color){
+        this.$vs.notify({
+          color:'danger',
+          title:'Deleted image',
+          text:'The selected image was successfully deleted'
+        })
+      },
+    }
 }
 </script>
 ```
 
 </div>
 </vuecode>
-
-:::tip
-  The function within confirm can be an arrow function to take advantage of the global scope of vue.
-
-```js{2}
-confirm:()=>{
-  this.$vs.notify({
-    title:'Eliminado',
-    text:'Lorem ipsum dolor sit amet',
-    color:'danger',
-  })
-},
-```
-  In case of using a normal function you would have to make use of a variable
-
-```js{2}
-confirm(){
-  var _this = this
-  this.$vs.confirm({
-    title:'Dialog Confirm Default',
-    text:'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
-    color:'danger',
-    confirm:()=>{
-      _this.$vs.notify({
-        title:'Eliminado',
-        text:'Lorem ipsum dolor sit amet',
-        color:'danger',
-      })
-    },
-  })
-},
-```
-:::
 
 </box>
 
@@ -246,7 +182,15 @@ confirm(){
 
 ## Prompt
 
-You can obtain a user value through the function `$vs.prompt`.
+If you need the user to enter any data inside the dialog, you can do it by changing the property `vs-type =" prompt"`.
+
+To add the inputs is done inside the slot named `input`
+
+```html
+  <div slot="input">
+    <input v-model="val" type="text" name="" value="">
+  </div>
+```
 
 <vuecode md>
 <div slot="demo">
@@ -260,7 +204,40 @@ You can obtain a user value through the function `$vs.prompt`.
     <div class="modelx">
       {{val==null?'null':val}}
     </div>
-     <vs-button @click="prompt" vs-type="primary-border">Run prompt</vs-button>
+     <vs-button @click="activePrompt = true" vs-type="primary-border">Run prompt</vs-button>
+     <div class="modelx">
+       {{valMultipe.value1}}
+       {{valMultipe.value2}}
+     </div>
+     <vs-button @click="activePrompt2 = true" vs-type="primary-border">Run prompt inputs</vs-button>
+
+     <vs-dialog
+      @vs-cancel="val=''"
+      vs-type="prompt"
+      @vs-accept="acceptAlert"
+      :vs-active.sync="activePrompt">
+       Enter the security code
+       <div slot="input">
+         <vs-input vs-placeholder="Code" v-model="val"/>
+       </div>
+     </vs-dialog>
+
+     <vs-dialog
+      @vs-cancel="valMultipe.value1='',valMultipe.value2=''"
+      vs-type="prompt"
+      @vs-accept="acceptAlert"
+      :vs-is-valid="validName"
+      :vs-active.sync="activePrompt2">
+       Enter your first and last name to continue
+       <div slot="input">
+         <vs-input vs-placeholder="Name" v-model="valMultipe.value1"/>
+         <vs-input vs-placeholder="Last Name" v-model="valMultipe.value2"/>
+
+         <vs-alert :vs-active="!validName" vs-color="danger" vs-icon="new_releases" >
+           Fields can not be empty please enter the data
+         </vs-alert>
+       </div>
+     </vs-dialog>
   </div>
 </template>
 
@@ -268,36 +245,26 @@ You can obtain a user value through the function `$vs.prompt`.
 export default {
   data(){
     return {
-      val:null,
+      activePrompt:false,
+      activePrompt2:false,
+      val:'',
+      valMultipe:{
+        value1:'',
+        value2:''
+      },
+    }
+  },
+  computed:{
+    validName(){
+      return (this.valMultipe.value1.length > 0 && this.valMultipe.value2.length > 0)
     }
   },
   methods:{
-    prompt(){
-      this.$vs.prompt({
-        title:'Dialog Confirm Default',
-        text:'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
-        color:'primary',
-        input:{
-          placeholder:'Name',
-          value:this.val,
-          maxLength:20,
-          type:'text'
-        },
-        confirm:(value)=>{
-          this.val = value
-          this.$vs.notify({
-            title:'Muy Bien',
-            text:'Gracias '+value,
-            color:'success',
-          })
-        },
-        cancel:(value)=>{
-          this.$vs.notify({
-            title:'Cancel',
-            text:'Gracias '+value,
-            color:'danger',
-          })
-        }
+    acceptAlert(color){
+      this.$vs.notify({
+        color:'success',
+        title:'Accept Selected',
+        text:'Lorem ipsum dolor sit amet, consectetur'
       })
     },
   }

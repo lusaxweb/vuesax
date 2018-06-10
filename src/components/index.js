@@ -23,6 +23,7 @@ import vsAvatar from './vsAvatar'
 import vsPagination from './vsPagination'
 import vsBreadcrumb from './vsBreadcrumb'
 import vsSideBar from './vsSideBar'
+import vsDialog from './vsDialog'
 //New Component import
 
 // import vsAnchor from './vsAnchor'
@@ -61,6 +62,7 @@ export {
   vsPagination,
   vsBreadcrumb,
   vsSideBar,
+  vsDialog,
   //New Component export
 
   // en proceso

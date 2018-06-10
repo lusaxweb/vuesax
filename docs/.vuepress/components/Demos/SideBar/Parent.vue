@@ -10,7 +10,7 @@
          History
       </vs-sidebar-item>
       <vs-sidebar-item @click="actives=3" :vs-active="actives==3" vs-icon="verified_user">
-         Setings
+         Configurations
       </vs-sidebar-item>
       <vs-sidebar-item @click="actives=4" :vs-active="actives==4" vs-icon="account_box">
          Perfile
