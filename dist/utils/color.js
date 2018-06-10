@@ -1,4 +1,10 @@
 export default {
+  RandomColor(){
+    function getRandomInt(min, max) {
+      return Math.floor(Math.random() * (max - min)) + min;
+    }
+    return `rgb(${getRandomInt(0,255)},${getRandomInt(0,255)},${getRandomInt(0,255)})`
+  },
   rColor(colorx,opacity=1){
     if(/^[#]/.test(colorx)){
       let c = this.hexToRgb(colorx)
@@ -28,7 +34,6 @@ export default {
   contrastColor(elementx) {
     let c = elementx
       if(/[#]/g.test(elementx)){
-        // console.log();
         let rgbx = this.hexToRgb(elementx)
        c = `rgb(${rgbx.r},${rgbx.g},${rgbx.b})`
       }

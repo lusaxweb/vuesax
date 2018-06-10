@@ -982,6 +982,13 @@ module.exports = _arrayWithoutHoles;
 
 /***/ }),
 
+/***/ "7Yfw":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "7tz2":
 /***/ (function(module, exports) {
 
@@ -1204,13 +1211,6 @@ exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O) {
   return $keys(O, hiddenKeys);
 };
 
-
-/***/ }),
-
-/***/ "AG8I":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -7239,6 +7239,182 @@ var vsSidebarGroup_Component = Object(component_normalizer["a" /* default */])(
   Vue.component(vsSideBar_vsSidebarItem.name, vsSideBar_vsSidebarItem);
   Vue.component(vsSideBar_vsSidebarGroup.name, vsSideBar_vsSidebarGroup);
 });
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://vuesax//node_modules//.cache//cache-loader"}!./node_modules/babel-loader/lib?{"presets":["C://Users//pc 01//AppData//Roaming//npm//node_modules//@vue//cli-service-global//node_modules//@vue//babel-preset-app//index.js"]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/components/vsDialog/vsDialog.vue
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ var vsDialog = ({
+  name: 'vs-dialog',
+  props: {
+    vsTitle: {
+      default: 'Dialog',
+      type: String
+    },
+    vsColor: {
+      default: 'primary',
+      type: String
+    },
+    vsButtonAccept: {
+      default: 'primary-filled',
+      type: String
+    },
+    vsButtonCancel: {
+      default: 'danger-flat',
+      type: String
+    },
+    vsType: {
+      default: 'alert',
+      type: String
+    },
+    vsIsValid: {
+      default: 'none',
+      type: [Boolean, String]
+    },
+    vsActive: {
+      default: false,
+      type: Boolean
+    }
+  },
+  data: function data() {
+    return {
+      active: true
+    };
+  },
+  mounted: function mounted() {
+    this.insertBody();
+  },
+  methods: {
+    giveColor: function giveColor(color) {
+      return utils_color["a" /* default */].rColor(color);
+    },
+    accept: function accept() {
+      if (this.vsType != 'prompt') {
+        this.$emit('update:vsActive', false);
+        this.$emit('vs-accept');
+      } else {
+        if (this.vsIsValid || this.vsIsValid == 'none') {
+          this.$emit('update:vsActive', false);
+          this.$emit('vs-accept');
+        } else {
+          this.rebound();
+        }
+      }
+    },
+    rebound: function rebound() {
+      var _this = this;
+
+      this.$refs.dialogx.classList.add('locked');
+      setTimeout(function () {
+        _this.$refs.dialogx.classList.remove('locked');
+      }, 200);
+    },
+    close: function close(event, con) {
+      if (con) {
+        if (event.target.className.indexOf('vs-dialog-dark') != -1 && this.vsType == 'alert') {
+          this.$emit('update:vsActive', false);
+        } else if (this.vsType != 'alert') {
+          this.rebound();
+        }
+      } else {
+        if (event ? event.target.className.indexOf('vs-dialog-cancel') != -1 : false) {
+          this.$emit('update:vsActive', false);
+        } else {
+          this.$emit('update:vsActive', false);
+          this.$emit('vs-cancel');
+        }
+      }
+    },
+    insertBody: function insertBody() {
+      var elx = this.$refs.con;
+      document.body.insertBefore(elx, document.body.firstChild);
+    }
+  }
+});
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-6af08a56","hasScoped":false,"optionsId":"0","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsDialog/vsDialog.vue
+var vsDialog_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('transition',{attrs:{"name":"dialog-t"}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.vsActive),expression:"vsActive"}],ref:"con",staticClass:"vs-component con-vs-dialog",on:{"click":function($event){_vm.close($event,true)}}},[_c('div',{staticClass:"vs-dialog-dark"}),_c('div',{ref:"dialogx",staticClass:"vs-dialog"},[_c('header',{style:({
+        'color':_vm.giveColor(_vm.vsColor)
+      })},[_c('div',{staticClass:"con-title-after"},[_c('span',{staticClass:"after",style:({
+          'background':_vm.giveColor(_vm.vsColor)
+          })}),_c('h3',[_vm._v(_vm._s(_vm.vsTitle))])]),(_vm.vsType=='alert')?_c('span',{staticClass:"vs-dialog-cancel material-icons",on:{"click":_vm.close}},[_vm._v("close")]):_vm._e()]),_c('div',{staticClass:"vs-dialog-text"},[_vm._t("default")],2),(_vm.vsType=='prompt')?_c('div',{staticClass:"vs-dialog-text"},[_vm._t("input")],2):_vm._e(),(_vm.vsType=='prompt'||_vm.vsType=='confirm')?_c('footer',[_c('vs-button',{attrs:{"vs-color":_vm.vsColor,"vs-type":'primary-'+_vm.vsButtonAccept.split('-')[1]},on:{"click":_vm.accept}},[_vm._v("Accept")]),_c('vs-button',{attrs:{"vs-type":'danger-'+_vm.vsButtonCancel.split('-')[1]},on:{"click":_vm.close}},[_vm._v("Cancel")])],1):_c('footer',[_c('vs-button',{attrs:{"vs-color":_vm.vsColor,"vs-type":'primary-'+_vm.vsButtonAccept.split('-')[1]},on:{"click":_vm.accept}},[_vm._v("Accept")])],1)])])])}
+var vsDialog_staticRenderFns = []
+
+// CONCATENATED MODULE: ./src/components/vsDialog/vsDialog.vue
+function vsDialog_injectStyle (context) {
+  __webpack_require__("7Yfw")
+}
+/* script */
+
+
+/* template */
+
+/* template functional */
+var vsDialog___vue_template_functional__ = false
+/* styles */
+var vsDialog___vue_styles__ = vsDialog_injectStyle
+/* scopeId */
+var vsDialog___vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var vsDialog___vue_module_identifier__ = null
+
+var vsDialog_Component = Object(component_normalizer["a" /* default */])(
+  vsDialog,
+  vsDialog_render,
+  vsDialog_staticRenderFns,
+  vsDialog___vue_template_functional__,
+  vsDialog___vue_styles__,
+  vsDialog___vue_scopeId__,
+  vsDialog___vue_module_identifier__
+)
+
+/* harmony default export */ var vsDialog_vsDialog = (vsDialog_Component.exports);
+
+// CONCATENATED MODULE: ./src/components/vsDialog/index.js
+
+
+
+/* harmony default export */ var components_vsDialog = (function (Vue) {
+  Vue.component(vsDialog_vsDialog.name, vsDialog_vsDialog);
+});
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://vuesax//node_modules//.cache//cache-loader"}!./node_modules/babel-loader/lib?{"presets":["C://Users//pc 01//AppData//Roaming//npm//node_modules//@vue//cli-service-global//node_modules//@vue//babel-preset-app//index.js"]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/layout/vsRow/vsRow.vue
 //
 //
@@ -7456,6 +7632,8 @@ var vsCol_Component = Object(component_normalizer["a" /* default */])(
 /* concated harmony reexport */__webpack_require__.d(__webpack_exports__, "vsPagination", function() { return components_vsPagination; });
 /* concated harmony reexport */__webpack_require__.d(__webpack_exports__, "vsBreadcrumb", function() { return components_vsBreadcrumb; });
 /* concated harmony reexport */__webpack_require__.d(__webpack_exports__, "vsSideBar", function() { return components_vsSideBar; });
+/* concated harmony reexport */__webpack_require__.d(__webpack_exports__, "vsDialog", function() { return components_vsDialog; });
+
 
 
 
@@ -8125,6 +8303,13 @@ module.exports = __webpack_require__("q+MV").f('iterator');
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
+  RandomColor: function RandomColor() {
+    function getRandomInt(min, max) {
+      return Math.floor(Math.random() * (max - min)) + min;
+    }
+
+    return "rgb(".concat(getRandomInt(0, 255), ",").concat(getRandomInt(0, 255), ",").concat(getRandomInt(0, 255), ")");
+  },
   rColor: function rColor(colorx) {
     var opacity = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
 
@@ -8158,7 +8343,6 @@ module.exports = __webpack_require__("q+MV").f('iterator');
     var c = elementx;
 
     if (/[#]/g.test(elementx)) {
-      // console.log();
       var rgbx = this.hexToRgb(elementx);
       c = "rgb(".concat(rgbx.r, ",").concat(rgbx.g, ",").concat(rgbx.b, ")");
     }
@@ -9224,323 +9408,6 @@ function moverNotis(position) {
   } // console.log(hx);
 
 }
-// EXTERNAL MODULE: ./src/functions/vsMessageBox/vsMessageBox.css
-var vsMessageBox = __webpack_require__("AG8I");
-var vsMessageBox_default = /*#__PURE__*/__webpack_require__.n(vsMessageBox);
-
-// CONCATENATED MODULE: ./src/functions/vsMessageBox/vsMessageBox.js
-
-
-
-var message = {
-  name: 'alert',
-  vsfunction: function vsfunction(parameters) {
-    //parameters
-    var title = parameters.title;
-    var text = parameters.text;
-    var textConfirm = parameters.textConfirm ? parameters.textConfirm : 'Accept';
-    var confirm = parameters.confirm;
-    var color = parameters.color ? parameters.color : null;
-
-    if (color != null) {
-      if (!/[#()]/.test(color)) {
-        color = "rgb(var(--".concat(color, "))");
-      }
-    } // contenedor
-
-
-    var conx = document.createElement('div');
-    conx.classList = "vs-con-message";
-
-    if (color) {
-      conx.classList.add("vs-color");
-    } else {
-      conx.classList.add("vs-no-color");
-    }
-
-    var messagex = document.createElement('div');
-    messagex.classList = "vs-message";
-    messagex.innerHTML = "<div class=\"vs-text\">\n    <p class=\"vs-p\">\n    ".concat(text, "\n    </p>\n    <div class=\"vs-con-btns\">\n      <button style=\"background:").concat(color, "; border: 1px solid ").concat(color, "\" class=\"vs-confirm\" type=\"button\" name=\"button\">").concat(textConfirm, "</button>\n    </div>\n    </div>");
-    var headerx = document.createElement('header');
-    headerx.classList = 'vs-header';
-    headerx.style.borderLeft = '3px solid ' + color;
-    headerx.innerHTML = "\n    <div class=\"vs-x\">\n    <i style=\"color:".concat(color, "\" class=\"material-icons\">close</i>\n    </div>\n  ");
-    var titlex = document.createElement('h3');
-    titlex.innerHTML = title;
-    titlex.style.color = color;
-    messagex.prepend(headerx);
-    headerx.appendChild(titlex);
-    conx.appendChild(messagex);
-    document.body.insertBefore(conx, document.body.firstChild); // animation
-
-    setTimeout(function () {
-      messagex.style.transform = "scale(1.050)";
-      conx.style.opacity = "1";
-      setTimeout(function () {
-        messagex.style.transform = "scale(1)";
-      }, 200);
-      setTimeout(function () {
-        messagex.style.borderRadius = '5px';
-        headerx.style.borderRadius = '5px 5px 5px 0px';
-        var x = document.getElementsByClassName('vs-x');
-        x[0].style.opacity = '1';
-        x[0].style.transform = ' scale(1) translate(5px,-5px)';
-        x[0].style.borderRadius = '5px';
-        var btns = document.getElementsByClassName('vs-con-btns');
-        btns[0].style.opacity = '1';
-        btns[0].style.transform = 'translate(0)';
-        var text2 = document.getElementsByClassName('vs-p');
-        text2[0].style.opacity = '1';
-        text2[0].style.transform = 'translate(0)';
-        titlex.style.opacity = '1';
-        titlex.style.transform = 'translate(0)';
-      }, 120);
-    }, 10); //events
-
-    document.getElementsByClassName('vs-confirm')[0].addEventListener('click', function () {
-      quitarMessage(messagex, conx);
-      confirm();
-    });
-    document.getElementsByClassName('vs-x')[0].addEventListener('click', function () {
-      quitarMessage(messagex, conx);
-    });
-    conx.addEventListener('click', function (e) {
-      if (e.target.className.search('vs-con-message') != -1) {
-        quitarMessage(messagex, conx);
-      }
-    });
-
-    function quitarMessage(messagex, conx) {
-      messagex.style.transform = "scale(1.1)";
-      conx.style.opacity = "0";
-      setTimeout(function () {
-        conx.remove();
-      }, 300);
-    }
-  }
-}; ////////////////////////////////////////////// confirm /////////////////////////////////
-
-var vsMessageBox_confirm = {
-  name: 'confirm',
-  vsfunction: function vsfunction(parameters) {
-    //parameters
-    var title = parameters.title;
-    var text = parameters.text;
-    var textConfirm = parameters.textConfirm ? parameters.textConfirm : 'Accept';
-    var confirm = parameters.confirm;
-    var color = parameters.color ? parameters.color : null;
-    var textCancel = parameters.textCancel ? parameters.textCancel : 'Cancel';
-    var cancel = parameters.cancel;
-
-    if (color != null) {
-      if (!/[#()]/.test(color)) {
-        color = "rgb(var(--".concat(color, "))");
-      }
-    } // contenedor
-
-
-    var conx = document.createElement('div');
-    conx.classList = "vs-con-message";
-
-    if (color) {
-      conx.classList.add("vs-color");
-    } else {
-      conx.classList.add("vs-no-color");
-    }
-
-    var messagex = document.createElement('div');
-    messagex.classList = "vs-message";
-    messagex.innerHTML = "<div class=\"vs-text\">\n    <p class=\"vs-p\">\n    ".concat(text, "\n    </p>\n    <div class=\"vs-con-btns\">\n      <button class=\"vs-cancel\" type=\"button\" name=\"button\">").concat(textCancel, "</button>\n      <button style=\"background:").concat(color, "; border: 1px solid ").concat(color, "\" class=\"vs-confirm\" type=\"button\" name=\"button\">").concat(textConfirm, "</button>\n    </div>\n    </div>");
-    var headerx = document.createElement('header');
-    headerx.classList = 'vs-header';
-    headerx.style.borderLeft = '3px solid ' + color; // headerx.innerHTML = `
-    //   <div class="vs-x">
-    //   <i style="color:${color}" class="material-icons">close</i>
-    //   </div>
-    // `
-
-    var titlex = document.createElement('h3');
-    titlex.innerHTML = title;
-    titlex.style.color = color;
-    messagex.prepend(headerx);
-    headerx.appendChild(titlex);
-    conx.appendChild(messagex);
-    document.body.insertBefore(conx, document.body.firstChild); // animation
-
-    setTimeout(function () {
-      messagex.style.transform = "scale(1.050)";
-      conx.style.opacity = "1";
-      setTimeout(function () {
-        messagex.style.transform = "scale(1)";
-      }, 200);
-      setTimeout(function () {
-        messagex.style.borderRadius = '5px';
-        headerx.style.borderRadius = '5px 5px 5px 0px'; // let x = document.getElementsByClassName('vs-x')
-        // x[0].style.opacity = '1'
-        // x[0].style.transform = ' scale(1) translate(5px,-5px)'
-        // x[0].style.borderRadius = '5px'
-
-        var btns = document.getElementsByClassName('vs-con-btns');
-        btns[0].style.opacity = '1';
-        btns[0].style.transform = 'translate(0)';
-        var text2 = document.getElementsByClassName('vs-p');
-        text2[0].style.opacity = '1';
-        text2[0].style.transform = 'translate(0)';
-        titlex.style.opacity = '1';
-        titlex.style.transform = 'translate(0)';
-      }, 120);
-    }, 10); //events
-
-    document.getElementsByClassName('vs-cancel')[0].addEventListener('click', function () {
-      quitarMessage(messagex, conx);
-      cancel();
-    });
-    document.getElementsByClassName('vs-confirm')[0].addEventListener('click', function () {
-      quitarMessage(messagex, conx);
-      confirm();
-    }); // document.getElementsByClassName('vs-x')[0].addEventListener('click',function(){
-    //   quitarMessage(messagex,conx)
-    // })
-
-    conx.addEventListener('click', function (e) {
-      if (e.target.className.search('vs-con-message') != -1) {
-        messagex.style.transform = "scale(1.050)";
-        setTimeout(function () {
-          messagex.style.transform = "scale(1)";
-        }, 100);
-      }
-    });
-
-    function quitarMessage(messagex, conx) {
-      messagex.style.transform = "scale(1.1)";
-      conx.style.opacity = "0";
-      setTimeout(function () {
-        conx.remove();
-      }, 300);
-    }
-  }
-}; ////////////////////////////////////////////// prompt /////////////////////////////////
-
-var vsMessageBox_prompt = {
-  name: 'prompt',
-  vsfunction: function vsfunction(parameters) {
-    //parameters
-    var title = parameters.title;
-    var text = parameters.text;
-    var textConfirm = parameters.textConfirm ? parameters.textConfirm : 'Accept';
-    var confirm = parameters.confirm;
-    var color = parameters.color ? parameters.color : null;
-    var textCancel = parameters.textCancel ? parameters.textCancel : 'Cancel';
-    var cancel = parameters.cancel;
-    var input = parameters.input;
-
-    if (input.type == 'radio' || input.type == 'checkBox' || input.type == 'button') {
-      // var textoActivo="MDN"
-      var URL = "https://lusaxweb.github.io/vuesax/#/";
-      console.warn("Vuesax: prompt invalid parameter type: " + input.type);
-      return;
-    }
-
-    if (color != null) {
-      if (!/[#()]/.test(color)) {
-        color = "rgb(var(--".concat(color, "))");
-      }
-    } // contenedor
-
-
-    var conx = document.createElement('div');
-    conx.classList = "vs-con-message";
-
-    if (color) {
-      conx.classList.add("vs-color");
-    } else {
-      conx.classList.add("vs-no-color");
-    }
-
-    var messagex = document.createElement('div');
-    messagex.classList = "vs-message";
-    messagex.innerHTML = "<div class=\"vs-text\">\n    <p class=\"vs-p\">\n    ".concat(text, "\n    <input\n      placeholder=\"").concat(input.placeholder ? input.placeholder : '', "\"\n      class=\"vs-input\"\n      type=\"").concat(input.type, "\"\n      name=\"\"\n      maxlength=\"").concat(input.maxLength, "\"\n      value=\"").concat(input.value ? input.value : '', "\"\n      >\n    </p>\n    <div class=\"vs-con-btns\">\n      <button class=\"vs-cancel\" type=\"button\" name=\"button\">").concat(textCancel, "</button>\n      <button style=\"background:").concat(color, "; border: 1px solid ").concat(color, "\" class=\"vs-confirm\" type=\"button\" name=\"button\">").concat(textConfirm, "</button>\n    </div>\n    </div>");
-    var headerx = document.createElement('header');
-    headerx.classList = 'vs-header';
-    headerx.style.borderLeft = '3px solid ' + color; // headerx.innerHTML = `
-    //   <div class="vs-x">
-    //   <i style="color:${color}" class="material-icons">close</i>
-    //   </div>
-    // `
-
-    var titlex = document.createElement('h3');
-    titlex.innerHTML = title;
-    titlex.style.color = color;
-    messagex.prepend(headerx);
-    headerx.appendChild(titlex);
-    conx.appendChild(messagex);
-    document.body.insertBefore(conx, document.body.firstChild); // animation
-
-    setTimeout(function () {
-      messagex.style.transform = "scale(1.050)";
-      conx.style.opacity = "1";
-      setTimeout(function () {
-        messagex.style.transform = "scale(1)";
-      }, 200);
-      setTimeout(function () {
-        messagex.style.borderRadius = '5px';
-        headerx.style.borderRadius = '5px 5px 5px 0px'; // let x = document.getElementsByClassName('vs-x')
-        // x[0].style.opacity = '1'
-        // x[0].style.transform = ' scale(1) translate(5px,-5px)'
-        // x[0].style.borderRadius = '5px'
-
-        var btns = document.getElementsByClassName('vs-con-btns');
-        btns[0].style.opacity = '1';
-        btns[0].style.transform = 'translate(0)';
-        var text2 = document.getElementsByClassName('vs-p');
-        text2[0].style.opacity = '1';
-        text2[0].style.transform = 'translate(0)';
-        titlex.style.opacity = '1';
-        titlex.style.transform = 'translate(0)';
-      }, 120);
-    }, 10); //events
-
-    document.getElementsByClassName('vs-cancel')[0].addEventListener('click', function () {
-      var valuex = document.getElementsByClassName('vs-input')[0];
-      quitarMessage(messagex, conx);
-      cancel(valuex.value);
-    });
-    document.getElementsByClassName('vs-confirm')[0].addEventListener('click', function () {
-      var valuex = document.getElementsByClassName('vs-input')[0];
-
-      if (valuex.value.length > 0) {
-        quitarMessage(messagex, conx);
-        confirm(valuex.value);
-      } else {
-        valuex.classList.add('input-mal-box');
-        valuex.focus();
-        messagex.style.transform = "scale(1.030)";
-        setTimeout(function () {
-          messagex.style.transform = "scale(1)";
-        }, 100);
-      }
-    }); // document.getElementsByClassName('vs-x')[0].addEventListener('click',function(){
-    //   quitarMessage(messagex,conx)
-    // })
-
-    conx.addEventListener('click', function (e) {
-      if (e.target.className.search('vs-con-message') != -1) {
-        messagex.style.transform = "scale(1.050)";
-        setTimeout(function () {
-          messagex.style.transform = "scale(1)";
-        }, 100);
-      }
-    });
-
-    function quitarMessage(messagex, conx) {
-      messagex.style.transform = "scale(1.1)";
-      conx.style.opacity = "0";
-      setTimeout(function () {
-        conx.remove();
-      }, 300);
-    }
-  }
-};
 // EXTERNAL MODULE: ./src/functions/vsLoading/vsLoading.css
 var vsLoading = __webpack_require__("DRbS");
 var vsLoading_default = /*#__PURE__*/__webpack_require__.n(vsLoading);
@@ -9602,9 +9469,9 @@ var theme = __webpack_require__("Tgw5");
 
 
 // Functions
-
-
-
+ // import {message} from './vsMessageBox/vsMessageBox.js'
+// import {confirm} from './vsMessageBox/vsMessageBox.js'
+// import {prompt} from './vsMessageBox/vsMessageBox.js'
 
 
  //theme
@@ -9612,9 +9479,10 @@ var theme = __webpack_require__("Tgw5");
 
 var vsFunctions = {
   vsNotifications: vsNotifications_vsNotifications,
-  message: message,
-  confirm: vsMessageBox_confirm,
-  prompt: vsMessageBox_prompt,
+  // message,
+  // confirm,
+  // prompt,
+  // vsDialog,
   vsLoading: vsLoading_vsLoading,
   vsLoadingClose: vsLoadingClose,
   vsTheme: theme["a" /* default */]
@@ -9628,6 +9496,7 @@ var vsFunctions = {
       Vue.prototype.$vs[vsFunctions.name] = vsFunctions.vsfunction;
     }
   });
+  console.log(Vue.prototype.$vs);
 });
 
 /***/ }),
