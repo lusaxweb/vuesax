@@ -90,10 +90,10 @@ One of the most common features is to have the hidden sidebar to show it when th
          History
       </vs-sidebar-item>
       <vs-sidebar-item @click="actives=3" :vs-active="actives==3" vs-icon="verified_user">
-         Setings
+         Settings
       </vs-sidebar-item>
       <vs-sidebar-item @click="actives=4" :vs-active="actives==4" vs-icon="account_box">
-         Perfile
+         Profile
       </vs-sidebar-item>
       <vs-sidebar-item @click="actives=5" :vs-active="actives==5" vs-icon="card_giftcard">
          card
@@ -151,10 +151,10 @@ You can change the parent of the sidebar with the property `vs-parent` that as a
          History
       </vs-sidebar-item>
       <vs-sidebar-item @click="actives=3" :vs-active="actives==3" vs-icon="verified_user">
-         Setings
+         Settings
       </vs-sidebar-item>
       <vs-sidebar-item @click="actives=4" :vs-active="actives==4" vs-icon="account_box">
-         Perfile
+         Profile
       </vs-sidebar-item>
       <vs-sidebar-item @click="actives=5" :vs-active="actives==5" vs-icon="card_giftcard">
          card
@@ -217,10 +217,10 @@ You can also use the sidebar in static mode with the property `vs-static`
          History
       </vs-sidebar-item>
       <vs-sidebar-item @click="actives=3" :vs-active="actives==3" vs-icon="verified_user">
-         Setings
+         Settings
       </vs-sidebar-item>
       <vs-sidebar-item @click="actives=4" :vs-active="actives==4" vs-icon="account_box">
-         Perfile
+         Profile
       </vs-sidebar-item>
       <vs-sidebar-item @click="actives=5" :vs-active="actives==5" vs-icon="card_giftcard">
          card
@@ -326,10 +326,10 @@ You can have groups of sub menus with the component `vs-slider-group` that as a 
       </vs-sidebar-group>
 
       <vs-sidebar-item @click="actives=15" :vs-active="actives==15" vs-icon="verified_user">
-         Setings
+         Settings
       </vs-sidebar-item>
       <vs-sidebar-item @click="actives=16" :vs-active="actives==16" vs-icon="account_box">
-         Perfile
+         Profile
       </vs-sidebar-item>
       <vs-sidebar-item @click="actives=17" :vs-active="actives==17" vs-icon="card_giftcard">
          card
@@ -442,10 +442,10 @@ You can add the beautiful functionality of reducing the sidebar to single icons 
       </vs-sidebar-group>
 
       <vs-sidebar-item @click="actives=15" :vs-active="actives==15" vs-icon="verified_user">
-         Setings
+         Settings
       </vs-sidebar-item>
       <vs-sidebar-item @click="actives=16" :vs-active="actives==16" vs-icon="account_box">
-         Perfile
+         Profile
       </vs-sidebar-item>
       <vs-sidebar-item @click="actives=17" :vs-active="actives==17" vs-icon="card_giftcard">
          card
