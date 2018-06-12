@@ -68,7 +68,7 @@ Recent versions of **Firefox**, **Chrome**, **Edge**, **Opera** and **Safari**. 
 <!DOCTYPE html>
 <html>
 <head>
-  <link href="https://cdn.jsdelivr.net/npm/vuesax/dist/vuesax.css" rel="stylesheet">
+  <link href="https://unpkg.com/vuesax/dist/vuesax.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
 </head>
 <body>
@@ -77,7 +77,7 @@ Recent versions of **Firefox**, **Chrome**, **Edge**, **Opera** and **Safari**. 
   </div>
 
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vuesax/dist/vuesax.umd.js"></script>
+  <script src="https://unpkg.com/vuesax/dist/vuesax.umd.js"></script>
   <script>
     new Vue({
       el: '#app'
