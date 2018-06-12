@@ -1,3 +1,5 @@
+import { findPageForPath } from '@app/util'
+
 export const hashRE = /#.*$/
 export const extRE = /\.(md|html)$/
 export const endingSlashRE = /\/$/
@@ -208,4 +210,9 @@ function resolveItem (item, pages, base, isNested) {
       collapsable: item.collapsable !== false
     }
   }
+}
+
+export function pathToComponentName (pages, path) {
+  const page = findPageForPath(pages, path)
+  return page && page.key
 }
