@@ -203,6 +203,9 @@ The input can have icons the property to add them is `vs-icon` and we can also m
 
 ::: tip
 Vuesax use the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
+
+FontAwesome and other fonts library are supported. Simply use the ` vs-icon-pack` with `fa` or `fas`. You still need to include the Font Awesome icons in your project.
+
 :::
 
 <vuecode md>
@@ -211,7 +214,7 @@ Vuesax use the **Google Material Icons** font library. For a list of all availab
 </div>
 <div slot="code">
 
-```html{4,7}
+```html
 <template lang="html">
   <div class="centerx">
     <vs-input
@@ -224,6 +227,8 @@ Vuesax use the **Google Material Icons** font library. For a list of all availab
     <vs-input vs-icon-after="true"  vs-icon="shopping_cart" vs-label-placeholder="Label-placeholder" v-model="value4"/>
     <vs-input disabled="true" vs-icon="error_outline" vs-label-placeholder="icon-disabled" v-model="value5"/>
     <vs-input vs-icon-after="true" disabled="true" vs-icon="email" vs-label-placeholder="icon-disabled" v-model="value6"/>
+    <vs-input vs-icon="fa-user" vs-icon-pack="fas" vs-placeholder="FontAwesome" v-model="value7"/>
+    <vs-input vs-icon-after="true" vs-icon="fa-user" vs-icon-pack="fas" vs-placeholder="FontAwesome" v-model="value7"/>
   </div>
 </template>
 
@@ -236,7 +241,8 @@ export default {
       value3:'',
       value4:'',
       value5:'',
-      value6:''
+      value6:'',
+      value7:''
     }
   }
 }
