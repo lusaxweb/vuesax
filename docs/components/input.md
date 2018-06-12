@@ -25,6 +25,11 @@ API:
    parameters: Icon Material
    description: Element icon.
    default: null
+ - name: vs-icon-pack
+   type: String
+   parameters: Icon Pack
+   description: Icon Pack Description. If not use, vs-icon will base in Material Icons. 
+   default: null
  - name: vs-icon-after
    type: String
    parameters: null
