@@ -1,92 +1,136 @@
 <template lang="html">
-  <li class="lix" :class="{
-    'disabledx':vsDisabled,
-    }">
-    <h4 v-if="vsLabel">
-      {{vsLabel}}
-    </h4>
-    <div :class="{'con-li':!vsLabel||!vsGroup}">
+  <li
+    @click="closeParent"
+    :class="{vsDivider}"
+    :style="{
+      'color':hoverx?giveColor()+' !important':null,
+      'background':hoverx?giveColor(.01)+' !important':null
+      }"
+      @mouseover="hoverx=true"
+      @mouseout="hoverx=false"
+    class="vs-component vs-dropdown-item">
+    <router-link
+    v-if="to"
+    :to="to"
+    v-bind="$attrs"
+    v-on="$listeners"
+    :class="{'disabled':disabled}"
+
+    >
+      {{$attrs.disabled}}
       <slot>
       </slot>
-    </div>
+    </router-link>
+
+    <a
+    v-else
+    v-bind="$attrs"
+    v-on="$listeners"
+    :class="{'disabled':disabled}"
+    >
+      <slot>
+      </slot>
+    </a>
   </li>
 </template>
 
 <script>
+import _color from '../../utils/color.js'
 export default {
-  name:'vs-dropdown-item',
+  inheritAttrs:false,
+  name: "vs-dropdown-item",
   props:{
-    vsGroup:{
-      type:Boolean,
+    to:{},
+    disabled:{
       default:false,
+      type:Boolean
     },
-    vsLabel:{
-      type:String,
-      default:null,
-    },
-    vsColor:{
-      type:String,
-      default:'rgb(var(--primary))',
-    },
-    vsDisabled:{
-      type:Boolean,
+    vsDivider:{
       default:false,
-    }
+      type:Boolean
+    },
   },
-  data(){
-    return {
-      _vsColor:this.vsColor
-    }
+  data:()=>({
+    hoverx:false,
+    vsDropDownItem:true,
+    vsColor:null
+  }),
+  mounted(){
+    this.changeColor()
   },
-  created(){
-    // console.log();
-    this._vsColor = this.$parent.vsColor
-  }
+  updated(){
+    this.changeColor()
+  },
+  methods:{
+    closeParent(){
+      if(this.disabled){
+        return
+      }
+      let _self = this
+      searchParent(this)
+      function searchParent(_this){
+        let parent = _this.$parent
+        if(parent.$el.className.indexOf('parent-dropdown')==-1){
+          searchParent(parent)
+        } else {
+          let [dropdownMenu] = parent.$children.filter((item)=>{
+            return item.hasOwnProperty('dropdownVisible')
+          })
+          dropdownMenu.dropdownVisible = parent.vsDropdownVisible = false
+
+        }
+      }
+    },
+    changeColor(){
+      let _self = this
+      searchParent(this)
+      function searchParent(_this){
+        let parent = _this.$parent
+        if(parent.$el.className.indexOf('parent-dropdown')==-1){
+          searchParent(parent)
+        } else {
+          _self.vsColor = parent.vsColor
+        }
+      }
+    },
+    giveColor(opacity=1){
+      return _color.rColor(this.vsColor,opacity)
+    },
+  },
+
 }
 </script>
 
-<style lang="css" scoped>
-.disabledx {
-  opacity: .4;
-  pointer-events: none;
-  user-select: none;
-}
-.lix {
-  background: inherit;
-}
-.lix:not(:nth-child(1)) h4{
-    border-top: 1px solid rgba(200, 200, 200,.2);
-    margin-top: 7px;
-  }
-  h4{
-      font-weight: normal;
-      text-align: left;
-      font-size: 15px;
-      text-transform: capitalize;
-      color: inherit;
-      padding: 10px;
-      padding-bottom: 5px;
-      cursor: default;
-      user-select: none;
-      position: sticky;
-      top: 0;
-      background: inherit;
-      display: block;
-      z-index: 200;
-    }
-  .con-li {
-    display: block;
-    width: auto;
+<style lang="stylus">
+.vs-dropdown-item
+  transition: all .2s ease;
+  position: relative;
+  z-index: 100;
+  text-align: left;
+  border-radius: 5px;
+  width: calc(100% - 6px)
+  margin: 0px 3px;
+  list-style: none;
+  font-weight: normal !important;
+  font-size: 15px;
+  a
+    background: inherit !important;
+    color: inherit !important;
     cursor: pointer;
+    transition: all .2s ease;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
     position: relative;
-    padding: 8px;
-  }
-  .con-li a {
-    color: inherit;
-    opacity: .7;
-    transition: all .3s ease;
-  }
-  .con-li a:hover {
-    opacity: 1;
-  }
+    display: block;
+    color: rgba(0, 0, 0, 0.7);
+    &.disabled
+      user-select: none;
+      pointer-events: none !important;
+      cursor: default;
+      opacity: .3 !important;
+  &.vsDivider
+    border-top: 1px solid rgba(0, 0, 0, 0.08)
+    margin-top: 5px;
 </style>

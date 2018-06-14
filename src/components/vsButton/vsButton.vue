@@ -426,11 +426,14 @@ export default {
     position: relative;
     z-index: 200;
     transition: all .2s ease;
-    padding: 12px;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 10px;
+    padding-left: 12px;
+    padding-right: 12px;
     display: block;
     border-radius: 5px;
+  }
+  .text .material-icons {
+    font-size: 18px;
   }
   .activo .text {
     color: rgb(255, 255, 255);

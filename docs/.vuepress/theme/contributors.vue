@@ -1,6 +1,6 @@
 <template lang="html">
   <div v-if="contribuitorsx.length > 0" class="con-contribuitor">
-    <h3 :class="{'allcontribuitors':Contribuitors == 'all'}">{{title || 'Contribuitors of'}} <b>Vuesax</b>  </h3>
+    <h3 :class="{'allcontribuitors':contributors == 'all'}">{{title || 'contributors of'}} <b>Vuesax</b>  </h3>
     <ul>
       <li :title="contributor.login" v-for="contributor in contribuitorsx">
         <a target="_blank" :href="contributor.html_url">
@@ -9,12 +9,12 @@
         </a>
       </li>
     </ul>
-    <div v-if="contribuitors == 'all'" class="con-btns-contribuitors">
+    <div v-if="contributors == 'all'" class="con-btns-contribuitors">
       <button type="button" name="button">
         <!-- <a href="">Contribuitors</a> -->
         <router-link
           to="/contribuitors/"
-        >Contribuitors</router-link>
+        >contributors</router-link>
       </button>
     </div>
   </div>
@@ -27,7 +27,7 @@ export default {
       default:null,
       type:String,
     },
-    contribuitors:{
+    contributors:{
       type:[Array, String],
       default:null
     },
@@ -55,12 +55,12 @@ export default {
   },
   methods:{
     consultContributors(){
-      if(!this.contribuitors) {
+      if(!this.contributors) {
         return
       }
 
-      if(this.contribuitors == 'all'){
-        fetch('https://api.github.com/repos/'+this.repo+'/contribuitors')
+      if(this.contributors == 'all'){
+        fetch('https://api.github.com/repos/'+this.repo+'/contributors')
         .then(response => response.json())
         .then(json => {
          this.contribuitorsx = json

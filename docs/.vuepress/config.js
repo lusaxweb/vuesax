@@ -208,6 +208,8 @@ module.exports = {
           '/components/breadcrumb',
           '/components/topbar',
           '/components/sideBar',
+          '/components/dropDown',
+          '/components/divider',
           /*New Component*/
         ]
       },

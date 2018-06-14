@@ -1,245 +1,155 @@
 <template lang="html">
-  <div
-  :style="{
-    'margin':vsMargin,
-    }"
-  :class="{
-    'vsDisabled':vsDisabled,
-    'vs-visible':visible
-    }" class="vs-drop-down">
-    <div v-if="conSlotButton" class="con-slot">
-      <slot name="button">
-      </slot>
-      <i
-      :style="{
-        'background':vsColorButton?/[#()]/.test(vsColorButton)?vsColorButton:`rgba(var(--${vsColorButton}),1)`:'rgba(var(--primary))',
-        'color':vsColorRow?/[#()]/.test(vsColorRow)?vsColorRow:`rgba(var(--${vsColorRow}),1)`:'rgb(255, 255, 255)',
-        }"
-      @click="setVisible($event)"
-      @mouseenter="setVisible($event)"
-      @mouseleave="vsTriggerClick?agregarClickFuera():visible=false"
-      class="material-icons">{{vsIcon}}</i>
-    </div>
-
-    <div
-    v-else
-    @click="setVisible($event)"
-    @mouseenter="setVisible($event)"
-    @mouseleave="vsTriggerClick?agregarClickFuera():visible=false"
-     class="btn-vs-drop-down">
-      {{vsTitle}}<i  class="material-icons">{{vsIcon}}</i>
-      <!--  -->
-    </div>
-
-    <!-- @mouseleave="visible=false" -->
-    <transition name="dropdown">
-    <div @mouseenter="visible=true" @mouseleave="vsTriggerClick?agregarClickFuera():visible=false" ref="ulDrop" v-show="visible" class="con-drop-ul">
-      <ul
-      :style="{
-        'background':vsColor?/[#()]/.test(vsColor)?vsColor:`rgba(var(--${vsColor}),1)`:'rgb(255, 255, 255)',
-        'color':colorx,
-        }"
-      class="drop-ul">
-        <slot>
-        </slot>
-      </ul>
-    </div>
-  </transition>
-  </div>
+  <!-- @contextmenu.capture.prevent -->
+  <button
+    v-bind="$attrs"
+    v-on="listeners"
+    ref="dropdown"
+    class="vs-con-dropdown parent-dropdown">
+    <slot>
+    </slot>
+  </button>
 </template>
 
 <script>
-import color from '../../utils/color.js'
 export default {
-  name:'vs-dropdown',
+  inheritAttrs:false,
+  name: "vs-dropdown",
   props:{
-    vsTitle:{
-      type:String,
-      default:'',
-    },
-    vsColorButton:{
-      type:String,
-      default:null,
-    },
     vsTriggerClick:{
-      type:Boolean,
       default:false,
+      type:Boolean
     },
-    vsMargin:{
-      type:String,
-      default:'0px',
-    },
-    vsDisabled:{
-      type:Boolean,
+    vsTriggerContextmenu:{
       default:false,
+      type:Boolean
     },
     vsColor:{
-      type:String,
-      default:'rgb(255, 255, 255)'
+      default:'primary',
+      type:String
     },
-    vsColorRow:{
-      type:String,
-      default:null,
-    },
-    vsIcon:{
-      type:String,
-      default:'keyboard_arrow_down',
+    vsCustomContent:{
+      default:false,
+      type:Boolean
     }
-
   },
-  data(){
-    return {
-      visible:false,
-      conSlotButton:false,
+  data:()=>({
+    vsDropdownVisible:false,
+    rightx:false
+  }),
+  watch:{
+    vsDropdownVisible(){
+      this.changePositionMenu()
+      if(this.vsDropdownVisible){
+        this.$emit('focus')
+      } else {
+        this.$emit('blur')
+      }
     }
+  },
+  mounted(){
+    let [dropdownMenu] = this.$children.filter((item)=>{
+      return item.hasOwnProperty('dropdownVisible')
+    })
+    dropdownMenu.vsCustomContent = this.vsCustomContent
+    dropdownMenu.vsTriggerClick = this.vsTriggerClick
+    this.changeColor()
   },
   computed:{
-
-    colorx(){
-      if(this.vsColor){
-        if(color.contrastColor(this.vsColor)){
-          return 'rgba(0, 0, 0,.8)'
-        } else {
-          return 'rgba(255, 255, 255,.8)'
-        }
+    listeners(){
+      console.log(this.$listeners);
+      return {
+        ...this.$listeners,
+        contextmenu: (evt) => this.vsTriggerContextmenu?this.clickToogleMenu(evt,true):{},
+        click: (evt) => this.vsTriggerContextmenu?{}:this.clickToogleMenu(evt),
+        mouseout: (evt) => this.toggleMenu('out',evt),
+        mouseover: (evt) => this.toggleMenu('over',evt),
       }
     }
   },
   methods:{
-    setVisible(evt){
-      if(evt.type=='mouseenter'&&this.vsTriggerClick){
-        return
-      }
-        let cords = evt.target.getBoundingClientRect()
-        let elx = this.$refs.ulDrop
-        elx.style.left = (cords.left + evt.target.clientWidth)+'px'
-        elx.style.top = (cords.top + evt.target.clientHeight)+'px'
-        document.body.insertBefore(elx, document.body.firstChild)
-        this.visible=!this.visible
-        setTimeout(function () {
-          window.addEventListener('click',this.cerrar)
-        }, 10);
-        window.addEventListener('mousewheel',this.cerrar)
-        window.addEventListener('touchmove',this.cerrar)
+    changeColor(){
+      let child = this.$children
+      child.forEach((item)=>{
+        if(item.$vnode.tag.indexOf('dropdown')!=-1){
+          item.vsColor = this.vsColor
+        }
+      })
+    },
+    changePositionMenu(){
+      let [dropdownMenu] = this.$children.filter((item)=>{
+        return item.hasOwnProperty('dropdownVisible')
+      })
+      let scrollTopx = window.pageYOffset || document.documentElement.scrollTop;
+      console.dir();
+      if(this.$refs.dropdown.getBoundingClientRect().top + 300 >= window.innerHeight) {
+        this.$nextTick(() => {
+            dropdownMenu.topx = (this.$refs.dropdown.getBoundingClientRect().top - dropdownMenu.$el.clientHeight) + scrollTopx
+            dropdownMenu.notHeight = true
+        });
 
+      } else {
+        dropdownMenu.notHeight = false
+        dropdownMenu.topx = (this.$refs.dropdown.getBoundingClientRect().top + this.$refs.dropdown.clientHeight) + scrollTopx
+      }
+
+      this.$nextTick(() => {
+        var w = window.innerWidth
+        || document.documentElement.clientWidth
+        || document.body.clientWidth;
+
+        // console.log(w);
+        // console.log(this.$refs.dropdown.clientWidth);
+        if(this.$refs.dropdown.getBoundingClientRect().left + dropdownMenu.$el.offsetWidth >= w - 20){
+          this.rightx = true
+        }
+        dropdownMenu.leftx = this.$refs.dropdown.getBoundingClientRect().left + this.$refs.dropdown.clientWidth
+      });
     },
-    agregarClickFuera(){
-      window.addEventListener('click',this.clickFuera)
-    },
-    clickFuera(e){
-      if(e.target.closest('.con-drop-ul')==null){
-        this.visible = false
-        this.removeEventListenerx()
+    clickToogleMenu(evt,isContextmenu){
+      console.log("paso",evt);
+      if(evt.type == 'contextmenu'){
+        evt.preventDefault()
+      }
+      let [dropdownMenu] = this.$children.filter((item)=>{
+        return item.hasOwnProperty('dropdownVisible')
+      })
+      if(this.vsTriggerClick || this.vsTriggerContextmenu){
+        if(this.vsDropdownVisible && !event.target.closest('.vs-dropdown-menu')){
+          dropdownMenu.dropdownVisible = this.vsDropdownVisible = false
+        } else {
+          dropdownMenu.dropdownVisible = this.vsDropdownVisible = true
+          window.addEventListener('click',()=>{
+            if(!event.target.closest('.vs-con-dropdown') && !event.target.closest('.vs-dropdown-menu')) {
+              dropdownMenu.dropdownVisible = this.vsDropdownVisible = false
+            }
+          })
+        }
       }
     },
-    cerrar(e){
-      if(e.target.closest('.con-drop-ul')==null){
-        this.visible = false
-        this.removeEventListenerx()
+    toggleMenu(typex,event){
+      let [dropdownMenu] = this.$children.filter((item)=>{
+        return item.hasOwnProperty('dropdownVisible')
+      })
+      if(!this.vsTriggerClick && !this.vsTriggerContextmenu){
+        if(typex == 'over'){
+          dropdownMenu.dropdownVisible = this.vsDropdownVisible = true
+        } else {
+          dropdownMenu.dropdownVisible = this.vsDropdownVisible = false
+        }
       }
-    },
-    removeEventListenerx(){
-      window.removeEventListener('click',this.clickFuera)
-      window.removeEventListener('click',this.cerrar)
-      window.removeEventListener('mousewheel',this.cerrar)
-      window.removeEventListener('touchmove',this.cerrar)
-    }
-  },
-  beforeDestroy(){
-    this.visible = false
-    let ulx = this.$refs.ulDrop
-    ulx.remove();
-  },
-  mounted(){
-    if(this.$slots.hasOwnProperty('button')){
-      this.conSlotButton = true
     }
   }
 }
 </script>
 
-<style lang="css" scoped>
-.vsDisabled {
-  pointer-events: none;
-  opacity: .4;
-  user-select: none;
-}
-.con-slot i {
-  background: rgb(7, 113, 250);
-  border-radius: 0px 5px 5px 0px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgb(255, 255, 255);
-  border-left: 1px solid rgba(255, 255, 255,.2);
-  padding-left: 5px;
-  padding-right: 5px;
-  font-size: 18px;
-  cursor: pointer;
-}
-.con-slot {
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-}
-.con-slot button {
-  margin: 0px !important;
-  border-radius: 5px 0px 0px 5px;
-}
-  .btn-vs-drop-down {
-    padding: 10px;
-    border-radius: 5px;
-    /* background: rgb(179, 179, 179); */
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgba(0, 0, 0, 0.7);
-  }
-  .btn-vs-drop-down i {
-    position: relative;
-    font-size:19px;
-    display: block;
-    transition: all .2s ease;
-    padding: 4px;
-  }
-  .con-drop-ul {
-    width: auto;
-    /* min-width: 70px; */
-    z-index: 20000;
-    position: fixed;
-    transform: translate(-100%);
-    display: block;
-    transition: all .3s ease;
-
-  }
-  .con-drop-ul >>> a {
-    color: inherit !important;
-  }
-  .con-drop-ul a {
-    color: inherit !important;
-  }
-  .drop-ul {
-    margin-top: 5px;
-    background: rgb(255, 255, 255);
-    box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    padding: 5px;
-    padding-top: 0px;
-    width: auto;
-    max-height: 350px;
-    overflow: auto;
-    overflow-x: hidden;
-  }
-  .vs-visible .btn-vs-drop-down i{
-    transform: rotate(-180deg);
-  }
-
-  .dropdown-enter-active .drop-ul, .dropdown-leave-active .drop-ul{
-    transition: all .250s;
-  }
-  .dropdown-enter .drop-ul, .dropdown-leave-to .drop-ul /* .fade-leave-active below version 2.1.8 */ {
-    opacity: 0;
-    transform: translate(0px,-15px);
-  }
+<style lang="stylus">
+.vs-con-dropdown
+  position: relative;
+  display: inline-block;
+  border: 0px;
+  background: transparent;
+  a
+    user-select: none !important;
+  &:active
+    opacity: 1 !important;
 </style>

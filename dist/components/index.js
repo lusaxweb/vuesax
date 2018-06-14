@@ -24,6 +24,8 @@ import vsPagination from './vsPagination'
 import vsBreadcrumb from './vsBreadcrumb'
 import vsSideBar from './vsSideBar'
 import vsDialog from './vsDialog'
+import vsDropDown from './vsDropDown'
+import vsDivider from './vsDivider'
 //New Component import
 
 // import vsAnchor from './vsAnchor'
@@ -63,6 +65,8 @@ export {
   vsBreadcrumb,
   vsSideBar,
   vsDialog,
+  vsDropDown,
+  vsDivider,
   //New Component export
 
   // en proceso

@@ -10,8 +10,14 @@ export default {
       let c = this.hexToRgb(colorx)
       colorx = `rgba(${c.r},${c.g},${c.b},${opacity})`
     } else if (/^[rgb]/.test(colorx)){
-      let colorSplit = colorx.split(')')[0].replace('rgb','rgba')
-      colorSplit += `,${opacity})`
+      let colorSplit = colorx.split(')')[0]
+      if(!/^[rgba]/.test(colorx)){
+        colorSplit.replace('rgb','rgba')
+        colorSplit += `,${opacity})`
+      } else {
+        // colorSplit.replace('rgb','rgba')
+        colorSplit += `)`
+      }
       colorx = colorSplit
     }
 

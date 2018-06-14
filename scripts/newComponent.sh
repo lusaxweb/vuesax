@@ -59,18 +59,27 @@ cd -
 # crear archivo .vue del nuevo componente
 
 echo '<template lang="html">
-  <div>
+  <div
+    class="vs-component vs-'${NAME,,}'"
+    v-bind="$attrs"
+    v-on="$listeners">
     Component vs'$MAYUS'
   </div>
 </template>
 
 <script>
 export default {
-  name: "vs-'${NAME,,}'"
+  inheritAttrs:false,
+  name: "vs-'${NAME,,}'",
+  data:()=>({
+
+  }),
 }
 </script>
 
-<style lang="css">
+<style lang="stylus">
+.vs-'${NAME,,}'
+  background: rgb(14, 142, 25)
 </style>' > src/components/vs$MAYUS/vs$MAYUS.vue
 
 # editar config.js para agregar el componente nuevo al menu
@@ -105,7 +114,7 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="stylus">
 </style>' > docs/.vuepress/components/Demos/$MAYUS/Default.vue
 
 
