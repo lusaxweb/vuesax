@@ -6,6 +6,8 @@
     <vs-input vs-icon-after="true"  vs-icon="shopping_cart" vs-label-placeholder="Label-placeholder" v-model="value4"/>
     <vs-input disabled="true" vs-icon="error_outline" vs-label-placeholder="icon-disabled" v-model="value5"/>
     <vs-input vs-icon-after="true" disabled="true" vs-icon="email" vs-label-placeholder="icon-disabled" v-model="value6"/>
+    <vs-input vs-icon="fa-user" vs-icon-pack="fas" vs-placeholder="FontAwesome" v-model="value7"/>
+    <vs-input vs-icon-after="true" vs-icon="fa-user" vs-icon-pack="fas" vs-placeholder="FontAwesome" v-model="value8"/>
   </div>
 </template>
 
@@ -18,7 +20,9 @@ export default {
       value3:'',
       value4:'',
       value5:'',
-      value6:''
+      value6:'',
+      value7:'',
+      value8: ''
     }
   }
 }
