@@ -54,6 +54,8 @@ The framework is focused on facilitating the development of applications, improv
 - [Topbar](https://lusaxweb.github.io/vuesax/components/topbar.html)
 - [Breadcrumb](https://lusaxweb.github.io/vuesax/components/breadcrumb.html)
 - [SideBar](https://lusaxweb.github.io/vuesax/components/sideBar.html)
+- [DropDown](https://lusaxweb.github.io/vuesax/components/dropDown.html)
+- [Divider](https://lusaxweb.github.io/vuesax/components/divider.html)
 
 # Demo and Documentation
 
