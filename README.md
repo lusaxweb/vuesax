@@ -78,7 +78,7 @@ Recent versions of **Firefox**, **Chrome**, **Edge**, **Opera** and **Safari**. 
     <vs-button vs-type="primary-filled">Hola Mundo</vs-button>
   </div>
 
-  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vuesax/dist/vuesax.umd.js"></script>
   <script>
     new Vue({
@@ -91,8 +91,8 @@ Recent versions of **Firefox**, **Chrome**, **Edge**, **Opera** and **Safari**. 
 
 # CDN
 
-- https://unpkg.com/vuesax/dist/vuesax.umd.js
-- https://unpkg.com/vuesax/dist/vuesax.css
+- https://cdn.jsdelivr.net/npm/vuesax/dist/vuesax.umd.js
+- https://cdn.jsdelivr.net/npm/vuesax/dist/vuesax.css
 
 # install en Proyecto NPM
 ``` bash
