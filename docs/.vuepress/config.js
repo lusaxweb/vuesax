@@ -4,7 +4,7 @@ module.exports = {
   head: [
     ['title',{},'hola'],
     ['link', { rel: 'icon', href: `/favicon-vuesax.png` }],
-    ['link', { rel: 'stylesheet', href: `https://use.fontawesome.com/releases/v5.0.13/css/all.css` }],
+    // ['link', { rel: 'stylesheet', href: `https://use.fontawesome.com/releases/v5.0.13/css/all.css` }],
   ],
   docsDir: 'docs',
   host:'localhost',
@@ -211,6 +211,7 @@ module.exports = {
           '/components/sideBar',
           '/components/dropDown',
           '/components/divider',
+          // '/components/collapse',
           /*New Component*/
         ]
       },

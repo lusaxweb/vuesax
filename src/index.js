@@ -1,5 +1,6 @@
 import './css/iconfont/material-icons.css'
 import './css/index.css'
+import './styles/config.styl'
 import * as vsComponents from './components'
 import vsFunctions from './functions'
 import vsTooltip from './directives/vsTooltip/vsTooltip.js'

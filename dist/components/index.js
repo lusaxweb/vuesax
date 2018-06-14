@@ -26,6 +26,7 @@ import vsSideBar from './vsSideBar'
 import vsDialog from './vsDialog'
 import vsDropDown from './vsDropDown'
 import vsDivider from './vsDivider'
+import vsCollapse from './vsCollapse'
 //New Component import
 
 // import vsAnchor from './vsAnchor'
@@ -67,6 +68,7 @@ export {
   vsDialog,
   vsDropDown,
   vsDivider,
+  vsCollapse,
   //New Component export
 
   // en proceso

@@ -1,4 +1,24 @@
 export default {
+  getColor(colorx, alphax = 1){
+    // change color hex to RGB
+    if(/^[#]/.test(colorx)){
+    let c = this.hexToRgb(colorx)
+    colorx = `rgba(${c.r},${c.g},${c.b},${alphax})`
+  } else if (/^rgba/.test(colorx)) {
+
+    colorx = colorx.replace(/.?([0-9]\))$/,`${alphax})`)
+
+  } else if (/^(rgb)/.test(colorx)) {
+    // change rgb and rgba
+    colorx = colorx.replace(/^(rgb)/,`rgba`)
+    colorx = colorx.replace(/\)$/,`,${alphax})`)
+  }
+  return colorx
+  },
+  isColor(colorx){
+    let vscolors = ['primary','secondary','success','danger','warning','dark', 'light']
+    return vscolors.includes(colorx)
+  },
   RandomColor(){
     function getRandomInt(min, max) {
       return Math.floor(Math.random() * (max - min)) + min;
