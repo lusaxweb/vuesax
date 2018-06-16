@@ -1,720 +1,356 @@
 <template lang="html">
-  <!-- @blur="btnBlur($event)" -->
-    <button
+  <button
+    ref="btn"
     v-bind="$attrs"
     v-on="listeners"
-    class="vs-btn"
-    ref="btnvuesax"
-    :style="{
-      'width':vsWidth,
-      'color':vsColorText?/[#()]/.test(vsColorText)?vsColorText:`rgb(var(--${vsColorText}))`:'',
-      'border-radius':vsRadius,
-      'background':backgroundx,
-      }"
+    :class="[`vs-button-${isColor()?vsColor:null}`,`vs-button-${vsType}`,{
+      'isActive':isActive,
+      'includeIcon':vsIcon
+      }]"
+    :style="styles"
+    class="vs-component vs-button"
     type="button"
-    :class="[vsType?clasex:'vs-button-primary-filled',{'filled':vsType?vsType.search('filled')!=-1:false,'border':vsType?vsType.search('border')!=-1:false,'vs-button-icon':vsIcon}]"
     name="button">
-    <span v-if="!vsHtml"
-    :style="{
-      'color':vsColorText?/[#()]/.test(vsColorText)?vsColorText:`rgb(var(--${vsColorText}))`:'',
-      'padding':vsPadding}" class="text">
-      <span v-if="vsIcon" :class="{'material-icons':vsIcon,'icon-btn':$slots.default}">{{vsIcon}}</span>
-      <slot>
-      </slot>
-    </span>
-      <span v-else v-html="vsHtml" :style="{
-        'color':vsColorText?/[#()]/.test(vsColorText)?vsColorText:`rgb(var(--${vsColorText}))`:'',
-        'padding':vsPadding}" class="text">
+
+      <span
+      v-if="!is('line')&&!is('gradient')&&!is('relief')"
+      ref="backgroundx"
+      :style="stylesBackGround"
+      class="vs-button-backgroundx"></span>
+
+      <i :style="{
+        'order':vsIconAfter?2:0,
+        'margin-right':$slots.default&&!vsIconAfter?'5px':'0px',
+        'margin-left':$slots.default&&vsIconAfter?'5px':'0px'
+        }" class="material-icons vs-button-icon">
+        {{vsIcon}}
+      </i>
+
+      <span v-if="$slots.default" class="vs-button-text">
+        <slot>
+        </slot>
       </span>
-      <div ref="lineax" class="lineax">
 
-      </div>
-    </button>
-
+      <span
+      class="vs-button-linex"
+      :style="styleLine"
+      ref="linex"></span>
+  </button>
 </template>
 
 <script>
-import color from '../../utils/color.js'
+import _color from '../../utils/color.js'
 export default {
+  inheritAttrs:false,
   name:'vs-button',
   props:{
-    vsWidth:{
-      type:String,
-      default:'auto'
-    },
-    vsHtml:{
-      type:String,
-      default:null
-    },
     vsType:{
-      type:String,
-      default:'primary-filled'
+      default:'filled',
+      type:String
     },
     vsColor:{
-      type:String,
-      default:'',
+      default:'primary',
+      type:String
     },
-    vsRadius:{
-      type:String,
-      default:'',
+    vsLineOrigin:{
+      default:'center',
+      type:String
     },
-    vsPadding:{
-      type:String,
-      default:'',
+    vsLinePosition:{
+      default:'bottom',
+      type:String
     },
-    vsColorText:{
-      type:String,
-      default:'',
+    vsGradientDirection:{
+      default:'30deg',
+      type:String
+    },
+    vsGradientColorSecondary:{
+      default:'primary',
+      type:String
     },
     vsIcon:{
       type:String,
       default:null
+    },
+    vsIconAfter:{
+      default:false,
+      type:Boolean
     }
   },
-  data(){
-    return {
-      hoverx:false,
-      clasex:`vs-button-${this.vsType}`,
-    }
-  },
+  data:()=>({
+    isActive:false,
+    hoverx:false,
+    leftBackgorund:20,
+    topBackgorund:20,
+    radio:0,
+    time:0.3,
+    timeOpacity:0.3,
+    opacity:1,
+  }),
   computed:{
     listeners() {
       return {
         ...this.$listeners,
-        blur: this.btnBlur,
-        mouseenter: this.onMouseenter,
-        mouseleave: this.onMouseleave,
+        click: (event) => this.clickButton(event),
+        blur: (event) => this.blurButton(event),
+        mouseover: (event) => this.mouseoverx(event),
+        mouseout: (event) => this.mouseoutx(event)
       }
     },
-    backgroundx(){
-      if(/-border/.test(this.vsType)||/-flat/.test(this.vsType)||/-line-down/.test(this.vsType)||/-gradient/.test(this.vsType)){
-        if(/-border/.test(this.vsType)){
-
+    styles() {
+      if(this.is('filled')){
+        return {
+          background: _color.getColor(this.vsColor,1),
+          boxShadow: this.hoverx?`0px 8px 25px -8px ${_color.getColor(this.vsColor,1)}`:null
         }
-
-    } else {
-      if(this.vsColor){
-        if(/[#()]/.test(this.vsColor)){
-          return this.vsColor
-        } else {
-          return `rgb(var(--${this.vsColor}))`
+      } else if (this.is('border') || this.is('flat')){
+        return {
+          border: `${this.is('flat')?0:1}px solid ${_color.getColor(this.vsColor,1)}`,
+          background: this.hoverx?_color.getColor(this.vsColor,.1):'transparent',
+          color: _color.getColor(this.vsColor,1)
+        }
+      } else if (this.is('line')) {
+        return {
+          color: _color.getColor(this.vsColor,1),
+          borderBottomWidth: this.vsLinePosition=='bottom'?`2px`:null,
+          borderColor: `${_color.getColor(this.vsColor,.2)}`,
+          borderTopWidth: this.vsLinePosition=='top'?`2px`:null,
+        }
+      } else if (this.is('gradient')) {
+        let backgroundx = `linear-gradient(${this.vsGradientDirection}, ${_color.getColor(this.vsColor)} 0%, ${_color.getColor(this.vsGradientColorSecondary,1)} 100%)`
+        return {
+          background: backgroundx,
+        }
+      } else if (this.is('relief')) {
+        let color = _color.getColor(this.vsColor,1)
+        return {
+          background: _color.getColor(this.vsColor,1),
+          borderBottom: `3px solid ${_color.darken(color,-0.4)}`
         }
       }
+    },
+    stylesBackGround(){
+      let styles = {
+        background: this.is('flat') || this.is('border')?_color.getColor(this.vsColor,1):null,
+        opacity:this.opacity,
+        left: `${this.leftBackgorund}px`,
+        top: `${this.topBackgorund}px`,
+        width: `${this.radio}px`,
+        height: `${this.radio}px`,
+        transition: `width ${this.time}s ease, height ${this.time}s ease, opacity ${this.timeOpacity}s ease`
+      }
+      return styles
+
+    },
+    styleLine(){
+      let lineOrigin = '50%'
+      if(this.vsLineOrigin == 'left'){
+        lineOrigin = '0%'
+      } else if (this.vsLineOrigin == 'right') {
+        lineOrigin = 'auto'
+      }
+
+      let styles = {
+        top: this.vsLinePosition == 'top'?'-2px':'auto',
+        bottom: this.vsLinePosition == 'bottom'?'-2px':'auto',
+        background: _color.getColor(this.vsColor,1),
+        left: lineOrigin,
+        right: lineOrigin == 'auto'?'0px':null,
+        transform: lineOrigin=='50%'?'translate(-50%)':null
+      }
+      return styles
     }
-    }
-    // 'box-shadow': hoverx?`0px 2px 15px 0px ${/[#()]/.test(vsColor)?vsColor:`rgb(var(--${vsColor}))`}`:'',
-  },
-  updated(){
-    this.vsColorx()
-  },
-  mounted(){
-    let _this = this
-    let btn = this.$refs.btnvuesax
-    let colorx = null
-    this.vsColorx()
-    // if(){
-    //
-    // }
-    // btn.style.boxShadow = this.hoverx?`0px 2px 15px 0px ${/[#()]/.test(vsColor)?vsColor:`rgb(var(--${vsColor}))`}`:''
-
-
-    let el = this.$el
-    el.addEventListener('click', function(event){
-      let x
-      let y
-
-        x = event.offsetX
-        y = event.offsetY
-
-      let elSpan = document.createElement("span");
-      elSpan.className = 'relleno'
-      el.appendChild(elSpan)
-
-      let spanx = this.querySelector('.relleno')
-
-      //agregar color personalizado
-
-      if(_this.vsColor){
-        if (/-flat/.test(_this.vsType) || /-border/.test(_this.vsType)) {
-
-          spanx.style.background = _this.vsColor
-
-        }
-      }
-      let time = 0.5
-      if (event.target.closest('.vs-btn').clientWidth>100) {
-        let s = event.target.closest('.vs-btn').clientWidth + 60
-        time = event.target.closest('.vs-btn').clientWidth/s
-      } else if (this.classList.contains('filled')) {
-        let s = event.target.closest('.vs-btn').clientWidth
-        time = event.target.closest('.vs-btn').clientWidth/s
-      }
-        spanx.style.transition = 'width '+time+'s ease,height '+time+'s ease,opacity '+time/1.5+'s ease'
-        spanx.style.left = x+'px';
-        spanx.style.top = y+'px';
-        spanx.style.width = event.target.closest('.vs-btn').clientWidth*3+'px';
-        spanx.style.height = event.target.closest('.vs-btn').clientWidth*3+'px';
-        spanx.style.opacity = '1';
-        this.classList.add('activo')
-      if(this.classList.contains('filled')){
-        setTimeout( ()=> {
-          spanx.style.left = x+'px';
-          spanx.style.top = y+'px';
-          spanx.style.width = '0px';
-          spanx.style.height = '0px';
-          spanx.remove()
-        }, time*1000);
-      }
-    })
   },
   methods:{
-    onMouseenter(){
-      this.hoverx=true
-      this.$emit('mouseenter')
+    is(which){
+      let type = this.vsType
+      return type == which
     },
-    onMouseleave(){
-      this.hoverx=false
-      this.$emit('mouseleave')
+    mouseoverx(event){
+      this.$emit('mouseover',event)
+      this.hoverx = true
     },
-    vsColorx(){
-      let _this = this
-      let btn = this.$refs.btnvuesax
-      let colorx = function(opacity){
-        var rgb = _this.vsColor.replace(/^(rgb|rgba)\(/,'').replace(/\)$/,'').replace(/\s/g,'').split(',');
-        return `rgba(${rgb[0]},${rgb[1]},${rgb[2]},${opacity})`;
+    mouseoutx(event){
+      this.$emit('mouseout',event)
+      this.hoverx = false
+    },
+    blurButton(event){
+      this.$emit('blur',event)
+      if(this.vsType == 'border' || this.vsType == 'flat'){
+        this.opacity = 0
+        setTimeout( () => {
+          this.radio = 0
+        }, 150);
+        this.isActive = false
       }
-      if(this.vsColor){
-
-      if(/[#()]/.test(this.vsColor)){
-        if(/#/.test(this.vsColor)){
-
-          let c = color.hexToRgb(this.vsColor)
-          colorx = function(opacity){
-            return `rgba(${c.r},${c.g},${c.b},${opacity})`;
-          }
-
-        }
+    },
+    clickButton(event){
+      this.$emit('click',event)
+      if(this.isActive){
+        return
+      }
+      this.isActive = true
+      let btn = this.$refs.btn
+      let xEvent = event.offsetX
+      let yEvent = event.offsetY
+      let radio = btn.clientWidth * 3
+      this.time  = btn.clientWidth / (btn.clientWidth + (this.is('border') || this.is('flat')?70:20))
+      if(this.is('filled')){
+        this.timeOpacity = this.time
       }
 
-      if(/-border/.test(this.vsType)){
-        btn.style.border = '1px solid '+this.vsColor
-        btn.style.color = this.vsColor
-      } else if (/-flat/.test(this.vsType)) {
-        btn.style.color = this.vsColor
-        btn.addEventListener('mouseover',()=>{
-              btn.style.background = colorx(.1)
-        }),
-        btn.addEventListener('mouseout',()=>{
-          btn.style.background = 'transparent';
-        })
-      } else if (/-filled/.test(this.vsType)) {
-        btn.style.boxShadow = `0px 7px 0px -7px ${colorx(1)}`
-        btn.addEventListener('mouseover',()=>{
-          btn.style.boxShadow = `0px 9px 28px -9px ${colorx(1)}`
-        }),
-        btn.addEventListener('mouseout',()=>{
-          // btn.style.boxShadow = `0px 9px 28px -9px ${'rgba(255, 255, 255, 0)'}`
-          btn.style.boxShadow = `0px 7px 0px -7px ${colorx(1)}`
-          // btn.style.boxShadow = `0px 9px 28px -9px ${colorx(1)}`
-        })
-      } else if (/-line-down/.test(this.vsType)) {
-        btn.querySelector('.text').style.color = this.vsColor
-        btn.querySelector('.lineax').style.background = this.vsColor
-        btn.style.borderBottom = `2px solid ${colorx(.2)}`
-      } else if (/-gradient/.test(this.vsType)) {
-        let color1 = this.vsColor.split('/')[0]
-        let color2 = this.vsColor.split('/')[1]
-
-        btn.style.background = `linear-gradient(30deg, ${color1} 0%, ${color2} 100%)`
+      if(event.srcElement != btn) {
+        xEvent += event.target.offsetLeft
+        yEvent += event.target.offsetTop
       }
+      this.leftBackgorund = xEvent
+      this.topBackgorund = yEvent
+      this.radio = radio
+      if(this.is('filled')){
+        this.opacity = 0
+      } else {
+        this.opacity = 1
+      }
+
+      if(this.is('filled')){
+        setTimeout( () => {
+          this.time = this.timeOpacity = this.radio = 0
+          this.opacity = 1
+          this.isActive = false
+        }, this.time*1100);
+      } else {
+        setTimeout( () => {
+          this.timeOpacity = .15
+        }, this.time*1100);
+      }
+
+    },
+    isColor(){
+      return _color.isColor(this.vsColor)
+    },
   }
-},
-    btnBlur(evt){
-      if(!evt.target.classList.contains('filled')){
-      evt.target.classList.remove('activo');
-      let spanx = evt.target.querySelector('.relleno')
-      spanx.style.opacity = '0';
-      setTimeout(function () {
-        spanx.style.width = '0px';
-        spanx.style.height = '0px';
-        spanx.remove()
-      }, 200);
-    }
-    this.$emit('blur',evt)
-    }
-  }
+
 }
 </script>
 
-<style lang="css">
+<style lang="stylus">
+@import '../../styles'
 
- .vs-btn {
-    border: 1px solid rgba(255, 255, 255,0);
-    border-radius: 5px;
-    border: 0px;
-    cursor: pointer;
-    outline: none;
-    background: rgb(238, 238, 238);
-    color: rgba(0, 0, 0, 0.7);
-    transition: all .2s ease;
-    overflow: hidden;
+$vs-types := filled, border
+
+.vs-button
+  transition: all .2s ease;
+  padding: 9px;
+  border: 0px;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  color: rgb(255, 255, 255);
+  box-sizing: border-box;
+  background: transparent
+  .vs-button-icon
+    z-index: 100;
+    display: block;
     position: relative;
-  }
-  button:active {
-    opacity: .7;
-  }
-  button:disabled {
-    opacity: .4;
-    pointer-events: none;
-  }
-   button:disabled .text {
-    /* opacity: .8; */
-    pointer-events: none;
-  }
-   button:disabled span::selection{
-    background: transparent !important;
-  }
-  .relleno {
-    width: 0px;
-    height: 0px;
+    font-size: 18px;
+    transition: all .2s ease;
+  .vs-button-backgroundx
+    border-radius: 50%;
+    width: 10px;
+    position: absolute;
+    height: 10px;
+    z-index: 0;
+    transform: translate(-50%,-50%);
+    box-shadow:inset 0px 0px 60px 0px rgba(255, 255, 255,.5);
+  .vs-button-text
+    position: relative;
+    color: inherit
+    display: inline-block;
+    transition: all .2s ease;
+&.vs-button-border,&.vs-button-flat
+  &.isActive
+    .vs-button-text,.vs-button-icon
+      color: rgb(255, 255, 255) !important
+
+&.vs-button-filled
+  &:hover
+    box-shadow: 0px 9px 28px -9px
+
+&.vs-button-line
+  border-radius: 0px
+  overflow: visible;
+  border-style: solid;
+  .vs-button-linex
+    transition: all .2s ease;
+    width: 0%;
     position: absolute;
     left: 0px;
-    top: 0px;
-    border-radius: 50%;
-    transform: translate(-50%,-50%);
-    z-index: 100;
-    opacity: 0;
-    overflow: hidden;
-    backface-visibility:hidden;
-  }
-  .vs-button-primary-border .relleno{
-    background: rgb(var(--primary));
-  }
-  .vs-button-primary-border {
-    background: rgb(255, 255, 255);
-    border: 1px solid rgb(var(--primary));
-    color: rgb(var(--primary));
-  }
-  button[class*='-border']:hover {
-    box-shadow: 0px 8px 10px -4px rgba(0, 0, 0, 0.150);
-  }
-  button[class*='-border'] {
-    box-shadow: 0px 0px 0px -4px rgba(0, 0, 0, 0.0);
-  }
-  .vs-button-success-border {
-    background:  rgb(255, 255, 255);
-    border: 1px solid rgb(var(--success));
-    color: rgb(var(--success));
-  }
-  .vs-button-success-border .relleno{
-    background: rgb(var(--success));
-  }
-  .vs-button-danger-border {
-    background:  rgb(255, 255, 255);
-    border: 1px solid rgb(var(--danger));
-    color: rgb(var(--danger));
-  }
-  .vs-button-danger-border .relleno{
-    background: rgb(var(--danger));
-  }
-  .vs-button-dark-border {
-    background:  rgb(255, 255, 255);
-    border: 1px solid rgb(var(--dark));
-    color: rgb(var(--dark));
-  }
-  .vs-button-dark-border .relleno{
-    background: rgb(var(--dark));
-  }
-  .vs-button-warning-border {
-    background:  rgb(255, 255, 255);
-    border: 1px solid rgb(var(--warning));
-    color: rgb(var(--warning));
-  }
-  .vs-button-warning-border .relleno{
-    background: rgb(var(--warning));
-  }
-  .vs-button-default {
-    background:  rgb(255, 255, 255);
-    border: 1px solid rgb(var(--default));
-    color: rgb(var(--default));
-  }
-  .vs-button-default .relleno{
-    background: rgb(var(--default));
-  }
-
-  /* //filled */
-  .vs-button-primary-filled {
-    background: rgb(var(--primary));
-    border: 1px solid rgba(255, 255, 255,0);
-    color: rgb(255, 255, 255);
-    box-shadow: 0px 7px 0px -7px rgb(var(--primary));
-
-  }
-  .vs-button-primary-filled:hover {
-    box-shadow: 0px 9px 28px -9px rgb(var(--primary));
-    /* box-shadow: 0px 0px 0px 0px rgba(var(--primary),.0); */
-  }
-  .vs-button-primary-filled .relleno{
-    box-shadow:inset 0px 0px 50px 0px rgba(255, 255, 255,.5);
-  }
-
-  .vs-button-success-filled {
-    background: rgb(var(--success));
-    border: 1px solid rgba(255, 255, 255,0);
-    color: rgb(255, 255, 255);
-    /* box-shadow: 0px 0px 0px 0px rgba(var(--success),.0); */
-    box-shadow: 0px 7px 0px -7px rgb(var(--success));
-  }
-  .vs-button-success-filled:hover {
-    box-shadow: 0px 9px 28px -9px rgb(var(--success));
-      /* box-shadow: 0px 2px 15px 0px rgb(var(--success)); */
-  }
-  .vs-button-success-filled .relleno{
-    box-shadow:inset 0px 0px 50px 0px rgba(255, 255, 255,.5);
-  }
-
-
-  .vs-button-danger-filled {
-    background: rgb(var(--danger));
-    border: 1px solid rgba(255, 255, 255,0);
-    color: rgb(255, 255, 255);
-    /* box-shadow: 0px 0px 0px 0px rgba(var(--danger),.0); */
-    box-shadow: 0px 7px 0px -7px rgb(var(--danger));
-  }
-  .vs-button-danger-filled:hover {
-    box-shadow: 0px 9px 28px -9px rgb(var(--danger));
-      /* box-shadow: 0px 2px 15px 0px rgb(var(--danger)); */
-  }
-  .vs-button-danger-filled .relleno{
-    box-shadow:inset 0px 0px 50px 0px rgba(255, 255, 255,.5);
-  }
-
-
-  .vs-button-warning-filled {
-    background: rgb(var(--warning));
-    border: 1px solid rgba(255, 255, 255,0);
-    color: rgb(255, 255, 255);
-    /* box-shadow: 0px 0px 0px 0px rgba(var(--warning),.0); */
-    box-shadow: 0px 7px 0px -7px rgb(var(--warning));
-  }
-  .vs-button-warning-filled:hover {
-    box-shadow: 0px 9px 28px -9px rgb(var(--warning));
-      /* box-shadow: 0px 2px 15px 0px rgb(var(--warning)); */
-  }
-  .vs-button-warning-filled .relleno{
-    box-shadow:inset 0px 0px 50px 0px rgba(255, 255, 255,.5);
-  }
-
-
-  .vs-button-dark-filled {
-    background: rgb(var(--dark));
-    border: 1px solid rgba(255, 255, 255,0);
-    color: rgb(255, 255, 255);
-    /* box-shadow: 0px 0px 0px 0px rgba(var(--dark),.0); */
-    box-shadow: 0px 7px 0px -7px rgb(var(--dark));
-  }
-  .vs-button-dark-filled:hover {
-    box-shadow: 0px 9px 28px -9px rgb(var(--dark));
-      /* box-shadow: 0px 2px 15px 0px rgb(var(--dark)); */
-  }
-  .vs-button-dark-filled .relleno{
-    box-shadow:inset 0px 0px 50px 0px rgba(255, 255, 255,.3);
-  }
-
-
-  .text {
-    position: relative;
-    z-index: 200;
-    transition: all .2s ease;
-    padding: 10px;
-    padding-left: 12px;
-    padding-right: 12px;
-    display: block;
-    border-radius: 5px;
-  }
-  .text .material-icons {
-    font-size: 18px;
-  }
-  .activo .text {
-    color: rgb(255, 255, 255);
-  }
-
-
-  /* flat */
-
-  .vs-button-primary-flat {
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255,0);
-    color: rgb(var(--primary));
-  }
-  .vs-button-primary-flat:hover {
-      background: rgba(var(--primary),.1);
-  }
-  .vs-button-primary-flat .relleno{
-    background: rgb(var(--primary));
-  }
-
-  .vs-button-success-flat {
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255,0);
-    color: rgb(var(--success));
-  }
-  .vs-button-success-flat:hover {
-      background: rgba(var(--success),.1);
-  }
-  .vs-button-success-flat .relleno{
-    background: rgb(var(--success));
-  }
-
-  .vs-button-danger-flat {
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255,0);
-    color: rgb(var(--danger));
-  }
-  .vs-button-danger-flat:hover {
-      background: rgba(var(--danger),.1);
-  }
-  .vs-button-danger-flat .relleno{
-    background: rgb(var(--danger));
-  }
-
-
-  .vs-button-warning-flat {
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255,0);
-    color: rgb(var(--warning));
-  }
-  .vs-button-warning-flat:hover {
-      background: rgba(var(--warning),.1);
-  }
-  .vs-button-warning-flat .relleno{
-    background: rgb(var(--warning));
-  }
-
-
-  .vs-button-dark-flat {
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255,0);
-    color: rgb(var(--dark));
-  }
-  .vs-button-dark-flat:hover {
-      background: rgba(var(--dark),.1);
-  }
-  .vs-button-dark-flat .relleno{
-    background: rgb(var(--dark));
-  }
-
-
-  /* border down */
-
-
-  button[class*='-line-down'] .lineax {
-    position: absolute;
-    left: 50%;
     bottom: -2px;
-    width: 0%;
     height: 2px;
-    content: '';
-    z-index: 100;
-    transition: all .2s ease;
-    transform: translate(-50%);
-  }
-  button[class*='-line-down']:hover .lineax {
-      width: 100%;
-  }
-  button[class*='-line-down']:hover .text {
+  &:hover
+    .vs-button-text,.vs-button-icon
       transform: translate(0,2px);
-  }
-  button[class*='-line-down'] .relleno{
-    background: transparent;
-    display: none;
-  }
-  button[class*='-line-down'] {
-    box-sizing: border-box;
-    background: transparent;
-    border-radius: 0px;
-    overflow: visible;
-  }
-  .vs-button-primary-line-down {
-    border-bottom: 2px solid rgba(var(--primary),.1);
-    color: rgb(var(--primary));
-  }
-  .vs-button-primary-line-down .lineax {
-    background: rgb(var(--primary));
-  }
-  .vs-button-primary-line-down .text {
-    color: rgb(var(--primary));
-  }
+    .vs-button-linex
+      width: 100% !important
 
-  .vs-button-success-line-down {
-    border-bottom: 2px solid rgba(var(--success),.1);
-    color: rgb(var(--success));
-  }
-  .vs-button-success-line-down .lineax {
-    background: rgb(var(--success));
-  }
-  .vs-button-success-line-down .text {
-    color: rgb(var(--success));
-  }
+&.vs-button-gradient
+  &:hover
+    transform: translate(0,-2px);
+    box-shadow: 0px 8px 25px -8px rgb(170, 170, 170)
 
+&.vs-button-relief
+  &:active
+    transform: translate(0,3px);
+    border-bottom-width: 0px !important;
 
-  .vs-button-danger-line-down {
-    border-bottom: 2px solid rgba(var(--danger),.1);
-    color: rgb(var(--danger));
-  }
-  .vs-button-danger-line-down .lineax {
-    background: rgb(var(--danger));
-  }
-  .vs-button-danger-line-down .text {
-    color: rgb(var(--danger));
-  }
+&.includeIcon
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  float: left;
 
+for colorx, i in $vs-colors
+  .vs-button-{colorx}
+    &.vs-button-filled //type filled
+      background: $vs-colors[colorx]
+      &:hover
+        box-shadow: 0px 8px 25px -8px $vs-colors[colorx]
+    &.vs-button-border,&.vs-button-flat //type border
+     border: 1px solid $vs-colors[colorx]
+     background: transparent !important
+     color: $vs-colors[colorx]
+     .vs-button-text
+       &.isActive
+         color: rgb(255, 255, 255) !important
+     &:hover
+       background: alpha($vs-colors[colorx],.08) !important
+     .vs-button-backgroundx
+       background: $vs-colors[colorx];
+       box-shadow:inset 0px 0px 60px 0px $vs-colors[colorx];
+    &.vs-button-flat //type flat
+      border: none !important
+    &.vs-button-line // type line
+      color: $vs-colors[colorx]
+      border-color: alpha($vs-colors[colorx],.2);
+      .vs-button-linex
+        background: $vs-colors[colorx]
+    &.vs-button-gradient // type Gradient
+      if colorx == 'danger' {
+        background: linear-gradient(30deg, $vs-colors[colorx] 0%, darken(spin($vs-colors[colorx],-20deg),40%) 100%) !important
+      }
+      else if colorx == 'dark' {
+        background: linear-gradient(30deg, $vs-colors[colorx] 0%, lighten($vs-colors[colorx],30%) 100%) !important
+      }
+      else {
+        background: linear-gradient(30deg, $vs-colors[colorx] 0%, spin($vs-colors[colorx],30deg) 100%) !important
+      }
+      text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
 
-  .vs-button-warning-line-down {
-    border-bottom: 2px solid rgba(var(--warning),.1);
-    color: rgb(var(--warning));
-  }
-  .vs-button-warning-line-down .lineax {
-    background: rgb(var(--warning));
-  }
-  .vs-button-warning-line-down .text {
-    color: rgb(var(--warning)) ;
-  }
-
-  .vs-button-dark-line-down {
-    border-bottom: 2px solid rgba(var(--dark),.1);
-    color: rgb(var(--dark));
-  }
-  .vs-button-dark-line-down .lineax {
-    background: rgb(var(--dark));
-  }
-  .vs-button-dark-line-down .text {
-    color: rgb(var(--dark));
-  }
-
-  /* gradient */
-  button[class*='-gradient'] {
-    overflow: visible;
-  }
-  button[class*='-gradient']:hover {
-    box-shadow: 0px 10px 20px -10px rgba(0, 0, 0,.6);
-    transform:translate(0,-4px);
-  }
-  button[class*='-gradient'] .relleno{
-    background: transparent;
-    display: none;
-  }
-  button[class*='-gradient']{
-    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
-  }
-  .vs-button-primary-gradient {
-    background: linear-gradient(30deg, rgba(var(--primary),1) 0%, rgb(96, 31, 255) 100%);
-  }
-  .vs-button-primary-gradient .text {
-    color: rgb(255, 255, 255);
-  }
-
-
-  .vs-button-success-gradient {
-    background: linear-gradient(30deg, rgb(138, 228, 141) 0%, rgb(22, 190, 119) 100%);
-  }
-  .vs-button-success-gradient .text {
-    color: rgb(255, 255, 255);
-  }
-
-  .vs-button-danger-gradient {
-    background: linear-gradient(30deg, rgba(var(--danger),1) 0%, rgb(213, 10, 101) 100%);
-  }
-  .vs-button-danger-gradient .text {
-    color: rgb(255, 255, 255);
-  }
-
-
-  .vs-button-warning-gradient {
-    background: linear-gradient(30deg, rgba(var(--warning),1) 0%, rgb(255, 109, 3) 100%);
-  }
-  .vs-button-warning-gradient .text {
-    color: rgb(255, 255, 255);
-  }
-
-  .vs-button-dark-gradient {
-    background: linear-gradient(30deg, rgba(var(--dark),1) 0%, rgb(70, 49, 97) 100%);
-  }
-  .vs-button-dark-gradient .text {
-    color: rgb(255, 255, 255);
-  }
-
-  button[class*='-relief']:active span {
-    padding-bottom: 16px !important;
-  }
-  button[class*='-relief'] .text {
-      color: rgb(255, 255, 255);
-  }
-
-
-  .vs-button-primary-relief {
-    background: rgb(var(--primary));
-    border-bottom: 4px solid rgba(0, 0, 0, 0.3);
-  }
-  .vs-button-primary-relief:active {
-    opacity: 1;
-    transform: translate(0,5px);
-    border-bottom: 0px solid rgba(0, 0, 0, 0.3);
-  }
-
-  .vs-button-success-relief {
-    background: rgb(var(--success));
-    border-bottom: 4px solid rgba(0, 0, 0, 0.3);
-  }
-  .vs-button-success-relief:active {
-    opacity: 1;
-    transform: translate(0,5px);
-    border-bottom: 0px solid rgba(0, 0, 0, 0.3);
-  }
-
-  .vs-button-danger-relief {
-    background: rgb(var(--danger));
-    border-bottom: 4px solid rgb(198, 56, 68);
-  }
-  .vs-button-danger-relief:active {
-    opacity: 1;
-    transform: translate(0,5px);
-    border-bottom: 0px solid rgb(198, 56, 68);
-  }
-
-  .vs-button-warning-relief {
-    background: rgb(var(--warning));
-    border-bottom: 4px solid rgb(207, 152, 7);
-  }
-  .vs-button-warning-relief:active {
-    opacity: 1;
-    transform: translate(0,5px);
-    border-bottom: 0px solid rgb(207, 152, 7);
-  }
-
-  .vs-button-dark-relief {
-    background: rgb(70, 70, 70);
-    border-bottom: 4px solid rgb(40, 40, 40);
-  }
-  .vs-button-dark-relief:active {
-    opacity: 1;
-    transform: translate(0,5px);
-    border-bottom: 0px solid rgb(40, 40, 40);
-  }
-
-  .vs-button-icon {
-    /* border-radius: 50%; */
-    padding: 0;
-  }
-
-  .vs-button-icon .text {
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .icon-btn {
-    margin-right: 4px;
-  }
+    &.vs-button-relief
+      background: $vs-colors[colorx]
+      if colorx == 'dark' {
+        background: lighten($vs-colors[colorx], 20%)
+      }
+      border-bottom: 3px solid darken($vs-colors[colorx],30%)
 </style>

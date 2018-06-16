@@ -1,8 +1,8 @@
 // Functions
 
 import vsNotifications from './vsNotifications/vsNotifications.js'
-// import {message} from './vsMessageBox/vsMessageBox.js'
-// import {confirm} from './vsMessageBox/vsMessageBox.js'
+import {message} from './vsMessageBox/vsMessageBox.js'
+import {confirm} from './vsMessageBox/vsMessageBox.js'
 // import {prompt} from './vsMessageBox/vsMessageBox.js'
 import {vsLoading} from './vsLoading/vsLoading.js'
 import {vsLoadingClose} from './vsLoading/vsLoading.js'
@@ -11,8 +11,8 @@ import vsTheme from '../utils/theme.js'
 
 const vsFunctions = {
   vsNotifications,
-  // message,
-  // confirm,
+  message,
+  confirm,
   // prompt,
   // vsDialog,
   vsLoading,
@@ -31,5 +31,4 @@ export default Vue => {
     }
   })
 
-  console.log(Vue.prototype.$vs);
 }
