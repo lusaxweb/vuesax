@@ -22,7 +22,7 @@
 
 # Introduction
 
-[Vuesax](https://lusaxweb.github.io/vuesax/) is a framework of components based on [vue js](https://vuejs.org/), it is a framework that is designed from scratch to be incrementally adoptable.
+[Vuesax](https://lusaxweb.github.io/vuesax/) is a framework of components based on [vue.js](https://vuejs.org/), it is a framework that is designed from scratch to be incrementally adoptable.
 
 The framework is focused on facilitating the development of applications, improving the design of the same without removing the necessary functionality. we want all the components to be independent in colors, shapes and design for a freedom that we like all front-end but without losing the speed of creation and production.
 
@@ -144,7 +144,7 @@ Please make sure to read the [Contributing Guide](https://github.com/lusaxweb/vu
 
 ## Become a Patron
 
-Vuesax is an open source MIT project if you want to contribute to keep improving, If you are interested in supporting this project, please consider becoming a patron. [[patron](https://www.patreon.com/bePatron?c=1567892)]
+Vuesax is an open source [MIT](https://github.com/lusaxweb/vuesax/blob/master/LICENSE) project if you want to contribute to keep improving, If you are interested in supporting this project, please consider becoming a patron. [[patron](https://www.patreon.com/bePatron?c=1567892)]
 
 ## Backers
 
