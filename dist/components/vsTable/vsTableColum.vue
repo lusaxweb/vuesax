@@ -43,11 +43,9 @@ export default {
   },
   methods:{
     changeCheckbox(value){
-      // console.log("hola mundo");
       this.$parent.changeCheckboxAll(value)
     },
     types(){
-      console.log(this.vsType);
       if(this.vsType){
         if(this.vsType=='checkbox'){
 
@@ -65,8 +63,6 @@ export default {
 
     },
     retornaTh(element){
-      console.log(element);
-      console.log(this.vsProperty);
       if(this.vsProperty){
         return element.property.search(this.vsProperty)!=-1
       }
@@ -75,13 +71,6 @@ export default {
   created(){
 
     this.types()
-  },
-  beforeDestroy(){
-
-    // console.log(this.$parent.ths);
-      // this.$delete(this.$parent.ths, this.$parent.ths.findIndex(this.retornaTh));
-
-    // this.types()
   },
   updated(){
     this.types()

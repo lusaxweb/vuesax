@@ -87,7 +87,6 @@ export default {
     giveColor(opacity=1,type){
       if(this.vsColor == 'rgba(0, 0, 0,.1)' && type=='text'){
         let color = this.vsColor.replace('.1','.8');
-        console.log(color);
         return _color.rColor(color,opacity)
       } else {
         return _color.rColor(this.vsColor,opacity)

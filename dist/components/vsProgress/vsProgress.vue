@@ -97,7 +97,6 @@ export default {
   },
   methods:{
     returnColorRGB(vsColor){
-      // console.log(vsColor);
       let colorx = color.hexToRgb(vsColor)
       return `rgba(${colorx.r},${colorx.g},${colorx.b},.1)`
     }

@@ -92,7 +92,6 @@ export default {
   }),
   mounted(){
     this.getValue()
-    console.log(this.$attrs);
   },
   computed:{
     classx(){

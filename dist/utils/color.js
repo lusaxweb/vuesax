@@ -1,17 +1,33 @@
 export default {
+  darken(color, percent) {
+    var f=color.split(","),t=percent<0?0:255,p=percent<0?percent*-1:percent,R=parseInt(f[0].slice(4)),G=parseInt(f[1]),B=parseInt(f[2]);
+    return "rgb("+(Math.round((t-R)*p)+R)+","+(Math.round((t-G)*p)+G)+","+(Math.round((t-B)*p)+B)+")";
+  },
   getColor(colorx, alphax = 1){
     // change color hex to RGB
     if(/^[#]/.test(colorx)){
     let c = this.hexToRgb(colorx)
-    colorx = `rgba(${c.r},${c.g},${c.b},${alphax})`
+
+    if(alphax == 1){
+      colorx = `rgb(${c.r},${c.g},${c.b})`
+
+    } else {
+      colorx = `rgba(${c.r},${c.g},${c.b},${alphax})`
+
+    }
   } else if (/^rgba/.test(colorx)) {
 
     colorx = colorx.replace(/.?([0-9]\))$/,`${alphax})`)
 
   } else if (/^(rgb)/.test(colorx)) {
     // change rgb and rgba
-    colorx = colorx.replace(/^(rgb)/,`rgba`)
-    colorx = colorx.replace(/\)$/,`,${alphax})`)
+    if(alphax == 1){
+
+    } else {
+      colorx = colorx.replace(/^(rgb)/,`rgba`)
+      colorx = colorx.replace(/\)$/,`,${alphax})`)
+    }
+
   }
   return colorx
   },

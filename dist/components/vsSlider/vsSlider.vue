@@ -110,7 +110,6 @@ export default {
   },
   methods:{
     resizex(){
-      // console.log(this.$refs.lineaSlider.clientWidth);
       this.ancho = this.$refs.lineaSlider.offsetWidth
       this.setSliderValue(this.numeroMostrar)
     },
@@ -143,18 +142,15 @@ export default {
       let linea = this.$refs.lineaSlider
       let circle = this.$refs.circle
       let x;
-      // console.log(event);
       if(event.type=='touchmove'){
         x = event.targetTouches[0].clientX
       } else {
         x = event.clientX
       }
       let valorx = x - (linea.getBoundingClientRect().left - circle.offsetWidth/2)
-      // console.log(this.vsMin);
       if(this.vsMin){
         if((valorx / this.ancho) * 100<=this.vsMin){
           valorx = valorx
-          // console.log('entro');
         }
       } else {
         if(Math.sign(valorx)==-1){
