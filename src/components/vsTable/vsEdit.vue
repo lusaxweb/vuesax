@@ -23,10 +23,6 @@ export default {
       editando:false,
     }
   },
-  created(){
-    console.log(this.$parent);
-    // console.log(this.$parent);
-  },
   methods:{
     editar(){
       this.editando = true

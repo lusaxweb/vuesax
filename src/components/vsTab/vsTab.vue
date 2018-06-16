@@ -19,7 +19,6 @@ export default {
     }
   },
   created(){
-    // console.log("hola tab",this.$parent);
     this.$parent.vsTabs.push(this)
   }
 }

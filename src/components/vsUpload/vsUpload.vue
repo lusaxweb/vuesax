@@ -107,12 +107,10 @@ export default {
     },
     // multiple
     agregarImg(){
-      console.log("hola mundo");
     },
 
 
     quitarView(evt){
-      console.log(evt.target.nodeName);
       if(evt.target.nodeName != 'IMG'){
         this.view = false
         setTimeout( ()=> {
@@ -141,10 +139,8 @@ export default {
         // preview.src = reader.result;
         this.arrayFiles.push({src:reader.result})
         // this.vsFileList.push({name:file.name})
-        console.log(file);
 
         filesx.push({file:file})
-        console.log(filesx);
         this.$emit('update:vsFileList', filesx)
       }
 
@@ -157,7 +153,6 @@ export default {
       this.$refs.inputsx.value = ''
     },
     uploadx(e) {
-      console.log("paso");
       this.$emit('update:vsFile', e.target.value)
       let _this = this
       this.$refs.conimg.classList.remove('oculto');

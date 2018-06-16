@@ -30,7 +30,6 @@
 </template>
 
 <script>
-// var pulse = setInterval(function(){ console.log("hola") }, 1000);
 
 export default {
   name:'vs-input-number',
@@ -103,11 +102,9 @@ export default {
         this.$emit('change',0)
       }
       if (parseInt(this.value)<parseInt(this.vsMin)) {
-        console.log("entro");
         this.$emit('input',this.vsMin)
         this.$emit('change',this.vsMin)
       } else if (parseInt(this.value)>parseInt(this.vsMax)) {
-        console.log("entro");
         this.$emit('input',this.vsMax)
         this.$emit('change',this.vsMax)
       }

@@ -100,7 +100,6 @@ export default {
 
     },
     keyboardx(e){
-      console.log("pasos");
       if(document.querySelector('.a-activox')){
         if(this.delta){
           if(e.code == 'ArrowUp'){
@@ -121,20 +120,16 @@ export default {
     irSection(idx){
       let _this = this
       _this.delta = false
-      // console.log(document.querySelector(this.vsScroll));
       let conx = document.getElementById(idx.replace('#',''));
-      // console.log(conx.offsetTop);
       scrollTo(document.querySelector(this.vsScroll), conx.offsetTop - this.vsScrollLess, this.vsTime);
       function scrollTo(element, to, duration) {
         var start = element.scrollTop,
         change = to - start,
         currentTime = 0,
         increment = 20;
-        console.log(start);
         var animateScroll = function(){
           currentTime += increment;
           var val = easing.easeInOutCirc(currentTime, start, change, duration);
-          // console.log(val);
           element.scrollTop = val;
           if(currentTime < duration) {
             var intervalx = setTimeout(animateScroll, increment);

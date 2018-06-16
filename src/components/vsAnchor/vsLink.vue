@@ -36,16 +36,13 @@ export default {
     this.padreScroll = this.$parent._props.vsScroll
     this.scrollLess = this.$parent._props.vsScrollLess
     this.time = this.$parent.$props.vsTime
-    // console.log(this.$parent._data);
     this.$parent._data.links.push({
       href:this.vsHref
     })
   },
   methods:{
     irSection(idx){
-      console.log(document.querySelector(this.padreScroll));
       let conx = document.getElementById(idx.replace('#',''));
-      console.log(conx.offsetTop);
       scrollTo(document.querySelector(this.padreScroll), conx.offsetTop - this.scrollLess, this.time);
 
 
@@ -58,7 +55,6 @@ export default {
         var animateScroll = function(){
           currentTime += increment;
           var val = easing.easeInOutCirc(currentTime, start, change, duration);
-          // console.log(val);
           element.scrollTop = val;
           if(currentTime < duration) {
             setTimeout(animateScroll, increment);

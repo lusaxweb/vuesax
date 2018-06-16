@@ -49,7 +49,6 @@ export default {
     },
     attrs(){
       let attrsx = JSON.parse(JSON.stringify(this.$attrs))
-      console.log(attrsx);
       return {
         attrsx
       }
