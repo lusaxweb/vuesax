@@ -33,13 +33,10 @@ export default {
   },
   methods:{
     clickLiTab(tab,index){
-      console.log("tab",tab._props.disabled);
       for (var i = 0; i < this.vsTabs.length; i++) {
         this.vsTabs[i]._data.activo = false
       }
       tab._data.activo = true
-      // console.log("tab",tab.data);
-      console.log("click",index);
     }
   },
   mounted(){

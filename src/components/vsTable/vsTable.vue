@@ -109,13 +109,8 @@ export default {
       thLength:0,
     }
   },
-  created(){
-    // console.log(this.$slot);
-  },
   methods:{
     emitClickTr(tr,index,evt){
-      console.log(tr);
-
       if(evt.target.localName == 'td'){
 
       this.$emit('vs-click-row',tr,index)
@@ -149,9 +144,6 @@ export default {
       }
     },
     changeCheckbox(tr,index,value){
-      console.log('tr>',tr);
-      console.log('index>',index);
-      console.log('value>',value);
       if(value){
         this.vsSelected.push(tr)
       } else {
@@ -162,7 +154,6 @@ export default {
           }
         })
         if(indexx != null){
-          console.log(indexx);
           this.$delete(this.vsSelected, indexx);
         }
       }
@@ -170,7 +161,6 @@ export default {
   },
   watch:{
     ths(){
-      console.log(this.ths);
         this.ths = this.ths
     }
   }

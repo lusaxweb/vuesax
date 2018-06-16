@@ -56,7 +56,6 @@ export default {
   },
   computed:{
     listeners(){
-      console.log(this.$listeners);
       return {
         ...this.$listeners,
         contextmenu: (evt) => this.vsTriggerContextmenu?this.clickToogleMenu(evt,true):{},
@@ -97,8 +96,6 @@ export default {
         || document.documentElement.clientWidth
         || document.body.clientWidth;
 
-        // console.log(w);
-        // console.log(this.$refs.dropdown.clientWidth);
         if(this.$refs.dropdown.getBoundingClientRect().left + dropdownMenu.$el.offsetWidth >= w - 20){
           this.rightx = true
         }
@@ -106,7 +103,6 @@ export default {
       });
     },
     clickToogleMenu(evt,isContextmenu){
-      console.log("paso",evt);
       if(evt.type == 'contextmenu'){
         evt.preventDefault()
       }
