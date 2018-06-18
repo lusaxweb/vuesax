@@ -280,11 +280,11 @@ export default {
 
 ## Array Value
 <!-- TODO es -->
-Puedes guardar los valores dentro de un array, es tan simple como usarlo como valor
+For saving the values in an array, you could simple pass it as a value.
 
 :::warning
   <!-- TODO es -->
-  para poder agregar un valor al array tenemos que usar la propiedad `vs-value` dentro del switch, ese es el valor que se va a agregar al array
+  for using an array as a value we need to use the `vs-value` property inside the switch component. That is the value that will be added to the array.
 :::
 
 <vuecode md>

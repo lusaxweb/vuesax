@@ -34,7 +34,7 @@ Aggressive and impacting effect and the most important functional
 
 ## State
 
-To add a checkBox to the application, we have the `vs-checkbox` component, which as principal parameters needs `v-model` that would be our value.
+To add a checkBox to the application, we have the `vs-checkbox` component, which expects as principal parameter `v-model` that would be our value.
 
 <vuecode md>
 <div slot="demo">
@@ -152,7 +152,7 @@ export default {
 
 ## Boolean Value
 
-The most normal thing is to work with the boolean data type when working with a checkBox for it, you just have to link a boolean value in `v-model`.
+In most of the cases you will need a boolean data type while working with checkBoxes. For making this possible you have to link a boolean value in `v-model`.
 
 <vuecode md>
 <div slot="demo">
@@ -291,7 +291,7 @@ export default {
 
 ## Array Object values
 
-There are times when you need to link an object as a value when selecting a checkBox for it, you only have to put as value in `vs-value` an object either literal or linked.
+Sometimes you need to link an object as a value when selecting a checkBox for it, you only have to put it as value in `vs-value` an object either literal or linked.
 
 <vuecode md>
 <div slot="demo">
@@ -336,7 +336,7 @@ export default {
 
 ## Change Icon
 
-There are times when we need to change the internal icon to make a different reference to be in check for it we have the property `vs-icon`
+Sometimes we need to change the internal icon to make a different reference that will be in the checked state. For it, we have the property `vs-icon`
 
 <vuecode md>
 <div slot="demo">

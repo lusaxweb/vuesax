@@ -87,7 +87,7 @@ contributors:
 
 ## Default
 
-The input is a functional part in an application so to implement it we have the `vs-input` component.
+The input is a functional part in an application, For implementing it we have the `vs-input` component.
 
 <vuecode md>
 <div slot="demo">
@@ -124,7 +124,7 @@ export default {
 
 ## Label
 
-To add a label to the input with the property `vs-label`.
+Add a label to the input with the property `vs-label`.
 
 <vuecode md>
 <div slot="demo">
@@ -162,7 +162,7 @@ export default {
 
 ## Label Placeholder
 
-The placeholder can become a label by being active to write with the property `vs-label-placeholder`
+The placeholder can become a label when the input is focused. Use the property `vs-label-placeholder` for making this.
 
 :::warning
 This property overrides the `vs-label` and the` vs-placeholder`
@@ -204,12 +204,12 @@ export default {
 
 ## Icons
 
-The input can have icons the property to add them is `vs-icon` and we can also manipulate the position at the end with the property` vs-icon-after`.
+The input can have icons. The property that makes this possible is `vs-icon`, and we could also manipulate the icon's position with the property `vs-icon-after`.
 
 ::: tip
 Vuesax use the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
 
-FontAwesome and other fonts library are supported. Simply use the ` vs-icon-pack` with `fa` or `fas`. You still need to include the Font Awesome icons in your project.
+FontAwesome and other fonts library are supported. Simply use the `vs-icon-pack` with `fa` or `fas`. You still need to include the Font Awesome icons in your project.
 
 :::
 
@@ -263,7 +263,7 @@ export default {
 
 ## Colors
 
-You can change the color of the edges when the user is active in the input with the property `vs-color`, You can use the main colors: `primary`,` success`, `danger`,` warning`, `dark` or HEX and RGB colors.
+You can change the color of the borders when the focus the input with the property `vs-color`. You could use the main colors: `primary`,`success`, `danger`,`warning`, `dark` or HEX and RGB colors.
 
 :::warning
 There is only support for **HEX** and **RGB** colors
@@ -315,9 +315,9 @@ export default {
 
 ## Validations
 
-You can validate the input in a simple way and without so many complications using the property `vs-valid.sync` that will return us if the input is valid or not, to be able to know what the validation type is the property` vs-type`.
+You can validate the input in a simple way and without so many complications by using the property `vs-valid.sync`. It will return us if the input is valid or not, to be able to know what the validation type is use the property`vs-type`.
 
-If you need a custom validation, the property `vs-validation-function`.
+If you need a custom validation, use the property `vs-validation-function`.
 
 <vuecode md>
 <div slot="demo">

@@ -42,7 +42,7 @@ tag: new
 
 ## Color
 
-To represent symple data with colorful options.
+Helps you represent symple data with colorful options.
 
 <vuecode md center>
 <div slot="demo">
@@ -130,7 +130,7 @@ export default {
 
 ## Closable
 
-To make a chip closable.
+For making a chip closable.
 
 <vuecode md>
 <div slot="demo">

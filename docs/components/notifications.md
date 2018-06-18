@@ -200,7 +200,7 @@ export default {
 
 ## Icons
 
-Notifications can have icons to give a better user experience and report with a more pleasant and intuitive notification for this is the property `icon` a serious example: `icon: 'chat'`
+Notifications can have icons inside in order to give a better user experience and notify with a more pleasant and intuitive notification. For making this use the `icon` property. A real-case example would be: `icon: 'chat'`
 ::: tip
 Vuesax use the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
 :::
@@ -259,7 +259,7 @@ export default {
 
 ## Fixed and function click
 
-There are times when we need to execute a function when the user clicks on the notification. For this, we have the property that clicks as a value to pass a function to it. Example: `click:()=>{ ... }`
+Sometimes we need to execute a function when the user clicks on the notification. For this, pass a function to the click property. Example: `click:()=>{ ... }`
 
 <vuecode md>
 <div slot="demo">

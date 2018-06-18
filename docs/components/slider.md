@@ -77,7 +77,7 @@ export default {
 
 ## Color
 
-You can change the color of the slider with the property `vs-color`, you can add the main colors like: `primary`, `success`,`danger`, `warning`,` dark`.
+You can change the slider's color with the property `vs-color`, you can add the main colors like: `primary`, `success`,`danger`, `warning`,`dark`.
 
 <vuecode md>
 <div slot="demo">
@@ -114,7 +114,7 @@ export default {
 
 ## Change Method
 
-You can add a function that runs every time the value changes with `@change="MyFunction"`
+You can add a function that will be triggered every time the value changes with `@change="MyFunction"`
 
 <vuecode md>
 <div slot="demo">

@@ -57,7 +57,7 @@ contributors:
 
 ## Default
 
-To add a card we have the components `vs-card`, `vs-card-header`, `vs-card-body`, `vs-card-media`, `vs-card-actions` each one has its functionality inside of the card but an initial structure would be like this:
+To add a card we have the components `vs-card`, `vs-card-header`, `vs-card-body`, `vs-card-media`, `vs-card-actions` each one has its own functionality inside of the card but an initial structure would be like this:
 
 
 <vuecode md>
