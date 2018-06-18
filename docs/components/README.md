@@ -48,15 +48,17 @@ API:
   Nice buttons and easy to use.
 
 </box>
+
+<!-- Filled -->
 <box>
 
 ## Filled
 
-To define the type of button the directive is used `vs-type` with the value of some type of button like it can be: `filled`
+To define the button style the directive used is `vs-type` with the value of some style of button like such as: `filled`.
 
 <vuecode md center>
 <div slot="demo">
-<vs-button vs-color="primary" vs-type="filled">Primary</vs-button>
+<vs-button vs-button-type="submit" vs-color="primary" vs-type="filled">Primary</vs-button>
 <vs-button vs-color="success" vs-type="filled">Success</vs-button>
 <vs-button vs-color="danger" vs-type="filled">Danger</vs-button>
 <vs-button vs-color="warning" vs-type="filled">Warning</vs-button>
@@ -79,11 +81,12 @@ To define the type of button the directive is used `vs-type` with the value of s
 </vuecode>
 </box>
 
+<!-- Border -->
 <box>
 
 ## Border
 
-To add a type of button with edges we change the value of `border`.
+To add a button with borders and transparent background, we change the value of `border`.
 
 <vuecode md center>
 <div slot="demo">
@@ -110,12 +113,12 @@ To add a type of button with edges we change the value of `border`.
 </vuecode>
 </box>
 
-<!-- flat -->
+<!-- Flat -->
 <box>
 
 ## Flat
 
-To add a type of button with edges we change the value of `flat`
+To add a flat button with no borders, we change the value of `flat`.
 
 <vuecode md center>
 <div slot="demo">
@@ -147,7 +150,7 @@ To add a type of button with edges we change the value of `flat`
 
 ## Line Down
 
-To add a type of button with edges we change the value of `vs-type` by: `line`.
+To add a button with bottom border, we change the value of `vs-type` by: `line`.
 
 :::tip
   you can change the position of the line up with the property `vs-line-position="top"`, you can also change the way the line appears in hover with the property `vs-line-origin` the allowed values They are
@@ -186,7 +189,7 @@ To add a type of button with edges we change the value of `vs-type` by: `line`.
 
 ## Gradient
 
-To add a type of button with edges we change the value of `vs-type` by: `gradient`
+To add a button with gradient background we change the value of `vs-type` by: `gradient`.
 
 <vuecode md center>
 <div slot="demo">
@@ -218,7 +221,7 @@ To add a type of button with edges we change the value of `vs-type` by: `gradien
 
 ## Relief
 
-To add a type of button with edges we change the value of `vs-type` by: `relief`
+To add a button with edges and pressing down motion, we change the value of `vs-type` by: `relief`.
 
 <vuecode md center>
 <div slot="demo">
@@ -239,6 +242,32 @@ To add a type of button with edges we change the value of `vs-type` by: `relief`
 <vs-button vs-color="warning" vs-type="relief">warning</vs-button>
 <vs-button vs-color="dark" vs-type="relief">dark</vs-button>
 <vs-button vs-color="rgb(187, 138, 49)" vs-type="relief">Color</vs-button>
+```
+
+</div>
+</vuecode>
+</box>
+
+<!-- Button Type -->
+<box>
+
+## Button Type
+
+To define the type of button the directive used is `vs-button-type` with the value of some type of button like it can be: `submit`. The Default value is `button`.
+
+<vuecode md center>
+<div slot="demo">
+<vs-button vs-color="primary" vs-type="filled">Button</vs-button>
+<vs-button vs-button-type="submit" vs-color="success" vs-type="filled">Submit</vs-button>
+<vs-button vs-button-type="reset" vs-color="danger" vs-type="filled">Reset</vs-button>
+</div>
+
+<div slot="code">
+
+```html
+<vs-button vs-color="primary" vs-type="filled">Button</vs-button> <!-- vs-button-type="button" is the default -->
+<vs-button vs-button-type="submit" vs-color="success" vs-type="filled">Submit</vs-button>
+<vs-button vs-button-type="reset" vs-color="danger" vs-type="filled">Reset</vs-button>
 ```
 
 </div>

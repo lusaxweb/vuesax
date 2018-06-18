@@ -9,7 +9,7 @@
       }]"
     :style="styles"
     class="vs-component vs-button"
-    type="button"
+    :type="vsButtonType"
     name="button">
 
       <span
@@ -75,6 +75,10 @@ export default {
     vsIconAfter:{
       default:false,
       type:Boolean
+    },
+    vsButtonType:{
+      default:'button',
+      type:String
     }
   },
   data:()=>({
