@@ -125,7 +125,7 @@ export default {
         let color = _color.getColor(this.vsColor,1)
         return {
           background: _color.getColor(this.vsColor,1),
-          borderBottom: `3px solid ${_color.darken(color,-0.4)}`
+          boxShadow: `0 3px 0 0 ${_color.darken(color,-0.4)}`
         }
       }
     },
@@ -302,7 +302,7 @@ $vs-types := filled, border
 &.vs-button-relief
   &:active
     transform: translate(0,3px);
-    border-bottom-width: 0px !important;
+    box-shadow: none !important;
 
 &.includeIcon
   display: flex;
@@ -352,5 +352,5 @@ for colorx, i in $vs-colors
       if colorx == 'dark' {
         background: lighten($vs-colors[colorx], 20%)
       }
-      border-bottom: 3px solid darken($vs-colors[colorx],30%)
+      box-shadow: 0 3px 0 0 darken($vs-colors[colorx],30%)
 </style>
