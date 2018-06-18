@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="centerx">
-    <vs-button @click="openLoading" vs-type="primary-filled">Loading Default</vs-button>
+    <vs-button @click="openLoading" vs-type="filled" vs-color="primary">Loading Default</vs-button>
   </div>
 </template>
 
