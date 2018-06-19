@@ -359,12 +359,12 @@ export default {
 
 <box>
 
-## Costom Content
+## Custom Content
 
-There are times when we need something more personalized and not necessarily a menu for it you can add any content and have the dropdown functionality with the property `vs-custom-content`
+Sometimes when we need something more personalized and not necessarily a menu for it you can add any content and have the dropdown functionality with the property `vs-custom-content`
 
 :::tip
-  For better functionality in the user's aspect when doing some interaction with the custom dropdown you can add that it is only activated and deactivated with the click event with the property `vs-trigger-click`
+  For better functionality in the user's aspect when doing some interaction with the custom dropdown you can add that it is only activated and deactivated by a click event with the property `vs-trigger-click`
 :::
 
 

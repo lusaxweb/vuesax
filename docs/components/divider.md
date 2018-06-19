@@ -215,7 +215,7 @@ Vuesax use the **Google Material Icons** font library. For a list of all availab
 
 ## Style
 
-You can change the style of the line with the property `vs-style` the allowed values ​​are some the normal edges of css
+You can change line's style with the property `vs-style` the allowed values ​​are equivalent to the border-style property in CSS.
 
 - **dotted** - Defines a dotted border
 - **dashed** - Defines a dashed border

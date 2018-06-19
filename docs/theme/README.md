@@ -116,7 +116,7 @@ export default {
 
 Almost always we need a personalized application with own colors, in vuesax you can change the main colors to those that you need and the branding that your application has.
 
-when starting **vuesax** and tell it again to use it, we add the new colors as parameters.
+when starting **vuesax** tell it to use them. We add the new colors as parameters.
 
 ```js
 Vue.use(Vuesax, {
@@ -154,7 +154,7 @@ imagine that in the middle of the application we want the primary color change w
 
 ```js
 this.$vs.theme({
-  primary:'rgb(5, 173, 88)' // myColorNew
+  primary:'rgb(5, 173, 88)' // my new color
 })
 ```
 
