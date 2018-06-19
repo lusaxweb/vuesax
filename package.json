@@ -30,7 +30,7 @@
     "p": "npm publish",
     "deploy": "npm run build & git add . & git commit -m 'deploy' & npm run v & npm run p && git push",
     "docs:build": "vuepress build docs",
-    "docs:deploy": "sh deploy.sh",
+    "docs:deploy": "sh scripts/deploy.sh",
     "deployx": "npm run docs:deploy && npm run deploy",
     "new:component": "sh scripts/newComponent.sh"
   },

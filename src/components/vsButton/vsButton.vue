@@ -9,9 +9,7 @@
       }]"
     :style="styles"
     class="vs-component vs-button"
-    type="button"
     name="button">
-
       <span
       v-if="!is('line')&&!is('gradient')&&!is('relief')"
       ref="backgroundx"

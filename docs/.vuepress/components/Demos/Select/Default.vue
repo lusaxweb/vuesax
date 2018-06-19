@@ -1,11 +1,27 @@
 <template lang="html">
   <div class="con-select-example">
+    {{select1}}
+    <input type="text" name="" value="">
     <vs-select
+    vs-multiple
       class="selectExample"
       v-model="select1"
-      :options="options1"
-      ></vs-select>
+      >
+      <vs-select-item :vs-text="option.text" :key="index" v-for="option,index in options3" :vs-value="option.value">
+      </vs-select-item>
+    </vs-select>
+    {{select2}}
     <vs-select
+      vs-multiple
+      vs-autocomplete
+      vs-color="rgb(22, 185, 112)"
+      class="selectExample"
+      v-model="select1"
+      >
+      <vs-select-item :vs-text="option.text" :key="index" v-for="option,index in options3" :vs-value="option.value">
+      </vs-select-item>
+    </vs-select>
+    <!-- <vs-select
     class="selectExample"
       label="Figuras"
       v-model="select3"
@@ -17,7 +33,7 @@
         label="Colores"
         v-model="select2"
         :options="options2"
-        ></vs-select>
+        ></vs-select> -->
   </div>
 </template>
 
@@ -26,8 +42,9 @@ export default {
   name:'',
   data(){
     return {
-      select1:0,
-      select2:1,
+      select1Normal:'',
+      select1:[],
+      select2:'',
       select3:1,
       options1:[
         {text:'IT',value:0},
