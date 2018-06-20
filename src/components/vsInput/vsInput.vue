@@ -51,7 +51,7 @@ let validations = {
     return /^(?=.*[\d])(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*])[\w!@#$%^&*]{8,}$/i.test(value)
   },
   number: (value, min, max) => {
-    if(!min || !max) return ! isNaN(value);
+    if ((!min && min !== 0) || !max) return !isNaN(value);
     return Number(value) <= Number(max) && Number(value) >= Number(min)
   },
   default: (value) => true
@@ -76,7 +76,8 @@ export default {
     'vsMax',
     'vsMin',
     'vsValid',
-    'vsValidationFunction'
+    'vsValidationFunction',
+    'vsRequired'
   ],
   data(){
     return {
@@ -89,6 +90,9 @@ export default {
     }
   },
   computed:{
+    isRequired: function isRequired() {
+      return (this.vsRequired === true || this.vsRequired === 'true');
+    },
     listeners() {
       return {
         ...this.$listeners,
@@ -99,6 +103,19 @@ export default {
       }
     },
     validar(){
+      // Check if field is required first
+      if (this.isRequired) {
+        if (this.value.length === 0) {
+          this.$emit('update:vsValid', false);
+          return false;
+        }
+      } else {
+        if (this.value === undefined || this.value === null || this.value.length === 0) {
+          this.$emit('update:vsValid', true);
+          return true;
+        }
+      }
+
       if(this.vsType){
         //email
         if(this.value.length > 0 || typeof this.value === 'number'){
