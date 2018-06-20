@@ -9,9 +9,7 @@
       }]"
     :style="styles"
     class="vs-component vs-button"
-    type="button"
     name="button">
-
       <span
       v-if="!is('line')&&!is('gradient')&&!is('relief')"
       ref="backgroundx"
@@ -240,7 +238,7 @@ $vs-types := filled, border
 
 .vs-button
   transition: all .2s ease;
-  padding: 9px;
+  padding: 10px;
   border: 0px;
   border-radius: 5px;
   cursor: pointer;
@@ -268,6 +266,8 @@ $vs-types := filled, border
     color: inherit
     display: inline-block;
     transition: all .2s ease;
+&.vs-button-border
+  padding: 9px;
 &.vs-button-border,&.vs-button-flat
   &.isActive
     .vs-button-text,.vs-button-icon
@@ -278,6 +278,7 @@ $vs-types := filled, border
     box-shadow: 0px 9px 28px -9px
 
 &.vs-button-line
+  padding: 9px 10px;
   border-radius: 0px
   overflow: visible;
   border-style: solid;
@@ -300,6 +301,7 @@ $vs-types := filled, border
     box-shadow: 0px 8px 25px -8px rgb(170, 170, 170)
 
 &.vs-button-relief
+  padding: 10px;
   &:active
     transform: translate(0,3px);
     border-bottom-width: 0px !important;

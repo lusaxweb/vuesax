@@ -12,6 +12,15 @@
   transition: all .3s ease;
   opacity: 0;
 }
+.vs-con-loading__container {
+  position: relative;
+  overflow: hidden;
+}
+.vs-con-loading__container > .vs-con-loading {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
 .vs-loading-default {
   width: 70px;
   height: 70px;
