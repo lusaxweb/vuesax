@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="centerx">
     <input type="color" v-model="backgroundLoading" name="" value="">
-    <vs-button @click="openLoadingBackground" vs-type="success-gradient">Primary</vs-button>
+    <vs-button @click="openLoadingBackground" vs-type="gradient" vs-color="success">Success</vs-button>
   </div>
 </template>
 
