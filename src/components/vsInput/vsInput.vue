@@ -110,7 +110,7 @@ export default {
           return false;
         }
       } else {
-        if (this.value === null || this.value.length === 0) {
+        if (this.value === undefined || this.value === null || this.value.length === 0) {
           this.$emit('update:vsValid', true);
           return true;
         }
