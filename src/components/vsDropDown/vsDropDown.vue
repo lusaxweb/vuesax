@@ -110,12 +110,12 @@ export default {
         return item.hasOwnProperty('dropdownVisible')
       })
       if(this.vsTriggerClick || this.vsTriggerContextmenu){
-        if(this.vsDropdownVisible && !event.target.closest('.vs-dropdown-menu')){
+        if(this.vsDropdownVisible && !evt.target.closest('.vs-dropdown-menu')){
           dropdownMenu.dropdownVisible = this.vsDropdownVisible = false
         } else {
           dropdownMenu.dropdownVisible = this.vsDropdownVisible = true
           window.addEventListener('click',()=>{
-            if(!event.target.closest('.vs-con-dropdown') && !event.target.closest('.vs-dropdown-menu')) {
+            if(!evt.target.closest('.vs-con-dropdown') && !evt.target.closest('.vs-dropdown-menu')) {
               dropdownMenu.dropdownVisible = this.vsDropdownVisible = false
             }
           })
