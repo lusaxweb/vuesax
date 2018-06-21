@@ -1,14 +1,16 @@
 <template lang="html">
+  <transition name="noti">
   <div
     ref="noti"
     :style="stylex"
-    v-if="active"
+    v-show="active"
     :class="[`vs-noti-${position}`,`vs-noti-${color}`]"
      class="vs-component vs-notifications">
     <h3>{{title}}</h3>
     <p>{{text}}</p>
     <span :style="fillingStyle" class="filling"></span>
   </div>
+</transition>
 </template>
 
 <script>
@@ -19,33 +21,34 @@ export default {
     active:false,
     text:null,
     title:null,
-    position:'bottom-left',
+    position:'bottom-right',
     cords:{
       top:null,
       left:null,
       right:null,
       bottom:null,
-    }
+    },
+    widthx:0,
   }),
   created(){
     setTimeout( () => {
       this.moverNotis()
     }, 0);
-    let positions = this.position.split('-')
-    console.log(positions[0]);
-    this.cords[positions[0]] = '0px'
-    positions[1]=='center'?this.cords.left = '50%':this.cords[positions[0]] = '0px'
+    this.changeCords()
   },
   mounted(){
-    console.log(this.$refs);
+    setTimeout( () => {
+      this.widthx = this.$refs.noti.clientWidth
+    }, 0);
   },
   computed:{
     fillingStyle(){
-
       return {
         ...this.cords,
         background: this.color,
-        // width: this.$refs.noti.clientWidth+2
+        height:`${this.widthx*2}px`,
+        width:`${this.widthx*2}px`,
+        transform: `translate(-${this.widthx}px)`
       }
     },
     stylex(){
@@ -56,6 +59,24 @@ export default {
     }
   },
   methods:{
+    changeCords(){
+      let positions = this.position.split('-')
+      let search = (text) => {
+        return positions.indexOf(text)!=-1
+      }
+      if(search('top')){
+        this.cords.top = '0px'
+      }
+      if(search('bottom')){
+        this.cords.bottom = '0px'
+      }
+      if(search('right')){
+        this.cords.right = '0px'
+      }
+      if(search('left')){
+        this.cords.left = '0px'
+      }
+    },
     moverNotis(){
       // console.log("paso en posision");
       let notisx = document.querySelectorAll('.vs-noti-'+this.position);
@@ -73,11 +94,11 @@ export default {
           }
         }
 
-         if (this.position.search('top-center')!=-1) {
+         if (this.position.search('top')!=-1 && this.position.search('center')!=-1) {
           notisx[i].style.transform = `translate(-50%,${hx}px)`
           notisx[i].style.zIndex = 10000-i
         }
-         if (this.position.search('bottom-center')!=-1) {
+         if (this.position.search('bottom')!=-1 && this.position.search('center')!=-1) {
           notisx[i].style.transform = `translate(-50%,-${hx}px)`
           notisx[i].style.zIndex = 10000-i
         }
@@ -92,6 +113,15 @@ export default {
 
 @import '../../styles'
 
+// animations
+.noti-enter-active, .noti-leave-active {
+  transition: opacity .5s;
+}
+.noti-enter, .noti-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: scale(.5) !important;
+}
+
 .vs-notifications
   position: fixed;
   z-index: 200000;
@@ -99,13 +129,12 @@ export default {
   margin: 8px;
   border-radius: 10px;
   overflow: hidden;
+  background: rgb(141, 189, 188);
+  transition: all .2s ease;
   .filling
     position: absolute;
     width: 100%;
     height: 100%;
-    left: 0px;
-    top: 0px;
-
 for colorx, i in $vs-colors
   .vs-noti-{colorx}
     .filling

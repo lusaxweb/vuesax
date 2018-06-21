@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://lusaxweb.github.io/vuesax/">
-<img width="40%" src="https://github.com/lusaxweb/vuesax/blob/master/public/vuesax-logo.png" alt="vuesax" />
+<img width="40%" src="https://github.com/lusaxweb/vuesax/blob/master/public/vuesax-logo-beta.png" alt="vuesax" />
 <img src="https://github.com/lusaxweb/vuesax/blob/master/public/vuesax-components.gif" alt="vuesax" />
    </a>
   </p>
