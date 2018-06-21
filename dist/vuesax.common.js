@@ -792,13 +792,6 @@ module.exports = _nonIterableRest;
 
 /***/ }),
 
-/***/ "3UFu":
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed: ModuleNotFoundError: Module not found: Error: [CaseSensitivePathsPlugin] `C:\\vuesax\\src\\css\\iconfont\\Material.eot` does not match the corresponding path on disk `material.eot`.\n    at factoryCallback (C:\\Users\\pc 01\\AppData\\Roaming\\npm\\node_modules\\@vue\\cli-service-global\\node_modules\\webpack\\lib\\Compilation.js:276:40)\n    at factory (C:\\Users\\pc 01\\AppData\\Roaming\\npm\\node_modules\\@vue\\cli-service-global\\node_modules\\webpack\\lib\\NormalModuleFactory.js:237:20)\n    at applyPluginsAsyncWaterfall (C:\\Users\\pc 01\\AppData\\Roaming\\npm\\node_modules\\@vue\\cli-service-global\\node_modules\\webpack\\lib\\NormalModuleFactory.js:70:21)\n    at C:\\Users\\pc 01\\AppData\\Roaming\\npm\\node_modules\\@vue\\cli-service-global\\node_modules\\webpack\\node_modules\\tapable\\lib\\Tapable.js:265:18\n    at fileExistsWithCase (C:\\Users\\pc 01\\AppData\\Roaming\\npm\\node_modules\\@vue\\cli-service-global\\node_modules\\case-sensitive-paths-webpack-plugin\\index.js:157:13)\n    at that.getFilenamesInDir (C:\\Users\\pc 01\\AppData\\Roaming\\npm\\node_modules\\@vue\\cli-service-global\\node_modules\\case-sensitive-paths-webpack-plugin\\index.js:100:7)\n    at CaseSensitivePathsPlugin.getFilenamesInDir (C:\\Users\\pc 01\\AppData\\Roaming\\npm\\node_modules\\@vue\\cli-service-global\\node_modules\\case-sensitive-paths-webpack-plugin\\index.js:50:5)\n    at CaseSensitivePathsPlugin.fileExistsWithCase (C:\\Users\\pc 01\\AppData\\Roaming\\npm\\node_modules\\@vue\\cli-service-global\\node_modules\\case-sensitive-paths-webpack-plugin\\index.js:88:8)\n    at primeCache (C:\\Users\\pc 01\\AppData\\Roaming\\npm\\node_modules\\@vue\\cli-service-global\\node_modules\\case-sensitive-paths-webpack-plugin\\index.js:151:12)\n    at CaseSensitivePathsPlugin.primeCache (C:\\Users\\pc 01\\AppData\\Roaming\\npm\\node_modules\\@vue\\cli-service-global\\node_modules\\case-sensitive-paths-webpack-plugin\\index.js:119:5)\n    at NormalModuleFactory.onAfterResolve (C:\\Users\\pc 01\\AppData\\Roaming\\npm\\node_modules\\@vue\\cli-service-global\\node_modules\\case-sensitive-paths-webpack-plugin\\index.js:146:10)\n    at NormalModuleFactory.applyPluginsAsyncWaterfall (C:\\Users\\pc 01\\AppData\\Roaming\\npm\\node_modules\\@vue\\cli-service-global\\node_modules\\webpack\\node_modules\\tapable\\lib\\Tapable.js:272:13)\n    at resolver (C:\\Users\\pc 01\\AppData\\Roaming\\npm\\node_modules\\@vue\\cli-service-global\\node_modules\\webpack\\lib\\NormalModuleFactory.js:69:10)\n    at process.nextTick (C:\\Users\\pc 01\\AppData\\Roaming\\npm\\node_modules\\@vue\\cli-service-global\\node_modules\\webpack\\lib\\NormalModuleFactory.js:196:7)\n    at _combinedTickCallback (internal/process/next_tick.js:131:7)\n    at process._tickCallback (internal/process/next_tick.js:180:9)");
-
-/***/ }),
-
 /***/ "3nYt":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2606,6 +2599,17 @@ module.exports = $export;
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "a/Dg":
+/***/ (function(module, exports) {
+
+/* WEBPACK VAR INJECTION */(function(__dirname) {module.exports = {
+  STATIC_PATH: __dirname,
+};
+
+/* WEBPACK VAR INJECTION */}.call(exports, "/"))
 
 /***/ }),
 
@@ -8998,8 +9002,8 @@ $export($export.P + $export.F * __webpack_require__("0c9U")(INCLUDES), 'String',
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_core_js_modules_es7_object_values__ = __webpack_require__("0+C+");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_core_js_modules_es7_object_values___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_core_js_modules_es7_object_values__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__css_iconfont_icons_css__ = __webpack_require__("3UFu");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__css_iconfont_icons_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__css_iconfont_icons_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_material_design_icons__ = __webpack_require__("a/Dg");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_material_design_icons___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_material_design_icons__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__css_index_css__ = __webpack_require__("OGwZ");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__css_index_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__css_index_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__styles_config_styl__ = __webpack_require__("yDTz");
@@ -9011,6 +9015,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__utils_theme_js__ = __webpack_require__("Tgw5");
 
 
+// import './css/iconfont/icons.css'
 
 
 
