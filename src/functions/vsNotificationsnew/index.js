@@ -9,7 +9,6 @@ let _this;
 
 
 export default {name:'notify',vsfunction(parameters){
-  console.log('paso por noti',parameters)
   instance = new NotiConstructor({
     data: parameters
   });

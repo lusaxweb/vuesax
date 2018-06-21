@@ -1,12 +1,13 @@
 <template lang="html">
   <div
+    ref="noti"
     :style="stylex"
     v-if="active"
     :class="[`vs-noti-${position}`,`vs-noti-${color}`]"
      class="vs-component vs-notifications">
     <h3>{{title}}</h3>
     <p>{{text}}</p>
-    <span class="filling"></span>
+    <span :style="fillingStyle" class="filling"></span>
   </div>
 </template>
 
@@ -18,25 +19,39 @@ export default {
     active:false,
     text:null,
     title:null,
-    position:'right-bottom',
+    position:'bottom-left',
     cords:{
-      top:0,
-      left:0,
-      right:0,
-      bottom:0,
+      top:null,
+      left:null,
+      right:null,
+      bottom:null,
     }
   }),
   created(){
     setTimeout( () => {
       this.moverNotis()
     }, 0);
+    let positions = this.position.split('-')
+    console.log(positions[0]);
+    this.cords[positions[0]] = '0px'
+    positions[1]=='center'?this.cords.left = '50%':this.cords[positions[0]] = '0px'
+  },
+  mounted(){
+    console.log(this.$refs);
   },
   computed:{
+    fillingStyle(){
+
+      return {
+        ...this.cords,
+        background: this.color,
+        // width: this.$refs.noti.clientWidth+2
+      }
+    },
     stylex(){
       return {
-        background: this.color,
+        ...this.cords,
         color: this.colorText,
-        bottom: `${this.cords.bottom}px`,
       }
     }
   },
@@ -80,9 +95,8 @@ export default {
 .vs-notifications
   position: fixed;
   z-index: 200000;
-  right: 10px;
-  bottom: 10px;
   padding: 5px;
+  margin: 8px;
   border-radius: 10px;
   overflow: hidden;
   .filling
@@ -96,6 +110,9 @@ for colorx, i in $vs-colors
   .vs-noti-{colorx}
     .filling
       background: $vs-colors[colorx];
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
 
 
 
