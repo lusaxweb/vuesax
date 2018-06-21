@@ -5132,11 +5132,11 @@ var slicedToArray_default = /*#__PURE__*/__webpack_require__.n(slicedToArray);
     }
   },
   mounted: function mounted() {
-    var _$children$filter = this.$children.filter(function (item) {
+    var _this$$children$filte = this.$children.filter(function (item) {
       return item.hasOwnProperty('dropdownVisible');
     }),
-        _$children$filter2 = slicedToArray_default()(_$children$filter, 1),
-        dropdownMenu = _$children$filter2[0];
+        _this$$children$filte2 = slicedToArray_default()(_this$$children$filte, 1),
+        dropdownMenu = _this$$children$filte2[0];
 
     dropdownMenu.vsCustomContent = this.vsCustomContent;
     dropdownMenu.vsTriggerClick = this.vsTriggerClick;
@@ -5176,11 +5176,11 @@ var slicedToArray_default = /*#__PURE__*/__webpack_require__.n(slicedToArray);
     changePositionMenu: function changePositionMenu() {
       var _this3 = this;
 
-      var _$children$filter3 = this.$children.filter(function (item) {
+      var _this$$children$filte3 = this.$children.filter(function (item) {
         return item.hasOwnProperty('dropdownVisible');
       }),
-          _$children$filter4 = slicedToArray_default()(_$children$filter3, 1),
-          dropdownMenu = _$children$filter4[0];
+          _this$$children$filte4 = slicedToArray_default()(_this$$children$filte3, 1),
+          dropdownMenu = _this$$children$filte4[0];
 
       var scrollTopx = window.pageYOffset || document.documentElement.scrollTop;
       console.dir();
@@ -5212,11 +5212,11 @@ var slicedToArray_default = /*#__PURE__*/__webpack_require__.n(slicedToArray);
         evt.preventDefault();
       }
 
-      var _$children$filter5 = this.$children.filter(function (item) {
+      var _this$$children$filte5 = this.$children.filter(function (item) {
         return item.hasOwnProperty('dropdownVisible');
       }),
-          _$children$filter6 = slicedToArray_default()(_$children$filter5, 1),
-          dropdownMenu = _$children$filter6[0];
+          _this$$children$filte6 = slicedToArray_default()(_this$$children$filte5, 1),
+          dropdownMenu = _this$$children$filte6[0];
 
       if (this.vsTriggerClick || this.vsTriggerContextmenu) {
         if (this.vsDropdownVisible && !evt.target.closest('.vs-dropdown-menu')) {
@@ -5232,11 +5232,11 @@ var slicedToArray_default = /*#__PURE__*/__webpack_require__.n(slicedToArray);
       }
     },
     toggleMenu: function toggleMenu(typex, event) {
-      var _$children$filter7 = this.$children.filter(function (item) {
+      var _this$$children$filte7 = this.$children.filter(function (item) {
         return item.hasOwnProperty('dropdownVisible');
       }),
-          _$children$filter8 = slicedToArray_default()(_$children$filter7, 1),
-          dropdownMenu = _$children$filter8[0];
+          _this$$children$filte8 = slicedToArray_default()(_this$$children$filte7, 1),
+          dropdownMenu = _this$$children$filte8[0];
 
       if (!this.vsTriggerClick && !this.vsTriggerContextmenu) {
         if (typex == 'over') {
