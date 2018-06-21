@@ -1,5 +1,5 @@
 // import './css/iconfont/icons.css'
-import 'material-design-icons'
+import 'material-design-icons/iconfont/material-icons.css'
 import './css/index.css'
 import './styles/config.styl'
 import * as vsComponents from './components'
