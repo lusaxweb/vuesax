@@ -801,13 +801,6 @@ module.exports = function (Constructor, NAME, next) {
 
 /***/ }),
 
-/***/ "4uvn":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ "58SC":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9044,18 +9037,15 @@ $export($export.P + $export.F * __webpack_require__("0c9U")(INCLUDES), 'String',
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_core_js_modules_es7_object_values__ = __webpack_require__("0+C+");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_core_js_modules_es7_object_values___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_core_js_modules_es7_object_values__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__css_iconfont_material_icons_css__ = __webpack_require__("4uvn");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__css_iconfont_material_icons_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__css_iconfont_material_icons_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__css_index_css__ = __webpack_require__("OGwZ");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__css_index_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__css_index_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__styles_config_styl__ = __webpack_require__("yDTz");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__styles_config_styl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__styles_config_styl__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components__ = __webpack_require__("bGai");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__functions__ = __webpack_require__("xsKA");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__directives_vsTooltip_vsTooltip_js__ = __webpack_require__("Ryeo");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__utils_easing_js__ = __webpack_require__("9umH");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__utils_theme_js__ = __webpack_require__("Tgw5");
-
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__css_index_css__ = __webpack_require__("OGwZ");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__css_index_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__css_index_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__styles_config_styl__ = __webpack_require__("yDTz");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__styles_config_styl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__styles_config_styl__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components__ = __webpack_require__("bGai");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__functions__ = __webpack_require__("xsKA");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__directives_vsTooltip_vsTooltip_js__ = __webpack_require__("Ryeo");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__utils_easing_js__ = __webpack_require__("9umH");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__utils_theme_js__ = __webpack_require__("Tgw5");
 
 
 
@@ -9080,18 +9070,18 @@ var Vuesax = {
       if (options.hasOwnProperty('theme')) {
         if (options.theme.hasOwnProperty('colors')) {
           if (typeof window !== 'undefined' || process.browser) {
-            __WEBPACK_IMPORTED_MODULE_8__utils_theme_js__["a" /* default */].vsfunction(options.theme.colors, options.server);
+            __WEBPACK_IMPORTED_MODULE_7__utils_theme_js__["a" /* default */].vsfunction(options.theme.colors, options.server);
           }
         }
       }
     }
 
-    Object.values(__WEBPACK_IMPORTED_MODULE_4__components__).forEach(function (vsComponent) {
+    Object.values(__WEBPACK_IMPORTED_MODULE_3__components__).forEach(function (vsComponent) {
       Vue.use(vsComponent);
     });
-    Object(__WEBPACK_IMPORTED_MODULE_5__functions__["a" /* default */])(Vue);
-    Vue.prototype.$vs.easing = __WEBPACK_IMPORTED_MODULE_7__utils_easing_js__["a" /* default */];
-    Vue.directive('tooltip', __WEBPACK_IMPORTED_MODULE_6__directives_vsTooltip_vsTooltip_js__["a" /* default */]);
+    Object(__WEBPACK_IMPORTED_MODULE_4__functions__["a" /* default */])(Vue);
+    Vue.prototype.$vs.easing = __WEBPACK_IMPORTED_MODULE_6__utils_easing_js__["a" /* default */];
+    Vue.directive('tooltip', __WEBPACK_IMPORTED_MODULE_5__directives_vsTooltip_vsTooltip_js__["a" /* default */]);
   }
 };
 
