@@ -1,13 +1,26 @@
-@font-face {
+/* @font-face {
   font-family: 'Material Icons';
   font-style: normal;
   font-weight: 400;
-  src: url(MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: url(MaterialIcons-Regular.eot); /* For IE6-8 *
   src: local('Material Icons'),
        local('MaterialIcons-Regular'),
        url(MaterialIcons-Regular.woff2) format('woff2'),
        url(MaterialIcons-Regular.woff) format('woff'),
        url(MaterialIcons-Regular.ttf) format('truetype');
+} */
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src:  url('MaterialIcons-Regular.eot?h6xgdm');
+  src:  url('MaterialIcons-Regular.eot?h6xgdm#iefix') format('embedded-opentype'),
+    url('MaterialIcons-Regular.ttf?h6xgdm') format('truetype'),
+    url('MaterialIcons-Regular.woff?h6xgdm') format('woff'),
+    url('MaterialIcons-Regular.svg?h6xgdm#MaterialIcons-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 
 .material-icons {
