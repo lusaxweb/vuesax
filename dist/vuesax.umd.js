@@ -89,13 +89,6 @@ module.exports = function (it) {
 
 /***/ }),
 
-/***/ "+OSd":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ "+euK":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -181,7 +174,7 @@ var validations = {
     return /^(?=.*[\d])(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*])[\w!@#$%^&*]{8,}$/i.test(value);
   },
   number: function number(value, min, max) {
-    if (!min || !max) return !isNaN(value);
+    if (!min && min !== 0 || !max) return !isNaN(value);
     return Number(value) <= Number(max) && Number(value) >= Number(min);
   },
   default: function _default(value) {
@@ -191,7 +184,7 @@ var validations = {
 /* harmony default export */ var vsInput = ({
   inheritAttrs: false,
   name: 'vs-input',
-  props: ['vsWidth', 'value', 'vsLabelPlaceholder', 'vsPlaceholder', 'vsLabel', 'disabled', 'vsIcon', 'vsIconPack', 'vsIconAfter', 'vsColor', 'vsType', 'vsDangerText', 'vsSuccessText', 'vsMax', 'vsMin', 'vsValid', 'vsValidationFunction'],
+  props: ['vsWidth', 'value', 'vsLabelPlaceholder', 'vsPlaceholder', 'vsLabel', 'disabled', 'vsIcon', 'vsIconPack', 'vsIconAfter', 'vsColor', 'vsType', 'vsDangerText', 'vsSuccessText', 'vsMax', 'vsMin', 'vsValid', 'vsValidationFunction', 'vsRequired'],
   data: function data() {
     return {
       focusx: false
@@ -203,6 +196,9 @@ var validations = {
     }
   },
   computed: {
+    isRequired: function isRequired() {
+      return this.vsRequired === true || this.vsRequired === 'true';
+    },
     listeners: function listeners() {
       var _this = this;
 
@@ -216,6 +212,19 @@ var validations = {
       });
     },
     validar: function validar() {
+      // Check if field is required first
+      if (this.isRequired) {
+        if (this.value.length === 0) {
+          this.$emit('update:vsValid', false);
+          return false;
+        }
+      } else {
+        if (this.value === undefined || this.value === null || this.value.length === 0) {
+          this.$emit('update:vsValid', true);
+          return true;
+        }
+      }
+
       if (this.vsType) {
         //email
         if (this.value.length > 0 || typeof this.value === 'number') {
@@ -293,7 +302,7 @@ var validations = {
     }
   }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-8ae13706","hasScoped":true,"optionsId":"1","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsInput/vsInput.vue
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-98481af8","hasScoped":true,"optionsId":"1","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsInput/vsInput.vue
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"con-input",class:[_vm.validar,{'con-focus':_vm.focusx,'vsIconx':_vm.vsIcon, 'vs-icon-after':_vm.vsIconAfter, 'disabledx':_vm.disabled}],style:({
   'width':_vm.vsWidth
 })},[_c('label',{staticClass:"label",class:{'focusLabel':_vm.focusx, 'disabledxlabel':_vm.disabled},attrs:{"for":""}},[_vm._v(_vm._s(_vm.vsLabel))]),_c('input',_vm._g(_vm._b({ref:"inputx",staticClass:"vs-input",style:({'border':("1px solid " + (_vm.focusx?_vm.backgroundx:'rgba(0, 0, 0, 0.150)')),'caretColor': _vm.backgroundx}),attrs:{"type":_vm.vsType ? _vm.vsType :'text',"disabled":_vm.disabled},domProps:{"value":_vm.value}},'input',_vm.$attrs,false),_vm.listeners)),(!_vm.vsLabelPlaceholder)?_c('span',{staticClass:"placeholder",class:{'noPlaceholder':_vm.value?(_vm.value.length>0 || typeof _vm.value === 'number'):false?true:_vm.focusx},on:{"click":function($event){_vm.$refs.inputx.focus()}}},[_vm._v(_vm._s(_vm.vsPlaceholder))]):_vm._e(),(_vm.vsLabelPlaceholder)?_c('span',{staticClass:"placeholder",class:{'noPlaceholderLabel':_vm.value.length>0?true:_vm.focusx},style:({'color':_vm.focusx?_vm.backgroundx:'rgba(0, 0, 0, 0.30)'}),on:{"click":function($event){_vm.$refs.inputx.focus()}}},[_vm._v(_vm._s(_vm.vsLabelPlaceholder))]):_vm._e(),(_vm.vsIcon)?_c('span',{staticClass:"iconx"},[(_vm.vsIconPack == null)?_c('i',{staticClass:"material-icons"},[_vm._v(_vm._s(_vm.vsIcon))]):_c('i',{class:[_vm.vsIconPack, _vm.vsIcon]})]):_vm._e(),_c('div',{staticClass:"icon-validar-mal",attrs:{"title":_vm.validar=='input-mal'?_vm.vsDangerText:null}},[_c('i',{staticClass:"material-icons"},[_vm._v("error")])]),_c('div',{staticClass:"icon-validar-bien",attrs:{"title":_vm.validar=='input-bien'?_vm.vsSuccessText:null}},[_c('i',{staticClass:"material-icons"},[_vm._v("check_circle")])])])}
@@ -304,7 +313,7 @@ var component_normalizer = __webpack_require__("XyMi");
 
 // CONCATENATED MODULE: ./src/components/vsInput/vsInput.vue
 function injectStyle (context) {
-  __webpack_require__("+OSd")
+  __webpack_require__("pr54")
 }
 /* script */
 
@@ -316,7 +325,7 @@ var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = "data-v-8ae13706"
+var __vue_scopeId__ = "data-v-98481af8"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 
@@ -792,6 +801,13 @@ module.exports = _nonIterableRest;
 
 /***/ }),
 
+/***/ "3UFu":
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed: ModuleNotFoundError: Module not found: Error: [CaseSensitivePathsPlugin] `C:\\vuesax\\src\\css\\iconfont\\MaterialIcons.eot` does not match the corresponding path on disk `materialIcons.eot`.\n    at factoryCallback (C:\\Users\\pc 01\\AppData\\Roaming\\npm\\node_modules\\@vue\\cli-service-global\\node_modules\\webpack\\lib\\Compilation.js:276:40)\n    at factory (C:\\Users\\pc 01\\AppData\\Roaming\\npm\\node_modules\\@vue\\cli-service-global\\node_modules\\webpack\\lib\\NormalModuleFactory.js:237:20)\n    at applyPluginsAsyncWaterfall (C:\\Users\\pc 01\\AppData\\Roaming\\npm\\node_modules\\@vue\\cli-service-global\\node_modules\\webpack\\lib\\NormalModuleFactory.js:70:21)\n    at C:\\Users\\pc 01\\AppData\\Roaming\\npm\\node_modules\\@vue\\cli-service-global\\node_modules\\webpack\\node_modules\\tapable\\lib\\Tapable.js:265:18\n    at fileExistsWithCase (C:\\Users\\pc 01\\AppData\\Roaming\\npm\\node_modules\\@vue\\cli-service-global\\node_modules\\case-sensitive-paths-webpack-plugin\\index.js:157:13)\n    at that.getFilenamesInDir (C:\\Users\\pc 01\\AppData\\Roaming\\npm\\node_modules\\@vue\\cli-service-global\\node_modules\\case-sensitive-paths-webpack-plugin\\index.js:100:7)\n    at CaseSensitivePathsPlugin.getFilenamesInDir (C:\\Users\\pc 01\\AppData\\Roaming\\npm\\node_modules\\@vue\\cli-service-global\\node_modules\\case-sensitive-paths-webpack-plugin\\index.js:50:5)\n    at CaseSensitivePathsPlugin.fileExistsWithCase (C:\\Users\\pc 01\\AppData\\Roaming\\npm\\node_modules\\@vue\\cli-service-global\\node_modules\\case-sensitive-paths-webpack-plugin\\index.js:88:8)\n    at primeCache (C:\\Users\\pc 01\\AppData\\Roaming\\npm\\node_modules\\@vue\\cli-service-global\\node_modules\\case-sensitive-paths-webpack-plugin\\index.js:151:12)\n    at CaseSensitivePathsPlugin.primeCache (C:\\Users\\pc 01\\AppData\\Roaming\\npm\\node_modules\\@vue\\cli-service-global\\node_modules\\case-sensitive-paths-webpack-plugin\\index.js:119:5)\n    at NormalModuleFactory.onAfterResolve (C:\\Users\\pc 01\\AppData\\Roaming\\npm\\node_modules\\@vue\\cli-service-global\\node_modules\\case-sensitive-paths-webpack-plugin\\index.js:146:10)\n    at NormalModuleFactory.applyPluginsAsyncWaterfall (C:\\Users\\pc 01\\AppData\\Roaming\\npm\\node_modules\\@vue\\cli-service-global\\node_modules\\webpack\\node_modules\\tapable\\lib\\Tapable.js:272:13)\n    at resolver (C:\\Users\\pc 01\\AppData\\Roaming\\npm\\node_modules\\@vue\\cli-service-global\\node_modules\\webpack\\lib\\NormalModuleFactory.js:69:10)\n    at process.nextTick (C:\\Users\\pc 01\\AppData\\Roaming\\npm\\node_modules\\@vue\\cli-service-global\\node_modules\\webpack\\lib\\NormalModuleFactory.js:196:7)\n    at _combinedTickCallback (internal/process/next_tick.js:131:7)\n    at process._tickCallback (internal/process/next_tick.js:180:9)");
+
+/***/ }),
+
 /***/ "3nYt":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -824,13 +840,6 @@ module.exports = function (Constructor, NAME, next) {
 /***/ (function(module, exports) {
 
 module.exports = {"colorprueba":"240, 91, 28"}
-
-/***/ }),
-
-/***/ "4uvn":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -8998,8 +9007,8 @@ $export($export.P + $export.F * __webpack_require__("0c9U")(INCLUDES), 'String',
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_core_js_modules_es7_object_values__ = __webpack_require__("0+C+");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_core_js_modules_es7_object_values___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_core_js_modules_es7_object_values__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__css_iconfont_material_icons_css__ = __webpack_require__("4uvn");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__css_iconfont_material_icons_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__css_iconfont_material_icons_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__css_iconfont_icons_css__ = __webpack_require__("3UFu");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__css_iconfont_icons_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__css_iconfont_icons_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__css_index_css__ = __webpack_require__("OGwZ");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__css_index_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__css_index_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__styles_config_styl__ = __webpack_require__("yDTz");
@@ -9611,6 +9620,13 @@ module.exports = function (it, S) {
   throw TypeError("Can't convert object to primitive value");
 };
 
+
+/***/ }),
+
+/***/ "pr54":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -10711,6 +10727,7 @@ var theme = __webpack_require__("Tgw5");
 
 
 // Functions
+// import vsNotifications from './vsNotifications/index.js'
 
 
  // import {prompt} from './vsMessageBox/vsMessageBox.js'

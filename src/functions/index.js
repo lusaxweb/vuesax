@@ -1,5 +1,6 @@
 // Functions
 
+// import vsNotifications from './vsNotifications/index.js'
 import vsNotifications from './vsNotifications/vsNotifications.js'
 import {message} from './vsMessageBox/vsMessageBox.js'
 import {confirm} from './vsMessageBox/vsMessageBox.js'
