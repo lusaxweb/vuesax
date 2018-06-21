@@ -49,6 +49,7 @@
     "@vue/cli-plugin-eslint": "^3.0.0-beta.6",
     "@vue/cli-service": "^3.0.0-beta.6",
     "copy-webpack-plugin": "^4.5.1",
+    "file-loader": "^1.1.11",
     "vue-template-compiler": "^2.5.13",
     "vuepress": "^0.10.1",
     "webpack": "^4.12.0"
