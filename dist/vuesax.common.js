@@ -2723,6 +2723,10 @@ var utils_color = __webpack_require__("n5ki");
       default: 'primary',
       type: String
     },
+    vsColorText: {
+      default: null,
+      type: String
+    },
     vsLineOrigin: {
       default: 'center',
       type: String
@@ -2782,6 +2786,7 @@ var utils_color = __webpack_require__("n5ki");
     styles: function styles() {
       if (this.is('filled')) {
         return {
+          color: utils_color["a" /* default */].getColor(this.vsColorText, 1),
           background: utils_color["a" /* default */].getColor(this.vsColor, 1),
           boxShadow: this.hoverx ? "0px 8px 25px -8px ".concat(utils_color["a" /* default */].getColor(this.vsColor, 1)) : null
         };
@@ -2789,11 +2794,11 @@ var utils_color = __webpack_require__("n5ki");
         return {
           border: "".concat(this.is('flat') ? 0 : 1, "px solid ").concat(utils_color["a" /* default */].getColor(this.vsColor, 1)),
           background: this.hoverx ? utils_color["a" /* default */].getColor(this.vsColor, .1) : 'transparent',
-          color: utils_color["a" /* default */].getColor(this.vsColor, 1)
+          color: utils_color["a" /* default */].getColor(this.vsColorText, 1) || utils_color["a" /* default */].getColor(this.vsColor, 1)
         };
       } else if (this.is('line')) {
         return {
-          color: utils_color["a" /* default */].getColor(this.vsColor, 1),
+          color: utils_color["a" /* default */].getColor(this.vsColorText, 1) || utils_color["a" /* default */].getColor(this.vsColor, 1),
           borderBottomWidth: this.vsLinePosition == 'bottom' ? "2px" : null,
           borderColor: "".concat(utils_color["a" /* default */].getColor(this.vsColor, .2)),
           borderTopWidth: this.vsLinePosition == 'top' ? "2px" : null
@@ -2814,7 +2819,7 @@ var utils_color = __webpack_require__("n5ki");
     },
     stylesBackGround: function stylesBackGround() {
       var styles = {
-        background: this.is('flat') || this.is('border') ? utils_color["a" /* default */].getColor(this.vsColor, 1) : null,
+        background: this.is('flat') || this.is('border') ? utils_color["a" /* default */].getColor(this.vsColor, 1, false) : null,
         opacity: this.opacity,
         left: "".concat(this.leftBackgorund, "px"),
         top: "".concat(this.topBackgorund, "px"),
@@ -2922,7 +2927,7 @@ var utils_color = __webpack_require__("n5ki");
     }
   }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-31ecb7a4","hasScoped":false,"optionsId":"2","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsButton/vsButton.vue
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-77a08054","hasScoped":false,"optionsId":"2","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsButton/vsButton.vue
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('button',_vm._g(_vm._b({ref:"btn",staticClass:"vs-component vs-button",class:[("vs-button-" + (_vm.isColor()?_vm.vsColor:null)),("vs-button-" + _vm.vsType),{
     'isActive':_vm.isActive,
     'includeIcon':_vm.vsIcon
@@ -7833,11 +7838,11 @@ var vsSidebarGroup_Component = Object(component_normalizer["a" /* default */])(
       type: String
     },
     vsButtonAccept: {
-      default: 'primary-filled',
+      default: 'filled',
       type: String
     },
     vsButtonCancel: {
-      default: 'danger-flat',
+      default: 'flat',
       type: String
     },
     vsType: {
@@ -7908,12 +7913,12 @@ var vsSidebarGroup_Component = Object(component_normalizer["a" /* default */])(
     }
   }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-6af08a56","hasScoped":false,"optionsId":"2","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsDialog/vsDialog.vue
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-c25446ea","hasScoped":false,"optionsId":"2","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsDialog/vsDialog.vue
 var vsDialog_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('transition',{attrs:{"name":"dialog-t"}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.vsActive),expression:"vsActive"}],ref:"con",staticClass:"vs-component con-vs-dialog",on:{"click":function($event){_vm.close($event,true)}}},[_c('div',{staticClass:"vs-dialog-dark"}),_c('div',{ref:"dialogx",staticClass:"vs-dialog"},[_c('header',{style:({
         'color':_vm.giveColor(_vm.vsColor)
       })},[_c('div',{staticClass:"con-title-after"},[_c('span',{staticClass:"after",style:({
           'background':_vm.giveColor(_vm.vsColor)
-          })}),_c('h3',[_vm._v(_vm._s(_vm.vsTitle))])]),(_vm.vsType=='alert')?_c('span',{staticClass:"vs-dialog-cancel material-icons",on:{"click":_vm.close}},[_vm._v("close")]):_vm._e()]),_c('div',{staticClass:"vs-dialog-text"},[_vm._t("default")],2),(_vm.vsType=='prompt')?_c('div',{staticClass:"vs-dialog-text"},[_vm._t("input")],2):_vm._e(),(_vm.vsType=='prompt'||_vm.vsType=='confirm')?_c('footer',[_c('vs-button',{attrs:{"vs-color":_vm.vsColor,"vs-type":'primary-'+_vm.vsButtonAccept.split('-')[1]},on:{"click":_vm.accept}},[_vm._v("Accept")]),_c('vs-button',{attrs:{"vs-type":'danger-'+_vm.vsButtonCancel.split('-')[1]},on:{"click":_vm.close}},[_vm._v("Cancel")])],1):_c('footer',[_c('vs-button',{attrs:{"vs-color":_vm.vsColor,"vs-type":'primary-'+_vm.vsButtonAccept.split('-')[1]},on:{"click":_vm.accept}},[_vm._v("Accept")])],1)])])])}
+          })}),_c('h3',[_vm._v(_vm._s(_vm.vsTitle))])]),(_vm.vsType=='alert')?_c('span',{staticClass:"vs-dialog-cancel material-icons",on:{"click":_vm.close}},[_vm._v("close")]):_vm._e()]),_c('div',{staticClass:"vs-dialog-text"},[_vm._t("default")],2),(_vm.vsType=='prompt')?_c('div',{staticClass:"vs-dialog-text"},[_vm._t("input")],2):_vm._e(),(_vm.vsType=='prompt'||_vm.vsType=='confirm')?_c('footer',[_c('vs-button',{attrs:{"vs-color":_vm.vsColor,"vs-type":_vm.vsButtonAccept},on:{"click":_vm.accept}},[_vm._v("Accept")]),_c('vs-button',{attrs:{"vs-type":_vm.vsButtonCancel},on:{"click":_vm.close}},[_vm._v("Cancel")])],1):_c('footer',[_c('vs-button',{attrs:{"vs-color":_vm.vsColor,"vs-type":_vm.vsButtonAccept},on:{"click":_vm.accept}},[_vm._v("Accept")])],1)])])])}
 var vsDialog_staticRenderFns = []
 
 // CONCATENATED MODULE: ./src/components/vsDialog/vsDialog.vue
@@ -9097,8 +9102,12 @@ module.exports = __webpack_require__("q+MV").f('iterator');
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_core_js_modules_es7_array_includes___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_core_js_modules_es7_array_includes__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_core_js_modules_es6_regexp_replace__ = __webpack_require__("e5kn");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_core_js_modules_es6_regexp_replace___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_core_js_modules_es6_regexp_replace__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_core_js_modules_es6_regexp_split__ = __webpack_require__("iiot");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_core_js_modules_es6_regexp_split___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_core_js_modules_es6_regexp_split__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_core_js_modules_es6_regexp_search__ = __webpack_require__("YjWS");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_core_js_modules_es6_regexp_search___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_core_js_modules_es6_regexp_search__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_core_js_modules_es6_regexp_split__ = __webpack_require__("iiot");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_core_js_modules_es6_regexp_split___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_core_js_modules_es6_regexp_split__);
+
+
 
 
 
@@ -9117,6 +9126,7 @@ module.exports = __webpack_require__("q+MV").f('iterator');
   },
   getColor: function getColor(colorx) {
     var alphax = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+    var defaultx = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
 
     // change color hex to RGB
     if (/^[#]/.test(colorx)) {
@@ -9128,7 +9138,9 @@ module.exports = __webpack_require__("q+MV").f('iterator');
         colorx = "rgba(".concat(c.r, ",").concat(c.g, ",").concat(c.b, ",").concat(alphax, ")");
       }
     } else if (/^rgba/.test(colorx)) {
-      colorx = colorx.replace(/.?([0-9]\))$/, "".concat(alphax, ")"));
+      if (colorx.search(/.([0-9]\))$/) == -1 && !defaultx) {
+        colorx = colorx.replace(/.?([0-9]\))$/, "".concat(alphax, ")"));
+      }
     } else if (/^(rgb)/.test(colorx)) {
       // change rgb and rgba
       if (alphax == 1) {} else {

@@ -3,7 +3,7 @@ export default {
     var f=color.split(","),t=percent<0?0:255,p=percent<0?percent*-1:percent,R=parseInt(f[0].slice(4)),G=parseInt(f[1]),B=parseInt(f[2]);
     return "rgb("+(Math.round((t-R)*p)+R)+","+(Math.round((t-G)*p)+G)+","+(Math.round((t-B)*p)+B)+")";
   },
-  getColor(colorx, alphax = 1){
+  getColor(colorx, alphax = 1, defaultx = true){
     // change color hex to RGB
     if(/^[#]/.test(colorx)){
     let c = this.hexToRgb(colorx)
@@ -17,7 +17,10 @@ export default {
     }
   } else if (/^rgba/.test(colorx)) {
 
-    colorx = colorx.replace(/.?([0-9]\))$/,`${alphax})`)
+    if(colorx.search(/.([0-9]\))$/)==-1 && !defaultx){
+      colorx = colorx.replace(/.?([0-9]\))$/,`${alphax})`)
+    }
+
 
   } else if (/^(rgb)/.test(colorx)) {
     // change rgb and rgba

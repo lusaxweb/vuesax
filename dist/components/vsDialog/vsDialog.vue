@@ -28,12 +28,12 @@
 
       <!-- footer buttons -->
       <footer v-if="vsType=='prompt'||vsType=='confirm'">
-        <vs-button :vs-color="vsColor" @click="accept" :vs-type="'primary-'+vsButtonAccept.split('-')[1]">Accept</vs-button>
-        <vs-button @click="close" :vs-type="'danger-'+vsButtonCancel.split('-')[1]">Cancel</vs-button>
+        <vs-button :vs-color="vsColor" @click="accept" :vs-type="vsButtonAccept">Accept</vs-button>
+        <vs-button @click="close" :vs-type="vsButtonCancel">Cancel</vs-button>
       </footer>
 
       <footer v-else >
-        <vs-button :vs-color="vsColor" @click="accept" :vs-type="'primary-'+vsButtonAccept.split('-')[1]">Accept</vs-button>
+        <vs-button :vs-color="vsColor" @click="accept" :vs-type="vsButtonAccept">Accept</vs-button>
       </footer>
     </div>
   </div>
@@ -54,11 +54,11 @@ export default {
       type:String
     },
     vsButtonAccept:{
-      default:'primary-filled',
+      default:'filled',
       type:String,
     },
     vsButtonCancel:{
-      default:'danger-flat',
+      default:'flat',
       type:String,
     },
     vsType:{
@@ -264,10 +264,7 @@ export default {
       position: relative;
       button
         margin-left: 0px;
-        span
-          padding: 10px;
-          padding-left: 15px;
-          padding-right: 15px;
+        
       &:before
         content: '';
         top: 0px;

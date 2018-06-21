@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="centerx">
-    <vs-button @click="activeConfirm = true" vs-type="danger-gradient">Run Confirm</vs-button>
+    <vs-button @click="activeConfirm = true" vs-color="danger" vs-type="gradient">Run Confirm</vs-button>
     <vs-dialog
       vs-color="danger"
       vs-title="Delete Image"

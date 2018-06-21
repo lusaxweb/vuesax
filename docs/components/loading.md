@@ -94,7 +94,7 @@ You can change the color of the loading with the property `vs-color`.
 <template lang="html">
   <div class="centerx">
     <input type="color" v-model="colorLoading" name="" value="">
-    <vs-button @click="openLoadingColor" vs-type="danger-gradient">Primary</vs-button>
+    <vs-button @click="openLoadingColor" vs-color="danger" vs-type="gradient">Primary</vs-button>
   </div>
 </template>
 

@@ -1,16 +1,16 @@
 <template lang="html">
   <div class="centerx">
-    <vs-button @click="$vs.notify({title:'Icon mail',text:'Lorem ipsum dolor sit amet, consectetur',color:'primary',icon:'mail'})" vs-type="primary-flat">Icon Mail</vs-button>
+    <vs-button @click="$vs.notify({title:'Icon mail',text:'Lorem ipsum dolor sit amet, consectetur',color:'primary',icon:'mail'})" vs-color="primary" vs-type="flat">Icon Mail</vs-button>
 
-    <vs-button @click="$vs.notify({title:'Icon mail',text:'Lorem ipsum dolor sit amet, consectetur',color:'success',icon:'check_box'})" vs-type="success-flat">Icon check_box</vs-button>
+    <vs-button @click="$vs.notify({title:'Icon mail',text:'Lorem ipsum dolor sit amet, consectetur',color:'success',icon:'check_box'})" vs-color="success" vs-type="flat">Icon check_box</vs-button>
 
-    <vs-button @click="$vs.notify({title:'Icon mail',text:'Lorem ipsum dolor sit amet, consectetur',color:'danger',icon:'favorite'})" vs-type="danger-flat">Icon favorite</vs-button>
+    <vs-button @click="$vs.notify({title:'Icon mail',text:'Lorem ipsum dolor sit amet, consectetur',color:'danger',icon:'favorite'})" vs-color="danger" vs-type="flat">Icon favorite</vs-button>
 
-    <vs-button @click="$vs.notify({title:'Icon mail',text:'Lorem ipsum dolor sit amet, consectetur',color:'warning',icon:'error'})" vs-type="warning-flat">Icon error</vs-button>
+    <vs-button @click="$vs.notify({title:'Icon mail',text:'Lorem ipsum dolor sit amet, consectetur',color:'warning',icon:'error'})" vs-color="warning" vs-type="flat">Icon error</vs-button>
 
-    <vs-button @click="$vs.notify({title:'Icon mail',text:'Lorem ipsum dolor sit amet, consectetur',color:'dark',icon:'chat'})" vs-type="dark-flat">Icon chat</vs-button>
+    <vs-button @click="$vs.notify({title:'Icon mail',text:'Lorem ipsum dolor sit amet, consectetur',color:'dark',icon:'chat'})" vs-color="dark" vs-type="flat">Icon chat</vs-button>
 
-    <vs-button @click="notiAzarIcon()" vs-type="success-gradient">Icon Color Al Azar</vs-button>
+    <vs-button @click="notiAzarIcon()" vs-color="success" vs-type="gradient">Icon Color Al Azar</vs-button>
   </div>
 </template>
 

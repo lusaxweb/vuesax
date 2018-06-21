@@ -50,6 +50,10 @@ export default {
       default:'primary',
       type:String
     },
+    vsColorText:{
+      default:null,
+      type:String
+    },
     vsLineOrigin:{
       default:'center',
       type:String
@@ -98,6 +102,7 @@ export default {
     styles() {
       if(this.is('filled')){
         return {
+          color: _color.getColor(this.vsColorText,1),
           background: _color.getColor(this.vsColor,1),
           boxShadow: this.hoverx?`0px 8px 25px -8px ${_color.getColor(this.vsColor,1)}`:null
         }
@@ -105,11 +110,11 @@ export default {
         return {
           border: `${this.is('flat')?0:1}px solid ${_color.getColor(this.vsColor,1)}`,
           background: this.hoverx?_color.getColor(this.vsColor,.1):'transparent',
-          color: _color.getColor(this.vsColor,1)
+          color:_color.getColor(this.vsColorText,1) || _color.getColor(this.vsColor,1)
         }
       } else if (this.is('line')) {
         return {
-          color: _color.getColor(this.vsColor,1),
+          color:_color.getColor(this.vsColorText,1) || _color.getColor(this.vsColor,1),
           borderBottomWidth: this.vsLinePosition=='bottom'?`2px`:null,
           borderColor: `${_color.getColor(this.vsColor,.2)}`,
           borderTopWidth: this.vsLinePosition=='top'?`2px`:null,
@@ -129,7 +134,7 @@ export default {
     },
     stylesBackGround(){
       let styles = {
-        background: this.is('flat') || this.is('border')?_color.getColor(this.vsColor,1):null,
+        background: this.is('flat') || this.is('border')?_color.getColor(this.vsColor,1,false):null,
         opacity:this.opacity,
         left: `${this.leftBackgorund}px`,
         top: `${this.topBackgorund}px`,
@@ -311,6 +316,8 @@ $vs-types := filled, border
   align-items: center;
   justify-content: center;
   float: left;
+  padding-top: 9px;
+  padding-bottom: 8px;
 
 for colorx, i in $vs-colors
   .vs-button-{colorx}

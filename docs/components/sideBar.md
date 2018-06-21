@@ -80,7 +80,7 @@ One of the most common features is to have the hidden sidebar to show it when th
 ```html
 <template lang="html">
   <div id="parentx">
-    <vs-button @click="active=!active" vs-type="primary-filled">Open Sidebar</vs-button>
+    <vs-button @click="active=!active" vs-type="filled">Open Sidebar</vs-button>
     <vs-sidebar :vs-active.sync="active">
 
       <vs-sidebar-item @click="actives=1" :vs-active="actives==1" vs-icon="question_answer">
@@ -138,7 +138,7 @@ You can change the parent of the sidebar with the property `vs-parent` that as a
 ```html{4}
 <template lang="html">
   <div id="parentx2" class="con-example-sidebar">
-    <vs-button @click="active=!active" vs-type="primary-filled">Open Sidebar</vs-button>
+    <vs-button @click="active=!active" vs-color="primary" vs-type="filled">Open Sidebar</vs-button>
     <vs-sidebar
 
       vs-parent="#parentx2"
@@ -269,7 +269,7 @@ You can have groups of sub menus with the component `vs-slider-group` that as a 
 ```html{13,26}
 <template lang="html">
   <div id="parentx">
-    <vs-button @click="active=!active" vs-type="primary-filled">Open Sidebar</vs-button>
+    <vs-button @click="active=!active" vs-type="filled">Open Sidebar</vs-button>
     <vs-sidebar :vs-active.sync="active">
 
       <vs-sidebar-item @click="actives=1" :vs-active="actives==1" vs-icon="question_answer">
@@ -384,8 +384,8 @@ You can add the beautiful functionality of reducing the sidebar to single icons 
 ```html
 <template lang="html">
   <div id="parentx">
-    <vs-button @click="active=!active,reducex=false" vs-type="primary-filled">Open Sidebar Reduce and expand</vs-button>
-    <vs-button @click="active=!active,reducex=true" vs-type="primary-filled">Open Sidebar Only Reduce</vs-button>
+    <vs-button @click="active=!active,reducex=false" vs-type="filled">Open Sidebar Reduce and expand</vs-button>
+    <vs-button @click="active=!active,reducex=true" vs-type="filled">Open Sidebar Only Reduce</vs-button>
     <vs-sidebar :vs-reduce="reducex" :vs-reduce-expand="!reducex" :vs-active.sync="active">
 
       <vs-sidebar-item @click="actives=1" :vs-active="actives==1" vs-icon="question_answer">

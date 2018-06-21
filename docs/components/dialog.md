@@ -65,12 +65,12 @@ To implement a dialog we have the `vs-dialog` component, which as a required par
 ```html
 <template lang="html">
   <div class="centerx">
-    <vs-button @click="openAlert('primary')" vs-type="primary-flat">Alert Primary</vs-button>
-    <vs-button @click="openAlert('success')" vs-type="success-flat">Alert success</vs-button>
-    <vs-button @click="openAlert('danger')" vs-type="danger-flat">Alert Danger</vs-button>
-    <vs-button @click="openAlert('warning')" vs-type="warning-flat">Alert Warning</vs-button>
-    <vs-button @click="openAlert('dark')" vs-type="dark-flat">Alert Dark</vs-button>
-    <vs-button @click="openAlert(null)" vs-type="primary-gradient">Alert Color RGB | HEX</vs-button>
+    <vs-button @click="openAlert('primary')" vs-color="primary" vs-type="flat">Alert Primary</vs-button>
+    <vs-button @click="openAlert('success')" vs-color="success" vs-type="flat">Alert success</vs-button>
+    <vs-button @click="openAlert('danger')" vs-color="danger" vs-type="flat">Alert Danger</vs-button>
+    <vs-button @click="openAlert('warning')" vs-color="warning" vs-type="flat">Alert Warning</vs-button>
+    <vs-button @click="openAlert('dark')" vs-color="dark" vs-type="flat">Alert Dark</vs-button>
+    <vs-button @click="openAlert(null)" vs-color="primary" vs-type="gradient">Alert Color RGB | HEX</vs-button>
 
     <!-- Component Dialog - alert -->
     <vs-dialog
@@ -142,7 +142,7 @@ You can add a `vs-dialog` of type **confirm** by changing the `vs-type` property
 ```html
 <template lang="html">
   <div class="centerx">
-    <vs-button @click="activeConfirm = true" vs-type="danger-gradient">Run Confirm</vs-button>
+    <vs-button @click="activeConfirm = true" vs-color="danger" vs-type="gradient">Run Confirm</vs-button>
     <vs-dialog
       vs-color="danger"
       vs-title="Delete Image"
@@ -204,12 +204,12 @@ To add the inputs is done inside the slot named `input`
     <div class="modelx">
       {{val==null?'null':val}}
     </div>
-     <vs-button @click="activePrompt = true" vs-type="primary-border">Run prompt</vs-button>
+     <vs-button @click="activePrompt = true" vs-type="border">Run prompt</vs-button>
      <div class="modelx">
        {{valMultipe.value1}}
        {{valMultipe.value2}}
      </div>
-     <vs-button @click="activePrompt2 = true" vs-type="primary-border">Run prompt inputs</vs-button>
+     <vs-button @click="activePrompt2 = true" vs-type="border">Run prompt inputs</vs-button>
 
      <vs-dialog
       @vs-cancel="val=''"

@@ -281,7 +281,7 @@ If you need to group the options you can use the subcomponent `vs-dropdown-group
     </vs-dropdown>
 
     <vs-dropdown  >
-      <!-- <vs-button  vs-type="primary-filled">Segundo</vs-button> -->
+      <!-- <vs-button vs-color="primary" vs-type="filled">Segundo</vs-button> -->
       <a class="a-icon" href.prevent>
         Dropdown Group Collapse
         <i class="material-icons">
@@ -404,7 +404,7 @@ Sometimes when we need something more personalized and not necessarily a menu fo
         vs-type="password"
         vs-label-placeholder="Password" v-model="value2"/>
 
-        <vs-button vs-width="100%" vs-type="success-gradient">Login</vs-button>
+        <vs-button vs-width="100%" vs-color="success" vs-type="gradient">Login</vs-button>
       </vs-dropdown-menu>
     </vs-dropdown>
   </div>
@@ -491,9 +491,9 @@ You can customize the component or element that initialize the dropdown in this 
 ```html
 <template lang="html">
   <div class="examplex">
-    <vs-button class="btnx" vs-type="primary-filled">Dropdown</vs-button>
+    <vs-button class="btnx" vs-type="filled">Dropdown</vs-button>
     <vs-dropdown>
-      <vs-button class="btn-drop" vs-type="primary-filled" vs-icon="expand_more"></vs-button>
+      <vs-button class="btn-drop" vs-type="filled" vs-icon="expand_more"></vs-button>
       <!-- <a href="#">Hola mundo</a> -->
 
       <vs-dropdown-menu>

@@ -172,7 +172,7 @@ The property to determine if the alert can be closed is `vs-closable`.
 ```html {5,6}
 <template lang="html">
   <div class="centerx">
-    <vs-button @click="active1=!active1" vs-type="primary-filled">{{!active1?'Open Alert':'Close Alert'}}</vs-button>
+    <vs-button @click="active1=!active1" vs-color="primary" vs-type="filled">{{!active1?'Open Alert':'Close Alert'}}</vs-button>
     <vs-alert
     :vs-active.sync="active1"
     vs-closable>
