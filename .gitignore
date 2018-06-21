@@ -5,7 +5,7 @@ node_modules
 # local env files
 .env.local
 .env.*.local
-js.map*
+*.map
 dist/demo.html
 
 # Log files
