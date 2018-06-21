@@ -67,6 +67,12 @@ API:
 
 To add a notification we have the global function `$vs.notify`, as the first parameter is a `json` with all the necessary attributes or if we only want the standard notification we can only add a string with the text of the notification.
 
+```{3}
+1
+2
+3
+```
+
 <vuecode md>
 <div slot="demo">
 
@@ -206,7 +212,9 @@ Vuesax use the **Google Material Icons** font library. For a list of all availab
 :::
 <vuecode md>
 <div slot="demo">
+
   <Demos-Notifications-Icons/>
+
 </div>
 <div slot="code">
 
@@ -263,7 +271,9 @@ Sometimes we need to execute a function when the user clicks on the notification
 
 <vuecode md>
 <div slot="demo">
+
   <Demos-Notifications-Click/>
+
 </div>
 <div slot="code">
 
