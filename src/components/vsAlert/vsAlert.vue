@@ -37,9 +37,6 @@
 
 <script>
 import color from '../../utils/color.js'
-
-import style from '../../styles/config.json'
-
 export default {
   name:'vs-alert',
   props:{

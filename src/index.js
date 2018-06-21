@@ -1,5 +1,4 @@
-// import './css/iconfont/icons.css'
-import 'material-design-icons/iconfont/material-icons.css'
+import './css/iconfont/material-icons.css'
 import './css/index.css'
 import './styles/config.styl'
 import * as vsComponents from './components'
@@ -10,7 +9,6 @@ import vsTheme from './utils/theme.js'
 
 const Vuesax = {
   install(Vue, options) {
-
     // Register a global custom directive called `v-focus`
     Vue.directive('focus', {
       // When the bound element is inserted into the DOM...

@@ -4,6 +4,7 @@ module.exports = {
   head: [
     ['title',{},'hola'],
     ['link', { rel: 'icon', href: `/favicon-vuesax.png` }],
+    ['link', { rel: 'stylesheet', href: `https://fonts.googleapis.com/icon?family=Material+Icons` }],
     // ['link', { rel: 'stylesheet', href: `https://use.fontawesome.com/releases/v5.0.13/css/all.css` }],
   ],
   docsDir: 'docs',
