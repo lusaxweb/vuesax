@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="vs-component con-vs-checkbox">
+  <div class="vs-component con-vs-checkbox" :class="[`vs-checkbox-${vsColor}`]">
     <input
       v-bind="$attrs"
       v-on="listeners"
@@ -7,17 +7,10 @@
       :checked="isChecked || $attrs.checked"
       value="">
     <span
-      :style="{
-        'border': `2px solid ${$attrs.checked?$attrs.checked?giveColor(vsColor):'rgb(180, 180, 180)':isChecked?giveColor(vsColor):'rgb(180, 180, 180)'}`
-        }"
+      :style="style"
       class="checkbox_x">
-      <span :style="{
-        'background':giveColor(vsColor)
-        }" class="_check"></span>
+      <span :style="style_check" class="_check"></span>
       <i
-        :style="{
-          'color':giveColor(vsColor)
-        }"
         class="material-icons">
         {{vsIcon}}
       </i>
@@ -50,11 +43,21 @@ export default {
     }
   },
   computed:{
+    style_check(){
+      return {
+        background: this.isChecked?_color.getColor(this.vsColor,1):null,
+      }
+    },
+    style(){
+      return {
+        border: `2px solid ${this.isChecked?_color.getColor(this.vsColor,1):'rgb(180, 180, 180)'}`,
+      }
+    },
     listeners(){
       return {
         ...this.$listeners,
-        change: (event) => {
-          this.toggleValue()
+        change: (evt) => {
+          this.toggleValue(evt)
         }
       }
     },
@@ -66,7 +69,7 @@ export default {
     giveColor(color){
       return _color.rColor(color)
     },
-    toggleValue(){
+    toggleValue(evt){
       if(this.isArrayx()){
         this.setArray()
       } else if (typeof(this.vsValue) == 'string' ) {
@@ -74,7 +77,7 @@ export default {
       }
       else {
         this.$emit('input',!this.value)
-        this.$emit('change',!this.value)
+        this.$emit('change',evt)
       }
     },
     setArray(){
@@ -111,6 +114,7 @@ export default {
 </script>
 
 <style lang="stylus">
+@import '../../styles'
 .con-vs-checkbox
   position: relative;
   display: block;
@@ -133,10 +137,6 @@ export default {
           transform: translate(3px) !important;
         i
           transform: translate(6px) !important;
-    // &:active:not(:checked)
-    //   & + span.checkbox_x
-    //     span._check
-    //       transform: translate(70%) !important;
     &:checked
       & + span.checkbox_x
         transform: rotate(0deg) !important;
@@ -179,4 +179,15 @@ export default {
       opacity: 0;
       transform: translate(30px);
       transform-origin: center;
+
+for colorx, i in $vs-colors
+  .vs-checkbox-{colorx}
+    ._check
+      background: $vs-colors[colorx]
+    .checkbox_x
+      border: 2px solid rgb(180, 180, 180)
+    input
+      &:checked
+        & + span.checkbox_x
+          border: 2px solid $vs-colors[colorx] !important
 </style>

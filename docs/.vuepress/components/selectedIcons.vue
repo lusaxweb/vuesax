@@ -5,7 +5,7 @@
         'visiblex':visible
         }"
         @click="clickIcons"
-        vs-type="primary-filled" >
+        vs-type="filled" >
         change icon
        </vs-button>
        <i v-tooltip="iconx" class="material-icons icon-final">{{iconx}}</i>
@@ -30,7 +30,7 @@
     <div class="con-btns">
       <vs-row>
         <vs-col vs-type="flex" vs-justify="flex-end" vs-align="center" vs-w="12">
-          <vs-button @click="visible=false,removeEventListenerx()"  vs-type="primary-filled" vs-color="rgb(230, 230, 230)" vs-color-text="rgba(0, 0, 0, 0.8)" >Cancel</vs-button>
+          <vs-button @click="visible=false,removeEventListenerx()"  vs-type="filled" vs-color="rgb(230, 230, 230)" vs-color-text="rgba(0, 0, 0, 0.8)" >Cancel</vs-button>
         </vs-col>
       </vs-row>
     </div>

@@ -3,12 +3,12 @@
     <div class="modelx">
       {{val==null?'null':val}}
     </div>
-     <vs-button @click="activePrompt = true" vs-type="primary-border">Run prompt</vs-button>
+     <vs-button @click="activePrompt = true" vs-color="primary" vs-type="border">Run prompt</vs-button>
      <div class="modelx">
        {{valMultipe.value1}}
        {{valMultipe.value2}}
      </div>
-     <vs-button @click="activePrompt2 = true" vs-type="primary-border">Run prompt inputs</vs-button>
+     <vs-button @click="activePrompt2 = true" vs-color="primary" vs-type="border">Run prompt inputs</vs-button>
 
      <vs-dialog
       @vs-cancel="val=''"

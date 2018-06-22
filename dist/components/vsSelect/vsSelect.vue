@@ -1,272 +1,270 @@
 <template lang="html">
-  <div :class="{'activo-select':visible, 'disabledx-select':disabled, 'vsAutocomplete':vsAutocomplete || vsMultiple}" class="vs-component con-select">
+  <div :class="{'autocompletex':vsAutocomplete,'activeOptions':active}" class="con-select">
     <input
-      ref="inputx"
+      @click.stop
+      class="input-select"
+      ref="inputselect"
+      @keydown.esc.stop.prevent="closeOptions"
       v-bind="$attrs"
       v-on="listeners"
-      @click.stop
-      :disabled="disabled"
-      @keydown="letters($event)"
-      @keydown.down.prevent="navigateOptions('next')"
-      @keydown.up.prevent="navigateOptions('prev')"
-      @keydown.enter.prevent="optionClick()"
-      @keydown.esc.stop.prevent="visible = false"
-      v-model="valuex"
-      class="inputx"
-      @focus="focusx"
+      :readonly="!vsAutocomplete"
       type="text"
-      :readonly="vsAutocomplete?null:'readonly'" name="" value="">
+      name="" value="">
+
       <i class="material-icons icon-select">
         keyboard_arrow_down
       </i>
+
       <transition name="fade-select">
-        <vs-select-options
-          :vs-max-selected="vsMaxSelected"
-          v-model="value"
-          :vsMultiple="vsMultiple"
-          :vsAutocomplete="vsAutocomplete"
-          :valuex="valuex"
-          :vs-clave-value="vsClaveValue"
-          ref="options"
-          @blur="visible = false"
-          @focus="vsMultiple?visible = true:visible = false"
-          :vs-clave-text="vsClaveText"
-          :style="{'top':`${topx}px`,'left':`${leftx}px`, 'width':`${widthx}px`}"
-          v-show="visible"
-          :active-index="theseIndex"
-          @option-click="optionClick"
-          :options="vsAutocomplete?optionsFilter:options"/>
-      </transition>
+        <div
+        :style="cords"
+        ref="vsSelectOptions" v-show="active" :class="[`vs-select-${vsColor}`,{'scrollx':this.scrollx}]" class="vs-select-options">
+        <ul ref="ulx">
+          <slot/>
+        </ul>
+        <ul v-show="clear">
+          <li @click="filterItems(''),changeValue()" >
+            {{vsNoData}}
+          </li>
+        </ul>
+      </div>
+    </transition>
   </div>
 </template>
 
 <script>
-import vsSelectOptions from './vsSelectOptions'
+import utils from '../../utils'
 export default {
-  inheritAttrs: false,
   name:'vs-select',
-  components:{
-    vsSelectOptions
-  },
   props:{
+    value:{},
+    vsNoData:{
+      default:'data no available',
+      type:String
+    },
     vsMaxSelected:{
       default:null,
       type:[Number,String]
-    },
-    vsMultiple:{
-      default:false,
-      type:Boolean
     },
     vsAutocomplete:{
       default:false,
       type:Boolean
     },
-    vsClaveValue:{
-      default:null,
-      type:String,
+    vsColor:{
+      default:'primary',
+      type:String
     },
-    vsClaveText:{
-      default:null,
-      type:String,
-    },
-    disabled:{
-      type:[Boolean,String],
+    vsMultiple:{
       default:false,
-    },
-    value:{},
-    options: {
-      type: [Array,Object],
-      default: () => []
-    },
+      type:Boolean
+    }
   },
   data:()=>({
-    visible:false,
+    active:false,
     valuex:'',
-    theseIndex:0,
-    topx:0,
-    leftx:0,
-    widthx:200,
-    autocomplete:'',
-    valueSelected:'',
-    arrows:false
+    clear:false,
+    scrollx:false,
+    cords:{},
+    filterx:false
   }),
   mounted(){
-    this.getValue()
+    this.changeValue()
+    utils.insertBody(this.$refs.vsSelectOptions)
+    console.log("this.$children>>>>>>",this.$children);
+  },
+  updated(){
+    //
+    if(!this.active){
+      this.changeValue()
+    }
+  },
+  watch:{
+    value(){
+      this.$emit('change',event)
+    },
+    active(){
+      if(this.active){
+        this.$children.forEach((item)=>{
+          item.focusValue()
+        })
+        setTimeout( () => {
+          if(this.$refs.ulx.scrollHeight >= 260) this.scrollx = true
+        }, 100);
+      }
+    }
   },
   computed:{
-    classx(){
-      return this.class
-    },
     listeners(){
       return {
         ...this.$listeners,
-        blur: this.blurx
+        blur: (event) => {
+          if(this.vsAutocomplete && event.relatedTarget?!event.relatedTarget.closest('.vs-select-options'):false ){
+            this.closeOptions()
+          }
+          this.$emit('blur',event)
+        },
+        focus: (event) => {
+          this.$emit('focus',event)
+          // document.removeEventListener('click',this.clickBlur)
+          this.focus(event)
+        },
+        input: (event) => {
+          return
+        },
+        keyup: (event) => {
+          if(event.key == 'ArrowDown' || event.key == 'ArrowUp'){
+            event.preventDefault()
+            let childrens = this.$children.filter((item)=>{
+              return item.visible
+            })
+            childrens[0].$el.querySelector('.vs-select-item-btn').focus()
+          } else {
+            if(this.vsAutocomplete){
+              this.filterItems(event.target.value)
+            }
+          }
+
+          this.$children.map((item)=>{
+            item.valueInputx = this.$refs.inputselect.value
+          })
+        }
       }
     },
-    optionsFilter(){
-      let options = JSON.parse(JSON.stringify(this.options))
-
-      if(this.valuex != '' && this.vsAutocomplete && this.arrows && this.options){
-        options = options.filter((item,index)=>{
-          return item.text.toUpperCase().indexOf(this.valuex.toUpperCase()) != -1
-        })
-      }
-      return options || []
-    }
   },
   methods:{
-    letters(event){
-      var letters = /[A-Za-z0-9]/;
-      if(event.key != 'ArrowDown' && event.key != 'ArrowUp'&& event.key != 'Enter'){
-      this.changePosition()
-      this.arrows = true
-    } else {
-      this.arrows = false
+    addMultiple(value){
+      if(this.value.includes(value)){
 
-    }
-    },
-    focusx(event){
-      this.visible = true
-      this.$emit('focus', event)
-      this.changePosition()
-      if(this.vsAutocomplete){
-        this.$refs.inputx.select()
-      }
-    },
-    changePosition(){
-      let scrollTopx = window.pageYOffset || document.documentElement.scrollTop;
-      console.dir();
-      if(this.$refs.inputx.getBoundingClientRect().top + 300 >= window.innerHeight) {
-        console.dir(this.$refs.options.$el);
-        setTimeout( ()=> {
-          if(this.vsAutocomplete || this.vsMultiple){
-            this.topx = (this.$refs.inputx.getBoundingClientRect().top - this.$refs.options.$el.clientHeight) + scrollTopx
-          } else {
-            this.topx = (this.$refs.inputx.getBoundingClientRect().top - this.$refs.options.$el.clientHeight + this.$refs.inputx.clientHeight) + scrollTopx
-          }
-        }, 1);
-
+        this.value.splice(this.value.indexOf(value),1)
+        this.changeValue()
+        if(this.vsAutocomplete) {
+          this.$refs.inputselect.focus()
+        }
       } else {
-        this.topx = this.vsAutocomplete || this.vsMultiple?(this.$refs.inputx.getBoundingClientRect().top + this.$refs.inputx.clientHeight) + scrollTopx:this.$refs.inputx.getBoundingClientRect().top + scrollTopx
-      }
-
-
-      setTimeout( () => {
-        this.leftx = this.$refs.inputx.getBoundingClientRect().left
-        this.widthx = this.$refs.inputx.offsetWidth
-      }, 1);
-    },
-    blurx(){
-      // setTimeout((event) => {
-          this.$emit('blur', event)
-          this.visible = false
-          setTimeout(()=>{
-            this.autocomplete = false
-          },100)
-      // }, 100);
-    },
-    navigateOptions(orientation){
-      if(orientation == 'next'){
-        if(this.theseIndex == this.options.length-1) return
-        this.theseIndex ++
-      } else {
-        if(this.theseIndex == 0) return
-        this.theseIndex --
-      }
-      this.valuex = this.options[this.theseIndex].text
-      this.valueSelected = this.options[this.theseIndex].value
-
-    },
-    optionClick(value){
-      // multiple
-
-      if(this.vsMultiple){
-        let [__value] = this.options.filter((item,index)=>{
-          if(this.vsClaveValue?item[this.vsClaveValue]:item.value == value){
-            return true
-          }
-        })
-        let _index = 0
-        let [oldValue] = JSON.parse(JSON.stringify(this.value)).filter((item,index)=>{
-          if(this.vsClaveValue?item[this.vsClaveValue]:item.value == value){
-            _index = index
-            return true
-          }
-        })
-        if(oldValue){
-          this.value.splice(_index,1)
+        if(this.vsAutocomplete){
+          this.value.push(value)
+          this.filterItems('')
+          this.changeValue()
+          // this.$refs.inputselect.value += ','
+          this.$refs.inputselect.focus()
         } else {
-          this.value.push(__value)
+          this.value.push(value)
+          this.changeValue()
         }
-        this.visible = true
-        this.getValue()
-
-      } else {
-
-
-      let _value = value
-      if(!value && value!=0){
-        _value = this.valueSelected
       }
-      let index = 0
 
-      let optionx = this.options.forEach((item,index_item)=>{
-        if(this.vsClaveValue?item[this.vsClaveValue]:item.value == _value) {
-          index = index_item
-          this.valueSelected = this.vsClaveValue?selected[this.vsClaveValue]:item.value
-        }
-      })
-
-      let selected = this.options[index!='no-index'?index:this.theseIndex]
-      this.$emit('input',this.vsClaveValue?selected[this.vsClaveValue]:selected.value);
-      this.$emit('change',this.vsClaveValue?selected[this.vsClaveValue]:selected.value);
-      this.valuex = this.vsClaveText?selected[this.vsClaveText]:selected.text
-      this.theseIndex = index!='no-index'?index:this.theseIndex
-      this.visible = false
-      this.$refs.inputx.blur()
-
-      }
-      this.changePosition()
     },
-    getValue(){
-      let _index = 0
-      let optionsx = JSON.parse(JSON.stringify(this.options))
-      let [_value] = optionsx.filter((item,index)=>{
-        if(this.vsClaveValue?item[this.vsClaveValue]:item.value == this.value){
-          _index = index
-        }
-        return this.vsClaveValue?item[this.vsClaveValue]:item.value == this.value
-      })
-      this.theseIndex = _index
-
-      if(_value){
-        this.valuex = this.vsClaveText?_value[this.vsClaveText]: _value.text
-      } else if (this.vsMultiple) {
-        let __value = this.options.filter((item,index)=>{
-          let returnx = false
-          this.value.forEach((item_value)=>{
-            if(this.vsClaveValue?item[this.vsClaveValue]:item.value == item_value.value){
-              returnx = true
+    filterItems(value){
+      if(value){
+        this.filterx = true
+      } else {
+        this.filterx = false
+      }
+      let items = this.$children
+      items.map((item)=>{
+        // let text = item.$el.innerText.replace('check_circle','')
+        let text = item.vsText
+        if(this.vsMultiple){
+          let valuesx = value.split(',')
+          valuesx.forEach((value_multi)=>{
+            if(text.toUpperCase().indexOf(value_multi.toUpperCase()) == -1){
+              item.visible = false
+            } else {
+              item.visible = true
             }
           })
-          return returnx
-        })
-        let textValue = ''
-        __value.forEach((item,index)=>{
-          if(index==0){
-            textValue += `${item.text}`
+
+        } else {
+          if(text.toUpperCase().indexOf(value.toUpperCase()) == -1){
+            item.visible = false
           } else {
-            textValue += `, ${item.text}`
+            item.visible = true
           }
-        })
-        this.valuex = textValue
+        }
+
+      })
+
+      let lengthx = items.filter((item)=>{
+        return item.visible
+      })
+
+      if(lengthx.length == 0){
+        this.clear = true
+      } else {
+        this.clear = false
       }
-    }
+    },
+    changeValue(){
+      if(this.vsMultiple){
+        let values = this.value
+        let options = this.$children
+        let optionsValues = []
+        values.forEach((item)=>{
+          options.forEach((item_option)=>{
+            if(item_option.vsValue == item) {
+              let text = item_option.vsText
+              text = text.replace('check_circle','')
+              optionsValues.push(text.trim())
+            }
+          })
+        })
+        this.$refs.inputselect.value = optionsValues.toString()
+
+      } else {
+        this.$refs.inputselect.value = this.valuex
+
+      }
+    },
+    focus(event){
+      this.active = true
+      let inputx = this.$refs.inputselect
+      setTimeout( ()=> {
+        document.addEventListener('click',this.clickBlur)
+      }, 100);
+      if(this.vsAutocomplete && this.vsMultiple){
+        setTimeout( ()=> {
+          if(inputx.value){
+            this.$refs.inputselect.value = inputx.value += ','
+          }
+          inputx.selectionStart = inputx.selectionEnd = 10000;
+        }, 10);
+
+      } else if (this.vsAutocomplete && !this.vsMultiple) {
+        this.$refs.inputselect.select()
+      }
+
+      if (!this.vsAutocomplete) {
+        if(this.vsMultiple?this.value.length == 0:!this.value || this.vsMultiple){
+          setTimeout( () => {
+            this.$children[0].$el.querySelector('.vs-select-item-btn').focus()
+          }, 50);
+        }
+      }
+      // this.changePosition()
+      this.cords = utils.changePosition(this.$refs.inputselect,this.$refs.vsSelectOptions,(this.vsAutocomplete))
+
+    },
+    clickBlur(event){
+      let closestx = event.target.closest('.vs-select-options')
+      if(!closestx){
+        this.closeOptions()
+        this.filterItems('')
+        this.changeValue()
+      }
+    },
+    closeOptions(){
+      // this.$refs.inputselect.blur()
+      this.active = false
+      document.removeEventListener('click',this.clickBlur)
+    },
   }
 }
 </script>
 
 <style lang="stylus">
+@import '../../styles'
+
+// transition
 
 .fade-select-enter-active {
   transition: transform .2s, opacity .2s;
@@ -279,39 +277,82 @@ export default {
   transform: translate(0,0px) scale(0.950) !important;
   box-shadow: 0px 10px 0px -5px rgba(0, 0, 0, 0);
 }
-.activo-select:not(.vsAutocomplete)
-  .inputx
-    opacity: 0;
-    transform: scale(1.05);
-  .icon-select
-    transform: rotate(180deg)
 
-.vs-component.con-select
+.con-select
   position: relative;
-  width: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgb(255, 255, 255);
-  border-radius: 6px;
-  &.disabledx-select
-    background: rgb(235, 235, 235)
-  .inputx
-    width: 100%;
-    padding: 8px;
-    cursor: pointer;
-    border: 1px solid rgba(0, 0, 0, 0.1)
-    border-radius: 6px;
-    padding-right: 20px;
-    transition: all .2s ease;
-    z-index: 100;
-    background: transparent
   .icon-select
     position: absolute;
-    right: 6px;
-    font-size: 16px;
+    right: 5px;
+    font-size: 17px;
+    top: 50%;
+    transform: translate(0,-50%);
     transition: all .2s ease;
-    z-index: 10;
+  &.activeOptions:not(.autocompletex)
+    .input-select
+      opacity: 0;
+      transform: scale(1.1);
+  &.activeOptions
+    .icon-select
+      transform: translate(0,-50%) rotate(-180deg) !important;
 
+.input-select
+  position: relative;
+  padding: 7px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: all .2s ease;
+  padding-right: 20px;
+  cursor: pointer;
 
+.scrollx
+  ul
+    padding-right: 4px;
+.vs-select-options
+  padding: 4px;
+  padding-top: 6px;
+  padding-left: 5px;
+  padding-bottom: 6px;
+  box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  position: absolute;
+  z-index: 40000;
+  background: rgb(255, 255, 255);
+  ul
+
+    max-height: 260px;
+    overflow: auto;
+    padding-left: 0px !important;
+    li
+      margin: 0px;
+    .vs-select-item-btn
+      display: block;
+      text-align: left;
+      color: rgba(0,0,0,.8)
+      padding: 7px;
+      border-top: 1px solid rgb(255, 255, 255)
+      border-bottom: 1px solid rgb(255, 255, 255)
+      .icon-item
+        position: absolute;
+        font-size: 16px;
+        left: 5px;
+        transform: translate(-100%,-50%);
+        opacity: 0;
+        transition: all .2s ease;
+        top: 50%;
+      &:hover
+        background: rgb(245, 245, 245)
+      &:focus
+        background: rgb(245, 245, 245)
+      &.con-icon.activex
+        padding-left: 25px;
+        .icon-item
+          opacity: 1;
+          transform: translate(0,-50%);
+for colorx, i in $vs-colors
+  .vs-select-{colorx}
+    .vs-select-item-btn
+      &.activex
+        background: alpha($vs-colors[colorx],.1) !important;
+        color: $vs-colors[colorx];
+        font-weight: bold;
 </style>

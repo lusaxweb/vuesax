@@ -1,6 +1,6 @@
 <template lang="html">
   <div id="parentx2" class="con-example-sidebar">
-    <vs-button @click="active=!active" vs-type="primary-filled">Open Sidebar</vs-button>
+    <vs-button @click="active=!active" vs-type="filled">Open Sidebar</vs-button>
     <vs-sidebar vs-parent="#parentx2" :vs-active.sync="active">
 
       <vs-sidebar-item @click="actives=1" :vs-active="actives==1" vs-icon="question_answer">

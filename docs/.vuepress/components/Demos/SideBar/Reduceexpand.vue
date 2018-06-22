@@ -1,7 +1,7 @@
 <template lang="html">
   <div id="parentx">
-    <vs-button @click="active=!active,reducex=false" vs-type="primary-filled">Open Sidebar Reduce and expand</vs-button>
-    <vs-button @click="active=!active,reducex=true" vs-type="primary-filled">Open Sidebar Only Reduce</vs-button>
+    <vs-button @click="active=!active,reducex=false" vs-type="filled">Open Sidebar Reduce and expand</vs-button>
+    <vs-button @click="active=!active,reducex=true" vs-type="filled">Open Sidebar Only Reduce</vs-button>
     <vs-sidebar :vs-reduce="reducex" :vs-reduce-expand="!reducex" :vs-active.sync="active">
 
       <vs-sidebar-item @click="actives=1" :vs-active="actives==1" vs-icon="question_answer">

@@ -1,9 +1,8 @@
 <template lang="html">
   <div class="con-select-example">
-
+    <input v-model="colorx" type="color" name="" value="">
     <vs-select
-    placeholder="Multiple"
-    vs-multiple
+    :vs-color="colorx"
     class="selectExample"
       label="Figuras"
       v-model="select1"
@@ -11,24 +10,12 @@
       <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in options1" />
     </vs-select>
     <vs-select
-    placeholder="Multiple and autocomplete"
-    vs-multiple
-    vs-autocomplete
+    :vs-color="select2"
     class="selectExample"
       label="Figuras"
       v-model="select2"
       >
       <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in options2" />
-    </vs-select>
-    <vs-select
-    placeholder="Max Selected"
-    vs-max-selected="2"
-    vs-multiple
-      class="selectExample"
-      label="Figuras"
-      v-model="select3"
-      >
-      <vs-select-item :key="index" :vs-value="item.value"  :vs-text="item.text" v-for="item,index in options3" />
     </vs-select>
   </div>
 </template>
@@ -38,16 +25,10 @@ export default {
   name:'',
   data(){
     return {
-      select1Normal:'',
-      select1:[],
-      select2:[],
-      select3:[],
+      colorx:'#103767',
+      select1:3,
+      select2:'primary',
       options1:[
-        {text:'IT',value:0},
-        {text:'Blade Runner',value:2},
-        {text:'Thor Ragnarok',value:3},
-      ],
-      options2:[
         {text: 'Square', value: 1},
         {text: 'Rectangle', value: 2},
         {text: 'Rombo', value: 3},
@@ -61,11 +42,12 @@ export default {
         {text: 'Circular sector', value: 11},
         {text: 'Circular trapeze', value: 12},
       ],
-      options3:[
-        {text: 'Red', value: 1},
-        {text: 'Green', value: 2},
-        {text: 'Blue', value: 3},
-        {text: 'Purple', value: 4},
+      options2:[
+        {text: 'Primary', value: 'primary'},
+        {text: 'Success', value: 'success'},
+        {text: 'Danger', value: 'danger'},
+        {text: 'Warning', value: 'warning'},
+        {text: 'Dark', value: 'dark'},
       ],
     }
   },

@@ -5,11 +5,6 @@ API:
    parameters: {text:'Example',value:'1'}
    description: Options to select.
    default: null
- - name: label
-   type: String
-   parameters:
-   description: Select label (upper text).
-   default: null
  - name: vs-autocomplete
    type: Boolean
    parameters:
@@ -52,26 +47,113 @@ To add a select to the application we have the component `vs-select`.
 
 ```html
 <template lang="html">
-  <div class="con-select">
+  <div class="con-select-example">
     <vs-select
-      class="vs-w-4"
-      label="Peliculas"
+    class="selectExample"
+      label="Figuras"
       v-model="select1"
-      :options="options1"
-      ></vs-select>
+      >
+      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in options1" />
+    </vs-select>
     <vs-select
-      class="vs-w-4"
+    class="selectExample"
+      label="Figuras"
+      v-model="select2"
+      >
+      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in options2" />
+    </vs-select>
+    <vs-select
+      disabled="true"
+      class="selectExample"
       label="Figuras"
       v-model="select3"
-      :options="options3"
-      ></vs-select>
-      <vs-select
-        disabled="true"
-        class="vs-w-4"
-        label="Colores"
-        v-model="select2"
-        :options="options2"
-        ></vs-select>
+      >
+      <vs-select-item :key="index" :disabled="index==2" :vs-value="item.value" :vs-text="item.text" v-for="item,index in options3" />
+    </vs-select>
+  </div>
+</template>
+
+<script>
+export default {
+  data(){
+    return {
+      select1:3,
+      select2:7,
+      select3:2,
+      options1:[
+        {text:'IT',value:0},
+        {text:'Blade Runner',value:2},
+        {text:'Thor Ragnarok',value:3},
+      ],
+      options2:[
+        {text: 'Square', value: 1},
+        {text: 'Rectangle', value: 2},
+        {text: 'Rombo', value: 3},
+        {text: 'Romboid', value: 4},
+        {text: 'Trapeze', value: 5},
+        {text: 'Triangle', value: 6},
+        {text: 'Polygon', value: 7},
+        {text: 'Regular polygon', value: 8},
+        {text: 'Circumference', value: 9},
+        {text: 'Circle', value: 10},
+        {text: 'Circular sector', value: 11},
+        {text: 'Circular trapeze', value: 12},
+      ],
+      options3:[
+        {text: 'Red', value: 1},
+        {text: 'Green', value: 2},
+        {text: 'Blue', value: 3},
+        {text: 'Purple', value: 4},
+      ],
+    }
+  },
+}
+</script>
+```
+
+</div>
+</vuecode>
+</box>
+
+<box>
+
+## Color
+
+You can change the color of the select with the property `vs-color`
+
+:::warning
+  Only **RGB** and **HEX** colors are supported.
+:::
+
+<vuecode md>
+<div slot="demo">
+
+ <Demos-Select-Color />
+
+</div>
+
+<div slot="code">
+
+```html
+<template lang="html">
+  <div class="con-select-example">
+    <input v-model="colorx" type="color" name="" value="">
+    <vs-select
+    :vs-color="colorx"
+    class="selectExample"
+      label="Figuras"
+      v-model="select1"
+      >
+      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in options1" />
+    </vs-select>
+    <vs-select
+    :vs-color="select2"
+    class="selectExample"
+      label="Figuras"
+      v-model="select2"
+      >
+      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in options2" />
+    </vs-select>
   </div>
 </template>
 
@@ -80,33 +162,30 @@ export default {
   name:'',
   data(){
     return {
-      select1:1,
-      select2:1,
-      select3:1,
+      colorx:'#103767',
+      select1:3,
+      select2:'primary',
       options1:[
-        {text:'IT',value:1},
-        {text:'Blade Runner',value:2},
-        {text:'Thor Ragnarok',value:3},
+        {text: 'Square', value: 1},
+        {text: 'Rectangle', value: 2},
+        {text: 'Rombo', value: 3},
+        {text: 'Romboid', value: 4},
+        {text: 'Trapeze', value: 5},
+        {text: 'Triangle', value: 6},
+        {text: 'Polygon', value: 7},
+        {text: 'Regular polygon', value: 8},
+        {text: 'Circumference', value: 9},
+        {text: 'Circle', value: 10},
+        {text: 'Circular sector', value: 11},
+        {text: 'Circular trapeze', value: 12},
       ],
       options2:[
-        {text:'Rojo',value:1},
-        {text:'Verde',value:2},
-        {text:'Azul',value:3},
+        {text: 'Primary', value: 'primary'},
+        {text: 'Success', value: 'success'},
+        {text: 'Danger', value: 'danger'},
+        {text: 'Warning', value: 'warning'},
+        {text: 'Dark', value: 'dark'},
       ],
-      options3:[
-        {text:'Cuadrado',value:1},
-        {text:'Rectángulo',value:2},
-        {text:'Rombo',value:3},
-        {text:'Romboide',value:4},
-        {text:'Trapecio',value:5},
-        {text:'Triángulo',value:6},
-        {text:'Polígono',value:7},
-        {text:'Polígono regular',value:8},
-        {text:'Circunferencia',value:9},
-        {text:'Círculo',value:10},
-        {text:'Sector circular',value:11},
-        {text:'Trapecio circular',value:12},
-      ]
     }
   }
 }
@@ -137,26 +216,29 @@ You can add the autocomplete functionality in the desired selected with the prop
   <div class="con-select-example">
     <vs-select
       vs-autocomplete
-      class="selectExample"
-      label="Peliculas"
+    class="selectExample"
+      label="Figuras"
       v-model="select1"
-      :options="options1"
-      ></vs-select>
+      >
+      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in options1" />
+    </vs-select>
     <vs-select
     vs-autocomplete
     class="selectExample"
       label="Figuras"
-      v-model="select3"
-      :options="options3"
-      ></vs-select>
-      <vs-select
-      vs-autocomplete
+      v-model="select2"
+      >
+      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in options2" />
+    </vs-select>
+    <vs-select
+    vs-autocomplete
+      disabled="true"
       class="selectExample"
-        disabled="true"
-        label="Colores"
-        v-model="select2"
-        :options="options2"
-        ></vs-select>
+      label="Figuras"
+      v-model="select3"
+      >
+      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in options3" />
+    </vs-select>
   </div>
 </template>
 
@@ -165,35 +247,37 @@ export default {
   name:'',
   data(){
     return {
-      select1:1,
-      select2:1,
-      select3:1,
+      select1Normal:'',
+      select1:3,
+      select2:7,
+      select3:2,
       options1:[
-        {text:'IT',value:1},
+        {text:'IT',value:0},
         {text:'Blade Runner',value:2},
         {text:'Thor Ragnarok',value:3},
       ],
       options2:[
-        {text:'Rojo',value:1},
-        {text:'Verde',value:2},
-        {text:'Azul',value:3},
+        {text: 'Square', value: 1},
+        {text: 'Rectangle', value: 2},
+        {text: 'Rombo', value: 3},
+        {text: 'Romboid', value: 4},
+        {text: 'Trapeze', value: 5},
+        {text: 'Triangle', value: 6},
+        {text: 'Polygon', value: 7},
+        {text: 'Regular polygon', value: 8},
+        {text: 'Circumference', value: 9},
+        {text: 'Circle', value: 10},
+        {text: 'Circular sector', value: 11},
+        {text: 'Circular trapeze', value: 12},
       ],
       options3:[
-        {text:'Cuadrado',value:1},
-        {text:'Rectángulo',value:2},
-        {text:'Rombo',value:3},
-        {text:'Romboide',value:4},
-        {text:'Trapecio',value:5},
-        {text:'Triángulo',value:6},
-        {text:'Polígono',value:7},
-        {text:'Polígono regular',value:8},
-        {text:'Circunferencia',value:9},
-        {text:'Círculo',value:10},
-        {text:'Sector circular',value:11},
-        {text:'Trapecio circular',value:12},
-      ]
+        {text: 'Red', value: 1},
+        {text: 'Green', value: 2},
+        {text: 'Blue', value: 3},
+        {text: 'Purple', value: 4},
+      ],
     }
-  },
+  }
 }
 </script>
 ```
@@ -206,10 +290,7 @@ export default {
 
 ## Multiple
 
-
 You can have a selection with multiple selections with the property `vs-multiple`, if you need the user to select only a certain number of options you can use the property `vs-max-selected`.
-
-
 
 <vuecode md>
 <div slot="demo">
@@ -223,25 +304,35 @@ You can have a selection with multiple selections with the property `vs-multiple
 ```html
 <template lang="html">
   <div class="con-select-example">
-    <span class="modelx">{{select1}}</span>
     <vs-select
-      vs-multiple
-      class="selectExample"
-      label="Peliculas"
+    placeholder="Multiple"
+    vs-multiple
+    class="selectExample"
+      label="Figuras"
       v-model="select1"
-      :options="options1"
-      ></vs-select>
-
-      <h4 style="padding:10px">Max selected</h4>
-      <span class="modelx">{{select2}}</span>
+      >
+      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in options1" />
+    </vs-select>
     <vs-select
-      vs-multiple
-      vs-max-selected="3"
-      class="selectExample"
-      label="Peliculas"
+    placeholder="Multiple and autocomplete"
+    vs-multiple
+    vs-autocomplete
+    class="selectExample"
+      label="Figuras"
       v-model="select2"
-      :options="options1"
-      ></vs-select>
+      >
+      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in options2" />
+    </vs-select>
+    <vs-select
+    placeholder="Max Selected"
+    vs-max-selected="2"
+    vs-multiple
+      class="selectExample"
+      label="Figuras"
+      v-model="select3"
+      >
+      <vs-select-item :key="index" :vs-value="item.value"  :vs-text="item.text" v-for="item,index in options3" />
+    </vs-select>
   </div>
 </template>
 
@@ -250,24 +341,37 @@ export default {
   name:'',
   data(){
     return {
-      select1:[{text:'Romboide',value:4}],
-      select2:[{text:'Rectángulo',value:2}],
+      select1Normal:'',
+      select1:[],
+      select2:[],
+      select3:[],
       options1:[
-        {text:'Cuadrado',value:1},
-        {text:'Rectángulo',value:2},
-        {text:'Rombo',value:3},
-        {text:'Romboide',value:4},
-        {text:'Trapecio',value:5},
-        {text:'Triángulo',value:6},
-        {text:'Polígono',value:7},
-        {text:'Polígono regular',value:8},
-        {text:'Circunferencia',value:9},
-        {text:'Círculo',value:10},
-        {text:'Sector circular',value:11},
-        {text:'Trapecio circular',value:12},
-      ]
+        {text:'IT',value:0},
+        {text:'Blade Runner',value:2},
+        {text:'Thor Ragnarok',value:3},
+      ],
+      options2:[
+        {text: 'Square', value: 1},
+        {text: 'Rectangle', value: 2},
+        {text: 'Rombo', value: 3},
+        {text: 'Romboid', value: 4},
+        {text: 'Trapeze', value: 5},
+        {text: 'Triangle', value: 6},
+        {text: 'Polygon', value: 7},
+        {text: 'Regular polygon', value: 8},
+        {text: 'Circumference', value: 9},
+        {text: 'Circle', value: 10},
+        {text: 'Circular sector', value: 11},
+        {text: 'Circular trapeze', value: 12},
+      ],
+      options3:[
+        {text: 'Red', value: 1},
+        {text: 'Green', value: 2},
+        {text: 'Blue', value: 3},
+        {text: 'Purple', value: 4},
+      ],
     }
-  },
+  }
 }
 </script>
 ```

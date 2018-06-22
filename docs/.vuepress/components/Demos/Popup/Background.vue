@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="centerx">
     <input v-model="colorx" type="color" name="" value="">
-    <vs-button :vs-color="colorx" @click="popupActivo5=true" vs-type="warning-filled">Open background popup</vs-button>
+    <vs-button :vs-color="colorx" @click="popupActivo5=true" vs-color="warning" vs-type="filled">Open background popup</vs-button>
 
     <vs-popup :vs-background-color="colorx" vs-title="background" :vs-active="popupActivo5" @vs-cancel="popupActivo5=false">
       <p>

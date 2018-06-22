@@ -1,6 +1,6 @@
 {
   "name": "vuesax",
-  "version": "3.1.7",
+  "version": "3.1.26",
   "description": "Components for Vue js",
   "license": "MIT",
   "author": "ldrovira <luisdanielrovira8@gmail.com>",
@@ -23,7 +23,7 @@
   "private": false,
   "scripts": {
     "dev": "vuepress dev docs",
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve --open",
     "build": "vue build -t lib src/index.js --name vuesax",
     "lint": "vue-cli-service lint",
     "v": "npm version patch",
@@ -35,20 +35,19 @@
     "new:component": "sh scripts/newComponent.sh"
   },
   "dependencies": {
-    "material-design-icons": "^3.0.1",
+    "vue": "^2.5.2"
+  },
+  "devDependencies": {
     "prefixfree": "^1.0.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "viewcode": "0.0.27",
-    "vue": "^2.5.2",
-    "vuecode.js": "0.0.27"
-  },
-  "devDependencies": {
     "@babel/core": "^7.0.0-beta.49",
     "@vue/cli-plugin-babel": "^3.0.0-beta.6",
     "@vue/cli-plugin-eslint": "^3.0.0-beta.6",
     "@vue/cli-service": "^3.0.0-beta.6",
     "copy-webpack-plugin": "^4.5.1",
+    "file-loader": "^1.1.11",
     "vue-template-compiler": "^2.5.13",
     "vuepress": "^0.10.1",
     "webpack": "^4.12.0"

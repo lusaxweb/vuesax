@@ -180,7 +180,7 @@ You could also change the badge's color by using the property `vs-badge-color`. 
     <vs-avatar :vs-badge="badge1" vs-text="Luisdaniel"/>
     <vs-avatar vs-badge-color="rgb(140, 23, 164)" :vs-badge="badge2" vs-text="Luisd"/>
   </div>
-      <vs-button vs-type="danger-filled" @click="increment">
+      <vs-button vs-color="danger" vs-type="filled" @click="increment">
         Increment Badge counter
       </vs-button>
   </div>
