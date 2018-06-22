@@ -212,7 +212,7 @@ module.exports = {
           '/components/sideBar',
           '/components/dropDown',
           '/components/divider',
-          '/components/collapse',
+          // '/components/collapse',
           /*New Component*/
         ]
       },

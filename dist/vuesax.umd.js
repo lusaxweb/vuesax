@@ -3830,13 +3830,6 @@ var vsSwitch_Component = Object(component_normalizer["a" /* default */])(
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ var vsCheckBox = ({
   inheritAttrs: false,
@@ -3857,6 +3850,16 @@ var vsSwitch_Component = Object(component_normalizer["a" /* default */])(
     }
   },
   computed: {
+    style_check: function style_check() {
+      return {
+        background: this.isChecked ? utils_color["a" /* default */].getColor(this.vsColor, 1) : null
+      };
+    },
+    style: function style() {
+      return {
+        border: "2px solid ".concat(this.isChecked ? utils_color["a" /* default */].getColor(this.vsColor, 1) : 'rgb(180, 180, 180)')
+      };
+    },
     listeners: function listeners() {
       var _this = this;
 
@@ -3918,14 +3921,8 @@ var vsSwitch_Component = Object(component_normalizer["a" /* default */])(
     }
   }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-4832dda2","hasScoped":false,"optionsId":"0","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsCheckBox/vsCheckBox.vue
-var vsCheckBox_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"vs-component con-vs-checkbox"},[_c('input',_vm._g(_vm._b({attrs:{"type":"checkbox","value":""},domProps:{"checked":_vm.isChecked || _vm.$attrs.checked}},'input',_vm.$attrs,false),_vm.listeners)),_c('span',{staticClass:"checkbox_x",style:({
-      'border': ("2px solid " + (_vm.$attrs.checked?_vm.$attrs.checked?_vm.giveColor(_vm.vsColor):'rgb(180, 180, 180)':_vm.isChecked?_vm.giveColor(_vm.vsColor):'rgb(180, 180, 180)'))
-      })},[_c('span',{staticClass:"_check",style:({
-      'background':_vm.giveColor(_vm.vsColor)
-      })}),_c('i',{staticClass:"material-icons",style:({
-        'color':_vm.giveColor(_vm.vsColor)
-      })},[_vm._v("\n      "+_vm._s(_vm.vsIcon)+"\n    ")])]),_c('span',{staticClass:"con-slot-label"},[_vm._t("default")],2)])}
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-c141c96e","hasScoped":false,"optionsId":"0","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsCheckBox/vsCheckBox.vue
+var vsCheckBox_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"vs-component con-vs-checkbox",class:[("vs-checkbox-" + _vm.vsColor)]},[_c('input',_vm._g(_vm._b({attrs:{"type":"checkbox","value":""},domProps:{"checked":_vm.isChecked || _vm.$attrs.checked}},'input',_vm.$attrs,false),_vm.listeners)),_c('span',{staticClass:"checkbox_x",style:(_vm.style)},[_c('span',{staticClass:"_check",style:(_vm.style_check)}),_c('i',{staticClass:"material-icons"},[_vm._v("\n      "+_vm._s(_vm.vsIcon)+"\n    ")])]),_c('span',{staticClass:"con-slot-label"},[_vm._t("default")],2)])}
 var vsCheckBox_staticRenderFns = []
 
 // CONCATENATED MODULE: ./src/components/vsCheckBox/vsCheckBox.vue

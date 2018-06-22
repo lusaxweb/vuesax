@@ -23,7 +23,7 @@
   "private": false,
   "scripts": {
     "dev": "vuepress dev docs",
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve --open",
     "build": "vue build -t lib src/index.js --name vuesax",
     "lint": "vue-cli-service lint",
     "v": "npm version patch",
