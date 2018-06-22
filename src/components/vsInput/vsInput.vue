@@ -54,6 +54,9 @@ let validations = {
     if ((!min && min !== 0) || !max) return !isNaN(value);
     return Number(value) <= Number(max) && Number(value) >= Number(min)
   },
+  date: (value) => {
+    return (new Date(value) !== "Invalid Date" && !isNaN(new Date(value)) ) ? true : false;
+  },
   default: (value) => true
 }
 export default {
