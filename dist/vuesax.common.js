@@ -1074,6 +1074,13 @@ module.exports = function (it) {
 
 /***/ }),
 
+/***/ "9Kzm":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "9RS+":
 /***/ (function(module, exports) {
 
@@ -2403,13 +2410,6 @@ module.exports = function (bitmap, value) {
 
 /***/ }),
 
-/***/ "XEJN":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ "XZrW":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3609,10 +3609,6 @@ var vsSelectItem_Component = Object(component_normalizer["a" /* default */])(
   Vue.component(vsSelect_vsSelect.name, vsSelect_vsSelect);
   Vue.component(vsSelect_vsSelectItem.name, vsSelect_vsSelectItem);
 });
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/typeof.js
-var helpers_typeof = __webpack_require__("Oy1H");
-var typeof_default = /*#__PURE__*/__webpack_require__.n(helpers_typeof);
-
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://vuesax//node_modules//.cache//cache-loader"}!./node_modules/babel-loader/lib?{"presets":["C://Users//pc 01//AppData//Roaming//npm//node_modules//@vue//cli-service-global//node_modules//@vue//babel-preset-app//index.js"]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/components/vsSwitch/vsSwitch.vue
 
 
@@ -3640,96 +3636,127 @@ var typeof_default = /*#__PURE__*/__webpack_require__.n(helpers_typeof);
 //
 //
 //
-/* harmony default export */ var vsSwitch = ({
-  inheritAttrs: false,
-  name: 'vs-switch',
-  props: ['vsValue', 'value', 'vsType', 'vsIcon', 'disabled'],
-  computed: {
-    valueArray: function valueArray() {
-      var arrayx = this.value;
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-      if (typeof_default()(this.value) == 'object' && this.value != null) {
-        if (arrayx.includes(this.vsValue)) {
-          return true;
-        } else {
-          return false;
+/* harmony default export */ var vsSwitch = ({
+  name: 'vs-switch',
+  inheritAttrs: false,
+  props: {
+    value: {},
+    vsColor: {
+      default: 'primary',
+      type: String
+    },
+    vsIcon: {
+      default: null,
+      type: String
+    },
+    vsIconOn: {
+      default: null,
+      type: String
+    },
+    vsIconOff: {
+      default: null,
+      type: String
+    },
+    vsValue: {}
+  },
+  data: function data() {
+    return {
+      widthx: 42
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    this.$nextTick(function () {
+      var w = _this.$refs.on.clientWidth > _this.$refs.off.clientWidth ? _this.$refs.on.clientWidth : _this.$refs.off.clientWidth;
+      _this.widthx = w + 24;
+    });
+  },
+  computed: {
+    style: function style() {
+      return {
+        background: this.value ? utils_color["a" /* default */].getColor(this.vsColor, 1) : null,
+        width: "".concat(this.widthx, "px")
+      };
+    },
+    listeners: function listeners() {
+      var _this2 = this;
+
+      return objectSpread_default()({}, this.$listeners, {
+        change: function change(evt) {
+          _this2.toggleValue(evt);
         }
-      } else if (typeof this.value == 'string' || this.value == '' || this.value == null) {
-        if (this.value == this.vsValue) {
-          return true;
-        } else {
-          return false;
-        }
-      }
+      });
+    },
+    isChecked: function isChecked() {
+      return this.isArrayx() ? this.isArrayIncludes() : this.value;
     }
   },
   methods: {
-    Clickx: function Clickx() {
-      var _this = this;
-
-      if (typeof_default()(this.value) == 'object' && this.value != null) {
-        var valueOld = this.value;
-
-        if (this.$refs.componentex.classList.contains('switch-activo')) {
-          var valuenew = valueOld.filter(function (item) {
-            return item.indexOf(_this.vsValue) == -1;
-          });
-          this.$emit('input', valuenew);
-          this.$emit('click', valuenew);
-          this.$emit('change', valuenew);
-        } else {
-          valueOld.push(this.vsValue);
-          this.$emit('input', valueOld);
-          this.$emit('click', valueOld);
-          this.$emit('change', valueOld);
-        }
-      } else if (typeof this.value == 'boolean') {
-        this.$emit('input', !this.value);
-        this.$emit('click', !this.value);
-        this.$emit('change', !this.value);
-      } else if (typeof this.value == 'string' || this.value == '' || this.value == null) {
-        if (this.value == this.vsValue) {
-          this.$emit('input', null);
-          this.$emit('click', null);
-          this.$emit('change', null);
-        } else {
-          this.$emit('input', this.vsValue);
-          this.$emit('click', this.vsValue);
-          this.$emit('change', this.vsValue);
-        }
+    toggleValue: function toggleValue(evt) {
+      if (this.isArrayx()) {
+        this.setArray(evt);
+      } else {
+        this.$emit('input', evt.target.checked);
+        this.$emit('change', evt);
       }
     },
-    backgroundx: function backgroundx() {
-      var arrayx = this.value;
+    setArray: function setArray(evt) {
+      var value = this.value.slice(0); // Copy Array.
 
-      if (typeof this.value == 'boolean') {
-        if (this.value) {
-          if (/[#()]/i.test(this.vsType)) {
-            return this.vsType;
-          } else {
-            return "rgb(var(--".concat(this.vsType, "))");
-          }
-        }
-      } else if (typeof_default()(this.value) == 'object') {
-        if (arrayx.includes(this.vsValue)) {
-          if (/[#()]/i.test(this.vsType)) {
-            return this.vsType;
-          } else {
-            return "rgb(var(--".concat(this.vsType, "))");
-          }
-        }
+      if (this.isArrayIncludes()) {
+        value.splice(value.indexOf(this.vsValue), 1); // delete value
+
+        this.$emit('input', value);
+        this.$emit('change', evt);
+      } else {
+        value.push(this.vsValue); // add value new
+
+        this.$emit('input', value);
+        this.$emit('change', evt);
       }
+    },
+    isArrayIncludes: function isArrayIncludes() {
+      var modelx = this.value;
+      var value = this.vsValue;
+      return modelx.includes(value);
+    },
+    isArrayx: function isArrayx() {
+      return Array.isArray(this.value);
     }
-  },
-  mounted: function mounted() {}
+  }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-79f00032","hasScoped":true,"optionsId":"1","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsSwitch/vsSwitch.vue
-var vsSwitch_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('label',{attrs:{"for":""}},[_c('button',_vm._g(_vm._b({ref:"componentex",staticClass:"con-switch",class:[{'switch-activo':typeof _vm.value == 'boolean'?_vm.value:_vm.valueArray}],style:({'background':_vm.backgroundx()}),attrs:{"disabled":_vm.disabled},on:{"click":_vm.Clickx}},'button',_vm.$attrs,false),_vm.$listeners),[_c('span',{staticClass:"switch-circle"}),_c('i',{staticClass:"material-icons"},[_vm._v(_vm._s(_vm.vsIcon))])]),_c('span',[_vm._t("default")],2)])}
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-4bbe98ff","hasScoped":false,"optionsId":"1","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsSwitch/vsSwitch.vue
+var vsSwitch_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('button',_vm._b({staticClass:"vs-component vs-switch",class:[
+    ("vs-switch-" + _vm.vsColor),
+    {
+      'vs-switch-active':_vm.isChecked || _vm.$attrs.checked
+    }
+    ],style:(_vm.style),attrs:{"type":"button","name":"button"}},'button',_vm.$attrs,false),[_c('input',_vm._g({staticClass:"input-switch",attrs:{"disabled":_vm.$attrs.disabled,"type":"checkbox","name":"","value":""},domProps:{"checked":_vm.value}},_vm.listeners)),_c('span',{ref:"on",staticClass:"text-on text-switch",class:{'active-text':_vm.isChecked || _vm.$attrs.checked}},[_vm._t("on"),_c('i',{staticClass:"material-icons icons-switch"},[_vm._v("\n      "+_vm._s(_vm.vsIconOn || _vm.vsIcon)+"\n    ")])],2),_c('span',{ref:"off",staticClass:"text-off text-switch",class:{'active-text':!_vm.isChecked && !_vm.$attrs.checked}},[_vm._t("off"),_c('i',{staticClass:"material-icons icons-switch"},[_vm._v("\n      "+_vm._s(_vm.vsIconOff || _vm.vsIcon)+"\n    ")])],2),_c('span',{staticClass:"vs-circle-switch"})])}
 var vsSwitch_staticRenderFns = []
 
 // CONCATENATED MODULE: ./src/components/vsSwitch/vsSwitch.vue
 function vsSwitch_injectStyle (context) {
-  __webpack_require__("XEJN")
+  __webpack_require__("9Kzm")
 }
 /* script */
 
@@ -3741,7 +3768,7 @@ var vsSwitch___vue_template_functional__ = false
 /* styles */
 var vsSwitch___vue_styles__ = vsSwitch_injectStyle
 /* scopeId */
-var vsSwitch___vue_scopeId__ = "data-v-79f00032"
+var vsSwitch___vue_scopeId__ = null
 /* moduleIdentifier (server only) */
 var vsSwitch___vue_module_identifier__ = null
 
@@ -3825,8 +3852,8 @@ var vsSwitch_Component = Object(component_normalizer["a" /* default */])(
       var _this = this;
 
       return objectSpread_default()({}, this.$listeners, {
-        change: function change(event) {
-          _this.toggleValue();
+        change: function change(evt) {
+          _this.toggleValue(evt);
         }
       });
     },
@@ -3838,14 +3865,14 @@ var vsSwitch_Component = Object(component_normalizer["a" /* default */])(
     giveColor: function giveColor(color) {
       return utils_color["a" /* default */].rColor(color);
     },
-    toggleValue: function toggleValue() {
+    toggleValue: function toggleValue(evt) {
       if (this.isArrayx()) {
         this.setArray();
       } else if (typeof this.vsValue == 'string') {
         this.setValueString();
       } else {
         this.$emit('input', !this.value);
-        this.$emit('change', !this.value);
+        this.$emit('change', evt);
       }
     },
     setArray: function setArray() {
@@ -3882,7 +3909,7 @@ var vsSwitch_Component = Object(component_normalizer["a" /* default */])(
     }
   }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-2f7ddd7e","hasScoped":false,"optionsId":"1","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsCheckBox/vsCheckBox.vue
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-4832dda2","hasScoped":false,"optionsId":"1","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsCheckBox/vsCheckBox.vue
 var vsCheckBox_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"vs-component con-vs-checkbox"},[_c('input',_vm._g(_vm._b({attrs:{"type":"checkbox","value":""},domProps:{"checked":_vm.isChecked || _vm.$attrs.checked}},'input',_vm.$attrs,false),_vm.listeners)),_c('span',{staticClass:"checkbox_x",style:({
       'border': ("2px solid " + (_vm.$attrs.checked?_vm.$attrs.checked?_vm.giveColor(_vm.vsColor):'rgb(180, 180, 180)':_vm.isChecked?_vm.giveColor(_vm.vsColor):'rgb(180, 180, 180)'))
       })},[_c('span',{staticClass:"_check",style:({

@@ -53,8 +53,8 @@ export default {
     listeners(){
       return {
         ...this.$listeners,
-        change: (event) => {
-          this.toggleValue()
+        change: (evt) => {
+          this.toggleValue(evt)
         }
       }
     },
@@ -66,7 +66,7 @@ export default {
     giveColor(color){
       return _color.rColor(color)
     },
-    toggleValue(){
+    toggleValue(evt){
       if(this.isArrayx()){
         this.setArray()
       } else if (typeof(this.vsValue) == 'string' ) {
@@ -74,7 +74,7 @@ export default {
       }
       else {
         this.$emit('input',!this.value)
-        this.$emit('change',!this.value)
+        this.$emit('change',evt)
       }
     },
     setArray(){

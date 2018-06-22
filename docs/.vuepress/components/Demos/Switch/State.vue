@@ -2,19 +2,19 @@
   <ul class="con-s">
     <li>
       <label for="">true / active</label>
-      <vs-switch vs-type="primary" v-model="switch1"/>
+      <vs-switch v-model="switch1"/>
     </li>
     <li>
       <label for="">false / inactive</label>
-      <vs-switch vs-type="primary" v-model="switch2"/>
+      <vs-switch v-model="switch2"/>
     </li>
     <li>
       <label for="">disabled / active</label>
-      <vs-switch disabled="true" vs-type="primary" v-model="switch3"/>
+      <vs-switch disabled="true" v-model="switch3"/>
     </li>
     <li>
       <label for="">disabled / inactive</label>
-      <vs-switch disabled="true" vs-type="primary" v-model="switch4"/>
+      <vs-switch disabled="true" v-model="switch4"/>
     </li>
   </ul>
 </template>
@@ -42,6 +42,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
   }
   .con-s li {
     display: flex;
