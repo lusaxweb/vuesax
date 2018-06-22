@@ -40,6 +40,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 let validations = {
   email: (value) => {
     return /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(value);

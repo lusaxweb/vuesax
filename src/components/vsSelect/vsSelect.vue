@@ -1,6 +1,6 @@
 <template lang="html">
   <div :class="[validar]" :style="{'width':vsWidth}" class="con-input">
-    <label :class="{'focusLabel':active}" class="label" for="" v-if="vsLabel.length > 0">{{vsLabel}}</label>
+    <label :style="labelStyle" :class="labelClass" class="label" for="" v-if="vsLabel.length > 0">{{vsLabel}}</label>
     <div :class="{'autocompletex':vsAutocomplete,'activeOptions':active}" class="con-select">
       <input
         @click.stop
@@ -37,6 +37,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 import utils from '../../utils'
 export default {
   name:'vs-select',
@@ -117,6 +118,20 @@ export default {
     }
   },
   computed:{
+    labelStyle() {
+      if (this.active) {
+        return {
+          color: this.vsColor,
+        };
+      }
+      return {};
+    },
+    labelClass() {
+      if (this.active) {
+        return `vs-select-label-${this.vsColor}`;
+      }
+      return '';
+    },
     validar(){
       if (this.vsRequired && (this.value === '' || this.value === null)) {
         this.$emit('update:vsValid', false);
@@ -409,4 +424,8 @@ for colorx, i in $vs-colors
         background: alpha($vs-colors[colorx],.1) !important;
         color: $vs-colors[colorx];
         font-weight: bold;
+for colorx, i in $vs-colors
+  .vs-select-label-{colorx}
+    color: $vs-colors[colorx];
+
 </style>
