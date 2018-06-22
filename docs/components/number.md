@@ -161,7 +161,7 @@ To change the size of Component you can use the property `vs-size`. The allowed 
 </div>
 <div slot="code">
 
-```html{5,8,11}
+```html
 <template lang="html">
   <div class="centerx">
     <vs-input-number v-model="number0"/>

@@ -1,13 +1,13 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory();
+		module.exports = factory(require("vue"));
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
 	else if(typeof exports === 'object')
-		exports["vuesax"] = factory();
+		exports["vuesax"] = factory(require("vue"));
 	else
-		root["vuesax"] = factory();
-})(typeof self !== 'undefined' ? self : this, function() {
+		root["vuesax"] = factory(root["Vue"]);
+})(typeof self !== 'undefined' ? self : this, function(__WEBPACK_EXTERNAL_MODULE_lRwf__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -359,6 +359,13 @@ module.exports = __webpack_require__("ReUz").getIteratorMethod = function (it) {
 
 /***/ }),
 
+/***/ "/pvz":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -470,6 +477,45 @@ module.exports = function (it, key) {
   return hasOwnProperty.call(it, key);
 };
 
+
+/***/ }),
+
+/***/ "0xDb":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony default export */ __webpack_exports__["a"] = ({
+  insertBody: function insertBody(elx) {
+    document.body.insertBefore(elx, document.body.firstChild);
+  },
+  changePosition: function changePosition(elx, content, conditional) {
+    var topx = 0;
+    var leftx = 0;
+    var widthx = 0;
+    var scrollTopx = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (elx.getBoundingClientRect().top + 300 >= window.innerHeight) {
+      setTimeout(function () {
+        if (conditional) {
+          topx = elx.getBoundingClientRect().top - content.$el.clientHeight + scrollTopx;
+        } else {
+          topx = elx.getBoundingClientRect().top - content.$el.clientHeight + elx.clientHeight + scrollTopx;
+        }
+      }, 1);
+    } else {
+      topx = conditional ? elx.getBoundingClientRect().top + elx.clientHeight + scrollTopx + 5 : elx.getBoundingClientRect().top + scrollTopx;
+    }
+
+    leftx = elx.getBoundingClientRect().left;
+    widthx = elx.offsetWidth;
+    var cords = {
+      left: "".concat(leftx, "px"),
+      top: "".concat(topx, "px"),
+      width: "".concat(widthx, "px")
+    };
+    return cords;
+  }
+});
 
 /***/ }),
 
@@ -2991,39 +3037,9 @@ var es7_array_includes_default = /*#__PURE__*/__webpack_require__.n(es7_array_in
 var es6_string_includes = __webpack_require__("kXha");
 var es6_string_includes_default = /*#__PURE__*/__webpack_require__.n(es6_string_includes);
 
-// CONCATENATED MODULE: ./src/utils/index.js
-/* harmony default export */ var utils = ({
-  insertBody: function insertBody(elx) {
-    document.body.insertBefore(elx, document.body.firstChild);
-  },
-  changePosition: function changePosition(elx, content, conditional) {
-    var topx = 0;
-    var leftx = 0;
-    var widthx = 0;
-    var scrollTopx = window.pageYOffset || document.documentElement.scrollTop;
+// EXTERNAL MODULE: ./src/utils/index.js
+var utils = __webpack_require__("0xDb");
 
-    if (elx.getBoundingClientRect().top + 300 >= window.innerHeight) {
-      setTimeout(function () {
-        if (conditional) {
-          topx = elx.getBoundingClientRect().top - content.$el.clientHeight + scrollTopx;
-        } else {
-          topx = elx.getBoundingClientRect().top - content.$el.clientHeight + elx.clientHeight + scrollTopx;
-        }
-      }, 1);
-    } else {
-      topx = conditional ? elx.getBoundingClientRect().top + elx.clientHeight + scrollTopx + 5 : elx.getBoundingClientRect().top + scrollTopx;
-    }
-
-    leftx = elx.getBoundingClientRect().left;
-    widthx = elx.offsetWidth;
-    var cords = {
-      left: "".concat(leftx, "px"),
-      top: "".concat(topx, "px"),
-      width: "".concat(widthx, "px")
-    };
-    return cords;
-  }
-});
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://vuesax//node_modules//.cache//cache-loader"}!./node_modules/babel-loader/lib?{"presets":["C://Users//pc 01//AppData//Roaming//npm//node_modules//@vue//cli-service-global//node_modules//@vue//babel-preset-app//index.js"]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/components/vsSelect/vsSelect.vue
 
 
@@ -3106,7 +3122,7 @@ var es6_string_includes_default = /*#__PURE__*/__webpack_require__.n(es6_string_
   },
   mounted: function mounted() {
     this.changeValue();
-    utils.insertBody(this.$refs.vsSelectOptions);
+    utils["a" /* default */].insertBody(this.$refs.vsSelectOptions);
     console.log("this.$children>>>>>>", this.$children);
   },
   updated: function updated() {
@@ -3287,7 +3303,7 @@ var es6_string_includes_default = /*#__PURE__*/__webpack_require__.n(es6_string_
       } // this.changePosition()
 
 
-      this.cords = utils.changePosition(this.$refs.inputselect, this.$refs.vsSelectOptions, this.vsAutocomplete);
+      this.cords = utils["a" /* default */].changePosition(this.$refs.inputselect, this.$refs.vsSelectOptions, this.vsAutocomplete);
     },
     clickBlur: function clickBlur(event) {
       var closestx = event.target.closest('.vs-select-options');
@@ -8699,13 +8715,6 @@ module.exports = _defineProperty;
 
 /***/ }),
 
-/***/ "fSBI":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ "gUSI":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9027,6 +9036,13 @@ $export($export.P + $export.F * __webpack_require__("0c9U")(INCLUDES), 'String',
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "lRwf":
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_lRwf__;
 
 /***/ }),
 
@@ -10047,6 +10063,17 @@ var es6_function_name_default = /*#__PURE__*/__webpack_require__.n(es6_function_
 var es7_object_values = __webpack_require__("0+C+");
 var es7_object_values_default = /*#__PURE__*/__webpack_require__.n(es7_object_values);
 
+// EXTERNAL MODULE: ../Users/pc 01/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/core-js/modules/es6.regexp.replace.js
+var es6_regexp_replace = __webpack_require__("e5kn");
+var es6_regexp_replace_default = /*#__PURE__*/__webpack_require__.n(es6_regexp_replace);
+
+// EXTERNAL MODULE: external {"commonjs":"vue","commonjs2":"vue","root":"Vue"}
+var external___commonjs___vue___commonjs2___vue___root___Vue__ = __webpack_require__("lRwf");
+var external___commonjs___vue___commonjs2___vue___root___Vue___default = /*#__PURE__*/__webpack_require__.n(external___commonjs___vue___commonjs2___vue___root___Vue__);
+
+// EXTERNAL MODULE: ./src/utils/index.js
+var utils = __webpack_require__("0xDb");
+
 // EXTERNAL MODULE: ../Users/pc 01/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/core-js/modules/es6.regexp.search.js
 var es6_regexp_search = __webpack_require__("YjWS");
 var es6_regexp_search_default = /*#__PURE__*/__webpack_require__.n(es6_regexp_search);
@@ -10055,236 +10082,267 @@ var es6_regexp_search_default = /*#__PURE__*/__webpack_require__.n(es6_regexp_se
 var es6_regexp_split = __webpack_require__("iiot");
 var es6_regexp_split_default = /*#__PURE__*/__webpack_require__.n(es6_regexp_split);
 
-// EXTERNAL MODULE: ./src/functions/vsNotifications/vsNotifications.css
-var vsNotifications = __webpack_require__("fSBI");
-var vsNotifications_default = /*#__PURE__*/__webpack_require__.n(vsNotifications);
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/objectSpread.js
+var objectSpread = __webpack_require__("Biqn");
+var objectSpread_default = /*#__PURE__*/__webpack_require__.n(objectSpread);
 
-// CONCATENATED MODULE: ./src/functions/vsNotifications/vsNotifications.js
-
-
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://vuesax//node_modules//.cache//cache-loader"}!./node_modules/babel-loader/lib?{"presets":["C://Users//pc 01//AppData//Roaming//npm//node_modules//@vue//cli-service-global//node_modules//@vue//babel-preset-app//index.js"]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/functions/vsNotifications/index.vue
 
 
 
-/* harmony default export */ var vsNotifications_vsNotifications = ({
-  name: 'notify',
-  vsfunction: function vsfunction(parameters) {
-    // text,type='white',position='bottom-right',icon,functiox,fixed
-    var text = parameters.text ? parameters.text : null;
-    var type = parameters.color ? parameters.color : 'white';
-    var position = parameters.position ? parameters.position : 'bottom-right';
-    var icon = parameters.icon ? parameters.icon : null;
-    var functiox = parameters.click ? parameters.click : null;
-    var fixed = parameters.fixed ? parameters.fixed : null; // new
-
-    var title = parameters.title ? parameters.title : null;
-    var time = parameters.time ? parameters.time : 2000;
-
-    if (text == null) {
-      text = 'Vuesax: $vsNotify not parameters text';
-      icon = 'warning';
-      type = 'warning';
-      console.warn(text);
-      return;
-    }
-
-    if (type == null) {
-      type = 'white';
-    }
-
-    if (position == null) {
-      position = 'bottom-right';
-    }
-
-    var conNotix = document.createElement('div');
-    conNotix.classList.add('vs-noti-contenedor');
-    conNotix.classList.add('vs-' + type);
-    conNotix.classList.add('vs-' + position);
-    var arrayPosition = position.split('-');
-
-    if (position.search('center') == -1) {
-      conNotix.style[arrayPosition[0]] = '15px';
-      conNotix.style[arrayPosition[1]] = '15px';
-    }
-
-    if (position.search('top-center') != -1) {
-      conNotix.style.left = "50%";
-      conNotix.style.top = "15px";
-      conNotix.style.transform = "translate(-50%)";
-    }
-
-    if (position.search('bottom-center') != -1) {
-      conNotix.style.left = "50%";
-      conNotix.style.bottom = "15px";
-      conNotix.style.transform = "translate(-50%)";
-    }
-
-    document.body.insertBefore(conNotix, document.body.firstChild);
-    var rellenox = document.createElement('span');
-    rellenox.classList.add('rellenox');
-
-    if (/[#()]/i.test(type)) {
-      rellenox.style.background = type;
-    } else {
-      rellenox.style.background = "rgb(var(--".concat(type, "))");
-    }
-
-    if (position.search('center') == -1) {
-      rellenox.style[arrayPosition[0]] = '50%';
-      rellenox.style[arrayPosition[1]] = '0px';
-    }
-
-    if (position.search('bottom-center') != -1) {
-      rellenox.style.left = '50%';
-      rellenox.style.top = '100%';
-    }
-
-    if (position.search('top-center') != -1) {
-      rellenox.style.left = '50%';
-      rellenox.style.top = '0%';
-    }
-
-    conNotix.appendChild(rellenox);
-    setTimeout(function () {
-      if (position.search('left') != -1) {
-        rellenox.style.left = '50%';
-      } else if (position.search('right') != -1) {
-        rellenox.style.right = '-50%';
-        rellenox.style.transform = 'translate(50%,-50%)';
-      } // else if (position.search('center')!=-1){
-      //   rellenox.style.left = '50%'
-      //   rellenox.style.top = '100%'
-      // }
 
 
-      rellenox.style.top = '50%';
-      rellenox.style.width = conNotix.offsetWidth * 3.5 + 'px';
-      rellenox.style.height = conNotix.offsetWidth * 3.5 + 'px';
-      moverNotis(position);
-    }, 50);
-    var notix = document.createElement('div');
-    notix.innerHTML = text;
-    notix.classList.add('vs-noti'); // create titlex
-
-    if (title) {
-      var titlex = document.createElement('h3');
-      titlex.innerHTML = title;
-      titlex.classList.add('vs-noti-title');
-      notix.prepend(titlex);
-    }
-
-    conNotix.appendChild(notix);
-
-    if (icon) {
-      conNotix.classList.add('con-icon');
-      var iconx = document.createElement('span');
-      iconx.classList.add('icon-noti');
-      iconx.innerHTML = "<i class=\"material-icons\">".concat(icon, "</i>");
-      conNotix.appendChild(iconx);
-    }
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ var vsNotifications = ({
+  data: function data() {
+    return {
+      fullWidth: false,
+      icon: null,
+      color: 'primary',
+      colorText: 'rgb(255, 255, 255)',
+      active: true,
+      text: null,
+      title: null,
+      position: 'bottom-right',
+      time: 3000,
+      cords: {
+        top: null,
+        left: null,
+        right: null,
+        bottom: null
+      },
+      widthx: 0,
+      fixed: false
+    };
+  },
+  created: function created() {
+    var _this = this;
 
     setTimeout(function () {
-      conNotix.classList.add('vs-noti-listo');
-    }, 150);
-    conNotix.addEventListener('click', function (e) {
-      if (functiox) {
-        functiox();
+      _this.moverNotis();
+    }, 0);
+    this.changeCords();
+  },
+  mounted: function mounted() {
+    var _this2 = this;
+
+    setTimeout(function () {
+      _this2.widthx = _this2.$refs.noti.clientWidth;
+    }, 0);
+
+    if (!this.fixed) {
+      setTimeout(function () {
+        _this2.closeNoti();
+      }, this.time);
+    }
+  },
+  computed: {
+    fillingStyle: function fillingStyle() {
+      return {
+        left: this.cords.left ? '-100px' : null,
+        right: this.cords.right ? '-100px' : null,
+        background: this.color,
+        height: "".concat(this.widthx * 2, "px"),
+        width: "".concat(this.widthx * 2, "px") // transform: `translate(${this.widthx/1.5}px,${this.widthx/1.5}px)`
+
+      };
+    },
+    stylex: function stylex() {
+      return objectSpread_default()({}, this.cords, {
+        color: this.colorText,
+        width: this.fullWidth ? "calc(100% - 14px)" : "",
+        maxWidth: this.fullWidth ? 'none' : "350px"
+      });
+    }
+  },
+  methods: {
+    clickNoti: function clickNoti() {
+      this.active = false;
+      this.click ? this.click() : null;
+    },
+    beforeEnter: function beforeEnter(el) {
+      el.style.opacity = 0;
+    },
+    enter: function enter(el, done) {
+      var h = el.scrollHeight;
+      el.style.opacity = 1;
+      done();
+    },
+    leave: function leave(el, done) {
+      var _this3 = this;
+
+      el.style.opacity = 0;
+      var transformx = el.style.transform;
+
+      if (this.cords.left == '50%' || this.fullWidth) {
+        transformx += " translateY(".concat(this.cords.top ? '-' : '', "100%)");
+      } else {
+        transformx += " translateX(".concat(this.cords.left ? '-' : '', "100%)");
       }
 
-      eliminarx(conNotix, position, conNotix, fluent);
-    });
-    var conFluent = document.createElement('div');
-    conFluent.classList.add('vs-con-fluent');
-    var fluent = document.createElement('div');
-    fluent.classList.add('vs-fluent');
-    fluent.style.height = conNotix.offsetHeight * 2 + 'px';
-    fluent.style.width = conNotix.offsetHeight * 2 + 'px';
-    conFluent.appendChild(fluent);
-    conNotix.appendChild(conFluent);
-    conNotix.addEventListener('mousemove', function (e) {
-      // console.log(e);
-      var x = e.pageX;
-      var y = e.pageY;
-      fluent.style.left = x - conNotix.getBoundingClientRect().left + 'px';
-      fluent.style.top = y - conNotix.getBoundingClientRect().top + 'px';
-      fluent.style.opacity = '1';
-      fluent.style.height = conNotix.offsetHeight * 2 + 'px';
-      fluent.style.width = conNotix.offsetHeight * 2 + 'px';
-    });
-    conNotix.addEventListener('mouseleave', function (e) {
-      fluent.style.opacity = '0';
-      fluent.style.height = conNotix.offsetHeight * 4 + 'px';
-      fluent.style.width = conNotix.offsetHeight * 4 + 'px';
-    });
-    setTimeout(function () {
-      if (!fixed) {
-        eliminarx(conNotix, position, conNotix, fluent);
+      el.style.transform = transformx;
+      setTimeout(function () {
+        done();
+
+        _this3.moverNotis();
+      }, 150);
+    },
+    closeNoti: function closeNoti() {
+      this.active = false;
+    },
+    changeCords: function changeCords() {
+      var positions = this.position.split('-');
+
+      var search = function search(text) {
+        return positions.indexOf(text) != -1;
+      };
+
+      if (search('top')) {
+        this.cords.top = '0px';
       }
-    }, time);
+
+      if (search('bottom')) {
+        this.cords.bottom = '0px';
+      }
+
+      if (search('right')) {
+        this.cords.right = '0px';
+      }
+
+      if (search('left')) {
+        this.cords.left = '0px';
+      }
+
+      if (search('center')) {
+        this.cords.left = '50%';
+      }
+    },
+    moverNotis: function moverNotis() {
+      var notisx = document.querySelectorAll('.vs-noti-' + this.position);
+
+      for (var i = 0; i < notisx.length; i++) {
+        var hx = 10;
+
+        for (var i2 = 0; i2 < i; i2++) {
+          hx += notisx[i2].clientHeight + 6;
+        }
+
+        if (this.position.search('center') == -1) {
+          if (this.position.search('top') != -1) {
+            notisx[i].style.transform = "translatey(".concat(hx, "px)");
+          } else if (this.position.search('bottom') != -1) {
+            notisx[i].style.transform = "translatey(-".concat(hx, "px)");
+          }
+        }
+
+        if (this.position.search('top') != -1 && this.position.search('center') != -1) {
+          notisx[i].style.transform = "translate(-50%,".concat(hx, "px)");
+          notisx[i].style.zIndex = 10000 - i;
+        }
+
+        if (this.position.search('bottom') != -1 && this.position.search('center') != -1) {
+          notisx[i].style.transform = "translate(-50%,-".concat(hx, "px)");
+          notisx[i].style.zIndex = 10000 - i;
+        }
+      } // console.log(hx);
+
+    }
   }
 });
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-8272d8b8","hasScoped":false,"optionsId":"0","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/functions/vsNotifications/index.vue
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('transition',{attrs:{"name":"noti"},on:{"before-enter":_vm.beforeEnter,"enter":_vm.enter,"leave":_vm.leave}},[(_vm.active)?_c('div',{ref:"noti",staticClass:"vs-component vs-notifications",class:[("vs-noti-" + _vm.position),("vs-noti-" + _vm.color),{'activeNoti':_vm.active}],style:(_vm.stylex),on:{"click":_vm.clickNoti}},[_c('div',{staticClass:"content-noti"},[_c('div',{staticClass:"con-text-noti"},[_c('h3',{domProps:{"innerHTML":_vm._s(_vm.title)}}),_c('p',{domProps:{"innerHTML":_vm._s(_vm.text)}}),_vm._t("default")],2),(_vm.icon)?_c('i',{staticClass:"vs-icon-noti material-icons"},[_vm._v("\n         "+_vm._s(_vm.icon)+"\n       ")]):_vm._e()]),_c('span',{staticClass:"filling",style:(_vm.fillingStyle)})]):_vm._e()])}
+var staticRenderFns = []
 
-function eliminarx(contenedor, position, conNotix, fluent) {
-  fluent.style.filter = 'blur(10px)';
-  fluent.style.opacity = '0';
-  fluent.style.height = conNotix.offsetHeight * 5 + 'px';
-  fluent.style.width = conNotix.offsetHeight * 5 + 'px';
+// EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/component-normalizer.js
+var component_normalizer = __webpack_require__("XyMi");
 
-  if (position.search('top-center') != -1) {
-    contenedor.style.top = '-20px';
-    contenedor.style.opacity = 0;
-  }
-
-  if (position.search('bottom-center') != -1) {
-    contenedor.style.bottom = '-20px';
-    contenedor.style.opacity = 0;
-  }
-
-  if (position.search('left') != -1) {
-    contenedor.style.left = '-400px';
-  } else if (position.search('right') != -1) {
-    contenedor.style.right = '-400px';
-  }
-
-  setTimeout(function () {
-    contenedor.style.opacity = 0;
-  }, 50);
-  setTimeout(function () {
-    contenedor.remove();
-    moverNotis(position);
-  }, 100);
+// CONCATENATED MODULE: ./src/functions/vsNotifications/index.vue
+function injectStyle (context) {
+  __webpack_require__("/pvz")
 }
+/* script */
 
-function moverNotis(position) {
-  // console.log("paso en posision");
-  var notisx = document.querySelectorAll('.vs-' + position);
 
-  for (var i = 0; i < notisx.length; i++) {
-    var hx = 0;
+/* template */
 
-    for (var i2 = 0; i2 < i; i2++) {
-      hx += notisx[i2].offsetHeight + 10;
-    }
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
 
-    if (position.search('center') == -1) {
-      if (position.search('top') != -1) {
-        notisx[i].style.transform = "translatey(".concat(hx, "px)");
-      } else if (position.search('bottom') != -1) {
-        notisx[i].style.transform = "translatey(-".concat(hx, "px)");
+var Component = Object(component_normalizer["a" /* default */])(
+  vsNotifications,
+  render,
+  staticRenderFns,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+
+/* harmony default export */ var functions_vsNotifications = (Component.exports);
+
+// CONCATENATED MODULE: ./src/functions/vsNotifications/index.js
+
+
+
+
+
+var NotiConstructor = external___commonjs___vue___commonjs2___vue___root___Vue___default.a.extend(functions_vsNotifications);
+var instance;
+
+var _this;
+
+/* harmony default export */ var src_functions_vsNotifications = ({
+  name: 'notify',
+  vsfunction: function vsfunction(parameters) {
+    if (parameters.fullWidth) {
+      if (parameters.position) {
+        parameters.position = parameters.position.replace('right', 'left');
       }
     }
 
-    if (position.search('top-center') != -1) {
-      notisx[i].style.transform = "translate(-50%,".concat(hx, "px)");
-      notisx[i].style.zIndex = 10000 - i;
-    }
-
-    if (position.search('bottom-center') != -1) {
-      notisx[i].style.transform = "translate(-50%,-".concat(hx, "px)");
-      notisx[i].style.zIndex = 10000 - i;
-    }
-  } // console.log(hx);
-
-}
+    instance = new NotiConstructor({
+      data: parameters
+    });
+    instance.vm = instance.$mount();
+    parameters.click ? instance.vm.$on('click', parameters.click) : null;
+    utils["a" /* default */].insertBody(instance.vm.$el);
+  }
+});
 // EXTERNAL MODULE: ./src/functions/vsMessageBox/vsMessageBox.css
 var vsMessageBox = __webpack_require__("AG8I");
 var vsMessageBox_default = /*#__PURE__*/__webpack_require__.n(vsMessageBox);
@@ -10698,7 +10756,6 @@ var theme = __webpack_require__("Tgw5");
 
 
 // Functions
-// import vsNotifications from './vsNotifications/index.js'
 
 
  // import {prompt} from './vsMessageBox/vsMessageBox.js'
@@ -10708,7 +10765,7 @@ var theme = __webpack_require__("Tgw5");
 
 
 var vsFunctions = {
-  vsNotifications: vsNotifications_vsNotifications,
+  vsNotifications: src_functions_vsNotifications,
   message: message,
   confirm: vsMessageBox_confirm,
   // prompt,

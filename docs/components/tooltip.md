@@ -82,7 +82,7 @@ You can change the position in which the tooltip will appear with the property `
 </div>
 <div slot="code">
 
-```html{6}
+```html
 <template lang="html">
   <div class="centerx">
     <vs-button v-tooltip="{text:'Tooltip position top'}">Position Top</vs-button>
@@ -112,7 +112,7 @@ You can change the delay in appearing the tooltip with the property `delay`.
 </div>
 <div slot="code">
 
-```html{6}
+```html
 <template lang="html">
   <div class="centerx">
     <vs-button v-tooltip="{text:'Tooltip default delay'}">Delay default</vs-button>
@@ -145,7 +145,7 @@ To change the color of the tooltip we have the property `color`, as a value you 
 </div>
 <div slot="code">
 
-```html{6}
+```html
 <template lang="html">
   <div class="centerx">
     <vs-button v-tooltip="{text:'Default Color'}">Default Color</vs-button>

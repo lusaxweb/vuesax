@@ -67,12 +67,6 @@ API:
 
 To add a notification we have the global function `$vs.notify`, as the first parameter is a `json` with all the necessary attributes or if we only want the standard notification we can only add a string with the text of the notification.
 
-```{3}
-1
-2
-3
-```
-
 <vuecode md>
 <div slot="demo">
 
@@ -277,7 +271,7 @@ Sometimes we need to execute a function when the user clicks on the notification
 </div>
 <div slot="code">
 
-```html{16}
+```html
 <template lang="html">
   <div class="centerx">
     <vs-button @click="myFunction()" vs-type="flat">Run Example</vs-button>
@@ -333,7 +327,7 @@ By default the notifications have a time of **2000** (2s)
 </div>
 <div slot="code">
 
-```html{9,17}
+```html
 <vs-button @click="$vs.notify({
   title:'Time default',
   text:'Lorem ipsum dolor sit amet consectetur',

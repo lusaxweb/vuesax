@@ -125,7 +125,7 @@ You can change the color of the alert with the property `vs-color`, the colors c
 </div>
 <div slot="code">
 
-```html{2}
+```html
 <vs-alert
   vs-color="primary"
   vs-title="Primary" vs-active="true">

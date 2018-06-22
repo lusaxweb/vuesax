@@ -11,6 +11,7 @@
     <vs-button @click="$vs.notify({title:'Position bottom-center',text:'Lorem ipsum dolor sit amet, consectetur',color:'dark',position:'bottom-center'})" vs-color="dark" vs-type="flat"> Position Bottom Center</vs-button>
 
     <vs-button @click="notiAzarCenter()" vs-color="success" vs-type="gradient">Position Top Center Color Al Azar</vs-button>
+
   </div>
 </template>
 

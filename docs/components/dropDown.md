@@ -70,7 +70,7 @@ To add the Dropdown we have three types of components the main `vs-dropdown` tha
 </div>
 <div slot="code">
 
-```html{4,12,13}
+```html
 <template lang="html">
   <div class="examplex">
 
@@ -160,7 +160,7 @@ You can change the color of the component with the property `vs-color`
 </div>
 <div slot="code">
 
-```html{5}
+```html
 <template lang="html">
   <div class="examplex">
 
@@ -238,7 +238,7 @@ If you need to group the options you can use the subcomponent `vs-dropdown-group
 </div>
 <div slot="code">
 
-```html{18}
+```html
 <template lang="html">
   <div class="examplex">
     <vs-dropdown @focus="logx">
@@ -374,7 +374,7 @@ Sometimes when we need something more personalized and not necessarily a menu fo
 </div>
 <div slot="code">
 
-```html{4}
+```html
 <template lang="html">
   <div class="examplex">
 

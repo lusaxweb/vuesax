@@ -15,6 +15,7 @@ export default {
         fixed:true,
         click:()=>{
           // secondary function
+          console.log("hola mundo paso");
           this.$vs.notify({
             title:'Secondary function',
             text:'Executed the function when clicking',
