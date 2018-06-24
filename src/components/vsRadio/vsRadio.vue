@@ -61,12 +61,12 @@ export default {
     giveColor(color,opacity){
       return _color.rColor(color,opacity)
     },
-
   }
 }
 </script>
 
 <style lang="stylus">
+// comentario nuevo
 .con-vs-radio
   position: relative;
   display: flex;
