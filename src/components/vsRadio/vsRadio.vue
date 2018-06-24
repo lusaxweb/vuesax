@@ -1,5 +1,5 @@
 <template lang="html">
-  <label class="vs-component con-vs-radio">
+  <label :class="[`vs-radio-${vsColor}`]" class="vs-component con-vs-radio">
     <input
       v-on="listeners"
       v-bind="$attrs"
@@ -8,15 +8,10 @@
       <span
         class="vs-radiox">
         <span
-          :style="{
-              'border': `2px solid ${isChecked?giveColor(vsColor):'rgb(200, 200, 200)'}`
-            }"
+          :style="styles"
           class="vs-radiox-borde"></span>
         <span
-        :style="{
-            'background': giveColor(vsColor),
-            'box-shadow': `0px 3px 12px 0px ${giveColor(vsColor,.4)}`
-          }"
+        :style="styleCircle"
           class="vs-radiox-circle">
         </span>
       </span>
@@ -55,6 +50,17 @@ export default {
     },
     isChecked(){
       return this.vsValue == this.value
+    },
+    styles(){
+      return {
+        'border': `2px solid ${this.isChecked?_color.getColor(this.vsColor,1):'rgb(200, 200, 200)'}`  
+      }
+    },
+    styleCircle(){
+      return {
+        'background': _color.getColor(this.vsColor,1),
+        'box-shadow': `0px 3px 12px 0px ${_color.getColor(this.vsColor,.4)}`
+      }
     }
   },
   methods:{
@@ -66,7 +72,9 @@ export default {
 </script>
 
 <style lang="stylus">
-// comentario nuevo
+
+@import '../../styles'
+
 .con-vs-radio
   position: relative;
   display: flex;
@@ -133,5 +141,12 @@ export default {
       position: absolute;
       left: 0px;
       top: 0px;
+      
 
+
+for colorx, i in $vs-colors
+  .vs-radio-{colorx}
+    .vs-radiox-circle
+      background: $vs-colors[colorx]
+      box-shadow: 0px 3px 12px 0px alpha($vs-colors[colorx],.4)
 </style>
