@@ -40,7 +40,6 @@
 </template>
 
 <script>
-/* eslint-disable */
 let validations = {
   email: (value) => {
     return /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(value);
@@ -54,9 +53,6 @@ let validations = {
   number: (value, min, max) => {
     if ((!min && min !== 0) || !max) return !isNaN(value);
     return Number(value) <= Number(max) && Number(value) >= Number(min)
-  },
-  date: (value) => {
-    return (new Date(value) !== "Invalid Date" && !isNaN(new Date(value)) ) ? true : false;
   },
   default: (value) => true
 }
