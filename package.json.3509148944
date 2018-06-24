@@ -1,0 +1,77 @@
+{
+  "name": "vuesax",
+  "version": "3.1.28",
+  "description": "Components for Vue js",
+  "license": "MIT",
+  "author": "ldrovira <luisdanielrovira8@gmail.com>",
+  "homepage": "https://lusaxweb.github.io/vuesax/#/",
+  "repository": "lusaxweb/vuesax",
+  "bugs": {
+    "url": "https://github.com/lusaxweb/vuesax/issues"
+  },
+  "keywords": [
+    "vuesax",
+    "vue",
+    "vuejs",
+    "vue-components",
+    "components",
+    "javascript",
+    "css"
+  ],
+  "main": "dist/vuesax.common.js",
+  "unpkg": "dist/vuesax.common.js",
+  "private": false,
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "serve": "vue-cli-service serve --open",
+    "build": "vue build -t lib src/index.js --name vuesax",
+    "lint": "vue-cli-service lint",
+    "v": "npm version patch",
+    "p": "npm publish",
+    "deploy": "npm run build & git add . & git commit -m 'deploy' & npm run v & npm run p && git push",
+    "docs:build": "vuepress build docs",
+    "docs:deploy": "sh scripts/deploy.sh",
+    "deployx": "npm run docs:deploy && npm run deploy",
+    "new:component": "sh scripts/newComponent.sh"
+  },
+  "dependencies": {
+    "vue": "^2.5.2"
+  },
+  "devDependencies": {
+    "prefixfree": "^1.0.0",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
+    "viewcode": "0.0.27",
+    "@babel/core": "^7.0.0-beta.49",
+    "@vue/cli-plugin-babel": "^3.0.0-beta.6",
+    "@vue/cli-plugin-eslint": "^3.0.0-beta.6",
+    "@vue/cli-service": "^3.0.0-beta.6",
+    "copy-webpack-plugin": "^4.5.1",
+    "file-loader": "^1.1.11",
+    "vue-template-compiler": "^2.5.13",
+    "vuepress": "^0.10.1",
+    "webpack": "^4.12.0"
+  },
+  "babel": {
+    "presets": [
+      "@vue/app"
+    ]
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ]
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}
