@@ -1,43 +1,38 @@
 <template lang="html">
-  <div :class="[validar]" :style="{'width':vsWidth}" class="con-input">
-    <label :style="labelStyle" :class="labelClass" class="label" for="" v-if="vsLabel.length > 0">{{vsLabel}}</label>
-    <div :class="{'autocompletex':vsAutocomplete,'activeOptions':active}" class="con-select">
-      <input
-        @click.stop
-        class="input-select"
-        ref="inputselect"
-        @keydown.esc.stop.prevent="closeOptions"
-        v-bind="$attrs"
-        v-on="listeners"
-        :readonly="!vsAutocomplete"
-        :placeholder="vsPlaceholder"
-        type="text"
-        name="" value="">
+  <div :class="{'autocompletex':vsAutocomplete,'activeOptions':active}" class="con-select">
+    <input
+      @click.stop
+      class="input-select"
+      ref="inputselect"
+      @keydown.esc.stop.prevent="closeOptions"
+      v-bind="$attrs"
+      v-on="listeners"
+      :readonly="!vsAutocomplete"
+      type="text"
+      name="" value="">
 
-        <i class="material-icons icon-select">
-          keyboard_arrow_down
-        </i>
+      <i class="material-icons icon-select">
+        keyboard_arrow_down
+      </i>
 
-        <transition name="fade-select">
-          <div
-          :style="cords"
-          ref="vsSelectOptions" v-show="active" :class="[`vs-select-${vsColor}`,{'scrollx':this.scrollx}]" class="vs-select-options">
-          <ul ref="ulx">
-            <slot/>
-          </ul>
-          <ul v-show="clear">
-            <li @click="filterItems(''),changeValue()" >
-              {{vsNoData}}
-            </li>
-          </ul>
-        </div>
-      </transition>
-    </div>
+      <transition name="fade-select">
+        <div
+        :style="cords"
+        ref="vsSelectOptions" v-show="active" :class="[`vs-select-${vsColor}`,{'scrollx':this.scrollx}]" class="vs-select-options">
+        <ul ref="ulx">
+          <slot/>
+        </ul>
+        <ul v-show="clear">
+          <li @click="filterItems(''),changeValue()" >
+            {{vsNoData}}
+          </li>
+        </ul>
+      </div>
+    </transition>
   </div>
 </template>
 
 <script>
-/* eslint-disable */
 import utils from '../../utils'
 export default {
   name:'vs-select',
@@ -62,26 +57,7 @@ export default {
     vsMultiple:{
       default:false,
       type:Boolean
-    },
-    vsRequired:{
-      default:false,
-      type:Boolean
-    },
-    vsValid:{
-      type:Boolean
-    },
-    vsLabel:{
-      default:null,
-      type:String
-    },
-    vsPlaceholder:{
-      default:null,
-      type:String
-    },
-    vsWidth:{
-      default:'100%',
-      type:String
-    },
+    }
   },
   data:()=>({
     active:false,
@@ -94,7 +70,7 @@ export default {
   mounted(){
     this.changeValue()
     utils.insertBody(this.$refs.vsSelectOptions)
-    // console.log("this.$children>>>>>>",this.$children);
+    console.log("this.$children>>>>>>",this.$children);
   },
   updated(){
     //
@@ -103,7 +79,7 @@ export default {
     }
   },
   watch:{
-    value(event){
+    value(){
       this.$emit('change',event)
     },
     active(){
@@ -118,28 +94,6 @@ export default {
     }
   },
   computed:{
-    labelStyle() {
-      if (this.active) {
-        return {
-          color: this.vsColor,
-        };
-      }
-      return {};
-    },
-    labelClass() {
-      if (this.active) {
-        return `vs-select-label-${this.vsColor}`;
-      }
-      return '';
-    },
-    validar(){
-      if (this.vsRequired && (this.value === '' || this.value === null)) {
-        this.$emit('update:vsValid', false);
-        return false;
-      }
-      this.$emit('update:vsValid', true);
-      return true;
-    },
     listeners(){
       return {
         ...this.$listeners,
@@ -324,28 +278,6 @@ export default {
   box-shadow: 0px 10px 0px -5px rgba(0, 0, 0, 0);
 }
 
-.label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
-  width: 100%;
-  font-size: 12px;
-  padding-left: 8px;
-  padding-bottom: 2px;
-  color: rgba(0,0,0,.7);
-  -webkit-transform: translateY(-100%);
-  transform: translateY(-100%);
-}
-.focusLabel {
-  color: $vs-colors[primary];
-}
-
-.con-input {
-  margin: 10px;
-  position: relative;
-}
-
 .con-select
   position: relative;
   .icon-select
@@ -371,7 +303,6 @@ export default {
   transition: all .2s ease;
   padding-right: 20px;
   cursor: pointer;
-  width: 100%;
 
 .scrollx
   ul
@@ -424,8 +355,4 @@ for colorx, i in $vs-colors
         background: alpha($vs-colors[colorx],.1) !important;
         color: $vs-colors[colorx];
         font-weight: bold;
-for colorx, i in $vs-colors
-  .vs-select-label-{colorx}
-    color: $vs-colors[colorx];
-
 </style>
