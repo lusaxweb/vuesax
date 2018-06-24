@@ -3,7 +3,7 @@
 
 <box header>
 
-Vuesax is a library of vue js components that facilitates the frontend and streamlines the work with great visual quality.
+Vuesax is a library of Vuejs components that facilitates front-end development and streamlines work with great visual quality.
 
 </box>
 
@@ -12,7 +12,7 @@ Vuesax is a library of vue js components that facilitates the frontend and strea
 
 ## Quick-start CDN
 
-Start a project quickly through cdn and let vuesax do the magic.
+Start a project quickly using a CDN and let Vuesax do the magic.
 
 <iframe width="100%" height="300" src="//jsfiddle.net/luisdanielroviracontreras/txzqp7ny/6/embedded/html,result/" allowpaymentrequest allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
@@ -20,7 +20,7 @@ Start a project quickly through cdn and let vuesax do the magic.
 
 <box>
 
-## Install in project NPM - YARN
+## Install in project via NPM or YARN
 
 ```bash
 
@@ -35,13 +35,13 @@ npm install vuesax # OR yarn add vuesax
 
 ## Use
 
-Vuesax is a vue js library. In order to use it, you have to add the code below:
+Vuesax is a Vuejs library. To use it, add the code below:
 
 ```js
 import Vue from 'vue'
 import Vuesax from 'vuesax'
 
-import 'vuesax/dist/vuesax.css' //vuesax styles
+import 'vuesax/dist/vuesax.css' //Vuesax styles
 Vue.use(Vuesax)
 ```
 

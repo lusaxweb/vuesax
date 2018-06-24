@@ -18,7 +18,7 @@ Vuesax has the main colors that are maintained throughout the application to fac
 
 ## Colors Defaults
 
-We have a series of colors by default to start the application that are:
+We have a series of colors that are used by default. They include:
 
 - primary
 - success
@@ -26,7 +26,7 @@ We have a series of colors by default to start the application that are:
 - warning
 - dark
 
-Each of them we think has its functionality in the application as alerts of errors (**danger**), warnings to the user (**warning**), communications of approval (**success**), main color of the application (**primary**)
+For each color, we think has its functionality in the application as alerts of errors (**danger**), warnings to the user (**warning**), communications of approval (**success**), or main color of the application (**primary**).
 
 <vuecode md>
 <div slot="demo">
@@ -114,9 +114,9 @@ export default {
 
 ## Customize Theme Colors
 
-Almost always we need a personalized application with own colors, in vuesax you can change the main colors to those that you need and the branding that your application has.
+We almost always need a personalized application with own colors. In Vuesax, you can change the main colors to those that you need and the branding that your application has.
 
-when starting **vuesax** tell it to use them. We add the new colors as parameters.
+When starting **Vuesax** tell it to use your colors. We add the new colors as parameters.
 
 ```js
 Vue.use(Vuesax, {
@@ -150,7 +150,7 @@ Vue.use(Vuesax, {
 
 You can change the color of the application in process of execution with the function `$vs.theme` which as a parameter requires a json with the colors to change
 
-imagine that in the middle of the application we want the primary color change would be something like this:
+Imagine that in the middle of the application we want the primary color change would be something like this:
 
 ```js
 this.$vs.theme({
@@ -158,7 +158,7 @@ this.$vs.theme({
 })
 ```
 
-By doing this all the primary color of the application will change including all the **vuesax** components.
+By doing this, all **Vuesax** components in the application that use a primary color with change.
 
 Select one of the colors to change it and that all the components of this documentation have that color.
 
