@@ -7,7 +7,6 @@
     <label :class="{'focusLabel':focusx, 'disabledxlabel':disabled}" class="label" for="">{{vsLabel}}</label>
 
     <input
-
     :type="vsType ? vsType :'text'"
     :style="{'border':`1px solid ${focusx?backgroundx:'rgba(0, 0, 0, 0.150)'}`,'caretColor': backgroundx}"
     :disabled="disabled"
