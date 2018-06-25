@@ -256,7 +256,7 @@ $vs-types := filled, border
     z-index: 100;
     display: block;
     position: relative;
-    font-size: 18px;
+    font-size: 1.125em;
     transition: all .2s ease;
   .vs-button-backgroundx
     border-radius: 50%;

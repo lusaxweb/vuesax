@@ -283,7 +283,7 @@ export default {
   .icon-select
     position: absolute;
     right: 5px;
-    font-size: 17px;
+    font-size: 1.0625em;
     top: 50%;
     transform: translate(0,-50%);
     transition: all .2s ease;
@@ -333,7 +333,7 @@ export default {
       border-bottom: 1px solid rgb(255, 255, 255)
       .icon-item
         position: absolute;
-        font-size: 16px;
+        font-size: 1.0em;
         left: 5px;
         transform: translate(-100%,-50%);
         opacity: 0;

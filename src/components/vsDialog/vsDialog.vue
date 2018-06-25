@@ -217,7 +217,7 @@ export default {
       transform: scale(1.02);
     .vs-dialog-text
       padding: 10px;
-      font-size: 14px;
+      font-size: 0.875em;
       transition: all .23s ease .1s;
     header
       width: 100%;
@@ -246,7 +246,7 @@ export default {
         transition: all .23s ease .1s;
         padding: 8px;
         padding-left: 12px;
-        font-size: 20px;
+        font-size: 1.25em;
       .vs-dialog-cancel
         transition: all .23s ease .1s;
         position: relative;
@@ -256,7 +256,7 @@ export default {
         border-radius: 5px;
         transform: translate(8px,-8px);
         background: rgb(255, 255, 255);
-        font-size: 20px;
+        font-size: 1.25em;
     footer
       display: flex;
       align-items: center;

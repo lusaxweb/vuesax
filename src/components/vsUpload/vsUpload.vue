@@ -424,7 +424,7 @@ export default {
   cursor: pointer;
 }
 .x-img i {
-  font-size: 18px;
+  font-size: 1.125em;
   color: rgba(0, 0, 0, 0.7);
 }
 .input-upload {
@@ -457,7 +457,7 @@ export default {
   b
 } */
 .con-subir h3 {
-  font-size: 16px;
+  font-size: 1.0em;
   font-weight:lighter;
 }
 .con-upload:hover .con-subir{
@@ -472,7 +472,7 @@ export default {
   justify-content: center;
   border-radius: 50%;
   margin-left: 10px;
-  font-size: 20px;
+  font-size: 1.25em;
 }
 .con-img-upload {
   height: auto;

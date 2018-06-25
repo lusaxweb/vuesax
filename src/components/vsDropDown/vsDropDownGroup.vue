@@ -131,7 +131,7 @@ export default {
   cursor: pointer;
   transition: all .3s ease;
   .span
-    font-size: 15px;
+    font-size: 0.9375em;
     font-weight: normal;
   &.marginIcon
     padding-right: 25px;
@@ -145,7 +145,7 @@ export default {
   .icon-group
     position: absolute;
     right: 4px;
-    font-size: 18px;
+    font-size: 1.125em;
     top: 50%;
     transition: all .25s ease;
     transform: translate(0,-50%);
@@ -185,7 +185,7 @@ export default {
   margin-left: 0px;
   >h3
     padding: 0px 10px;
-    font-size: 15px;
+    font-size: 0.9375em;
     padding-top: 6px;
     padding-bottom: 6px;
     cursor: default;
