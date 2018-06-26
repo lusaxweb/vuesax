@@ -297,7 +297,7 @@ export default {
   transition: all .2s ease;
   opacity: 0;
   visibility:hidden;
-  font-size: 12px;
+  font-size: 0.75em;
 }
 .con-numero-slider span {
   z-index: 100;
