@@ -150,7 +150,7 @@ export default {
   .text-switch
     position: absolute;
     display: block;
-    font-size: 10px;
+    font-size: 0.625em;
     opacity: 0;
     transition: all .2s ease;
     display: flex;
@@ -159,7 +159,7 @@ export default {
     white-space: nowrap;
     overflow: hidden;
     .icons-switch
-      font-size: 14px;
+      font-size: 0.875em;
       display: flex;
       align-items: center;
       justify-content: center;

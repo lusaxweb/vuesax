@@ -276,7 +276,7 @@ export default {
     .textx_span
       display: none;
     .icon-arrowx
-      font-size: 15px !important;
+      font-size: 0.9375em !important;
       top: 9px !important;
       right: 1px !important;
       margin-right: 0px !important;

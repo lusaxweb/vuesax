@@ -75,7 +75,7 @@ Recent versions of **Firefox**, **Chrome**, **Edge**, **Opera** and **Safari**. 
 </head>
 <body>
   <div id="app">
-    <vs-button vs-type="primary-filled">Hola Mundo</vs-button>
+    <vs-button vs-color="primary" vs-type="filled">hello world</vs-button>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
