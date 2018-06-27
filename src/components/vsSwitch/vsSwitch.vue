@@ -64,7 +64,8 @@ export default {
     vsValue:{}
   },
   data:()=>({
-    widthx:42
+    widthx:42,
+    checkboxClicked: false,
   }),
   mounted(){
     this.$nextTick(()=>{
@@ -93,9 +94,11 @@ export default {
     },
   },
   methods:{
-    toggleCheckbox() {
-      this.$refs.inputCheckbox.checked = !this.$refs.inputCheckbox.checked;
-      this.$emit('input', this.$refs.inputCheckbox.checked);
+    toggleCheckbox(event) {
+      if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1){
+        this.$refs.inputCheckbox.checked = !this.$refs.inputCheckbox.checked;
+        this.$emit('input', this.$refs.inputCheckbox.checked);
+      }
     },
     toggleValue(evt){
       if(this.isArrayx()){
