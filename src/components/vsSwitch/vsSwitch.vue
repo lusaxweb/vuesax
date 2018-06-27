@@ -9,13 +9,14 @@
     class="vs-component vs-switch"
     :style="style"
     v-bind="$attrs"
+    @click="toggleCheckbox($event)"
     type="button" name="button">
     <input
     class="input-switch"
     :checked="value"
     :disabled="$attrs.disabled"
     v-on="listeners"
-    type="checkbox" name="" value="">
+    type="checkbox" name="" value="" ref='inputCheckbox'>
 
     <span ref="on" :class="{'active-text':isChecked || $attrs.checked}" class="text-on text-switch">
       <slot name="on">
@@ -92,6 +93,10 @@ export default {
     },
   },
   methods:{
+    toggleCheckbox() {
+      this.$refs.inputCheckbox.checked = !this.$refs.inputCheckbox.checked;
+      this.$emit('input', this.$refs.inputCheckbox.checked);
+    },
     toggleValue(evt){
       if(this.isArrayx()){
         this.setArray(evt)
