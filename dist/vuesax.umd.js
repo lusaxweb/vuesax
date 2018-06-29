@@ -6389,12 +6389,12 @@ var vsBreadcrumb_component = Object(componentNormalizer["a" /* default */])(
 /* harmony default export */ var components_vsBreadcrumb = (function (Vue) {
   Vue.component(vsBreadcrumb.name, vsBreadcrumb);
 });
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://vuesax//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!../Users/INTENOVA LUSAX-WEB/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsSideBar/vsSideBar.vue?vue&type=template&id=3de84230&lang=html
-var vsSideBarvue_type_template_id_3de84230_lang_html_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('transition',{attrs:{"name":"sidebarx"}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.vsStatic?true:_vm.vsActive),expression:"vsStatic?true:vsActive"}],ref:"considebar",staticClass:"vs-component con-sidebar",class:{'vsStatic':_vm.vsStatic,'body-sidebar':_vm.vsParent=='body'}},[_c('div',{staticClass:"con-darkx",on:{"click":function($event){_vm.clickOut()}}}),_c('div',{staticClass:"vs-sidebar",class:{'reducex':_vm.reduce}},[(_vm.vsReduceExpand)?_c('div',{staticClass:"expand-reduce"},[_c('i',{staticClass:"material-icons",on:{"click":function($event){_vm.reduce=!_vm.reduce}}},[_vm._v("\n          "+_vm._s(_vm.reduce?'menu':'first_page')+"\n        ")])]):_vm._e(),_c('header',[_vm._t("header")],2),_c('ul',{staticClass:"ulx"},[_vm._t("default")],2),_c('footer',[_vm._t("footer")],2)])])])}
-var vsSideBarvue_type_template_id_3de84230_lang_html_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://vuesax//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!../Users/INTENOVA LUSAX-WEB/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsSideBar/vsSideBar.vue?vue&type=template&id=9e5027a6&lang=html
+var vsSideBarvue_type_template_id_9e5027a6_lang_html_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('transition',{attrs:{"name":"sidebarx"}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.vsStatic?true:_vm.vsActive),expression:"vsStatic?true:vsActive"}],ref:"considebar",staticClass:"vs-component con-sidebar",class:{'vsStatic':_vm.vsStatic,'body-sidebar':_vm.vsParent=='body'}},[(_vm.vsBackgroundHidden?false:!_vm.vsStatic)?_c('div',{staticClass:"con-darkx",on:{"click":function($event){_vm.clickOut()}}}):_vm._e(),_c('div',{staticClass:"vs-sidebar",class:{'reducex':_vm.reduce}},[(_vm.vsReduceExpand)?_c('div',{staticClass:"expand-reduce"},[_c('i',{staticClass:"material-icons",on:{"click":function($event){_vm.reduce=!_vm.reduce}}},[_vm._v("\n          "+_vm._s(_vm.reduce?'menu':'first_page')+"\n        ")])]):_vm._e(),_c('header',[_vm._t("header")],2),_c('ul',{staticClass:"ulx"},[_vm._t("default")],2),_c('footer',[_vm._t("footer")],2)])])])}
+var vsSideBarvue_type_template_id_9e5027a6_lang_html_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/vsSideBar/vsSideBar.vue?vue&type=template&id=3de84230&lang=html
+// CONCATENATED MODULE: ./src/components/vsSideBar/vsSideBar.vue?vue&type=template&id=9e5027a6&lang=html
 
 // CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib??ref--12-1!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsSideBar/vsSideBar.vue?vue&type=script&lang=js
 
@@ -6469,6 +6469,10 @@ var vsSideBarvue_type_template_id_3de84230_lang_html_staticRenderFns = []
       type: Boolean
     },
     vsStatic: {
+      default: false,
+      type: Boolean
+    },
+    vsBackgroundHidden: {
       default: false,
       type: Boolean
     }
@@ -6560,8 +6564,8 @@ var vsSideBarvue_type_style_index_0_lang_stylus = __webpack_require__("F2nS");
 
 var vsSideBar_component = Object(componentNormalizer["a" /* default */])(
   vsSideBar_vsSideBarvue_type_script_lang_js,
-  vsSideBarvue_type_template_id_3de84230_lang_html_render,
-  vsSideBarvue_type_template_id_3de84230_lang_html_staticRenderFns,
+  vsSideBarvue_type_template_id_9e5027a6_lang_html_render,
+  vsSideBarvue_type_template_id_9e5027a6_lang_html_staticRenderFns,
   false,
   null,
   null,
