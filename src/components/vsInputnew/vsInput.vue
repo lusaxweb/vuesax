@@ -17,11 +17,13 @@ export default {
   display flex
   align-items flex-start
   flex-direction column
+  padding 8px; 
   .vs-input
     position relative
-    padding 10px
+    padding: 0.4 rem
     border-radius 5px
-    border 1px solid #008080
+    border 1px solid rgba(0, 0, 0,.2)
+    
   .vs-input-label
-    padding-left 5px;
+    padding-left 5px; 
 </style>

@@ -29,6 +29,11 @@ module.exports = {
           from: 'src/css',
           to: 'css/',
           toType: 'dir'
+        },
+        {
+          from: 'src/styles',
+          to: 'styles/',
+          toType: 'dir'
         }
       ])
     ]
