@@ -1,0 +1,59 @@
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  /* list-style: none; */
+  outline: none;
+  text-transform: none;
+  text-decoration: none;
+}
+
+/* Margin & Padding & Font Size Helper Classes */
+
+// Margin
+marginer(min, max, step)
+  .mt{min}
+    margin-top (min px)
+  .mb{min}
+    margin-bottom (min px)
+  .ml{min}
+    margin-left (min px)
+  .mr{min}
+    margin-right (min px)
+  if min < max
+    marginer(min + step, max, step)
+
+// You can adjust the amounts here:
+// The {step} is the jump amount
+
+marginer(1, 5, 1)
+marginer(5, 100, 5)
+
+
+// Padding
+paddinger(min, max, step)
+  .pt{min}
+    padding-top (min px)
+  .pb{min}
+    padding-bottom (min px)
+  .pl{min}
+    padding-left (min px)
+  .pr{min}
+    padding-right (min px)
+  if min < max
+    paddinger(min + step, max, step)
+// You can adjust the amounts here:
+// The {step} is the jump amount
+
+
+paddinger(1, 5, 1)
+paddinger(5, 100, 5)
+
+fontsizer(min, max, step)
+  .ft{min}
+    font-size (min px)
+  if min < max
+    fontsizer(min + step, max, step)
+
+fontsizer(5, 100, 5)

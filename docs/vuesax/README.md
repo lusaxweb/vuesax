@@ -58,7 +58,7 @@ npm install material-icons --save
 ```
 Then Import it to your project: 
 ```js
-import 'material-icons/iconfont/material-icons.scss';
+import 'material-icons/iconfont/material-icons.css';
 ```
 </box>
 

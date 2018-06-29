@@ -125,7 +125,7 @@ input[type="checkbox"]:disabled + .vs-checkbox {
   cursor: pointer;
 }
 .vs-checkbox span {
-  font-size: 10px;
+  font-size: 0.625em;
   color: rgb(255, 255, 255);
 }
 input[type="checkbox"]:checked + .vs-checkbox {

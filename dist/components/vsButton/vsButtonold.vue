@@ -433,7 +433,7 @@ export default {
     border-radius: 5px;
   }
   .text .material-icons {
-    font-size: 18px;
+    font-size: 1.125em;
   }
   .activo .text {
     color: rgb(255, 255, 255);

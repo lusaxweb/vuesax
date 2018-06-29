@@ -121,7 +121,7 @@ export default {
   color: rgb(255, 255, 255);
 }
 .con-x i {
-  font-size: 17px;
+  font-size: 1.0625em;
   color: inherit;
 }
 .fade-enter-active, .fade-leave-active {
@@ -151,7 +151,7 @@ export default {
 .vs-chip {
   color: inherit;
   padding: 5px 10px;
-  font-size: 12px;
+  font-size: 0.75em;
   position: relative;
 }
 .vs-chip b {

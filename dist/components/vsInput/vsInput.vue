@@ -7,7 +7,6 @@
     <label :class="{'focusLabel':focusx, 'disabledxlabel':disabled}" class="label" for="">{{vsLabel}}</label>
 
     <input
-
     :type="vsType ? vsType :'text'"
     :style="{'border':`1px solid ${focusx?backgroundx:'rgba(0, 0, 0, 0.150)'}`,'caretColor': backgroundx}"
     :disabled="disabled"
@@ -225,7 +224,7 @@ export default {
   .placeholder {
     position: absolute;
     left: 12px;
-    font-size: 14px;
+    font-size: 0.875em;
     color: rgba(0, 0, 0, 0.30);
     transition: all .250s ease;
     bottom: 9px;
@@ -240,7 +239,7 @@ export default {
   .noPlaceholderLabel {
     bottom: 40px;
     left: 8px;
-    font-size: 12px;
+    font-size: 0.75em;
     color: rgba(0, 0, 0, 0.7);
     cursor: default;
   }
@@ -255,7 +254,7 @@ export default {
     display: block;
     width: 100%;
     /* float: left; */
-    font-size: 12px;
+    font-size: 0.75em;
     padding-left: 8px;
     padding-bottom: 2px;
     color: rgba(0, 0, 0, 0.7);
@@ -302,7 +301,7 @@ export default {
   }
   .iconx i {
     background: rgb(255, 255, 255);
-    font-size: 15px;
+    font-size: 0.9375em;
     color: rgba(0, 0, 0, 0.5);
     font-weight: bold;
     background: transparent;
@@ -351,7 +350,7 @@ export default {
       cursor: default;
   }
   .icon-validar-mal i {
-    font-size: 14px;
+    font-size: 0.875em;
     color:rgb(var(--danger));
     opacity:0;
     transition: all .3s ease;
@@ -393,7 +392,7 @@ export default {
       cursor: default;
   }
   .icon-validar-bien i {
-    font-size: 14px;
+    font-size: 0.875em;
     color:rgb(var(--success));
     opacity:0;
     transition: all .3s ease;
@@ -422,7 +421,7 @@ export default {
     width: 25px;
   }
   .con-number-btns i {
-    font-size: 14px;
+    font-size: 0.875em;
     position: absolute;
     width: 100%;
     height: 50%;

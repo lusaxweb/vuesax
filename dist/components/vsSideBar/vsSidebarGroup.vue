@@ -117,11 +117,11 @@ export default {
       background: rgb(118, 159, 29) !important
     i.material-icons
       margin-right: 10px;
-      font-size: 20px;
+      font-size: 1.25em;
     .icon-arrowx
       position: absolute;
       right: 0px;
-      font-size: 21px;
+      font-size: 1.3125em;
       top: 50%;
       transform: translate(0,-50%);
       transition: transform .25s ease
