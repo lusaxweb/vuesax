@@ -19,7 +19,7 @@ API:
     type: Number
     parameters: null
     description: Determine the height of the progress bar
-    default: 8
+    default: 6
 contributors:
   - fergardi
 ---
@@ -96,7 +96,7 @@ You can have a progress bar with indeterminate value with the property `vs-indet
 You can change the height size with the property `vs-height`.
 
 :::tip
-by default the property `vs-height` is **8** (`8px`)
+by default the property `vs-height` is **6** (`6px`)
 :::
 
 <vuecode md>

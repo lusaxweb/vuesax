@@ -1,3 +1,4 @@
+import './main.styl'
 import Vuesax from '../../src'
 import Vuecode from 'viewcode/dist/vuecode.common.js'
 import 'viewcode/dist/vuecode.css'

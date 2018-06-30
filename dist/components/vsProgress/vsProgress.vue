@@ -54,7 +54,7 @@ export default {
   props:{
     vsHeight:{
       type:[Number,String],
-      default:8
+      default:6
     },
     vsIndeterminate:{
       type:Boolean,

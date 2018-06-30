@@ -1,6 +1,5 @@
-import './css/index.css'
-import './styles/config.styl'
 import * as vsComponents from './components'
+import './styles/index.styl'
 import vsFunctions from './functions'
 import vsTooltip from './directives/vsTooltip/vsTooltip.js'
 import easing from './utils/easing.js'

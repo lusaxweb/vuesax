@@ -140,7 +140,6 @@ export default {
   position: relative;
 }
 .vs-alert b {
-  color: rgba(call:var(--primary),1) !important;
-
+  color: rgba(var(--primary),1) !important;
 }
 </style>
