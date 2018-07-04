@@ -2556,17 +2556,17 @@ var vsSelectItem_component = Object(componentNormalizer["a" /* default */])(
   Vue.component(vsSelect.name, vsSelect);
   Vue.component(vsSelectItem.name, vsSelectItem);
 });
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://vuesax//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!../Users/INTENOVA LUSAX-WEB/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsSwitch/vsSwitch.vue?vue&type=template&id=609e1418&lang=html
-var vsSwitchvue_type_template_id_609e1418_lang_html_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('button',_vm._b({staticClass:"vs-component vs-switch",class:[
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://vuesax//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!../Users/INTENOVA LUSAX-WEB/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsSwitch/vsSwitch.vue?vue&type=template&id=03ea603c&lang=html
+var vsSwitchvue_type_template_id_03ea603c_lang_html_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('button',_vm._b({staticClass:"vs-component vs-switch",class:[
     ("vs-switch-" + _vm.vsColor),
     {
       'vs-switch-active':_vm.isChecked || _vm.$attrs.checked
     }
-    ],style:(_vm.style),attrs:{"type":"button","name":"button"}},'button',_vm.$attrs,false),[_c('input',_vm._g({staticClass:"input-switch",attrs:{"disabled":_vm.$attrs.disabled,"type":"checkbox","name":"","value":""},domProps:{"checked":_vm.value}},_vm.listeners)),_c('span',{ref:"on",staticClass:"text-on text-switch",class:{'active-text':_vm.isChecked || _vm.$attrs.checked}},[_vm._t("on"),_c('i',{staticClass:"material-icons icons-switch"},[_vm._v("\n      "+_vm._s(_vm.vsIconOn || _vm.vsIcon)+"\n    ")])],2),_c('span',{ref:"off",staticClass:"text-off text-switch",class:{'active-text':!_vm.isChecked && !_vm.$attrs.checked}},[_vm._t("off"),_c('i',{staticClass:"material-icons icons-switch"},[_vm._v("\n      "+_vm._s(_vm.vsIconOff || _vm.vsIcon)+"\n    ")])],2),_c('span',{staticClass:"vs-circle-switch"})])}
-var vsSwitchvue_type_template_id_609e1418_lang_html_staticRenderFns = []
+    ],style:(_vm.style),attrs:{"type":"button","name":"button"},on:{"click":function($event){_vm.toggleCheckbox($event)}}},'button',_vm.$attrs,false),[_c('input',_vm._g({ref:"inputCheckbox",staticClass:"input-switch",attrs:{"disabled":_vm.$attrs.disabled,"type":"checkbox","name":"","value":""},domProps:{"checked":_vm.value}},_vm.listeners)),_c('span',{ref:"on",staticClass:"text-on text-switch",class:{'active-text':_vm.isChecked || _vm.$attrs.checked}},[_vm._t("on"),_c('i',{staticClass:"material-icons icons-switch"},[_vm._v("\n      "+_vm._s(_vm.vsIconOn || _vm.vsIcon)+"\n    ")])],2),_c('span',{ref:"off",staticClass:"text-off text-switch",class:{'active-text':!_vm.isChecked && !_vm.$attrs.checked}},[_vm._t("off"),_c('i',{staticClass:"material-icons icons-switch"},[_vm._v("\n      "+_vm._s(_vm.vsIconOff || _vm.vsIcon)+"\n    ")])],2),_c('span',{staticClass:"vs-circle-switch"})])}
+var vsSwitchvue_type_template_id_03ea603c_lang_html_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/vsSwitch/vsSwitch.vue?vue&type=template&id=609e1418&lang=html
+// CONCATENATED MODULE: ./src/components/vsSwitch/vsSwitch.vue?vue&type=template&id=03ea603c&lang=html
 
 // CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib??ref--12-1!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsSwitch/vsSwitch.vue?vue&type=script&lang=js
 
@@ -2574,6 +2574,7 @@ var vsSwitchvue_type_template_id_609e1418_lang_html_staticRenderFns = []
 
 
 
+//
 //
 //
 //
@@ -2639,7 +2640,8 @@ var vsSwitchvue_type_template_id_609e1418_lang_html_staticRenderFns = []
   },
   data: function data() {
     return {
-      widthx: 42
+      widthx: 42,
+      checkboxClicked: false
     };
   },
   mounted: function mounted() {
@@ -2671,6 +2673,12 @@ var vsSwitchvue_type_template_id_609e1418_lang_html_staticRenderFns = []
     }
   },
   methods: {
+    toggleCheckbox: function toggleCheckbox(event) {
+      if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
+        this.$refs.inputCheckbox.checked = !this.$refs.inputCheckbox.checked;
+        this.$emit('input', this.$refs.inputCheckbox.checked);
+      }
+    },
     toggleValue: function toggleValue(evt) {
       if (this.isArrayx()) {
         this.setArray(evt);
@@ -2716,8 +2724,8 @@ var vsSwitchvue_type_template_id_609e1418_lang_html_staticRenderFns = []
 
 var vsSwitch_component = Object(componentNormalizer["a" /* default */])(
   vsSwitch_vsSwitchvue_type_script_lang_js,
-  vsSwitchvue_type_template_id_609e1418_lang_html_render,
-  vsSwitchvue_type_template_id_609e1418_lang_html_staticRenderFns,
+  vsSwitchvue_type_template_id_03ea603c_lang_html_render,
+  vsSwitchvue_type_template_id_03ea603c_lang_html_staticRenderFns,
   false,
   null,
   null,
