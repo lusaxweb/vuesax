@@ -478,20 +478,34 @@ module.exports = function (isEntries) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://vuesax//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!../Users/INTENOVA LUSAX-WEB/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsInput/vsInput.vue?vue&type=template&id=2143482a&scoped=true&lang=html
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"con-input",class:[_vm.validar,{'con-focus':_vm.focusx,'vsIconx':_vm.vsIcon, 'vs-icon-after':_vm.vsIconAfter, 'disabledx':_vm.disabled}],style:({
-  'width':_vm.vsWidth
-})},[_c('label',{staticClass:"label",class:{'focusLabel':_vm.focusx, 'disabledxlabel':_vm.disabled},attrs:{"for":""}},[_vm._v(_vm._s(_vm.vsLabel))]),_c('input',_vm._g(_vm._b({ref:"inputx",staticClass:"vs-input",style:({'border':("1px solid " + (_vm.focusx?_vm.backgroundx:'rgba(0, 0, 0, 0.150)')),'caretColor': _vm.backgroundx}),attrs:{"type":_vm.vsType ? _vm.vsType :'text',"disabled":_vm.disabled},domProps:{"value":_vm.value}},'input',_vm.$attrs,false),_vm.listeners)),(!_vm.vsLabelPlaceholder)?_c('span',{staticClass:"placeholder",class:{'noPlaceholder':_vm.value?(_vm.value.length>0 || typeof _vm.value === 'number'):false?undefined:_vm.focusx},on:{"click":function($event){_vm.$refs.inputx.focus()}}},[_vm._v(_vm._s(_vm.vsPlaceholder))]):_vm._e(),(_vm.vsLabelPlaceholder)?_c('span',{staticClass:"placeholder",class:{'noPlaceholderLabel':_vm.value.length>0?true:_vm.focusx},style:({'color':_vm.focusx?_vm.backgroundx:'rgba(0, 0, 0, 0.30)'}),on:{"click":function($event){_vm.$refs.inputx.focus()}}},[_vm._v(_vm._s(_vm.vsLabelPlaceholder))]):_vm._e(),(_vm.vsIcon)?_c('span',{staticClass:"iconx"},[(_vm.vsIconPack == null)?_c('i',{staticClass:"material-icons"},[_vm._v(_vm._s(_vm.vsIcon))]):_c('i',{class:[_vm.vsIconPack, _vm.vsIcon]})]):_vm._e(),_c('div',{staticClass:"icon-validar-mal",attrs:{"title":_vm.validar=='input-mal'?_vm.vsDangerText:null}},[_c('i',{staticClass:"material-icons"},[_vm._v("error")])]),_c('div',{staticClass:"icon-validar-bien",attrs:{"title":_vm.validar=='input-bien'?_vm.vsSuccessText:null}},[_c('i',{staticClass:"material-icons"},[_vm._v("check_circle")])])])}
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://vuesax//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!../Users/INTENOVA LUSAX-WEB/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsInput/vsInput.vue?vue&type=template&id=1603f79a&lang=html
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"coninput",staticClass:"vs-component vs-con-input-label vs-input",class:[("vs-input-" + _vm.vsColor),{
+    'isFocus':_vm.isFocus,
+    'input-icon-validate-success':_vm.vsSuccess,
+    'input-icon-validate-danger':_vm.vsDanger,
+    'input-icon-validate-warning':_vm.vsWarning,
+    }],style:(_vm.styleLabel)},[(_vm.vsLabelPlaceholder?false:_vm.vsLabel)?_c('label',{staticClass:"vs-input-label",attrs:{"for":""},on:{"click":_vm.focusInput}},[_vm._v(_vm._s(_vm.vsLabel))]):_vm._e(),_c('div',{staticClass:"vs-con-input"},[_c('input',_vm._g(_vm._b({ref:"vsinput",staticClass:"vs-inputx",class:{
+      'hasValue':_vm.value != '',
+      'hasIcon':_vm.vsIcon,
+      'icon-after-input':_vm.vsIconAfter
+      },style:(_vm.style),attrs:{"placeholder":null,"type":"text"},domProps:{"value":_vm.value}},'input',_vm.$attrs,false),_vm.listeners)),_c('transition',{attrs:{"name":"placeholderx"}},[(_vm.isValue&&(_vm.vsLabelPlaceholder||_vm.$attrs.placeholder))?_c('span',{ref:"spanplaceholder",staticClass:"input-span-placeholder",class:{
+      'vs-placeholder-label':_vm.vsLabelPlaceholder,
+      },style:(_vm.styleLabel),on:{"click":_vm.focusInput}},[_vm._v("  \n    "+_vm._s(_vm.$attrs.placeholder || _vm.vsLabelPlaceholder)+"\n  ")]):_vm._e()]),(_vm.vsIcon)?_c('i',{staticClass:"icon-inputx",class:[_vm.vsIconPack,_vm.vsIcon,{
+      'icon-after':_vm.vsIconAfter,
+      }],on:{"click":_vm.focusInput}},[_vm._v("\n      "+_vm._s(_vm.vsIcon)+"\n    ")]):_vm._e(),_c('transition',{attrs:{"name":"icon-validate"}},[(_vm.vsSuccess || _vm.vsDanger || _vm.vsWarning)?_c('span',{staticClass:"input-icon-validate material-icons"},[_vm._v("\n      "+_vm._s(_vm.getIcon)+"    \n    ")]):_vm._e()])],1),_c('transition-group',{on:{"before-enter":_vm.beforeEnter,"enter":_vm.enter,"leave":_vm.leave}},[(_vm.vsSuccess)?_c('div',{key:"success",staticClass:"con-text-validation"},[_c('span',{staticClass:"span-text-validation span-text-validation-success"},[_vm._v("\n      "+_vm._s(_vm.vsSuccessText)+"\n    ")])]):(_vm.vsDanger)?_c('div',{key:"danger",staticClass:"con-text-validation span-text-validation-danger"},[_c('span',{staticClass:"span-text-validation"},[_vm._v("\n      "+_vm._s(_vm.vsDangerText)+"\n    ")])]):(_vm.vsWarning)?_c('div',{key:"warning",staticClass:"con-text-validation span-text-validation-warning"},[_c('span',{staticClass:"span-text-validation"},[_vm._v("\n      "+_vm._s(_vm.vsWarningText)+"\n    ")])]):_vm._e(),(_vm.vsDescriptionText)?_c('div',{key:"description",staticClass:"con-text-validation span-text-validation"},[_c('span',{staticClass:"span-text-validation"},[_vm._v("\n      "+_vm._s(_vm.vsDescriptionText)+"\n    ")])]):_vm._e()])],1)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/vsInput/vsInput.vue?vue&type=template&id=2143482a&scoped=true&lang=html
+// CONCATENATED MODULE: ./src/components/vsInput/vsInput.vue?vue&type=template&id=1603f79a&lang=html
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/builtin/es6/objectSpread.js + 1 modules
 var objectSpread = __webpack_require__("yT7P");
 
 // EXTERNAL MODULE: ../Users/INTENOVA LUSAX-WEB/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/core-js/modules/es6.number.constructor.js
 var es6_number_constructor = __webpack_require__("BSWD");
+
+// EXTERNAL MODULE: ./src/utils/color.js
+var color = __webpack_require__("Xp+x");
 
 // CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib??ref--12-1!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsInput/vsInput.vue?vue&type=script&lang=js
 
@@ -537,155 +551,200 @@ var es6_number_constructor = __webpack_require__("BSWD");
 //
 //
 //
-var validations = {
-  email: function email(value) {
-    return /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(value);
-  },
-  url: function url(value) {
-    return /[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/i.test(value);
-  },
-  password: function password(value) {
-    return /^(?=.*[\d])(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*])[\w!@#$%^&*]{8,}$/i.test(value);
-  },
-  number: function number(value, min, max) {
-    if (!min && min !== 0 || !max) return !isNaN(value);
-    return Number(value) <= Number(max) && Number(value) >= Number(min);
-  },
-  default: function _default(value) {
-    return true;
-  }
-};
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ var vsInputvue_type_script_lang_js = ({
   inheritAttrs: false,
   name: 'vs-input',
-  props: ['vsWidth', 'value', 'vsLabelPlaceholder', 'vsPlaceholder', 'vsLabel', 'disabled', 'vsIcon', 'vsIconPack', 'vsIconAfter', 'vsColor', 'vsType', 'vsDangerText', 'vsSuccessText', 'vsMax', 'vsMin', 'vsValid', 'vsValidationFunction', 'vsRequired'],
-  data: function data() {
-    return {
-      focusx: false
-    };
-  },
-  mounted: function mounted() {
-    if (this.value == undefined) {
-      console.warn("Vuesax: The property of the input v-model is necessary to function properly vs-input component", this.$el);
+  props: {
+    value: {},
+    vsLabelPlaceholder: {
+      default: null,
+      type: [String, Number]
+    },
+    vsLabel: {
+      default: null,
+      type: [String, Number]
+    },
+    vsIcon: {
+      default: null,
+      type: String
+    },
+    vsIconAfter: {
+      default: false,
+      type: [Boolean, String]
+    },
+    vsIconPack: {
+      default: 'material-icons',
+      type: String
+    },
+    vsColor: {
+      default: 'primary',
+      type: String
+    },
+    vsSuccess: {
+      default: false,
+      type: Boolean
+    },
+    vsDanger: {
+      default: false,
+      type: Boolean
+    },
+    vsWarning: {
+      default: false,
+      type: Boolean
+    },
+    vsSuccessText: {
+      default: null,
+      type: String
+    },
+    vsDangerText: {
+      default: null,
+      type: String
+    },
+    vsWarningText: {
+      default: null,
+      type: String
+    },
+    vsDescriptionText: {
+      default: null,
+      type: String
     }
   },
+  data: function data() {
+    return {
+      isFocus: false
+    };
+  },
   computed: {
-    isRequired: function isRequired() {
-      return this.vsRequired === true || this.vsRequired === 'true';
+    style: function style() {
+      return {
+        border: "1px solid ".concat(this.isFocus ? color["a" /* default */].getColor(this.vsColor, 1) : null)
+      };
+    },
+    styleLabel: function styleLabel() {
+      return {
+        color: this.isFocus ? color["a" /* default */].getColor(this.vsColor, 1) : null
+      };
     },
     listeners: function listeners() {
       var _this = this;
 
       return Object(objectSpread["a" /* default */])({}, this.$listeners, {
-        focus: this.onFocus,
-        blur: this.onBlur,
-        input: this.onInput,
-        keydown: function keydown(evt) {
-          return _this.validarKeypress(evt, evt.target.value);
+        input: function input(evt) {
+          _this.$emit('input', evt.target.value);
+        },
+        focus: function focus(evt) {
+          _this.$emit('focus', evt);
+
+          _this.isFocus = true;
+        },
+        blur: function blur(evt) {
+          _this.$emit('blur', evt);
+
+          _this.isFocus = false;
         }
       });
     },
-    validar: function validar() {
-      // Check if field is required first
-      if (this.isRequired) {
-        if (this.value.length === 0) {
-          this.$emit('update:vsValid', false);
-          return false;
-        }
-      } else {
-        if (this.value === undefined || this.value === null || this.value.length === 0) {
-          this.$emit('update:vsValid', true);
-          return true;
-        }
-      }
-
-      if (this.vsType) {
-        //email
-        if (this.value.length > 0 || typeof this.value === 'number') {
-          if (this.vsValidationFunction && typeof this.vsValidationFunction === 'function') {
-            validations[this.vsType] = this.vsValidationFunction;
-          }
-
-          var validationFunction = validations[this.vsType] || validations.default;
-          var params = [this.value];
-
-          if (this.vsType === 'number') {
-            params.push.apply(params, [this.vsMin, this.vsMax]);
-          }
-
-          var validationResult = validationFunction.apply(null, params);
-          var result = Boolean(validationResult);
-
-          if (this.vsValid !== undefined) {
-            this.$emit('update:vsValid', result);
-            return result ? 'input-bien' : 'input-mal';
-          }
-        } else {
-          if (this.vsValid !== undefined) {
-            this.$emit('update:vsValid', false);
-          }
-        }
-      } else {
-        return false;
-      }
+    isValue: function isValue() {
+      return this.vsLabelPlaceholder ? true : this.value == '';
     },
-    backgroundx: function backgroundx() {
-      if (this.vsColor) {
-        if (/[#()]/i.test(this.vsColor)) {
-          return this.vsColor;
-        } else {
-          return "rgb(var(--".concat(this.vsColor, "))");
-        }
-      } else {
-        return 'rgb(var(--primary))';
+    getIcon: function getIcon() {
+      var iconx = 'done';
+
+      if (this.vsDanger) {
+        iconx = 'clear';
+      } else if (this.vsWarning) {
+        iconx = 'warning';
       }
+
+      return iconx;
     }
   },
   methods: {
-    onFocus: function onFocus() {
-      this.focusx = true;
-      this.$emit('focus');
+    // animation
+    beforeEnter: function beforeEnter(el) {
+      el.style.height = 0;
     },
-    onBlur: function onBlur() {
-      this.focusx = false;
-      this.$emit('blur');
+    enter: function enter(el, done) {
+      var h = el.scrollHeight;
+      el.style.height = h + 'px'; // this.$refs.coninput.style.paddingBottom += `${h}px`
+
+      done();
     },
-    onInput: function onInput(evt) {
-      this.$emit('input', evt.target.value);
+    leave: function leave(el, done) {
+      var h = el.scrollHeight;
+      el.style.height = 0 + 'px'; // this.$refs.coninput.style.paddingBottom -= `${h}px`
     },
-    validarKeypress: function validarKeypress(evt, value) {
-      if (this.vsType) {
-        if (this.vsType == 'email') {
-          var rgx = /[-\a-zA-Z0-9_@.]/;
-
-          if (!rgx.test(evt.key)) {
-            evt.preventDefault();
-          }
-        }
-
-        if (this.vsType == 'number') {
-          var rgx = /[0-9]/;
-
-          if (evt.key != 'Backspace' && evt.key != 'Delete' && evt.key != 'Tab') {
-            if (!rgx.test(evt.key)) {
-              evt.preventDefault();
-            }
-          }
-        }
-      }
+    focusInput: function focusInput() {
+      this.$refs.vsinput.focus();
     }
   }
 });
 // CONCATENATED MODULE: ./src/components/vsInput/vsInput.vue?vue&type=script&lang=js
  /* harmony default export */ var vsInput_vsInputvue_type_script_lang_js = (vsInputvue_type_script_lang_js); 
-// EXTERNAL MODULE: ./src/components/vsInput/vsInput.vue?vue&type=style&index=0&id=2143482a&lang=css&scoped=true
-var vsInputvue_type_style_index_0_id_2143482a_lang_css_scoped_true = __webpack_require__("f9LO");
-
 // EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
 var componentNormalizer = __webpack_require__("KHd+");
 
 // CONCATENATED MODULE: ./src/components/vsInput/vsInput.vue
-
 
 
 
@@ -699,7 +758,7 @@ var component = Object(componentNormalizer["a" /* default */])(
   staticRenderFns,
   false,
   null,
-  "2143482a",
+  null,
   null
   
 )
@@ -8208,13 +8267,6 @@ exports.f = {}.propertyIsEnumerable;
 
 /***/ }),
 
-/***/ "bg5v":
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-
 /***/ "cQfN":
 /***/ (function(module, exports) {
 
@@ -8362,17 +8414,6 @@ if (typeof window !== 'undefined') {
   }
 }
 
-
-/***/ }),
-
-/***/ "f9LO":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _Users_INTENOVA_LUSAX_WEB_AppData_Roaming_npm_node_modules_vue_cli_service_global_node_modules_mini_css_extract_plugin_dist_loader_js_node_modules_css_loader_index_js_ref_6_oneOf_1_1_Users_INTENOVA_LUSAX_WEB_AppData_Roaming_npm_node_modules_vue_cli_service_global_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_6_oneOf_1_2_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_vsInput_vue_vue_type_style_index_0_id_2143482a_lang_css_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("bg5v");
-/* harmony import */ var _Users_INTENOVA_LUSAX_WEB_AppData_Roaming_npm_node_modules_vue_cli_service_global_node_modules_mini_css_extract_plugin_dist_loader_js_node_modules_css_loader_index_js_ref_6_oneOf_1_1_Users_INTENOVA_LUSAX_WEB_AppData_Roaming_npm_node_modules_vue_cli_service_global_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_6_oneOf_1_2_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_vsInput_vue_vue_type_style_index_0_id_2143482a_lang_css_scoped_true__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Users_INTENOVA_LUSAX_WEB_AppData_Roaming_npm_node_modules_vue_cli_service_global_node_modules_mini_css_extract_plugin_dist_loader_js_node_modules_css_loader_index_js_ref_6_oneOf_1_1_Users_INTENOVA_LUSAX_WEB_AppData_Roaming_npm_node_modules_vue_cli_service_global_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_6_oneOf_1_2_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_vsInput_vue_vue_type_style_index_0_id_2143482a_lang_css_scoped_true__WEBPACK_IMPORTED_MODULE_0__);
-/* unused harmony reexport * */
- /* unused harmony default export */ var _unused_webpack_default_export = (_Users_INTENOVA_LUSAX_WEB_AppData_Roaming_npm_node_modules_vue_cli_service_global_node_modules_mini_css_extract_plugin_dist_loader_js_node_modules_css_loader_index_js_ref_6_oneOf_1_1_Users_INTENOVA_LUSAX_WEB_AppData_Roaming_npm_node_modules_vue_cli_service_global_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_6_oneOf_1_2_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_vsInput_vue_vue_type_style_index_0_id_2143482a_lang_css_scoped_true__WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 

@@ -5,7 +5,7 @@ API:
    parameters: null
    description: link values.
    default: null
- - name: vs-placeholder
+ - name: placeholder
    type: String
    parameters: null
    description: Brief suggestion describing the expected value of the input field.
@@ -45,10 +45,25 @@ API:
    parameters: email, number, url, password, custom
    description: The type of element.
    default: text
- - name: vs-valid.sync
+ - name: vs-success
    type: Boolean
    parameters: boolean bind
-   description: Returns if the item is valid or not.
+   description: Activate the status of success in the input.
+   default: false
+ - name: vs-danger
+   type: Boolean
+   parameters: boolean bind
+   description: Activate the status of danger in the input.
+   default: false
+ - name: vs-warning
+   type: Boolean
+   parameters: boolean bind
+   description: Activate the status of warning in the input.
+   default: false
+ - name: vs-description-text
+   type: String
+   parameters: null
+   description: Add a description text to the input.
    default: false
  - name: vs-danger-text
    type: String
@@ -60,15 +75,10 @@ API:
    parameters: null
    description: Text to show when the item is valid.
    default: null
- - name: vs-validation-function
-   type: function
-   parameters: value
-   description: A custom validation function. Accepts input value as parameter.
-   default: null
- - name: vs-width
+ - name: vs-warning-text
    type: String
-   parameters:
-   description: Change the width of the default element is 100% automatic for the total of the parent width.
+   parameters: null
+   description: Text that is displayed in the warning state.
    default: null
 contributors:
  - cristijora
@@ -97,9 +107,9 @@ The input is a functional part in an application, For implementing it we have th
 
 ```html
 <template lang="html">
-  <div slot="centerx">
-     <vs-input vs-placeholder="Nombre" v-model="value1"/>
-     <vs-input disabled="true" vs-placeholder="Disabled" v-model="value2"/>
+  <div class="centerx default-input">
+     <vs-input class="inputx" placeholder="Placeholder" v-model="value1"/>
+     <vs-input disabled class="inputx" placeholder="Disabled" v-model="value2"/>
    </div>
 </template>
 
@@ -107,12 +117,18 @@ The input is a functional part in an application, For implementing it we have th
 export default {
   data(){
     return {
-      value1:"",
-      value2:""
+      value1:'',
+      value2:''
     }
   }
 }
 </script>
+
+<style lang="stylus">
+.default-input
+  .inputx
+    margin 10px
+</style>
 ```
 
 </div>
@@ -134,9 +150,9 @@ Add a label to the input with the property `vs-label`.
 
 ```html
 <template lang="html">
-  <div class="centerx">
-    <vs-input vs-label="Label" vs-placeholder="Placeholder" v-model="value1"/>
-    <vs-input disabled="true" vs-label="Label" vs-placeholder="Disabled" v-model="value2"/>
+  <div class="centerx labelx">
+    <vs-input vs-label="Name" vs-placeholder="Placeholder" v-model="value1"/>
+    <vs-input disabled="true" vs-label="Password" vs-placeholder="Disabled" v-model="value2"/>
   </div>
 </template>
 
@@ -150,6 +166,12 @@ export default {
   }
 }
 </script>
+
+<style lang="stylus">
+  .labelx
+    .vs-input
+      margin 10px;
+</style>
 ```
 
 </div>
@@ -165,7 +187,7 @@ export default {
 The placeholder can become a label when the input is focused. Use the property `vs-label-placeholder` for making this.
 
 :::warning
-This property overrides the `vs-label` and the` vs-placeholder`
+This property overrides the `vs-label` and the` placeholder`
 :::
 
 <vuecode md>
@@ -221,19 +243,13 @@ FontAwesome and other fonts library are supported. Simply use the `vs-icon-pack`
 
 ```html
 <template lang="html">
-  <div class="centerx">
-    <vs-input
-      vs-icon="search"
-      vs-placeholder="Search" v-model="value1"/>
-    <vs-input
-      vs-icon-after="true"
-      vs-label="Icon after" vs-icon="mode_edit" vs-placeholder="Nombre" v-model="value2"/>
+  <div class="centerx icons-example">
+    <vs-input vs-icon="search" vs-placeholder="Search" v-model="value1"/>
+    <vs-input vs-icon-after="true" vs-label-placeholder="icon-after" vs-icon="mode_edit" vs-placeholder="Nombre" v-model="value2"/>
     <vs-input vs-icon="add" vs-label-placeholder="Label-placeholder" v-model="value3"/>
     <vs-input vs-icon-after="true"  vs-icon="shopping_cart" vs-label-placeholder="Label-placeholder" v-model="value4"/>
     <vs-input disabled="true" vs-icon="error_outline" vs-label-placeholder="icon-disabled" v-model="value5"/>
     <vs-input vs-icon-after="true" disabled="true" vs-icon="email" vs-label-placeholder="icon-disabled" v-model="value6"/>
-    <vs-input vs-icon="fa-user" vs-icon-pack="fas" vs-placeholder="FontAwesome" v-model="value7"/>
-    <vs-input vs-icon-after="true" vs-icon="fa-user" vs-icon-pack="fas" vs-placeholder="FontAwesome" v-model="value7"/>
   </div>
 </template>
 
@@ -247,11 +263,18 @@ export default {
       value4:'',
       value5:'',
       value6:'',
-      value7:''
+      value7:'',
+      value8: ''
     }
   }
 }
 </script>
+
+<style lang="stylus">
+.icons-example
+  .vs-input
+    margin 6px;
+</style>
 ```
 
 </div>
@@ -277,7 +300,7 @@ There is only support for **HEX** and **RGB** colors
 
 ```html
 <template lang="html">
-  <div class="centerx">
+  <div class="centerx colors-example">
     <vs-input vs-label-placeholder="Default" v-model="value1"/>
     <vs-input vs-color="success" vs-label-placeholder="Success" v-model="value2"/>
     <vs-input vs-color="danger" vs-label-placeholder="Danger" v-model="value3"/>
@@ -303,6 +326,13 @@ export default {
   }
 }
 </script>
+
+<style lang="stylus">
+.colors-example
+  .vs-input
+    margin 5px
+    margin-top 20px;
+</style>
 ```
 
 </div>
@@ -315,9 +345,11 @@ export default {
 
 ## Validations
 
-You can validate the input in a simple way and without so many complications by using the property `vs-valid.sync`. It will return us if the input is valid or not, to be able to know what the validation type is use the property`vs-type`.
+You can add a state for example of in affirmative response to a validation with `vs-success` and if it is necessary to add a description or help to the user you can do it with the property `vs-description`
 
-If you need a custom validation, use the property `vs-validation-function`.
+:::tip
+  Each of the states you can change the text, for example in the case of `vs-danger-text` for the state of danger.
+:::
 
 <vuecode md>
 <div slot="demo">
@@ -327,44 +359,26 @@ If you need a custom validation, use the property `vs-validation-function`.
 
 ```html
 <template lang="html">
-  <div class="centerx">
-    <pre class="pre">Valid: {{validos}}</pre>
-
-    <vs-input
-    :vs-valid.sync="validos.email"
-    vs-success-text="Correo Valido"
-    vs-danger-text="The email does not meet the requirements"
-    vs-type="email" vs-label-placeholder="Email" v-model="value1"/>
-
-    <vs-input
-    :vs-valid.sync="validos.number"
-    vs-success-text="Numero Valido"
-    vs-danger-text="The minimum is 10 and the maximum 20"
-    vs-max="20"
-    vs-min="10"
-    vs-type="number"
-    vs-label-placeholder="Number" v-model="value2"/>
-
-    <vs-input
-    :vs-valid.sync="validos.url"
-    vs-success-text="Correo Valido"
-    vs-danger-text="The email does not meet the requirements"
-    vs-type="url"
-    vs-label-placeholder="url" v-model="value3"/>
-
-    <vs-input
-    :vs-valid.sync="validos.password"
-    vs-success-text="Password Valida"
-    vs-danger-text="The password must have at least 8 characters, 1 number, 1 special character"
-    vs-type="password"
-    vs-label-placeholder="Password" v-model="value4"/>
-
-    <vs-input
-    :vs-valid.sync="validos.custom"
-    vs-success-text="Field is valid"
-    vs-danger-text="Field must have at least 5 characters"
-    :vs-validation-function="(value) => value.length > 5"
-    vs-type="custom" vs-label-placeholder="Custom" v-model="value5"/>
+  <div>
+    <vs-input 
+      :vs-success="true"  
+      vs-success-text="The mail is valid" 
+      placeholder="Email Success"
+      v-model="value1"/>
+      <vs-input 
+      :vs-danger="true" 
+      vs-danger-text="The password does not meet the standards" 
+      placeholder="Password Danger"
+      v-model="value2"/>
+      <vs-input 
+      :vs-warning="true" 
+      vs-warning-text="The entered data could not be verified" 
+      placeholder="Date Warning"
+      v-model="value3"/>
+      <vs-input 
+      vs-description-text="Just enter the first 2 (two) numbers of your phone" 
+      placeholder="Phone Description"
+      v-model="value4"/>
   </div>
 </template>
 
@@ -376,14 +390,6 @@ export default {
       value2:'',
       value3:'',
       value4:'',
-      value5:'',
-      validos:{
-        email:false,
-        number:false,
-        url:false,
-        password:false,
-        custom: false
-      },
     }
   }
 }

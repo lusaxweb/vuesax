@@ -3,9 +3,15 @@
   opacity: 0;
   transform: translate(15px) !important
 }
+.icon-validate-enter, .icon-validate-leave-to {
+  opacity: 0;
+  transform: scale(.5) !important
+}
 
 .vs-con-input-label
   position relative
+  transition: all .3s ease
+  width: 200px
   .vs-con-input
     display flex
     align-items flex-start
@@ -21,6 +27,7 @@
       box-sizing: border-box
       box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.150);
       transition: all .3s ease
+      width: 100%
       &:focus
         box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.150);
       &:focus,&.hasValue
@@ -77,12 +84,45 @@
   .vs-input-label
     padding-left 5px; 
     font-size: .85rem
-    color rgba(0,0,0,.7) !important
+    color rgba(0,0,0,.7)
+
+  .con-text-validation
+    position: relative
+    font-size: .65rem
+    overflow: hidden
+    transition: all .2s ease;
+    .span-text-validation
+      padding: 2px 4px;
+      padding-bottom: 4px
+      display: block
+  .input-icon-validate
+    position: absolute
+    top: 0px
+    right: 0px
+    font-size: 1.1rem
+    height: 100%;
+    display: flex
+    align-items: center
+    padding: 0px 4px
+    border-radius 0px 5px 5px 0px
+    transition: all .2s ease
 
 for colorx, i in $vs-colors
   .vs-input-{colorx}
+    
     .vs-inputx
       &:focus
         border: 1px solid $vs-colors[colorx]
         ~ .vs-placeholder-label, ~ .icon-inputx
           color $vs-colors[colorx]
+    &.isFocus
+      .vs-input-label
+        color: $vs-colors[colorx]
+  .span-text-validation-{colorx}
+    color: $vs-colors[colorx] !important
+  &.input-icon-validate-{colorx}
+    .vs-inputx
+      border: 1px solid $vs-colors[colorx] !important
+    .input-icon-validate
+      background: alpha($vs-colors[colorx],.2)
+      color $vs-colors[colorx]
