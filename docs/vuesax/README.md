@@ -14,7 +14,7 @@ Vuesax is a library of Vuejs components that facilitates front-end development a
 
 Start a project quickly using a CDN and let Vuesax do the magic.
 
-<iframe width="100%" height="300" src="//jsfiddle.net/luisdanielroviracontreras/txzqp7ny/6/embedded/html,result/" allowpaymentrequest allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="300" src="//jsfiddle.net/luisdanielroviracontreras/txzqp7ny/121/embedded/html,result/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
 
 </box>
 
@@ -28,6 +28,7 @@ Start a project quickly using a CDN and let Vuesax do the magic.
 npm install vuesax # OR yarn add vuesax
 
 ```
+
 
 </box>
 
@@ -45,6 +46,20 @@ import 'vuesax/dist/vuesax.css' //Vuesax styles
 Vue.use(Vuesax)
 ```
 
+</box>
+
+
+## Material Icons
+<box>
+Material icons used by this framework are currently not included. Please add them manually or add to your project for self hosting via:
+
+```bash
+npm install material-icons --save
+```
+Then Import it to your project: 
+```js
+import 'material-icons/iconfont/material-icons.css';
+```
 </box>
 
 <box>

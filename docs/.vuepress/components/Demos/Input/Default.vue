@@ -1,7 +1,7 @@
 <template lang="html">
-  <div class="centerx">
-     <vs-input vs-placeholder="Nombre" v-model="value1"/>
-     <vs-input disabled="true" vs-placeholder="Disabled" v-model="value2"/>
+  <div class="centerx default-input">
+     <vs-input class="inputx" placeholder="Placeholder" v-model="value1"/>
+     <vs-input disabled class="inputx" placeholder="Disabled" v-model="value2"/>
    </div>
 </template>
 
@@ -16,5 +16,8 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="stylus">
+.default-input
+  .inputx
+    margin 10px
 </style>

@@ -199,20 +199,3 @@ export default {
   }
 }
 </script>
-
-<style lang="stylus">
-@import '../../styles'
-.vs-select-item-btn
-  background: transparent
-  padding: 5px;
-  width: 100%;
-  margin: 0px !important;
-  text-transform: capitalize;
-  &:disabled
-    opacity: .5;
-  span.searchx
-    background: rgba(0, 0, 0, 0.07);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-    font-weight: bold;
-    color: inherit;
-</style>

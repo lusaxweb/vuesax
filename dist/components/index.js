@@ -3,15 +3,15 @@ import vsSelect from './vsSelect'
 import vsSwitch from './vsSwitch'
 import vsCheckbox from './vsCheckBox'
 import vsRadio from './vsRadio'
+
+// component not soport SSR
+
 import vsInput from './vsInput'
 import vsTabs from './vsTabs'
-import vsTab from './vsTab'
 import vsSlider from './vsSlider'
 import vsInputNumber from './vsInputNumber'
 import vsUpload from './vsUpload'
 import vsPopup from './vsPopup'
-import vsDropdown from './vsDropDown'
-import vsDropdownItem from './vsDropDown'
 import vsAlert from './vsAlert'
 import vsChip from './vsChip'
 import vsChips from './vsChips'
@@ -29,9 +29,6 @@ import vsDivider from './vsDivider'
 import vsCollapse from './vsCollapse'
 //New Component import
 
-// import vsAnchor from './vsAnchor'
-// import vsLink from './vsAnchor'
-
 
 //layout
 import vsRow from '../layout/vsRow/'
@@ -47,7 +44,6 @@ export {
   vsRadio,
   vsInput,
   vsTabs,
-  vsTab,
   vsSlider,
   vsInputNumber,
   vsUpload,
@@ -69,11 +65,7 @@ export {
   vsDropDown,
   vsDivider,
   vsCollapse,
-  //New Component export
+  // New Component export
 
-  // en proceso
-  // vsDropdown,
-  // vsDropdownItem,
-  // vsAnchor,
-  // vsLink,
+
 }

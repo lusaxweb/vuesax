@@ -46,19 +46,3 @@ export default {
   }
 }
 </script>
-
-<style lang="stylus">
-@import '../../styles'
-
-.vs-collapse
-  transition: all .3s ease;
-  padding: 10px;
-  color: $vs-light
-  cursor: pointer;
-for colorx, i in $vs-colors
-  .vs-collapse-{colorx}
-    color: $vs-colors[colorx]
-    &:hover
-      background: alpha($vs-colors[colorx], 0.1) !important
-
-</style>
