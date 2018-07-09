@@ -3,7 +3,7 @@
     <button
     v-bind="$attrs"
     v-on="listeners"
-    class="vs-btn"
+    class="vs-button"
     ref="btnvuesax"
     :style="{
       'width':vsWidth,
@@ -147,18 +147,18 @@ export default {
         }
       }
       let time = 0.5
-      if (event.target.closest('.vs-btn').clientWidth>100) {
-        let s = event.target.closest('.vs-btn').clientWidth + 60
-        time = event.target.closest('.vs-btn').clientWidth/s
+      if (event.target.closest('.vs-button').clientWidth>100) {
+        let s = event.target.closest('.vs-button').clientWidth + 60
+        time = event.target.closest('.vs-button').clientWidth/s
       } else if (this.classList.contains('filled')) {
-        let s = event.target.closest('.vs-btn').clientWidth
-        time = event.target.closest('.vs-btn').clientWidth/s
+        let s = event.target.closest('.vs-button').clientWidth
+        time = event.target.closest('.vs-button').clientWidth/s
       }
         spanx.style.transition = 'width '+time+'s ease,height '+time+'s ease,opacity '+time/1.5+'s ease'
         spanx.style.left = x+'px';
         spanx.style.top = y+'px';
-        spanx.style.width = event.target.closest('.vs-btn').clientWidth*3+'px';
-        spanx.style.height = event.target.closest('.vs-btn').clientWidth*3+'px';
+        spanx.style.width = event.target.closest('.vs-button').clientWidth*3+'px';
+        spanx.style.height = event.target.closest('.vs-button').clientWidth*3+'px';
         spanx.style.opacity = '1';
         this.classList.add('activo')
       if(this.classList.contains('filled')){
@@ -253,24 +253,27 @@ export default {
 
 <style lang="css">
 
- .vs-btn {
+ .vs-button {
     border: 1px solid rgba(255, 255, 255,0);
     border-radius: 5px;
     border: 0px;
     cursor: pointer;
     outline: none;
-    background: rgb(238, 238, 238);
-    color: rgba(0, 0, 0, 0.7);
     transition: all .2s ease;
     overflow: hidden;
     position: relative;
+    padding: 10px;
+    color: rgb(255, 255, 255);
+    box-sizing: border-box;
+    background: transparent
   }
   button:active {
     opacity: .7;
   }
   button:disabled {
-    opacity: .4;
-    pointer-events: none;
+    opacity: .5;
+    cursor: default;
+    pointer-events: none
   }
    button:disabled .text {
     /* opacity: .8; */
