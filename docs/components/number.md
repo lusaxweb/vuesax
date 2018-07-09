@@ -71,7 +71,7 @@ export default {
 
 ## Color
 
-You can change the color of the ** Input-Number ** with the property `vs-color`, the color can be one of the main ones like:` primary`, `success`,` danger`, `warning`,` dark` or **RGB**, **HEX**.
+You can change the color of the **Input-Number** with the property `vs-color`. The color could be one of the main ones like:`primary`, `success`,`danger`, `warning`,`dark` or **RGB**, **HEX**.
 
 :::warning
   Only **RGB** and **HEX** colors are supported.
@@ -153,7 +153,7 @@ export default {
 
 ## Size
 
-To change the size of Component you can use the property `vs-size`, the allowed values are: `medium`, `small`, `mini`.
+To change the size of Component you can use the property `vs-size`. The allowed values are: `medium`, `small`, `mini`.
 
 <vuecode md>
 <div slot="demo">
@@ -161,7 +161,7 @@ To change the size of Component you can use the property `vs-size`, the allowed 
 </div>
 <div slot="code">
 
-```html{5,8,11}
+```html
 <template lang="html">
   <div class="centerx">
     <vs-input-number v-model="number0"/>

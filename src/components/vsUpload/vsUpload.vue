@@ -107,12 +107,10 @@ export default {
     },
     // multiple
     agregarImg(){
-      console.log("hola mundo");
     },
 
 
     quitarView(evt){
-      console.log(evt.target.nodeName);
       if(evt.target.nodeName != 'IMG'){
         this.view = false
         setTimeout( ()=> {
@@ -141,10 +139,8 @@ export default {
         // preview.src = reader.result;
         this.arrayFiles.push({src:reader.result})
         // this.vsFileList.push({name:file.name})
-        console.log(file);
 
         filesx.push({file:file})
-        console.log(filesx);
         this.$emit('update:vsFileList', filesx)
       }
 
@@ -157,7 +153,6 @@ export default {
       this.$refs.inputsx.value = ''
     },
     uploadx(e) {
-      console.log("paso");
       this.$emit('update:vsFile', e.target.value)
       let _this = this
       this.$refs.conimg.classList.remove('oculto');
@@ -429,7 +424,7 @@ export default {
   cursor: pointer;
 }
 .x-img i {
-  font-size: 18px;
+  font-size: 1.125em;
   color: rgba(0, 0, 0, 0.7);
 }
 .input-upload {
@@ -462,7 +457,7 @@ export default {
   b
 } */
 .con-subir h3 {
-  font-size: 16px;
+  font-size: 1.0em;
   font-weight:lighter;
 }
 .con-upload:hover .con-subir{
@@ -477,7 +472,7 @@ export default {
   justify-content: center;
   border-radius: 50%;
   margin-left: 10px;
-  font-size: 20px;
+  font-size: 1.25em;
 }
 .con-img-upload {
   height: auto;

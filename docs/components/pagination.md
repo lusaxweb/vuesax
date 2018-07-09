@@ -156,7 +156,7 @@ Vuesax use the **Google Material Icons** font library. For a list of all availab
 
 ## Limit the amount of links shown
 
-By default Vuessax will show a maximum of **9** links. This default behaviour can be changed by setting the `vs-max` directive to a different integer value.
+By default Vuesax will show a maximum of **9** links. This default behaviour can be changed by setting the `vs-max` directive to a different integer value.
 
 ::: tip
 The amount given to the `vs-max` directive should take into account the first and last pages plus the ellipses "`...`"

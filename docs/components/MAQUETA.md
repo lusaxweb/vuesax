@@ -11,7 +11,7 @@ API:
 
 <box header>
 
-  Texto de description
+  Description's text
 
 </box>
 

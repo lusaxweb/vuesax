@@ -30,7 +30,6 @@
 </template>
 
 <script>
-// var pulse = setInterval(function(){ console.log("hola") }, 1000);
 
 export default {
   name:'vs-input-number',
@@ -103,11 +102,9 @@ export default {
         this.$emit('change',0)
       }
       if (parseInt(this.value)<parseInt(this.vsMin)) {
-        console.log("entro");
         this.$emit('input',this.vsMin)
         this.$emit('change',this.vsMin)
       } else if (parseInt(this.value)>parseInt(this.vsMax)) {
-        console.log("entro");
         this.$emit('input',this.vsMax)
         this.$emit('change',this.vsMax)
       }
@@ -168,7 +165,7 @@ export default {
       background: transparent;
       text-align: center;
       /* width: 100px; */
-      font-size: 18px;
+      font-size: 1.125em;
       color: rgb(255, 255, 255);
       transition: all .3s ease;
       box-sizing: border-box;
@@ -194,7 +191,7 @@ export default {
     transform: scale(.9);
   }
     .con-input-number button i {
-      font-size: 18px;
+      font-size: 1.125em;
     }
   .con-input-number button:hover {
     background: rgb(255, 255, 255);
@@ -225,10 +222,10 @@ export default {
   height: 28px;
 }
 .vs-medium button i {
-  font-size: 16px;
+  font-size: 1.0em;
 }
 .vs-medium input {
-  font-size: 16px;
+  font-size: 1.0em;
   min-width: 60px;
 }
 
@@ -237,11 +234,11 @@ export default {
   height: 24px;
 }
 .vs-small button i {
-  font-size: 14px;
+  font-size: 0.875em;
 }
 .vs-small input {
   padding: 4px;
-  font-size: 14px;
+  font-size: 0.875em;
   min-width: 50px;
 }
 
@@ -250,11 +247,11 @@ export default {
   height: 20px;
 }
 .vs-mini button i {
-  font-size: 13px;
+  font-size: 0.8125em;
 }
 .vs-mini input {
   padding: 2px;
-  font-size: 13px;
+  font-size: 0.8125em;
   min-width: 40px;
 }
 

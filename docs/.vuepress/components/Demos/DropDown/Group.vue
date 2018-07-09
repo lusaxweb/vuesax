@@ -40,7 +40,6 @@
     </vs-dropdown>
 
     <vs-dropdown  >
-      <!-- <vs-button  vs-type="primary-filled">Segundo</vs-button> -->
       <a class="a-icon" href.prevent>
         Dropdown Group Collapse
         <i class="material-icons">

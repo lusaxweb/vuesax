@@ -42,7 +42,7 @@ tag: new
 
 ## Color
 
-To represent symple data with colorful options.
+Helps you represent symple data with colorful options.
 
 <vuecode md center>
 <div slot="demo">
@@ -130,7 +130,7 @@ export default {
 
 ## Closable
 
-To make a chip closable.
+For making a chip closable.
 
 <vuecode md>
 <div slot="demo">
@@ -141,7 +141,7 @@ To make a chip closable.
 ```html
 <template lang="html">
   <div class="centerx">
-    <vs-button v-if="!chip1&&!chip2&&!chip3&&!chip4&&!chip5" @click="chip1=true,chip2=true,chip3=true,chip4=true,chip5=true" vs-type="primary-filled">Reset Chips</vs-button>
+    <vs-button vs-color="primary" v-if="!chip1&&!chip2&&!chip3&&!chip4&&!chip5" @click="chip1=true,chip2=true,chip3=true,chip4=true,chip5=true" vs-type="filled">Reset Chips</vs-button>
     <vs-chip v-model="chip1" vs-closable vs-color="primary">primary</vs-chip>
     <vs-chip v-model="chip2" vs-closable vs-color="warning">warning</vs-chip>
     <vs-chip v-model="chip3" vs-closable vs-color="danger">danger</vs-chip>

@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="centerx">
+  <div class="centerx colors-example">
     <vs-input vs-label-placeholder="Default" v-model="value1"/>
     <vs-input vs-color="success" vs-label-placeholder="Success" v-model="value2"/>
     <vs-input vs-color="danger" vs-label-placeholder="Danger" v-model="value3"/>
@@ -26,5 +26,9 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="stylus">
+.colors-example
+  .vs-input
+    margin 5px
+    margin-top 20px;
 </style>

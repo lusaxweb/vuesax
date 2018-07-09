@@ -37,9 +37,6 @@
 
 <script>
 import color from '../../utils/color.js'
-
-import style from '../../styles/config.json'
-
 export default {
   name:'vs-alert',
   props:{
@@ -114,7 +111,7 @@ export default {
   color: rgb(255, 255, 255);
 }
 .con-x i {
-  font-size: 17px;
+  font-size: 1.0625em;
   color: inherit;
 }
 .fade-enter-active, .fade-leave-active {
@@ -139,11 +136,10 @@ export default {
 .vs-alert {
   color: inherit;
   padding: 15px;
-  font-size: 15px;
+  font-size: 0.9375em;
   position: relative;
 }
 .vs-alert b {
-  color: rgba(call:var(--primary),1) !important;
-
+  color: rgba(var(--primary),1) !important;
 }
 </style>

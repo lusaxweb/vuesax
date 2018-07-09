@@ -54,7 +54,7 @@ export default {
   props:{
     vsHeight:{
       type:[Number,String],
-      default:8
+      default:6
     },
     vsIndeterminate:{
       type:Boolean,
@@ -97,7 +97,6 @@ export default {
   },
   methods:{
     returnColorRGB(vsColor){
-      // console.log(vsColor);
       let colorx = color.hexToRgb(vsColor)
       return `rgba(${colorx.r},${colorx.g},${colorx.b},.1)`
     }

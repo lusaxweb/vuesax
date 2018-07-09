@@ -1,13 +1,7 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const path = require('path')
-// const componentsPath = 'src/components'
-// const componentList = getDirectories(resolvePath(componentsPath))
-
-function resolve (dir) {
-  return path.join(__dirname, '..', dir)
-}
 
 module.exports = {
+  productionSourceMap: false,
   configureWebpack: {
     plugins: [
       new CopyWebpackPlugin([
@@ -32,8 +26,8 @@ module.exports = {
           toType: 'dir'
         },
         {
-          from: 'src/css',
-          to: 'css/',
+          from: 'src/styles',
+          to: 'styles/',
           toType: 'dir'
         }
       ])

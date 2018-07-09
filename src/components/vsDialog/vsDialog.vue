@@ -28,12 +28,12 @@
 
       <!-- footer buttons -->
       <footer v-if="vsType=='prompt'||vsType=='confirm'">
-        <vs-button :vs-color="vsColor" @click="accept" :vs-type="'primary-'+vsButtonAccept.split('-')[1]">Accept</vs-button>
-        <vs-button @click="close" :vs-type="'danger-'+vsButtonCancel.split('-')[1]">Cancel</vs-button>
+        <vs-button :vs-color="vsColor" @click="accept" :vs-type="vsButtonAccept">Accept</vs-button>
+        <vs-button @click="close" :vs-type="vsButtonCancel">Cancel</vs-button>
       </footer>
 
       <footer v-else >
-        <vs-button :vs-color="vsColor" @click="accept" :vs-type="'primary-'+vsButtonAccept.split('-')[1]">Accept</vs-button>
+        <vs-button :vs-color="vsColor" @click="accept" :vs-type="vsButtonAccept">Accept</vs-button>
       </footer>
     </div>
   </div>
@@ -54,11 +54,11 @@ export default {
       type:String
     },
     vsButtonAccept:{
-      default:'primary-filled',
+      default:'filled',
       type:String,
     },
     vsButtonCancel:{
-      default:'danger-flat',
+      default:'flat',
       type:String,
     },
     vsType:{
@@ -217,7 +217,7 @@ export default {
       transform: scale(1.02);
     .vs-dialog-text
       padding: 10px;
-      font-size: 14px;
+      font-size: 0.875em;
       transition: all .23s ease .1s;
     header
       width: 100%;
@@ -246,7 +246,7 @@ export default {
         transition: all .23s ease .1s;
         padding: 8px;
         padding-left: 12px;
-        font-size: 20px;
+        font-size: 1.25em;
       .vs-dialog-cancel
         transition: all .23s ease .1s;
         position: relative;
@@ -256,7 +256,7 @@ export default {
         border-radius: 5px;
         transform: translate(8px,-8px);
         background: rgb(255, 255, 255);
-        font-size: 20px;
+        font-size: 1.25em;
     footer
       display: flex;
       align-items: center;
@@ -264,10 +264,7 @@ export default {
       position: relative;
       button
         margin-left: 0px;
-        span
-          padding: 10px;
-          padding-left: 15px;
-          padding-right: 15px;
+        
       &:before
         content: '';
         top: 0px;

@@ -1,24 +1,35 @@
 <template lang="html">
   <div class="con-select-example">
-    <vs-select
-      vs-multiple
-      class="selectExample"
-      label="Peliculas"
-      v-model="select1"
-      :options="options1"
-      ></vs-select>
-      <span class="modelx">{{select1}}</span>
 
-      <h4 style="padding:10px">Max selected (3)</h4>
     <vs-select
-      vs-multiple
-      vs-max-selected="3"
-      class="selectExample"
-      label="Peliculas"
+    placeholder="Multiple"
+    vs-multiple
+    class="selectExample"
+      label="Figuras"
+      v-model="select1"
+      >
+      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in options1" />
+    </vs-select>
+    <vs-select
+    placeholder="Multiple and autocomplete"
+    vs-multiple
+    vs-autocomplete
+    class="selectExample"
+      label="Figuras"
       v-model="select2"
-      :options="options2"
-      ></vs-select>
-      <span class="modelx">{{select2}}</span>
+      >
+      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in options2" />
+    </vs-select>
+    <vs-select
+    placeholder="Max Selected"
+    vs-max-selected="2"
+    vs-multiple
+      class="selectExample"
+      label="Figuras"
+      v-model="select3"
+      >
+      <vs-select-item :key="index" :vs-value="item.value"  :vs-text="item.text" v-for="item,index in options3" />
+    </vs-select>
   </div>
 </template>
 
@@ -27,13 +38,14 @@ export default {
   name:'',
   data(){
     return {
-      select1:[{text: 'Red', value: 1}],
-      select2:[{text: 'Romboid', value: 4}],
+      select1Normal:'',
+      select1:[],
+      select2:[],
+      select3:[],
       options1:[
-        {text: 'Red', value: 1},
-        {text: 'Green', value: 2},
-        {text: 'Blue', value: 3},
-        {text: 'Purple', value: 4},
+        {text:'IT',value:0},
+        {text:'Blade Runner',value:2},
+        {text:'Thor Ragnarok',value:3},
       ],
       options2:[
         {text: 'Square', value: 1},
@@ -48,7 +60,13 @@ export default {
         {text: 'Circle', value: 10},
         {text: 'Circular sector', value: 11},
         {text: 'Circular trapeze', value: 12},
-      ]
+      ],
+      options3:[
+        {text: 'Red', value: 1},
+        {text: 'Green', value: 2},
+        {text: 'Blue', value: 3},
+        {text: 'Purple', value: 4},
+      ],
     }
   },
   methods:{
@@ -59,7 +77,7 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="css">
 .selectExample {
   margin: 10px;
 }
@@ -67,7 +85,6 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
 }
 .con-select .vs-select {
   width: 100%

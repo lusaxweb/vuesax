@@ -30,7 +30,7 @@ API:
 
 ## Default
 
-To implement a radio button you just have to add the `vs-radio` component and add a` v-model`.
+To implement a radio button you just have to add the `vs-radio` component and add a `v-model`.
 
 :::warning
 The **Radio Button** is always going to replace the current value.
@@ -84,7 +84,7 @@ export default {
 
 ## Colors
 
-You can change the color with the property `vs-color` you can pass as value the default colors: `primary`, `success`, `danger`, `warning`, `dark` or a color RGB or HEX.
+You can change the color with the property `vs-color`. Also, you could pass as value the default colors: `primary`, `success`, `danger`, `warning`, `dark` or a RGB or HEX color.
 
 :::warning
   Only **RGB** and **HEX** colors are supported.

@@ -1,0 +1,112 @@
+
+// transition
+
+.fade-select-enter-active {
+  transition: transform .2s, opacity .2s;
+}
+.fade-select-leave-active {
+  transition: transform .150s, opacity .150s;
+}
+.fade-select-enter, .fade-select-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translate(0,0px) scale(0.950) !important;
+  box-shadow: 0px 10px 0px -5px rgba(0, 0, 0, 0);
+}
+
+.con-select
+  position: relative;
+  .icon-select
+    position: absolute;
+    right: 5px;
+    font-size: 1.0625em;
+    top: 50%;
+    transform: translate(0,-50%);
+    transition: all .2s ease;
+  &.activeOptions:not(.autocompletex)
+    .input-select
+      opacity: 0;
+      transform: scale(1.1);
+  &.activeOptions
+    .icon-select
+      transform: translate(0,-50%) rotate(-180deg) !important;
+
+.input-select
+  position: relative;
+  padding: 7px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: all .2s ease;
+  padding-right: 20px;
+  cursor: pointer;
+
+.scrollx
+  ul
+    padding-right: 4px;
+.vs-select-options
+  padding: 4px;
+  padding-top: 6px;
+  padding-left: 5px;
+  padding-bottom: 6px;
+  box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  position: absolute;
+  z-index: 40000;
+  background: rgb(255, 255, 255);
+  ul
+
+    max-height: 260px;
+    overflow: auto;
+    padding-left: 0px !important;
+    li
+      margin: 0px;
+    .vs-select-item-btn
+      display: block;
+      text-align: left;
+      color: rgba(0,0,0,.8)
+      padding: 7px;
+      border 0px;
+      position relative
+      border-top: 1px solid rgb(255, 255, 255)
+      border-bottom: 1px solid rgb(255, 255, 255)
+      transition: all .3s ease
+      .icon-item
+        position: absolute;
+        font-size: 1.0em;
+        left: 5px;
+        transform: translate(-100%,-50%);
+        opacity: 0;
+        transition: all .2s ease;
+        top: 50%;
+      &:hover
+        background: rgb(245, 245, 245)
+      &:focus
+        background: rgb(245, 245, 245)
+      &.con-icon.activex
+        padding-left: 25px;
+        .icon-item
+          opacity: 1;
+          transform: translate(0,-50%);
+for colorx, i in $vs-colors
+  .vs-select-{colorx}
+    .vs-select-item-btn
+      &.activex
+        background: alpha($vs-colors[colorx],.1) !important;
+        color: $vs-colors[colorx];
+        font-weight: bold;
+
+
+// item style //
+
+.vs-select-item-btn
+  background: transparent
+  padding: 5px;
+  width: 100%;
+  margin: 0px !important;
+  text-transform: capitalize;
+  &:disabled
+    opacity: .5;
+  span.searchx
+    background: rgba(0, 0, 0, 0.07);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    font-weight: bold;
+    color: inherit;

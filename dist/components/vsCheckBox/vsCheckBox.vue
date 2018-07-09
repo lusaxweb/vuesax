@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="vs-component con-vs-checkbox">
+  <div class="vs-component con-vs-checkbox" :class="[`vs-checkbox-${vsColor}`]">
     <input
       v-bind="$attrs"
       v-on="listeners"
@@ -7,17 +7,10 @@
       :checked="isChecked || $attrs.checked"
       value="">
     <span
-      :style="{
-        'border': `2px solid ${$attrs.checked?$attrs.checked?giveColor(vsColor):'rgb(180, 180, 180)':isChecked?giveColor(vsColor):'rgb(180, 180, 180)'}`
-        }"
+      :style="style"
       class="checkbox_x">
-      <span :style="{
-        'background':giveColor(vsColor)
-        }" class="_check"></span>
+      <span :style="style_check" class="_check"></span>
       <i
-        :style="{
-          'color':giveColor(vsColor)
-        }"
         class="material-icons">
         {{vsIcon}}
       </i>
@@ -50,11 +43,21 @@ export default {
     }
   },
   computed:{
+    style_check(){
+      return {
+        background: this.isChecked?_color.getColor(this.vsColor,1):null,
+      }
+    },
+    style(){
+      return {
+        border: `2px solid ${this.isChecked?_color.getColor(this.vsColor,1):'rgb(180, 180, 180)'}`,
+      }
+    },
     listeners(){
       return {
         ...this.$listeners,
-        change: (event) => {
-          this.toggleValue()
+        change: (evt) => {
+          this.toggleValue(evt)
         }
       }
     },
@@ -66,7 +69,7 @@ export default {
     giveColor(color){
       return _color.rColor(color)
     },
-    toggleValue(){
+    toggleValue(evt){
       if(this.isArrayx()){
         this.setArray()
       } else if (typeof(this.vsValue) == 'string' ) {
@@ -74,7 +77,7 @@ export default {
       }
       else {
         this.$emit('input',!this.value)
-        this.$emit('change',!this.value)
+        this.$emit('change',evt)
       }
     },
     setArray(){
@@ -109,74 +112,3 @@ export default {
   }
 }
 </script>
-
-<style lang="stylus">
-.con-vs-checkbox
-  position: relative;
-  display: block;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 5px;
-  margin-right: 5px;
-  input[type="checkbox"]
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    z-index: 200;
-    cursor: pointer;
-    background: rgb(85, 215, 117);
-    &:active:checked
-      & + span.checkbox_x
-        span._check
-          transform: translate(3px) !important;
-        i
-          transform: translate(6px) !important;
-    // &:active:not(:checked)
-    //   & + span.checkbox_x
-    //     span._check
-    //       transform: translate(70%) !important;
-    &:checked
-      & + span.checkbox_x
-        transform: rotate(0deg) !important;
-        span._check
-          transform: translate(0);
-        i
-          opacity: 1;
-          transform: translate(0) !important;
-          color: rgb(255, 255, 255) !important;
-  span.checkbox_x
-    transition: all .2s ease;
-    cursor: pointer;
-    position: relative;
-    display: block;
-    width: 20px;
-    height: 20px;
-    border-radius: 2px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transform: rotate(-90deg);
-    overflow: hidden;
-    box-sizing: border-box;
-    margin-right: 5px;
-    span._check {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      left: 0px;
-      transform: translate(100%);
-      transform-origin: right;
-      transition: all .20s ease
-      z-index: 10;
-    }
-    i
-      backface-visibility: visible;
-      transition: all .2s ease-out;
-      z-index: 100;
-      font-size: 18px;
-      opacity: 0;
-      transform: translate(30px);
-      transform-origin: center;
-</style>

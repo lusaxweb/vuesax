@@ -55,7 +55,7 @@ API:
 
 ## Default
 
-In many cases you have to add the avatar of a user to the application for this we have the component `vs-avatar`.
+Often you need to add an user's avatar to your app. In order to make this we have the component `vs-avatar`.
 
 To add an internal text value such as `Luis` use the` vs-text` property.
 
@@ -124,7 +124,7 @@ You can change the size of the Avatar with the property `vs-size` the allowed va
 
 ## Color
 
-Puedes cambiar el color del Avatar con la propiedad `vs-color` si es necesario tambien puedes cambiar el color del texto con la propiedad `vs-text-color`
+You can change the Avatar's color by using the property `vs-color`. If needed you could also change the text's color with the property `vs-text-color`.
 
 <vuecode md center>
 <div slot="demo">
@@ -160,7 +160,7 @@ Puedes cambiar el color del Avatar con la propiedad `vs-color` si es necesario t
 
 You can add a notification label to the avatar, either a reference point or a number with the property `vs-badge`.
 
-Tambien puedes cambiar el color del badge con la propiedad `vs-badge-color`, puedes usar los colores [Principales](/theme/) o los **RGB** y **HEX**
+You could also change the badge's color by using the property `vs-badge-color`. You are able to use the [Main Colors](/theme/) or **RGB** and **HEX** colors.
 
 :::warning
   Only **RGB** and **HEX** colors are supported.
@@ -180,7 +180,7 @@ Tambien puedes cambiar el color del badge con la propiedad `vs-badge-color`, pue
     <vs-avatar :vs-badge="badge1" vs-text="Luisdaniel"/>
     <vs-avatar vs-badge-color="rgb(140, 23, 164)" :vs-badge="badge2" vs-text="Luisd"/>
   </div>
-      <vs-button vs-type="danger-filled" @click="increment">
+      <vs-button vs-color="danger" vs-type="filled" @click="increment">
         Increment Badge counter
       </vs-button>
   </div>

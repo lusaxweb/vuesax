@@ -55,7 +55,7 @@ In the grid system, we define the frame outside the information area based on ro
 Following is a brief look at how it works:
 - 1 - Establish a set of column in the horizontal space defined by row (abbreviated col)
 - 2 - Your content elements should be placed directly in the col, and only col should be placed directly in row
-- 3 - The column grid system is a value of 1-12 to represent its range spans. For example, three columns of equal width can be created by .col-4 (33.3%).
+- 3 - The column grid system is a value from 1-12 to represent its range spans. For example, three columns of equal width can be created by .col-4 (33.3%).
 - 4 - If the sum of col spans in a row are more than 12, then the overflowing col as a whole will start a new line arrangement.
 
 </box>
@@ -64,7 +64,7 @@ Following is a brief look at how it works:
 
 ## Design concept
 
-With the directive `vs-w` define the width of the column (`vs-col`) its value is **1-12** an example of sizes would be: **12 = 100%,6 = 50%,4 = 25%**
+With the directive `vs-w` define the width of the column (`vs-col`) its value is **1-12** an example of sizes would be: **12 = 100%, 6 = 50%, 4 = 25%**
 
 <vuecode md>
 
@@ -258,7 +258,7 @@ offset - 4
 
 ## Flex layout
 
-If what we need is to align the elements horizontally we can do it with the vs-justify directive that has as parameters the already known attributes of css: `flex-start`, `center`, `flex-end`, `space-around`, `space-between`.
+If we need to align the elements horizontally, use the `vs-justify` directive that uses CSS attributes as parameters: `flex-start`, `center`, `flex-end`, `space-around`, `space-between`.
 
 <vuecode md>
 
@@ -450,7 +450,7 @@ col - 3
 
 ## Flex order
 
-Hey some cases in which we want to order the elements to our liking for that we have the directive `vs-order` that as a parameter you just have to pass the number in which we want to order the `vs-col` with respect to his brothers `vs-col`
+In some cases, we want to order the elements to our liking. To do this, use the directive `vs-order` that has a parameter you just have to pass the number in which we want to order the `vs-col` with respect to his brothers `vs-col`
 
 <vuecode md>
 

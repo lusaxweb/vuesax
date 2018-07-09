@@ -112,7 +112,7 @@ export default {
   margin: 0px 3px;
   list-style: none;
   font-weight: normal !important;
-  font-size: 15px;
+  font-size: 0.9375em;
   a
     background: inherit !important;
     color: inherit !important;

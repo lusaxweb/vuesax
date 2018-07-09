@@ -2,27 +2,27 @@
   <ul class="con-s">
     <li>
       <label for="">Primary</label>
-      <vs-switch vs-type="primary" v-model="switch1" vs-icon="notifications_none"/>
+      <vs-switch v-model="switch1" vs-icon-off="notifications_none" vs-icon-on="done"/>
     </li>
     <li>
       <label for="">success</label>
-      <vs-switch vs-type="success" v-model="switch2" vs-icon="done"/>
+      <vs-switch vs-color="success" v-model="switch2" vs-icon="done"/>
     </li>
     <li>
       <label for="">danger</label>
-      <vs-switch vs-type="danger" v-model="switch3" vs-icon="close"/>
+      <vs-switch vs-color="danger" v-model="switch3" vs-icon="close"/>
     </li>
     <li>
       <label for="">warning</label>
-      <vs-switch vs-type="warning" v-model="switch4" vs-icon="error_outline"/>
+      <vs-switch vs-color="warning" v-model="switch4" vs-icon="error_outline"/>
     </li>
     <li>
       <label for="">dark</label>
-      <vs-switch vs-type="dark" v-model="switch5" vs-icon="volume_off"/>
+      <vs-switch vs-color="dark" v-model="switch5" vs-icon="volume_off"/>
     </li>
     <li>
       <label for="">rgb(color) / #color</label>
-      <vs-switch vs-type="rgb(51, 53, 83)" v-model="switch6" vs-icon="photo_camera"/>
+      <vs-switch vs-color="rgb(51, 53, 83)" v-model="switch6" vs-icon="photo_camera"/>
     </li>
   </ul>
 </template>

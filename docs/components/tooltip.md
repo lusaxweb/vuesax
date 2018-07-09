@@ -48,7 +48,7 @@ You can add a tooltip to any element with the directive `v-tooltip`.
   <div class="centerx">
     <vs-slider v-tooltip="'Tooltip Default'" v-model="valueslider"/>
     <vs-input-number v-tooltip="'Tooltip Default'" v-model="number1"/>
-    <vs-button v-tooltip="'Tooltip Default'" vs-type="primary-border">Primary</vs-button>
+    <vs-button v-tooltip="'Tooltip Default'" vs-type="border">Primary</vs-button>
   </div>
 </template>
 
@@ -82,7 +82,7 @@ You can change the position in which the tooltip will appear with the property `
 </div>
 <div slot="code">
 
-```html{6}
+```html
 <template lang="html">
   <div class="centerx">
     <vs-button v-tooltip="{text:'Tooltip position top'}">Position Top</vs-button>
@@ -112,7 +112,7 @@ You can change the delay in appearing the tooltip with the property `delay`.
 </div>
 <div slot="code">
 
-```html{6}
+```html
 <template lang="html">
   <div class="centerx">
     <vs-button v-tooltip="{text:'Tooltip default delay'}">Delay default</vs-button>
@@ -145,7 +145,7 @@ To change the color of the tooltip we have the property `color`, as a value you 
 </div>
 <div slot="code">
 
-```html{6}
+```html
 <template lang="html">
   <div class="centerx">
     <vs-button v-tooltip="{text:'Default Color'}">Default Color</vs-button>
@@ -153,12 +153,12 @@ To change the color of the tooltip we have the property `color`, as a value you 
       text:'Color primary',
       color:'primary'
     }">Color primary</vs-button>
-    <vs-button vs-type="success-border" v-tooltip="{text:'Color success',color:'success'}">Color success</vs-button>
-    <vs-button vs-type="danger-border" v-tooltip="{text:'Color danger',color:'danger'}">Color danger</vs-button>
-    <vs-button vs-type="warning-border" v-tooltip="{text:'Color warning',color:'warning'}">Color warning</vs-button>
-    <vs-button vs-type="dark-border" v-tooltip="{text:'Color dark',color:'dark'}">Color dark</vs-button>
-    <vs-button vs-type="success-gradient" v-tooltip="{text:'Color RGB',color:'rgb(42, 207, 133)'}">Color RGB</vs-button>
-    <vs-button vs-type="danger-gradient" v-tooltip="{text:'Color HEX',color:'rgb(74, 13, 107)'}">Color HEX</vs-button>
+    <vs-button vs-color="success" vs-type="border" v-tooltip="{text:'Color success',color:'success'}">Color success</vs-button>
+    <vs-button vs-color="danger" vs-type="border" v-tooltip="{text:'Color danger',color:'danger'}">Color danger</vs-button>
+    <vs-button vs-color="warning" vs-type="border" v-tooltip="{text:'Color warning',color:'warning'}">Color warning</vs-button>
+    <vs-button vs-color="dark" vs-type="border" v-tooltip="{text:'Color dark',color:'dark'}">Color dark</vs-button>
+    <vs-button vs-color="success" vs-type="gradient" v-tooltip="{text:'Color RGB',color:'rgb(42, 207, 133)'}">Color RGB</vs-button>
+    <vs-button vs-color="danger" vs-type="gradient" v-tooltip="{text:'Color HEX',color:'rgb(74, 13, 107)'}">Color HEX</vs-button>
   </div>
 </template>
 ```

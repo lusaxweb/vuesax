@@ -37,7 +37,7 @@ We are using [GitHub Issues](https://github.com/lusaxweb/vuesax/issues) for bug 
 
 If you intend to change the public API, or make any non-trivial changes to the implementation, we recommend filing an issue. This lets us reach an agreement on your proposal before you put significant effort into it.
 
-If you’re only fixing a bug, it’s fine to submit a pull request right away but we still recommend to file an issue detailing what you’re fixing. This is helpful in case we don’t accept that specific fix but want to keep track of the issue.
+If you’re only fixing a bug, it’s fine to submit a pull request right away, but we still recommend to file an issue detailing what you’re fixing. This is helpful in case we don’t accept that specific fix but want to keep track of the issue.
 
 </box>
 
@@ -61,9 +61,9 @@ Make sure your code lints (npm run dev)
 
 ## Development workflow
 
-After cloning Vuesax, run npm install to fetch its dependencies and [vuepress](https://vuepress.vuejs.org/guide/getting-started.html). Then, you can run several commands:
+After cloning Vuesax, run `npm install` to fetch dependencies and [Vuepress](https://vuepress.vuejs.org/guide/getting-started.html). Then, you can run several commands:
 
-- 1 - `npm run dev` runs vuesax website locally.
-- 2 - `npm run build` To build.
+- 1 - `npm run dev` runs Vuesax website locally.
+- 2 - `npm run build` to build.
 
 </box>

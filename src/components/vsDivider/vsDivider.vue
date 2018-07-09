@@ -87,7 +87,6 @@ export default {
     giveColor(opacity=1,type){
       if(this.vsColor == 'rgba(0, 0, 0,.1)' && type=='text'){
         let color = this.vsColor.replace('.1','.8');
-        console.log(color);
         return _color.rColor(color,opacity)
       } else {
         return _color.rColor(this.vsColor,opacity)
@@ -121,8 +120,8 @@ export default {
     background: rgb(255, 255, 255);
     padding-left: 12px;
     padding-right: 12px;
-    font-size: 15px;
+    font-size: 0.9375em;
   i.icon-divider
-    font-size: 20px;
+    font-size: 1.25em;
 
 </style>

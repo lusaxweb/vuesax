@@ -193,7 +193,7 @@ You can add custom content to the item. It will be pushed to the right side.
 
 ## Avatar
 
-You can implement an avatar in the list with the `slot="avatar"` and there is put the component [vs-avatar](/components/avatar.html)
+You can implement an avatar in the list with the `slot="avatar"` by putting a [vs-avatar] component (/components/avatar.html)
 
 <vuecode md>
 <div slot="demo">

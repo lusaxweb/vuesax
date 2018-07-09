@@ -128,7 +128,7 @@ export default {
       width: 24px;
       height: 24px;
       .vs-avatar-text
-        font-size: 15px;
+        font-size: 0.9375em;
     .dot-count
       position: absolute;
       top: 1px;
@@ -145,7 +145,7 @@ export default {
         border-radius: 4px;
         padding-left: 3px;
         padding-right: 3px
-        font-size: 10px;
+        font-size: 0.625em;
         color: rgb(255, 255, 255);
     .vs-avatar-text
       position: absolute;

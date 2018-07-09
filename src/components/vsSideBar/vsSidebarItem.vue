@@ -127,7 +127,7 @@ export default {
     padding-left: 15px;
     width: calc(100% - 6px);
     margin-left: 3px;
-    font-size: 15px;
+    font-size: 0.9375em;
     transition: all .2s ease
     text-decoration: none !important;
     .con-text-span
@@ -146,14 +146,14 @@ export default {
       border-radius: 8px;
       padding-top: 0px;
       padding-bottom: 0px;
-      font-size: 10px;
+      font-size: 0.625em;
       padding-left: 5px;
       padding-right: 5px;
       font-weight: normal;
       box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1)
     i.material-icons
       margin-right: 10px;
-      font-size: 18px;
+      font-size: 1.125em;
 &.con-tag
   a
     justify-content: space-between !important;

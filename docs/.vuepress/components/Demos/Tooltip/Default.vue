@@ -2,7 +2,7 @@
   <div class="centerx">
     <vs-slider v-tooltip="'Tooltip Default'" v-model="valueslider"/>
     <vs-input-number v-tooltip="'Tooltip Default'" v-model="number1"/>
-    <vs-button v-tooltip="'Tooltip Default'" vs-type="primary-border">Primary</vs-button>
+    <vs-button v-tooltip="'Tooltip Default'" vs-color="primary" vs-type="border">Primary</vs-button>
   </div>
 </template>
 

@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="centerx">
+  <div class="centerx labelPlaceholder">
     <vs-input vs-label-placeholder="Label-placeholder" v-model="value1"/>
     <vs-input disabled="true" vs-label-placeholder="Label-placeholder-disabled" v-model="value2"/>
   </div>
@@ -16,5 +16,8 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="stylus">
+  .labelPlaceholder
+    .vs-input
+      margin 10px
 </style>

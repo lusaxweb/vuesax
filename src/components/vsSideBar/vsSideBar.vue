@@ -5,7 +5,7 @@
     v-show="vsStatic?true:vsActive"
     ref="considebar"
     class="vs-component con-sidebar">
-    <div @click="clickOut()" class="con-darkx"></div>
+    <div v-if="vsBackgroundHidden?false:!vsStatic" @click="clickOut()" class="con-darkx"></div>
     <!-- :style="{'color':vsColor?/[#()]/.test(vsColor)?vsColor:`rgba(var(--${vsColor}),1)`:'rgb(var(--primary))'}" -->
     <div
       :class="{'reducex':reduce}" class="vs-sidebar">
@@ -70,6 +70,10 @@ export default {
       type:Boolean
     },
     vsStatic:{
+      default:false,
+      type:Boolean
+    },
+    vsBackgroundHidden:{
       default:false,
       type:Boolean
     }
@@ -276,7 +280,7 @@ export default {
     .textx_span
       display: none;
     .icon-arrowx
-      font-size: 15px !important;
+      font-size: 0.9375em !important;
       top: 9px !important;
       right: 1px !important;
       margin-right: 0px !important;

@@ -1,46 +1,44 @@
 <template lang="html">
   <div class="con-select-example">
     <vs-select
-      class="selectExample"
+    class="selectExample"
+      label="Figuras"
       v-model="select1"
-      :options="options1"
-      ></vs-select>
+      >
+      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in options1" />
+    </vs-select>
     <vs-select
     class="selectExample"
       label="Figuras"
-      v-model="select3"
-      :options="options3"
-      ></vs-select>
-      <vs-select
+      v-model="select2"
+      >
+      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in options2" />
+    </vs-select>
+    <vs-select
+      disabled="true"
       class="selectExample"
-        disabled="true"
-        label="Colores"
-        v-model="select2"
-        :options="options2"
-        ></vs-select>
+      label="Figuras"
+      v-model="select3"
+      >
+      <vs-select-item :key="index" :disabled="index==2" :vs-value="item.value" :vs-text="item.text" v-for="item,index in options3" />
+    </vs-select>
   </div>
 </template>
 
 <script>
 export default {
-  name:'',
   data(){
     return {
-      select1:0,
-      select2:1,
-      select3:1,
+      select1Normal:'',
+      select1:3,
+      select2:7,
+      select3:2,
       options1:[
         {text:'IT',value:0},
         {text:'Blade Runner',value:2},
         {text:'Thor Ragnarok',value:3},
       ],
       options2:[
-        {text: 'Red', value: 1},
-        {text: 'Green', value: 2},
-        {text: 'Blue', value: 3},
-        {text: 'Purple', value: 4},
-      ],
-      options3:[
         {text: 'Square', value: 1},
         {text: 'Rectangle', value: 2},
         {text: 'Rombo', value: 3},
@@ -53,7 +51,13 @@ export default {
         {text: 'Circle', value: 10},
         {text: 'Circular sector', value: 11},
         {text: 'Circular trapeze', value: 12},
-      ]
+      ],
+      options3:[
+        {text: 'Red', value: 1},
+        {text: 'Green', value: 2},
+        {text: 'Blue', value: 3},
+        {text: 'Purple', value: 4},
+      ],
     }
   },
   methods:{
