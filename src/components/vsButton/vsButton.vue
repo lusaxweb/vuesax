@@ -74,6 +74,10 @@ export default {
       type:String,
       default:null
     },
+    disabled:{
+      type: Boolean,
+      default: false
+      }
     vsIconAfter:{
       default:false,
       type:Boolean
@@ -201,7 +205,6 @@ export default {
       if(this.is('filled')){
         this.timeOpacity = this.time
       }
-
       if(event.srcElement != btn) {
         xEvent += event.target.offsetLeft
         yEvent += event.target.offsetTop
