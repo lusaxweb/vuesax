@@ -12,6 +12,7 @@
       'background':backgroundx,
       }"
     type="button"
+    :disabled="disabled"
     :class="[vsType?clasex:'vs-button-primary-filled',{'filled':vsType?vsType.search('filled')!=-1:false,'border':vsType?vsType.search('border')!=-1:false,'vs-button-icon':vsIcon}]"
     name="button">
     <span v-if="!vsHtml"
@@ -69,6 +70,10 @@ export default {
     vsIcon:{
       type:String,
       default:null
+    },
+    disabled:{
+      type: Boolean,
+      default: false
     }
   },
   data(){
