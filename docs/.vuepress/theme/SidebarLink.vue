@@ -11,7 +11,10 @@ export default {
       tag = 'new'
     } else if (item.title.search('#update')!=-1){
       tag = 'update'
+    } else if (item.title.search('#SSR')!=-1){
+      tag = 'SSR'
     }
+    console.log(item.title)
     // console.log("$page>",$page.path);
     // console.log("item>>",item.path);
     // use custom active class matching logic

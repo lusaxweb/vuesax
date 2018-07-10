@@ -1,134 +1,3 @@
-<template lang="html">
-  <transition name="dialog-t">
-  <div @click="close($event,true)"  ref="con" v-show="vsActive" class="vs-component con-vs-dialog">
-    <div class="vs-dialog-dark"></div>
-    <div ref="dialogx" class="vs-dialog">
-      <!-- //header -->
-      <header :style="{
-          'color':giveColor(vsColor)
-        }">
-        <div class="con-title-after">
-          <span :style="{
-            'background':giveColor(vsColor)
-            }" class="after"></span>
-            <h3>{{vsTitle}}</h3>
-        </div>
-        <span v-if="vsType=='alert'" @click="close" class="vs-dialog-cancel material-icons">close</span>
-      </header>
-
-      <!-- // slots  -->
-      <div class="vs-dialog-text">
-        <slot></slot>
-      </div>
-      <div v-if="vsType=='prompt'" class="vs-dialog-text">
-        <slot  name="input">
-
-        </slot>
-      </div>
-
-      <!-- footer buttons -->
-      <footer v-if="vsType=='prompt'||vsType=='confirm'">
-        <vs-button :vs-color="vsColor" @click="accept" :vs-type="vsButtonAccept">Accept</vs-button>
-        <vs-button @click="close" :vs-type="vsButtonCancel">Cancel</vs-button>
-      </footer>
-
-      <footer v-else >
-        <vs-button :vs-color="vsColor" @click="accept" :vs-type="vsButtonAccept">Accept</vs-button>
-      </footer>
-    </div>
-  </div>
-  </transition>
-</template>
-
-<script>
-import _color from '../../utils/color.js'
-export default {
-  name:'vs-dialog',
-  props:{
-    vsTitle:{
-      default:'Dialog',
-      type:String
-    },
-    vsColor:{
-      default:'primary',
-      type:String
-    },
-    vsButtonAccept:{
-      default:'filled',
-      type:String,
-    },
-    vsButtonCancel:{
-      default:'flat',
-      type:String,
-    },
-    vsType:{
-      default:'alert',
-      type:String
-    },
-    vsIsValid:{
-      default:'none',
-      type:[Boolean,String]
-    },
-    vsActive:{
-      default:false,
-      type:Boolean
-    }
-  },
-  data:()=>({
-    active:true
-  }),
-  mounted(){
-    this.insertBody()
-  },
-  methods:{
-    giveColor(color){
-      return _color.rColor(color)
-    },
-    accept(){
-      if(this.vsType != 'prompt'){
-        this.$emit('update:vsActive', false)
-        this.$emit('vs-accept')
-      } else {
-        if (this.vsIsValid || this.vsIsValid == 'none') {
-          this.$emit('update:vsActive', false)
-          this.$emit('vs-accept')
-        } else {
-          this.rebound()
-        }
-      }
-    },
-    rebound(){
-      this.$refs.dialogx.classList.add('locked')
-      setTimeout( () => {
-        this.$refs.dialogx.classList.remove('locked')
-      }, 200);
-    },
-    close(event,con){
-      if(con){
-        if(event.target.className.indexOf('vs-dialog-dark')!=-1 && this.vsType == 'alert'){
-          this.$emit('update:vsActive', false)
-        } else if (this.vsType != 'alert') {
-          this.rebound()
-        }
-      } else {
-        if(event?event.target.className.indexOf('vs-dialog-cancel')!=-1:false){
-          this.$emit('update:vsActive', false)
-        } else {
-          this.$emit('update:vsActive', false)
-          this.$emit('vs-cancel')
-        }
-
-      }
-    },
-    insertBody(){
-      let elx = this.$refs.con
-      document.body.insertBefore(elx, document.body.firstChild)
-    },
-  }
-}
-</script>
-
-<style lang="stylus">
 //animations
 .dialog-t-enter, .dialog-t-leave-to /* .dialog-t-leave-active below version 2.1.8 */ {
   opacity: 0 !important;
@@ -240,13 +109,12 @@ export default {
         transform: translate(0,-50%);
         width: 3px;
         height: 100%;
-        background: rgb(10, 149, 42);
         display: block;
       h3
         transition: all .23s ease .1s;
         padding: 8px;
         padding-left: 12px;
-        font-size: 1.25em;
+        font-size: 1.2rem;
       .vs-dialog-cancel
         transition: all .23s ease .1s;
         position: relative;
@@ -257,6 +125,9 @@ export default {
         transform: translate(8px,-8px);
         background: rgb(255, 255, 255);
         font-size: 1.25em;
+        &:hover
+          box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1)
+          transform: translate(5px,-5px);
     footer
       display: flex;
       align-items: center;
@@ -274,4 +145,10 @@ export default {
         margin-left: 5%;
         height: 1px;
         background: rgba(0, 0, 0, 0.05);
-</style>
+
+for colorx, i in $vs-colors
+  .vs-dialog-{colorx}
+    header
+        color: $vs-colors[colorx]
+      .after
+        background: $vs-colors[colorx]

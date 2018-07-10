@@ -25,24 +25,30 @@ API:
    parameters: null
    description: Function that executes the user cancel the dialog.
    default: null
- - name: vs-type
-   type: String
-   parameters: alert , confirm, prompt
-   description: Determine the type of dialog.
-   default: alert
- - name: slot="input"
-   type: Slot
-   parameters: null
-   description: slot to put the input at the prompt.
-   default: null
  - name: vs-is-valid
    type: Boolean
    parameters: null
    description: Determines if it is valid to be able to accept at the prompt.
    default: null
+ - name: vs-buttons-hidden
+   type: Boolean
+   parameters: null
+   description: Determines if the component has hidden or visible buttons.
+   default: false
+ - name: vs-button-accept
+   type: type buttons
+   parameters: null
+   description: Change the type of botton for the accept.
+   default: false
+ - name: vs-button-cancel
+   type: type buttons
+   parameters: null
+   description: Change the type of botton for the cancel.
+   default: false
+
 ---
 
-# Dialogs
+# Dialogs <!--#SSR-->
 
 <box header>
 
@@ -54,7 +60,16 @@ API:
 
 ## Alert
 
-To implement a dialog we have the `vs-dialog` component, which as a required parameter is the` vs-active` that determines when the dialog is active and visible to the user.
+To generate a dialog we have the global function `$vs.dialog` the parameters to generate the dialog are
+
+- **title**: title of the dialogue - *String*
+- **text**: internal text of the dialog - *String*
+- **color**: color of the component - *Colors, RGB, HEX*
+- **accept**: function that executes the user accept the dialog - *Function*
+- **cancel**: function that executes the user to cancel the dialog (if it is a confirm type) - *Function*
+- **type**: determines the type of dialog (alert or confirm) - *alert, confirm*
+- **buttonAccept**: determines the type of accept button - *Boolean*
+- **buttonCancel**: determines the type of cancel button - *Boolean*
 
 <vuecode md>
 <div slot="demo">
@@ -71,17 +86,6 @@ To implement a dialog we have the `vs-dialog` component, which as a required par
     <vs-button @click="openAlert('warning')" vs-color="warning" vs-type="flat">Alert Warning</vs-button>
     <vs-button @click="openAlert('dark')" vs-color="dark" vs-type="flat">Alert Dark</vs-button>
     <vs-button @click="openAlert(null)" vs-color="primary" vs-type="gradient">Alert Color RGB | HEX</vs-button>
-
-    <!-- Component Dialog - alert -->
-    <vs-dialog
-      :vs-color="colorAlert"
-      :vs-title="titleAlert"
-      @vs-accept="acceptAlert"
-      :vs-active.sync="activeAlert">
-      <!-- Text in Alert -->
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </vs-dialog>
-
   </div>
 </template>
 
@@ -95,22 +99,26 @@ export default {
   }),
   methods:{
     openAlert(color){
-      this.activeAlert = true
-      this.titleAlert = 'Alert ' + color || this.getColorRandom()
       this.colorAlert = color || this.getColorRandom()
+      this.$vs.dialog({
+        color:this.colorAlert,
+        title: `Dialog - ${this.colorAlert}`,
+        text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        accept:this.acceptAlert
+      })
+    },
+    acceptAlert(){
+      this.$vs.notify({
+        color:this.colorAlert,
+        title:'Accept Selected',
+        text:'Lorem ipsum dolor sit amet, consectetur'
+      })
     },
     getColorRandom(){
       function getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min)) + min;
       }
       return `rgb(${getRandomInt(0,255)},${getRandomInt(0,255)},${getRandomInt(0,255)})`
-    },
-    acceptAlert(color){
-      this.$vs.notify({
-        color:this.colorAlert,
-        title:'Accept Selected',
-        text:'Lorem ipsum dolor sit amet, consectetur'
-      })
     },
   }
 }
@@ -127,10 +135,10 @@ export default {
 
 ## Confirm
 
-You can add a `vs-dialog` of type **confirm** by changing the `vs-type` property.
+If you need a dialog of type confirm you can do it just by changing the type as a parameter inside the main function
 
 :::tip
-  To do some action when the user approves or confirms we have the property `@vs-accept="myFunctionAccept"`.
+  To do some action when the user approves or confirms we have the property `accept:myFunctionAccept`.
 :::
 
 <vuecode md>
@@ -142,15 +150,7 @@ You can add a `vs-dialog` of type **confirm** by changing the `vs-type` property
 ```html
 <template lang="html">
   <div class="centerx">
-    <vs-button @click="activeConfirm = true" vs-color="danger" vs-type="gradient">Run Confirm</vs-button>
-    <vs-dialog
-      vs-color="danger"
-      vs-title="Delete Image"
-      vs-type="confirm"
-      @vs-accept="acceptAlert"
-      :vs-active.sync="activeConfirm">
-      You are sure to delete this image?
-    </vs-dialog>
+    <vs-button @click="openConfirm()" vs-color="danger" vs-type="gradient">Alert Primary</vs-button>
   </div>
 </template>
 
@@ -160,6 +160,15 @@ export default {
     activeConfirm:false
   }),
     methods:{
+      openConfirm(){
+      this.$vs.dialog({
+        type:'confirm',
+        color: 'danger',
+        title: `Confirm`,
+        text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        accept:this.acceptAlert
+      })
+      },
       acceptAlert(color){
         this.$vs.notify({
           color:'danger',
@@ -182,9 +191,14 @@ export default {
 
 ## Prompt
 
-If you need the user to enter any data inside the dialog, you can do it by changing the property `vs-type =" prompt"`.
+To add a dialog of type prompt we have instead of a global function a completely independent component `vs-prompt` to be able to have more flexibility with the input and if necessary to be able to add any type of input and components
 
-To add the inputs is done inside the slot named `input`
+:::tip
+  The properties of the component are equivalent to those of the global function only with the vs before each property something like
+
+ - `function = color`
+ - `component = vsColor`
+:::
 
 ```html
   <div slot="input">
@@ -200,48 +214,49 @@ To add the inputs is done inside the slot named `input`
 
 ```html
 <template lang="html">
-  <div class="centerx">
+  <div class="centerx con-exemple-prompt">
+    <!-- <vs-button @click="openPrompt" vs-color="primary" vs-type="border">Run prompt</vs-button> -->
     <div class="modelx">
       {{val==null?'null':val}}
     </div>
-     <vs-button @click="activePrompt = true" vs-type="border">Run prompt</vs-button>
+     <vs-button @click="activePrompt = true" vs-color="primary" vs-type="border">Run prompt</vs-button>
      <div class="modelx">
        {{valMultipe.value1}}
        {{valMultipe.value2}}
      </div>
-     <vs-button @click="activePrompt2 = true" vs-type="border">Run prompt inputs</vs-button>
+     <vs-button @click="activePrompt2 = true" vs-color="primary" vs-type="border">Run prompt inputs</vs-button>
 
-     <vs-dialog
+     <vs-prompt
       @vs-cancel="val=''"
-      vs-type="prompt"
       @vs-accept="acceptAlert"
       :vs-active.sync="activePrompt">
-       Enter the security code
-       <div slot="input">
-         <vs-input vs-placeholder="Code" v-model="val"/>
+       <div class="con-exemple-prompt">
+          Enter the security code
+         <vs-input placeholder="Code" vs-placeholder="Code" v-model="val"/>
        </div>
-     </vs-dialog>
+     </vs-prompt>
 
-     <vs-dialog
+     <vs-prompt
       @vs-cancel="valMultipe.value1='',valMultipe.value2=''"
-      vs-type="prompt"
       @vs-accept="acceptAlert"
       :vs-is-valid="validName"
       :vs-active.sync="activePrompt2">
-       Enter your first and last name to continue
-       <div slot="input">
-         <vs-input vs-placeholder="Name" v-model="valMultipe.value1"/>
-         <vs-input vs-placeholder="Last Name" v-model="valMultipe.value2"/>
+       <div class="con-exemple-prompt">
+       Enter your first and last name to <b>continue</b>.
+         <vs-input placeholder="Name" v-model="valMultipe.value1"/>
+         <vs-input placeholder="Last Name" v-model="valMultipe.value2"/>
 
          <vs-alert :vs-active="!validName" vs-color="danger" vs-icon="new_releases" >
            Fields can not be empty please enter the data
          </vs-alert>
        </div>
-     </vs-dialog>
+     </vs-prompt>
   </div>
 </template>
 
 <script>
+import Vue from 'vue'
+
 export default {
   data(){
     return {
@@ -270,6 +285,15 @@ export default {
   }
 }
 </script>
+
+<style lang="stylus">
+.con-exemple-prompt
+  padding 10px;
+  padding-bottom 0px;
+  .vs-input
+    width 100%
+    margin-top 10px;
+</style>
 ```
 
 </div>

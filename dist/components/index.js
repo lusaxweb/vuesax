@@ -23,7 +23,7 @@ import vsAvatar from './vsAvatar'
 import vsPagination from './vsPagination'
 import vsBreadcrumb from './vsBreadcrumb'
 import vsSideBar from './vsSideBar'
-import vsDialog from './vsDialog'
+import vsPrompt from './vsPrompt'
 import vsDropDown from './vsDropDown'
 import vsDivider from './vsDivider'
 import vsCollapse from './vsCollapse'
@@ -61,7 +61,7 @@ export {
   vsPagination,
   vsBreadcrumb,
   vsSideBar,
-  vsDialog,
+  vsPrompt,
   vsDropDown,
   vsDivider,
   vsCollapse,

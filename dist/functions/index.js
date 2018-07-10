@@ -6,6 +6,7 @@ import {confirm} from './vsMessageBox/vsMessageBox.js'
 // import {prompt} from './vsMessageBox/vsMessageBox.js'
 import {vsLoading} from './vsLoading/vsLoading.js'
 import {vsLoadingClose} from './vsLoading/vsLoading.js'
+import vsDialog from './vsDialog/index.js'
 //theme
 import vsTheme from '../utils/theme.js'
 
@@ -18,12 +19,16 @@ const vsFunctions = {
   vsLoading,
   vsLoadingClose,
   vsTheme,
+
+  // dialog new
+  vsDialog
 }
 
 export default Vue => {
   Vue.prototype.$vs = {}
 
   Object.values(vsFunctions).forEach((vsFunctions) => {
+    console.log(vsFunctions)
     if(vsFunctions.hasOwnProperty('subName')){
       Vue.prototype.$vs[vsFunctions.name][vsFunctions.subName] = vsFunctions.vsfunction
     } else {

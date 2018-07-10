@@ -9,6 +9,10 @@
   color: rgb(255, 255, 255);
   box-sizing: border-box;
   background: transparent
+  &:disabled 
+    opacity .5
+    cursor: default
+    pointer-events: none
   .vs-button-icon
     z-index: 100;
     display: block;

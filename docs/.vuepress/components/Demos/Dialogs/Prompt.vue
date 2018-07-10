@@ -1,5 +1,6 @@
 <template lang="html">
-  <div class="centerx">
+  <div class="centerx con-exemple-prompt">
+    <!-- <vs-button @click="openPrompt" vs-color="primary" vs-type="border">Run prompt</vs-button> -->
     <div class="modelx">
       {{val==null?'null':val}}
     </div>
@@ -10,37 +11,37 @@
      </div>
      <vs-button @click="activePrompt2 = true" vs-color="primary" vs-type="border">Run prompt inputs</vs-button>
 
-     <vs-dialog
+     <vs-prompt
       @vs-cancel="val=''"
-      vs-type="prompt"
       @vs-accept="acceptAlert"
       :vs-active.sync="activePrompt">
-       Enter the security code
-       <div slot="input">
-         <vs-input vs-placeholder="Code" v-model="val"/>
+       <div class="con-exemple-prompt">
+          Enter the security code
+         <vs-input placeholder="Code" vs-placeholder="Code" v-model="val"/>
        </div>
-     </vs-dialog>
+     </vs-prompt>
 
-     <vs-dialog
+     <vs-prompt
       @vs-cancel="valMultipe.value1='',valMultipe.value2=''"
-      vs-type="prompt"
       @vs-accept="acceptAlert"
       :vs-is-valid="validName"
       :vs-active.sync="activePrompt2">
-       Enter your first and last name to continue
-       <div slot="input">
-         <vs-input vs-placeholder="Name" v-model="valMultipe.value1"/>
-         <vs-input vs-placeholder="Last Name" v-model="valMultipe.value2"/>
+       <div class="con-exemple-prompt">
+       Enter your first and last name to <b>continue</b>.
+         <vs-input placeholder="Name" v-model="valMultipe.value1"/>
+         <vs-input placeholder="Last Name" v-model="valMultipe.value2"/>
 
          <vs-alert :vs-active="!validName" vs-color="danger" vs-icon="new_releases" >
            Fields can not be empty please enter the data
          </vs-alert>
        </div>
-     </vs-dialog>
+     </vs-prompt>
   </div>
 </template>
 
 <script>
+import Vue from 'vue'
+
 export default {
   data(){
     return {
@@ -70,5 +71,11 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="stylus">
+.con-exemple-prompt
+  padding 10px;
+  padding-bottom 0px;
+  .vs-input
+    width 100%
+    margin-top 10px;
 </style>

@@ -1,14 +1,6 @@
 <template lang="html">
   <div class="centerx">
-    <vs-button @click="activeConfirm = true" vs-color="danger" vs-type="gradient">Run Confirm</vs-button>
-    <vs-dialog
-      vs-color="danger"
-      vs-title="Delete Image"
-      vs-type="confirm"
-      @vs-accept="acceptAlert"
-      :vs-active.sync="activeConfirm">
-      You are sure to delete this image?
-    </vs-dialog>
+    <vs-button @click="openConfirm()" vs-color="danger" vs-type="gradient">Alert Primary</vs-button>
   </div>
 </template>
 
@@ -18,6 +10,15 @@ export default {
     activeConfirm:false
   }),
     methods:{
+      openConfirm(){
+      this.$vs.dialog({
+        type:'confirm',
+        color: 'danger',
+        title: `Confirm`,
+        text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        accept:this.acceptAlert
+      })
+      },
       acceptAlert(color){
         this.$vs.notify({
           color:'danger',

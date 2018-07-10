@@ -56,12 +56,13 @@ To define the type of button the directive is used `vs-type` with the value of s
 
 <vuecode md center>
 <div slot="demo">
-<vs-button vs-color="primary" vs-type="filled">Primary</vs-button>
+<vs-button vs-type="filled">Primary</vs-button>
 <vs-button vs-color="success" vs-type="filled">Success</vs-button>
 <vs-button vs-color="danger" vs-type="filled">Danger</vs-button>
 <vs-button vs-color="warning" vs-type="filled">Warning</vs-button>
 <vs-button vs-color="dark" vs-type="filled">Dark</vs-button>
 <vs-button vs-color="rgb(11, 189, 135)" vs-type="filled">RGB</vs-button>
+<vs-button disabled vs-type="filled">Disabled</vs-button>
 </div>
 
 <div slot="code">
@@ -73,6 +74,7 @@ To define the type of button the directive is used `vs-type` with the value of s
 <vs-button vs-color="warning" vs-type="filled">Warning</vs-button>
 <vs-button vs-color="dark" vs-type="filled">Dark</vs-button>
 <vs-button vs-color="rgb(134, 4, 98)" vs-type="filled">RGB</vs-button>
+<vs-button disabled vs-type="filled">Disabled</vs-button>
 ```
 
 </div>
@@ -93,6 +95,7 @@ To add a type of button with edges we change the value of `border`.
 <vs-button vs-color="warning" vs-type="border">Warning</vs-button>
 <vs-button vs-color="dark" vs-type="border">Dark</vs-button>
 <vs-button vs-color="rgb(11, 189, 135)" vs-type="border">RGB</vs-button>
+<vs-button disabled vs-type="border">Disabled</vs-button>
 </div>
 
 <div slot="code">
@@ -104,6 +107,7 @@ To add a type of button with edges we change the value of `border`.
 <vs-button vs-color="warning" vs-type="border">Warning</vs-button>
 <vs-button vs-color="dark" vs-type="border">Dark</vs-button>
 <vs-button vs-color="rgb(11, 189, 135)" vs-type="border">RGB</vs-button>
+<vs-button disabled vs-type="border">Disabled</vs-button>
 ```
 
 </div>
@@ -125,6 +129,7 @@ To add a type of button with edges we change the value of `flat`
 <vs-button vs-color="warning" vs-type="flat">Warning</vs-button>
 <vs-button vs-color="dark" vs-type="flat">Dark</vs-button>
 <vs-button vs-color="rgb(11, 189, 135)" vs-type="flat">RGB</vs-button>
+<vs-button disabled vs-type="flat">Disabled</vs-button>
 </div>
 
 <div slot="code">
@@ -136,6 +141,7 @@ To add a type of button with edges we change the value of `flat`
 <vs-button vs-color="warning" vs-type="flat">Warning</vs-button>
 <vs-button vs-color="dark" vs-type="flat">Dark</vs-button>
 <vs-button vs-color="rgb(11, 189, 135)" vs-type="flat">RGB</vs-button>
+<vs-button disabled vs-type="flat">Disabled</vs-button>
 ```
 
 </div>
@@ -164,17 +170,18 @@ To add a type of button with edges we change the value of `vs-type` by: `line`.
 <vs-button  vs-color="danger" vs-type="line">Danger</vs-button>
 <vs-button vs-line-position="top" vs-line-origin="left" vs-color="warning" vs-type="line">Warning</vs-button>
 <vs-button vs-line-position="top" vs-line-origin="right" vs-color="dark" vs-type="line">Dark</vs-button>
+<vs-button disabled vs-type="line">Disabled</vs-button>
 </div>
 
 <div slot="code">
 
 ```html
 <vs-button vs-type="line">Primary</vs-button>
-<vs-button vs-color="success" vs-type="line">Success</vs-button>
-<vs-button vs-color="danger" vs-type="line">Danger</vs-button>
-<vs-button vs-color="warning" vs-type="line">Warning</vs-button>
-<vs-button vs-color="dark" vs-type="line">Dark</vs-button>
-<vs-button vs-color="rgb(235, 146, 21)" vs-type="line">success</vs-button>
+<vs-button vs-line-origin="left" vs-color="success" vs-type="line">Success</vs-button>
+<vs-button  vs-color="danger" vs-type="line">Danger</vs-button>
+<vs-button vs-line-position="top" vs-line-origin="left" vs-color="warning" vs-type="line">Warning</vs-button>
+<vs-button vs-line-position="top" vs-line-origin="right" vs-color="dark" vs-type="line">Dark</vs-button>
+<vs-button disabled vs-type="line">Disabled</vs-button>
 ```
 
 </div>
@@ -196,6 +203,7 @@ To add a type of button with edges we change the value of `vs-type` by: `gradien
 <vs-button vs-color="warning" vs-type="gradient">warning</vs-button>
 <vs-button vs-color="dark" vs-type="gradient">dark</vs-button>
 <vs-button vs-color="#3dd495" vs-gradient-color-secondary="rgb(130, 207, 23)" vs-type="gradient">dark</vs-button>
+<vs-button disabled vs-type="gradient">Disabled</vs-button>
 </div>
 
 <div slot="code">
@@ -207,6 +215,7 @@ To add a type of button with edges we change the value of `vs-type` by: `gradien
 <vs-button vs-color="warning" vs-type="gradient">warning</vs-button>
 <vs-button vs-color="dark" vs-type="gradient">dark</vs-button>
 <vs-button vs-color="#3dd495" vs-gradient-color-secondary="rgb(130, 207, 23)" vs-type="gradient">dark</vs-button>
+<vs-button disabled vs-type="gradient">Disabled</vs-button>
 ```
 
 </div>
@@ -227,7 +236,8 @@ To add a type of button with edges we change the value of `vs-type` by: `relief`
 <vs-button vs-color="danger" vs-type="relief">Danger</vs-button>
 <vs-button vs-color="warning" vs-type="relief">warning</vs-button>
 <vs-button vs-color="dark" vs-type="relief">dark</vs-button>
-<vs-button vs-color="rgb(187, 138, 49)" vs-type="relief">Color</vs-button>
+<vs-button vs-color="rgb(187, 138, 0)" vs-type="relief">Color</vs-button>
+<vs-button disabled vs-type="relief">Disabled</vs-button>
 </div>
 
 <div slot="code">
@@ -238,7 +248,8 @@ To add a type of button with edges we change the value of `vs-type` by: `relief`
 <vs-button vs-color="danger" vs-type="relief">Danger</vs-button>
 <vs-button vs-color="warning" vs-type="relief">warning</vs-button>
 <vs-button vs-color="dark" vs-type="relief">dark</vs-button>
-<vs-button vs-color="rgb(187, 138, 49)" vs-type="relief">Color</vs-button>
+<vs-button vs-color="rgb(187, 138, 0)" vs-type="relief">Color</vs-button>
+<vs-button disabled vs-type="relief">Disabled</vs-button>
 ```
 
 </div>
@@ -323,6 +334,7 @@ Vuesax use the **Google Material Icons** font library. For a list of all availab
 <vs-button vs-color="success" vs-type="flat" vs-icon="done">Done</vs-button>
 <vs-button vs-icon-after vs-color="dark" vs-type="line" vs-icon="menu">menu</vs-button>
 <vs-button vs-icon-after vs-color="danger" vs-type="gradient" vs-icon="favorite">favorite</vs-button>
+<vs-button disabled vs-color="primary" vs-type="border" vs-icon="home">Disabled</vs-button>
 </div>
 
 <div slot="code">
@@ -333,6 +345,7 @@ Vuesax use the **Google Material Icons** font library. For a list of all availab
 <vs-button vs-color="success" vs-type="flat" vs-icon="done">Done</vs-button>
 <vs-button vs-color="dark" vs-type="line" vs-icon="menu">menu</vs-button>
 <vs-button vs-color="danger" vs-type="gradient" vs-icon="favorite">favorite</vs-button>
+<vs-button disabled vs-color="primary" vs-type="border" vs-icon="home">Disabled</vs-button>
 ```
 
 </div>
@@ -356,6 +369,7 @@ You can have a button with only the icon you want with the property `vs-icon` an
 <vs-button vs-color="success" vs-type="flat" vs-icon="photo_camera"></vs-button>
 <vs-button vs-color="dark" vs-type="line" vs-icon="event_note"></vs-button>
 <vs-button vs-color="danger" vs-type="gradient" vs-icon="person_add"></vs-button>
+<vs-button disabled vs-color="primary" vs-type="border" vs-icon="search"></vs-button>
 <br>
 <br>
 <vs-button style="border-radius: 50%" vs-color="primary" vs-type="border" vs-icon="search"></vs-button>
@@ -363,6 +377,7 @@ You can have a button with only the icon you want with the property `vs-icon` an
 <vs-button style="border-radius: 50%" vs-color="success" vs-type="flat" vs-icon="photo_camera"></vs-button>
 <vs-button style="border-radius: 50%" vs-color="dark" vs-type="line" vs-icon="event_note"></vs-button>
 <vs-button style="border-radius: 50%" vs-color="danger" vs-type="gradient" vs-icon="person_add"></vs-button>
+<vs-button disabled style="border-radius: 50%" vs-color="primary" vs-type="border" vs-icon="search"></vs-button>
 </div>
 <div slot="code">
 
@@ -372,6 +387,7 @@ You can have a button with only the icon you want with the property `vs-icon` an
 <vs-button vs-color="success" vs-type="flat" vs-icon="photo_camera"></vs-button>
 <vs-button vs-color="dark" vs-type="line" vs-icon="event_note"></vs-button>
 <vs-button vs-color="danger" vs-type="gradient" vs-icon="person_add"></vs-button>
+<vs-button disabled vs-color="primary" vs-type="border" vs-icon="search"></vs-button>
 <br>
 <br>
 <vs-button style="border-radius: 50%" vs-color="primary" vs-type="border" vs-icon="search"></vs-button>
@@ -379,6 +395,7 @@ You can have a button with only the icon you want with the property `vs-icon` an
 <vs-button style="border-radius: 50%" vs-color="success" vs-type="flat" vs-icon="photo_camera"></vs-button>
 <vs-button style="border-radius: 50%" vs-color="dark" vs-type="line" vs-icon="event_note"></vs-button>
 <vs-button style="border-radius: 50%" vs-color="danger" vs-type="gradient" vs-icon="person_add"></vs-button>
+<vs-button disabled style="border-radius: 50%" vs-color="primary" vs-type="border" vs-icon="search"></vs-button>
 ```
 
 </div>

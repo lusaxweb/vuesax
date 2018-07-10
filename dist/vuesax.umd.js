@@ -155,35 +155,17 @@ module.exports = function (that, searchString, NAME) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/builtin/es6/typeof.js
-function _typeof2(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof2 = function _typeof2(obj) { return typeof obj; }; } else { _typeof2 = function _typeof2(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof2(obj); }
-
-function _typeof(obj) {
-  if (typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol") {
-    _typeof = function _typeof(obj) {
-      return _typeof2(obj);
-    };
-  } else {
-    _typeof = function _typeof(obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : _typeof2(obj);
-    };
-  }
-
-  return _typeof(obj);
-}
-// EXTERNAL MODULE: ./src/directives/vsTooltip/vsTooltip.css
-var vsTooltip = __webpack_require__("9hsr");
-
-// CONCATENATED MODULE: ./src/directives/vsTooltip/vsTooltip.js
+/* harmony import */ var C_vuesax_node_modules_babel_runtime_helpers_builtin_es6_typeof__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("a94B");
+/* harmony import */ var _vsTooltip_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("9hsr");
+/* harmony import */ var _vsTooltip_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_vsTooltip_css__WEBPACK_IMPORTED_MODULE_1__);
 
 
-/* harmony default export */ var vsTooltip_vsTooltip = __webpack_exports__["a"] = ({
+/* harmony default export */ __webpack_exports__["a"] = ({
   update: function update(el, binding, vnode) {
     var valuex = null;
     var keyx = el.dataset.keyx;
 
-    if (_typeof(binding.value) == 'object') {
+    if (Object(C_vuesax_node_modules_babel_runtime_helpers_builtin_es6_typeof__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(binding.value) == 'object') {
       valuex = binding.value.text;
     } else if (typeof binding.value == 'string') {
       valuex = binding.value;
@@ -206,7 +188,7 @@ var vsTooltip = __webpack_require__("9hsr");
     var colorx = 'rgb(70, 70, 70)';
     var active = true;
 
-    if (_typeof(binding.value) == 'object') {
+    if (Object(C_vuesax_node_modules_babel_runtime_helpers_builtin_es6_typeof__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(binding.value) == 'object') {
       valuex = binding.value.text; // if(binding.value.hasOwnProperty('delay')){
 
       delayx = binding.value.delay || 0; // }
@@ -221,7 +203,7 @@ var vsTooltip = __webpack_require__("9hsr");
     var tooltipx = document.createElement("div");
     tooltipx.classList = 'vs-tooltip';
 
-    if (_typeof(binding.value) == 'object') {
+    if (Object(C_vuesax_node_modules_babel_runtime_helpers_builtin_es6_typeof__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(binding.value) == 'object') {
       if (binding.value.hasOwnProperty('position')) {
         tooltipx.classList.add('vs-tooltip-' + binding.value.position);
       }
@@ -237,7 +219,7 @@ var vsTooltip = __webpack_require__("9hsr");
 
       document.body.insertBefore(tooltipx, document.body.firstChild);
 
-      if (_typeof(binding.value) == 'object') {
+      if (Object(C_vuesax_node_modules_babel_runtime_helpers_builtin_es6_typeof__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(binding.value) == 'object') {
         if (binding.value.position == 'left') {
           tooltipx.style.top = coords.top + event.target.clientHeight + scrollTopx + 'px';
           tooltipx.style.left = coords.left - (tooltipx.clientWidth + 8) + 'px';
@@ -1293,6 +1275,210 @@ module.exports = function (index, length) {
   return index < 0 ? max(index + length, 0) : min(index, length);
 };
 
+
+/***/ }),
+
+/***/ "EtmI":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://vuesax//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!../Users/INTENOVA LUSAX-WEB/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/functions/vsDialog/index.vue?vue&type=template&id=50ae3fe6&lang=html
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('transition',{attrs:{"name":"dialog-t"}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.active || _vm.vsActive),expression:"active || vsActive"}],ref:"con",staticClass:"vs-component con-vs-dialog",class:[("vs-dialog-" + (_vm.isPrompt?_vm.vsColor:_vm.color))],on:{"click":function($event){_vm.close($event,true)}}},[_c('div',{staticClass:"vs-dialog-dark"}),_c('div',{ref:"dialogx",staticClass:"vs-dialog"},[_c('header',{style:(_vm.styleHeader)},[_c('div',{staticClass:"con-title-after"},[_c('span',{staticClass:"after",style:(_vm.styleAfter)}),_c('h3',[_vm._v(_vm._s(_vm.title || _vm.vsTitle))])]),(_vm.type=='alert')?_c('span',{staticClass:"vs-dialog-cancel material-icons",on:{"click":_vm.close}},[_vm._v("close")]):_vm._e()]),_c('div',{staticClass:"vs-dialog-text"},[_vm._t("default"),_vm._v("\n      "+_vm._s(_vm.text)+"\n    ")],2),(_vm.vsButtonsHidden?false:_vm.isPrompt||_vm.type=='confirm')?_c('footer',[_c('vs-button',{attrs:{"disabled":_vm.vsIsValid=='none'?false:!_vm.vsIsValid,"vs-color":_vm.isPrompt?_vm.vsColor:_vm.color,"vs-type":_vm.isPrompt?_vm.vsButtonAccept:_vm.buttonAccept},on:{"click":_vm.acceptDialog}},[_vm._v("Accept")]),_c('vs-button',{attrs:{"vs-color":'rgb(0,0,0,.5)',"vs-type":_vm.isPrompt?_vm.vsButtonCancel:_vm.buttonCancel},on:{"click":_vm.cancelClose}},[_vm._v("Cancel")])],1):_vm._e(),(_vm.type=='alert'&&!_vm.isPrompt)?_c('footer',[_c('vs-button',{attrs:{"vs-color":_vm.isPrompt?_vm.vsColor:_vm.color,"vs-type":_vm.buttonAccept},on:{"click":_vm.acceptDialog}},[_vm._v("Accept")])],1):_vm._e()])])])}
+var staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./src/functions/vsDialog/index.vue?vue&type=template&id=50ae3fe6&lang=html
+
+// EXTERNAL MODULE: ./src/utils/color.js
+var utils_color = __webpack_require__("Xp+x");
+
+// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib??ref--12-1!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/functions/vsDialog/index.vue?vue&type=script&lang=js
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ var vsDialogvue_type_script_lang_js = ({
+  name: 'vs-prompt',
+  props: {
+    vsColor: {
+      default: 'primary',
+      type: String
+    },
+    vsActive: {
+      default: false,
+      type: Boolean
+    },
+    vsTitle: {
+      default: 'Dialog',
+      type: String
+    },
+    vsButtonAccept: {
+      default: 'filled',
+      type: String
+    },
+    vsButtonCancel: {
+      default: 'flat',
+      type: String
+    },
+    vsIsValid: {
+      default: 'none',
+      type: [Boolean, String]
+    },
+    vsButtonsHidden: {
+      default: false,
+      type: Boolean
+    }
+  },
+  data: function data() {
+    return {
+      isPrompt: true,
+      active: false,
+      type: 'alert',
+      color: 'primary',
+      text: null,
+      title: null,
+      buttonAccept: 'filled',
+      buttonCancel: 'flat'
+    };
+  },
+  mounted: function mounted() {
+    this.insertBody();
+  },
+  computed: {
+    styleHeader: function styleHeader() {
+      return {
+        color: utils_color["a" /* default */].getColor(this.color, 1)
+      };
+    },
+    styleAfter: function styleAfter() {
+      return {
+        background: utils_color["a" /* default */].getColor(this.color, 1)
+      };
+    }
+  },
+  methods: {
+    giveColor: function giveColor(color) {
+      return utils_color["a" /* default */].rColor(color);
+    },
+    acceptDialog: function acceptDialog() {
+      if (!this.isPrompt) {
+        this.accept ? this.accept() : null;
+        this.active = false;
+        this.$emit('update:vsActive', false);
+        this.$emit('vs-accept');
+      } else {
+        if (this.vsIsValid || this.vsIsValid == 'none') {
+          this.accept ? this.accept() : null;
+          this.active = false;
+          this.$emit('update:vsActive', false);
+          this.$emit('vs-accept');
+        } else {
+          this.rebound();
+        }
+      }
+    },
+    // accept(){
+    // },
+    rebound: function rebound() {
+      var _this = this;
+
+      this.$refs.dialogx.classList.add('locked');
+      setTimeout(function () {
+        _this.$refs.dialogx.classList.remove('locked');
+      }, 200);
+    },
+    close: function close(event, con) {
+      console.log(event);
+
+      if (con) {
+        if (event.target.className.indexOf('vs-dialog-dark') != -1 && this.type == 'alert') {
+          this.active = false;
+          this.$emit('update:vsActive', false);
+        } else if (event.target.className.indexOf('vs-dialog-dark') != -1) {
+          this.rebound();
+        }
+      } else {
+        if (event ? event.target.className.indexOf('vs-dialog-cancel') != -1 : false) {
+          this.active = false;
+          this.$emit('update:vsActive', false);
+        }
+      }
+    },
+    cancelClose: function cancelClose() {
+      this.active = false;
+      this.$emit('update:vsActive', false);
+      this.$emit('vs-cancel');
+      this.cancel ? this.cancel() : null;
+    },
+    insertBody: function insertBody() {
+      var elx = this.$refs.con;
+      document.body.insertBefore(elx, document.body.firstChild);
+    }
+  }
+});
+// CONCATENATED MODULE: ./src/functions/vsDialog/index.vue?vue&type=script&lang=js
+ /* harmony default export */ var functions_vsDialogvue_type_script_lang_js = (vsDialogvue_type_script_lang_js); 
+// EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
+var componentNormalizer = __webpack_require__("KHd+");
+
+// CONCATENATED MODULE: ./src/functions/vsDialog/index.vue
+
+
+
+
+
+/* normalize component */
+
+var component = Object(componentNormalizer["a" /* default */])(
+  functions_vsDialogvue_type_script_lang_js,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var vsDialog = __webpack_exports__["a"] = (component.exports);
 
 /***/ }),
 
@@ -6189,180 +6375,15 @@ var vsSidebarGroup_component = Object(componentNormalizer["a" /* default */])(
   Vue.component(vsSidebarItem.name, vsSidebarItem);
   Vue.component(vsSidebarGroup.name, vsSidebarGroup);
 });
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://vuesax//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!../Users/INTENOVA LUSAX-WEB/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsDialog/vsDialog.vue?vue&type=template&id=d27805c8&lang=html
-var vsDialogvue_type_template_id_d27805c8_lang_html_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('transition',{attrs:{"name":"dialog-t"}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.vsActive),expression:"vsActive"}],ref:"con",staticClass:"vs-component con-vs-dialog",on:{"click":function($event){_vm.close($event,true)}}},[_c('div',{staticClass:"vs-dialog-dark"}),_c('div',{ref:"dialogx",staticClass:"vs-dialog"},[_c('header',{style:({
-        'color':_vm.giveColor(_vm.vsColor)
-      })},[_c('div',{staticClass:"con-title-after"},[_c('span',{staticClass:"after",style:({
-          'background':_vm.giveColor(_vm.vsColor)
-          })}),_c('h3',[_vm._v(_vm._s(_vm.vsTitle))])]),(_vm.vsType=='alert')?_c('span',{staticClass:"vs-dialog-cancel material-icons",on:{"click":_vm.close}},[_vm._v("close")]):_vm._e()]),_c('div',{staticClass:"vs-dialog-text"},[_vm._t("default")],2),(_vm.vsType=='prompt')?_c('div',{staticClass:"vs-dialog-text"},[_vm._t("input")],2):_vm._e(),(_vm.vsType=='prompt'||_vm.vsType=='confirm')?_c('footer',[_c('vs-button',{attrs:{"vs-color":_vm.vsColor,"vs-type":_vm.vsButtonAccept},on:{"click":_vm.accept}},[_vm._v("Accept")]),_c('vs-button',{attrs:{"vs-type":_vm.vsButtonCancel},on:{"click":_vm.close}},[_vm._v("Cancel")])],1):_c('footer',[_c('vs-button',{attrs:{"vs-color":_vm.vsColor,"vs-type":_vm.vsButtonAccept},on:{"click":_vm.accept}},[_vm._v("Accept")])],1)])])])}
-var vsDialogvue_type_template_id_d27805c8_lang_html_staticRenderFns = []
+// EXTERNAL MODULE: ./src/functions/vsDialog/index.vue + 4 modules
+var vsDialog = __webpack_require__("EtmI");
 
-
-// CONCATENATED MODULE: ./src/components/vsDialog/vsDialog.vue?vue&type=template&id=d27805c8&lang=html
-
-// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib??ref--12-1!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsDialog/vsDialog.vue?vue&type=script&lang=js
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ var vsDialogvue_type_script_lang_js = ({
-  name: 'vs-dialog',
-  props: {
-    vsTitle: {
-      default: 'Dialog',
-      type: String
-    },
-    vsColor: {
-      default: 'primary',
-      type: String
-    },
-    vsButtonAccept: {
-      default: 'filled',
-      type: String
-    },
-    vsButtonCancel: {
-      default: 'flat',
-      type: String
-    },
-    vsType: {
-      default: 'alert',
-      type: String
-    },
-    vsIsValid: {
-      default: 'none',
-      type: [Boolean, String]
-    },
-    vsActive: {
-      default: false,
-      type: Boolean
-    }
-  },
-  data: function data() {
-    return {
-      active: true
-    };
-  },
-  mounted: function mounted() {
-    this.insertBody();
-  },
-  methods: {
-    giveColor: function giveColor(color) {
-      return utils_color["a" /* default */].rColor(color);
-    },
-    accept: function accept() {
-      if (this.vsType != 'prompt') {
-        this.$emit('update:vsActive', false);
-        this.$emit('vs-accept');
-      } else {
-        if (this.vsIsValid || this.vsIsValid == 'none') {
-          this.$emit('update:vsActive', false);
-          this.$emit('vs-accept');
-        } else {
-          this.rebound();
-        }
-      }
-    },
-    rebound: function rebound() {
-      var _this = this;
-
-      this.$refs.dialogx.classList.add('locked');
-      setTimeout(function () {
-        _this.$refs.dialogx.classList.remove('locked');
-      }, 200);
-    },
-    close: function close(event, con) {
-      if (con) {
-        if (event.target.className.indexOf('vs-dialog-dark') != -1 && this.vsType == 'alert') {
-          this.$emit('update:vsActive', false);
-        } else if (this.vsType != 'alert') {
-          this.rebound();
-        }
-      } else {
-        if (event ? event.target.className.indexOf('vs-dialog-cancel') != -1 : false) {
-          this.$emit('update:vsActive', false);
-        } else {
-          this.$emit('update:vsActive', false);
-          this.$emit('vs-cancel');
-        }
-      }
-    },
-    insertBody: function insertBody() {
-      var elx = this.$refs.con;
-      document.body.insertBefore(elx, document.body.firstChild);
-    }
-  }
-});
-// CONCATENATED MODULE: ./src/components/vsDialog/vsDialog.vue?vue&type=script&lang=js
- /* harmony default export */ var vsDialog_vsDialogvue_type_script_lang_js = (vsDialogvue_type_script_lang_js); 
-// EXTERNAL MODULE: ./src/components/vsDialog/vsDialog.vue?vue&type=style&index=0&lang=stylus
-var vsDialogvue_type_style_index_0_lang_stylus = __webpack_require__("jXtu");
-
-// CONCATENATED MODULE: ./src/components/vsDialog/vsDialog.vue
+// CONCATENATED MODULE: ./src/components/vsPrompt/index.js
 
 
 
-
-
-
-/* normalize component */
-
-var vsDialog_component = Object(componentNormalizer["a" /* default */])(
-  vsDialog_vsDialogvue_type_script_lang_js,
-  vsDialogvue_type_template_id_d27805c8_lang_html_render,
-  vsDialogvue_type_template_id_d27805c8_lang_html_staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* harmony default export */ var vsDialog = (vsDialog_component.exports);
-// CONCATENATED MODULE: ./src/components/vsDialog/index.js
-
-
-
-/* harmony default export */ var components_vsDialog = (function (Vue) {
-  Vue.component(vsDialog.name, vsDialog);
+/* harmony default export */ var vsPrompt = (function (Vue) {
+  Vue.component(vsDialog["a" /* default */].name, vsDialog["a" /* default */]);
 });
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://vuesax//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!../Users/INTENOVA LUSAX-WEB/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsDropDown/vsDropDown.vue?vue&type=template&id=5fdd1acc&lang=html
 var vsDropDownvue_type_template_id_5fdd1acc_lang_html_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('button',_vm._g(_vm._b({ref:"dropdown",staticClass:"vs-con-dropdown parent-dropdown"},'button',_vm.$attrs,false),_vm.listeners),[_vm._t("default")],2)}
@@ -7483,7 +7504,7 @@ var vsCol_component = Object(componentNormalizer["a" /* default */])(
 /* concated harmony reexport */__webpack_require__.d(__webpack_exports__, "vsPagination", function() { return components_vsPagination; });
 /* concated harmony reexport */__webpack_require__.d(__webpack_exports__, "vsBreadcrumb", function() { return components_vsBreadcrumb; });
 /* concated harmony reexport */__webpack_require__.d(__webpack_exports__, "vsSideBar", function() { return components_vsSideBar; });
-/* concated harmony reexport */__webpack_require__.d(__webpack_exports__, "vsDialog", function() { return components_vsDialog; });
+/* concated harmony reexport */__webpack_require__.d(__webpack_exports__, "vsPrompt", function() { return vsPrompt; });
 /* concated harmony reexport */__webpack_require__.d(__webpack_exports__, "vsDropDown", function() { return components_vsDropDown; });
 /* concated harmony reexport */__webpack_require__.d(__webpack_exports__, "vsDivider", function() { return components_vsDivider; });
 /* concated harmony reexport */__webpack_require__.d(__webpack_exports__, "vsCollapse", function() { return components_vsCollapse; });
@@ -8252,6 +8273,29 @@ module.exports = {};
 
 /***/ }),
 
+/***/ "a94B":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return _typeof; });
+function _typeof2(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof2 = function _typeof2(obj) { return typeof obj; }; } else { _typeof2 = function _typeof2(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof2(obj); }
+
+function _typeof(obj) {
+  if (typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol") {
+    _typeof = function _typeof(obj) {
+      return _typeof2(obj);
+    };
+  } else {
+    _typeof = function _typeof(obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : _typeof2(obj);
+    };
+  }
+
+  return _typeof(obj);
+}
+
+/***/ }),
+
 /***/ "b67n":
 /***/ (function(module, exports) {
 
@@ -8481,13 +8525,6 @@ module.exports = function (it, key) {
 
 /***/ }),
 
-/***/ "gXHJ":
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-
 /***/ "gnvq":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8546,17 +8583,6 @@ $export($export.P + $export.F * __webpack_require__("SkA3")(INCLUDES), 'String',
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-
-/***/ }),
-
-/***/ "jXtu":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _Users_INTENOVA_LUSAX_WEB_AppData_Roaming_npm_node_modules_vue_cli_service_global_node_modules_mini_css_extract_plugin_dist_loader_js_node_modules_css_loader_index_js_ref_11_oneOf_1_1_Users_INTENOVA_LUSAX_WEB_AppData_Roaming_npm_node_modules_vue_cli_service_global_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_11_oneOf_1_2_node_modules_stylus_loader_index_js_ref_11_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_vsDialog_vue_vue_type_style_index_0_lang_stylus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("gXHJ");
-/* harmony import */ var _Users_INTENOVA_LUSAX_WEB_AppData_Roaming_npm_node_modules_vue_cli_service_global_node_modules_mini_css_extract_plugin_dist_loader_js_node_modules_css_loader_index_js_ref_11_oneOf_1_1_Users_INTENOVA_LUSAX_WEB_AppData_Roaming_npm_node_modules_vue_cli_service_global_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_11_oneOf_1_2_node_modules_stylus_loader_index_js_ref_11_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_vsDialog_vue_vue_type_style_index_0_lang_stylus__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Users_INTENOVA_LUSAX_WEB_AppData_Roaming_npm_node_modules_vue_cli_service_global_node_modules_mini_css_extract_plugin_dist_loader_js_node_modules_css_loader_index_js_ref_11_oneOf_1_1_Users_INTENOVA_LUSAX_WEB_AppData_Roaming_npm_node_modules_vue_cli_service_global_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_11_oneOf_1_2_node_modules_stylus_loader_index_js_ref_11_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_vsDialog_vue_vue_type_style_index_0_lang_stylus__WEBPACK_IMPORTED_MODULE_0__);
-/* unused harmony reexport * */
- /* unused harmony default export */ var _unused_webpack_default_export = (_Users_INTENOVA_LUSAX_WEB_AppData_Roaming_npm_node_modules_vue_cli_service_global_node_modules_mini_css_extract_plugin_dist_loader_js_node_modules_css_loader_index_js_ref_11_oneOf_1_1_Users_INTENOVA_LUSAX_WEB_AppData_Roaming_npm_node_modules_vue_cli_service_global_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_11_oneOf_1_2_node_modules_stylus_loader_index_js_ref_11_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_vsDialog_vue_vue_type_style_index_0_lang_stylus__WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -9793,6 +9819,56 @@ var vsLoadingClose = {
     }, 300);
   }
 };
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/builtin/es6/typeof.js
+var es6_typeof = __webpack_require__("a94B");
+
+// EXTERNAL MODULE: ./src/functions/vsDialog/index.vue + 4 modules
+var vsDialog = __webpack_require__("EtmI");
+
+// CONCATENATED MODULE: ./src/functions/vsDialog/index.js
+
+
+
+
+var dialogConstructor = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend(vsDialog["a" /* default */]);
+var vsDialog_instance;
+
+var vsDialog_this;
+
+function isVNode(node) {
+  return node !== null && Object(es6_typeof["a" /* default */])(node) === 'object';
+}
+
+;
+/* harmony default export */ var functions_vsDialog = ({
+  name: 'dialog',
+  vsfunction: function vsfunction(parameters) {
+    var nodex;
+
+    if (isVNode(parameters.text)) {
+      nodex = parameters.text;
+      parameters.text = null;
+    }
+
+    vsDialog_instance = new dialogConstructor({
+      data: parameters
+    });
+    vsDialog_instance.$data.isPrompt = false;
+    vsDialog_instance.vm = vsDialog_instance.$mount();
+
+    if (nodex) {
+      console.log(nodex);
+      vsDialog_instance.$slots.default = [nodex];
+    }
+
+    parameters.accept ? vsDialog_instance.vm.$on('accept', parameters.accept) : null;
+    parameters.cancel ? vsDialog_instance.vm.$on('cancel', parameters.cancel) : null;
+    utils["a" /* default */].insertBody(vsDialog_instance.vm.$el);
+    external_commonjs_vue_commonjs2_vue_root_Vue_default.a.nextTick(function () {
+      vsDialog_instance.active = true;
+    });
+  }
+});
 // EXTERNAL MODULE: ./src/utils/theme.js
 var theme = __webpack_require__("BYIe");
 
@@ -9811,6 +9887,7 @@ var theme = __webpack_require__("BYIe");
  // import {prompt} from './vsMessageBox/vsMessageBox.js'
 
 
+
  //theme
 
 
@@ -9822,11 +9899,15 @@ var vsFunctions = {
   // vsDialog,
   vsLoading: vsLoading_vsLoading,
   vsLoadingClose: vsLoadingClose,
-  vsTheme: theme["a" /* default */]
+  vsTheme: theme["a" /* default */],
+  // dialog new
+  vsDialog: functions_vsDialog
 };
 /* harmony default export */ var functions = __webpack_exports__["a"] = (function (Vue) {
   Vue.prototype.$vs = {};
   Object.values(vsFunctions).forEach(function (vsFunctions) {
+    console.log(vsFunctions);
+
     if (vsFunctions.hasOwnProperty('subName')) {
       Vue.prototype.$vs[vsFunctions.name][vsFunctions.subName] = vsFunctions.vsfunction;
     } else {
