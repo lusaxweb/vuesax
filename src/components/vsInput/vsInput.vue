@@ -163,7 +163,7 @@ export default {
   computed:{
     style(){
       return {
-        border: `1px solid ${this.isFocus?_color.getColor(this.vsColor,1):null}`,
+        border: `1px solid ${this.isFocus?_color.getColor(this.vsColor,1):'rgba(0, 0, 0,.2)'}`,
       }
     },
     styleLabel(){

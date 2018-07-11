@@ -44,7 +44,17 @@ API:
    type: type buttons
    parameters: null
    description: Change the type of botton for the cancel.
-   default: false
+   default: filled
+ - name: vs-accept-text
+   type: String
+   parameters: null
+   description: Change the text of the accept button.
+   default: Accept
+ - name: vs-cancel-text
+   type: String
+   parameters: null
+   description: Change the text of the cancel button.
+   default: Cancel
 
 ---
 
