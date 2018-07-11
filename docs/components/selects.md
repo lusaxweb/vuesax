@@ -53,14 +53,14 @@ To add a select to the application we have the component `vs-select`.
       label="Figuras"
       v-model="select1"
       >
-      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in options1" />
+      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="(item,index) in options1" />
     </vs-select>
     <vs-select
     class="selectExample"
       label="Figuras"
       v-model="select2"
       >
-      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in options2" />
+      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="(item,index) in options2" />
     </vs-select>
     <vs-select
       disabled="true"
@@ -68,7 +68,7 @@ To add a select to the application we have the component `vs-select`.
       label="Figuras"
       v-model="select3"
       >
-      <vs-select-item :key="index" :disabled="index==2" :vs-value="item.value" :vs-text="item.text" v-for="item,index in options3" />
+      <vs-select-item :key="index" :disabled="index==2" :vs-value="item.value" :vs-text="item.text" v-for="(item,index) in options3" />
     </vs-select>
   </div>
 </template>
@@ -144,7 +144,7 @@ You can change the color of the select with the property `vs-color`
       label="Figuras"
       v-model="select1"
       >
-      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in options1" />
+      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="(item,index) in options1" />
     </vs-select>
     <vs-select
     :vs-color="select2"
@@ -152,7 +152,7 @@ You can change the color of the select with the property `vs-color`
       label="Figuras"
       v-model="select2"
       >
-      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in options2" />
+      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="(item,index) in options2" />
     </vs-select>
   </div>
 </template>
@@ -220,7 +220,7 @@ You can add the autocomplete functionality in the desired selected with the prop
       label="Figuras"
       v-model="select1"
       >
-      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in options1" />
+      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="(item,index) in options1" />
     </vs-select>
     <vs-select
     vs-autocomplete
@@ -228,7 +228,7 @@ You can add the autocomplete functionality in the desired selected with the prop
       label="Figuras"
       v-model="select2"
       >
-      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in options2" />
+      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="(item,index) in options2" />
     </vs-select>
     <vs-select
     vs-autocomplete
@@ -237,7 +237,7 @@ You can add the autocomplete functionality in the desired selected with the prop
       label="Figuras"
       v-model="select3"
       >
-      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in options3" />
+      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="(item,index) in options3" />
     </vs-select>
   </div>
 </template>
@@ -311,7 +311,7 @@ You can have a selection with multiple selections with the property `vs-multiple
       label="Figuras"
       v-model="select1"
       >
-      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in options1" />
+      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="(item,index) in options1" />
     </vs-select>
     <vs-select
     placeholder="Multiple and autocomplete"
@@ -321,7 +321,7 @@ You can have a selection with multiple selections with the property `vs-multiple
       label="Figuras"
       v-model="select2"
       >
-      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in options2" />
+      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="(item,index) in options2" />
     </vs-select>
     <vs-select
     placeholder="Max Selected"
@@ -331,7 +331,7 @@ You can have a selection with multiple selections with the property `vs-multiple
       label="Figuras"
       v-model="select3"
       >
-      <vs-select-item :key="index" :vs-value="item.value"  :vs-text="item.text" v-for="item,index in options3" />
+      <vs-select-item :key="index" :vs-value="item.value"  :vs-text="item.text" v-for="(item,index) in options3" />
     </vs-select>
   </div>
 </template>
