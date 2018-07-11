@@ -26,12 +26,12 @@
 
       <!-- footer buttons -->
       <footer v-if="vsButtonsHidden?false:isPrompt||type=='confirm'">
-        <vs-button :disabled="vsIsValid=='none'?false:!vsIsValid" :vs-color="isPrompt?vsColor:color" @click="acceptDialog" :vs-type="isPrompt?vsButtonAccept:buttonAccept">Accept</vs-button>
-        <vs-button :vs-color="'rgb(0,0,0,.5)'" @click="cancelClose" :vs-type="isPrompt?vsButtonCancel:buttonCancel">Cancel</vs-button>
+        <vs-button :disabled="vsIsValid=='none'?false:!vsIsValid" :vs-color="isPrompt?vsColor:color" @click="acceptDialog" :vs-type="isPrompt?vsButtonAccept:buttonAccept">{{isPrompt?vsAcceptText:acceptText}}</vs-button>
+        <vs-button :vs-color="'rgb(0,0,0,.5)'" @click="cancelClose" :vs-type="isPrompt?vsButtonCancel:buttonCancel">{{isPrompt?vsCancelText:cancelText}}</vs-button>
       </footer>
 
       <footer v-if="type=='alert'&&!isPrompt" >
-        <vs-button :vs-color="isPrompt?vsColor:color" @click="acceptDialog" :vs-type="buttonAccept">Accept</vs-button>
+        <vs-button :vs-color="isPrompt?vsColor:color" @click="acceptDialog" :vs-type="buttonAccept">{{isPrompt?vsAcceptText:acceptText}}</vs-button>
       </footer>
     </div>
   </div>
@@ -70,6 +70,14 @@ export default {
     vsButtonsHidden:{
       default:false,
       type:Boolean
+    },
+    vsAcceptText:{
+      default:'Accept',
+      type:String
+    },
+    vsCancelText:{
+      default:'Cancel',
+      type:String
     }
   },
   data:()=>({
@@ -80,7 +88,9 @@ export default {
     text:null,
     title:null,
     buttonAccept:'filled',
-    buttonCancel:'flat'
+    buttonCancel:'flat',
+    acceptText:'Accept',
+    cancelText:'Cancel'
   }),
   mounted(){
     this.insertBody()

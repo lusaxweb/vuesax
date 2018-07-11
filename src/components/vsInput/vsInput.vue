@@ -24,7 +24,7 @@
       v-bind="$attrs" 
       v-on="listeners"  
       class="vs-inputx" 
-      type="text">
+      :type="$attrs.type?$attrs.type:'text'">
     <transition name="placeholderx">
     <span
       :style="styleLabel"
