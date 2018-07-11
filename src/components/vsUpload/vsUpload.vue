@@ -4,7 +4,7 @@
 
   <div v-if="!multiple" class="con-upload">
     <div  class="con-subir">
-      <h3>Subir Archivo</h3>
+      <h3>{{ title }}</h3>
       <i class="material-icons">publish</i>
     </div>
     <input class="input-upload" ref="inputx"  @change="uploadx($event)" type="file" name="" value="">
@@ -69,6 +69,10 @@ export default {
     }
   },
   props:{
+    title: {
+      type: String,
+      default: 'Upload file'
+    }
     vsFile:String,
     multiple:Boolean,
     arrayFiles:{
