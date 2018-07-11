@@ -72,7 +72,7 @@ export default {
     title: {
       type: String,
       default: 'Upload file'
-    }
+    },
     vsFile:String,
     multiple:Boolean,
     arrayFiles:{
