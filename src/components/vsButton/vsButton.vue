@@ -9,7 +9,9 @@
       }]"
     :style="styles"
     class="vs-component vs-button"
-    name="button">
+    name="button"
+    :disabled="disabled"
+    >
       <span
       v-if="!is('line')&&!is('gradient')&&!is('relief')"
       ref="backgroundx"
@@ -77,6 +79,10 @@ export default {
     vsIconAfter:{
       default:false,
       type:Boolean
+    },
+    disabled:{
+      default: false,
+      type: Boolean
     }
   },
   data:()=>({
