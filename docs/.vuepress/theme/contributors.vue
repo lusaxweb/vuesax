@@ -23,7 +23,7 @@
         <!-- <a href="">Contribuitors</a> -->
         <router-link
           to="/contribuitors/"
-        >contributors</router-link>
+        >Contributors</router-link>
       </button>
     </div>
   </div>
