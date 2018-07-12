@@ -84,7 +84,7 @@ contributors:
  - cristijora
 ---
 
-# Input <!--#update-->
+# Input **- ssr**
 
 <box header>
 

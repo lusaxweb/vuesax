@@ -22,7 +22,7 @@ API:
    default: All options
 ---
 
-# Select <!--#update-->
+# Select **- ssr**
 
 <box header>
 

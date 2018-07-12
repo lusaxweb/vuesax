@@ -31,7 +31,7 @@ API:
    description: Icon that appears in the inactive state.
    default: null
 ---
-# Switch
+# Switch **- ssr**
 
 <box header>
 

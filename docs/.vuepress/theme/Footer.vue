@@ -48,8 +48,8 @@ export default {
     },
     lineaLx(evt){
       this.lineaActiva = true
-      console.dir(evt.target.offsetLeft);
-      this.lineaL = evt.target.offsetLeft
+      console.dir(evt);
+      this.lineaL = evt.target.offsetLeft + 23
     }
   }
 

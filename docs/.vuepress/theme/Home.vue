@@ -148,8 +148,9 @@ export default {
   justify-content: center;
   .con-svg-trofeos
     display: block;
-    width: 550px;
-    margin-left: 50px
+    width: 460px;
+    margin-left: 30px
+    min-width 460px;
 .doc-img
   position: absolute;
   transform: translate(-5%);
