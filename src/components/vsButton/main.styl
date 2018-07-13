@@ -9,7 +9,15 @@
   color: rgb(255, 255, 255);
   box-sizing: border-box;
   background: transparent
-  &:disabled 
+  &.large
+    width: 80px;
+    height: 50px;
+    font-size: 1em;
+  &.small
+    width: 64px;
+    height: 32px;
+    font-size: .75em;
+  &:disabled
     opacity .5
     cursor: default
     pointer-events: none

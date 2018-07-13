@@ -6,8 +6,11 @@
     :class="[`vs-button-${isColor()?vsColor:null}`,`vs-button-${vsType}`,{
       'isActive':isActive,
       'includeIcon':vsIcon
-      }]"
-    :style="styles"
+      }, vsSize]"
+    :style="[styles,{
+    'width':/[px]/.test(vsSize)?`${vsSize}`:null,
+    'height':/[px]/.test(vsSize)?`${vsSize}`:null
+  }]"
     class="vs-component vs-button"
     name="button">
       <span
@@ -69,6 +72,10 @@ export default {
     vsGradientColorSecondary:{
       default:'primary',
       type:String
+    },
+    vsSize:{
+      type:String,
+      default:null,
     },
     vsIcon:{
       type:String,
