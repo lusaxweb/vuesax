@@ -7,6 +7,7 @@ module.exports = {
     ['link', { rel: 'stylesheet', href: `https://fonts.googleapis.com/icon?family=Material+Icons` }],
     // ['link', { rel: 'stylesheet', href: `https://use.fontawesome.com/releases/v5.0.13/css/all.css` }],
   ],
+  ga:'UA-122319353-1',
   docsDir: 'docs',
   host:'localhost',
   port: 7070,

@@ -51,6 +51,7 @@
     </div> -->
     <div class="contenedor">
 
+      <home-patreons/>
 
     <div class="features" v-if="data.features && data.features.length">
       <div class="feature" v-for="feature in data.features">
@@ -110,8 +111,9 @@ import trofeos from './trofeos.vue'
 import NavLink from './NavLink.vue'
 import Footer from './Footer.vue'
 import contributors from './contributors.vue'
+import homePatreons from './homePatreons.vue'
 export default {
-  components: { NavLink, Footer, contributors, trofeos },
+  components: { NavLink, Footer, contributors, trofeos, homePatreons },
   data(){
     return {
       star:0,
@@ -240,7 +242,7 @@ export default {
     &:hover
       box-shadow: 0px 9px 28px -9px $accentColor
 .homeBackgroundComponent {
-  margin-bottom: 200px;
+  margin-bottom: 100px;
 }
 .heroBackgroundComponent {
   position: absolute;
