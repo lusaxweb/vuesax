@@ -107,6 +107,10 @@
 </template>
 
 <script>
+// <!-- Hotjar Tracking Code for https://lusaxweb.github.io/vuesax/ -->
+
+
+
 import trofeos from './trofeos.vue'
 import NavLink from './NavLink.vue'
 import Footer from './Footer.vue'

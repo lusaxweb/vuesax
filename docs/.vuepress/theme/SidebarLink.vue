@@ -5,7 +5,6 @@ export default {
   functional: true,
   props: ['item'],
   render (h, { parent: { $page, $site, $route }, props: { item }}) {
-    // console.log(">>>>>>>>>>>>>>>>>>>>>>>>",item);
     let tag = null
     if(item.title.search('- new')!=-1){
       tag = 'new'
@@ -14,9 +13,6 @@ export default {
     } else if (item.title.search('- ssr')!=-1){
       tag = 'ssr'
     }
-    console.log(item.title)
-    // console.log("$page>",$page.path);
-    // console.log("item>>",item.path);
     // use custom active class matching logic
     // due to edge case of paths ending with / + hash
     const selfActive = isActive($route, item.path)
@@ -42,9 +38,7 @@ export default {
 }
 
 function renderLink (h, to, text, active, activeTag) {
-  console.log(text)
   let textx = activeTag?text.replace('- '+activeTag,''):text
-  console.log(textx)
   return h('router-link', {
     props: {
       to,
