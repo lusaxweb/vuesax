@@ -89,6 +89,10 @@ module.exports = {
             link:'http://www.lusaxweb.com.ve/'
           },
           {
+            text:'Discord',
+            link:'https://discord.gg/9dsKtvB'
+          },
+          {
             text:'Email',
             link:'mailto:vuesax@gmail.com'
           },

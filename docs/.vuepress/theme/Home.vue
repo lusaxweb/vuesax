@@ -12,6 +12,9 @@
     <div :class="{'git-activo':git}" class="flaticon-github git-img">
 
     </div>
+    <div :class="{'git-activo':discord}" class="doc-img">
+      <img :src="$withBase('/Discord-Logo-White.svg')" alt="">
+    </div>
     <div :class="{'homeBackgroundComponent':data.heroBackgroundComponent}" class="home-init">
       <div class="heroBackgroundComponent" :is="data.heroBackgroundComponent">
 
@@ -34,11 +37,22 @@
               :exact="action.link === '/'"
             >{{action.text}}</router-link>
           </li>
+          <li @mouseenter="discord=true" @mouseleave="discord=false">
+            <a
+              target="_blank"
+              href="https://discord.gg/9dsKtvB"
+              class="nav-link discord-link"
+            >
+            <img :src="$withBase('/Discord-Logo-White.png')" alt="">
+            Discord
+            </a>
+          </li>
           <li>
             <a @mouseenter="git=true" @mouseleave="git=false" class="flaticon-github fgithub" :href="data.vueThemes.github">
               <span class="stargazers_count">{{star}}</span>
             </a>
           </li>
+
         </ul>
       </p>
     </div>
@@ -123,6 +137,7 @@ export default {
       star:0,
       git:false,
       doc:false,
+      discord: false
     }
   },
   computed: {
@@ -162,7 +177,7 @@ export default {
   transform: translate(-5%);
   opacity: 0;
   transition: all .3s ease;
-  img
+  >img
     width: 50vw;
     filter: grayscale(100%);
     opacity: .080;
@@ -220,7 +235,7 @@ export default {
   width: 180px
   border-radius: 6px
   padding-top: 25px
-  img
+  >img
     width: 100%
     display: block;
 .con-btns-features
@@ -329,6 +344,18 @@ export default {
       border-radius: 7px;
       &:hover
         box-shadow: 0px 9px 28px -9px $accentColor
+      &.discord-link
+        display flex
+        align-items center
+        justify-content center
+        height auto
+        padding-left 10px
+        padding-right 15px;
+        cursor pointer
+        img
+          width 25px
+          margin 0px !important
+          margin-right 10px !important;
 .home-init
   display: flex
   align-items: flex-start;
