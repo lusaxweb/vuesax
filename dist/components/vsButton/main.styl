@@ -9,7 +9,13 @@
   color: rgb(255, 255, 255);
   box-sizing: border-box;
   background: transparent
-  &:disabled 
+  &.large
+    padding 12px
+    font-size: 1em;
+  &.small
+    padding 7px
+    font-size: .7em;
+  &:disabled
     opacity .5
     cursor: default
     pointer-events: none

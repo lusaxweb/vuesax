@@ -47,7 +47,7 @@
             Discord
             </a>
           </li>
-          <li>
+          <li class="starx">
             <a @mouseenter="git=true" @mouseleave="git=false" class="flaticon-github fgithub" :href="data.vueThemes.github">
               <span class="stargazers_count">{{star}}</span>
             </a>
@@ -323,8 +323,11 @@ export default {
   justify-content: flex-start;
   ul
     padding-left: 0px !important
+    width 100%;
   *
     list-style: none
+  .starx
+    padding-right 60px;
   li
     // background: $accentColor
     float: left;
@@ -451,6 +454,8 @@ export default {
     color lighten($textColor, 25%)
 
 @media (max-width: $MQMobile)
+  .contribuitors
+    flex-direction column
   .homeBackgroundComponent
     margin-bottom 100px
   .logo-g
@@ -479,6 +484,8 @@ export default {
 
 
 @media (max-width: $MQMobileNarrow)
+ .contribuitors
+    flex-direction column
   .navbar
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   .con-logo
@@ -515,4 +522,7 @@ export default {
       top 60%
       transform scale(1.5)
       right: 15% !important
+
+
+
 </style>
