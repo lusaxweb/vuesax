@@ -50,6 +50,32 @@ API:
 </box>
 <box>
 
+## Size
+
+To define the size of button the directive is used `vs-size`. there are three type of size: `large`, `default`, `small`.
+It is not important to specify the size when the button is of type `default`
+
+<vuecode md center>
+<div slot="demo">
+<vs-button vs-size="large">Large</vs-button>
+<vs-button>Default</vs-button>
+<vs-button vs-size="small">Small</vs-button>
+</div>
+
+<div slot="code">
+
+```html
+<vs-button vs-size="large">Large</vs-button>
+<vs-button>Default</vs-button>
+<vs-button vs-size="small">Small</vs-button>
+```
+
+</div>
+</vuecode>
+</box>
+
+<box>
+
 ## Filled
 
 To define the type of button the directive is used `vs-type` with the value of some type of button like it can be: `filled`
