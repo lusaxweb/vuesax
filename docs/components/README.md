@@ -1,73 +1,64 @@
 ---
 API:
-  - name: vs-type
-    type: String
-    parameters: null
-    description: The type of button to use
-    default: filled
-  - name: vs-color
-    type: String
-    parameters: null
-    description: Change the color of the button
-    default: primary
-  - name: vs-icon
-    type: String
-    parameters: Material Icons
-    description: Determine the button icon
-    default: null
-  - name: vs-icon-after
-    type: Boolean
-    parameters: null
-    description: Determines if the icon is set after the text
-    default: false
-  - name: vs-line-origin
-    type: String
-    parameters: null
-    description: Determines the output of the line on the button (line)
-    default: center
-  - name: vs-line-position
-    type: String
-    parameters: null
-    description: Determine if the button (line) has the line up or down
-    default: center
-  - name: vs-gradient-direction
-    type: String
-    parameters: null
-    description: Determina la posicion del gradiente en el boton (gradient)
-    default: 30deg
-  - name: vs-gradient-color-secondary
-    type: String
-    parameters: null
-    description: Change the secondary color on the button (gradient)
-    default: primary
+ - name: vs-active
+   type: Boolean
+   parameters: true, false
+   description: Determines if the component is visible.
+   default: false
+ - name: vs-title
+   type: String
+   parameters: null
+   description: Title of the alert
+   default: null
+ - name: vs-closable
+   type: Boolean
+   parameters: null
+   description: Determines if the alert can be closed by the user
+   default: false
+ - name: vs-color
+   type: String
+   parameters: primary, success, danger, warning, dark, RGB, HEX
+   description: Color of the alert
+   default: false
+ - name: vs-margin
+   type: String
+   parameters: null
+   description: Mangin of the alert (top, bottom)
+   default: 10px
+ - name: vs-icon
+   type: String
+   parameters: null
+   description: Determines the alert icon
+   default: null
 ---
-# Buttons **- ssr**
+
+# Alert
 
 <box header>
 
-  Nice buttons and easy to use.
+  Notifications to the user in time of execution with good animation and functionality
 
 </box>
+
+
 <box>
 
-## Size
+## Default
 
-To define the size of button the directive is used `vs-size`. there are three type of size: `large`, `default`, `small`.
-It is not important to specify the size when the button is of type `default`
+To add a notification we have the `vs-alert` component that as the main parameter needs the `vs-active` property that determines if the alert is visible or not.
 
-<vuecode md center>
+<vuecode md>
 <div slot="demo">
-<vs-button vs-size="large">Large</vs-button>
-<vs-button>Default</vs-button>
-<vs-button vs-size="small">Small</vs-button>
+<vs-alert vs-active="true">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+</vs-alert>
 </div>
-
 <div slot="code">
 
 ```html
-<vs-button vs-size="large">Large</vs-button>
-<vs-button>Default</vs-button>
-<vs-button vs-size="small">Small</vs-button>
+<vs-alert vs-active="true">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+</vs-alert>
 ```
 
 </div>
@@ -76,249 +67,117 @@ It is not important to specify the size when the button is of type `default`
 
 <box>
 
-## Filled
+## Title
 
-To define the type of button the directive is used `vs-type` with the value of some type of button like it can be: `filled`
+The alert can have a title with the property `vs-title` and its value would be the desired title
 
-<vuecode md center>
+<vuecode md>
 <div slot="demo">
-<vs-button vs-type="filled">Primary</vs-button>
-<vs-button vs-color="success" vs-type="filled">Success</vs-button>
-<vs-button vs-color="danger" vs-type="filled">Danger</vs-button>
-<vs-button vs-color="warning" vs-type="filled">Warning</vs-button>
-<vs-button vs-color="dark" vs-type="filled">Dark</vs-button>
-<vs-button vs-color="rgb(11, 189, 135)" vs-type="filled">RGB</vs-button>
-<vs-button disabled vs-type="filled">Disabled</vs-button>
+<vs-alert vs-title="Lorem ipsum dolor sit amet" vs-color="rgb(231, 154, 23)" vs-active="true">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+</vs-alert>
 </div>
-
 <div slot="code">
 
 ```html
-<vs-button vs-color="primary" vs-type="filled">Primary</vs-button>
-<vs-button vs-color="success" vs-type="filled">Success</vs-button>
-<vs-button vs-color="danger" vs-type="filled">Danger</vs-button>
-<vs-button vs-color="warning" vs-type="filled">Warning</vs-button>
-<vs-button vs-color="dark" vs-type="filled">Dark</vs-button>
-<vs-button vs-color="rgb(134, 4, 98)" vs-type="filled">RGB</vs-button>
-<vs-button disabled vs-type="filled">Disabled</vs-button>
+<vs-alert vs-title="Lorem ipsum dolor sit amet" vs-color="rgb(231, 154, 23)" vs-active="true">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+</vs-alert>
 ```
 
 </div>
 </vuecode>
 </box>
 
-<box>
-
-## Border
-
-To add a type of button with edges we change the value of `border`.
-
-<vuecode md center>
-<div slot="demo">
-<vs-button vs-color="primary" vs-type="border">Primary</vs-button>
-<vs-button vs-color="success" vs-type="border">Success</vs-button>
-<vs-button vs-color="danger" vs-type="border">Danger</vs-button>
-<vs-button vs-color="warning" vs-type="border">Warning</vs-button>
-<vs-button vs-color="dark" vs-type="border">Dark</vs-button>
-<vs-button vs-color="rgb(11, 189, 135)" vs-type="border">RGB</vs-button>
-<vs-button disabled vs-type="border">Disabled</vs-button>
-</div>
-
-<div slot="code">
-
-```html
-<vs-button vs-color="primary" vs-type="border">Primary</vs-button>
-<vs-button vs-color="success" vs-type="border">Success</vs-button>
-<vs-button vs-color="danger" vs-type="border">Danger</vs-button>
-<vs-button vs-color="warning" vs-type="border">Warning</vs-button>
-<vs-button vs-color="dark" vs-type="border">Dark</vs-button>
-<vs-button vs-color="rgb(11, 189, 135)" vs-type="border">RGB</vs-button>
-<vs-button disabled vs-type="border">Disabled</vs-button>
-```
-
-</div>
-</vuecode>
-</box>
-
-<!-- flat -->
-<box>
-
-## Flat
-
-To add a type of button with edges we change the value of `flat`
-
-<vuecode md center>
-<div slot="demo">
-<vs-button vs-color="primary" vs-type="flat">Primary</vs-button>
-<vs-button vs-color="success" vs-type="flat">Success</vs-button>
-<vs-button vs-color="danger" vs-type="flat">Danger</vs-button>
-<vs-button vs-color="warning" vs-type="flat">Warning</vs-button>
-<vs-button vs-color="dark" vs-type="flat">Dark</vs-button>
-<vs-button vs-color="rgb(11, 189, 135)" vs-type="flat">RGB</vs-button>
-<vs-button disabled vs-type="flat">Disabled</vs-button>
-</div>
-
-<div slot="code">
-
-```html
-<vs-button vs-color="primary" vs-type="flat">Primary</vs-button>
-<vs-button vs-color="success" vs-type="flat">Success</vs-button>
-<vs-button vs-color="danger" vs-type="flat">Danger</vs-button>
-<vs-button vs-color="warning" vs-type="flat">Warning</vs-button>
-<vs-button vs-color="dark" vs-type="flat">Dark</vs-button>
-<vs-button vs-color="rgb(11, 189, 135)" vs-type="flat">RGB</vs-button>
-<vs-button disabled vs-type="flat">Disabled</vs-button>
-```
-
-</div>
-</vuecode>
-</box>
-
-<!-- Line Down -->
-<box>
-
-## Line Down
-
-To add a type of button with edges we change the value of `vs-type` by: `line`.
-
-:::tip
-  you can change the position of the line up with the property `vs-line-position="top"`, you can also change the way the line appears in hover with the property `vs-line-origin` the allowed values They are
-
-  - left
-  - center (default)
-  - right
-:::
-
-<vuecode md center>
-<div slot="demo">
-<vs-button vs-type="line">Primary</vs-button>
-<vs-button vs-line-origin="left" vs-color="success" vs-type="line">Success</vs-button>
-<vs-button  vs-color="danger" vs-type="line">Danger</vs-button>
-<vs-button vs-line-position="top" vs-line-origin="left" vs-color="warning" vs-type="line">Warning</vs-button>
-<vs-button vs-line-position="top" vs-line-origin="right" vs-color="dark" vs-type="line">Dark</vs-button>
-<vs-button disabled vs-type="line">Disabled</vs-button>
-</div>
-
-<div slot="code">
-
-```html
-<vs-button vs-type="line">Primary</vs-button>
-<vs-button vs-line-origin="left" vs-color="success" vs-type="line">Success</vs-button>
-<vs-button  vs-color="danger" vs-type="line">Danger</vs-button>
-<vs-button vs-line-position="top" vs-line-origin="left" vs-color="warning" vs-type="line">Warning</vs-button>
-<vs-button vs-line-position="top" vs-line-origin="right" vs-color="dark" vs-type="line">Dark</vs-button>
-<vs-button disabled vs-type="line">Disabled</vs-button>
-```
-
-</div>
-</vuecode>
-</box>
-
-<!-- Gradient -->
-<box>
-
-## Gradient
-
-To add a type of button with edges we change the value of `vs-type` by: `gradient`
-
-<vuecode md center>
-<div slot="demo">
-<vs-button vs-type="gradient">primary</vs-button>
-<vs-button vs-color="success" vs-type="gradient">success</vs-button>
-<vs-button vs-color="danger" vs-type="gradient">danger</vs-button>
-<vs-button vs-color="warning" vs-type="gradient">warning</vs-button>
-<vs-button vs-color="dark" vs-type="gradient">dark</vs-button>
-<vs-button vs-color="#3dd495" vs-gradient-color-secondary="rgb(130, 207, 23)" vs-type="gradient">dark</vs-button>
-<vs-button disabled vs-type="gradient">Disabled</vs-button>
-</div>
-
-<div slot="code">
-
-```html
-<vs-button vs-type="gradient">primary</vs-button>
-<vs-button vs-color="success" vs-type="gradient">success</vs-button>
-<vs-button vs-color="danger" vs-type="gradient">danger</vs-button>
-<vs-button vs-color="warning" vs-type="gradient">warning</vs-button>
-<vs-button vs-color="dark" vs-type="gradient">dark</vs-button>
-<vs-button vs-color="#3dd495" vs-gradient-color-secondary="rgb(130, 207, 23)" vs-type="gradient">dark</vs-button>
-<vs-button disabled vs-type="gradient">Disabled</vs-button>
-```
-
-</div>
-</vuecode>
-</box>
-
-<!-- Relief -->
-<box>
-
-## Relief
-
-To add a type of button with edges we change the value of `vs-type` by: `relief`
-
-<vuecode md center>
-<div slot="demo">
-<vs-button vs-type="relief">Primary</vs-button>
-<vs-button vs-color="success" vs-type="relief">Success</vs-button>
-<vs-button vs-color="danger" vs-type="relief">Danger</vs-button>
-<vs-button vs-color="warning" vs-type="relief">warning</vs-button>
-<vs-button vs-color="dark" vs-type="relief">dark</vs-button>
-<vs-button vs-color="rgb(187, 138, 0)" vs-type="relief">Color</vs-button>
-<vs-button disabled vs-type="relief">Disabled</vs-button>
-</div>
-
-<div slot="code">
-
-```html
-<vs-button vs-type="relief">Primary</vs-button>
-<vs-button vs-color="success" vs-type="relief">Success</vs-button>
-<vs-button vs-color="danger" vs-type="relief">Danger</vs-button>
-<vs-button vs-color="warning" vs-type="relief">warning</vs-button>
-<vs-button vs-color="dark" vs-type="relief">dark</vs-button>
-<vs-button vs-color="rgb(187, 138, 0)" vs-type="relief">Color</vs-button>
-<vs-button disabled vs-type="relief">Disabled</vs-button>
-```
-
-</div>
-</vuecode>
-</box>
-
-<!-- Color -->
 <box>
 
 ## Color
 
-There are cases in which we need something more personalized like a specific color, you can change the color of the button with the property `vs-color` giving it as a value the color.
+You can change the color of the alert with the property `vs-color`, the colors can be the main` primary`, `success`,` danger`, `warning`,` dark` or the colors **RGB**, **HEX**.
 
-:::tip
-If you need a gradient type button, to assign the color you have to use the property `vs-gradient-color-secondary`
-:::
 :::warning
-  Only colors are supported **RGB** y **HEX**. <br>
-  Example:
-    `vs-color="rgb(215, 82, 39)"` o `vs-color="#d75227"`
+  Only **RGB** and **HEX** colors are supported.
 :::
 
-
-<vuecode md center>
+<vuecode md>
 <div slot="demo">
-
-  <Demos-Color/>
-
+<vs-alert vs-title="Primary" vs-active="true" vs-color="primary">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+</vs-alert>
+<vs-alert vs-title="Success" vs-active="true" vs-color="success">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+</vs-alert>
+<vs-alert vs-title="Danger" vs-active="true" vs-color="danger">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</vs-alert>
+<vs-alert vs-title="Danger" vs-active="true" vs-color="warning">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+</vs-alert>
+<vs-alert vs-title="Dark" vs-active="true" vs-color="dark">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+</vs-alert>
+<vs-alert vs-title="RGB" vs-active="true" vs-color="rgb(41, 147, 138)">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+</vs-alert>
+<vs-alert vs-title="HEX" vs-active="true" vs-color="#842993">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+</vs-alert>
 </div>
-
 <div slot="code">
 
 ```html
+<vs-alert
+  vs-color="primary"
+  vs-title="Primary" vs-active="true">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+</vs-alert>
+<vs-alert vs-title="Success" vs-active="true" vs-color="success">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+</vs-alert>
+<vs-alert vs-title="Danger" vs-active="true" vs-color="danger">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</vs-alert>
+<vs-alert vs-title="Danger" vs-active="true" vs-color="warning">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+</vs-alert>
+<vs-alert vs-title="Dark" vs-active="true" vs-color="dark">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+</vs-alert>
+<vs-alert vs-title="RGB" vs-active="true" vs-color="rgb(41, 147, 138)">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+</vs-alert>
+<vs-alert vs-title="HEX" vs-active="true" vs-color="#842993">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+</vs-alert>
+```
+
+</div>
+</vuecode>
+</box>
+
+<box>
+
+## Closable
+
+You can show and hide the alert by means of `vs-active.sync` and a Boolean bind as value.
+
+The property to determine if the alert can be closed is `vs-closable`.
+
+<vuecode md>
+<div slot="demo">
+  <Demos-Alert-Closable />
+</div>
+<div slot="code">
+
+```html {5,6}
 <template lang="html">
-  <div class="">
-    <input type="color" v-model="colorx" name="" value="">
-    <input type="color" v-model="colorx2" name="" value="">
-    <vs-button :vs-color="colorx" vs-type="filled">Color</vs-button>
-    <vs-button :vs-color="colorx" vs-type="border">Color</vs-button>
-    <vs-button :vs-color="colorx" vs-type="flat">Color</vs-button>
-    <vs-button :vs-color="colorx" vs-type="line">Color</vs-button>
-    <vs-button :vs-color="colorx" :vs-gradient-color-secondary="colorx2" vs-type="gradient">Color</vs-button>
-    <vs-button :vs-color="colorx"  vs-type="relief">Color</vs-button>
+  <div class="centerx">
+    <vs-button @click="active1=!active1" vs-color="primary" vs-type="filled">{{!active1?'Open Alert':'Close Alert'}}</vs-button>
+    <vs-alert
+    :vs-active.sync="active1"
+    vs-closable>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+    </vs-alert>
   </div>
 </template>
 
@@ -326,10 +185,9 @@ If you need a gradient type button, to assign the color you have to use the prop
 export default {
   data(){
     return {
-      colorx:'#c72a75',
-      colorx2:'#5252e8'
+      active1:true,
     }
-  },
+  }
 }
 </script>
 ```
@@ -338,40 +196,45 @@ export default {
 </vuecode>
 </box>
 
-<!-- Icon -->
 <box>
 
-## Icon
+## Icons
 
-You can add an icon to the button with the property `vs-icon`
+You can add to the alert a descriptive icon with the property `vs-icon` and as a value the icon of [Material Icons](https://material.io/icons/)
 
 ::: tip
 Vuesax use the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
 :::
 
-:::tip
-  You can change the position of the icon so that it is after the text with the property `vs-icon-after`
-:::
-
-<vuecode md center>
+<vuecode md>
 <div slot="demo">
-<vs-button vs-color="primary" vs-type="border" vs-icon="home">Home</vs-button>
-<vs-button vs-color="warning" vs-type="filled" vs-icon="star">Star</vs-button>
-<vs-button vs-color="success" vs-type="flat" vs-icon="done">Done</vs-button>
-<vs-button vs-icon-after vs-color="dark" vs-type="line" vs-icon="menu">menu</vs-button>
-<vs-button vs-icon-after vs-color="danger" vs-type="gradient" vs-icon="favorite">favorite</vs-button>
-<vs-button disabled vs-color="primary" vs-type="border" vs-icon="home">Disabled</vs-button>
+  <Demos-Alert-Icons />
 </div>
-
 <div slot="code">
 
 ```html
-<vs-button vs-color="primary" vs-type="border" vs-icon="home">Home</vs-button>
-<vs-button vs-color="warning" vs-type="filled" vs-icon="star">Star</vs-button>
-<vs-button vs-color="success" vs-type="flat" vs-icon="done">Done</vs-button>
-<vs-button vs-color="dark" vs-type="line" vs-icon="menu">menu</vs-button>
-<vs-button vs-color="danger" vs-type="gradient" vs-icon="favorite">favorite</vs-button>
-<vs-button disabled vs-color="primary" vs-type="border" vs-icon="home">Disabled</vs-button>
+<template lang="html">
+  <div class="centerx">
+    <selected-icons :vs-icon.sync="icon1"/>
+   <vs-alert vs-active="true" vs-color="rgb(111, 38, 224)" :vs-icon="icon1" >
+     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+   </vs-alert>
+  </div>
+</template>
+
+<script>
+import selectedIcons from '../../selectedIcons.vue'
+export default {
+  components:{
+    selectedIcons
+  },
+  data(){
+    return {
+      icon1: 'sms',
+    }
+  }
+}
+</script>
 ```
 
 </div>
@@ -380,48 +243,44 @@ Vuesax use the **Google Material Icons** font library. For a list of all availab
 
 <box>
 
-## Icon only
+## Example of use
 
-You can have a button with only the icon you want with the property `vs-icon` and not add any internal value to the button
+An example of serious use to have an input and when a condition is met show the **vs-alert**.
 
-:::tip
-  you can use the `vs-radius` property to determine the border-radius of the button, there are many cases in which we need it to be round for example.
-:::
-
-<vuecode md center>
+<vuecode md>
 <div slot="demo">
-<vs-button vs-color="primary" vs-type="border" vs-icon="search"></vs-button>
-<vs-button vs-color="warning" vs-type="filled" vs-icon="public"></vs-button>
-<vs-button vs-color="success" vs-type="flat" vs-icon="photo_camera"></vs-button>
-<vs-button vs-color="dark" vs-type="line" vs-icon="event_note"></vs-button>
-<vs-button vs-color="danger" vs-type="gradient" vs-icon="person_add"></vs-button>
-<vs-button disabled vs-color="primary" vs-type="border" vs-icon="search"></vs-button>
-<br>
-<br>
-<vs-button style="border-radius: 50%" vs-color="primary" vs-type="border" vs-icon="search"></vs-button>
-<vs-button style="border-radius: 50%" vs-color="warning" vs-type="filled" vs-icon="public"></vs-button>
-<vs-button style="border-radius: 50%" vs-color="success" vs-type="flat" vs-icon="photo_camera"></vs-button>
-<vs-button style="border-radius: 50%" vs-color="dark" vs-type="line" vs-icon="event_note"></vs-button>
-<vs-button style="border-radius: 50%" vs-color="danger" vs-type="gradient" vs-icon="person_add"></vs-button>
-<vs-button disabled style="border-radius: 50%" vs-color="primary" vs-type="border" vs-icon="search"></vs-button>
+  <Demos-Alert-Exampleofuse />
 </div>
 <div slot="code">
 
 ```html
-<vs-button vs-color="primary" vs-type="border" vs-icon="search"></vs-button>
-<vs-button vs-color="warning" vs-type="filled" vs-icon="public"></vs-button>
-<vs-button vs-color="success" vs-type="flat" vs-icon="photo_camera"></vs-button>
-<vs-button vs-color="dark" vs-type="line" vs-icon="event_note"></vs-button>
-<vs-button vs-color="danger" vs-type="gradient" vs-icon="person_add"></vs-button>
-<vs-button disabled vs-color="primary" vs-type="border" vs-icon="search"></vs-button>
-<br>
-<br>
-<vs-button style="border-radius: 50%" vs-color="primary" vs-type="border" vs-icon="search"></vs-button>
-<vs-button style="border-radius: 50%" vs-color="warning" vs-type="filled" vs-icon="public"></vs-button>
-<vs-button style="border-radius: 50%" vs-color="success" vs-type="flat" vs-icon="photo_camera"></vs-button>
-<vs-button style="border-radius: 50%" vs-color="dark" vs-type="line" vs-icon="event_note"></vs-button>
-<vs-button style="border-radius: 50%" vs-color="danger" vs-type="gradient" vs-icon="person_add"></vs-button>
-<vs-button disabled style="border-radius: 50%" vs-color="primary" vs-type="border" vs-icon="search"></vs-button>
+<template lang="html">
+  <div class="centerx">
+    <vs-input vs-label="Enter only numbers" vs-placeholder="0123456789" v-model="value1"/>
+    <vs-alert :vs-active="inputValido" vs-color="danger" vs-icon="new_releases" >
+      the value is <b>invalid</b> you can only enter numbers
+    </vs-alert>
+  </div>
+</template>
+
+<script>
+export default {
+  data(){
+    return {
+      value1:'',
+    }
+  },
+  computed:{
+    inputValido(){
+      if(/^\d+$/.test(this.value1)){
+        return false
+      } else {
+        return true
+      }
+    }
+  }
+}
+</script>
 ```
 
 </div>
