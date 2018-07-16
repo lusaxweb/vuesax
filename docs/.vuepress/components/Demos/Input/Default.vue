@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="centerx default-input">
-     <vs-input type="password" class="inputx" placeholder="Placeholder" v-model="value1"/>
+     <vs-input class="inputx" placeholder="Placeholder" v-model="value1"/>
      <vs-input disabled class="inputx" placeholder="Disabled" v-model="value2"/>
    </div>
 </template>

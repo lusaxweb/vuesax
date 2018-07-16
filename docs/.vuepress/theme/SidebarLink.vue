@@ -5,18 +5,14 @@ export default {
   functional: true,
   props: ['item'],
   render (h, { parent: { $page, $site, $route }, props: { item }}) {
-    // console.log(">>>>>>>>>>>>>>>>>>>>>>>>",item);
     let tag = null
-    if(item.title.search('#new')!=-1){
+    if(item.title.search('- new')!=-1){
       tag = 'new'
-    } else if (item.title.search('#update')!=-1){
+    } else if (item.title.search('- update')!=-1){
       tag = 'update'
-    } else if (item.title.search('#SSR')!=-1){
-      tag = 'SSR'
+    } else if (item.title.search('- ssr')!=-1){
+      tag = 'ssr'
     }
-    console.log(item.title)
-    // console.log("$page>",$page.path);
-    // console.log("item>>",item.path);
     // use custom active class matching logic
     // due to edge case of paths ending with / + hash
     const selfActive = isActive($route, item.path)
@@ -42,7 +38,7 @@ export default {
 }
 
 function renderLink (h, to, text, active, activeTag) {
-  let textx = activeTag?text.replace('<!--#'+activeTag+'-->',''):text
+  let textx = activeTag?text.replace('- '+activeTag,''):text
   return h('router-link', {
     props: {
       to,
@@ -85,7 +81,7 @@ function renderChildren (h, children, path, route, maxDepth, depth = 1) {
   line-height: 15px;
   top: 50%;
   transform: translate(0,-50%);
-  text-transform: capitalize;
+  text-transform: uppercase;
 .sidebar-sub-header
   a
     opacity: 1 !important;

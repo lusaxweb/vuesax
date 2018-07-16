@@ -12,6 +12,9 @@
     <div :class="{'git-activo':git}" class="flaticon-github git-img">
 
     </div>
+    <div :class="{'git-activo':discord}" class="doc-img">
+      <img :src="$withBase('/Discord-Logo-White.svg')" alt="">
+    </div>
     <div :class="{'homeBackgroundComponent':data.heroBackgroundComponent}" class="home-init">
       <div class="heroBackgroundComponent" :is="data.heroBackgroundComponent">
 
@@ -34,11 +37,22 @@
               :exact="action.link === '/'"
             >{{action.text}}</router-link>
           </li>
-          <li>
+          <li @mouseenter="discord=true" @mouseleave="discord=false">
+            <a
+              target="_blank"
+              href="https://discord.gg/9dsKtvB"
+              class="nav-link discord-link"
+            >
+            <img :src="$withBase('/Discord-Logo-White.png')" alt="">
+            Discord
+            </a>
+          </li>
+          <li class="starx">
             <a @mouseenter="git=true" @mouseleave="git=false" class="flaticon-github fgithub" :href="data.vueThemes.github">
               <span class="stargazers_count">{{star}}</span>
             </a>
           </li>
+
         </ul>
       </p>
     </div>
@@ -51,6 +65,7 @@
     </div> -->
     <div class="contenedor">
 
+      <home-patreons/>
 
     <div class="features" v-if="data.features && data.features.length">
       <div class="feature" v-for="feature in data.features">
@@ -106,17 +121,23 @@
 </template>
 
 <script>
+// <!-- Hotjar Tracking Code for https://lusaxweb.github.io/vuesax/ -->
+
+
+
 import trofeos from './trofeos.vue'
 import NavLink from './NavLink.vue'
 import Footer from './Footer.vue'
 import contributors from './contributors.vue'
+import homePatreons from './homePatreons.vue'
 export default {
-  components: { NavLink, Footer, contributors, trofeos },
+  components: { NavLink, Footer, contributors, trofeos, homePatreons },
   data(){
     return {
       star:0,
       git:false,
       doc:false,
+      discord: false
     }
   },
   computed: {
@@ -148,14 +169,15 @@ export default {
   justify-content: center;
   .con-svg-trofeos
     display: block;
-    width: 550px;
-    margin-left: 50px
+    width: 460px;
+    margin-left: 30px
+    min-width 460px;
 .doc-img
   position: absolute;
   transform: translate(-5%);
   opacity: 0;
   transition: all .3s ease;
-  img
+  >img
     width: 50vw;
     filter: grayscale(100%);
     opacity: .080;
@@ -213,7 +235,7 @@ export default {
   width: 180px
   border-radius: 6px
   padding-top: 25px
-  img
+  >img
     width: 100%
     display: block;
 .con-btns-features
@@ -239,7 +261,7 @@ export default {
     &:hover
       box-shadow: 0px 9px 28px -9px $accentColor
 .homeBackgroundComponent {
-  margin-bottom: 200px;
+  margin-bottom: 100px;
 }
 .heroBackgroundComponent {
   position: absolute;
@@ -301,8 +323,11 @@ export default {
   justify-content: flex-start;
   ul
     padding-left: 0px !important
+    width 100%;
   *
     list-style: none
+  .starx
+    padding-right 60px;
   li
     // background: $accentColor
     float: left;
@@ -322,6 +347,18 @@ export default {
       border-radius: 7px;
       &:hover
         box-shadow: 0px 9px 28px -9px $accentColor
+      &.discord-link
+        display flex
+        align-items center
+        justify-content center
+        height auto
+        padding-left 10px
+        padding-right 15px;
+        cursor pointer
+        img
+          width 25px
+          margin 0px !important
+          margin-right 10px !important;
 .home-init
   display: flex
   align-items: flex-start;
@@ -417,6 +454,8 @@ export default {
     color lighten($textColor, 25%)
 
 @media (max-width: $MQMobile)
+  .contribuitors
+    flex-direction column
   .homeBackgroundComponent
     margin-bottom 100px
   .logo-g
@@ -445,6 +484,8 @@ export default {
 
 
 @media (max-width: $MQMobileNarrow)
+ .contribuitors
+    flex-direction column
   .navbar
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   .con-logo
@@ -481,4 +522,7 @@ export default {
       top 60%
       transform scale(1.5)
       right: 15% !important
+
+
+
 </style>

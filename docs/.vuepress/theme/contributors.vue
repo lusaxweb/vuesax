@@ -2,11 +2,20 @@
   <div v-if="contribuitorsx.length > 0" class="con-contribuitor">
     <h3 :class="{'allcontribuitors':contributors == 'all'}">{{title || 'contributors of'}} <b>Vuesax</b>  </h3>
     <ul>
-      <li :title="contributor.login" v-for="contributor in contribuitorsx">
+      <li v-if="index < 19" :title="contributor.login" v-for="(contributor,index) in contribuitorsx">
         <a target="_blank" :href="contributor.html_url">
           <img :src="contributor.avatar_url" alt="">
           <img class="img-blur" :src="contributor.avatar_url" alt="">
         </a>
+      </li>
+      <li :class="{'is-see-more':index == 19}" v-if="index == 19" title="See more" v-for="(contributor,index) in contribuitorsx">
+        <router-link
+          to="/contribuitors/"
+        >
+          <i class="material-icons">
+            add
+          </i>
+        </router-link>
       </li>
     </ul>
     <div v-if="contributors == 'all'" class="con-btns-contribuitors">
@@ -14,7 +23,7 @@
         <!-- <a href="">Contribuitors</a> -->
         <router-link
           to="/contribuitors/"
-        >contributors</router-link>
+        >Contributors</router-link>
       </button>
     </div>
   </div>
@@ -105,11 +114,12 @@ export default {
   text-align: left !important;
   font-size: 30px;
   margin-bottom: 20px;
+
 }
 .con-contribuitor {
   width: 100%;
   position: relative;
-  padding: 20px;
+  padding: 10px;
 }
 .con-contribuitor ul {
   display: flex;
@@ -137,6 +147,25 @@ export default {
   position: relative;
   display: block;
   }
+.con-contribuitor ul li a i {
+  font-size 30px;
+  color #fff
+}
+.is-see-more
+  background: #5b3cc4
+  border-radius: 10px;
+  display flex
+  cursor pointer
+  &:hover
+    transform scale(1) !important
+    box-shadow: 0px 9px 28px -9px #5b3cc4 !important;
+.is-see-more a {
+  display flex
+  align-items center
+  justify-content center
+  padding: 10px;
+}
+
 .img-blur {
   position: absolute !important;
   left: 0px;

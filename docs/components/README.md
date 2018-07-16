@@ -41,13 +41,15 @@ API:
     description: Change the secondary color on the button (gradient)
     default: primary
 ---
-# Buttons <!--#update-->
+# Buttons **- ssr**
 
 <box header>
 
   Nice buttons and easy to use.
 
 </box>
+
+
 <box>
 
 ## Filled
@@ -396,6 +398,32 @@ You can have a button with only the icon you want with the property `vs-icon` an
 <vs-button style="border-radius: 50%" vs-color="dark" vs-type="line" vs-icon="event_note"></vs-button>
 <vs-button style="border-radius: 50%" vs-color="danger" vs-type="gradient" vs-icon="person_add"></vs-button>
 <vs-button disabled style="border-radius: 50%" vs-color="primary" vs-type="border" vs-icon="search"></vs-button>
+```
+
+</div>
+</vuecode>
+</box>
+
+<box>
+
+## Size
+
+To define the size of button the directive is used `vs-size`. there are three type of size: `large`, `default`, `small`.
+It is not important to specify the size when the button is of type `default`
+
+<vuecode md center>
+<div slot="demo">
+<vs-button vs-size="large">Large</vs-button>
+<vs-button>Default</vs-button>
+<vs-button vs-size="small">Small</vs-button>
+</div>
+
+<div slot="code">
+
+```html
+<vs-button vs-size="large">Large</vs-button>
+<vs-button>Default</vs-button>
+<vs-button vs-size="small">Small</vs-button>
 ```
 
 </div>

@@ -17,4 +17,8 @@ export default ({
   })
   Vue.component('Demo',demo)
   Vue.component('Box',Box)
+
+
 }
+
+

@@ -18,6 +18,9 @@
     <img src="https://img.shields.io/npm/v/vuesax.svg" alt="Version">
   </a>
   <a href="https://www.npmjs.com/package/vuesax"><img src="https://img.shields.io/npm/l/vuesax.svg" /></a>
+  <a href="https://discord.gg/9dsKtvB">
+    <img src="https://discordapp.com/api/guilds/467198491920433153/widget.png" alt="Chat">
+  </a>
 </p>
 
 # Introduction

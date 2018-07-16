@@ -48,8 +48,8 @@ export default {
     },
     lineaLx(evt){
       this.lineaActiva = true
-      console.dir(evt.target.offsetLeft);
-      this.lineaL = evt.target.offsetLeft
+      let cords = evt.target.getBoundingClientRect()
+      this.lineaL = cords.left + 23
     }
   }
 

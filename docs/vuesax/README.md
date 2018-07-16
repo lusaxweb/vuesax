@@ -49,17 +49,22 @@ Vue.use(Vuesax)
 </box>
 
 
-## Material Icons
+
+
 <box>
+
+## Material Icons
+
 Material icons used by this framework are currently not included. Please add them manually or add to your project for self hosting via:
 
 ```bash
 npm install material-icons --save
 ```
-Then Import it to your project: 
+Then Import it to your project:
 ```js
 import 'material-icons/iconfont/material-icons.css';
 ```
+
 </box>
 
 <box>

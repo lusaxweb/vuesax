@@ -58,7 +58,7 @@ API:
 
 ---
 
-# Dialogs <!--#SSR-->
+# Dialogs **- ssr**
 
 <box header>
 

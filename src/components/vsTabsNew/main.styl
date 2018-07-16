@@ -1,0 +1,50 @@
+
+.con-vs-tabs
+  width 100%;
+  .con-ul-tabs
+    position relative
+    .ul-tabs
+      width 100%
+      display flex
+      align-items: center
+      justify-content center
+
+      li
+        display block
+        button
+          background transparent
+          margin 0px
+          padding 10px
+          border 0px
+          cursor pointer
+          transition all .2s ease
+    .line-vs-tabs
+      width 100px
+      height 2px
+      background rgb(0,0,0)
+      display block
+      bottom 0px;
+      position absolute
+      transition all .2s ease
+      border-radius 3px
+
+
+for colorx, i in $vs-colors
+  .vs-tabs-{colorx}
+    .activeChild
+      button
+        padding-top 8px !important;
+        padding-bottom 12px !important;
+        color: $vs-colors[colorx] !important
+    .line-vs-tabs
+      background: linear-gradient(30deg, $vs-colors[colorx] 0%, darken(spin($vs-colors[colorx],-30deg),0%) 100%) !important
+      box-shadow 0px 0px 8px 0px alpha($vs-colors[colorx],.4)
+
+
+// vs-tab
+
+.con-tab
+  position relative
+  width 100%
+  display block
+  clear both

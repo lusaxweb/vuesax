@@ -70,16 +70,15 @@ export default {
   mounted(){
     this.changeValue()
     utils.insertBody(this.$refs.vsSelectOptions)
-    console.log("this.$children>>>>>>",this.$children);
+    // console.log("this.$children>>>>>>",this.$children);
   },
   updated(){
-    //
     if(!this.active){
       this.changeValue()
     }
   },
   watch:{
-    value(){
+    value(event){
       this.$emit('change',event)
     },
     active(){
@@ -133,22 +132,25 @@ export default {
   },
   methods:{
     addMultiple(value){
-      if(this.value.includes(value)){
-
-        this.value.splice(this.value.indexOf(value),1)
+      let currentValues = this.value ? this.value : [];
+      if(currentValues.includes(value)){
+        currentValues.splice(currentValues.indexOf(value),1)
+        this.$emit('input', currentValues);
         this.changeValue()
         if(this.vsAutocomplete) {
           this.$refs.inputselect.focus()
         }
       } else {
         if(this.vsAutocomplete){
-          this.value.push(value)
+          currentValues.push(value)
+          this.$emit('input', currentValues);
           this.filterItems('')
           this.changeValue()
           // this.$refs.inputselect.value += ','
           this.$refs.inputselect.focus()
         } else {
-          this.value.push(value)
+          currentValues.push(value)
+          this.$emit('input', currentValues);
           this.changeValue()
         }
       }
@@ -196,7 +198,7 @@ export default {
     },
     changeValue(){
       if(this.vsMultiple){
-        let values = this.value
+        let values = this.value ? this.value : [];
         let options = this.$children
         let optionsValues = []
         values.forEach((item)=>{
@@ -209,10 +211,8 @@ export default {
           })
         })
         this.$refs.inputselect.value = optionsValues.toString()
-
       } else {
         this.$refs.inputselect.value = this.valuex
-
       }
     },
     focus(event){
