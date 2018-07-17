@@ -1,26 +1,25 @@
 <template lang="html">
   <div class="">
-    <vs-tabs vs-color="rgb(93, 32, 122)">
-      <vs-tab vs-label="top">
+    <vs-tabs vs-color="rgb(32, 201, 192)">
+      <vs-tab vs-label="Top">
         <!-- top -->
-        <vs-tabs vs-color="rgb(29, 55, 194)">
+        <vs-tabs vs-color="rgb(201, 32, 178)">
           <vs-tab vs-label="Home">
-            <div class="con-tab-ejemplo">
+            <div>
               Home
             </div>
           </vs-tab>
           <vs-tab vs-label="Service">
-            <div class="con-tab-ejemplo">
+            <div>
               Service
             </div>
           </vs-tab>
           <vs-tab vs-label="login">
-            <div class="con-tab-ejemplo">
+            <div>
               login
             </div>
-
           </vs-tab>
-          <vs-tab :disabled="true" vs-label="Disabled">
+          <vs-tab disabled vs-label="Disabled">
             <div class="">
               Disabled
             </div>
@@ -28,39 +27,39 @@
         </vs-tabs>
 
       </vs-tab>
-      <vs-tab vs-label="right">
+      <vs-tab vs-label="Right">
 
         <!-- right -->
         <vs-tabs vs-position="right" vs-color="rgb(29, 55, 194)">
           <vs-tab vs-label="Home">
-            <div class="con-tab-ejemplo">
-              Home
+            <div>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo libero ac sapien pharetra finibus. Vestibulum hendrerit nibh at quam ullamcorper tempus id at nulla.
             </div>
           </vs-tab>
           <vs-tab vs-label="Service">
-            <div class="con-tab-ejemplo">
+            <div>
               Service
             </div>
           </vs-tab>
           <vs-tab vs-label="login">
-            <div class="con-tab-ejemplo">
+            <div>
               login
             </div>
           </vs-tab>
-          <vs-tab :disabled="true" vs-label="Disabled">
-            <div class="con-tab-ejemplo">
+          <vs-tab disabled vs-label="Disabled">
+            <div>
               Disabled
             </div>
           </vs-tab>
         </vs-tabs>
 
       </vs-tab>
-      <vs-tab vs-label="bottom">
+      <vs-tab vs-label="Bottom">
 
         <!-- bottom -->
         <vs-tabs vs-position="bottom" vs-color="rgb(29, 55, 194)">
           <vs-tab vs-label="Home">
-            <div class="con-tab-ejemplo">
+            <div>
               Home
             </div>
           </vs-tab>
@@ -70,39 +69,39 @@
             </div>
           </vs-tab>
           <vs-tab vs-label="login">
-            <div class="con-tab-ejemplo">
+            <div>
               login
             </div>
           </vs-tab>
           <vs-tab :disabled="true" vs-label="Disabled">
-            <div class="con-tab-ejemplo">
+            <div>
               Disabled
             </div>
           </vs-tab>
         </vs-tabs>
 
       </vs-tab>
-      <vs-tab vs-label="left">
+      <vs-tab vs-label="Left">
         <!-- left -->
-        <vs-tabs vs-position="left" vs-color="rgb(29, 55, 194)">
+        <vs-tabs vs-position="left" vs-color="danger">
           <vs-tab vs-label="Home">
-            <div class="con-tab-ejemplo">
-              Home
+            <div>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo libero ac sapien pharetra finibus. Vestibulum hendrerit nibh at quam ullamcorper tempus id at nulla.
             </div>
           </vs-tab>
           <vs-tab vs-label="Service">
-            <div class="con-tab-ejemplo">
-              Service
+            <div>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </div>
           </vs-tab>
           <vs-tab vs-label="login">
-            <div class="con-tab-ejemplo">
-              login
+            <div>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo libero ac sapien pharetra finibus.
             </div>
           </vs-tab>
           <vs-tab :disabled="true" vs-label="Disabled">
-            <div class="con-tab-ejemplo">
-              Disabled
+            <div>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo libero ac sapien pharetra finibus. Vestibulum hendrerit nibh at quam ullamcorper tempus id at nulla.
             </div>
           </vs-tab>
         </vs-tabs>

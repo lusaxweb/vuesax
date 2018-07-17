@@ -1,29 +1,29 @@
 <template lang="html">
   <div class="">
-    <vs-tabs >
-      <vs-tab vs-label="Home">
+    <vs-tabs :vs-color="colorx">
+      <vs-tab @click="colorx = 'success'" vs-label="Success">
         <div class="con-tab-ejemplo">
-          Home
+          Success
         </div>
       </vs-tab>
-      <vs-tab vs-label="Service">
+      <vs-tab @click="colorx = 'danger'" vs-label="Danger">
         <div class="con-tab-ejemplo">
-          Service
+          Danger
         </div>
       </vs-tab>
-      <vs-tab vs-label="login">
+      <vs-tab @click="colorx = 'warning'" vs-label="Warning">
         <div class="con-tab-ejemplo">
-          login
+          Warning
         </div>
       </vs-tab>
-      <vs-tab disabled vs-label="Disabled">
+      <vs-tab @click="colorx = 'dark'" vs-label="Dark">
         <div class="con-tab-ejemplo">
-          Disabled
+          Dark
         </div>
       </vs-tab>
-      <vs-tab vs-label="Lorem ipsum dolor sit amet">
+        <vs-tab @click="colorx = 'rgb(16, 233, 179)'" vs-label="RGB | HEX">
         <div class="con-tab-ejemplo">
-          Lorem ipsum dolor sit amet
+          RGB | HEX
         </div>
       </vs-tab>
     </vs-tabs>
@@ -32,7 +32,9 @@
 
 <script>
 export default {
-
+  data:()=>({
+    colorx:'success'
+  }),
 }
 </script>
 

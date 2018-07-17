@@ -1,6 +1,6 @@
 <template lang="html">
-  <transition name="fade">
-  <div v-if="activo" class="con-tab">
+  <transition :name="invert?vertical?'fade-tab-vertical-invert':'fade-tab-invert':vertical?'fade-tab-vertical':'fade-tab'">
+  <div v-if="active" class="con-tab">
     <slot/>
   </div>
   </transition>
@@ -9,39 +9,27 @@
 <script>
 export default {
   name:'vs-tab',
-  props:[
-    'vsLabel',
-    'disabled'
-  ],
-  data(){
-    return {
-      activo:false,
+  inheritAttrs: false,
+  props:{
+    vsLabel:{
+      default:'Label',
+      type:String
     }
   },
-  created(){
-    this.$parent.vsTabs.push(this)
+  data:()=>({
+    vertical:false,
+    active:false,
+    id:null,
+    invert:false
+  }),
+  mounted(){
+    this.id = this.$parent.children.length
+    this.$parent.children.push({
+      label: this.vsLabel,
+      id: this.$parent.children.length,
+      listeners: this.$listeners,
+      attrs: this.$attrs
+      })
   }
 }
 </script>
-
-<style lang="css" scoped>
-.fade-enter-active, .fade-leave-active {
-  transition: all .4s;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-  position: absolute !important;
-  transform: translate3d(100%, 0, 0);
-}
-.fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-  position: absolute !important;
-  transform: translate3d(-100%, 0, 0);
-}
-.con-tab {
-      width: 100%;
-      position: relative;
-      /* padding: 15px; */
-
-  }
-</style>

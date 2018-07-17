@@ -25,11 +25,11 @@ API:
    parameters: RGB, HEX
    description: Color of the tabs component.
    default: null
- - name: disabled
-   type: Boolean
-   parameters: null
-   description: Button on disabled.
-   default: null
+ - name: vs-alignment
+   type: String
+   parameters: top (default), left, bottom, right
+   description: Change the alignment of the tabs buttons.
+   default: top
 ---
 
 # Tabs
@@ -68,23 +68,222 @@ For the title of each tab the `vs-tab` property is implemented in the` vs-tab` c
       </vs-tab>
       <vs-tab vs-label="Service">
         <div class="con-tab-ejemplo">
-
           Service
         </div>
       </vs-tab>
       <vs-tab vs-label="login">
         <div class="con-tab-ejemplo">
           login
+        </div>
+      </vs-tab>
+      <vs-tab disabled vs-label="Disabled">
+        <div class="con-tab-ejemplo">
+          Disabled
+        </div>
+      </vs-tab>
+      <vs-tab vs-label="Lorem ipsum dolor sit amet">
+        <div class="con-tab-ejemplo">
+          Lorem ipsum dolor sit amet
+        </div>
+      </vs-tab>
+    </vs-tabs>
+  </div>
+</template>
+```
+
+</div>
+</vuecode>
+
+</box>
+
+<box>
+
+## Color
+
+You can change the color of the component with the property `vs-color`, the parameter allows the main colors and HEX or RGB
+
+:::warning
+  Only **RGB** and **HEX** colors are supported.
+:::
+
+<vuecode md>
+<div slot="demo">
+  <Demos-Tabs-Color />
+</div>
+<div slot="code">
+
+```html
+<template lang="html">
+  <div>
+    <vs-tabs :vs-color="colorx">
+      <vs-tab @click="colorx = 'success'" vs-label="Success">
+        <div class="con-tab-ejemplo">
+          Success
+        </div>
+      </vs-tab>
+      <vs-tab @click="colorx = 'danger'" vs-label="Danger">
+        <div class="con-tab-ejemplo">
+          Danger
+        </div>
+      </vs-tab>
+      <vs-tab @click="colorx = 'warning'" vs-label="Warning">
+        <div class="con-tab-ejemplo">
+          Warning
+        </div>
+      </vs-tab>
+      <vs-tab @click="colorx = 'dark'" vs-label="Dark">
+        <div class="con-tab-ejemplo">
+          Dark
+        </div>
+      </vs-tab>
+        <vs-tab @click="colorx = 'rgb(16, 233, 179)'" vs-label="RGB | HEX">
+        <div class="con-tab-ejemplo">
+          RGB | HEX
+        </div>
+      </vs-tab>
+    </vs-tabs>
+  </div>
+</template>
+
+<script>
+export default {
+  data:()=>({
+    colorx:'success'
+  }),
+}
+</script>
+```
+
+</div>
+</vuecode>
+
+</box>
+
+<box>
+
+## Alignments
+
+Change the alignment of the buttons with the property `vs-alignments` the allowed values ​​are:
+
+- center
+- right
+- fixed
+
+<vuecode md>
+<div slot="demo">
+  <Demos-Tabs-Alignments />
+</div>
+<div slot="code">
+
+```html
+<template lang="html">
+  <div class="">
+    <h3>
+      Default
+    </h3>
+    <vs-tabs>
+      <vs-tab vs-label="Home">
+        <div>
 
         </div>
       </vs-tab>
-      <vs-tab :disabled="true" vs-label="Disabled">
-        <div class="con-tab-ejemplo">
-          Disabled
+      <vs-tab vs-label="Documents">
+        <div>
+
+        </div>
+      </vs-tab>
+      <vs-tab vs-label="Contributors">
+        <div>
+
+        </div>
+      </vs-tab>
+      <vs-tab vs-label="Ecosistem">
+        <div>
 
         </div>
       </vs-tab>
     </vs-tabs>
+
+    <h3>
+      Center
+    </h3>
+    <vs-tabs vs-alignment="center">
+      <vs-tab vs-label="Home">
+        <div>
+
+        </div>
+      </vs-tab>
+      <vs-tab vs-label="Documents">
+        <div>
+
+        </div>
+      </vs-tab>
+      <vs-tab vs-label="Contributors">
+        <div>
+
+        </div>
+      </vs-tab>
+      <vs-tab vs-label="Ecosistem">
+        <div>
+
+        </div>
+      </vs-tab>
+    </vs-tabs>
+
+    <h3>
+      Right
+    </h3>
+    <vs-tabs vs-alignment="right">
+      <vs-tab vs-label="Home">
+        <div>
+
+        </div>
+      </vs-tab>
+      <vs-tab vs-label="Documents">
+        <div>
+
+        </div>
+      </vs-tab>
+      <vs-tab vs-label="Contributors">
+        <div>
+
+        </div>
+      </vs-tab>
+      <vs-tab vs-label="Ecosistem">
+        <div>
+
+        </div>
+      </vs-tab>
+    </vs-tabs>
+
+
+    <h3>
+      Fixed
+    </h3>
+    <vs-tabs vs-alignment="fixed">
+      <vs-tab vs-label="Home">
+        <div>
+
+        </div>
+      </vs-tab>
+      <vs-tab vs-label="Documents">
+        <div>
+
+        </div>
+      </vs-tab>
+      <vs-tab vs-label="Contributors">
+        <div>
+
+        </div>
+      </vs-tab>
+      <vs-tab vs-label="Ecosistem">
+        <div>
+
+        </div>
+      </vs-tab>
+    </vs-tabs>
+
+
   </div>
 </template>
 ```
@@ -109,115 +308,112 @@ You can change the position of the menu with the property `vs-position` that as 
 ```html
 <template lang="html">
   <div class="">
-    <vs-tabs vs-color="rgb(93, 32, 122)">
-      <vs-tab vs-label="top">
-        <!-- top -->
-        <vs-tabs vs-color="rgb(29, 55, 194)">
-          <vs-tab vs-label="Home">
-            <div class="con-tab-ejemplo">
-              Home
-            </div>
-          </vs-tab>
-          <vs-tab vs-label="Service">
-            <div class="con-tab-ejemplo">
-              Service
-            </div>
-          </vs-tab>
-          <vs-tab vs-label="login">
-            <div class="con-tab-ejemplo">
-              login
-            </div>
+    <h3>
+      Default
+    </h3>
+    <vs-tabs>
+      <vs-tab vs-label="Home">
+        <div>
 
-          </vs-tab>
-          <vs-tab :disabled="true" vs-label="Disabled">
-            <div class="">
-              Disabled
-            </div>
-          </vs-tab>
-        </vs-tabs>
-
+        </div>
       </vs-tab>
-      <vs-tab vs-label="right">
+      <vs-tab vs-label="Documents">
+        <div>
 
-        <!-- right -->
-        <vs-tabs vs-position="right" vs-color="rgb(29, 55, 194)">
-          <vs-tab vs-label="Home">
-            <div class="con-tab-ejemplo">
-              Home
-            </div>
-          </vs-tab>
-          <vs-tab vs-label="Service">
-            <div class="con-tab-ejemplo">
-              Service
-            </div>
-          </vs-tab>
-          <vs-tab vs-label="login">
-            <div class="con-tab-ejemplo">
-              login
-            </div>
-          </vs-tab>
-          <vs-tab :disabled="true" vs-label="Disabled">
-            <div class="con-tab-ejemplo">
-              Disabled
-            </div>
-          </vs-tab>
-        </vs-tabs>
-
+        </div>
       </vs-tab>
-      <vs-tab vs-label="bottom">
+      <vs-tab vs-label="Contributors">
+        <div>
 
-        <!-- bottom -->
-        <vs-tabs vs-position="bottom" vs-color="rgb(29, 55, 194)">
-          <vs-tab vs-label="Home">
-            <div class="con-tab-ejemplo">
-              Home
-            </div>
-          </vs-tab>
-          <vs-tab vs-label="Service">
-            <div class="">
-              Service
-            </div>
-          </vs-tab>
-          <vs-tab vs-label="login">
-            <div class="con-tab-ejemplo">
-              login
-            </div>
-          </vs-tab>
-          <vs-tab :disabled="true" vs-label="Disabled">
-            <div class="con-tab-ejemplo">
-              Disabled
-            </div>
-          </vs-tab>
-        </vs-tabs>
-
+        </div>
       </vs-tab>
-      <vs-tab vs-label="left">
-        <!-- left -->
-        <vs-tabs vs-position="left" vs-color="rgb(29, 55, 194)">
-          <vs-tab vs-label="Home">
-            <div class="con-tab-ejemplo">
-              Home
-            </div>
-          </vs-tab>
-          <vs-tab vs-label="Service">
-            <div class="con-tab-ejemplo">
-              Service
-            </div>
-          </vs-tab>
-          <vs-tab vs-label="login">
-            <div class="con-tab-ejemplo">
-              login
-            </div>
-          </vs-tab>
-          <vs-tab :disabled="true" vs-label="Disabled">
-            <div class="con-tab-ejemplo">
-              Disabled
-            </div>
-          </vs-tab>
-        </vs-tabs>
+      <vs-tab vs-label="Ecosistem">
+        <div>
 
+        </div>
       </vs-tab>
     </vs-tabs>
+
+    <h3>
+      Center
+    </h3>
+    <vs-tabs vs-alignment="center">
+      <vs-tab vs-label="Home">
+        <div>
+
+        </div>
+      </vs-tab>
+      <vs-tab vs-label="Documents">
+        <div>
+
+        </div>
+      </vs-tab>
+      <vs-tab vs-label="Contributors">
+        <div>
+
+        </div>
+      </vs-tab>
+      <vs-tab vs-label="Ecosistem">
+        <div>
+
+        </div>
+      </vs-tab>
+    </vs-tabs>
+
+    <h3>
+      Right
+    </h3>
+    <vs-tabs vs-alignment="right">
+      <vs-tab vs-label="Home">
+        <div>
+
+        </div>
+      </vs-tab>
+      <vs-tab vs-label="Documents">
+        <div>
+
+        </div>
+      </vs-tab>
+      <vs-tab vs-label="Contributors">
+        <div>
+
+        </div>
+      </vs-tab>
+      <vs-tab vs-label="Ecosistem">
+        <div>
+
+        </div>
+      </vs-tab>
+    </vs-tabs>
+
+
+    <h3>
+      Fixed
+    </h3>
+    <vs-tabs vs-alignment="fixed">
+      <vs-tab vs-label="Home">
+        <div>
+
+        </div>
+      </vs-tab>
+      <vs-tab vs-label="Documents">
+        <div>
+
+        </div>
+      </vs-tab>
+      <vs-tab vs-label="Contributors">
+        <div>
+
+        </div>
+      </vs-tab>
+      <vs-tab vs-label="Ecosistem">
+        <div>
+
+        </div>
+      </vs-tab>
+    </vs-tabs>
+
+
   </div>
 </template>
 ```
