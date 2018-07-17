@@ -32,7 +32,7 @@ API:
    default: top
 ---
 
-# Tabs
+# Tabs **- ssr**
 
 <box header>
 

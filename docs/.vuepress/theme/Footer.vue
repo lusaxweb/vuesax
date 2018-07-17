@@ -19,7 +19,7 @@
           </li>
         </ul>
       </div>
-      <span :style="{'left':lineaL+'px'}" :class="{'lineaActiva':lineaActiva}" class="lineax"></span>
+      <!-- <span :style="{'left':lineaL+'px','top':lineaL+'px'}" :class="{'lineaActiva':lineaActiva}" class="lineax"></span> -->
     </div>
     <div class="con-copy">
       Copyright © 2018 vuesax.
@@ -35,6 +35,7 @@ export default {
       hoverText:false,
       lineaL:0,
       lineaActiva:false,
+      topx:0,
     }
   },
   computed:{
@@ -47,9 +48,12 @@ export default {
       this.lineaActiva = false
     },
     lineaLx(evt){
+      console.log(evt)
+      console.log(evt.target.getBoundingClientRect())
       this.lineaActiva = true
       let cords = evt.target.getBoundingClientRect()
       this.lineaL = cords.left + 23
+      this.topx = cords.top
     }
   }
 
@@ -90,7 +94,7 @@ footer.footerx_theme
   justify-content center
   z-index 200
   left 0px
-  padding-bottom 10px
+  padding-bottom 40px
   .lineax
     position absolute
     top -10px

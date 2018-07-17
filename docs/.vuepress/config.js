@@ -140,6 +140,7 @@ module.exports = {
             text: 'Social',
             items: [
               { text: 'Github', link: 'https://github.com/lusaxweb/vuesax' },
+              { text: 'Discord', link: 'https://discord.gg/9dsKtvB' },
               { text: 'Twitter', link: 'https://twitter.com/vuesax' },
               { text: 'Facebook', link: 'https://www.facebook.com/vuesax/' },
               { text: 'Behance', link: 'https://www.behance.net/ManuelRovira' },

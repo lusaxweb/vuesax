@@ -313,6 +313,21 @@ var store = global[SHARED] || (global[SHARED] = {});
 
 /***/ }),
 
+/***/ "/nkZ":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("I1BE")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".fadex-enter-active[data-v-37aa9637],.fadex-leave-active[data-v-37aa9637]{-webkit-transition:opacity .3s;transition:opacity .3s}.fadex-enter[data-v-37aa9637],.fadex-leave-to[data-v-37aa9637]{opacity:0}.fadex-enter-active .vs-popup[data-v-37aa9637]{-webkit-animation:bounce-in-data-v-37aa9637 .3s;animation:bounce-in-data-v-37aa9637 .3s}.fadex-leave-active .vs-popup[data-v-37aa9637]{-webkit-transform:scale(1.05);transform:scale(1.05)}@-webkit-keyframes bounce-in-data-v-37aa9637{0%{-webkit-transform:scale(.8);transform:scale(.8)}to{-webkit-transform:scale(1);transform:scale(1)}}@keyframes bounce-in-data-v-37aa9637{0%{-webkit-transform:scale(.8);transform:scale(.8)}to{-webkit-transform:scale(1);transform:scale(1)}}.con-htmlx[data-v-37aa9637]{padding:20px;overflow:auto;max-height:calc(100vh - 100px)}.vs-popup[data-v-37aa9637]{width:calc(100% - 30px);margin:15px;max-width:1000px;max-height:calc(100vh - 30px);background:#fff;border-radius:10px;-webkit-transform:scale(1);transform:scale(1);-webkit-transition:all .3s ease;transition:all .3s ease}.con-popup header[data-v-37aa9637]{width:100%;position:relative;border-bottom:1px solid rgba(0,0,0,.05)}.con-popup header h2[data-v-37aa9637]{font-weight:lighter;width:100%;padding:10px;position:relative;padding-left:20px;color:inherit}.vs-popup-cancel[data-v-37aa9637]{position:absolute;top:-10px;right:-10px;width:50px;height:50px;border-radius:10px;-webkit-box-shadow:0 2px 10px 0 rgba(0,0,0,.2);box-shadow:0 2px 10px 0 rgba(0,0,0,.2);display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;cursor:pointer;-webkit-transition:all .3s ease;transition:all .3s ease}.vs-popup-cancel[data-v-37aa9637]:hover{-webkit-transform:scale(1.1);transform:scale(1.1)}.vs-popup-cancel:hover span[data-v-37aa9637]{color:#fff}.con-popup[data-v-37aa9637]{width:100%;position:fixed;left:0;top:0;height:100%;background:rgba(0,0,0,.5);z-index:20000;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}.fullscreen[data-v-37aa9637]{width:100%!important;height:100%!important;max-width:100%}", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "0/6w":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1157,6 +1172,21 @@ __webpack_require__("XTKf")('getOwnPropertyDescriptor', function () {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("HkPn");
+
+/***/ }),
+
+/***/ "9Un4":
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__("/nkZ");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__("SZ7m").default
+var update = add("657ca1fe", content, true, {});
 
 /***/ }),
 
@@ -4946,7 +4976,7 @@ var vsUpload_Component = Object(component_normalizer["a" /* default */])(
     document.body.insertBefore(popupx, document.body.firstChild);
   }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-0aa0f93d","hasScoped":true,"optionsId":"1","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsPopup/vsPopup.vue
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-37aa9637","hasScoped":true,"optionsId":"1","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsPopup/vsPopup.vue
 var vsPopup_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('transition',{attrs:{"name":"fadex"}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.vsActive),expression:"vsActive"}],ref:"conpopup",staticClass:"con-popup"},[_c('div',_vm._b({staticClass:"vs-popup",class:{'fullscreen':_vm.vsFullscreen},style:({'background':_vm.vsBackgroundColor?/[#()]/.test(_vm.vsBackgroundColor)?_vm.vsBackgroundColor:("rgba(var(--" + _vm.vsBackgroundColor + "),1)"):'rgb(255,255,255)',
     'color':_vm.colorx,
     })},'div',_vm.$attrs,false),[_c('header',[(_vm.vsTitle!='')?_c('h2',[_vm._v("\n        "+_vm._s(_vm.vsTitle)+"\n      ")]):_vm._e(),_vm._v(" "),_c('div',{staticClass:"vs-popup-cancel",style:({'background':_vm.vsCloseButtonColor?/[#()]/.test(_vm.vsCloseButtonColor)?_vm.vsCloseButtonColor:("rgba(var(--" + _vm.vsCloseButtonColor + "),1)"):'rgb(250, 250, 250)',
@@ -4956,7 +4986,7 @@ var vsPopup_staticRenderFns = []
 
 // CONCATENATED MODULE: ./src/components/vsPopup/vsPopup.vue
 function vsPopup_injectStyle (context) {
-  __webpack_require__("ga9n")
+  __webpack_require__("9Un4")
 }
 /* script */
 
@@ -4968,7 +4998,7 @@ var vsPopup_vue_template_functional_ = false
 /* styles */
 var vsPopup_vue_styles_ = vsPopup_injectStyle
 /* scopeId */
-var vsPopup_vue_scopeId_ = "data-v-0aa0f93d"
+var vsPopup_vue_scopeId_ = "data-v-37aa9637"
 /* moduleIdentifier (server only) */
 var vsPopup_vue_module_identifier_ = null
 
@@ -9841,36 +9871,6 @@ module.exports = function (TO_STRING) {
       : TO_STRING ? s.slice(i, i + 2) : (a - 0xd800 << 10) + (b - 0xdc00) + 0x10000;
   };
 };
-
-
-/***/ }),
-
-/***/ "ga9n":
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__("h2eY");
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var add = __webpack_require__("SZ7m").default
-var update = add("0625171f", content, true, {});
-
-/***/ }),
-
-/***/ "h2eY":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("I1BE")(false);
-// imports
-
-
-// module
-exports.push([module.i, ".fadex-enter-active[data-v-0aa0f93d],.fadex-leave-active[data-v-0aa0f93d]{-webkit-transition:opacity .3s;transition:opacity .3s}.fadex-enter[data-v-0aa0f93d],.fadex-leave-to[data-v-0aa0f93d]{opacity:0}.fadex-enter-active .vs-popup[data-v-0aa0f93d]{-webkit-animation:bounce-in-data-v-0aa0f93d .3s;animation:bounce-in-data-v-0aa0f93d .3s}.fadex-leave-active .vs-popup[data-v-0aa0f93d]{-webkit-transform:scale(1.05);transform:scale(1.05)}@-webkit-keyframes bounce-in-data-v-0aa0f93d{0%{-webkit-transform:scale(.8);transform:scale(.8)}to{-webkit-transform:scale(1);transform:scale(1)}}@keyframes bounce-in-data-v-0aa0f93d{0%{-webkit-transform:scale(.8);transform:scale(.8)}to{-webkit-transform:scale(1);transform:scale(1)}}.con-htmlx[data-v-0aa0f93d]{padding:20px}.vs-popup[data-v-0aa0f93d]{width:calc(100% - 30px);margin:15px;max-width:1000px;max-height:calc(100vh - 30px);background:#fff;border-radius:10px;-webkit-transform:scale(1);transform:scale(1);-webkit-transition:all .3s ease;transition:all .3s ease}.con-popup header[data-v-0aa0f93d]{width:100%;position:relative;border-bottom:1px solid rgba(0,0,0,.05)}.con-popup header h2[data-v-0aa0f93d]{font-weight:lighter;width:100%;padding:10px;position:relative;padding-left:20px;color:inherit}.vs-popup-cancel[data-v-0aa0f93d]{position:absolute;top:-10px;right:-10px;width:50px;height:50px;border-radius:10px;-webkit-box-shadow:0 2px 10px 0 rgba(0,0,0,.2);box-shadow:0 2px 10px 0 rgba(0,0,0,.2);display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;cursor:pointer;-webkit-transition:all .3s ease;transition:all .3s ease}.vs-popup-cancel[data-v-0aa0f93d]:hover{-webkit-transform:scale(1.1);transform:scale(1.1)}.vs-popup-cancel:hover span[data-v-0aa0f93d]{color:#fff}.con-popup[data-v-0aa0f93d]{width:100%;position:fixed;left:0;top:0;height:100%;background:rgba(0,0,0,.5);z-index:20000;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}.fullscreen[data-v-0aa0f93d]{width:100%!important;height:100%!important;max-width:100%}", ""]);
-
-// exports
 
 
 /***/ }),

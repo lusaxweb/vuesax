@@ -21,6 +21,7 @@
       <slot name="page-bottom" slot="bottom"/>
     </Page>
     </transition>
+
   </div>
 </template>
 
