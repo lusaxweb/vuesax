@@ -118,6 +118,8 @@ export default {
 }
 .con-htmlx {
   padding: 20px;
+  overflow: scroll;
+  max-height: calc(100vh - 100px);
 }
 .vs-popup {
   width: calc(100% - 30px);
