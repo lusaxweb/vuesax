@@ -5,43 +5,51 @@
       {
         'vs-switch-active':isChecked || $attrs.checked
       }
-      ]"
-    class="vs-component vs-switch"
+    ]"
     :style="style"
     v-bind="$attrs"
-    @click="toggleCheckbox($event)"
-    type="button" name="button">
+    class="vs-component vs-switch"
+    type="button"
+    name="button" 
+    @click="toggleCheckbox($event)">
     <input
-    class="input-switch"
-    :checked="value"
-    :disabled="$attrs.disabled"
-    v-on="listeners"
-    type="checkbox" name="" value="" ref='inputCheckbox'>
+      ref="inputCheckbox"
+      :checked="value"
+      :disabled="$attrs.disabled"
+      class="input-switch"
+      type="checkbox" 
+      name="" 
+      value="" 
+      v-on="listeners">
 
-    <span ref="on" :class="{'active-text':isChecked || $attrs.checked}" class="text-on text-switch">
-      <slot name="on">
-      </slot>
+    <span 
+      ref="on" 
+      :class="{'active-text':isChecked || $attrs.checked}" 
+      class="text-on text-switch">
+      <slot name="on"/>
       <!-- perro -->
       <i class="material-icons icons-switch">
-        {{vsIconOn || vsIcon}}
+        {{ vsIconOn || vsIcon }}
       </i>
     </span>
-    <span ref="off" :class="{'active-text':!isChecked && !$attrs.checked}" class="text-off text-switch">
+    <span 
+      ref="off" 
+      :class="{'active-text':!isChecked && !$attrs.checked}" 
+      class="text-off text-switch">
       <!-- gato con botas -->
-      <slot name="off">
-      </slot>
+      <slot name="off"/>
       <i class="material-icons icons-switch">
-        {{vsIconOff || vsIcon}}
+        {{ vsIconOff || vsIcon }}
       </i>
     </span>
-    <span class="vs-circle-switch"></span>
+    <span class="vs-circle-switch"/>
   </button>
 </template>
 
 <script>
 import _color from '../../utils/color.js'
 export default {
-  name:'vs-switch',
+  name:'VsSwitch',
   inheritAttrs:false,
   props:{
     value:{},
@@ -67,13 +75,6 @@ export default {
     widthx:42,
     checkboxClicked: false,
   }),
-  mounted(){
-    this.$nextTick(()=>{
-      let w = this.$refs.on.clientWidth>this.$refs.off.clientWidth?this.$refs.on.clientWidth:this.$refs.off.clientWidth
-      this.widthx = w + 24
-    })
-
-  },
   computed:{
     style(){
       return {
@@ -92,6 +93,13 @@ export default {
     isChecked(){
       return this.isArrayx() ? this.isArrayIncludes() : this.value
     },
+  },
+  mounted(){
+    this.$nextTick(()=>{
+      let w = this.$refs.on.clientWidth>this.$refs.off.clientWidth?this.$refs.on.clientWidth:this.$refs.off.clientWidth
+      this.widthx = w + 24
+    })
+
   },
   methods:{
     toggleCheckbox(event) {

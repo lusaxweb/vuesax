@@ -1,11 +1,11 @@
 <template lang="html">
   <div
-    @mouseover="hoverx=true"
-    @mouseout="hoverx=false"
     :style="styles"
     :class="[`vs-collapse-${isColor()?vsColor:null}`]"
-    class="vs-component vs-collapse vs-collapse-"
     v-bind="$attrs"
+    class="vs-component vs-collapse vs-collapse-"
+    @mouseover="hoverx=true"
+    @mouseout="hoverx=false"
     v-on="$listeners">
     Component vsCollapse
   </div>
@@ -15,8 +15,8 @@
 
 import _color from '../../utils/color.js'
 export default {
+  name: "VsCollapse",
   inheritAttrs:false,
-  name: "vs-collapse",
   props:{
     vsColor:{
       default:'primary',
@@ -26,9 +26,6 @@ export default {
   data:()=>({
     hoverx:false
   }),
-  mounted(){
-    // console.log("mounted>>>>>>",_color.getColor('rgb(189, 21, 74)'));
-  },
   computed:{
     styles() {
       if(!this.isColor()){
@@ -38,6 +35,9 @@ export default {
         }
       }
     }
+  },
+  mounted(){
+    // console.log("mounted>>>>>>",_color.getColor('rgb(189, 21, 74)'));
   },
   methods:{
     isColor(){

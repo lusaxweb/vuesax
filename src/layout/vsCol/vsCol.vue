@@ -1,28 +1,26 @@
 <template lang="html">
   <div
-
     :class="[
       'vs-xs-'+vsXs,
       'vs-sm-'+vsSm,
       'vs-lg-'+vsLg,
     ]"
 
-   :style="{
-     'order':vsOrder,
-     'justify-content':vsJustify,
-     'display':vsType,
-     'align-items':vsAlign,
-     'margin-left':vsOffset*100/12+'%',
-     'width':vsW*100/12+'%'}" class="vs-col">
-    <slot>
-
-    </slot>
+    :style="{
+      'order':vsOrder,
+      'justify-content':vsJustify,
+      'display':vsType,
+      'align-items':vsAlign,
+      'margin-left':vsOffset*100/12+'%',
+      'width':vsW*100/12+'%'}"
+    class="vs-col">
+    <slot/>
   </div>
 </template>
 
 <script>
 export default {
-  name:'vs-col',
+  name:'VsCol',
   props:{
     vsW:{
       type:[Number,String],
@@ -57,6 +55,7 @@ export default {
       default:null,
     },
     vsOrder:{
+      default:null,
       type:[String,Number]
     }
   }

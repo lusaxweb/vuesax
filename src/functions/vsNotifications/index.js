@@ -6,8 +6,6 @@ const NotiConstructor = Vue.extend(vsNotifications);
 
 
 let instance;
-let _this;
-
 
 export default {name:'notify',vsfunction(parameters){
   if(parameters.fullWidth){

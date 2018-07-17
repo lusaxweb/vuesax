@@ -1,30 +1,34 @@
 <template lang="html">
   <transition name="dropdownx">
-  <div
-  :class="{'rightx':rightx,'notHeight':notHeight}"
-  v-show="dropdownVisible"
-  @mouseover="toggleMenu($event)"
-  @mouseout="toggleMenu($event)"
-  :style="{
-    'left':leftx+'px',
-    'top':topx+'px'
-  }" ref="options" class="con-vs-dropdown-menu">
-    <ul v-if="!vsCustomContent" class="vs-component vs-dropdown-menu" >
-      <div class="after"></div>
-      <slot>
-      </slot>
-    </ul>
-    <div v-else class="vs-dropdown-custom vs-dropdown-menu">
-      <slot>
-      </slot>
+    <div
+      v-show="dropdownVisible"
+      ref="options"
+      :class="{'rightx':rightx,'notHeight':notHeight}"
+      :style="{
+        'left':leftx+'px',
+        'top':topx+'px'
+      }"
+      class="con-vs-dropdown-menu" 
+      @mouseover="toggleMenu($event)" 
+      @mouseout="toggleMenu($event)">
+      <ul 
+        v-if="!vsCustomContent" 
+        class="vs-component vs-dropdown-menu" >
+        <div class="after"/>
+        <slot/>
+      </ul>
+      <div 
+        v-else 
+        class="vs-dropdown-custom vs-dropdown-menu">
+        <slot/>
+      </div>
     </div>
-  </div>
   </transition>
 </template>
 
 <script>
 export default {
-  name: "vs-dropdown-menu",
+  name: "VsDropdownMenu",
   data:()=>({
     dropdownVisible:false,
     leftAfter:20,
@@ -36,9 +40,6 @@ export default {
     notHeight:false,
     vsCustomContent:false
   }),
-  mounted(){
-    this.insertBody()
-  },
   watch:{
     dropdownVisible(){
       let dropdownGroup = this.$children.filter((item)=>{
@@ -48,6 +49,9 @@ export default {
         item_group.activeGroup = false
       })
     }
+  },
+  mounted(){
+    this.insertBody()
   },
   methods:{
     toggleMenu(event){

@@ -1,31 +1,35 @@
 <template lang="html">
   <transition
-  name="noti"
-  v-on:before-enter="beforeEnter"
-  v-on:enter="enter"
-  v-on:leave="leave"
+    name="noti"
+    @before-enter="beforeEnter"
+    @enter="enter"
+    @leave="leave"
   >
-  <div
-    @click="clickNoti"
-    ref="noti"
-    :style="stylex"
-    v-if="active"
-    :class="[`vs-noti-${position}`,`vs-noti-${color}`,{'activeNoti':active}]"
-     class="vs-component vs-notifications">
-     <div class="content-noti">
-       <div class="con-text-noti">
-         <h3 v-html="title"></h3>
-         <p v-html="text"></p>
+    <div
+      v-if="active"
+      ref="noti"
+      :style="stylex"
+      :class="[`vs-noti-${position}`,`vs-noti-${color}`,{'activeNoti':active}]"
+      class="vs-component vs-notifications"
+      @click="clickNoti">
+      <div class="content-noti">
+        <div class="con-text-noti">
+          <h3 v-html="title"/>
+          <p v-html="text"/>
 
-         <slot/>
-       </div>
-       <i v-if="icon" class="vs-icon-noti material-icons">
-         {{icon}}
-       </i>
-     </div>
-    <span :style="fillingStyle" class="filling"></span>
-  </div>
-</transition>
+          <slot/>
+        </div>
+        <i
+          v-if="icon"
+          class="vs-icon-noti material-icons">
+          {{ icon }}
+        </i>
+      </div>
+      <span
+        :style="fillingStyle"
+        class="filling"/>
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -50,6 +54,25 @@ export default {
     fixed:false,
 
   }),
+  computed:{
+    fillingStyle(){
+      return {
+        left: this.cords.left?'-100px':null,
+        right: this.cords.right?'-100px':null,
+        background: this.color,
+        height:`${this.widthx*2}px`,
+        width:`${this.widthx*2}px`,
+      }
+    },
+    stylex(){
+      return {
+        ...this.cords,
+        color: this.colorText,
+        width: this.fullWidth?`calc(100% - 14px)`:``,
+        maxWidth: this.fullWidth?'none':`350px`
+      }
+    }
+  },
   created(){
     setTimeout( () => {
       this.moverNotis()
@@ -67,26 +90,6 @@ export default {
       }, this.time);
     }
   },
-  computed:{
-    fillingStyle(){
-      return {
-        left: this.cords.left?'-100px':null,
-        right: this.cords.right?'-100px':null,
-        background: this.color,
-        height:`${this.widthx*2}px`,
-        width:`${this.widthx*2}px`,
-        // transform: `translate(${this.widthx/1.5}px,${this.widthx/1.5}px)`
-      }
-    },
-    stylex(){
-      return {
-        ...this.cords,
-        color: this.colorText,
-        width: this.fullWidth?`calc(100% - 14px)`:``,
-        maxWidth: this.fullWidth?'none':`350px`
-      }
-    }
-  },
   methods:{
     clickNoti(){
       this.active = false
@@ -96,7 +99,6 @@ export default {
       el.style.opacity = 0
     },
     enter(el, done){
-      let h = el.scrollHeight
       el.style.opacity = 1
       done()
     },
@@ -140,31 +142,29 @@ export default {
       }
     },
     moverNotis(){
-        let notisx = document.querySelectorAll('.vs-noti-'+this.position);
-        for (var i = 0; i < notisx.length; i++) {
-          let hx = 10
-          for (var i2 = 0; i2 < i; i2++) {
-            hx += notisx[i2].clientHeight + 6
-          }
-          if(this.position.search('center')==-1){
-            if(this.position.search('top')!=-1){
-              notisx[i].style.transform = `translatey(${hx}px)`
-            } else if (this.position.search('bottom')!=-1) {
-              notisx[i].style.transform = `translatey(-${hx}px)`
-            }
-          }
-
-           if (this.position.search('top')!=-1 && this.position.search('center')!=-1) {
-            notisx[i].style.transform = `translate(-50%,${hx}px)`
-            notisx[i].style.zIndex = 10000-i
-          }
-           if (this.position.search('bottom')!=-1 && this.position.search('center')!=-1) {
-            notisx[i].style.transform = `translate(-50%,-${hx}px)`
-            notisx[i].style.zIndex = 10000-i
+      let notisx = document.querySelectorAll('.vs-noti-'+this.position);
+      for (var i = 0; i < notisx.length; i++) {
+        let hx = 10
+        for (var i2 = 0; i2 < i; i2++) {
+          hx += notisx[i2].clientHeight + 6
+        }
+        if(this.position.search('center')==-1){
+          if(this.position.search('top')!=-1){
+            notisx[i].style.transform = `translatey(${hx}px)`
+          } else if (this.position.search('bottom')!=-1) {
+            notisx[i].style.transform = `translatey(-${hx}px)`
           }
         }
 
-      // console.log(hx);
+        if (this.position.search('top')!=-1 && this.position.search('center')!=-1) {
+          notisx[i].style.transform = `translate(-50%,${hx}px)`
+          notisx[i].style.zIndex = 10000-i
+        }
+        if (this.position.search('bottom')!=-1 && this.position.search('center')!=-1) {
+          notisx[i].style.transform = `translate(-50%,-${hx}px)`
+          notisx[i].style.zIndex = 10000-i
+        }
+      }
     }
   }
 }

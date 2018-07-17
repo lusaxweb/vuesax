@@ -1,35 +1,33 @@
 <template lang="html">
   <li
-    @click="closeParent"
     :class="{vsDivider}"
     :style="{
       'color':hoverx?giveColor()+' !important':null,
       'background':hoverx?giveColor(.01)+' !important':null
-      }"
-      @mouseover="hoverx=true"
-      @mouseout="hoverx=false"
-    class="vs-component vs-dropdown-item">
+    }"
+    class="vs-component vs-dropdown-item"
+    @click="closeParent"
+    @mouseover="hoverx=true"
+    @mouseout="hoverx=false">
     <router-link
-    v-if="to"
-    :to="to"
-    v-bind="$attrs"
-    v-on="$listeners"
-    :class="{'disabled':disabled}"
+      v-if="to"
+      :to="to"
+      v-bind="$attrs"
+      :class="{'disabled':disabled}"
+      v-on="$listeners"
 
     >
-      {{$attrs.disabled}}
-      <slot>
-      </slot>
+      {{ $attrs.disabled }}
+      <slot/>
     </router-link>
 
     <a
-    v-else
-    v-bind="$attrs"
-    v-on="$listeners"
-    :class="{'disabled':disabled}"
+      v-else
+      v-bind="$attrs"
+      :class="{'disabled':disabled}"
+      v-on="$listeners"
     >
-      <slot>
-      </slot>
+      <slot/>
     </a>
   </li>
 </template>
@@ -37,8 +35,8 @@
 <script>
 import _color from '../../utils/color.js'
 export default {
+  name: "VsDropdownItem",
   inheritAttrs:false,
-  name: "vs-dropdown-item",
   props:{
     to:{},
     disabled:{

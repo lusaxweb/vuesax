@@ -1,68 +1,108 @@
 <template lang="html">
-  <div :class="{'con-multiple':multiple}" class="contiene-upload">
+  <div
+    :class="{'con-multiple':multiple}"
+    class="contiene-upload">
 
 
-  <div v-if="!multiple" class="con-upload">
-    <div  class="con-subir">
-      <h3>{{ title }}</h3>
-      <i class="material-icons">publish</i>
-    </div>
-    <input class="input-upload" ref="inputx"  @change="uploadx($event)" type="file" name="" value="">
-    <div class="">
-
-    </div>
-    <div :style="{'background':colorx}" ref="conimg" :class="{'oculto':url==''}" class="con-img-upload">
-      <div class="header-upload">
-        <div @click="xUrl(),colorx='rgb(255, 255, 255)'" class="x-img">
-          <i class="material-icons">close</i>
-        </div>
+    <div
+      v-if="!multiple"
+      class="con-upload">
+      <div class="con-subir">
+        <h3>{{ title }}</h3>
+        <i class="material-icons">publish</i>
       </div>
-      <!-- <div class="con-imgx"> -->
-        <img @click="verview"  ref="imgx" :src="url" alt="">
+      <input
+        ref="inputx"
+        class="input-upload"
+        type="file"
+        name=""
+        value=""
+        @change="uploadx($event)">
+      <div class=""/>
+      <div
+        ref="conimg"
+        :style="{'background':colorx}"
+        :class="{'oculto':url==''}"
+        class="con-img-upload">
+        <div class="header-upload">
+          <div
+            class="x-img"
+            @click="xUrl(),colorx='rgb(255, 255, 255)'">
+            <i class="material-icons">close</i>
+          </div>
+        </div>
+        <!-- <div class="con-imgx"> -->
+        <img
+          ref="imgx"
+          :src="url"
+          alt=""
+          @click="verview">
 
       <!-- </div> -->
-    </div>
+      </div>
     <!-- <video ref="imgx" :src="url" autoplay >
       Tu navegador no admite el elemento <code>video</code>.
     </video> -->
-  </div>
+    </div>
 
-  <!-- multiple -->
+    <!-- multiple -->
 
-  <div v-if="multiple" class="con-multiple-upload">
-    <ul ref="ulmultiple" class="con-multiples-imgs">
-      <li  v-for="file,index in reverseImgs" class="con-imgs">
-        <div @click="quitarImage(index)" class="x-img">
+    <div
+      v-if="multiple"
+      class="con-multiple-upload">
+      <ul
+        ref="ulmultiple"
+        class="con-multiples-imgs">
+        <li
+          v-for="(file,index) in reverseImgs"
+          class="con-imgs">
+          <div
+            class="x-img"
+            @click="quitarImage(index)">
+            <i class="material-icons">close</i>
+          </div>
+          <img
+            :ref="'vs'+index"
+            :src="file.src"
+            alt=""
+            @click="view=true,urlview=file.src">
+
+        </li>
+        <li class="agregarx">
+          <input
+            ref="inputsx"
+            class="input-upload"
+            type="file"
+            name=""
+            value=""
+            @change="multipleUploadx($event)">
+        </li>
+      </ul>
+    </div>
+
+
+    <transition name="fade-upload">
+      <div
+        v-show="view"
+        ref="viewx"
+        class="view-upload"
+        @click="quitarView($event)">
+        <div
+          class="x-view"
+          @click="view=false">
           <i class="material-icons">close</i>
         </div>
-        <img @click="view=true,urlview=file.src" :ref="'vs'+index" :src="file.src" alt="">
-
-      </li>
-      <li class="agregarx">
-        <input class="input-upload" ref="inputsx"  @change="multipleUploadx($event)" type="file" name="" value="">
-      </li>
-    </ul>
-    <!-- <div @click="agregarImg" class="">
-      <!-- Agregar
-
-    </div> -->
+        <img
+          :src="urlview"
+          alt="">
+      </div>
+    </transition>
   </div>
-
-
-  <transition name="fade-upload">
-  <div @click="quitarView($event)" v-show="view" ref="viewx" class="view-upload">
-    <div @click="view=false" class="x-view">
-      <i class="material-icons">close</i>
-    </div>
-    <img :src="urlview" alt="">
-  </div>
-  </transition>
-</div>
 </template>
 
 <script>
 export default {
-  name:'vs-upload',
+  name:'VsUpload',
   filter:{
     reverse:function(value){
       return value.slice().reverse();
@@ -73,13 +113,22 @@ export default {
       type: String,
       default: 'Upload file'
     },
-    vsFile:String,
-    multiple:Boolean,
+    vsFile:{
+      type: String,
+      default: null
+    },
+    multiple:{
+      type:Boolean,
+      default:false
+    },
     arrayFiles:{
       type:Array,
       default:function() {return []}
     },
-    vsFileList:Array,
+    vsFileList:{
+      type:Array,
+      default:function() {return []}
+    },
   },
   data(){
     return {
@@ -89,10 +138,6 @@ export default {
       view:false,
     }
   },
-  mounted(){
-    let elx = this.$refs.viewx
-    document.body.insertBefore(elx, document.body.firstChild)
-  },
   computed:{
     reverseImgs(){
       if(this.arrayFiles.length > 0){
@@ -100,6 +145,10 @@ export default {
         return this.arrayFiles.slice().reverse();
       }
     }
+  },
+  mounted(){
+    let elx = this.$refs.viewx
+    document.body.insertBefore(elx, document.body.firstChild)
   },
   methods:{
     quitarImage(index){
@@ -133,9 +182,8 @@ export default {
         this.$emit('file','')
       }, 250);
     },
-    multipleUploadx(e){
+    multipleUploadx(){
 
-      var preview = this.$refs.ulmultiple
       var file    = this.$refs.inputsx.files[0]
       var reader  = new FileReader();
       var filesx = JSON.parse(JSON.stringify(this.vsFileList))
@@ -160,71 +208,50 @@ export default {
       this.$emit('update:vsFile', e.target.value)
       let _this = this
       this.$refs.conimg.classList.remove('oculto');
-      var preview = this.$refs.imgx
       var file    = this.$refs.inputx.files[0]
       var reader  = new FileReader();
 
-
-        // reader.onloadend =  ()=> {
-        //   // preview.src = reader.result;
-        //   this.url = reader.result
-        // }
-        //
-        // if (file) {
-        //   reader.readAsDataURL(file);
-        // } else {
-        //   preview.src = this.url;
-        // }
-
-
-
-
-
-  var averagediv = this.$refs.conimg
-  var averageimage = this.$refs.imgx
-
-
   // obtener color
-  function getaverageColor(imagen) {
-    var r=0, g=0, b=0, count = 0, canvas, ctx, imageData, data, i, n;
-    canvas = document.createElement('canvas');
-    ctx = canvas.getContext("2d");
-    canvas.width = imagen.width;
-    canvas.height = imagen.height;
-    ctx.drawImage(imagen, 0, 0);
-    imageData = ctx.getImageData(0, 0, imagen.width, imagen.height);
-    data = imageData.data;
-    for(i = 0, n = data.length; i < n; i += 4) {
-      ++count;
-      r += data[i];
-      g += data[i+1];
-      b += data[i+2];
-    }
-    r = ~~(r/count);
-    g = ~~(g/count);
-    b = ~~(b/count);
-    return [r, g, b];
-  }
+      function getaverageColor(imagen) {
+        var r=0, g=0, b=0, count = 0, canvas, ctx, imageData, data, i, n;
+        canvas = document.createElement('canvas');
+        ctx = canvas.getContext("2d");
+        canvas.width = imagen.width;
+        canvas.height = imagen.height;
+        ctx.drawImage(imagen, 0, 0);
+        imageData = ctx.getImageData(0, 0, imagen.width, imagen.height);
+        data = imageData.data;
+        for(i = 0, n = data.length; i < n; i += 4) {
+          ++count;
+          r += data[i];
+          g += data[i+1];
+          b += data[i+2];
+        }
+        r = ~~(r/count);
+        g = ~~(g/count);
+        b = ~~(b/count);
+        return [r, g, b];
+      }
 
-  function rgbToHex(arr) {
-    return "#" + ((1 << 24) + (arr[0] << 16) + (arr[1] << 8) + arr[2]).toString(16).slice(1);
-  }
+      function rgbToHex(arr) {
+        return "#" + ((1 << 24) + (arr[0] << 16) + (arr[1] << 8) + arr[2]).toString(16).slice(1);
+      }
 
-  function uploadImage(e) {
-    var image = new Image();
-    image.src = e.target.result;
-    image.onload = function() {
-      switchImage(this);
-    }
-  }
-  function switchImage(image) {
-    var averagecolor = getaverageColor(image);
-    var color = rgbToHex(averagecolor);
+      function uploadImage(e) {
+        var image = new Image();
+        image.src = e.target.result;
+        image.onload = function() {
+          switchImage(this);
+        }
+      }
+      function switchImage(image) {
+        var averagecolor = getaverageColor(image);
+        var color = rgbToHex(averagecolor);
 
-    _this.url = image.src;
-    _this.colorx = color
+        _this.url = image.src;
+        _this.colorx = color
     // averagediv.style.backgroundColor = averagediv.textContent = color;
-  }
+      }
 
   // function setDefaultImage() {
   //   var image = new Image();
@@ -235,16 +262,15 @@ export default {
   // }
 
 
-    file = e.target.files[0];
-    if (!file.type.match(/image.*/)) return;
-    var reader = new FileReader();
-    reader.onload = uploadImage;
-    reader.readAsDataURL(file);
+      file = e.target.files[0];
+      if (!file.type.match(/image.*/)) return;
+      reader.onload = uploadImage;
+      reader.readAsDataURL(file);
 
 
     // this.$emit('file',e.target.value,e)
 
-}
+    }
   }
 }
 </script>

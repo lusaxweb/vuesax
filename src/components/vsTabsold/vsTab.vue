@@ -1,14 +1,16 @@
 <template lang="html">
   <transition :name="invert?'fade-invert':'fade'">
-  <div v-if="activo" class="con-tab">
-    <slot/>
-  </div>
+    <div 
+      v-if="activo" 
+      class="con-tab">
+      <slot/>
+    </div>
   </transition>
 </template>
 
 <script>
 export default {
-  name:'vs-tab',
+  name:'VsTab',
   props:[
     'vsLabel',
     'disabled'

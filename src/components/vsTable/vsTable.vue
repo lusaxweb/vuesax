@@ -1,26 +1,31 @@
 <template lang="html">
   <div class="con-vs-table">
-<!-- <div>
+    <!-- <div>
   {{ths}}
 </div> -->
     <table>
       <thead ref="thead">
         <tr>
           <!-- header for JSON -->
-          <th v-if="ths.length<=0" v-for="th in vsHeaders">
-            {{th.title}}
+          <th 
+            v-for="th in vsHeaders" 
+            v-if="ths.length<=0">
+            {{ th.title }}
           </th>
 
           <!-- // header por template -->
-          <slot v-else>
-          </slot>
+          <slot v-else/>
         </tr>
       </thead>
-      <tbody class="vs-tbody" :style="{'font-size':vsFontSize+'px'}"  @click="emitClickTr(tr,trIndex,$event)" v-for="tr,trIndex in vsData">
+      <tbody 
+        v-for="tr,trIndex in vsData" 
+        :style="{'font-size':vsFontSize+'px'}" 
+        class="vs-tbody" 
+        @click="emitClickTr(tr,trIndex,$event)">
         <tr>
-          <slot name="trs" :items="tr">
-
-          </slot>
+          <slot 
+            :items="tr" 
+            name="trs"/>
         </tr>
 
         <!-- <tr>
@@ -56,7 +61,7 @@
       <tbody v-if="vsData.length == 0">
         <tr>
           <td :colspan="thLength">
-            {{vsNoData}}
+            {{ vsNoData }}
           </td>
         </tr>
       </tbody>
@@ -68,7 +73,7 @@
 
 import vsTableColum from './vsTableColum.vue'
 export default {
-  name:'vs-table',
+  name:'VsTable',
   components:{
     vsTableColum
   },
@@ -109,15 +114,20 @@ export default {
       thLength:0,
     }
   },
+  watch:{
+    ths(){
+      this.ths = this.ths
+    }
+  },
   methods:{
     emitClickTr(tr,index,evt){
       if(evt.target.localName == 'td'){
 
-      this.$emit('vs-click-row',tr,index)
-      if(this.vsClickRowChecked){
-        this.changeCheckbox(tr,index,!this.$refs['checkboxx'+index][0].checked)
+        this.$emit('vs-click-row',tr,index)
+        if(this.vsClickRowChecked){
+          this.changeCheckbox(tr,index,!this.$refs['checkboxx'+index][0].checked)
+        }
       }
-    }
     },
     saberSiEstaCheck(tr){
       let indexx = null
@@ -159,11 +169,6 @@ export default {
       }
     }
   },
-  watch:{
-    ths(){
-        this.ths = this.ths
-    }
-  }
 }
 </script>
 

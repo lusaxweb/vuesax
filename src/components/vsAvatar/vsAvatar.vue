@@ -1,40 +1,44 @@
 <template lang="html">
   <div
-  v-bind="$attrs"
-  v-on="$listeners"
-  :class="[vsSize]"
-  :style="{
-    'width':/[px]/.test(vsSize)?`${vsSize}`:null,
-    'height':/[px]/.test(vsSize)?`${vsSize}`:null,
-    'background':vsColor?/[#()]/.test(vsColor)?vsColor:`rgba(var(--${vsColor}),1)`:'rgb(var(--primary))'
-  }"
-  class="con-vs-avatar">
-    <div
-    v-if="vsBadge && vsBadge > 0"
-    :class="{
-      'badgeNumber':typeof vsBadge != 'boolean',
-      }"
+    v-bind="$attrs"
+    :class="[vsSize]"
     :style="{
-      'background':vsBadgeColor?/[#()]/.test(vsBadgeColor)?vsBadgeColor:`rgba(var(--${vsBadgeColor}),1)`:'rgb(var(--primary))'
+      'width':/[px]/.test(vsSize)?`${vsSize}`:null,
+      'height':/[px]/.test(vsSize)?`${vsSize}`:null,
+      'background':vsColor?/[#()]/.test(vsColor)?vsColor:`rgba(var(--${vsColor}),1)`:'rgb(var(--primary))'
     }"
-     class="dot-count">
-     {{typeof vsBadge != 'boolean'?vsBadge:null}}
+    class="con-vs-avatar"
+    v-on="$listeners">
+    <div
+      v-if="vsBadge && vsBadge > 0"
+      :class="{
+        'badgeNumber':typeof vsBadge != 'boolean',
+      }"
+      :style="{
+        'background':vsBadgeColor?/[#()]/.test(vsBadgeColor)?vsBadgeColor:`rgba(var(--${vsBadgeColor}),1)`:'rgb(var(--primary))'
+      }"
+      class="dot-count">
+      {{ typeof vsBadge != 'boolean'?vsBadge:null }}
     </div>
-    <div v-if="vsSrc" class="con-img">
-      <img :src="vsSrc" alt="">
+    <div 
+      v-if="vsSrc" 
+      class="con-img">
+      <img 
+        :src="vsSrc" 
+        alt="">
     </div>
     <span
-    v-else
-    :title="vsText"
-    :class="{
-      'material-icons':!vsText
+      v-else
+      :title="vsText"
+      :class="{
+        'material-icons':!vsText
       }"
-    :style="{
-      'transform':`translate(-50%,-50%) scale(${returnScale})`,
-      'color':vsTextColor?/[#()]/.test(vsTextColor)?vsTextColor:`rgba(var(--${vsTextColor}),1)`:'rgb(var(--primary))'
-    }"
-    class="vs-avatar-text">
-    {{vsText?returnText:vsIcon}}
+      :style="{
+        'transform':`translate(-50%,-50%) scale(${returnScale})`,
+        'color':vsTextColor?/[#()]/.test(vsTextColor)?vsTextColor:`rgba(var(--${vsTextColor}),1)`:'rgb(var(--primary))'
+      }"
+      class="vs-avatar-text">
+      {{ vsText?returnText:vsIcon }}
     </span>
 
   </div>
@@ -42,7 +46,7 @@
 
 <script>
 export default {
-  name: 'vs-avatar',
+  name: 'VsAvatar',
   props:{
     vsBadge:{
       type:[Boolean,String,Number],

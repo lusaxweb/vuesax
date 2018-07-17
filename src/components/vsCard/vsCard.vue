@@ -1,19 +1,19 @@
 <template lang="html">
   <div
-    @click="clickCard"
-    class="vs-card"
-    v-bind:class="{ actionable }"
+    :class="{ actionable }"
     :style="{
       /* 'border-color':vsColor?/[#()]/.test(vsColor)?vsColor:`rgba(var(--${vsColor}),1)`:'rgb(255,255,255)' */
-    }">
-      <slot></slot>
+    }"
+    class="vs-card"
+    @click="clickCard">
+    <slot/>
   </div>
 </template>
 
 <script>
 import color from '../../utils/color.js'
 export default {
-  name:'vs-card',
+  name:'VsCard',
   props:{
     vsColor:{
       type:String,

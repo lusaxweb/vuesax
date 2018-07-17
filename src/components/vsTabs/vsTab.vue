@@ -1,14 +1,16 @@
 <template lang="html">
   <transition :name="invert?vertical?'fade-tab-vertical-invert':'fade-tab-invert':vertical?'fade-tab-vertical':'fade-tab'">
-  <div v-if="active" class="con-tab">
-    <slot/>
-  </div>
+    <div 
+      v-if="active" 
+      class="con-tab">
+      <slot/>
+    </div>
   </transition>
 </template>
 
 <script>
 export default {
-  name:'vs-tab',
+  name:'VsTab',
   inheritAttrs: false,
   props:{
     vsLabel:{
@@ -29,7 +31,7 @@ export default {
       id: this.$parent.children.length,
       listeners: this.$listeners,
       attrs: this.$attrs
-      })
+    })
   }
 }
 </script>

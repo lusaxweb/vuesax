@@ -1,41 +1,48 @@
 <template lang="html">
-  <div :class="{'s-d':disabled}" class="con-slider"
+  <div 
+    :class="{'s-d':disabled}" 
+    class="con-slider"
 
   >
-  <!-- @touchstart="clickLinea($event)" -->
+    <!-- @touchstart="clickLinea($event)" -->
     <div
       ref="lineaSlider"
-     @click="clickLinea"
-     class="linea-slider">
+      class="linea-slider"
+      @click="clickLinea">
 
       <div
-      :style="{'background':vsColor,'width':sliderValue+'%','max-width':ancho?ancho+'px':'auto'}"
         ref="lineaPintada"
-       class="linea-pintada">
-       <div
+        :style="{'background':vsColor,'width':sliderValue+'%','max-width':ancho?ancho+'px':'auto'}"
+        class="linea-pintada">
+        <div
 
-       :style="{'background':vsColor}"
-       @mouseenter="showToolTip=true"
-       @mouseleave="showToolTip=false"
-       @mousedown="mousedownx"
-       @touchstart="mousedownx($event)"
-       @focus="showToolTip=true"
-       @blur="showToolTip=false"
-       @keydown.left="onLeftKeyDown"
-       @keydown.right="onRightKeyDown"
-       tabindex="0"
-        ref="circle"
-        class="circle-slider">
-        <!-- :style="{'background':vsColor}" -->
-        <span :style="{'border':'2px solid '+vsColor}" class="circle-interno">
-          <span></span>
-        </span>
+          ref="circle"
+          :style="{'background':vsColor}"
+          tabindex="0"
+          class="circle-slider"
+          @mouseenter="showToolTip=true"
+          @mouseleave="showToolTip=false"
+          @mousedown="mousedownx"
+          @touchstart="mousedownx($event)"
+          @focus="showToolTip=true"
+          @blur="showToolTip=false"
+          @keydown.left="onLeftKeyDown"
+          @keydown.right="onRightKeyDown">
+          <!-- :style="{'background':vsColor}" -->
+          <span 
+            :style="{'border':'2px solid '+vsColor}" 
+            class="circle-interno">
+            <span/>
+          </span>
 
-        <div :style="{'background':vsColor}" :class="{'hoverx':showToolTip}" class="con-numero-slider">
-          <span>{{Math.round(sliderValue)>100?100:Math.round(sliderValue)}}{{vsNotPercentage?'':'%'}}</span>
+          <div 
+            :style="{'background':vsColor}" 
+            :class="{'hoverx':showToolTip}" 
+            class="con-numero-slider">
+            <span>{{ Math.round(sliderValue)>100?100:Math.round(sliderValue) }}{{ vsNotPercentage?'':'%' }}</span>
+          </div>
+
         </div>
-
-      </div>
       </div>
       <!--
       @mouseenter="handleMouseEnter"
@@ -58,7 +65,7 @@
 
 <script>
 export default {
-  name:'vsSlider',
+  name:'VsSlider',
   props: {
     disabled: {
       type: [Boolean, String],
@@ -93,13 +100,6 @@ export default {
       ancho:0,
     }
   },
-  created(){
-    this.sliderValue = this.value
-  },
-  mounted(){
-    this.ancho = this.$refs.lineaSlider.offsetWidth
-    window.addEventListener('resize',this.resizex)
-  },
   watch:{
     value(){
       this.sliderValue = this.value
@@ -107,6 +107,13 @@ export default {
     numeroMostrar(){
       this.$emit('change',this.sliderValue)
     }
+  },
+  created(){
+    this.sliderValue = this.value
+  },
+  mounted(){
+    this.ancho = this.$refs.lineaSlider.offsetWidth
+    window.addEventListener('resize',this.resizex)
   },
   methods:{
     resizex(){
@@ -158,25 +165,25 @@ export default {
         }
       }
 
-       if (valorx>this.ancho) {
+      if (valorx>this.ancho) {
         valorx = this.ancho
-       }
+      }
 
-        this.valuex = valorx
+      this.valuex = valorx
 
-        let obtenerPorcentaje = 0
-        let porcentajex = 0
+      let obtenerPorcentaje = 0
+      let porcentajex = 0
         // if(this.vsMin){
         //
         // } else {
-          obtenerPorcentaje = (valorx / this.ancho) * 100
-          porcentajex = Math.round(obtenerPorcentaje)
+      obtenerPorcentaje = (valorx / this.ancho) * 100
+      porcentajex = Math.round(obtenerPorcentaje)
         // }
         // circle.style.left = valorx  + 'px'
         // lineaPintada.style.width = valorx + 10  + 'px'
-        this.setSliderValue(porcentajex)
-        this.numeroMostrar = porcentajex
-        this.$emit('input',porcentajex)
+      this.setSliderValue(porcentajex)
+      this.numeroMostrar = porcentajex
+      this.$emit('input',porcentajex)
       // }
       // circle.style.left = (e.clientX - circle.offsetWidth/2) - this.ancho/2 + 'px'
     },

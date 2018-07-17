@@ -7,89 +7,106 @@
       'input-icon-validate-success':vsSuccess,
       'input-icon-validate-danger':vsDanger,
       'input-icon-validate-warning':vsWarning,
-      }]" 
+    }]" 
     class="vs-component vs-con-input-label vs-input">
-    <label @click="focusInput" v-if="vsLabelPlaceholder?false:vsLabel" class="vs-input-label" for="">{{vsLabel}}</label>
+    <label 
+      v-if="vsLabelPlaceholder?false:vsLabel" 
+      class="vs-input-label" 
+      for="" 
+      @click="focusInput">{{ vsLabel }}</label>
     <div class="vs-con-input">
-    <input
-      :style="style"
-      :class="{
-        'hasValue':value != '',
-        'hasIcon':vsIcon,
-        'icon-after-input':vsIconAfter
+      <input
+        ref="vsinput"
+        :style="style"
+        :class="{
+          'hasValue':value != '',
+          'hasIcon':vsIcon,
+          'icon-after-input':vsIconAfter
         }"
-      :placeholder="null"
-      :value="value"
-      ref="vsinput"
-      v-bind="$attrs" 
-      v-on="listeners"  
-      class="vs-inputx" 
-      :type="$attrs.type?$attrs.type:'text'">
-    <transition name="placeholderx">
-    <span
-      :style="styleLabel"
-      :class="{
-        'vs-placeholder-label':vsLabelPlaceholder,
-        }"
-      v-if="isValue&&(vsLabelPlaceholder||$attrs.placeholder)"
-      ref="spanplaceholder"
-      @click="focusInput" 
-      class="input-span-placeholder">  
-      {{$attrs.placeholder || vsLabelPlaceholder}}
-    </span>  
-    </transition>
+        :placeholder="null"
+        :value="value"
+        v-bind="$attrs" 
+        :type="$attrs.type?$attrs.type:'text'"  
+        class="vs-inputx" 
+        v-on="listeners">
+      <transition name="placeholderx">
+        <span
+          v-if="isValue&&(vsLabelPlaceholder||$attrs.placeholder)"
+          ref="spanplaceholder"
+          :style="styleLabel"
+          :class="{
+            'vs-placeholder-label':vsLabelPlaceholder,
+          }"
+          class="input-span-placeholder" 
+          @click="focusInput">  
+          {{ $attrs.placeholder || vsLabelPlaceholder }}
+        </span>  
+      </transition>
 
-    <i
-      :class="[vsIconPack,vsIcon,{
-        'icon-after':vsIconAfter,
+      <i
+        v-if="vsIcon" 
+        :class="[vsIconPack,vsIcon,{
+          'icon-after':vsIconAfter,
         }]" 
-      @click="focusInput" 
-      v-if="vsIcon" 
-      class="icon-inputx">
-        {{vsIcon}}
+        class="icon-inputx" 
+        @click="focusInput">
+        {{ vsIcon }}
       </i>
 
       <transition name="icon-validate">
-      <span v-if="vsSuccess || vsDanger || vsWarning"
-        class="input-icon-validate material-icons">
-        {{getIcon}}    
-      </span>
+        <span 
+          v-if="vsSuccess || vsDanger || vsWarning"
+          class="input-icon-validate material-icons">
+          {{ getIcon }}    
+        </span>
       </transition>
     </div>
 
     <transition-group
-    v-on:before-enter="beforeEnter"
-    v-on:enter="enter"
-    v-on:leave="leave"
+      @before-enter="beforeEnter"
+      @enter="enter"
+      @leave="leave"
     >
-    <div key="success" v-if="vsSuccess" class="con-text-validation">
-      <span class="span-text-validation span-text-validation-success">
-        {{
-          vsSuccessText
-        }}
-      </span>
-    </div>
-    <div key="danger" v-else-if="vsDanger" class="con-text-validation span-text-validation-danger">
-      <span class="span-text-validation">
-        {{
-          vsDangerText
-        }}
-      </span>
-    </div>
-    <div key="warning" v-else-if="vsWarning" class="con-text-validation span-text-validation-warning">
-      <span class="span-text-validation">
-        {{
-          vsWarningText
-        }}
-      </span>
-    </div>
-    <div key="description" v-if="vsDescriptionText" class="con-text-validation span-text-validation">
-      <span class="span-text-validation">
-        {{
-          vsDescriptionText
-        }}
-      </span>
-    </div>
+      <div 
+        v-if="vsSuccess" 
+        key="success" 
+        class="con-text-validation">
+        <span class="span-text-validation span-text-validation-success">
+          {{
+            vsSuccessText
+          }}
+        </span>
+      </div>
+      <div 
+        v-else-if="vsDanger" 
+        key="danger" 
+        class="con-text-validation span-text-validation-danger">
+        <span class="span-text-validation">
+          {{
+            vsDangerText
+          }}
+        </span>
+      </div>
+      <div 
+        v-else-if="vsWarning" 
+        key="warning" 
+        class="con-text-validation span-text-validation-warning">
+        <span class="span-text-validation">
+          {{
+            vsWarningText
+          }}
+        </span>
+      </div>
+      <div 
+        v-if="vsDescriptionText" 
+        key="description" 
+        class="con-text-validation span-text-validation">
+        <span class="span-text-validation">
+          {{
+            vsDescriptionText
+          }}
+        </span>
+      </div>
     </transition-group>
 
 
@@ -100,8 +117,8 @@
 <script>
 import _color from '../../utils/color.js'
 export default {
+  name:'VsInput',
   inheritAttrs: false,
-  name:'vs-input',
   props:{
     value:{},
     vsLabelPlaceholder:{

@@ -1,11 +1,21 @@
 <template lang="html">
-  <th :width="vsType=='checkbox'?'50px':'auto'" v-if="vsLabel||vsType">
-    {{vsLabel}}
+  <th 
+    v-if="vsLabel||vsType" 
+    :width="vsType=='checkbox'?'50px':'auto'">
+    {{ vsLabel }}
     <!-- input checkbox -->
-    <div v-show="typeof vsCheckAll == 'Boolean'?vsCheckAll:vsCheckAll!='false'" v-if="vsType?vsType=='checkbox':false" class="con-checkbox">
-      <input :disabled="lengthData==0" @change="changeCheckbox($event.target.checked)" type="checkbox" name="" value="">
+    <div 
+      v-show="typeof vsCheckAll == 'Boolean'?vsCheckAll:vsCheckAll!='false'" 
+      v-if="vsType?vsType=='checkbox':false" 
+      class="con-checkbox">
+      <input 
+        :disabled="lengthData==0" 
+        type="checkbox" 
+        name="" 
+        value="" 
+        @change="changeCheckbox($event.target.checked)">
       <div class="vs-checkbox">
-        <span class="flaticon-check"></span>
+        <span class="flaticon-check"/>
       </div>
     </div>
   </th>
@@ -13,7 +23,7 @@
 
 <script>
 export default {
-  name:'vs-table-colum',
+  name:'VsTableColum',
   props:{
     vsLabel:{
       type:String,
@@ -40,6 +50,13 @@ export default {
     return {
       lengthData:0,
     }
+  },
+  created(){
+
+    this.types()
+  },
+  updated(){
+    this.types()
   },
   methods:{
     changeCheckbox(value){
@@ -68,13 +85,6 @@ export default {
       }
     }
   },
-  created(){
-
-    this.types()
-  },
-  updated(){
-    this.types()
-  }
 }
 </script>
 

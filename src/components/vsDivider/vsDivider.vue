@@ -4,35 +4,37 @@
       :style="{
         'width':getWidthAfter,
         'border-top':`${vsBorderHeight} ${vsStyle} ${giveColor()}`
-        }"
-      class="after"></span>
+      }"
+      class="after"/>
     <span
+      v-if="vsIcon?true:$slots.default"
       :style="{
         'color':giveColor(1,'text')
-        }"
-      v-if="vsIcon?true:$slots.default" class="vs-divider-text">
+      }" 
+      class="vs-divider-text">
       <template v-if="!vsIcon">
-        <slot>
-        </slot>
+        <slot/>
       </template>
 
-      <i v-else class="material-icons icon-divider">
-        {{vsIcon}}
+      <i 
+        v-else 
+        class="material-icons icon-divider">
+        {{ vsIcon }}
       </i>
     </span>
     <span
       :style="{
-      'width':getWidthBefore,
-      'border-top':`${vsBorderHeight} ${vsStyle} ${giveColor()}`
+        'width':getWidthBefore,
+        'border-top':`${vsBorderHeight} ${vsStyle} ${giveColor()}`
       }"
-      class="before"></span>
+      class="before"/>
   </div>
 </template>
 
 <script>
 import _color from '../../utils/color.js'
 export default {
-  name: "vs-divider",
+  name: "VsDivider",
   props:{
     vsColor:{
       type:String,

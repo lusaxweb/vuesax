@@ -1,17 +1,17 @@
 <template lang="html">
   <div
-    class="vs-list"
     :style="{
       /* 'border-color':vsColor?/[#()]/.test(vsColor)?vsColor:`rgba(var(--${vsColor}),1)`:'rgb(255,255,255)' */
-    }">
-      <slot></slot>
+    }"
+    class="vs-list">
+    <slot/>
   </div>
 </template>
 
 <script>
 import color from '../../utils/color.js'
 export default {
-  name:'vs-list'
+  name:'VsList'
 }
 </script>
 

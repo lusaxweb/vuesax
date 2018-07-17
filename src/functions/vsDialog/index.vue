@@ -1,47 +1,63 @@
 <template lang="html">
   <transition name="dialog-t">
-  <div
-    :class="[`vs-dialog-${isPrompt?vsColor:color}`]"
-    @click="close($event,true)"  
-    ref="con" 
-    v-show="active || vsActive"
-    class="vs-component con-vs-dialog">
-    <div class="vs-dialog-dark"></div>
-    <div ref="dialogx" class="vs-dialog">
+    <div
+      v-show="active || vsActive"
+      ref="con"
+      :class="[`vs-dialog-${isPrompt?vsColor:color}`]"
+      class="vs-component con-vs-dialog"
+      @click="close($event,true)">
+      <div class="vs-dialog-dark"/>
+      <div
+        ref="dialogx"
+        class="vs-dialog">
 
-      <!-- //header -->
-      <header :style="styleHeader">
-        <div class="con-title-after">
-          <span :style="styleAfter" class="after"></span>
-          <h3>{{title || vsTitle}}</h3>
+        <!-- //header -->
+        <header :style="styleHeader">
+          <div class="con-title-after">
+            <span
+              :style="styleAfter"
+              class="after"/>
+            <h3>{{ title || vsTitle }}</h3>
+          </div>
+          <span
+            v-if="type=='alert'"
+            class="vs-dialog-cancel material-icons"
+            @click="close">close</span>
+        </header>
+
+        <!-- // slots  -->
+        <div class="vs-dialog-text">
+          <slot/>
+          {{ text }}
         </div>
-        <span v-if="type=='alert'" @click="close" class="vs-dialog-cancel material-icons">close</span>
-      </header>
+        <!-- footer buttons -->
+        <footer v-if="vsButtonsHidden?false:isPrompt||type=='confirm'">
+          <vs-button
+            :disabled="vsIsValid=='none'?false:!vsIsValid"
+            :vs-color="isPrompt?vsColor:color"
+            :vs-type="isPrompt?vsButtonAccept:buttonAccept"
+            @click="acceptDialog">{{ isPrompt?vsAcceptText:acceptText }}</vs-button>
+          <vs-button
+            :vs-color="'rgb(0,0,0,.5)'"
+            :vs-type="isPrompt?vsButtonCancel:buttonCancel"
+            @click="cancelClose">{{ isPrompt?vsCancelText:cancelText }}</vs-button>
+        </footer>
 
-      <!-- // slots  -->
-      <div class="vs-dialog-text">
-        <slot></slot>
-        {{text}}
+        <footer v-if="type=='alert'&&!isPrompt" >
+          <vs-button
+            :vs-color="isPrompt?vsColor:color"
+            :vs-type="buttonAccept"
+            @click="acceptDialog">{{ isPrompt?vsAcceptText:acceptText }}</vs-button>
+        </footer>
       </div>
-
-      <!-- footer buttons -->
-      <footer v-if="vsButtonsHidden?false:isPrompt||type=='confirm'">
-        <vs-button :disabled="vsIsValid=='none'?false:!vsIsValid" :vs-color="isPrompt?vsColor:color" @click="acceptDialog" :vs-type="isPrompt?vsButtonAccept:buttonAccept">{{isPrompt?vsAcceptText:acceptText}}</vs-button>
-        <vs-button :vs-color="'rgb(0,0,0,.5)'" @click="cancelClose" :vs-type="isPrompt?vsButtonCancel:buttonCancel">{{isPrompt?vsCancelText:cancelText}}</vs-button>
-      </footer>
-
-      <footer v-if="type=='alert'&&!isPrompt" >
-        <vs-button :vs-color="isPrompt?vsColor:color" @click="acceptDialog" :vs-type="buttonAccept">{{isPrompt?vsAcceptText:acceptText}}</vs-button>
-      </footer>
     </div>
-  </div>
   </transition>
 </template>
 
 <script>
 import _color from '../../utils/color.js'
 export default {
-  name:'vs-prompt',
+  name:'VsPrompt',
   props:{
     vsColor:{
       default:'primary',
@@ -92,9 +108,6 @@ export default {
     acceptText:'Accept',
     cancelText:'Cancel'
   }),
-  mounted(){
-    this.insertBody()
-  },
   computed:{
     styleHeader(){
       return {
@@ -103,9 +116,12 @@ export default {
     },
     styleAfter(){
       return {
-        background: _color.getColor(this.color,1)   
+        background: _color.getColor(this.color,1)
       }
     }
+  },
+  mounted(){
+    this.insertBody()
   },
   methods:{
     giveColor(color){
@@ -127,11 +143,8 @@ export default {
           this.rebound()
         }
       }
-      
-    },
-    // accept(){
 
-    // },
+    },
     rebound(){
       this.$refs.dialogx.classList.add('locked')
       setTimeout( () => {
@@ -139,7 +152,6 @@ export default {
       }, 200);
     },
     close(event,con){
-      console.log(event)
       if(con){
         if(event.target.className.indexOf('vs-dialog-dark')!=-1 && this.type == 'alert'){
           this.active = false
@@ -152,7 +164,6 @@ export default {
           this.active = false
           this.$emit('update:vsActive',false)
         }
-
       }
     },
     cancelClose(){

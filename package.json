@@ -38,16 +38,18 @@
     "vue": "^2.5.2"
   },
   "devDependencies": {
-    "prefixfree": "^1.0.0",
-    "stylus": "^0.54.5",
-    "stylus-loader": "^3.0.2",
-    "viewcode": "0.0.27",
     "@babel/core": "^7.0.0-beta.49",
     "@vue/cli-plugin-babel": "^3.0.0-beta.6",
     "@vue/cli-plugin-eslint": "^3.0.0-beta.6",
     "@vue/cli-service": "^3.0.0-beta.6",
     "copy-webpack-plugin": "^4.5.1",
+    "eslint": "^5.1.0",
+    "eslint-plugin-vue": "^4.7.0",
     "file-loader": "^1.1.11",
+    "prefixfree": "^1.0.0",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
+    "viewcode": "0.0.27",
     "vue-template-compiler": "^2.5.13",
     "vuepress": "^0.10.1",
     "webpack": "^4.12.0"

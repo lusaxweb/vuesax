@@ -1,44 +1,45 @@
 <template lang="html">
   <transition name="fade">
-  <div
-  v-bind="$attrs"
-  v-on="$listeners"
-  :class="{
-    'con-icon':vsIcon,
-    }"
-    :style="{
-      'background':vsColor?/[#()]/.test(vsColor)?`rgba(${vsColor.replace(/[rgb()]/g,'')},.1)`:`rgba(var(--${vsColor}),.1)`:'rgba(var(--primary),.1)',
-      'color':vsColor?/[#()]/.test(vsColor)?vsColor:`rgba(var(--${vsColor}),1)`:'rgba(var(--primary),1)',
-      'margin-top':vsMargin,
-      'margin-bottom':vsMargin,
-      }"
-    v-if="vsActive"
-    class="con-vs-alert">
-
-    <i v-if="vsIcon" class="material-icons icon-alert">{{vsIcon}}</i>
-
     <div
-      @click="$emit('update:vsActive',false)"
-     v-if="vsClosable"
-     class="con-x">
-      <i class="material-icons">close</i>
-    </div>
+      v-if="vsActive"
+      v-bind="$attrs"
+      :class="{
+        'con-icon':vsIcon,
+      }"
+      :style="{
+        'background':vsColor?/[#()]/.test(vsColor)?`rgba(${vsColor.replace(/[rgb()]/g,'')},.1)`:`rgba(var(--${vsColor}),.1)`:'rgba(var(--primary),.1)',
+        'color':vsColor?/[#()]/.test(vsColor)?vsColor:`rgba(var(--${vsColor}),1)`:'rgba(var(--primary),1)',
+        'margin-top':vsMargin,
+        'margin-bottom':vsMargin,
+      }"
+      class="con-vs-alert"
+      v-on="$listeners">
 
-    <h3 :style="{'background':'$primary'}" v-if="vsTitle" class="titlex">{{vsTitle}}</h3>
-    <div class="vs-alert">
-      <slot>
-      </slot>
-      <!-- <div class="flaticon-close alert-cancel">
-      </div> -->
+      <i 
+        v-if="vsIcon" 
+        class="material-icons icon-alert">{{ vsIcon }}</i>
+
+      <div
+        v-if="vsClosable"
+        class="con-x"
+        @click="$emit('update:vsActive',false)">
+        <i class="material-icons">close</i>
+      </div>
+
+      <h3 
+        v-if="vsTitle" 
+        :style="{'background':'$primary'}" 
+        class="titlex">{{ vsTitle }}</h3>
+      <div class="vs-alert">
+        <slot/>
+      </div>
     </div>
-  </div>
   </transition>
 </template>
 
 <script>
-import color from '../../utils/color.js'
 export default {
-  name:'vs-alert',
+  name:'VsAlert',
   props:{
     vsActive:{
       type:[Boolean,String],

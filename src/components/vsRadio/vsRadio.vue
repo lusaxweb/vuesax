@@ -1,31 +1,32 @@
 <template lang="html">
-  <label :class="[`vs-radio-${vsColor}`]" class="vs-component con-vs-radio">
+  <label 
+    :class="[`vs-radio-${vsColor}`]" 
+    class="vs-component con-vs-radio">
     <input
-      v-on="listeners"
       v-bind="$attrs"
       :checked="isChecked"
-      type="radio" name="">
+      type="radio"
+      name="" 
+      v-on="listeners">
+    <span
+      class="vs-radiox">
       <span
-        class="vs-radiox">
-        <span
-          :style="styles"
-          class="vs-radiox-borde"></span>
-        <span
+        :style="styles"
+        class="vs-radiox-borde"/>
+      <span
         :style="styleCircle"
-          class="vs-radiox-circle">
-        </span>
-      </span>
-      <span class="vs-radiox-labelx">
-        <slot>
-        </slot>
-      </span>
+        class="vs-radiox-circle"/>
+    </span>
+    <span class="vs-radiox-labelx">
+      <slot/>
+    </span>
   </label>
 </template>
 
 <script>
 import _color from '../../utils/color.js'
 export default {
-  name:'vs-radio',
+  name:'VsRadio',
   inheritAttrs:false,
   props:{
     value:{},

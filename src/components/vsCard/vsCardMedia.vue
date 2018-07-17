@@ -1,15 +1,15 @@
 <template lang="html">
   <div
     class="con-vs-card-media"
-    >
-      <img :src="vsMedia"/>
+  >
+    <img :src="vsMedia">
   </div>
 </template>
 
 <script>
 import color from '../../utils/color.js'
 export default {
-  name:'vs-card-media',
+  name:'VsCardMedia',
   props:{
     vsMedia:{
       type:String,

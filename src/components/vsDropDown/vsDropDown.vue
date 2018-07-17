@@ -1,19 +1,18 @@
 <template lang="html">
   <!-- @contextmenu.capture.prevent -->
   <button
-    v-bind="$attrs"
-    v-on="listeners"
     ref="dropdown"
-    class="vs-con-dropdown parent-dropdown">
-    <slot>
-    </slot>
+    v-bind="$attrs"
+    class="vs-con-dropdown parent-dropdown"
+    v-on="listeners">
+    <slot/>
   </button>
 </template>
 
 <script>
 export default {
+  name: "VsDropdown",
   inheritAttrs:false,
-  name: "vs-dropdown",
   props:{
     vsTriggerClick:{
       default:false,
@@ -36,6 +35,17 @@ export default {
     vsDropdownVisible:false,
     rightx:false
   }),
+  computed:{
+    listeners(){
+      return {
+        ...this.$listeners,
+        contextmenu: (evt) => this.vsTriggerContextmenu?this.clickToogleMenu(evt,true):{},
+        click: (evt) => this.vsTriggerContextmenu?{}:this.clickToogleMenu(evt),
+        mouseout: (evt) => this.toggleMenu('out',evt),
+        mouseover: (evt) => this.toggleMenu('over',evt),
+      }
+    }
+  },
   watch:{
     vsDropdownVisible(){
       this.changePositionMenu()
@@ -54,17 +64,6 @@ export default {
     dropdownMenu.vsTriggerClick = this.vsTriggerClick
     this.changeColor()
   },
-  computed:{
-    listeners(){
-      return {
-        ...this.$listeners,
-        contextmenu: (evt) => this.vsTriggerContextmenu?this.clickToogleMenu(evt,true):{},
-        click: (evt) => this.vsTriggerContextmenu?{}:this.clickToogleMenu(evt),
-        mouseout: (evt) => this.toggleMenu('out',evt),
-        mouseover: (evt) => this.toggleMenu('over',evt),
-      }
-    }
-  },
   methods:{
     changeColor(){
       let child = this.$children
@@ -82,8 +81,8 @@ export default {
       console.dir();
       if(this.$refs.dropdown.getBoundingClientRect().top + 300 >= window.innerHeight) {
         this.$nextTick(() => {
-            dropdownMenu.topx = (this.$refs.dropdown.getBoundingClientRect().top - dropdownMenu.$el.clientHeight) + scrollTopx
-            dropdownMenu.notHeight = true
+          dropdownMenu.topx = (this.$refs.dropdown.getBoundingClientRect().top - dropdownMenu.$el.clientHeight) + scrollTopx
+          dropdownMenu.notHeight = true
         });
 
       } else {

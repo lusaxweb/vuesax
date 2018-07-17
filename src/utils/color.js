@@ -6,33 +6,31 @@ export default {
   getColor(colorx, alphax = 1, defaultx = true){
     // change color hex to RGB
     if(/^[#]/.test(colorx)){
-    let c = this.hexToRgb(colorx)
+      let c = this.hexToRgb(colorx)
 
-    if(alphax == 1){
-      colorx = `rgb(${c.r},${c.g},${c.b})`
+      if(alphax == 1){
+        colorx = `rgb(${c.r},${c.g},${c.b})`
 
-    } else {
-      colorx = `rgba(${c.r},${c.g},${c.b},${alphax})`
+      } else {
+        colorx = `rgba(${c.r},${c.g},${c.b},${alphax})`
 
-    }
-  } else if (/^rgba/.test(colorx)) {
+      }
+    } else if (/^rgba/.test(colorx)) {
 
-    if(colorx.search(/.([0-9]\))$/)==-1 && !defaultx){
-      colorx = colorx.replace(/.?([0-9]\))$/,`${alphax})`)
-    }
+      if(colorx.search(/.([0-9]\))$/)==-1 && !defaultx){
+        colorx = colorx.replace(/.?([0-9]\))$/,`${alphax})`)
+      }
 
 
-  } else if (/^(rgb)/.test(colorx)) {
+    } else if (/^(rgb)/.test(colorx)) {
     // change rgb and rgba
-    if(alphax == 1){
+      if(alphax != 1){
+        colorx = colorx.replace(/^(rgb)/,`rgba`)
+        colorx = colorx.replace(/\)$/,`,${alphax})`)
+      }
 
-    } else {
-      colorx = colorx.replace(/^(rgb)/,`rgba`)
-      colorx = colorx.replace(/\)$/,`,${alphax})`)
     }
-
-  }
-  return colorx
+    return colorx
   },
   isColor(colorx){
     let vscolors = ['primary','secondary','success','danger','warning','dark', 'light']
@@ -68,7 +66,6 @@ export default {
         if(vscolors.includes(colorx)){
           return `rgba(var(--${colorx}),${opacity})`
         } else {
-          console.warn(`[Vuesax] : The color of the component can not be processed, only colors are accepted (RGB or HEX), or the color is not one of the main ones ${JSON.stringify(vscolors)} The unprocessed color is > ${colorx}`);
           return `rgba(var(--primary),${opacity})`
         }
       }
@@ -78,39 +75,37 @@ export default {
   },
   contrastColor(elementx) {
     let c = elementx
-      if(/[#]/g.test(elementx)){
-        let rgbx = this.hexToRgb(elementx)
-       c = `rgb(${rgbx.r},${rgbx.g},${rgbx.b})`
-      }
-      var rgb = c.replace(/^(rgb|rgba)\(/,'').replace(/\)$/,'').replace(/\s/g,'').split(',');
-      var yiq = ((rgb[0]*299)+(rgb[1]*587)+(rgb[2]*114))/1000;
-      if(yiq >= 128){
-        return true
-      } else {
-        return false
-      }
+    if(/[#]/g.test(elementx)){
+      let rgbx = this.hexToRgb(elementx)
+      c = `rgb(${rgbx.r},${rgbx.g},${rgbx.b})`
+    }
+    var rgb = c.replace(/^(rgb|rgba)\(/,'').replace(/\)$/,'').replace(/\s/g,'').split(',');
+    var yiq = ((rgb[0]*299)+(rgb[1]*587)+(rgb[2]*114))/1000;
+    if(yiq >= 128){
+      return true
+    } else {
+      return false
+    }
   },
-  setCssVariable(propertyName, value, isServer) {
-    // if(!isServer || process.browser){
-    if(typeof window !== 'undefined' || process.browser){
+  setCssVariable(propertyName, value) {
+    if(typeof window !== 'undefined'){
       document.documentElement.style.setProperty(propertyName, value);
     }
-    // }
   },
   hexToRgb(hex) {
     // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
     var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
     hex = hex.replace(shorthandRegex, function(m, r, g, b) {
-        return r + r + g + g + b + b;
+      return r + r + g + g + b + b;
     });
 
     var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
     return result ? {
-        r: parseInt(result[1], 16),
-        g: parseInt(result[2], 16),
-        b: parseInt(result[3], 16)
+      r: parseInt(result[1], 16),
+      g: parseInt(result[2], 16),
+      b: parseInt(result[3], 16)
     } : null;
-},
+  },
   getVariable(styles, propertyName) {
     return String(styles.getPropertyValue(propertyName)).trim();
   },
@@ -131,8 +126,6 @@ export default {
         colorx = '--'+colorInicial
       }
     }
-
-
     return colorx
     // this.setCssVariable('--'+clave,colorx)
   }

@@ -1,15 +1,34 @@
 <template lang="html">
-  <nav class="vs-component" aria-label="Page pagination" role="navigation">
+  <nav 
+    class="vs-component" 
+    aria-label="Page pagination" 
+    role="navigation">
     <ul :class="['vs-pagination', vsType ? `vs-pager-${vsType}` : '', vsRounded ? 'vs-pager-rounded' : '']">
-      <li><button @click="previousPage()" :disabled="onFirstPage() ? true : false"><i class="material-icons">{{vsPrevIcon}}</i></button></li>
-      <li v-for="(page, index) in pages" :key="index">
-        <button :style="{
-          'background':onCurrentPage(page)&&vsType?vsColor?/[#()]/.test(vsColor)?vsColor:`rgba(var(--${vsColor}),1)`:'rgb(var(--primary))':null
+      <li><button 
+        :disabled="onFirstPage() ? true : false" 
+        @click="previousPage()"><i class="material-icons">{{ vsPrevIcon }}</i></button></li>
+      <li 
+        v-for="(page, index) in pages" 
+        :key="index">
+        <button 
+          :style="{
+            'background':onCurrentPage(page)&&vsType?vsColor?/[#()]/.test(vsColor)?vsColor:`rgba(var(--${vsColor}),1)`:'rgb(var(--primary))':null
           }"
-          @click="goTo(page)" :class="onCurrentPage(page)" :disabled="isEllipsis(page) ? true : false">{{page}}</button>
+          :class="onCurrentPage(page)" 
+          :disabled="isEllipsis(page) ? true : false" 
+          @click="goTo(page)">{{ page }}</button>
       </li>
-      <li><button @click="nextPage()" :disabled="onLastPage() ? true : false"><i class="material-icons">{{vsNextIcon}}</i></button></li>
-      <li v-if="vsGoto" class="goto"><vs-input vs-type="number" v-model="go" @change="goTo" min="1" :max="vsTotal"/></li>
+      <li><button 
+        :disabled="onLastPage() ? true : false" 
+        @click="nextPage()"><i class="material-icons">{{ vsNextIcon }}</i></button></li>
+      <li 
+        v-if="vsGoto" 
+        class="goto"><vs-input 
+          v-model="go" 
+          :max="vsTotal" 
+          vs-type="number" 
+          min="1" 
+          @change="goTo"/></li>
     </ul>
   </nav>
 </template>
@@ -17,7 +36,7 @@
 <script>
 
 export default {
-  name:'vs-pagination',
+  name:'VsPagination',
   props:{
     vsColor:{
       type:String,
@@ -62,11 +81,41 @@ export default {
       nextRange: ''
     }
   },
+  computed: {
+    pagination() {
+      if (this.vsTotal <= this.vsMax) {
+        return this.pages = this.setPages(1, this.vsTotal)
+      }
+
+      const even     = this.vsMax % 2 === 0 ? 1 : 0
+      this.prevRange = Math.floor(this.vsMax / 2)
+      this.nextRange = this.vsTotal - this.prevRange + 1 + even
+
+      if (this.current >= this.prevRange && this.current <= this.nextRange) {
+        const start = this.current - this.prevRange + 2
+        const end   = this.current + this.prevRange - 2 - even
+
+        return this.pages = [1, '...', ...this.setPages(start, end), '...', this.vsTotal]
+      } else {
+        return this.pages = [
+          ...this.setPages(1, this.prevRange),
+          '...',
+          ...this.setPages(this.nextRange, this.vsTotal)
+        ]
+      }
+    }
+  },
+  watch: {
+    current() {
+      this.pagination
+      this.$emit('page', this.current)
+    }
+  },
   created() {
-     this.pagination
-     if (this.vsGoto) {
+    this.pagination
+    if (this.vsGoto) {
       const vsInput = () => import('../vsInput/vsInput.vue')
-     }
+    }
   },
   methods: {
     onFirstPage() {
@@ -108,36 +157,6 @@ export default {
       return setPages
     }
   },
-  computed: {
-    pagination() {
-      if (this.vsTotal <= this.vsMax) {
-        return this.pages = this.setPages(1, this.vsTotal)
-      }
-
-      const even     = this.vsMax % 2 === 0 ? 1 : 0
-      this.prevRange = Math.floor(this.vsMax / 2)
-      this.nextRange = this.vsTotal - this.prevRange + 1 + even
-
-      if (this.current >= this.prevRange && this.current <= this.nextRange) {
-        const start = this.current - this.prevRange + 2
-        const end   = this.current + this.prevRange - 2 - even
-
-        return this.pages = [1, '...', ...this.setPages(start, end), '...', this.vsTotal]
-      } else {
-        return this.pages = [
-          ...this.setPages(1, this.prevRange),
-          '...',
-          ...this.setPages(this.nextRange, this.vsTotal)
-        ]
-      }
-    }
-  },
-  watch: {
-     current() {
-      this.pagination
-      this.$emit('page', this.current)
-     }
-  }
 }
 </script>
 

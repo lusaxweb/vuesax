@@ -1,25 +1,33 @@
 <template lang="html">
   <li
-  :class="{'marginIcon':vsCollapse, 'no-cascading':!vsCollapse, 'group-rightx':rightx}"
-  @mouseout="toggleGroup($event)"
-  @mouseover="toggleGroup($event)" class="vs-component vs-dropdown-group">
-    <span class="span" v-if="vsCollapse">{{vsLabel}}</span>
-    <h3 v-else>{{vsLabel}}</h3>
-    <i v-if="vsCollapse" class="material-icons icon-group">
+    :class="{'marginIcon':vsCollapse, 'no-cascading':!vsCollapse, 'group-rightx':rightx}"
+    class="vs-component vs-dropdown-group"
+    @mouseout="toggleGroup($event)" 
+    @mouseover="toggleGroup($event)">
+    <span 
+      v-if="vsCollapse" 
+      class="span">{{ vsLabel }}</span>
+    <h3 v-else>{{ vsLabel }}</h3>
+    <i 
+      v-if="vsCollapse" 
+      class="material-icons icon-group">
       keyboard_arrow_right
     </i>
     <transition
-    v-on:before-enter="beforeEnter"
-    v-on:enter="enter"
-    v-on:leave="leave"
+      @before-enter="beforeEnter"
+      @enter="enter"
+      @leave="leave"
     >
-      <div ref="ulx" v-if="activeGroup||!vsCollapse" :class="{'con-dropdown-group-no-cascading':!vsCollapse}" class="con-dropdown-group">
+      <div 
+        v-if="activeGroup||!vsCollapse" 
+        ref="ulx" 
+        :class="{'con-dropdown-group-no-cascading':!vsCollapse}" 
+        class="con-dropdown-group">
         <ul >
-          <slot>
-          </slot>
+          <slot/>
         </ul>
       </div>
-  </transition>
+    </transition>
     <!-- <div ref="ulx" v-if="!vsCollapse" class="con-dropdown-group-no-cascading">
       <ul>
         <slot>
@@ -31,7 +39,7 @@
 
 <script>
 export default {
-  name:'vs-dropdown-group',
+  name:'VsDropdownGroup',
   props:{
     vsLabel:{
       default:'Options',

@@ -1,34 +1,46 @@
 <template lang="html">
-  <div ref="considebar" :class="{'openx':open}" class="vs-component con-sidebar-group">
-  <li ref="labelx" class="labelx" @click="open=!open">
-    <i v-if="vsIcon" class="material-icons">
-      {{vsIcon}}
-    </i>
-    <i v-if="vsIconReduce" class="material-icons only-reduse">
-      {{vsIconReduce}}
-    </i>
-    <span class="textx_span">
-      {{vsLabel}}
-    </span>
-    <i class="material-icons icon-arrowx">
-      keyboard_arrow_down
-    </i>
-  </li>
-  <transition
-  v-on:before-enter="beforeEnter"
-  v-on:enter="enter"
-  v-on:leave="leave"
-  >
-  <ul ref="ulx" v-show="open">
-    <slot/>
-  </ul>
-  </transition>
-</div>
+  <div 
+    ref="considebar" 
+    :class="{'openx':open}" 
+    class="vs-component con-sidebar-group">
+    <li 
+      ref="labelx" 
+      class="labelx" 
+      @click="open=!open">
+      <i 
+        v-if="vsIcon" 
+        class="material-icons">
+        {{ vsIcon }}
+      </i>
+      <i 
+        v-if="vsIconReduce" 
+        class="material-icons only-reduse">
+        {{ vsIconReduce }}
+      </i>
+      <span class="textx_span">
+        {{ vsLabel }}
+      </span>
+      <i class="material-icons icon-arrowx">
+        keyboard_arrow_down
+      </i>
+    </li>
+    <transition
+      @before-enter="beforeEnter"
+      @enter="enter"
+      @leave="leave"
+    >
+      <ul 
+        v-show="open" 
+        ref="ulx">
+        <slot/>
+      </ul>
+    </transition>
+  </div>
 </template>
 
 <script>
 export default {
-  name:'vs-sidebar-group',
+  name:'VsSidebarGroup',
   props:{
     vsIcon:{
       default:null,

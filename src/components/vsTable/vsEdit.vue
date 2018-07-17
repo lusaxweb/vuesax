@@ -1,17 +1,26 @@
 <template lang="html">
-  <div slot-scope class="">
-    <a v-if="!editando" href="#" @click="editar()">{{vsProperty}}</a>
-    <div v-else class="con-editx">
-      <slot  @enter="editando=false">
-      </slot>
-      <button @click="editando=false" type="button" name="button">X</button>
+  <div 
+    slot-scope 
+    class="">
+    <a 
+      v-if="!editando" 
+      href="#" 
+      @click="editar()">{{ vsProperty }}</a>
+    <div 
+      v-else 
+      class="con-editx">
+      <slot @enter="editando=false"/>
+      <button 
+        type="button" 
+        name="button" 
+        @click="editando=false">X</button>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name:'vs-edit',
+  name:'VsEdit',
   props:{
     vsProperty:{
       type:String,

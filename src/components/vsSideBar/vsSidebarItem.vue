@@ -1,48 +1,65 @@
 <template lang="html">
-  <li @click="clickItem" :class="{'con-tag':vsTag,'active-item':vsActive}" class="vs-component vs-sidebar-item">
+  <li 
+    :class="{'con-tag':vsTag,'active-item':vsActive}" 
+    class="vs-component vs-sidebar-item" 
+    @click="clickItem">
     <router-link
-    :title="reduce?$slots.default[0].text:null"
-    v-bind="$attrs"
-    v-on="$listeners"
-    v-if="to"
-    :to="to">
-    <span class="con-text-span">
-      <i v-if="vsIcon" class="material-icons">
-        {{vsIcon}}
-      </i>
-      <i v-if="vsIconReduce" class="material-icons only-reduse">
-        {{vsIconReduce}}
-      </i>
-      <span class="textx_span">
-        <slot/>
+      v-if="to"
+      :title="reduce?$slots.default[0].text:null"
+      v-bind="$attrs"
+      :to="to"
+      v-on="$listeners">
+      <span class="con-text-span">
+        <i 
+          v-if="vsIcon" 
+          class="material-icons">
+          {{ vsIcon }}
+        </i>
+        <i 
+          v-if="vsIconReduce" 
+          class="material-icons only-reduse">
+          {{ vsIconReduce }}
+        </i>
+        <span class="textx_span">
+          <slot/>
+        </span>
       </span>
-    </span>
 
-      <span :title="reduce?vsTag:null" v-if="vsTag" class="vs-tagx">{{vsTag}}</span>
-  </router-link>
+      <span 
+        v-if="vsTag" 
+        :title="reduce?vsTag:null" 
+        class="vs-tagx">{{ vsTag }}</span>
+    </router-link>
 
-  <template v-else-if="vsSlot">
-    <slot/>
-  </template>
+    <template v-else-if="vsSlot">
+      <slot/>
+    </template>
 
     <a
-    v-else
-    :title="reduce?$slots.default[0].text:null"
-    v-bind="$attrs"
-    v-on="$listeners"
-    :href="href">
-    <span class="con-text-span">
-      <i v-if="vsIcon" class="material-icons">
-        {{vsIcon}}
-      </i>
-      <i v-if="vsIconReduce" class="material-icons only-reduse">
-        {{vsIconReduce}}
-      </i>
-      <span class="textx_span">
-        <slot/>
+      v-else
+      :title="reduce?$slots.default[0].text:null"
+      v-bind="$attrs"
+      :href="href"
+      v-on="$listeners">
+      <span class="con-text-span">
+        <i 
+          v-if="vsIcon" 
+          class="material-icons">
+          {{ vsIcon }}
+        </i>
+        <i 
+          v-if="vsIconReduce" 
+          class="material-icons only-reduse">
+          {{ vsIconReduce }}
+        </i>
+        <span class="textx_span">
+          <slot/>
+        </span>
       </span>
-    </span>
-    <span :title="reduce?vsTag:null" v-if="vsTag" class="vs-tagx">{{vsTag}}</span>
+      <span 
+        v-if="vsTag" 
+        :title="reduce?vsTag:null" 
+        class="vs-tagx">{{ vsTag }}</span>
     </a>
 
   </li>
@@ -50,7 +67,7 @@
 
 <script>
 export default {
-  name:'vs-sidebar-item',
+  name:'VsSidebarItem',
   props:{
     to:{},
     href:{},

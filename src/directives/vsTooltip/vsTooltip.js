@@ -1,6 +1,7 @@
 import './vsTooltip.css'
+
 export default {
-  update(el,binding,vnode){
+  update(el,binding){
 
     let valuex = null
     let keyx = el.dataset.keyx
@@ -20,27 +21,18 @@ export default {
       `
     }
   },
-  inserted(el, binding, vnode) {
-
-
+  inserted(el, binding) {
     var ramdomx = Math.floor((Math.random() * 1000) + 1)
     el.dataset.keyx = 'vs-tooltip'+ramdomx
-    // console.log("el=>",el);
-    // console.log("binding=>",binding);
-    // console.log('vnode=>',vnode);
+
     let delayx = 0
     let valuex = null
     let colorx = 'rgb(70, 70, 70)'
-    let active = true
 
     if(typeof binding.value == 'object'){
       valuex = binding.value.text
-      // if(binding.value.hasOwnProperty('delay')){
-        delayx = binding.value.delay || 0
-      // }
-      // if(binding.value.hasOwnProperty('color')){
-        colorx = binding.value.color?/[#()]/.test(binding.value.color)?binding.value.color:`rgb(var(--${binding.value.color}))`:'rgb(70, 70, 70)'
-      // }
+      delayx = binding.value.delay || 0
+      colorx = binding.value.color?/[#()]/.test(binding.value.color)?binding.value.color:`rgb(var(--${binding.value.color}))`:'rgb(70, 70, 70)'
     } else if (typeof binding.value == 'string') {
       valuex = binding.value
     }
@@ -106,8 +98,7 @@ export default {
 
     el.addEventListener('mouseenter',mouseEnterx)
 
-    var mousex = function(event){
-      let coords = event.toElement.getBoundingClientRect();
+    var mousex = function(){
       tooltipx.style.transform = `translateY(-90%)`
       tooltipx.style.opacity = '0'
       setTimeout(function () {
@@ -123,7 +114,7 @@ export default {
 
 
     //window scroll
-    window.addEventListener('mousewheel',function(e){
+    window.addEventListener('mousewheel',function(){
       if(document.querySelector('.vs-tooltip'+ramdomx)){
         tooltipx.style.transform = `translateY(-90%)`
         tooltipx.style.opacity = '0'
@@ -135,8 +126,8 @@ export default {
         }, 200);
         el.addEventListener('mouseEnterx',mouseEnterx,false)
       }
-        });
-    window.addEventListener('touchmove',function(e){
+    });
+    window.addEventListener('touchmove',function(){
       if(document.querySelector('.vs-tooltip'+ramdomx)){
         tooltipx.style.transform = `translateY(-90%)`
         tooltipx.style.opacity = '0'
@@ -148,11 +139,6 @@ export default {
         }, 200);
         el.addEventListener('mouseEnterx',mouseEnterx,false)
       }
-
-        });
-
-
-
-
+    });
   }
 };

@@ -2,48 +2,51 @@
   <button
     ref="btn"
     v-bind="$attrs"
-    v-on="listeners"
     :class="[`vs-button-${isColor()?vsColor:null}`,`vs-button-${vsType}`,{
       'isActive':isActive,
       'includeIcon':vsIcon
-      }, vsSize]"
+    }, vsSize]"
     :style="[styles,{
-    'width':/[px]/.test(vsSize)?`${vsSize}`:null,
-    'height':/[px]/.test(vsSize)?`${vsSize}`:null
-  }]"
+      'width':/[px]/.test(vsSize)?`${vsSize}`:null,
+      'height':/[px]/.test(vsSize)?`${vsSize}`:null
+    }]"
     class="vs-component vs-button"
-    name="button">
-      <span
+    name="button"
+    v-on="listeners">
+    <span
       v-if="!is('line')&&!is('gradient')&&!is('relief')"
       ref="backgroundx"
       :style="stylesBackGround"
-      class="vs-button-backgroundx"></span>
+      class="vs-button-backgroundx"/>
 
-      <i :style="{
+    <i
+      :style="{
         'order':vsIconAfter?2:0,
         'margin-right':$slots.default&&!vsIconAfter?'5px':'0px',
         'margin-left':$slots.default&&vsIconAfter?'5px':'0px'
-        }" class="material-icons vs-button-icon">
-        {{vsIcon}}
-      </i>
+      }"
+      class="material-icons vs-button-icon">
+      {{ vsIcon }}
+    </i>
 
-      <span v-if="$slots.default" class="vs-button-text">
-        <slot>
-        </slot>
-      </span>
+    <span
+      v-if="$slots.default"
+      class="vs-button-text">
+      <slot/>
+    </span>
 
-      <span
-      class="vs-button-linex"
+    <span
+      ref="linex"
       :style="styleLine"
-      ref="linex"></span>
+      class="vs-button-linex"/>
   </button>
 </template>
 
 <script>
 import _color from '../../utils/color.js'
 export default {
+  name:'VsButton',
   inheritAttrs:false,
-  name:'vs-button',
   props:{
     vsType:{
       default:'filled',

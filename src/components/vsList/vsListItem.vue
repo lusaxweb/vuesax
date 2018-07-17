@@ -1,18 +1,23 @@
 <template lang="html">
   <div class="vs-list-item">
     <div class="list-avatar">
-      <slot name="avatar">
-      </slot>
+      <slot name="avatar"/>
     </div>
-    <div v-if="vsIcon" class="list-icon">
-      <i class="material-icons">{{vsIcon}}</i>
+    <div 
+      v-if="vsIcon" 
+      class="list-icon">
+      <i class="material-icons">{{ vsIcon }}</i>
     </div>
     <div class="list-titles">
-      <div class="list-title" v-if="vsTitle">{{vsTitle}}</div>
-      <div class="list-subtitle" v-if="vsSubtitle">{{vsSubtitle}}</div>
+      <div 
+        v-if="vsTitle" 
+        class="list-title">{{ vsTitle }}</div>
+      <div 
+        v-if="vsSubtitle" 
+        class="list-subtitle">{{ vsSubtitle }}</div>
     </div>
     <div class="list-slot">
-      <slot></slot>
+      <slot/>
     </div>
   </div>
 </template>
@@ -21,7 +26,7 @@
 import vsAvatar from '../vsAvatar/vsAvatar'
 import color from '../../utils/color.js'
 export default {
-  name:'vs-list-item',
+  name:'VsListItem',
   props: {
     vsAvatar:{
       type:[Boolean,String],

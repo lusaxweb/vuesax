@@ -3,12 +3,28 @@
     <!-- <pre>
       {{itemsx}}
     </pre> -->
-    <div :class="{'no-items':itemsx.length==0}" class="con-chips">
-      <vs-chip :vs-color="vsColor" :key="index" item vs-closable @vs-remove="removeItem(index)" v-for="item,index in itemsx">
-        {{item}}
+    <div 
+      :class="{'no-items':itemsx.length==0}" 
+      class="con-chips">
+      <vs-chip 
+        v-for="item,index in itemsx" 
+        :vs-color="vsColor" 
+        :key="index" 
+        item 
+        vs-closable 
+        @vs-remove="removeItem(index)">
+        {{ item }}
       </vs-chip>
-      <input :placeholder="itemsx.length>0?null:placeholder" @keypress.enter="addItem" v-model="newChip" type="text" name="" value="">
-      <div @click="removeTotalItems" class="x-global">
+      <input 
+        :placeholder="itemsx.length>0?null:placeholder" 
+        v-model="newChip" 
+        type="text" 
+        name="" 
+        value="" 
+        @keypress.enter="addItem">
+      <div 
+        class="x-global" 
+        @click="removeTotalItems">
         <i class="material-icons">close</i>
       </div>
     </div>
@@ -18,7 +34,10 @@
 <script>
 import vsChip from './vsChip.vue'
 export default {
-  name:'vs-chips',
+  name:'VsChips',
+  components:{
+    vsChip
+  },
   props:{
     vsColor:{
       type:String,
@@ -31,9 +50,6 @@ export default {
     items:{
       type:Array,
     }
-  },
-  components:{
-    vsChip
   },
   data(){
     return {

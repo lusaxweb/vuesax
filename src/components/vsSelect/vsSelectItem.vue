@@ -1,25 +1,30 @@
 <template lang="html">
-  <li v-show="visible" class="vs-component">
+  <li 
+    v-show="visible" 
+    class="vs-component">
     <button
+      ref="item"
       :disabled="disabled?true:disabledx"
       v-bind="$attrs"
-      v-on="listeners"
       :style="styles"
-      class="vs-select-item-btn"
-      @keydown.backspace.prevent="backspace"
-      @keydown.down.prevent="navigateOptions('next')"
-      @keydown.up.prevent="navigateOptions('prev')"
-      ref="item" @keydown.enter.prevent="clickOption()"
       :class="{
         'activex':$parent.vsMultiple?getValue.indexOf(vsValue) != -1:getValue == vsValue,
         'con-icon':$parent.vsMultiple
-       }" type="button" name="button">
-      <i v-if="$parent.vsMultiple" class="material-icons icon-item">
+      }"
+      class="vs-select-item-btn"
+      type="button"
+      name="button"
+      v-on="listeners" 
+      @keydown.backspace.prevent="backspace"
+      @keydown.down.prevent="navigateOptions('next')" 
+      @keydown.up.prevent="navigateOptions('prev')" 
+      @keydown.enter.prevent="clickOption()">
+      <i 
+        v-if="$parent.vsMultiple" 
+        class="material-icons icon-item">
         check_circle
       </i>
-      <span v-html="getText">
-
-      </span>
+      <span v-html="getText"/>
       <!-- <slot/> -->
     </button>
   </li>
@@ -28,8 +33,8 @@
 <script>
 import _color from '../../utils/color.js'
 export default {
+  name:'VsSelectItem',
   inheritAttrs:false,
-  name:'vs-select-item',
   props:{
     disabled:{
       type:Boolean,
@@ -48,12 +53,44 @@ export default {
     getText:null,
     valueInputx:''
   }),
-  created(){
-    this.putValue()
-    this.getText = this.vsText
-  },
-  updated(){
-    this.putValue()
+  computed:{
+    disabledx(){
+      if(this.$parent.vsMultiple){
+        if(this.isActive){
+          return false
+        } else {
+          return this.$parent.vsMaxSelected == this.$parent.value.length
+        }
+      } else {
+        return false
+      }
+    },
+    isActive(){
+      return this.$parent.vsMultiple?this.getValue.indexOf(this.vsValue) != -1:this.getValue == this.vsValue
+    },
+    listeners() {
+      return {
+        ...this.$listeners,
+        blur: (event) => {
+          if(event.relatedTarget?!event.relatedTarget.closest('.vs-select-options'):true) {
+            this.$parent.closeOptions()
+          }
+        },
+        click: (event) => this.clickOption(event),
+        mouseover: (event) => this.hoverx = true,
+        mouseout: (event) => this.hoverx = false
+      }
+    },
+    styles(){
+      return {
+        background: this.isActive?_color.getColor(this.$parent.vsColor,.1):null,
+        color: this.isActive?_color.getColor(this.$parent.vsColor,1):null,
+        fontWeight: this.isActive?'bold':null
+      }
+    },
+    getValue(){
+      return this.$parent.value
+    }
   },
   watch:{
     valueInputx(){
@@ -80,44 +117,12 @@ export default {
       }
     }
   },
-  computed:{
-    disabledx(){
-      if(this.$parent.vsMultiple){
-      if(this.isActive){
-        return false
-      } else {
-        return this.$parent.vsMaxSelected == this.$parent.value.length
-      }
-    } else {
-      return false
-    }
-    },
-    isActive(){
-      return this.$parent.vsMultiple?this.getValue.indexOf(this.vsValue) != -1:this.getValue == this.vsValue
-    },
-    listeners() {
-      return {
-        ...this.$listeners,
-        blur: (event) => {
-          if(event.relatedTarget?!event.relatedTarget.closest('.vs-select-options'):true) {
-              this.$parent.closeOptions()
-          }
-        },
-        click: (event) => this.clickOption(event),
-        mouseover: (event) => this.hoverx = true,
-        mouseout: (event) => this.hoverx = false
-      }
-    },
-    styles(){
-      return {
-        background: this.isActive?_color.getColor(this.$parent.vsColor,.1):null,
-        color: this.isActive?_color.getColor(this.$parent.vsColor,1):null,
-        fontWeight: this.isActive?'bold':null
-      }
-    },
-    getValue(){
-      return this.$parent.value
-    }
+  created(){
+    this.putValue()
+    this.getText = this.vsText
+  },
+  updated(){
+    this.putValue()
   },
   methods:{
     backspace(){
@@ -130,15 +135,15 @@ export default {
     },
     navigateOptions(orientation){
       let
-      orientationObject = 'nextSibling',
-      lengthx = 0
+        orientationObject = 'nextSibling',
+        lengthx = 0
 
       function getNextLi(li,orientationObject){
         if(li){
           let lix = li[orientationObject]
           if(li.style){
             if(li.style.display == 'none'){
-               return getNextLi(lix,orientationObject)
+              return getNextLi(lix,orientationObject)
             } else {
               return li
             }

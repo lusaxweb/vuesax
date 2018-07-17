@@ -10,19 +10,22 @@
     }"
     class="con-vs-chip">
 
-    <i v-if="vsIcon" class="material-icons icon-chip">{{vsIcon}}</i>
+    <i 
+      v-if="vsIcon" 
+      class="material-icons icon-chip">{{ vsIcon }}</i>
 
-    <h3 v-if="vsText" class="textx">{{vsText}}</h3>
+    <h3 
+      v-if="vsText" 
+      class="textx">{{ vsText }}</h3>
     <!-- {{value}} -->
     <div class="vs-chip">
-      <slot>
-      </slot>
+      <slot/>
     </div>
 
-     <div
-      @click="remove"
+    <div
       v-if="vsClosable"
-      class="con-x">
+      class="con-x"
+      @click="remove">
       <i class="material-icons">close</i>
     </div>
   </div>
@@ -30,7 +33,7 @@
 
 <script>
 export default {
-  name:'vs-chip',
+  name:'VsChip',
   props:{
     item:{
       type:Boolean,

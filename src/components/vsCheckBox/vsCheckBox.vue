@@ -1,23 +1,26 @@
 <template lang="html">
-  <div class="vs-component con-vs-checkbox" :class="[`vs-checkbox-${vsColor}`]">
+  <div 
+    :class="[`vs-checkbox-${vsColor}`]" 
+    class="vs-component con-vs-checkbox">
     <input
       v-bind="$attrs"
-      v-on="listeners"
-      type="checkbox"
       :checked="isChecked || $attrs.checked"
-      value="">
+      type="checkbox"
+      value=""
+      v-on="listeners">
     <span
       :style="style"
       class="checkbox_x">
-      <span :style="style_check" class="_check"></span>
+      <span 
+        :style="style_check" 
+        class="_check"/>
       <i
         class="material-icons">
-        {{vsIcon}}
+        {{ vsIcon }}
       </i>
     </span>
     <span class="con-slot-label">
-      <slot>
-      </slot>
+      <slot/>
     </span>
   </div>
 </template>
@@ -25,8 +28,8 @@
 <script>
 import _color from '../../utils/color.js'
 export default {
+  name:'VsCheckbox',
   inheritAttrs: false,
-  name:'vs-checkbox',
   props:{
     vsColor:{
       default:'primary',

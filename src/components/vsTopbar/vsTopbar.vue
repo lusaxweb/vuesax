@@ -1,19 +1,18 @@
 <template lang="html">
   <div
-    class="vs-topbar"
     :style="{
       'background':vsColor?/[#()]/.test(vsColor)?vsColor:`rgba(var(--${vsColor}),1)`:'rgb(244,244,244)',
       'color':colorx
-    }">
-    <slot>
-    </slot>
+    }"
+    class="vs-topbar">
+    <slot/>
   </div>
 </template>
 
 <script>
 import color from '../../utils/color.js'
 export default {
-  name:'vs-topbar',
+  name:'VsTopbar',
   props:{
     vsColor:{
       type:String,

@@ -1,30 +1,38 @@
 <template lang="html">
   <div
-    class="con-vs-card-header"
     :style="{
       'background-color':vsFill?vsBackgroundColor?/[#()]/.test(vsBackgroundColor)?vsBackgroundColor:`rgba(var(--${vsBackgroundColor}),1)`:'rgb(244,244,244)':'rgb(244,244,244)',
       'color':vsFill?colorx:vsBackgroundColor?/[#()]/.test(vsBackgroundColor)?vsBackgroundColor:`rgba(var(--${vsBackgroundColor}),1)`:colorx,
       'border-color':!vsFill?vsBackgroundColor?/[#()]/.test(vsBackgroundColor)?vsBackgroundColor:`rgba(var(--${vsBackgroundColor}),1)`:'rgb(244,244,244)':'transparent',
       'border-left':!vsFill?'3px solid':'none',
       'border-top-left-radius':!vsFill?'5px':'inherit'
-    }">
-      <div v-if="this.$slots.default" class="card-icon">
-        <slot></slot>
-      </div>
-      <div v-if="vsIcon" class="card-icon">
-        <i class="material-icons">{{vsIcon}}</i>
-      </div>
-      <div class="card-titles">
-        <div class="card-title" v-if="vsTitle">{{vsTitle}}</div>
-        <div class="card-subtitle" v-if="vsSubtitle">{{vsSubtitle}}</div>
-      </div>
+    }"
+    class="con-vs-card-header">
+    <div 
+      v-if="this.$slots.default" 
+      class="card-icon">
+      <slot/>
+    </div>
+    <div 
+      v-if="vsIcon" 
+      class="card-icon">
+      <i class="material-icons">{{ vsIcon }}</i>
+    </div>
+    <div class="card-titles">
+      <div 
+        v-if="vsTitle" 
+        class="card-title">{{ vsTitle }}</div>
+      <div 
+        v-if="vsSubtitle" 
+        class="card-subtitle">{{ vsSubtitle }}</div>
+    </div>
   </div>
 </template>
 
 <script>
 import color from '../../utils/color.js'
 export default {
-  name:'vs-card-header',
+  name:'VsCardHeader',
   props:{
     vsTitle:{
       type:String,

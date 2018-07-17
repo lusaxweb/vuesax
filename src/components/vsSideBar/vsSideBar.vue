@@ -1,45 +1,50 @@
 <template lang="html">
   <transition name="sidebarx">
-  <div
-    :class="{'vsStatic':vsStatic,'body-sidebar':vsParent=='body'}"
-    v-show="vsStatic?true:vsActive"
-    ref="considebar"
-    class="vs-component con-sidebar">
-    <div v-if="vsBackgroundHidden?false:!vsStatic" @click="clickOut()" class="con-darkx"></div>
-    <!-- :style="{'color':vsColor?/[#()]/.test(vsColor)?vsColor:`rgba(var(--${vsColor}),1)`:'rgb(var(--primary))'}" -->
     <div
-      :class="{'reducex':reduce}" class="vs-sidebar">
-      <div v-if="vsReduceExpand" class="expand-reduce">
-        <i @click="reduce=!reduce" class="material-icons">
-          {{reduce?'menu':'first_page'}}
-        </i>
+      v-show="vsStatic?true:vsActive"
+      ref="considebar"
+      :class="{'vsStatic':vsStatic,'body-sidebar':vsParent=='body'}"
+      class="vs-component con-sidebar">
+      <div 
+        v-if="vsBackgroundHidden?false:!vsStatic" 
+        class="con-darkx" 
+        @click="clickOut()"/>
+      <!-- :style="{'color':vsColor?/[#()]/.test(vsColor)?vsColor:`rgba(var(--${vsColor}),1)`:'rgb(var(--primary))'}" -->
+      <div
+        :class="{'reducex':reduce}" 
+        class="vs-sidebar">
+        <div 
+          v-if="vsReduceExpand" 
+          class="expand-reduce">
+          <i 
+            class="material-icons" 
+            @click="reduce=!reduce">
+            {{ reduce?'menu':'first_page' }}
+          </i>
+        </div>
+
+        <header>
+          <slot name="header"/>
+        </header>
+
+
+        <ul class="ulx">
+          <slot/>
+        </ul>
+
+
+        <footer>
+          <slot name="footer"/>
+        </footer>
       </div>
-
-      <header>
-        <slot name="header">
-        </slot>
-      </header>
-
-
-      <ul class="ulx">
-        <slot>
-        </slot>
-      </ul>
-
-
-      <footer>
-        <slot name="footer">
-        </slot>
-      </footer>
     </div>
-  </div>
-</transition>
+  </transition>
 </template>
 
 <script>
 
 export default {
-  name: "vs-sidebar",
+  name: "VsSidebar",
   props:{
     vsColor:{
       default:null,
@@ -81,14 +86,6 @@ export default {
   data:()=>({
     reduce:false
   }),
-  mounted(){
-    document.querySelector(this.vsParent).addEventListener("touchstart",this.onTouchStart)
-    document.querySelector(this.vsParent).addEventListener("touchend",this.onTouchEnd)
-    // @touchstart="onTouchStart"
-    // @touchend="onTouchEnd"
-    this.insertBody()
-
-  },
   watch:{
     vsReduce(){
       this.reduce = this.vsReduce
@@ -110,6 +107,14 @@ export default {
         }
       }
     }
+  },
+  mounted(){
+    document.querySelector(this.vsParent).addEventListener("touchstart",this.onTouchStart)
+    document.querySelector(this.vsParent).addEventListener("touchend",this.onTouchEnd)
+    // @touchstart="onTouchStart"
+    // @touchend="onTouchEnd"
+    this.insertBody()
+
   },
   methods:{
     onTouchStart (e) {

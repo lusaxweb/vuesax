@@ -1,26 +1,31 @@
 <template lang="html">
-  <div  :class="[vsType?vsType:'','vs-'+vsPosition]" class="con-tabs">
+  <div 
+    :class="[vsType?vsType:'','vs-'+vsPosition]" 
+    class="con-tabs">
     <ul class="ul-tabs">
-      <li :class="{'tab-disabledx':vsTab._props.disabled,'tab-activo':vsTab._data.activo}" @click="clickLiTab(vsTab,index)" v-for="vsTab,index in vsTabs">
-        <span :style="{'color':vsTab._data.activo?vsColor?vsColor:'rgb(var(--primary))':''}" class="tabtext">
-          {{vsTab.vsLabel}}
+      <li 
+        v-for="vsTab,index in vsTabs" 
+        :class="{'tab-disabledx':vsTab._props.disabled,'tab-activo':vsTab._data.activo}" 
+        @click="clickLiTab(vsTab,index)">
+        <span 
+          :style="{'color':vsTab._data.activo?vsColor?vsColor:'rgb(var(--primary))':''}" 
+          class="tabtext">
+          {{ vsTab.vsLabel }}
         </span>
         <span
-          :style="{'border-bottom':vsType=='border-bottom'?'2px solid '+vsColor:'','background':vsTab._data.activo?vsColor?vsColor:'rgb(var(--primary))':''}" class="cuadro">
-
-        </span>
-        </li>
+          :style="{'border-bottom':vsType=='border-bottom'?'2px solid '+vsColor:'','background':vsTab._data.activo?vsColor?vsColor:'rgb(var(--primary))':''}" 
+          class="cuadro"/>
+      </li>
     </ul>
     <div class="contiene-tabs">
-      <slot>
-      </slot>
+      <slot/>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name:'vs-tabs',
+  name:'VsTabs',
   props:[
     'vsType',
     'vsColor',
@@ -31,6 +36,9 @@ export default {
       vsTabs:[],
     }
   },
+  mounted(){
+    this.vsTabs[0]._data.activo = true
+  },
   methods:{
     clickLiTab(tab,index){
       for (var i = 0; i < this.vsTabs.length; i++) {
@@ -39,9 +47,6 @@ export default {
       tab._data.activo = true
     }
   },
-  mounted(){
-    this.vsTabs[0]._data.activo = true
-  }
 }
 </script>
 

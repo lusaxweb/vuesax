@@ -1,13 +1,15 @@
 <template lang="html">
   <nav
-  v-bind="$attrs"
-  v-on="$listeners"
-  class="vs-breadcrumb" :class="`vs-align-${vsAlign}`" aria-label="breadcrumb">
+    v-bind="$attrs"
+    :class="`vs-align-${vsAlign}`"
+    class="vs-breadcrumb" 
+    aria-label="breadcrumb" 
+    v-on="$listeners">
     <ol>
-      <slot></slot>
+      <slot/>
       <li
-        v-if="!hasSlot"
         v-for="item in vsItems"
+        v-if="!hasSlot"
         :key="item.title"
 
         :class="{'vs-active':item.active,'disabled-link':item.disabled}"
@@ -19,16 +21,21 @@
           :title="item.title"
 
         >
-          {{item.title}}
+          {{ item.title }}
         </a>
         <template v-else>
-          <span :style="{
-            'color':vsColor?/[#()]/.test(vsColor)?vsColor:`rgba(var(--${vsColor}),1)`:'rgb(var(--primary))'
+          <span 
+            :style="{
+              'color':vsColor?/[#()]/.test(vsColor)?vsColor:`rgba(var(--${vsColor}),1)`:'rgb(var(--primary))'
           }" >
-          {{item.title}}
-        </span>
-          </template>
-        <span  v-if="!item.active" class="separator" :class="vsSeparator.length > 1 ? 'material-icons' : null" aria-hidden="true">{{vsSeparator}}</span>
+            {{ item.title }}
+          </span>
+        </template>
+        <span 
+          v-if="!item.active" 
+          :class="vsSeparator.length > 1 ? 'material-icons' : null" 
+          class="separator" 
+          aria-hidden="true">{{ vsSeparator }}</span>
       </li>
     </ol>
   </nav>
@@ -37,7 +44,7 @@
 <script>
 
 export default {
-  name:'vs-breadcrumb',
+  name:'VsBreadcrumb',
   props:{
     vsItems:{
       type:Array

@@ -1,40 +1,43 @@
 <template lang="html">
   <transition name="fadex">
-  <div
-
-  v-show="vsActive" ref="conpopup" class="con-popup">
     <div
-    v-bind="$attrs"
-      :style="{'background':vsBackgroundColor?/[#()]/.test(vsBackgroundColor)?vsBackgroundColor:`rgba(var(--${vsBackgroundColor}),1)`:'rgb(255,255,255)',
-      'color':colorx,
-      }"
-    :class="{'fullscreen':vsFullscreen}" class="vs-popup">
-      <header>
-        <h2 v-if="vsTitle!=''">
-          {{vsTitle}}
-        </h2>
-        <div
-        :style="{'background':vsCloseButtonColor?/[#()]/.test(vsCloseButtonColor)?vsCloseButtonColor:`rgba(var(--${vsCloseButtonColor}),1)`:'rgb(250, 250, 250)',
-        'color':colorButtonx
+
+      v-show="vsActive" 
+      ref="conpopup" 
+      class="con-popup">
+      <div
+        v-bind="$attrs"
+        :style="{'background':vsBackgroundColor?/[#()]/.test(vsBackgroundColor)?vsBackgroundColor:`rgba(var(--${vsBackgroundColor}),1)`:'rgb(255,255,255)',
+                 'color':colorx,
         }"
-        @click="$emit('vs-cancel')" class="vs-popup-cancel">
-          <!-- <span class="flaticon-close"></span> -->
-          <i class="material-icons">close</i>
+        :class="{'fullscreen':vsFullscreen}" 
+        class="vs-popup">
+        <header>
+          <h2 v-if="vsTitle!=''">
+            {{ vsTitle }}
+          </h2>
+          <div
+            :style="{'background':vsCloseButtonColor?/[#()]/.test(vsCloseButtonColor)?vsCloseButtonColor:`rgba(var(--${vsCloseButtonColor}),1)`:'rgb(250, 250, 250)',
+                     'color':colorButtonx
+            }"
+            class="vs-popup-cancel" 
+            @click="$emit('vs-cancel')">
+            <!-- <span class="flaticon-close"></span> -->
+            <i class="material-icons">close</i>
+          </div>
+        </header>
+        <div class="con-htmlx">
+          <slot/>
         </div>
-      </header>
-      <div class="con-htmlx">
-        <slot>
-        </slot>
       </div>
     </div>
-  </div>
   </transition>
 </template>
 
 <script>
 import color from '../../utils/color.js'
 export default {
-  name:'vs-popup',
+  name:'VsPopup',
   props:{
     vsTitle:{
       type:String,

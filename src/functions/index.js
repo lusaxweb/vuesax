@@ -3,7 +3,6 @@
 import vsNotifications from './vsNotifications/index.js'
 import {message} from './vsMessageBox/vsMessageBox.js'
 import {confirm} from './vsMessageBox/vsMessageBox.js'
-// import {prompt} from './vsMessageBox/vsMessageBox.js'
 import {vsLoading} from './vsLoading/vsLoading.js'
 import {vsLoadingClose} from './vsLoading/vsLoading.js'
 import vsDialog from './vsDialog/index.js'
@@ -14,13 +13,9 @@ const vsFunctions = {
   vsNotifications,
   message,
   confirm,
-  // prompt,
-  // vsDialog,
   vsLoading,
   vsLoadingClose,
   vsTheme,
-
-  // dialog new
   vsDialog
 }
 

@@ -1,20 +1,33 @@
 <template lang="html">
-  <div class="con-vs-tabs vs-tabs" :class="[`vs-tabs-${vsColor}`,`vs-tabs-position-${vsPosition}`]" >
-    <div :style="styleTabs" class="con-ul-tabs">
-    <ul :class="[`ul-tabs-${vsAlignment}`]" ref="ul" class="ul-tabs">
-      <li @mouseover="hover = true" @mouseout="hover = false" :class="{'activeChild':childActive == index}" @click="activeChild($event,index)" v-for="(child,index) in children">
-        <button
-          v-bind="child.attrs"
-          v-on="child.listeners">
-          {{child.label}}
+  <div 
+    :class="[`vs-tabs-${vsColor}`,`vs-tabs-position-${vsPosition}`]" 
+    class="con-vs-tabs vs-tabs" >
+    <div 
+      :style="styleTabs" 
+      class="con-ul-tabs">
+      <ul 
+        ref="ul" 
+        :class="[`ul-tabs-${vsAlignment}`]" 
+        class="ul-tabs">
+        <li 
+          v-for="(child,index) in children" 
+          :class="{'activeChild':childActive == index}" 
+          @mouseover="hover = true" 
+          @mouseout="hover = false" 
+          @click="activeChild($event,index)">
+          <button
+            v-bind="child.attrs"
+            v-on="child.listeners">
+            {{ child.label }}
           </button>
-      </li>
-    </ul>
-      <span :style="stylex" class="line-vs-tabs">
-      </span>
+        </li>
+      </ul>
+      <span 
+        :style="stylex" 
+        class="line-vs-tabs"/>
     </div>
     <div class="con-slot-tabs">
-    <slot></slot>
+      <slot/>
     </div>
   </div>
 </template>
@@ -23,7 +36,7 @@
 import _color from '../../utils/color.js'
 import vsButton from '../vsButton/vsButton.vue'
 export default {
-  name:'vs-tabs',
+  name:'VsTabs',
   components:{vsButton},
   props:{
     vsColor:{
@@ -49,14 +62,6 @@ export default {
     widthx:0,
     these:false,
   }),
-  mounted(){
-    this.changePositionLineCreated()
-    console.log(this.$children[this.childActive].active)
-    this.$children[this.childActive].active = true
-    if(this.vsPosition == 'left' || this.vsPosition == 'left'){
-        this.$children[this.childActive].vertical = true
-    }
-  },
   computed:{
     styleTabs(){
       return {
@@ -75,21 +80,29 @@ export default {
       }
     }
   },
+  mounted(){
+    this.changePositionLineCreated()
+    console.log(this.$children[this.childActive].active)
+    this.$children[this.childActive].active = true
+    if(this.vsPosition == 'left' || this.vsPosition == 'left'){
+      this.$children[this.childActive].vertical = true
+    }
+  },
   methods:{
     changePositionLineCreated(){
       this.$nextTick(() => {
         let lix = this.$refs.ul.querySelector('.activeChild')
 
-      if(this.vsPosition == 'left' || this.vsPosition == 'right'){
-        this.topx = lix.offsetTop
-        this.heightx = lix.offsetHeight
-        this.widthx = 2
-      } else {
-        setTimeout(()=>{
-          this.leftx = lix.offsetLeft
-          this.widthx = lix.offsetWidth
-        },100)
-      }
+        if(this.vsPosition == 'left' || this.vsPosition == 'right'){
+          this.topx = lix.offsetTop
+          this.heightx = lix.offsetHeight
+          this.widthx = 2
+        } else {
+          setTimeout(()=>{
+            this.leftx = lix.offsetLeft
+            this.widthx = lix.offsetWidth
+          },100)
+        }
 
       });
     },
@@ -112,7 +125,7 @@ export default {
 
       if(this.childActive > index){
         this.$children[index].invert = true
-         this.$children[this.childActive].invert = false
+        this.$children[this.childActive].invert = false
       } else {
         this.$children[this.childActive].invert = true
         this.$children[index].invert = false
@@ -126,7 +139,7 @@ export default {
       this.childActive = index
 
       if(this.vsPosition == 'left' || this.vsPosition == 'right'){
-      this.$children[index].vertical = true
+        this.$children[index].vertical = true
       }
 
       this.changePositionLine(evt)

@@ -1,15 +1,15 @@
 <template lang="html">
   <div
     class="con-vs-card-body"
-    >
-      <slot></slot>
+  >
+    <slot/>
   </div>
 </template>
 
 <script>
 import color from '../../utils/color.js'
 export default {
-  name:'vs-card-body'
+  name:'VsCardBody'
 }
 </script>
 

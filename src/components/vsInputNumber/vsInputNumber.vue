@@ -1,27 +1,44 @@
 <template lang="html">
   <div :class="'vs-'+vsSize">
     <!-- /[#()]/.test(vsColor)?vsColor:`rgb(var(--${vsColor}))` -->
-    <div :style="{'color':vsColor?/[#()]/.test(vsColor)?vsColor:`rgb(var(--${vsColor}))`:'rgb(var(--primary))','background':vsColor?/[#()]/.test(vsColor)?vsColor:`rgb(var(--${vsColor}))`:'rgb(var(--primary))'}" :class="[{'con-plus':pulsandoPlus,'con-menos':pulsandoMenos,'disabledx':disabled}]" class="con-input-number">
+    <div 
+      :style="{'color':vsColor?/[#()]/.test(vsColor)?vsColor:`rgb(var(--${vsColor}))`:'rgb(var(--primary))','background':vsColor?/[#()]/.test(vsColor)?vsColor:`rgb(var(--${vsColor}))`:'rgb(var(--primary))'}" 
+      :class="[{'con-plus':pulsandoPlus,'con-menos':pulsandoMenos,'disabledx':disabled}]" 
+      class="con-input-number">
 
-      <button :class="{'no-mas':vsMin?value<=vsMin:false}" @mousedown="pulsandoMenos=true" @mouseup="pulsandoMenos=false" @mouseleave="pulsandoMenos=false" v-repeat-click="menos"  type="button" name="button">
-        <i  class="material-icons">remove</i>
+      <button 
+        v-repeat-click="menos" 
+        :class="{'no-mas':vsMin?value<=vsMin:false}" 
+        type="button" 
+        name="button" 
+        @mousedown="pulsandoMenos=true" 
+        @mouseup="pulsandoMenos=false" 
+        @mouseleave="pulsandoMenos=false">
+        <i class="material-icons">remove</i>
       </button>
       <div class="numberx">
         <input
-        @blur="blurx"
-        :style="{'width':value.toString().length*17+'px'}"
-        :class="{'plus':pulsandoPlus,'menos':pulsandoMenos}"
-        :value="value"
-        @keydown="validarKeypress($event,$event.target.value)"
-        @input="$emit('input',$event.target.value)"
-        @change="$emit('change',$event.target.value)"
-        type="text"
-         name=""
-          value="">
-        <!-- {{}} -->
+          :style="{'width':value.toString().length*17+'px'}"
+          :class="{'plus':pulsandoPlus,'menos':pulsandoMenos}"
+          :value="value"
+          type="text"
+          name=""
+          value=""
+          @blur="blurx"
+          @keydown="validarKeypress($event,$event.target.value)"
+          @input="$emit('input',$event.target.value)"
+          @change="$emit('change',$event.target.value)">
+          <!-- {{}} -->
       </div>
       <div class="">
-        <button :class="{'no-mas':vsMax?value>=vsMax:false}" @mousedown="pulsandoPlus=true" @mouseup="pulsandoPlus=false" @mouseleave="pulsandoPlus=false"     v-repeat-click="mas" type="button" name="button">
+        <button 
+          v-repeat-click="mas" 
+          :class="{'no-mas':vsMax?value>=vsMax:false}" 
+          type="button" 
+          name="button" 
+          @mousedown="pulsandoPlus=true" 
+          @mouseup="pulsandoPlus=false" 
+          @mouseleave="pulsandoPlus=false">
           <i class="material-icons">add</i>
         </button>
       </div>
@@ -32,39 +49,39 @@
 <script>
 
 export default {
-  name:'vs-input-number',
+  name:'VsInputNumber',
   directives: {
-      repeatClick: {
-        bind(el, binding, vnode) {
-          let intervalx = null;
-          let startT;
-          const functionx = () => vnode.context[binding.expression].apply();
-          const bucle = () => {
-            if (new Date() - startT < 100) {
-              functionx();
-            }
-            clearInterval(intervalx);
-            intervalx = null;
-          };
-          const eventx = (e) => {
-            if (e.button !== 0) return;
-            startT = new Date();
-            var escuchando = function() {
-              if (bucle) {
-                bucle.apply(this, arguments);
-              }
-              el.removeEventListener('mouseup', escuchando, false);
-            };
-            el.addEventListener('mouseleave', escuchando ,false);
-            el.addEventListener('mouseup', escuchando, false);
-            clearInterval(intervalx);
-            intervalx = setInterval(functionx, 100);
+    repeatClick: {
+      bind(el, binding, vnode) {
+        let intervalx = null;
+        let startT;
+        const functionx = () => vnode.context[binding.expression].apply();
+        const bucle = () => {
+          if (new Date() - startT < 100) {
+            functionx();
           }
-          el.addEventListener('mousedown', eventx ,false);
-
+          clearInterval(intervalx);
+          intervalx = null;
+        };
+        const eventx = (e) => {
+          if (e.button !== 0) return;
+          startT = new Date();
+          var escuchando = function() {
+            if (bucle) {
+              bucle.apply(this, arguments);
+            }
+            el.removeEventListener('mouseup', escuchando, false);
+          };
+          el.addEventListener('mouseleave', escuchando ,false);
+          el.addEventListener('mouseup', escuchando, false);
+          clearInterval(intervalx);
+          intervalx = setInterval(functionx, 100);
         }
-}
-    },
+        el.addEventListener('mousedown', eventx ,false);
+
+      }
+    }
+  },
   props:[
     'value',
     'vsColor',
@@ -81,6 +98,11 @@ export default {
       pulsandoMenos:false,
     }
   },
+  watch:{
+    value(){
+      this.valuex = this.value
+    }
+  },
   created(){
     if (parseInt(this.value)<parseInt(this.vsMin)) {
       this.$emit('input',this.vsMin)
@@ -88,11 +110,6 @@ export default {
     } else if (parseInt(this.value)>parseInt(this.vsMax)) {
       this.$emit('input',this.vsMax)
       this.$emit('change',this.vsMax)
-    }
-  },
-  watch:{
-    value(){
-      this.valuex = this.value
     }
   },
   methods:{
@@ -110,16 +127,16 @@ export default {
       }
     },
     validarKeypress(evt,value){
-        var rgx = /[0-9]/;
-        if(evt.key!='Backspace'&&evt.key!='Delete'&&evt.key!='ArrowLeft'&&evt.key!='ArrowRight'&&evt.key!='ArrowUp'&&evt.key!='ArrowDown'){
-          if( ! rgx.test(evt.key)) {
-            evt.preventDefault()
-          }
-        } else if (evt.key=='ArrowDown') {
-          this.menos()
-        } else if (evt.key=='ArrowUp') {
-          this.mas()
+      var rgx = /[0-9]/;
+      if(evt.key!='Backspace'&&evt.key!='Delete'&&evt.key!='ArrowLeft'&&evt.key!='ArrowRight'&&evt.key!='ArrowUp'&&evt.key!='ArrowDown'){
+        if( ! rgx.test(evt.key)) {
+          evt.preventDefault()
         }
+      } else if (evt.key=='ArrowDown') {
+        this.menos()
+      } else if (evt.key=='ArrowUp') {
+        this.mas()
+      }
     },
     mas(){
       if(this.valuex===''){
@@ -136,9 +153,9 @@ export default {
         this.valuex = 0
       }
       if(this.vsMin?parseInt(this.value)>parseInt(this.vsMin):true){
-      let valueNew = parseInt(this.valuex) - 1
-      this.$emit('input',valueNew)
-      this.$emit('change',valueNew)
+        let valueNew = parseInt(this.valuex) - 1
+        this.$emit('input',valueNew)
+        this.$emit('change',valueNew)
       }
     },
 

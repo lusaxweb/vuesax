@@ -1,30 +1,36 @@
 <template lang="html">
-  <div :class="{'autocompletex':vsAutocomplete,'activeOptions':active}" class="con-select">
+  <div
+    :class="{'autocompletex':vsAutocomplete,'activeOptions':active}"
+    class="con-select">
     <input
-      @click.stop
-      class="input-select"
       ref="inputselect"
-      @keydown.esc.stop.prevent="closeOptions"
       v-bind="$attrs"
-      v-on="listeners"
       :readonly="!vsAutocomplete"
+      class="input-select"
       type="text"
-      name="" value="">
+      name=""
+      value=""
+      @click.stop
+      @keydown.esc.stop.prevent="closeOptions"
+      v-on="listeners">
 
-      <i class="material-icons icon-select">
-        keyboard_arrow_down
-      </i>
+    <i class="material-icons icon-select">
+      keyboard_arrow_down
+    </i>
 
-      <transition name="fade-select">
-        <div
+    <transition name="fade-select">
+      <div
+        v-show="active"
+        ref="vsSelectOptions"
         :style="cords"
-        ref="vsSelectOptions" v-show="active" :class="[`vs-select-${vsColor}`,{'scrollx':this.scrollx}]" class="vs-select-options">
+        :class="[`vs-select-${vsColor}`,{'scrollx':scrollx}]"
+        class="vs-select-options">
         <ul ref="ulx">
           <slot/>
         </ul>
         <ul v-show="clear">
           <li @click="filterItems(''),changeValue()" >
-            {{vsNoData}}
+            {{ vsNoData }}
           </li>
         </ul>
       </div>
@@ -35,7 +41,7 @@
 <script>
 import utils from '../../utils'
 export default {
-  name:'vs-select',
+  name:'VsSelect',
   props:{
     value:{},
     vsNoData:{
@@ -67,31 +73,6 @@ export default {
     cords:{},
     filterx:false
   }),
-  mounted(){
-    this.changeValue()
-    utils.insertBody(this.$refs.vsSelectOptions)
-    // console.log("this.$children>>>>>>",this.$children);
-  },
-  updated(){
-    if(!this.active){
-      this.changeValue()
-    }
-  },
-  watch:{
-    value(event){
-      this.$emit('change',event)
-    },
-    active(){
-      if(this.active){
-        this.$children.forEach((item)=>{
-          item.focusValue()
-        })
-        setTimeout( () => {
-          if(this.$refs.ulx.scrollHeight >= 260) this.scrollx = true
-        }, 100);
-      }
-    }
-  },
   computed:{
     listeners(){
       return {
@@ -107,7 +88,7 @@ export default {
           // document.removeEventListener('click',this.clickBlur)
           this.focus(event)
         },
-        input: (event) => {
+        input: () => {
           return
         },
         keyup: (event) => {
@@ -129,6 +110,31 @@ export default {
         }
       }
     },
+  },
+  watch:{
+    value(event){
+      this.$emit('change',event)
+    },
+    active(){
+      if(this.active){
+        this.$children.forEach((item)=>{
+          item.focusValue()
+        })
+        setTimeout( () => {
+          if(this.$refs.ulx.scrollHeight >= 260) this.scrollx = true
+        }, 100);
+      }
+    }
+  },
+  mounted(){
+    this.changeValue()
+    utils.insertBody(this.$refs.vsSelectOptions)
+    // console.log("this.$children>>>>>>",this.$children);
+  },
+  updated(){
+    if(!this.active){
+      this.changeValue()
+    }
   },
   methods:{
     addMultiple(value){
@@ -215,7 +221,7 @@ export default {
         this.$refs.inputselect.value = this.valuex
       }
     },
-    focus(event){
+    focus(){
       this.active = true
       let inputx = this.$refs.inputselect
       setTimeout( ()=> {

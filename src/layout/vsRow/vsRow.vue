@@ -1,20 +1,21 @@
 <template lang="html">
-  <div :style="{
-    'align-items':vsAlign,
-    'justify-content':vsJustify,
-    'display':vsType,
-    'width':vsW*100/12+'%'}"
+  <div
+    :style="{
+      'align-items':vsAlign,
+      'justify-content':vsJustify,
+      'display':vsType,
+      'width':vsW*100/12+'%'}"
     class="vs-row">
-    <slot>
-    </slot>
+    <slot/>
   </div>
 </template>
 
 <script>
 export default {
-  name:'vs-row',
+  name:'VsRow',
   props:{
     vsType:{
+      default:'block',
       type:String,
     },
     vsW:{

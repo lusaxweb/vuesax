@@ -1,19 +1,23 @@
 <template lang="html">
   <div
-    class="vs-list-header"
     :class="{
       'with-icon':vsIcon,
     }"
     :style="{
       'color':vsColor?/[#()]/.test(vsColor)?vsColor:`rgba(var(--${vsColor}),1)`:'rgb(244,244,244)',
       'border-color':vsColor?/[#()]/.test(vsColor)?vsColor:`rgba(var(--${vsColor}),1)`:'rgb(244,244,244)',
-    }">
-    <div v-if="vsIcon" class="list-icon">
-      <i class="material-icons">{{vsIcon}}</i>
+    }"
+    class="vs-list-header">
+    <div 
+      v-if="vsIcon" 
+      class="list-icon">
+      <i class="material-icons">{{ vsIcon }}</i>
     </div>
     <div class="list-titles">
-      <div class="list-title" v-if="vsTitle">{{vsTitle}}</div>
-      <!-- <div class="list-subtitle" v-if="vsSubtitle">{{vsSubtitle}}</div> -->
+      <div 
+        v-if="vsTitle" 
+        class="list-title">{{ vsTitle }}</div>
+        <!-- <div class="list-subtitle" v-if="vsSubtitle">{{vsSubtitle}}</div> -->
     </div>
   </div>
 </template>
@@ -21,7 +25,7 @@
 <script>
 import color from '../../utils/color.js'
 export default {
-  name:'vs-list-header',
+  name:'VsListHeader',
   props: {
     vsColor:{
       type:String,
