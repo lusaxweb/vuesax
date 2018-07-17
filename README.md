@@ -31,16 +31,16 @@ The framework is focused on facilitating the development of applications, improv
 
 # Components
 
-- [Buttons](https://lusaxweb.github.io/vuesax/components/)
-- [Selects](https://lusaxweb.github.io/vuesax/components/selects.html)
-- [Notifications](https://lusaxweb.github.io/vuesax/components/notifications.html)
-- [Switch](https://lusaxweb.github.io/vuesax/components/switch.html)
-- [CheckBox](https://lusaxweb.github.io/vuesax/components/checkbox.html)
-- [Radio](https://lusaxweb.github.io/vuesax/components/radio.html)
-- [Input](https://lusaxweb.github.io/vuesax/components/input.html)
-- [Dialogs](https://lusaxweb.github.io/vuesax/components/dialog.html)
-- [Tabs](https://lusaxweb.github.io/vuesax/components/tabs.html)
-- [Slider](https://lusaxweb.github.io/vuesax/components/slider.html)
+- [Buttons](https://lusaxweb.github.io/vuesax/components/) - SSR
+- [Selects](https://lusaxweb.github.io/vuesax/components/selects.html) - SSR
+- [Notifications](https://lusaxweb.github.io/vuesax/components/notifications.html) - SSR
+- [Switch](https://lusaxweb.github.io/vuesax/components/switch.html) - SSR
+- [CheckBox](https://lusaxweb.github.io/vuesax/components/checkbox.html) - SSR
+- [Radio](https://lusaxweb.github.io/vuesax/components/radio.html) - SSR
+- [Input](https://lusaxweb.github.io/vuesax/components/input.html) - SSR
+- [Dialogs](https://lusaxweb.github.io/vuesax/components/dialog.html) - SSR
+- [Tabs](https://lusaxweb.github.io/vuesax/components/tabs.html) - SSR
+- [Slider](https://lusaxweb.github.io/vuesax/components/slider.html) - Working
 - [InputNumber](https://lusaxweb.github.io/vuesax/components/number.html)
 - [Tooltip](https://lusaxweb.github.io/vuesax/components/tooltip.html)
 - [Upload](https://lusaxweb.github.io/vuesax/components/upload.html)
