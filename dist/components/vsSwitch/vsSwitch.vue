@@ -1,0 +1,143 @@
+<template lang="html">
+  <button
+    :class="[
+      `vs-switch-${vsColor}`,
+      {
+        'vs-switch-active':isChecked || $attrs.checked
+      }
+    ]"
+    :style="style"
+    v-bind="$attrs"
+    class="vs-component vs-switch"
+    type="button"
+    name="button" 
+    @click="toggleCheckbox($event)">
+    <input
+      ref="inputCheckbox"
+      :checked="value"
+      :disabled="$attrs.disabled"
+      class="input-switch"
+      type="checkbox" 
+      name="" 
+      value="" 
+      v-on="listeners">
+
+    <span 
+      ref="on" 
+      :class="{'active-text':isChecked || $attrs.checked}" 
+      class="text-on text-switch">
+      <slot name="on"/>
+      <!-- perro -->
+      <i class="material-icons icons-switch">
+        {{ vsIconOn || vsIcon }}
+      </i>
+    </span>
+    <span 
+      ref="off" 
+      :class="{'active-text':!isChecked && !$attrs.checked}" 
+      class="text-off text-switch">
+      <!-- gato con botas -->
+      <slot name="off"/>
+      <i class="material-icons icons-switch">
+        {{ vsIconOff || vsIcon }}
+      </i>
+    </span>
+    <span class="vs-circle-switch"/>
+  </button>
+</template>
+
+<script>
+import _color from '../../utils/color.js'
+export default {
+  name:'VsSwitch',
+  inheritAttrs:false,
+  props:{
+    value:{},
+    vsColor:{
+      default:'primary',
+      type:String
+    },
+    vsIcon:{
+      default:null,
+      type:String
+    },
+    vsIconOn:{
+      default:null,
+      type:String
+    },
+    vsIconOff:{
+      default:null,
+      type:String
+    },
+    vsValue:{}
+  },
+  data:()=>({
+    widthx:42,
+    checkboxClicked: false,
+  }),
+  computed:{
+    style(){
+      return {
+        background: this.value?_color.getColor(this.vsColor,1):null,
+        width: `${this.widthx}px`
+      }
+    },
+    listeners(){
+      return {
+        ...this.$listeners,
+        change: (evt) => {
+          this.toggleValue(evt)
+        }
+      }
+    },
+    isChecked(){
+      return this.isArrayx() ? this.isArrayIncludes() : this.value
+    },
+  },
+  mounted(){
+    this.$nextTick(()=>{
+      let w = this.$refs.on.clientWidth>this.$refs.off.clientWidth?this.$refs.on.clientWidth:this.$refs.off.clientWidth
+      this.widthx = w + 24
+    })
+
+  },
+  methods:{
+    toggleCheckbox(event) {
+      if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1){
+        this.$refs.inputCheckbox.checked = !this.$refs.inputCheckbox.checked;
+        this.$emit('input', this.$refs.inputCheckbox.checked);
+      }
+    },
+    toggleValue(evt){
+      if(this.isArrayx()){
+        this.setArray(evt)
+      }
+      else {
+        this.$emit('input',evt.target.checked)
+        this.$emit('change',evt)
+      }
+    },
+    setArray(evt){
+      const value = this.value.slice(0) // Copy Array.
+      if(this.isArrayIncludes()){
+        value.splice(value.indexOf(this.vsValue),1) // delete value
+        this.$emit('input', value)
+        this.$emit('change', evt)
+      } else {
+        value.push(this.vsValue) // add value new
+        this.$emit('input', value)
+        this.$emit('change', evt)
+      }
+    },
+    isArrayIncludes(){
+      let modelx = this.value
+      let value = this.vsValue
+      return modelx.includes(value)
+    },
+    isArrayx(){
+      return Array.isArray(this.value)
+    }
+  },
+}
+</script>
+

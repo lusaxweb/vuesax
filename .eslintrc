@@ -27,7 +27,7 @@
     ],
     "max-statements": [
       "error",
-      30
+      40
     ],
     "max-params": [
       "error",
@@ -52,6 +52,7 @@
     ],
     "vue/require-v-for-key": 0,
     "vue/require-default-prop": 0,
-    "vue/require-prop-types":0
+    "vue/require-prop-types":0,
+    "vue/html-self-closing":0
   }
 }

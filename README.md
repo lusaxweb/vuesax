@@ -40,7 +40,7 @@ The framework is focused on facilitating the development of applications, improv
 - [Input](https://lusaxweb.github.io/vuesax/components/input.html) - SSR
 - [Dialogs](https://lusaxweb.github.io/vuesax/components/dialog.html) - SSR
 - [Tabs](https://lusaxweb.github.io/vuesax/components/tabs.html) - SSR
-- [Slider](https://lusaxweb.github.io/vuesax/components/slider.html) - Working
+- [Slider](https://lusaxweb.github.io/vuesax/components/slider.html) - SSR
 - [InputNumber](https://lusaxweb.github.io/vuesax/components/number.html)
 - [Tooltip](https://lusaxweb.github.io/vuesax/components/tooltip.html)
 - [Upload](https://lusaxweb.github.io/vuesax/components/upload.html)

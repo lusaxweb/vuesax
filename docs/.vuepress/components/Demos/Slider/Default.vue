@@ -9,8 +9,8 @@
 export default {
   data(){
     return {
-      value1:79,
-      value2:40
+      value1:67,
+      value2:34
     }
   }
 }
