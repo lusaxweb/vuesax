@@ -147,7 +147,7 @@ Please make sure to read the [Contributing Guide](https://github.com/lusaxweb/vu
 
 ## Become a Patron
 
-Vuesax is an open source [MIT](https://github.com/lusaxweb/vuesax/blob/master/LICENSE) project if you want to contribute to keep improving, If you are interested in supporting this project, please consider becoming a patron. [[patron](https://www.patreon.com/luisdanielroviracontreras)]
+Vuesax is an open source [MIT](https://github.com/lusaxweb/vuesax/blob/master/LICENSE) project if you want to contribute to keep improving, If you are interested in supporting this project, please consider becoming a patron. [patron](https://www.patreon.com/luisdanielroviracontreras)
 
 <p align="center">
   <a href="https://www.patreon.com/luisdanielroviracontreras">
