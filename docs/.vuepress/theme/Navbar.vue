@@ -123,7 +123,7 @@ export default {
   line-height $navbarHeight - 1.5rem
   position relative
   background: $background
-  z-index: 1000 !important
+  z-index: 1200 !important
   position: fixed;
   width: calc(100% + 7px)
   a, span, img

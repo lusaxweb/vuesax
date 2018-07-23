@@ -187,6 +187,7 @@ export default {
     styleEfect(){
       return {
         left:`${this.leftx}%`,
+        background:_color.getColor(this.color,1)
       }
     },
     styleText(){

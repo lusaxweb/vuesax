@@ -1054,6 +1054,9 @@ export default {
   animation: moveNube1 25s ease infinite
 }
 .nube4 {
+  position: relative;
+  display: block;
+  z-index: 100;
   transform: translate(100px);
   animation: moveNube2 25s ease infinite
 }

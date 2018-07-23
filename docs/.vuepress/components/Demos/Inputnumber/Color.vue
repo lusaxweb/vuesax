@@ -1,11 +1,11 @@
 <template lang="html">
   <div class="centerx">
-    <vs-input-number vs-color="danger" v-model="number1"/>
-    <vs-input-number vs-color="success" v-model="number2"/>
-    <vs-input-number vs-color="warning" v-model="number3"/>
-    <vs-input-number vs-color="dark" v-model="number4"/>
-    <vs-input-number vs-color="rgb(218, 24, 94)" v-model="number5"/>
-    <vs-input-number vs-color="#ad3af9" v-model="number6"/>
+    <vs-input-number color="danger" v-model="number1"/>
+    <vs-input-number color="success" v-model="number2"/>
+    <vs-input-number color="warning" v-model="number3"/>
+    <vs-input-number color="dark" v-model="number4"/>
+    <vs-input-number color="rgb(218, 24, 94)" v-model="number5"/>
+    <vs-input-number color="#ad3af9" v-model="number6"/>
   </div>
 </template>
 

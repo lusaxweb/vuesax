@@ -5,6 +5,7 @@ module.exports = {
     ['title',{},'hola'],
     ['link', { rel: 'icon', href: `/favicon-vuesax.png` }],
     ['link', { rel: 'stylesheet', href: `https://fonts.googleapis.com/icon?family=Material+Icons` }],
+    ['script', {src: 'https://codefund.io/scripts/1d55a3b5-154d-4e29-a7b6-46017e50c663/embed.js'}],
     ['script',{},`(function(h,o,t,j,a,r){
             h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
             h._hjSettings={hjid:816179,hjsv:6};
@@ -19,7 +20,7 @@ module.exports = {
   docsDir: 'docs',
   host:'localhost',
   port: 7070,
-  title: 'Vuesax',
+  title: 'Vue.js Framework Components - Vuesax',
   description: 'We love what we do. Let us help you do what <b>You love.</b>',
   vueThemes:{
     linksHome:[],

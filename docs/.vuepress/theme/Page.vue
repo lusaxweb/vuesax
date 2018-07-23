@@ -7,6 +7,8 @@
       </div>
     </div>
 
+    <div id="codefund_ad"></div>
+
     <transition name="contentx">
     <Content :custom="false"/>
     </transition>
@@ -153,6 +155,7 @@ function find (page, items, offset) {
 <style lang="stylus">
 @import './styles/config.styl'
 
+
 .contentx-enter-active, .contentx-leave-active {
   transition: all .250s;
 
@@ -295,6 +298,9 @@ function find (page, items, offset) {
 .header-anchor
   transition: all .3s ease !important;
 
+@media (max-width: 700px)
+  .content
+    width 100% !important;
 @media (max-width: 550px)
   .page-nav.content
     span

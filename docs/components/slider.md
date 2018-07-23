@@ -197,6 +197,10 @@ export default {
 
 You can add an icon with the `icon` property for better representation to the user
 
+::: tip
+Vuesax use the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
+:::
+
 <vuecode md>
 <div slot="demo">
   <Demos-Slider-Icons />

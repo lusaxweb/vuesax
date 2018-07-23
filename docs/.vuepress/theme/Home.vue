@@ -1,6 +1,7 @@
 <template>
 
   <div class="con-home vs-component">
+    <div id="codefund_ad"></div>
     <div class="logo-g">
       <img  v-if="data.heroImage" :src="$withBase(data.heroImage)" alt="hero">
     </div>
@@ -163,6 +164,7 @@ export default {
 
 <style lang="stylus">
 @import './styles/config.styl'
+
 .contribuitors
   display: flex;
   align-items: center;
@@ -226,7 +228,7 @@ export default {
   top: -10px
   display: block;
   position: absolute;
-  z-index: 1000;
+  z-index: 1300;
   background: rgb(255, 255, 255)
   transition: all .3s ease
   opacity: 1;
@@ -377,6 +379,7 @@ export default {
   padding $navbarHeight 2rem 0
   width: 100%;
   .hero
+    width calc(100% - 200px)
     position: relative;
     display: block;
     z-index: 1;
@@ -454,6 +457,14 @@ export default {
     color lighten($textColor, 25%)
 
 @media (max-width: $MQMobile)
+  #codefund_ad
+    width 100% !important
+    position relative !important
+    right 0px !important
+    margin-bottom 20px
+  .hero
+      width 100% !important
+
   .contribuitors
     flex-direction column
   .homeBackgroundComponent
@@ -484,7 +495,8 @@ export default {
 
 
 @media (max-width: $MQMobileNarrow)
- .contribuitors
+
+  .contribuitors
     flex-direction column
   .navbar
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -499,6 +511,7 @@ export default {
     padding-left 1.5rem
     padding-right 1.5rem
     .hero
+      width 100% !important
       img
         max-height 210px
         margin 2rem auto 1.2rem
