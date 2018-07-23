@@ -1,7 +1,7 @@
 <template>
 
   <div class="con-home vs-component">
-    <div id="codefund_ad"></div>
+
     <div class="logo-g">
       <img  v-if="data.heroImage" :src="$withBase(data.heroImage)" alt="hero">
     </div>

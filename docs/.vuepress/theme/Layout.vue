@@ -3,7 +3,9 @@
     :class="pageClasses"
     @touchstart="onTouchStart"
     @touchend="onTouchEnd">
+
     <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar"/>
+    <div id="codefund_ad"></div>
     <div class="sidebar-mask" @click="toggleSidebar(false)"></div>
     <Sidebar :items="sidebarItems" @toggle-sidebar="toggleSidebar">
       <slot name="sidebar-top" slot="top"/>

@@ -61,8 +61,7 @@ export default {
     tooltipx.style.background = colorx
     var mouseEnterx = function(event){
 
-
-      let coords = event.toElement.getBoundingClientRect();
+      let coords = event.target.getBoundingClientRect();
       let scrollTopx = window.pageYOffset || document.documentElement.scrollTop;
       // console.log(window.pageYOffset);
       document.body.insertBefore(tooltipx, document.body.firstChild);

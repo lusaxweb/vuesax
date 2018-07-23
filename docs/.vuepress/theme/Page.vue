@@ -7,7 +7,7 @@
       </div>
     </div>
 
-    <div id="codefund_ad"></div>
+    <!-- <div id="codefund_ad"></div> -->
 
     <transition name="contentx">
     <Content :custom="false"/>
