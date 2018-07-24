@@ -155,10 +155,6 @@ Vuesax is an open source [MIT](https://github.com/lusaxweb/vuesax/blob/master/LI
   </a>
 </p>
 
-## Backers
-
-Support us with a monthly donation and help us continue our activities. [[Become a backer](https://opencollective.com/vuesax#backer)]
-
 ## Lusaxweb
 
 This library was created and is supported by [Lusaxweb](http://www.lusaxweb.com.ve/)
