@@ -23,6 +23,26 @@
   </a>
 </p>
 
+<h2 align="center">Supporting through Patreon</h2>
+
+Vuesax is an open source [MIT](https://github.com/lusaxweb/vuesax/blob/master/LICENSE) project if you want to contribute to keep improving, If you are interested in supporting this project, please consider becoming a patron. [Patron](https://www.patreon.com/luisdanielroviracontreras)
+
+<p align="center">
+  <a href="https://www.patreon.com/luisdanielroviracontreras">
+    <img src="https://c5.patreon.com/external/logo/become_a_patron_button.png" alt="Become a Patron" />
+  </a>
+</p>
+
+<p align="center"><b>Diamond</b></p>
+
+
+
+<p align="center">
+  <a href="https://tipe.io/">
+<img width="20%" src="https://github.com/lusaxweb/vuesax/blob/master/docs/.vuepress/public/tipe.png" alt="Tipe" />
+   </a>
+ </p>
+
 # Introduction
 
 [Vuesax](https://lusaxweb.github.io/vuesax/) is a framework of components based on [vue.js](https://vuejs.org/), it is a framework that is designed from scratch to be incrementally adoptable.
@@ -144,16 +164,6 @@ Vue.use(vsFunctions)
 
 ## Contribution
 Please make sure to read the [Contributing Guide](https://github.com/lusaxweb/vuesax/blob/master/CONTRIBUTING.md) before making a pull request.
-
-## Become a Patron
-
-Vuesax is an open source [MIT](https://github.com/lusaxweb/vuesax/blob/master/LICENSE) project if you want to contribute to keep improving, If you are interested in supporting this project, please consider becoming a patron. [patron](https://www.patreon.com/luisdanielroviracontreras)
-
-<p align="center">
-  <a href="https://www.patreon.com/luisdanielroviracontreras">
-    <img src="https://c5.patreon.com/external/logo/become_a_patron_button.png" alt="Become a Patron" />
-  </a>
-</p>
 
 ## Lusaxweb
 
