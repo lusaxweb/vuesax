@@ -4,6 +4,8 @@ You can join them in supporting Vuesax.js by [Patreon](https://www.patreon.com/l
 
 ## $100+
 
+- [Tipe](https://tipe.io/)
+
 ## $50+
 
 ## $10+

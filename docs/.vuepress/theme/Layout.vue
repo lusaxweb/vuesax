@@ -5,7 +5,14 @@
     @touchend="onTouchEnd">
 
     <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar"/>
-    <div id="codefund_ad"></div>
+
+    <!-- <CodeFund
+      propertyId="1d55a3b5-154d-4e29-a7b6-46017e50c663"
+      template="image-centered"
+      theme="light"
+    /> -->
+    <Carbon/>
+
     <div class="sidebar-mask" @click="toggleSidebar(false)"></div>
     <Sidebar :items="sidebarItems" @toggle-sidebar="toggleSidebar">
       <slot name="sidebar-top" slot="top"/>
@@ -36,8 +43,10 @@ import Page from './Page.vue'
 import Sidebar from './Sidebar.vue'
 import { resolveSidebarItems, pathToComponentName } from './util'
 import './icons/font/flaticon.css'
+import CodeFund from "./CodeFund";
+import Carbon from "./Carbon";
 export default {
-  components: { Home, Page, Sidebar, Navbar },
+  components: { Home, Page, Sidebar, Navbar, CodeFund, Carbon },
   data () {
     return {
       isSidebarOpen: false

@@ -2,13 +2,14 @@
   <div class="con-home-patreons">
     <h2>Patreon Sponsors</h2>
     <ul>
-      <li title="Become a Patron - Add your logo here" v-for="patreon,index in patreons">
-        <a target="_blank" href="https://www.patreon.com/luisdanielroviracontreras">
-          <img v-if="index == 0" :src="$withBase('/vuesax-logo.png')" alt="vuesax-patreon">
-          <i v-if="index != 0" class="material-icons">
+
+      <li :class="{'patreonx':patreon.name}" :title="patreon.name?`Proudly patronized by ${patreon.name}`:'Become a Patron - Add your logo here'" v-for="patreon,index in patreons">
+        <a target="_blank" :href="patreon.link?patreon.link:'https://www.patreon.com/luisdanielroviracontreras'">
+          <img v-if="patreon.img" :src="$withBase(patreon.img)" alt="vuesax-patreon">
+          <i v-if="!patreon.img" class="material-icons">
           add
           </i>
-        {{name}}
+
         </a>
       </li>
     </ul>
@@ -30,10 +31,13 @@ export default {
   data: ()=>({
     patreons:[
       {
-        name:null
+        name:'Tipe',
+        img:'/tipe.png',
+        link:'https://tipe.io/'
       },
       {
-        name:null
+        name:null,
+        img:'/vuesax-logo.png'
       },
       {
         name:null
@@ -60,6 +64,9 @@ export default {
     display flex
     align-items center
     justify-content center
+    flex-wrap wrap
+    margin-left 0px;
+    padding-left 0px
     li
       position relative
       list-style none
@@ -67,6 +74,10 @@ export default {
       border-radius 50%;
       border: 1px dashed  rgb(220,220,220)
       transition all .2s ease
+      &.patreonx
+        img
+          opacity 1 !important
+          filter grayscale(0%) !important
       &:hover
         background rgba(249, 104, 84,.1)
         cursor pointer
@@ -88,6 +99,8 @@ export default {
         filter grayscale(100%)
         opacity .1
         transform translate(-50%,-50%)
+        width 80%;
+        height auto
       i
         transition all .2s ease
 
@@ -134,4 +147,13 @@ export default {
       box-shadow: 0px 9px 28px -9px rgb(249, 104, 84)
     img
       margin-right 5px
+@media (max-width: $MQMobile)
+  .con-home-patreons
+    padding 0px
+    ul
+      li
+        margin 5px;
+        a
+          width 80px;
+          height 80px
 </style>

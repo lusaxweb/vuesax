@@ -1,15 +1,33 @@
 <template lang="html">
-  <div :class="[`vs-input-number-${color}`,{'isChangeValue':isChangeValue}]" class="vs-input-number">
-    <button class="btn-less" @click="changeValue('-')" type="button">
+  <div
+    :class="[
+      `vs-input-number-${color}`,
+      {'isChangeValue':isChangeValue}
+    ]"
+    class="vs-input-number">
+    <button
+      v-repeat-click="less"
+      :style="{
+        background:getColor
+      }"
+      class="btn-less"
+      type="button">
       <i class="material-icons">
         remove
       </i>
     </button>
     <input
       :value="value"
-      v-on="listeners"
-      type="number">
-    <button class="btn-plus" @click="changeValue('+')" type="button">
+      v-bind="$attrs"
+      type="number"
+      v-on="listeners">
+    <button
+      v-repeat-click="plus"
+      :style="{
+        background:getColor
+      }"
+      class="btn-plus"
+      type="button">
       <i class="material-icons">
         add
       </i>
@@ -18,9 +36,42 @@
 </template>
 
 <script>
-
+import _color from '../../utils/color.js'
 export default {
   name:'VsInputNumber',
+  directives: {
+    repeatClick: {
+      bind(el, binding, vnode) {
+        let intervalx = null;
+        let startT;
+        const functionx = () => vnode.context[binding.expression].apply();
+        const bucle = () => {
+          if (new Date() - startT < 100) {
+            functionx();
+          }
+          clearInterval(intervalx);
+          intervalx = null;
+        };
+        const eventx = (e) => {
+          if (e.button !== 0) return;
+          startT = new Date();
+          var escuchando = function() {
+            if (bucle) {
+              bucle.apply(this, arguments);
+            }
+            el.removeEventListener('mouseup', escuchando, false);
+          };
+          el.addEventListener('mouseleave', escuchando ,false);
+          el.addEventListener('mouseup', escuchando, false);
+          clearInterval(intervalx);
+          intervalx = setInterval(functionx, 100);
+        }
+        el.addEventListener('mousedown', eventx ,false);
+
+      }
+    }
+  },
+  inheritAttrs:false,
   props:{
     value:{},
     color:{
@@ -31,31 +82,38 @@ export default {
   data:()=>({
     isChangeValue:false
   }),
-  watch:{
-    value(){
-      this.isChangeValue = true
-      setTimeout(()=>{
-        this.isChangeValue = false
-      },200)
-    }
-  },
   computed:{
+    getColor(){
+      return _color.getColor(this.color,1)
+    },
     listeners(){
       return {
+        ...this.$listeners,
         input:(evt)=>{
           this.$emit('input',evt.target.value)
         }
       }
     }
   },
+  // watch:{
+  //   value(){
+  //     this.isChangeValue = true
+  //     setTimeout(()=>{
+  //       this.isChangeValue = false
+  //     },200)
+  //   }
+  // },
   methods:{
-    changeValue(signo){
-      if(signo == '+'){
-        this.$emit('input',Number(this.value) + 1)
-      } else {
-        this.$emit('input',Number(this.value) - 1)
-      }
-    }
+    plus(){
+      console.log(this.value,">>>",parseInt(this.value))
+      let newValue = parseInt(this.value) + 1
+      this.$emit('input',newValue)
+    },
+    less(){
+      let newValue = parseInt(this.value) - 1
+
+      this.$emit('input',newValue)
+    },
   }
 }
 </script>
