@@ -103,7 +103,7 @@ export default {
     value:{},
     disabled:{
       default:false,
-      type:Boolean
+      type:[Boolean,String]
     },
     color:{
       default:'primary',
@@ -111,7 +111,7 @@ export default {
     },
     max:{
       default:100,
-      type:Number
+      type:[Number,String]
     },
     min:{
       default:0,
@@ -123,7 +123,7 @@ export default {
     },
     step:{
       default: 1,
-      type:Number
+      type:[Number,String]
     },
     icon:{
       default:null,

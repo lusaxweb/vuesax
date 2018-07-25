@@ -1,6 +1,4 @@
 .vs-input-number
-  width: 100%;
-  max-width 80px;
   position relative
   display block
   display flex
@@ -16,7 +14,8 @@
       opacity .5
   input
     transition: all .2s ease;
-    width: 100%;
+    width: 40px;
+    min-width 40px;
     border 0px
     text-align: center
     background: transparent
@@ -43,6 +42,8 @@
     transition: all .3s ease;
     color: rgba(255,255,255,1)
     backface-visibility hidden
+    &:disabled
+      opacity: .5 !important
     i
       font-size: .9rem
 
@@ -56,6 +57,57 @@
       &:active
         transform scale(.9) translate(-10px) !important
 
+  &.vs-input-number-size-medium
+    input
+      padding: 3px;
+      font-size: .8rem
+    button
+      min-width: 19px
+      min-height: 19px
+      i
+        font-size: .8rem
+      &.btn-plus
+        transform translate(8px)
+        &:active
+          transform scale(.9) translate(8px) !important
+      &.btn-less
+        transform translate(-8px)
+        &:active
+          transform scale(.9) translate(-8px) !important
+  &.vs-input-number-size-small
+    input
+      padding: 2px;
+      font-size: .7rem
+    button
+      min-width: 16px
+      min-height: 16px
+      i
+        font-size: .7rem
+      &.btn-plus
+        transform translate(7px)
+        &:active
+          transform scale(.9) translate(7px) !important
+      &.btn-less
+        transform translate(-7px)
+        &:active
+          transform scale(.9) translate(-7px) !important
+  &.vs-input-number-size-mini
+    input
+      padding: 1px;
+      font-size: .6rem
+    button
+      min-width: 14px
+      min-height: 14px
+      i
+        font-size: .6rem
+      &.btn-plus
+        transform translate(6px)
+        &:active
+          transform scale(.9) translate(6px) !important
+      &.btn-less
+        transform translate(-6px)
+        &:active
+          transform scale(.9) translate(-6px) !important
 for colorx, i in $vs-colors
   .vs-input-number-{colorx}
     button

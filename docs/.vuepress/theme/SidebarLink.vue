@@ -48,7 +48,12 @@ function renderLink (h, to, text, active, activeTag) {
     class: {
       active,
       'sidebar-link': true
-    }
+    },
+    nativeOn:{
+      click: e => {
+        if (typeof _carbonads !== 'undefined') _carbonads.refresh();
+      }
+    },
 
   }, [textx,activeTag?h('span',{class: 'span-new-update'},activeTag):null])
 }

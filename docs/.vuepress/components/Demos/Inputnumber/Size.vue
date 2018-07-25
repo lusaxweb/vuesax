@@ -1,9 +1,9 @@
 <template lang="html">
   <div class="centerx">
     <vs-input-number v-model="number0"/>
-    <vs-input-number vs-size="medium" v-model="number1"/>
-    <vs-input-number vs-size="small" v-model="number2"/>
-    <vs-input-number vs-size="mini" v-model="number3"/>
+    <vs-input-number size="medium" v-model="number1"/>
+    <vs-input-number size="small" v-model="number2"/>
+    <vs-input-number size="mini" v-model="number3"/>
   </div>
 </template>
 

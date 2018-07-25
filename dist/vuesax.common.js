@@ -2167,21 +2167,6 @@ module.exports = function (object, index, value) {
 
 /***/ }),
 
-/***/ "Pjui":
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__("o0km");
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var add = __webpack_require__("SZ7m").default
-var update = add("10cd8e5b", content, true, {});
-
-/***/ }),
-
 /***/ "Q9I0":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -5622,7 +5607,7 @@ var es6_math_sign = __webpack_require__("aW3o");
     value: {},
     disabled: {
       default: false,
-      type: Boolean
+      type: [Boolean, String]
     },
     color: {
       default: 'primary',
@@ -5630,7 +5615,7 @@ var es6_math_sign = __webpack_require__("aW3o");
     },
     max: {
       default: 100,
-      type: Number
+      type: [Number, String]
     },
     min: {
       default: 0,
@@ -5642,7 +5627,7 @@ var es6_math_sign = __webpack_require__("aW3o");
     },
     step: {
       default: 1,
-      type: Number
+      type: [Number, String]
     },
     icon: {
       default: null,
@@ -5936,7 +5921,7 @@ var es6_math_sign = __webpack_require__("aW3o");
     }
   }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-f9e393e0","hasScoped":false,"optionsId":"1","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsSlider/vsSlider.vue
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-27398bfd","hasScoped":false,"optionsId":"1","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsSlider/vsSlider.vue
 var vsSlider_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"con-vs-slider",class:[
     ("vs-slider-" + _vm.color),
     {'disabledx':_vm.disabled}
@@ -5988,6 +5973,7 @@ var vsSlider_Component = Object(component_normalizer["a" /* default */])(
   Vue.component(vsSlider_vsSlider.name, vsSlider_vsSlider);
 });
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/components/vsInputNumber/vsInputNumber.vue
+
 //
 //
 //
@@ -6034,8 +6020,7 @@ var vsSlider_Component = Object(component_normalizer["a" /* default */])(
 //
 //
 //
-//
-//
+
 /* harmony default export */ var vsInputNumber = ({
   name: 'VsInputNumber',
   directives: {
@@ -6079,88 +6064,115 @@ var vsSlider_Component = Object(component_normalizer["a" /* default */])(
       }
     }
   },
-  props: ['value', 'vsColor', 'vsMax', 'vsMin', 'disabled', 'vsLabel', 'vsSize'],
+  inheritAttrs: false,
+  props: {
+    value: {},
+    color: {
+      default: 'primary',
+      type: String
+    },
+    max: {
+      default: null,
+      type: [Number, String]
+    },
+    min: {
+      default: 0,
+      type: [Number, String]
+    },
+    size: {
+      default: null,
+      type: String
+    }
+  },
   data: function data() {
     return {
-      valuex: this.value,
-      pulsandoPlus: false,
-      pulsandoMenos: false
+      isChangeValue: false
     };
+  },
+  computed: {
+    getLength: function getLength() {
+      if (this.value != '') {
+        return this.value.length * 9.1;
+      } else {
+        return 0;
+      }
+    },
+    getColor: function getColor() {
+      return utils_color["a" /* default */].getColor(this.color, 1);
+    },
+    listeners: function listeners() {
+      var _this = this;
+
+      return objectSpread_default()({}, this.$listeners, {
+        blur: function blur(evt) {
+          if (parseInt(_this.value) > parseInt(_this.max)) {
+            _this.$emit('input', _this.max);
+          } else if (parseInt(_this.value) < parseInt(_this.min)) {
+            _this.$emit('input', _this.min);
+
+            _this.$emit('blur', evt);
+          }
+        },
+        input: function input(evt) {
+          _this.$emit('input', evt.target.value);
+        }
+      });
+    }
   },
   watch: {
     value: function value() {
-      this.valuex = this.value;
-    }
-  },
-  created: function created() {
-    if (parseInt(this.value) < parseInt(this.vsMin)) {
-      this.$emit('input', this.vsMin);
-      this.$emit('change', this.vsMin);
-    } else if (parseInt(this.value) > parseInt(this.vsMax)) {
-      this.$emit('input', this.vsMax);
-      this.$emit('change', this.vsMax);
+      var _this2 = this;
+
+      this.isChangeValue = true;
+      setTimeout(function () {
+        _this2.isChangeValue = false;
+      }, 200);
     }
   },
   methods: {
-    blurx: function blurx() {
-      if (this.valuex == '') {
-        this.$emit('input', 0);
-        this.$emit('change', 0);
+    plus: function plus() {
+      var newValue;
+
+      if (this.value == '') {
+        newValue = 0;
       }
 
-      if (parseInt(this.value) < parseInt(this.vsMin)) {
-        this.$emit('input', this.vsMin);
-        this.$emit('change', this.vsMin);
-      } else if (parseInt(this.value) > parseInt(this.vsMax)) {
-        this.$emit('input', this.vsMax);
-        this.$emit('change', this.vsMax);
+      if (this.max ? parseInt(this.value) < parseInt(this.max) : true) {
+        newValue = parseInt(this.value) + 1;
+        this.$emit('input', newValue);
       }
     },
-    validarKeypress: function validarKeypress(evt, value) {
-      var rgx = /[0-9]/;
+    less: function less() {
+      var newValue;
 
-      if (evt.key != 'Backspace' && evt.key != 'Delete' && evt.key != 'ArrowLeft' && evt.key != 'ArrowRight' && evt.key != 'ArrowUp' && evt.key != 'ArrowDown') {
-        if (!rgx.test(evt.key)) {
-          evt.preventDefault();
-        }
-      } else if (evt.key == 'ArrowDown') {
-        this.menos();
-      } else if (evt.key == 'ArrowUp') {
-        this.mas();
-      }
-    },
-    mas: function mas() {
-      if (this.valuex === '') {
-        this.valuex = 0;
+      if (this.value == '') {
+        newValue = 0;
       }
 
-      if (this.vsMax ? parseInt(this.value) < parseInt(this.vsMax) : true) {
-        var valueNew = parseInt(this.valuex) + 1;
-        this.$emit('input', valueNew);
-        this.$emit('change', valueNew);
-      }
-    },
-    menos: function menos() {
-      if (this.valuex === '') {
-        this.valuex = 0;
-      }
-
-      if (this.vsMin ? parseInt(this.value) > parseInt(this.vsMin) : true) {
-        var valueNew = parseInt(this.valuex) - 1;
-        this.$emit('input', valueNew);
-        this.$emit('change', valueNew);
+      if (this.min ? parseInt(this.value) > parseInt(this.min) : true) {
+        newValue = parseInt(this.value) - 1;
+        this.$emit('input', newValue);
       }
     }
   }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-467cfc04","hasScoped":true,"optionsId":"1","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsInputNumber/vsInputNumber.vue
-var vsInputNumber_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{class:'vs-'+_vm.vsSize},[_c('div',{staticClass:"con-input-number",class:[{'con-plus':_vm.pulsandoPlus,'con-menos':_vm.pulsandoMenos,'disabledx':_vm.disabled}],style:({'color':_vm.vsColor?/[#()]/.test(_vm.vsColor)?_vm.vsColor:("rgb(var(--" + _vm.vsColor + "))"):'rgb(var(--primary))','background':_vm.vsColor?/[#()]/.test(_vm.vsColor)?_vm.vsColor:("rgb(var(--" + _vm.vsColor + "))"):'rgb(var(--primary))'})},[_c('button',{directives:[{name:"repeat-click",rawName:"v-repeat-click",value:(_vm.menos),expression:"menos"}],class:{'no-mas':_vm.vsMin?_vm.value<=_vm.vsMin:false},attrs:{"type":"button","name":"button"},on:{"mousedown":function($event){_vm.pulsandoMenos=true},"mouseup":function($event){_vm.pulsandoMenos=false},"mouseleave":function($event){_vm.pulsandoMenos=false}}},[_c('i',{staticClass:"material-icons"},[_vm._v("remove")])]),_vm._v(" "),_c('div',{staticClass:"numberx"},[_c('input',{class:{'plus':_vm.pulsandoPlus,'menos':_vm.pulsandoMenos},style:({'width':_vm.value.toString().length*17+'px'}),attrs:{"type":"text","name":"","value":""},domProps:{"value":_vm.value},on:{"blur":_vm.blurx,"keydown":function($event){_vm.validarKeypress($event,$event.target.value)},"input":function($event){_vm.$emit('input',$event.target.value)},"change":function($event){_vm.$emit('change',$event.target.value)}}})]),_vm._v(" "),_c('div',{},[_c('button',{directives:[{name:"repeat-click",rawName:"v-repeat-click",value:(_vm.mas),expression:"mas"}],class:{'no-mas':_vm.vsMax?_vm.value>=_vm.vsMax:false},attrs:{"type":"button","name":"button"},on:{"mousedown":function($event){_vm.pulsandoPlus=true},"mouseup":function($event){_vm.pulsandoPlus=false},"mouseleave":function($event){_vm.pulsandoPlus=false}}},[_c('i',{staticClass:"material-icons"},[_vm._v("add")])])])])])}
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-2dd4fe12","hasScoped":false,"optionsId":"1","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsInputNumber/vsInputNumber.vue
+var vsInputNumber_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"vs-input-number",class:[
+    ("vs-input-number-size-" + _vm.size),
+    ("vs-input-number-" + _vm.color),
+    {'isChangeValue':_vm.isChangeValue}
+  ]},[_c('button',{directives:[{name:"repeat-click",rawName:"v-repeat-click",value:(_vm.less),expression:"less"}],staticClass:"btn-less",style:({
+      background:_vm.getColor,
+      opacity:(_vm.value == _vm.min?.5:1)
+    }),attrs:{"disabled":_vm.$attrs.disabled,"type":"button"}},[_c('i',{staticClass:"material-icons"},[_vm._v("\n      remove\n    ")])]),_vm._v(" "),_c('input',_vm._g(_vm._b({ref:"input",style:({
+      width:(_vm.getLength + "px")
+    }),attrs:{"type":"number"},domProps:{"value":_vm.value}},'input',_vm.$attrs,false),_vm.listeners)),_vm._v(" "),_c('button',{directives:[{name:"repeat-click",rawName:"v-repeat-click",value:(_vm.plus),expression:"plus"}],staticClass:"btn-plus",style:({
+      background:_vm.getColor,
+      opacity:_vm.value == _vm.max?.5:1
+    }),attrs:{"disabled":_vm.$attrs.disabled,"type":"button"}},[_c('i',{staticClass:"material-icons"},[_vm._v("\n      add\n    ")])])])}
 var vsInputNumber_staticRenderFns = []
 
 // CONCATENATED MODULE: ./src/components/vsInputNumber/vsInputNumber.vue
-function injectStyle (context) {
-  __webpack_require__("Pjui")
-}
 /* script */
 
 
@@ -6169,9 +6181,9 @@ function injectStyle (context) {
 /* template functional */
 var vsInputNumber_vue_template_functional_ = false
 /* styles */
-var vsInputNumber_vue_styles_ = injectStyle
+var vsInputNumber_vue_styles_ = null
 /* scopeId */
-var vsInputNumber_vue_scopeId_ = "data-v-467cfc04"
+var vsInputNumber_vue_scopeId_ = null
 /* moduleIdentifier (server only) */
 var vsInputNumber_vue_module_identifier_ = null
 
@@ -6494,7 +6506,7 @@ var vsUpload_render = function () {var _vm=this;var _h=_vm.$createElement;var _c
 var vsUpload_staticRenderFns = []
 
 // CONCATENATED MODULE: ./src/components/vsUpload/vsUpload.vue
-function vsUpload_injectStyle (context) {
+function injectStyle (context) {
   __webpack_require__("qEx5")
 }
 /* script */
@@ -6505,7 +6517,7 @@ function vsUpload_injectStyle (context) {
 /* template functional */
 var vsUpload_vue_template_functional_ = false
 /* styles */
-var vsUpload_vue_styles_ = vsUpload_injectStyle
+var vsUpload_vue_styles_ = injectStyle
 /* scopeId */
 var vsUpload_vue_scopeId_ = null
 /* moduleIdentifier (server only) */
@@ -11084,21 +11096,6 @@ var $Object = __webpack_require__("hYiM").Object;
 module.exports = function getOwnPropertyDescriptor(it, key) {
   return $Object.getOwnPropertyDescriptor(it, key);
 };
-
-
-/***/ }),
-
-/***/ "o0km":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("I1BE")(false);
-// imports
-
-
-// module
-exports.push([module.i, ".con-input-number[data-v-467cfc04]{background:rgb(var(--primary));border-radius:5px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;border-radius:18px;padding:3px;color:rgb(var(--primary));position:relative;margin:5px}.con-input-number input[data-v-467cfc04]{padding:5px;border:0;background:transparent;text-align:center;font-size:1.125em;color:#fff;-webkit-transition:all .3s ease;transition:all .3s ease;-webkit-box-sizing:border-box;box-sizing:border-box;min-width:70px}.con-input-number button[data-v-467cfc04]{margin:0!important;border-radius:50%;border:0;width:32px;height:32px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;cursor:pointer;-webkit-transition:all .3s ease;transition:all .3s ease;background:hsla(0,0%,100%,.3);color:#fff;z-index:100}.con-input-number button[data-v-467cfc04]:active{-webkit-transform:scale(.9);transform:scale(.9)}.con-input-number button i[data-v-467cfc04]{font-size:1.125em}.con-input-number button[data-v-467cfc04]:hover{background:#fff;color:inherit}.plus[data-v-467cfc04]{padding-left:15px!important}.menos[data-v-467cfc04]{padding-right:15px!important}.no-mas[data-v-467cfc04]{-webkit-transform:scale(.9);transform:scale(.9);opacity:.3}.no-mas[data-v-467cfc04]:hover{background:hsla(0,0%,100%,.4)!important;color:#fff!important}.disabledx[data-v-467cfc04]{pointer-events:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;opacity:.3!important}.vs-medium button[data-v-467cfc04]{width:28px;height:28px}.vs-medium button i[data-v-467cfc04]{font-size:1em}.vs-medium input[data-v-467cfc04]{font-size:1em;min-width:60px}.vs-small button[data-v-467cfc04]{width:24px;height:24px}.vs-small button i[data-v-467cfc04]{font-size:.875em}.vs-small input[data-v-467cfc04]{padding:4px;font-size:.875em;min-width:50px}.vs-mini button[data-v-467cfc04]{width:20px;height:20px}.vs-mini button i[data-v-467cfc04]{font-size:.8125em}.vs-mini input[data-v-467cfc04]{padding:2px;font-size:.8125em;min-width:40px}", ""]);
-
-// exports
 
 
 /***/ }),

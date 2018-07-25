@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="centerx">
-    <vs-input-number vs-min="13" vs-max="21" v-model="number1"/>
+    <vs-input-number min="13" max="21" v-model="number1"/>
   </div>
 </template>
 
