@@ -4,9 +4,12 @@ You can join them in supporting Vuesax.js by [Patreon](https://www.patreon.com/l
 
 ## $100+
 
-  <p align="center">
+<p align="center">
   <a href="https://tipe.io/">
     <img width="20%" src="https://github.com/lusaxweb/vuesax/blob/master/docs/.vuepress/public/tipe.png" alt="travis ci badge">
+  </a>
+  <a href="https://bitsrc.io/">
+    <img width="20%" src="https://github.com/lusaxweb/vuesax/blob/master/docs/.vuepress/public/bit-share-code.png" alt="travis ci badge">
   </a>
 </p>
 

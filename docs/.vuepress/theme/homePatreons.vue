@@ -36,11 +36,13 @@ export default {
         link:'https://tipe.io/'
       },
       {
-        name:null,
-        img:'/vuesax-logo.png'
+        name:'Bit Share Code',
+        img:'/bit-share-code.png',
+        link:'https://bitsrc.io/'
       },
       {
-        name:null
+        name:null,
+        img:'/vuesax-logo.png'
       },
       {
         name:null
@@ -75,9 +77,14 @@ export default {
       border: 1px dashed  rgb(220,220,220)
       transition all .2s ease
       &.patreonx
+        border: 1px solid rgb(245,245,245)
         img
           opacity 1 !important
           filter grayscale(0%) !important
+        &:hover
+          background rgba(255,255,255,1)
+          border: 1px solid rgba(245,245,245,0)
+          box-shadow: 0px 9px 28px -9px rgba(0, 0, 0,.1)
       &:hover
         background rgba(249, 104, 84,.1)
         cursor pointer
