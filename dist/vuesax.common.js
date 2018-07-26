@@ -3778,6 +3778,7 @@ __webpack_require__.d(components_namespaceObject, "vsPrompt", function() { retur
 __webpack_require__.d(components_namespaceObject, "vsDropDown", function() { return components_vsDropDown; });
 __webpack_require__.d(components_namespaceObject, "vsDivider", function() { return components_vsDivider; });
 __webpack_require__.d(components_namespaceObject, "vsCollapse", function() { return components_vsCollapse; });
+__webpack_require__.d(components_namespaceObject, "vsTooltip", function() { return components_vsTooltip; });
 
 // EXTERNAL MODULE: C:/Users/DELL/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/@vue/cli-service/lib/commands/build/setPublicPath.js
 var setPublicPath = __webpack_require__("kPcY");
@@ -4569,10 +4570,14 @@ var vsSelect_Component = Object(component_normalizer["a" /* default */])(
           return _this.clickOption(event);
         },
         mouseover: function mouseover(event) {
-          return _this.hoverx = true;
+          _this.$emit('mouseover', event);
+
+          _this.changeHover(true);
         },
         mouseout: function mouseout(event) {
-          return _this.hoverx = false;
+          _this.$emit('mouseover', event);
+
+          _this.changeHover(false);
         }
       });
     },
@@ -4590,10 +4595,6 @@ var vsSelect_Component = Object(component_normalizer["a" /* default */])(
   watch: {
     valueInputx: function valueInputx() {
       if (this.visible) {
-        var MaysPrimera = function MaysPrimera(string) {
-          return string.charAt(0).toUpperCase() + string.slice(1);
-        };
-
         var valueInputx = this.valueInputx.split(',');
 
         if (valueInputx[valueInputx.length - 1] == '') {
@@ -4605,8 +4606,7 @@ var vsSelect_Component = Object(component_normalizer["a" /* default */])(
         var re = new RegExp(valuex, "i");
 
         if (this.vsText.toUpperCase().indexOf(valuex.toUpperCase()) == 0) {
-          console.log('primera letra');
-          valuex = MaysPrimera(valuex);
+          valuex = this.MaysPrimera(valuex);
         }
 
         var text = this.vsText.replace(re, "<span class=\"searchx\">".concat(valuex, "</span>"));
@@ -4624,9 +4624,13 @@ var vsSelect_Component = Object(component_normalizer["a" /* default */])(
     this.putValue();
   },
   methods: {
+    changeHover: function changeHover(booleanx) {
+      this.hoverx = booleanx;
+    },
+    MaysPrimera: function MaysPrimera(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    },
     backspace: function backspace() {
-      console.dir(this.$parent.$refs.inputselect);
-
       if (this.$parent.vsAutocomplete) {
         var valueInput = this.$parent.$refs.inputselect.value;
         this.$parent.$refs.inputselect.value = valueInput.substr(0, valueInput.length - 1);
@@ -4684,7 +4688,7 @@ var vsSelect_Component = Object(component_normalizer["a" /* default */])(
         this.$parent.valuex = this.vsText;
       }
     },
-    clickOption: function clickOption(event) {
+    clickOption: function clickOption() {
       var text = this.vsText;
 
       if (!this.$parent.vsMultiple) {
@@ -4708,7 +4712,7 @@ var vsSelect_Component = Object(component_normalizer["a" /* default */])(
     }
   }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-1ae75640","hasScoped":false,"optionsId":"2","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsSelect/vsSelectItem.vue
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-10f24264","hasScoped":false,"optionsId":"2","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsSelect/vsSelectItem.vue
 var vsSelectItem_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('li',{directives:[{name:"show",rawName:"v-show",value:(_vm.visible),expression:"visible"}],staticClass:"vs-component"},[_c('button',_vm._g(_vm._b({ref:"item",staticClass:"vs-select-item-btn",class:{
       'activex':_vm.$parent.vsMultiple?_vm.getValue.indexOf(_vm.vsValue) != -1:_vm.getValue == _vm.vsValue,
       'con-icon':_vm.$parent.vsMultiple
@@ -5921,7 +5925,7 @@ var es6_math_sign = __webpack_require__("aW3o");
     }
   }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-27398bfd","hasScoped":false,"optionsId":"1","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsSlider/vsSlider.vue
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-27398bfd","hasScoped":false,"optionsId":"2","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsSlider/vsSlider.vue
 var vsSlider_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"con-vs-slider",class:[
     ("vs-slider-" + _vm.color),
     {'disabledx':_vm.disabled}
@@ -6156,7 +6160,7 @@ var vsSlider_Component = Object(component_normalizer["a" /* default */])(
     }
   }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-2dd4fe12","hasScoped":false,"optionsId":"1","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsInputNumber/vsInputNumber.vue
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-2dd4fe12","hasScoped":false,"optionsId":"2","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsInputNumber/vsInputNumber.vue
 var vsInputNumber_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"vs-input-number",class:[
     ("vs-input-number-size-" + _vm.size),
     ("vs-input-number-" + _vm.color),
@@ -6205,6 +6209,83 @@ var vsInputNumber_Component = Object(component_normalizer["a" /* default */])(
 
 /* harmony default export */ var components_vsInputNumber = (function (Vue) {
   Vue.component(vsInputNumber_vsInputNumber.name, vsInputNumber_vsInputNumber);
+});
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/components/vsTooltip/vsTooltip.vue
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ var vsTooltip = ({
+  name: 'VsTooltip',
+  data: function data() {
+    return {
+      cords: {}
+    };
+  },
+  computed: {
+    style: function style() {
+      return {
+        left: this.cords.left,
+        top: this.cords.top
+      };
+    }
+  },
+  mounted: function mounted() {
+    utils.insertBody(this.$refs.vstooltip);
+  },
+  methods: {
+    mouseoverx: function mouseoverx() {
+      var cords = utils.changePosition(this.$refs.convstooltip, this.$refs.vstooltip, true);
+      this.cords = cords;
+      console.log(cords);
+    }
+  }
+});
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-1d989cfd","hasScoped":false,"optionsId":"2","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsTooltip/vsTooltip.vue
+var vsTooltip_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"convstooltip",staticClass:"con-vs-tooltip",on:{"mouseover":_vm.mouseoverx}},[_c('div',{ref:"vstooltip",staticClass:"vs-tooltip",style:(_vm.style)},[_vm._v("\n    hola mundo "+_vm._s(this.cords.left)+"\n  ")]),_vm._v(" "),_vm._t("default")],2)}
+var vsTooltip_staticRenderFns = []
+
+// CONCATENATED MODULE: ./src/components/vsTooltip/vsTooltip.vue
+/* script */
+
+
+/* template */
+
+/* template functional */
+var vsTooltip_vue_template_functional_ = false
+/* styles */
+var vsTooltip_vue_styles_ = null
+/* scopeId */
+var vsTooltip_vue_scopeId_ = null
+/* moduleIdentifier (server only) */
+var vsTooltip_vue_module_identifier_ = null
+
+var vsTooltip_Component = Object(component_normalizer["a" /* default */])(
+  vsTooltip,
+  vsTooltip_render,
+  vsTooltip_staticRenderFns,
+  vsTooltip_vue_template_functional_,
+  vsTooltip_vue_styles_,
+  vsTooltip_vue_scopeId_,
+  vsTooltip_vue_module_identifier_
+)
+
+/* harmony default export */ var vsTooltip_vsTooltip = (vsTooltip_Component.exports);
+
+// CONCATENATED MODULE: ./src/components/vsTooltip/index.js
+
+
+
+/* harmony default export */ var components_vsTooltip = (function (Vue) {
+  Vue.component(vsTooltip_vsTooltip.name, vsTooltip_vsTooltip);
 });
 // EXTERNAL MODULE: C:/Users/DELL/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/core-js/modules/es6.regexp.match.js
 var es6_regexp_match = __webpack_require__("dybq");
@@ -10138,11 +10219,12 @@ var vsCol_Component = Object(component_normalizer["a" /* default */])(
 
 
 
+
+
+
+
+
  // component not soport SSR
-
-
-
-
 
 
 
@@ -10589,12 +10671,12 @@ var helpers_typeof = __webpack_require__("cDf5");
 var typeof_default = /*#__PURE__*/__webpack_require__.n(helpers_typeof);
 
 // EXTERNAL MODULE: ./src/directives/vsTooltip/vsTooltip.css
-var vsTooltip = __webpack_require__("9hsr");
+var directives_vsTooltip_vsTooltip = __webpack_require__("9hsr");
 
 // CONCATENATED MODULE: ./src/directives/vsTooltip/vsTooltip.js
 
 
-/* harmony default export */ var vsTooltip_vsTooltip = ({
+/* harmony default export */ var src_directives_vsTooltip_vsTooltip = ({
   update: function update(el, binding) {
     var valuex = null;
     var keyx = el.dataset.keyx;
@@ -10654,7 +10736,7 @@ var vsTooltip = __webpack_require__("9hsr");
           tooltipx.style.top = coords.top + event.target.clientHeight + scrollTopx + 'px';
           tooltipx.style.left = coords.left + (event.target.clientWidth + 8) + 'px';
         } else if (binding.value.position == 'bottom') {
-          tooltipx.style.top = coords.top + (event.target.clientHeight * 2 + 5) + scrollTopx + 'px';
+          tooltipx.style.top = coords.top + (event.target.clientHeight * 2 + 8) + scrollTopx + 'px';
           tooltipx.style.left = coords.left - (tooltipx.clientWidth / 2 - event.target.clientWidth / 2) + 'px';
         } else if (binding.value.position == 'top' || binding.value.position == undefined) {
           tooltipx.style.top = coords.top + scrollTopx + 'px';
@@ -10869,7 +10951,7 @@ var Vuesax = {
     });
     functions(Vue);
     Vue.prototype.$vs.easing = easing;
-    Vue.directive('tooltip', vsTooltip_vsTooltip);
+    Vue.directive('tooltip', src_directives_vsTooltip_vsTooltip);
   }
 };
 

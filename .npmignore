@@ -13,6 +13,7 @@ dist/demo.html
 # Editor directories and files
 .idea
 .vscode
+.bitmap
 *.suo
 *.ntvs*
 *.njsproj

@@ -3,13 +3,14 @@ import vsSelect from './vsSelect'
 import vsSwitch from './vsSwitch'
 import vsCheckbox from './vsCheckBox'
 import vsRadio from './vsRadio'
-
-// component not soport SSR
-
 import vsInput from './vsInput'
 import vsTabs from './vsTabs'
 import vsSlider from './vsSlider'
 import vsInputNumber from './vsInputNumber'
+import vsTooltip from './vsTooltip'
+
+// component not soport SSR
+
 import vsUpload from './vsUpload'
 import vsPopup from './vsPopup'
 import vsAlert from './vsAlert'
@@ -65,6 +66,7 @@ export {
   vsDropDown,
   vsDivider,
   vsCollapse,
+  vsTooltip,
   // New Component export
 
 

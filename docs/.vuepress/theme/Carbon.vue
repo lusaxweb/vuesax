@@ -6,7 +6,6 @@
 
 <script>
 export default {
-  name: "CodeFund",
   mounted() {
     const script = document.createElement("script");
     script.setAttribute("type", "text/javascript");

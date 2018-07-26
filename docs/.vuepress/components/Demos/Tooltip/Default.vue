@@ -1,8 +1,11 @@
 <template lang="html">
   <div class="centerx">
-    <vs-slider v-tooltip="'Tooltip Default'" v-model="valueslider"/>
+     <vs-slider v-tooltip="'Tooltip Default'" v-model="valueslider"/>
     <vs-input-number v-tooltip="'Tooltip Default'" v-model="number1"/>
     <vs-button v-tooltip="'Tooltip Default'" vs-color="primary" vs-type="border">Primary</vs-button>
+    <!-- <vs-tooltip>
+   <vs-button vs-color="primary" vs-type="border">Primary</vs-button>
+    </vs-tooltip> -->
   </div>
 </template>
 

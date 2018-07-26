@@ -74,7 +74,7 @@ export default {
           tooltipx.style.top = coords.top + (event.target.clientHeight) + scrollTopx + 'px'
           tooltipx.style.left = coords.left + (event.target.clientWidth+8) + 'px'
         } else if (binding.value.position == 'bottom') {
-          tooltipx.style.top = coords.top + (event.target.clientHeight*2 + 5) + scrollTopx + 'px'
+          tooltipx.style.top = coords.top + (event.target.clientHeight*2 + 8) + scrollTopx + 'px'
           tooltipx.style.left = coords.left - (tooltipx.clientWidth/2 - event.target.clientWidth/2) + 'px'
         } else if (binding.value.position == 'top'||binding.value.position==undefined) {
           tooltipx.style.top = coords.top + scrollTopx + 'px'

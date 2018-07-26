@@ -15,6 +15,7 @@ yarn-error.log*
 package-lock.json
 
 # Editor directories and files
+.bitmap
 .idea
 .vscode
 *.suo

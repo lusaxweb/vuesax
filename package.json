@@ -1,7 +1,7 @@
 {
   "name": "vuesax",
   "version": "3.1.48",
-  "description": "Components for Vue js",
+  "description": "Framework Components for Vue js",
   "license": "MIT",
   "author": "ldrovira <luisdanielrovira8@gmail.com>",
   "homepage": "https://lusaxweb.github.io/vuesax/#/",
@@ -19,7 +19,8 @@
     "css"
   ],
   "main": "dist/vuesax.common.js",
-  "unpkg": "dist/vuesax.common.js",
+  "unpkg": "dist/vuesax.umd.min.js",
+  "jsdelivr": "dist/vuesax.umd.min.js",
   "private": false,
   "scripts": {
     "dev": "vuepress dev docs",

@@ -1,6 +1,6 @@
 <template lang="html">
-  <li 
-    v-show="visible" 
+  <li
+    v-show="visible"
     class="vs-component">
     <button
       ref="item"
@@ -14,13 +14,13 @@
       class="vs-select-item-btn"
       type="button"
       name="button"
-      v-on="listeners" 
+      v-on="listeners"
       @keydown.backspace.prevent="backspace"
-      @keydown.down.prevent="navigateOptions('next')" 
-      @keydown.up.prevent="navigateOptions('prev')" 
+      @keydown.down.prevent="navigateOptions('next')"
+      @keydown.up.prevent="navigateOptions('prev')"
       @keydown.enter.prevent="clickOption()">
-      <i 
-        v-if="$parent.vsMultiple" 
+      <i
+        v-if="$parent.vsMultiple"
         class="material-icons icon-item">
         check_circle
       </i>
@@ -77,8 +77,14 @@ export default {
           }
         },
         click: (event) => this.clickOption(event),
-        mouseover: (event) => this.hoverx = true,
-        mouseout: (event) => this.hoverx = false
+        mouseover: (event) => {
+          this.$emit('mouseover',event)
+          this.changeHover(true)
+        },
+        mouseout: (event) => {
+          this.$emit('mouseover',event)
+          this.changeHover(false)
+        }
       }
     },
     styles(){
@@ -100,15 +106,10 @@ export default {
           this.getText = this.vsText
           return
         }
-        function MaysPrimera(string){
-          return string.charAt(0).toUpperCase() + string.slice(1);
-        }
-
         let valuex = valueInputx[valueInputx.length-1]
         var re = new RegExp(valuex,"i");
         if(this.vsText.toUpperCase().indexOf(valuex.toUpperCase()) == 0){
-          console.log('primera letra');
-          valuex = MaysPrimera(valuex)
+          valuex = this.MaysPrimera(valuex)
         }
         let text = this.vsText.replace(re,`<span class="searchx">${valuex}</span>`)
         this.getText = text
@@ -125,8 +126,13 @@ export default {
     this.putValue()
   },
   methods:{
+    changeHover(booleanx){
+      this.hoverx = booleanx
+    },
+    MaysPrimera(string){
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    },
     backspace(){
-      console.dir(this.$parent.$refs.inputselect);
       if(this.$parent.vsAutocomplete){
         let valueInput = this.$parent.$refs.inputselect.value
         this.$parent.$refs.inputselect.value = valueInput.substr(0,valueInput.length-1)
@@ -180,7 +186,7 @@ export default {
         this.$parent.valuex = this.vsText
       }
     },
-    clickOption(event){
+    clickOption(){
       let text = this.vsText
       if(!this.$parent.vsMultiple){
         this.$parent.active = false
