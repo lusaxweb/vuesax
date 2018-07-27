@@ -1,9 +1,17 @@
 <template lang="html">
   <div class="centerx">
-    <vs-button v-tooltip="{text:'Tooltip position top'}">Position Top</vs-button>
-    <vs-button v-tooltip="{text:'Tooltip position bottom',position:'bottom'}">Position bottom</vs-button>
-    <vs-button v-tooltip="{text:'Tooltip position left',position:'left'}">Position left</vs-button>
-    <vs-button v-tooltip="{text:'Tooltip position right',position:'right'}">Position right</vs-button>
+    <vs-tooltip text="Tooltip position Left" position="left" >
+      <vs-button vs-type="gradient">Left</vs-button>
+    </vs-tooltip>
+    <vs-tooltip text="Tooltip position Top" position="top" >
+      <vs-button vs-type="gradient">Top</vs-button>
+    </vs-tooltip>
+    <vs-tooltip text="Tooltip position Bottom" position="bottom" >
+      <vs-button vs-type="gradient">Bottom</vs-button>
+    </vs-tooltip>
+    <vs-tooltip text="Tooltip position Right" position="right" >
+      <vs-button vs-type="gradient">Right</vs-button>
+    </vs-tooltip>
   </div>
 </template>
 

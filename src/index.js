@@ -1,7 +1,7 @@
 import * as vsComponents from './components'
 import './styles/index.styl'
 import vsFunctions from './functions'
-import vsTooltip from './directives/vsTooltip/vsTooltip.js'
+// import vsTooltip from './directives/vsTooltip/vsTooltip.js'
 import easing from './utils/easing.js'
 import vsTheme from './utils/theme.js'
 
@@ -33,7 +33,7 @@ const Vuesax = {
     vsFunctions(Vue)
 
     Vue.prototype.$vs.easing = easing
-    Vue.directive('tooltip', vsTooltip)
+    // Vue.directive('tooltip', vsTooltip)
   }
 }
 if (typeof window !== 'undefined' && window.Vue) {

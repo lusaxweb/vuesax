@@ -1,26 +1,61 @@
 <template>
-  <div ref="convstooltip" @mouseover="mouseoverx" class="con-vs-tooltip">
-    <div
-      ref="vstooltip"
-      :style="style"
-      class="vs-tooltip">
-      hola mundo {{this.cords.left}}
-    </div>
+  <div
+    ref="convstooltip"
+    class="con-vs-tooltip"
+    @mouseout="mouseoutx"
+    @mouseover="mouseoverx">
+    <transition name="tooltip-fade">
+      <div
+        v-show="active"
+        ref="vstooltip"
+        :class="[`vs-tooltip-${position}`,`vs-tooltip-${color}`]"
+        :style="style"
+        class="vs-tooltip">
+        <h4 v-if="title">{{ title }}</h4>
+        {{ text }}
+      </div>
+    </transition>
     <slot></slot>
   </div>
 </template>
 <script>
 import utils from '../../utils'
+import _color from '../../utils/color.js'
 export default {
   name:'VsTooltip',
+  props:{
+    title:{
+      default:null,
+      type:[String,Number]
+    },
+    text:{
+      default:null,
+      type:[String,Number]
+    },
+    color:{
+      default:null,
+      type:String
+    },
+    position:{
+      default:'top',
+      type:String
+    },
+    delay:{
+      default:'0s',
+      type:[Number,String]
+    }
+  },
   data:()=>({
-    cords:{}
+    cords:{},
+    active:false,
   }),
   computed:{
     style(){
       return {
         left:this.cords.left,
-        top:this.cords.top
+        top:this.cords.top,
+        transitionDelay: this.active?this.delay:'0s',
+        background:_color.getColor(this.color,1)
       }
     }
   },
@@ -29,10 +64,38 @@ export default {
   },
   methods:{
     mouseoverx(){
-      let cords = utils.changePosition(this.$refs.convstooltip,this.$refs.vstooltip,true)
-      this.cords = cords
-      console.log(cords)
-    }
+      this.active = true
+      this.$nextTick(()=>{
+        this.changePosition(this.$refs.convstooltip,this.$refs.vstooltip)
+      })
+    },
+    mouseoutx(){
+      this.active = false
+    },
+    changePosition(elxEvent,tooltip){
+      let elx = elxEvent.closest('.con-vs-tooltip')
+      let scrollTopx = window.pageYOffset || document.documentElement.scrollTop;
+      let topx = elx.getBoundingClientRect().top + scrollTopx - tooltip.clientHeight - 4
+      let leftx = elx.getBoundingClientRect().left - tooltip.clientWidth / 2 + elx.clientWidth / 2
+      let widthx = elx.clientWidth
+
+      if(this.position == 'bottom'){
+        topx = elx.getBoundingClientRect().top + scrollTopx + elx.clientHeight + 4
+      } else if (this.position == 'left') {
+        leftx = elx.getBoundingClientRect().left - tooltip.clientWidth - 4
+        topx = elx.getBoundingClientRect().top + scrollTopx + (elx.clientHeight / 2) - (tooltip.clientHeight / 2)
+      } else if (this.position == 'right') {
+        leftx = elx.getBoundingClientRect().left + elx.clientWidth + 4
+        topx = elx.getBoundingClientRect().top + scrollTopx + (elx.clientHeight / 2) - (tooltip.clientHeight / 2)
+      }
+
+      this.cords = {
+        left: `${leftx}px`,
+        top: `${topx}px`,
+        width: `${widthx}px`
+      }
+
+    },
   }
 }
 </script>

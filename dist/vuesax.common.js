@@ -290,13 +290,6 @@ module.exports = function (it) {
 
 /***/ }),
 
-/***/ "23iW":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__("rDDT");
-
-/***/ }),
-
 /***/ "2S0M":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -963,20 +956,6 @@ exports.push([module.i, ".vs-dropdown-item{z-index:100;text-align:left;border-ra
 
 /***/ }),
 
-/***/ "9hsr":
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-
-/***/ "ASdg":
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-
 /***/ "AUK/":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1051,14 +1030,6 @@ $export.W = 32;  // wrap
 $export.U = 64;  // safe
 $export.R = 128; // real proto method for `library`
 module.exports = $export;
-
-
-/***/ }),
-
-/***/ "BIcr":
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__("IY1P")('asyncIterator');
 
 
 /***/ }),
@@ -1387,16 +1358,6 @@ for (var collections = getKeys(DOMIterables), i = 0; i < collections.length; i++
     if (explicit) for (key in $iterators) if (!proto[key]) redefine(proto, key, $iterators[key], true);
   }
 }
-
-
-/***/ }),
-
-/***/ "GzI1":
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__("wIja");
-__webpack_require__("2S0M");
-module.exports = __webpack_require__("SjeW").f('iterator');
 
 
 /***/ }),
@@ -1841,14 +1802,6 @@ var enumBugKeys = __webpack_require__("ER0q");
 module.exports = Object.keys || function keys(O) {
   return $keys(O, enumBugKeys);
 };
-
-
-/***/ }),
-
-/***/ "KNps":
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__("IY1P")('observable');
 
 
 /***/ }),
@@ -3118,33 +3071,6 @@ module.exports = function (key) {
 
 /***/ }),
 
-/***/ "cDf5":
-/***/ (function(module, exports, __webpack_require__) {
-
-var _Symbol$iterator = __webpack_require__("hBVl");
-
-var _Symbol = __webpack_require__("23iW");
-
-function _typeof2(obj) { if (typeof _Symbol === "function" && typeof _Symbol$iterator === "symbol") { _typeof2 = function _typeof2(obj) { return typeof obj; }; } else { _typeof2 = function _typeof2(obj) { return obj && typeof _Symbol === "function" && obj.constructor === _Symbol && obj !== _Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof2(obj); }
-
-function _typeof(obj) {
-  if (typeof _Symbol === "function" && _typeof2(_Symbol$iterator) === "symbol") {
-    module.exports = _typeof = function _typeof(obj) {
-      return _typeof2(obj);
-    };
-  } else {
-    module.exports = _typeof = function _typeof(obj) {
-      return obj && typeof _Symbol === "function" && obj.constructor === _Symbol && obj !== _Symbol.prototype ? "symbol" : _typeof2(obj);
-    };
-  }
-
-  return _typeof(obj);
-}
-
-module.exports = _typeof;
-
-/***/ }),
-
 /***/ "chLf":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3333,13 +3259,6 @@ exports.push([module.i, ".con-imgs{width:170px;height:170px;left:0;top:0;positio
 
 // exports
 
-
-/***/ }),
-
-/***/ "hBVl":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__("GzI1");
 
 /***/ }),
 
@@ -6222,19 +6141,54 @@ var vsInputNumber_Component = Object(component_normalizer["a" /* default */])(
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 /* harmony default export */ var vsTooltip = ({
   name: 'VsTooltip',
+  props: {
+    title: {
+      default: null,
+      type: [String, Number]
+    },
+    text: {
+      default: null,
+      type: [String, Number]
+    },
+    color: {
+      default: null,
+      type: String
+    },
+    position: {
+      default: 'top',
+      type: String
+    },
+    delay: {
+      default: '0s',
+      type: [Number, String]
+    }
+  },
   data: function data() {
     return {
-      cords: {}
+      cords: {},
+      active: false
     };
   },
   computed: {
     style: function style() {
       return {
         left: this.cords.left,
-        top: this.cords.top
+        top: this.cords.top,
+        transitionDelay: this.active ? this.delay : '0s',
+        background: utils_color["a" /* default */].getColor(this.color, 1)
       };
     }
   },
@@ -6243,14 +6197,43 @@ var vsInputNumber_Component = Object(component_normalizer["a" /* default */])(
   },
   methods: {
     mouseoverx: function mouseoverx() {
-      var cords = utils.changePosition(this.$refs.convstooltip, this.$refs.vstooltip, true);
-      this.cords = cords;
-      console.log(cords);
+      var _this = this;
+
+      this.active = true;
+      this.$nextTick(function () {
+        _this.changePosition(_this.$refs.convstooltip, _this.$refs.vstooltip);
+      });
+    },
+    mouseoutx: function mouseoutx() {
+      this.active = false;
+    },
+    changePosition: function changePosition(elxEvent, tooltip) {
+      var elx = elxEvent.closest('.con-vs-tooltip');
+      var scrollTopx = window.pageYOffset || document.documentElement.scrollTop;
+      var topx = elx.getBoundingClientRect().top + scrollTopx - tooltip.clientHeight - 4;
+      var leftx = elx.getBoundingClientRect().left - tooltip.clientWidth / 2 + elx.clientWidth / 2;
+      var widthx = elx.clientWidth;
+
+      if (this.position == 'bottom') {
+        topx = elx.getBoundingClientRect().top + scrollTopx + elx.clientHeight + 4;
+      } else if (this.position == 'left') {
+        leftx = elx.getBoundingClientRect().left - tooltip.clientWidth - 4;
+        topx = elx.getBoundingClientRect().top + scrollTopx + elx.clientHeight / 2 - tooltip.clientHeight / 2;
+      } else if (this.position == 'right') {
+        leftx = elx.getBoundingClientRect().left + elx.clientWidth + 4;
+        topx = elx.getBoundingClientRect().top + scrollTopx + elx.clientHeight / 2 - tooltip.clientHeight / 2;
+      }
+
+      this.cords = {
+        left: "".concat(leftx, "px"),
+        top: "".concat(topx, "px"),
+        width: "".concat(widthx, "px")
+      };
     }
   }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-1d989cfd","hasScoped":false,"optionsId":"2","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsTooltip/vsTooltip.vue
-var vsTooltip_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"convstooltip",staticClass:"con-vs-tooltip",on:{"mouseover":_vm.mouseoverx}},[_c('div',{ref:"vstooltip",staticClass:"vs-tooltip",style:(_vm.style)},[_vm._v("\n    hola mundo "+_vm._s(this.cords.left)+"\n  ")]),_vm._v(" "),_vm._t("default")],2)}
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-c89c27be","hasScoped":false,"optionsId":"0","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsTooltip/vsTooltip.vue
+var vsTooltip_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"convstooltip",staticClass:"con-vs-tooltip",on:{"mouseout":_vm.mouseoutx,"mouseover":_vm.mouseoverx}},[_c('transition',{attrs:{"name":"tooltip-fade"}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.active),expression:"active"}],ref:"vstooltip",staticClass:"vs-tooltip",class:[("vs-tooltip-" + _vm.position),("vs-tooltip-" + _vm.color)],style:(_vm.style)},[(_vm.title)?_c('h4',[_vm._v(_vm._s(_vm.title))]):_vm._e(),_vm._v("\n      "+_vm._s(_vm.text)+"\n    ")])]),_vm._v(" "),_vm._t("default")],2)}
 var vsTooltip_staticRenderFns = []
 
 // CONCATENATED MODULE: ./src/components/vsTooltip/vsTooltip.vue
@@ -10666,139 +10649,6 @@ var vsFunctions = {
     }
   });
 });
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/typeof.js
-var helpers_typeof = __webpack_require__("cDf5");
-var typeof_default = /*#__PURE__*/__webpack_require__.n(helpers_typeof);
-
-// EXTERNAL MODULE: ./src/directives/vsTooltip/vsTooltip.css
-var directives_vsTooltip_vsTooltip = __webpack_require__("9hsr");
-
-// CONCATENATED MODULE: ./src/directives/vsTooltip/vsTooltip.js
-
-
-/* harmony default export */ var src_directives_vsTooltip_vsTooltip = ({
-  update: function update(el, binding) {
-    var valuex = null;
-    var keyx = el.dataset.keyx;
-
-    if (typeof_default()(binding.value) == 'object') {
-      valuex = binding.value.text;
-    } else if (typeof binding.value == 'string') {
-      valuex = binding.value;
-    }
-
-    var tooltipx = document.querySelector('.' + keyx);
-
-    if (tooltipx) {
-      tooltipx.innerHTML = "\n      <p>\n        ".concat(valuex, "\n      </p>\n      ");
-    }
-  },
-  inserted: function inserted(el, binding) {
-    var ramdomx = Math.floor(Math.random() * 1000 + 1);
-    el.dataset.keyx = 'vs-tooltip' + ramdomx;
-    var delayx = 0;
-    var valuex = null;
-    var colorx = 'rgb(70, 70, 70)';
-
-    if (typeof_default()(binding.value) == 'object') {
-      valuex = binding.value.text;
-      delayx = binding.value.delay || 0;
-      colorx = binding.value.color ? /[#()]/.test(binding.value.color) ? binding.value.color : "rgb(var(--".concat(binding.value.color, "))") : 'rgb(70, 70, 70)';
-    } else if (typeof binding.value == 'string') {
-      valuex = binding.value;
-    }
-
-    el.classList.add('vs-tooltipx');
-    var tooltipx = document.createElement("div");
-    tooltipx.classList = 'vs-tooltip';
-
-    if (typeof_default()(binding.value) == 'object') {
-      if (binding.value.hasOwnProperty('position')) {
-        tooltipx.classList.add('vs-tooltip-' + binding.value.position);
-      }
-    }
-
-    tooltipx.classList.add('vs-tooltip' + ramdomx);
-    tooltipx.innerHTML = "\n      <p>\n      ".concat(valuex, "\n      </p>\n    ");
-    tooltipx.style.background = colorx;
-
-    var mouseEnterx = function mouseEnterx(event) {
-      var coords = event.target.getBoundingClientRect();
-      var scrollTopx = window.pageYOffset || document.documentElement.scrollTop; // console.log(window.pageYOffset);
-
-      document.body.insertBefore(tooltipx, document.body.firstChild);
-
-      if (typeof_default()(binding.value) == 'object') {
-        if (binding.value.position == 'left') {
-          tooltipx.style.top = coords.top + event.target.clientHeight + scrollTopx + 'px';
-          tooltipx.style.left = coords.left - (tooltipx.clientWidth + 8) + 'px';
-        } else if (binding.value.position == 'right') {
-          tooltipx.style.top = coords.top + event.target.clientHeight + scrollTopx + 'px';
-          tooltipx.style.left = coords.left + (event.target.clientWidth + 8) + 'px';
-        } else if (binding.value.position == 'bottom') {
-          tooltipx.style.top = coords.top + (event.target.clientHeight * 2 + 8) + scrollTopx + 'px';
-          tooltipx.style.left = coords.left - (tooltipx.clientWidth / 2 - event.target.clientWidth / 2) + 'px';
-        } else if (binding.value.position == 'top' || binding.value.position == undefined) {
-          tooltipx.style.top = coords.top + scrollTopx + 'px';
-          tooltipx.style.left = coords.left - (tooltipx.clientWidth / 2 - event.target.clientWidth / 2) + 'px';
-        }
-      } else {
-        tooltipx.style.top = coords.top + scrollTopx + 'px';
-        tooltipx.style.left = coords.left - (tooltipx.clientWidth / 2 - event.target.clientWidth / 2) + 'px';
-      }
-
-      setTimeout(function () {
-        tooltipx.style.transform = "translateY(calc(-100% - 7px))";
-        tooltipx.style.opacity = '1';
-        el.removeEventListener('mouseEnterx', mouseEnterx, false);
-      }, delayx);
-      el.addEventListener('mouseleave', mousex);
-    };
-
-    el.addEventListener('mouseenter', mouseEnterx);
-
-    var mousex = function mousex() {
-      tooltipx.style.transform = "translateY(-90%)";
-      tooltipx.style.opacity = '0';
-      setTimeout(function () {
-        if (document.querySelector('.vs-tooltip' + ramdomx)) {
-          document.querySelector('.vs-tooltip' + ramdomx).remove();
-          el.removeEventListener('mouseleave', mousex, false);
-        }
-      }, 200);
-      el.addEventListener('mouseEnterx', mouseEnterx, false);
-    };
-
-    el.addEventListener('mouseleave', mousex); //window scroll
-
-    window.addEventListener('mousewheel', function () {
-      if (document.querySelector('.vs-tooltip' + ramdomx)) {
-        tooltipx.style.transform = "translateY(-90%)";
-        tooltipx.style.opacity = '0';
-        setTimeout(function () {
-          if (document.querySelector('.vs-tooltip' + ramdomx)) {
-            document.querySelector('.vs-tooltip' + ramdomx).remove();
-            el.removeEventListener('mouseleave', mousex, false);
-          }
-        }, 200);
-        el.addEventListener('mouseEnterx', mouseEnterx, false);
-      }
-    });
-    window.addEventListener('touchmove', function () {
-      if (document.querySelector('.vs-tooltip' + ramdomx)) {
-        tooltipx.style.transform = "translateY(-90%)";
-        tooltipx.style.opacity = '0';
-        setTimeout(function () {
-          if (document.querySelector('.vs-tooltip' + ramdomx)) {
-            document.querySelector('.vs-tooltip' + ramdomx).remove();
-            el.removeEventListener('mouseleave', mousex, false);
-          }
-        }, 200);
-        el.addEventListener('mouseEnterx', mouseEnterx, false);
-      }
-    });
-  }
-});
 // CONCATENATED MODULE: ./src/utils/easing.js
 /* harmony default export */ var easing = ({
   name: 'easing',
@@ -10921,7 +10771,7 @@ var directives_vsTooltip_vsTooltip = __webpack_require__("9hsr");
 
 
 
-
+ // import vsTooltip from './directives/vsTooltip/vsTooltip.js'
 
 
 
@@ -10950,8 +10800,7 @@ var Vuesax = {
       Vue.use(vsComponent);
     });
     functions(Vue);
-    Vue.prototype.$vs.easing = easing;
-    Vue.directive('tooltip', src_directives_vsTooltip_vsTooltip);
+    Vue.prototype.$vs.easing = easing; // Vue.directive('tooltip', vsTooltip)
   }
 };
 
@@ -11390,18 +11239,6 @@ module.exports.f = function getOwnPropertyNames(it) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("kdyF");
-
-/***/ }),
-
-/***/ "rDDT":
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__("uZKj");
-__webpack_require__("ASdg");
-__webpack_require__("BIcr");
-__webpack_require__("KNps");
-module.exports = __webpack_require__("hYiM").Symbol;
-
 
 /***/ }),
 

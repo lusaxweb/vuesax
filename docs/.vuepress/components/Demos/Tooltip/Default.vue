@@ -1,11 +1,14 @@
 <template lang="html">
   <div class="centerx">
-     <vs-slider v-tooltip="'Tooltip Default'" v-model="valueslider"/>
-    <vs-input-number v-tooltip="'Tooltip Default'" v-model="number1"/>
-    <vs-button v-tooltip="'Tooltip Default'" vs-color="primary" vs-type="border">Primary</vs-button>
-    <!-- <vs-tooltip>
-   <vs-button vs-color="primary" vs-type="border">Primary</vs-button>
-    </vs-tooltip> -->
+    <vs-tooltip text="Tooltip Default">
+       <vs-switch v-model="switch1"/>
+    </vs-tooltip>
+    <vs-tooltip text="Tooltip Default">
+      <vs-input-number v-model="number1"/>
+    </vs-tooltip>
+    <vs-tooltip text="Tooltip Default">
+      <vs-button vs-color="primary" vs-type="border">Button</vs-button>
+    </vs-tooltip>
   </div>
 </template>
 
@@ -13,7 +16,7 @@
 export default {
   data(){
     return {
-      valueslider:24,
+      switch1:true,
       number1:10,
     }
   }

@@ -1,4 +1,4 @@
-import './vsTooltip.css'
+// import './vsTooltip.css'
 
 export default {
   update(el,binding){

@@ -19,7 +19,7 @@
     "css"
   ],
   "main": "dist/vuesax.common.js",
-  "unpkg": "dist/vuesax.common.js",
+  "unpkg": "dist/vuesax.umd.min.js",
   "jsdelivr": "dist/vuesax.umd.min.js",
   "private": false,
   "scripts": {

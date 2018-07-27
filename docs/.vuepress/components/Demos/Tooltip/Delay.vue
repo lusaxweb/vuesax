@@ -1,8 +1,14 @@
 <template lang="html">
   <div class="centerx">
-    <vs-button v-tooltip="{text:'Tooltip default delay'}">Delay default</vs-button>
-    <vs-button v-tooltip="{text:'Tooltip delay 0.5s',delay:500}">Delay 0.5s</vs-button>
-    <vs-button v-tooltip="{text:'Tooltip delay 3s',delay:3000}">Delay 3s</vs-button>
+    <vs-tooltip text="Tooltip default delay">
+      <vs-button>Delay default</vs-button>
+    </vs-tooltip>
+    <vs-tooltip delay=".5s" text="Tooltip delay 0.5s">
+      <vs-button>Delay 0.5s</vs-button>
+    </vs-tooltip>
+    <vs-tooltip delay="2s" text="Tooltip delay 3s">
+      <vs-button>Delay 2s</vs-button>
+    </vs-tooltip>
   </div>
 </template>
 
