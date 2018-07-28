@@ -6,7 +6,7 @@
     <vs-tooltip delay=".5s" text="Tooltip delay 0.5s">
       <vs-button>Delay 0.5s</vs-button>
     </vs-tooltip>
-    <vs-tooltip delay="2s" text="Tooltip delay 3s">
+    <vs-tooltip delay="2s" text="Tooltip delay 2s">
       <vs-button>Delay 2s</vs-button>
     </vs-tooltip>
   </div>
