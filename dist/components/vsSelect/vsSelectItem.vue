@@ -4,12 +4,13 @@
     class="vs-component">
     <button
       ref="item"
-      :disabled="disabled?true:disabledx"
+      :disabled="disabled"
       v-bind="$attrs"
       :style="styles"
       :class="{
         'activex':$parent.vsMultiple?getValue.indexOf(vsValue) != -1:getValue == vsValue,
-        'con-icon':$parent.vsMultiple
+        'con-icon':$parent.vsMultiple,
+        'disabledx':disabledx
       }"
       class="vs-select-item-btn"
       type="button"
@@ -24,8 +25,8 @@
         class="material-icons icon-item">
         check_circle
       </i>
-      <span v-html="getText"/>
-      <!-- <slot/> -->
+      <span
+        v-html="getText"></span>
     </button>
   </li>
 </template>
@@ -187,6 +188,9 @@ export default {
       }
     },
     clickOption(){
+      if(this.disabledx){
+        return
+      }
       let text = this.vsText
       if(!this.$parent.vsMultiple){
         this.$parent.active = false

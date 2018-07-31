@@ -85,6 +85,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap
 }
 .con-select .vs-select {
   width: 100%

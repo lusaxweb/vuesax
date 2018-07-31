@@ -10,9 +10,9 @@ export default {
     if(elx.getBoundingClientRect().top + 300 >= window.innerHeight) {
       setTimeout( ()=> {
         if(conditional){
-          topx = (elx.getBoundingClientRect().top - content.$el.clientHeight) + scrollTopx
+          topx = (elx.getBoundingClientRect().top - content.clientHeight) + scrollTopx
         } else {
-          topx = (elx.getBoundingClientRect().top - content.$el.clientHeight + elx.clientHeight) + scrollTopx
+          topx = (elx.getBoundingClientRect().top - content.clientHeight + elx.clientHeight) + scrollTopx
         }
       }, 1);
 

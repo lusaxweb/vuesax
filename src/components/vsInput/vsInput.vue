@@ -7,12 +7,12 @@
       'input-icon-validate-success':vsSuccess,
       'input-icon-validate-danger':vsDanger,
       'input-icon-validate-warning':vsWarning,
-    }]" 
+    }]"
     class="vs-component vs-con-input-label vs-input">
-    <label 
-      v-if="vsLabelPlaceholder?false:vsLabel" 
-      class="vs-input-label" 
-      for="" 
+    <label
+      v-if="vsLabelPlaceholder?false:vsLabel"
+      class="vs-input-label"
+      for=""
       @click="focusInput">{{ vsLabel }}</label>
     <div class="vs-con-input">
       <input
@@ -25,9 +25,9 @@
         }"
         :placeholder="null"
         :value="value"
-        v-bind="$attrs" 
-        :type="$attrs.type?$attrs.type:'text'"  
-        class="vs-inputx" 
+        v-bind="$attrs"
+        :type="$attrs.type?$attrs.type:'text'"
+        class="vs-inputx"
         v-on="listeners">
       <transition name="placeholderx">
         <span
@@ -37,27 +37,27 @@
           :class="{
             'vs-placeholder-label':vsLabelPlaceholder,
           }"
-          class="input-span-placeholder" 
-          @click="focusInput">  
+          class="input-span-placeholder"
+          @click="focusInput">
           {{ $attrs.placeholder || vsLabelPlaceholder }}
-        </span>  
+        </span>
       </transition>
 
       <i
-        v-if="vsIcon" 
+        v-if="vsIcon"
         :class="[vsIconPack,vsIcon,{
           'icon-after':vsIconAfter,
-        }]" 
-        class="icon-inputx" 
+        }]"
+        class="icon-inputx"
         @click="focusInput">
         {{ vsIcon }}
       </i>
 
       <transition name="icon-validate">
-        <span 
+        <span
           v-if="vsSuccess || vsDanger || vsWarning"
           class="input-icon-validate material-icons">
-          {{ getIcon }}    
+          {{ getIcon }}
         </span>
       </transition>
     </div>
@@ -67,9 +67,9 @@
       @enter="enter"
       @leave="leave"
     >
-      <div 
-        v-if="vsSuccess" 
-        key="success" 
+      <div
+        v-if="vsSuccess"
+        key="success"
         class="con-text-validation">
         <span class="span-text-validation span-text-validation-success">
           {{
@@ -77,9 +77,9 @@
           }}
         </span>
       </div>
-      <div 
-        v-else-if="vsDanger" 
-        key="danger" 
+      <div
+        v-else-if="vsDanger"
+        key="danger"
         class="con-text-validation span-text-validation-danger">
         <span class="span-text-validation">
           {{
@@ -87,9 +87,9 @@
           }}
         </span>
       </div>
-      <div 
-        v-else-if="vsWarning" 
-        key="warning" 
+      <div
+        v-else-if="vsWarning"
+        key="warning"
         class="con-text-validation span-text-validation-warning">
         <span class="span-text-validation">
           {{
@@ -97,9 +97,9 @@
           }}
         </span>
       </div>
-      <div 
-        v-if="vsDescriptionText" 
-        key="description" 
+      <div
+        v-if="vsDescriptionText"
+        key="description"
         class="con-text-validation span-text-validation">
         <span class="span-text-validation">
           {{
@@ -110,7 +110,7 @@
     </transition-group>
 
 
-    
+
   </div>
 </template>
 
@@ -196,11 +196,11 @@ export default {
         },
         focus: (evt) => {
           this.$emit('focus',evt)
-          this.isFocus = true
+          this.changeFocus(true)
         },
         blur: (evt) => {
           this.$emit('blur',evt)
-          this.isFocus = false
+          this.changeFocus(false)
         }
       }
     },
@@ -219,19 +219,19 @@ export default {
   },
   methods:{
     // animation
+    changeFocus(booleanx) {
+      this.isFocus = booleanx
+    },
     beforeEnter(el) {
       el.style.height = 0
     },
     enter(el, done){
       let h = el.scrollHeight
       el.style.height = h + 'px'
-      // this.$refs.coninput.style.paddingBottom += `${h}px`
       done()
     },
-    leave: function (el, done) {
-      let h = el.scrollHeight
+    leave: function (el) {
       el.style.height = 0 + 'px'
-      // this.$refs.coninput.style.paddingBottom -= `${h}px`
     },
     focusInput(){
       this.$refs.vsinput.focus()

@@ -9,7 +9,7 @@
       class="input-select"
       type="text"
       name=""
-      value=""
+      v-model="valueFilter"
       @click.stop
       @keydown.esc.stop.prevent="closeOptions"
       v-on="listeners">
@@ -66,6 +66,7 @@ export default {
     }
   },
   data:()=>({
+    valueFilter:'',
     active:false,
     valuex:'',
     clear:false,
@@ -124,7 +125,7 @@ export default {
           if(this.$refs.ulx.scrollHeight >= 260) this.scrollx = true
         }, 100);
       }
-    }
+    },
   },
   mounted(){
     this.changeValue()
@@ -201,6 +202,10 @@ export default {
       } else {
         this.clear = false
       }
+
+      this.$nextTick(()=>{
+        this.cords = this.changePosition()
+      })
     },
     changeValue(){
       if(this.vsMultiple){
@@ -247,7 +252,10 @@ export default {
         }
       }
       // this.changePosition()
-      this.cords = utils.changePosition(this.$refs.inputselect,this.$refs.vsSelectOptions,(this.vsAutocomplete))
+      this.$nextTick(()=>{
+        this.cords = this.changePosition()
+      })
+      console.log(this.cords)
 
     },
     clickBlur(event){
@@ -263,6 +271,34 @@ export default {
       this.active = false
       document.removeEventListener('click',this.clickBlur)
     },
+    changePosition(){
+      let elx = this.$refs.inputselect
+      let content = this.$refs.vsSelectOptions
+      let conditional = this.vsAutocomplete
+      let topx = 0
+      let leftx = 0
+      let widthx = 0
+      let scrollTopx = window.pageYOffset || document.documentElement.scrollTop;
+      if(elx.getBoundingClientRect().top + content.scrollHeight + 20 >= window.innerHeight) {
+        topx = (elx.getBoundingClientRect().top + elx.clientHeight) + scrollTopx - content.scrollHeight
+        if(conditional){
+          topx = topx - elx.clientHeight - 5
+        }
+      } else {
+        topx = conditional?(elx.getBoundingClientRect().top + elx.clientHeight) + scrollTopx + 5:elx.getBoundingClientRect().top + scrollTopx
+      }
+
+      leftx = elx.getBoundingClientRect().left
+      widthx = elx.offsetWidth
+
+      let cords = {
+        left: `${leftx}px`,
+        top: `${topx}px`,
+        width: `${widthx}px`
+      }
+
+      return cords
+  },
   }
 }
 </script>

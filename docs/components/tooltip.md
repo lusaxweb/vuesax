@@ -27,7 +27,7 @@ API:
    default: null
 ---
 
-# Tooltip
+# Tooltip **- ssr**
 
 <box header>
 
