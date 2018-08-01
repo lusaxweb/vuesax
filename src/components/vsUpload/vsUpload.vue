@@ -276,12 +276,12 @@
           formData.append(this.fileName, filex, filex.name)
         })
 
-        // xhr.onerror = function error(e) {
-        //   self.$emit('on-error',e)
-        //   if(typeof index == 'number'){
-        //     self.srcs[index].error = true
-        //   }
-        // };
+        xhr.onerror = function error(e) {
+          self.$emit('on-error',e)
+          if(typeof index == 'number'){
+            self.srcs[index].error = true
+          }
+        };
 
         xhr.onload = function onload(e) {
 

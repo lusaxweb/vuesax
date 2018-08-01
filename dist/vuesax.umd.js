@@ -3971,7 +3971,7 @@ var utils_color = __webpack_require__("Xp+x");
     }
   }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-1706c8c0","hasScoped":false,"optionsId":"1","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsButton/vsButton.vue
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-1706c8c0","hasScoped":false,"optionsId":"2","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsButton/vsButton.vue
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('button',_vm._g(_vm._b({ref:"btn",staticClass:"vs-component vs-button",class:[("vs-button-" + (_vm.isColor()?_vm.vsColor:null)),("vs-button-" + _vm.vsType),{
     'isActive':_vm.isActive,
     'includeIcon':_vm.vsIcon
@@ -6661,12 +6661,15 @@ var lastTap = 0;
 
       postFiles.forEach(function (filex) {
         formData.append(_this4.fileName, filex, filex.name);
-      }); // xhr.onerror = function error(e) {
-      //   self.$emit('on-error',e)
-      //   if(typeof index == 'number'){
-      //     self.srcs[index].error = true
-      //   }
-      // };
+      });
+
+      xhr.onerror = function error(e) {
+        self.$emit('on-error', e);
+
+        if (typeof index == 'number') {
+          self.srcs[index].error = true;
+        }
+      };
 
       xhr.onload = function onload(e) {
         if (xhr.status < 200 || xhr.status >= 300) {
@@ -6708,7 +6711,7 @@ var lastTap = 0;
     }
   }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-3660dbf2","hasScoped":false,"optionsId":"1","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsUpload/vsUpload.vue
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-1fa3a50e","hasScoped":false,"optionsId":"1","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsUpload/vsUpload.vue
 var vsUpload_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"con-upload"},[(_vm.viewActive)?_c('view-upload',{attrs:{"src":_vm.viewSrc}}):_vm._e(),_vm._v(" "),_c('div',{staticClass:"con-input-upload",class:{
       'on-progress-all-upload':_vm.percent != 0,
       'is-ready-all-upload':_vm.percent >= 100,
