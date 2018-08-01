@@ -1,14 +1,14 @@
 <template lang="html">
   <div class="centerx">
-    <vs-upload :vs-file.sync="url1" />
+    <vs-upload action="https://jsonplaceholder.typicode.com/posts/" @on-success="successUpload" />
   </div>
 </template>
 
 <script>
 export default {
-  data(){
-    return {
-      url1:'',
+  methods:{
+    successUpload(){
+      this.$vs.notify({color:'success',title:'Upload Success',text:'Lorem ipsum dolor sit amet, consectetur'})
     }
   }
 }

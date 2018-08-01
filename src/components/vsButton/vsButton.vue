@@ -17,7 +17,8 @@
       v-if="!is('line')&&!is('gradient')&&!is('relief')"
       ref="backgroundx"
       :style="stylesBackGround"
-      class="vs-button-backgroundx"/>
+      class="vs-button-backgroundx">
+    </span>
 
     <i
       :style="{
@@ -152,6 +153,7 @@ export default {
         height: `${this.radio}px`,
         transition: `width ${this.time}s ease, height ${this.time}s ease, opacity ${this.timeOpacity}s ease`
       }
+
       return styles
 
     },
@@ -171,6 +173,7 @@ export default {
         right: lineOrigin == 'auto'?'0px':null,
         transform: lineOrigin=='50%'?'translate(-50%)':null
       }
+
       return styles
     }
   },
@@ -198,6 +201,7 @@ export default {
       }
     },
     clickButton(event){
+      console.log(event)
       this.$emit('click',event)
       if(this.isActive){
         return
@@ -212,10 +216,14 @@ export default {
         this.timeOpacity = this.time
       }
 
-      if(event.srcElement != btn) {
+      if(event.srcElement?event.srcElement != btn:false) {
         xEvent += event.target.offsetLeft
         yEvent += event.target.offsetTop
       }
+
+      console.log("event.srcElement",event.srcElement)
+      console.log("xEvent",xEvent)
+      console.log("yEvent",yEvent)
       this.leftBackgorund = xEvent
       this.topBackgorund = yEvent
       this.radio = radio

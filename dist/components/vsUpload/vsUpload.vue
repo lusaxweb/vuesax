@@ -1,560 +1,329 @@
-<template lang="html">
-  <div
-    :class="{'con-multiple':multiple}"
-    class="contiene-upload">
-
-
+<template>
+  <div class="con-upload">
+    <view-upload
+      v-if="viewActive"
+      :src="viewSrc" />
     <div
-      v-if="!multiple"
-      class="con-upload">
-      <div class="con-subir">
-        <h3>{{ title }}</h3>
-        <i class="material-icons">publish</i>
-      </div>
+      :class="{
+        'on-progress-all-upload':percent != 0,
+        'is-ready-all-upload':percent >= 100,
+        'disabled-upload':$attrs.hasOwnProperty('disabled') || limit?(srcs.length - itemRemove.length) >= Number(limit):false
+      }"
+      class="con-input-upload">
       <input
-        ref="inputx"
-        class="input-upload"
+        ref="fileInput"
+        v-bind="$attrs"
+        :disabled="$attrs.disabled || limit?(srcs.length - itemRemove.length) >= Number(limit):false"
         type="file"
-        name=""
-        value=""
-        @change="uploadx($event)">
-      <div class=""/>
-      <div
-        ref="conimg"
-        :style="{'background':colorx}"
-        :class="{'oculto':url==''}"
-        class="con-img-upload">
-        <div class="header-upload">
-          <div
-            class="x-img"
-            @click="xUrl(),colorx='rgb(255, 255, 255)'">
-            <i class="material-icons">close</i>
-          </div>
-        </div>
-        <!-- <div class="con-imgx"> -->
-        <img
-          ref="imgx"
-          :src="url"
-          alt=""
-          @click="verview">
+        @change="getFiles">
+      <span class="text-input">
+        {{ text }}
+      </span>
+      <span
+        :style="{
+          width:`${percent}%`
+        }"
+        class="input-progress">
 
-      <!-- </div> -->
-      </div>
-    <!-- <video ref="imgx" :src="url" autoplay >
-      Tu navegador no admite el elemento <code>video</code>.
-    </video> -->
+      </span>
+      <button
+        title="Upload"
+        class="btn-upload-all"
+        @click="uploadx('all')">
+        <i class="material-icons">
+          cloud_upload
+        </i>
+      </button>
     </div>
 
-    <!-- multiple -->
-
-    <div
-      v-if="multiple"
-      class="con-multiple-upload">
-      <ul
-        ref="ulmultiple"
-        class="con-multiples-imgs">
-        <li
-          v-for="(file,index) in reverseImgs"
-          class="con-imgs">
-          <div
-            class="x-img"
-            @click="quitarImage(index)">
-            <i class="material-icons">close</i>
-          </div>
-          <img
-            :ref="'vs'+index"
-            :src="file.src"
-            alt=""
-            @click="view=true,urlview=file.src">
-
-        </li>
-        <li class="agregarx">
-          <input
-            ref="inputsx"
-            class="input-upload"
-            type="file"
-            name=""
-            value=""
-            @change="multipleUploadx($event)">
-        </li>
-      </ul>
-    </div>
-
-
-    <transition name="fade-upload">
-      <div
-        v-show="view"
-        ref="viewx"
-        class="view-upload"
-        @click="quitarView($event)">
+    <div class="con-img-upload">
+      <transition-group name="upload">
         <div
-          class="x-view"
-          @click="view=false">
-          <i class="material-icons">close</i>
+          v-for="(img,index) in srcs"
+          v-if="!img.remove"
+          :class="{
+            'fileError':img.error,
+            'removeItem':itemRemove.includes(index)
+          }"
+          :key="index"
+          class="img-upload">
+          <button
+            class="btn-x-file"
+            @click="removeFile(index)">
+            <i class="material-icons">
+              clear
+            </i>
+          </button>
+          <button
+            :class="{
+              'on-progress':img.percent,
+              'ready-progress':img.percent >= 100
+            }"
+            :style="{
+              height: `${img.percent}%`
+            }"
+            class="btn-upload-file"
+            @click="uploadx(index)">
+            <i class="material-icons">
+              {{ img.percent >= 100?img.error?'report_problem':'cloud_done':'cloud_upload' }}
+            </i>
+            <span>{{ img.percent }} %</span>
+          </button>
+          <img
+            v-if="img.src"
+            :style="{
+              maxWidth:img.orientation == 'h'?'100%':'none',
+              maxHeight:img.orientation == 'w'?'100%':'none'
+            }"
+            :key="index"
+            :src="img.src"
+            @touchend="viewImage(img.src,$event)"
+            @click="viewImage(img.src,$event)">
+          <h4
+            v-if="!img.src"
+            class="text-archive">
+            <i class="material-icons">
+              description
+            </i>
+            <span>
+              {{ img.name }}
+            </span>
+          </h4>
         </div>
-        <img
-          :src="urlview"
-          alt="">
-      </div>
-    </transition>
+      </transition-group>
+    </div>
   </div>
 </template>
-
 <script>
-export default {
-  name:'VsUpload',
-  filter:{
-    reverse:function(value){
-      return value.slice().reverse();
-    }
-  },
-  props:{
-    title: {
-      type: String,
-      default: 'Upload file'
+  import viewUpload from './viewUpload'
+  var lastTap = 0;
+  export default {
+    name: 'VsUpload',
+    components:{
+      viewUpload
     },
-    vsFile:{
-      type: String,
-      default: null
-    },
-    multiple:{
-      type:Boolean,
-      default:false
-    },
-    arrayFiles:{
-      type:Array,
-      default:function() {return []}
-    },
-    vsFileList:{
-      type:Array,
-      default:function() {return []}
-    },
-  },
-  data(){
-    return {
-      url:'',
-      colorx:'rgb(255, 255, 255)',
-      urlview:'',
-      view:false,
-    }
-  },
-  computed:{
-    reverseImgs(){
-      if(this.arrayFiles.length > 0){
-
-        return this.arrayFiles.slice().reverse();
-      }
-    }
-  },
-  mounted(){
-    let elx = this.$refs.viewx
-    document.body.insertBefore(elx, document.body.firstChild)
-  },
-  methods:{
-    quitarImage(index){
-      let filesx = JSON.parse(JSON.stringify(this.vsFileList))
-      filesx.splice(index, 1);
-      this.arrayFiles.splice(index, 1);
-      this.$emit('update:vsFileList', filesx);
-
-    },
-    // multiple
-    agregarImg(){
-    },
-
-
-    quitarView(evt){
-      if(evt.target.nodeName != 'IMG'){
-        this.view = false
-        setTimeout( ()=> {
-          this.urlview = ''
-        }, 250);
+    inheritAttrs:false,
+    props:{
+      fileName:{
+        default:null,
+        type:String
+      },
+      text:{
+        default:'Upload File',
+        type:String
+      },
+      limit:{
+        default:null,
+        type:[Number,String]
+      },
+      action:{
+        default:null,
+        type:String
+      },
+      headers:{
+        default:null,
+        type:String
       }
     },
-    verview(){
-      this.urlview = this.url
-      this.view = true
+    data:()=>({
+      inputValue:null,
+      type:null,
+      srcs:[],
+      filesx:[],
+      itemRemove:[],
+      percent:0,
+      viewActive:false,
+      viewSrc:null,
+    }),
+    computed:{
+      postFiles(){
+        let postFiles = Array.prototype.slice.call(this.filesx);
+        postFiles = postFiles.filter((item)=>{
+          return !item.hasOwnProperty('remove')
+        })
+        return postFiles.length
+      },
     },
-    xUrl(){
-      this.$refs.conimg.classList.add('oculto');
-      setTimeout( ()=> {
-        this.url = ''
-        this.$emit('file','')
-      }, 250);
-    },
-    multipleUploadx(){
-
-      var file    = this.$refs.inputsx.files[0]
-      var reader  = new FileReader();
-      var filesx = JSON.parse(JSON.stringify(this.vsFileList))
-      reader.onloadend =  ()=> {
-        // preview.src = reader.result;
-        this.arrayFiles.push({src:reader.result})
-        // this.vsFileList.push({name:file.name})
-
-        filesx.push({file:file})
-        this.$emit('update:vsFileList', filesx)
-      }
-
-      if (file) {
-        reader.readAsDataURL(file);
-      } else {
-        // preview.src = this.url;
-      }
-
-      this.$refs.inputsx.value = ''
-    },
-    uploadx(e) {
-      this.$emit('update:vsFile', e.target.value)
-      let _this = this
-      this.$refs.conimg.classList.remove('oculto');
-      var file    = this.$refs.inputx.files[0]
-      var reader  = new FileReader();
-
-  // obtener color
-      function getaverageColor(imagen) {
-        var r=0, g=0, b=0, count = 0, canvas, ctx, imageData, data, i, n;
-        canvas = document.createElement('canvas');
-        ctx = canvas.getContext("2d");
-        canvas.width = imagen.width;
-        canvas.height = imagen.height;
-        ctx.drawImage(imagen, 0, 0);
-        imageData = ctx.getImageData(0, 0, imagen.width, imagen.height);
-        data = imageData.data;
-        for(i = 0, n = data.length; i < n; i += 4) {
-          ++count;
-          r += data[i];
-          g += data[i+1];
-          b += data[i+2];
-        }
-        r = ~~(r/count);
-        g = ~~(g/count);
-        b = ~~(b/count);
-        return [r, g, b];
-      }
-
-      function rgbToHex(arr) {
-        return "#" + ((1 << 24) + (arr[0] << 16) + (arr[1] << 8) + arr[2]).toString(16).slice(1);
-      }
-
-      function uploadImage(e) {
-        var image = new Image();
-        image.src = e.target.result;
-        image.onload = function() {
-          switchImage(this);
+    watch:{
+      percent(){
+        if(this.percent >= 100) {
+          this.srcs.forEach((file)=>{
+            file.percent = 100
+          })
+          setTimeout(()=>{
+            this.percent = 0
+          },1000)
         }
       }
-      function switchImage(image) {
-        var averagecolor = getaverageColor(image);
-        var color = rgbToHex(averagecolor);
+    },
+    methods:{
+      viewImage(src,evt){
+        var timeout;
 
-        _this.url = image.src;
-        _this.colorx = color
-    // averagediv.style.backgroundColor = averagediv.textContent = color;
-      }
+        var eventx = (('ontouchstart' in window) || (window.DocumentTouch && document instanceof window.DocumentTouch)) ? 'touchstart' : 'click';
+        if(eventx == 'click'){
+          this.viewActive = true
+          this.viewSrc = src
+        } else {
+          if(evt.type == 'touchend'){
+            var currentTime = new Date().getTime();
+            var tapLength = currentTime - lastTap;
+            clearTimeout(timeout);
+            if (tapLength < 500 && tapLength > 0) {
+              this.viewActive = true
+              this.viewSrc = src
+              event.preventDefault();
+            }
+            lastTap = currentTime;
+          }
+        }
+      },
+      removeFile(index){
+        this.itemRemove.push(index)
+        setTimeout(()=>{
+          this.filesx[index].remove = true
+        },301)
+      },
+      getFiles(e) {
+        this.$emit('update:vsFile', e.target.value)
+        let _this = this
+        function uploadImage(e) {
+          let orientation = 'h'
+          var image = new Image();
+          image.src = e.target.result;
+          image.onload = function() {
+            if(this.width > this.height){
+              orientation = 'w'
+            }
+            switchImage(this,orientation);
 
-  // function setDefaultImage() {
-  //   var image = new Image();
-  //   image.src = "images/average_image.jpg";
-  //   image.onload = function() {
-  //     switchImage(this);
-  //   }
-  // }
+          }
+        }
+        function switchImage(image,orientation) {
+          _this.srcs.push({
+            src:image.src,
+            orientation:orientation,
+            type:_this.typex,
+            percent:null,
+            error:false,
+            remove:null
+          })
+        }
+
+        var files = e.target.files;
+        let count = (this.srcs.length - this.itemRemove.length)
+        for (const file in files) {
 
 
-      file = e.target.files[0];
-      if (!file.type.match(/image.*/)) return;
-      reader.onload = uploadImage;
-      reader.readAsDataURL(file);
+          if (files.hasOwnProperty(file)) {
+            if(this.limit) {
+              count ++
+              if( count > Number(this.limit) ) {
+                break
+              }
+            }
+
+            var reader  = new FileReader();
+            const filex = files[file];
+            if (/image.*/.test(filex.type)) {
+              this.typex = 'image'
+              this.filesx.push(filex)
+              reader.onload = uploadImage;
+              reader.readAsDataURL(filex);
+            } else if (/video.*/.test(filex.type)) {
+              this.typex = 'video'
+              this.filesx.push(filex)
+              _this.srcs.push({
+                src:null,
+                name:filex.name,
+                type:'video',
+                percent:null,
+                error:false,
+                remove:null
+              })
+            } else {
+              this.filesx.push(filex)
+              _this.srcs.push({
+                src:null,
+                name:filex.name,
+                percent:null,
+                error:false,
+                remove:null
+              })
+            }
+
+          }
+        }
+        const input = this.$refs.fileInput
+        input.type = 'text'
+        input.type = 'file'
+      },
+      uploadx(index){
+        let self = this
+        const xhr = new XMLHttpRequest();
+        const formData = new FormData();
+        let postFiles = Array.prototype.slice.call(this.filesx);
+        if(typeof index == 'number'){
+          postFiles = [postFiles[index]]
+        } else if (index == 'all'){
+          postFiles = postFiles.filter((item)=>{
+            return !item.hasOwnProperty('remove')
+          })
+        }
 
 
-    // this.$emit('file',e.target.value,e)
+        postFiles.forEach((filex)=>{
+          formData.append(this.fileName, filex, filex.name)
+        })
+
+        // xhr.onerror = function error(e) {
+        //   self.$emit('on-error',e)
+        //   if(typeof index == 'number'){
+        //     self.srcs[index].error = true
+        //   }
+        // };
+
+        xhr.onload = function onload(e) {
+
+          if (xhr.status < 200 || xhr.status >= 300) {
+            self.$emit('on-error',e)
+            if(typeof index == 'number'){
+              self.srcs[index].error = true
+            }
+          } else {
+            self.$emit('on-success',e)
+          }
+        }
+
+
+        if (xhr.upload) {
+          xhr.upload.onprogress = function progress(e) {
+            if (e.total > 0) {
+              let percent = e.loaded / e.total * 100;
+              if(typeof index == 'number'){
+                self.srcs[index].percent = Math.trunc(percent)
+              } else {
+                self.percent = Math.trunc(percent)
+              }
+            }
+          };
+        }
+
+        xhr.withCredentials = true;
+
+        xhr.open('POST', this.action);
+
+        const headers = this.headers || {};
+
+        for (let head in headers) {
+          if (headers.hasOwnProperty(head) && headers[head] !== null) {
+            xhr.setRequestHeader(head, headers[head]);
+          }
+        }
+
+        xhr.send(formData)
+      },
 
     }
   }
-}
 </script>
-
-<style lang="css">
-.con-imgs {
-  width: 170px;
-  height: 170px;
-  left: 0px;
-  top: 0px;
-  position: relative;
-  float: left;
-  /* background: rgb(170, 79, 155); */
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* border-right: 1px solid rgba(0, 0, 0, 0.1); */
-  background: rgb(225, 225, 225);
-  /* box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.1); */
-  margin: 5px;
-  border-radius: 10px;
-  padding: 5px;
-}
-.con-multiples-imgs li {
-  /* display: block; */
-  z-index: 100;
-  position: relative;
-}
-.con-multiples-imgs li img {
-  position: relative;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  max-width: 100%;
-  max-height: 100%;
-  border-radius: 10px;
-}
-.agregarx {
-  width: 150px;
-  height: 150px;
-  background: rgb(255, 255, 255);
-  position: relative;
-  float: left;
-  margin: 15px;
-  border-radius: 10px;
-  cursor: pointer;
-    box-shadow: 0px 6px 15px -3px rgba(0, 0, 0, 0.0);
-    transition: all .3s ease;
-    display: block;
-}
-.agregarx input {
-  cursor: pointer;
-}
-.agregarx:hover {
-  box-shadow: 0px 6px 20px -3px rgba(0, 0, 0, 0.150);
-  transform: translate(0,-6px);
-}
-.agregarx::after {
-  width: 60px;
-  height: 1px;
-  background: rgba(0, 0, 0, 0.15);
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%);
-  display: block;
-}
-.agregarx::before {
-  width: 1px;
-  height: 60px;
-  background: rgba(0, 0, 0, 0.15);
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(0,-50%);
-  display: block;
-}
-.con-multiples-imgs {
-  width: auto;
-  height: auto;
-  /* background: rgb(138, 209, 39); */
-  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
-  z-index: 200;
-}
-.con-multiple {
-  width: 100%;
-  height: auto;
-  background: rgb(240, 240, 240);
-  border-radius: 10px;
-
-}
-.con-multiple-upload {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-.fade-upload-enter-active img, .fade-upload-leave-active img {
-  transition: all .3s;
-}
-.fade-upload-enter img, .fade-upload-leave-to img /* .fade-upload-leave-active below version 2.1.8 */ {
-  transform: scale(.6);
-}
-.fade-upload-enter-active, .fade-upload-leave-active {
-  transition: all .3s;
-}
-.fade-upload-enter, .fade-upload-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-}
-
-.x-view {
-  width: 45px;
-  height: 45px;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: rgb(255, 255, 255);
-  box-shadow: 0px 5px 12px 0px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  cursor: pointer;
-}
-.view-upload {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    background: rgba(0, 0, 0, 0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 100000;
-    padding: 15px;
-}
-.view-upload img {
-  position: relative;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  max-width: 100%;
-  max-height: 100%;
-  box-shadow: 0px 2px 14px 0px rgba(0, 0, 0,.4) !important;
-  border-radius: 10px;
-  /* overflow: hidden; */
-  transition: all .3s ease;
-}
-
-
-.upload-colorx {
-  width: 0px;
-  height: 0px;
-  position: relative;
-  position: absolute;
-  top: 0px;
-  z-index: 10;
-  border-radius: 50%;
-  transform: translate(0,-50%);
-  /* transition: all .3s ease; */
-}
-.x-img {
-  position: absolute;
-  right: 5px;
-  top: 5px;
-  width: 30px;
-  height: 30px;
-  background: rgb(255, 255, 255);
-  box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  z-index: 100;
-  cursor: pointer;
-}
-.x-img i {
-  font-size: 1.125em;
-  color: rgba(0, 0, 0, 0.7);
-}
-.input-upload {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  z-index: 1000;
-  cursor: pointer;
-}
-.con-subir {
-  background: rgb(240, 240, 240);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 7px;
-  margin-bottom: 10px;
-  border-radius: 10px;
-  color: rgba(0, 0, 0, 0.4);
-  transition: all .3s ease;
-
-}
-.con-subir input {
-  cursor: pointer;
-
-}
-/* .con-subir {
-  b
-} */
-.con-subir h3 {
-  font-size: 1.0em;
-  font-weight:lighter;
-}
-.con-upload:hover .con-subir{
-  color: rgb(var(--primary)) !important;
-}
-.con-subir i {
-  width: 35px;
-  height: 35px;
-  background: rgb(225, 225, 225);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  margin-left: 10px;
-  font-size: 1.25em;
-}
-.con-img-upload {
-  height: auto;
-  width: 300px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  /* background: rgb(136, 42, 107); */
-  /* padding: 10px; */
-  position: relative;
-  overflow: hidden;
-  z-index: 2000;
-  transition: all .3s ease, background 0s ease;
-  max-height: 300px;
-  border-radius: 10px;
-  opacity: 1;
-  transform: scale(1);
-  /* overflow: auto; */
-  /* overflow-x: hidden; */
-}
-.oculto {
-  max-height: 0px;
-  /* opacity: 0; */
-  transform: scale(.7);
-}
-.con-img-upload img {
-  position: relative;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  max-width: 100%;
-  max-height: 100%;
-  box-shadow: 0px 2px 14px 0px rgba(0, 0, 0,.4) !important;
-  border-radius: 10px;
-  overflow: hidden;
-  z-index: 20;
-  margin: 10px;
-  /* opacity: 1; */
-  /* transform: scale(.8); */
-  transition: all .3s ease;
-  transform: scale(1);
-  display: block;
-  cursor: pointer;
-}
-/* .img-visible {
-  opacity: 1 !important;
-  transform: scale(1) !important;
-} */
-.con-upload {
-  position: relative;
-  /* background: rgb(110, 210, 40); */
-}
-</style>

@@ -1,23 +1,15 @@
 <template lang="html">
   <div class="centerx">
-    <vs-upload :vs-file-list.sync="urls1" multiple />
-    <pre class="pre">{{urls1}}</pre>
+    <vs-upload multiple text="Upload Multiple" action="https://jsonplaceholder.typicode.com/posts/" @on-success="successUpload" />
   </div>
 </template>
 
 <script>
 export default {
-  data () {
-    return {
-      urls1:[],
+  methods:{
+    successUpload(){
+      this.$vs.notify({color:'success',title:'Upload Success',text:'Lorem ipsum dolor sit amet, consectetur'})
     }
   }
 }
 </script>
-
-<style lang="css">
-.pre {
-  width: 100%;
-  color: rgba(255, 255, 255,.7);
-}
-</style>

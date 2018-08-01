@@ -6,10 +6,9 @@
       ref="inputselect"
       v-bind="$attrs"
       :readonly="!vsAutocomplete"
+      v-model="valueFilter"
       class="input-select"
       type="text"
-      name=""
-      v-model="valueFilter"
       @click.stop
       @keydown.esc.stop.prevent="closeOptions"
       v-on="listeners">
@@ -251,11 +250,9 @@ export default {
           }, 50);
         }
       }
-      // this.changePosition()
       this.$nextTick(()=>{
         this.cords = this.changePosition()
       })
-      console.log(this.cords)
 
     },
     clickBlur(event){
@@ -298,7 +295,7 @@ export default {
       }
 
       return cords
-  },
+    },
   }
 }
 </script>

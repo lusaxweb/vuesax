@@ -1,18 +1,63 @@
 ---
 API:
- - name: vs-file
-   type: bind
+ - name: action
+   type: String
    parameters: null
-   description: Value of the component (No multiple).
+   description: determines the url of the server where the request is made.
    default: null
- - name: vs-file-list
-   type: bind
+ - name: text
+   type: String
    parameters: null
-   description: Value of the Multiple image component.
+   description: Change the text shown in the input.
+   default: 'Upload File'
+ - name: limit
+   type: Number
+   parameters: null
+   description: Limit the number of files that can be added.
    default: null
+ - name: limit
+   type: Number
+   parameters: null
+   description: Limit the number of files that can be added.
+   default: null
+ - name: headers
+   type: String
+   parameters: null
+   description: Change the header of the request to the server.
+   default: null
+ - name: fileName
+   type: String
+   parameters: null
+   description: Key name of the files sent.
+   default: null
+ - name: multiple
+   type: Boolean
+   parameters: null
+   description: Determines whether multiple files can be selected.
+   default: false
+ - name: accept
+   type: file types
+   parameters: null
+   description: change the types of files allowed.
+   default: all
+ - name: disabled
+   type: file types
+   parameters: null
+   description: disables the component, making it impossible to add any file.
+   default: false
+ - name: on-success
+   type: Function
+   parameters: (event)
+   description: callback function when successfully uploading the file.
+   default: false
+ - name: on-error
+   type: Function
+   parameters: (event)
+   description: callback function when an error occurs when trying to upload a file.
+   default: false
 ---
 
-# Upload
+# Upload **- ssr**
 
 <box header>
 
@@ -25,7 +70,7 @@ API:
 
 ## Default
 
-To add a component to upload files and visualize them we have `vs-upload`, use the `vs-file.sync` property to save the name of the file.
+You can upload files to the server with the `vs-upload` component, the requested parameter is `action` which is the URL of the server
 
 <vuecode md>
 <div slot="demo">
@@ -36,15 +81,15 @@ To add a component to upload files and visualize them we have `vs-upload`, use t
 ```html
 <template lang="html">
   <div class="centerx">
-    <vs-upload :vs-file.sync="url1" />
+    <vs-upload action="https://jsonplaceholder.typicode.com/posts/" @on-success="successUpload" />
   </div>
 </template>
 
 <script>
 export default {
-  data(){
-    return {
-      url1:'',
+  methods:{
+    successUpload(){
+      this.$vs.notify({color:'success',title:'Upload Success',text:'Lorem ipsum dolor sit amet, consectetur'})
     }
   }
 }
@@ -61,10 +106,6 @@ export default {
 
 You can have a multiple upload by adding the multiple property within the component
 
-:::tip
-  When you need a multiple upload to bin the value the property is used `vs-file-list.sync`.
-:::
-
 <vuecode md>
 <div slot="demo">
   <Demos-Upload-Multiple />
@@ -74,27 +115,19 @@ You can have a multiple upload by adding the multiple property within the compon
 ```html
 <template lang="html">
   <div class="centerx">
-    <vs-upload :vs-file-list.sync="urls1" multiple />
-    <pre class="pre">{{urls1}}</pre>
+    <vs-upload multiple text="Upload Multiple" action="https://jsonplaceholder.typicode.com/posts/" @on-success="successUpload" />
   </div>
 </template>
 
 <script>
 export default {
-  data () {
-    return {
-      urls1:[],
+  methods:{
+    successUpload(){
+      this.$vs.notify({color:'success',title:'Upload Success',text:'Lorem ipsum dolor sit amet, consectetur'})
     }
   }
 }
 </script>
-
-<style lang="css">
-.pre {
-  width: 100%;
-  color: rgba(255, 255, 255,.7);
-}
-</style>
 ```
 
 </div>
