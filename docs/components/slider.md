@@ -7,7 +7,7 @@ API:
    default: primary
  - name: icon
    type: String
-   parameters: Material-icons
+   parameters: Material Icons
    description: Determines the icon displayed when displaying the value.
    default: null
  - name: step
@@ -30,7 +30,7 @@ API:
    parameters: null
    description: Determines the minimum number admitted.
    default: 0
- - name: Max
+ - name: max
    type: Number
    parameters: null
    description: Determine the maximum number allowed.
@@ -87,7 +87,7 @@ export default {
 
 ## Color
 
-You can change the slider's color with the property `color`, you can add the main colors like: `primary`, `success`,`danger`, `warning`,`dark`.
+You can change the slider's color with the property `color`. You can also add the main colors like: `primary`, `success`,`danger`, `warning`,`dark`.
 
 <vuecode md>
 <div slot="demo">
@@ -123,7 +123,7 @@ export default {
 
 ## Ticks
 
-With the Ticks you can show the user the points of allowed values, with the property **step** you can change the distance of the Ticks and the allowed values
+With Ticks you can allow the user to select a value inside a range of allowed values. With the property **step** you can change the distance between each Tick.
 
 <vuecode md>
 <div slot="demo">
@@ -159,7 +159,7 @@ export default {
 
 ## Range
 
-You can use the v-model property with **Array** and two minimum and maximum values ​​represented as: `[min, max]`
+With Range you can allow the user to select a range inside a range of allowed values. You can use the v-model property with **Array** and a minimum and maximum value ​​represented as: `[min, max]`
 
 <vuecode md>
 <div slot="demo">
@@ -195,7 +195,7 @@ export default {
 
 ## Icons
 
-You can add an icon with the `icon` property for better representation to the user
+You can add an icon with the `icon` property to better representation the sliders to the user.
 
 ::: tip
 Vuesax use the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).

@@ -85,7 +85,7 @@ export default {
 
 ## Position
 
-You can change the position in which the tooltip will appear with the property `position`.
+You can change the position at which the tooltip appears with the property `position`.
 
 <vuecode md>
 <div slot="demo">
@@ -152,7 +152,7 @@ You can change the delay in appearing the tooltip with the property `delay`.
 
 ## Color
 
-To change the color of the tooltip we have the property `color`, as a value you can put the main colors as:`primary`, `success`, `danger`, `warning`, `dark`, or a color **RGB**, **HEX**.
+To change the color of the tooltip, use the property `color`. As a value, you can put the main colors such as:`primary`, `success`, `danger`, `warning`, or `dark`, in addition to an **RGB**, or **HEX** color.
 
 :::warning
   Only **RGB** and **HEX** colors are supported.
@@ -203,7 +203,7 @@ To change the color of the tooltip we have the property `color`, as a value you 
 
 ## Title
 
-If necessary You can add a title to the tooltip with the property `title`
+If necessary, you can add a title to the tooltip with the property `title`
 
 <vuecode md>
 <div slot="demo">

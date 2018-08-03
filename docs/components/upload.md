@@ -36,12 +36,12 @@ API:
    description: Determines whether multiple files can be selected.
    default: false
  - name: accept
-   type: file types
+   type: File types
    parameters: null
    description: change the types of files allowed.
    default: all
  - name: disabled
-   type: file types
+   type: File types
    parameters: null
    description: disables the component, making it impossible to add any file.
    default: false
@@ -61,7 +61,7 @@ API:
 
 <box header>
 
-  Upload images easily and with nice effect
+  Upload images easily and with a nice effect
 
 </box>
 
@@ -104,7 +104,7 @@ export default {
 
 ## Multiple
 
-You can have a multiple upload by adding the multiple property within the component
+You can upload multiple files by adding the `multiple` property within the component
 
 <vuecode md>
 <div slot="demo">

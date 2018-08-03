@@ -8,12 +8,12 @@ API:
  - name: max
    type: Number
    parameters: null
-   description: maximum number admitted.
+   description: Maximum number admitted.
    default: null
  - name: min
    type: Number
    parameters: null
-   description: minimum number admitted.
+   description: Minimum number admitted.
    default: null
  - name: size
    type: String
@@ -34,7 +34,7 @@ API:
 
 ## Default
 
-If you need to add a component that only handles the data of type number add a component `vs-input-number`.
+If you need to add a component that handles a single number, use the component `vs-input-number`.
 
 <vuecode md>
 <div slot="demo">
@@ -71,7 +71,7 @@ export default {
 
 ## Color
 
-You can change the color of the **Input-Number** with the property `color`. The color could be one of the main ones like:`primary`, `success`,`danger`, `warning`,`dark` or **RGB**, **HEX**.
+You can change the color of the **Input-Number** with the property `color`. The color can be one of the main ones like:`primary`, `success`,`danger`, `warning`, or `dark` in addition to an **RGB** or **HEX** value.
 
 :::warning
   Only **RGB** and **HEX** colors are supported.
@@ -153,7 +153,7 @@ export default {
 
 ## Size
 
-To change the size of Component you can use the property `vs-size`. The allowed values are: `medium`, `small`, `mini`.
+To change the size of the component, you can use the property `vs-size`. The allowed values are: `medium`, `small`, and `mini`.
 
 <vuecode md>
 <div slot="demo">
