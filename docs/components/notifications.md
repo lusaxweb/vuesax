@@ -37,7 +37,7 @@ API:
    default: null
  - name: icon
    type: string
-   parameters: Icon material
+   parameters: Material Icon
    description: Notification Icon.
    default: null
  - name: click
@@ -56,7 +56,7 @@ API:
 
 <box header>
 
-  Nice simple and interactive notifications.
+  Nice, simple, and interactive notifications.
 
 </box>
 
@@ -65,7 +65,7 @@ API:
 
 ## Notifications Defaults
 
-To add a notification we have the global function `$vs.notify`, as the first parameter is a `json` with all the necessary attributes or if we only want the standard notification we can only add a string with the text of the notification.
+To add a notification we have the global function `$vs.notify`. The first parameter is a `json` with all the necessary attributes, or if we only want the standard notification we can only add a string with the text of the notification.
 
 <vuecode md>
 <div slot="demo">
@@ -118,7 +118,7 @@ export default {
 
 ## Positions
 
-We can change the place where the notification appears with the property `position` a serious example `position: 'top-right'` the supported values are:
+We can change the place where the notification appears with the property `position`. A practical example would be: `position: 'top-right'`. The supported values are:
 
  - `top-right`
  - `top-left`
@@ -200,9 +200,9 @@ export default {
 
 ## Icons
 
-Notifications can have icons inside in order to give a better user experience and notify with a more pleasant and intuitive notification. For making this use the `icon` property. A real-case example would be: `icon: 'chat'`
+Notifications can include icons to improve the user experience and to construct a more pleasant and intuitive notification. To make this, use the `icon` property. A practical example would be: `icon: 'chat'`.
 ::: tip
-Vuesax use the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
+Vuesax uses the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
 :::
 <vuecode md>
 <div slot="demo">
@@ -313,7 +313,7 @@ export default {
 
 ## Time
 
-You can change the delay time in leaving the notification screen with the `time` property, example: `time: 4000`.
+You can change the total time that the notification stays on the screen with the `time` property. Example: `time: 4000`.
 
 ::: tip
 By default the notifications have a time of **2000** (2s)

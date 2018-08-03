@@ -290,7 +290,7 @@ export default {
 
 ## Multiple
 
-You can have a selection with multiple selections with the property `vs-multiple`, if you need the user to select only a certain number of options you can use the property `vs-max-selected`.
+You can have a selection with multiple selections with the property `vs-multiple`. If you need the user to select only a certain number of options you can use the property `vs-max-selected`.
 
 <vuecode md>
 <div slot="demo">

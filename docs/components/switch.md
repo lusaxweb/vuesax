@@ -17,17 +17,17 @@ API:
    default: primary
  - name: vs-icon
    type: String
-   parameters: icon material
+   parameters: Material Icons
    description: Icon within the element.
    default: null
  - name: vs-icon-on
    type: String
-   parameters: icon material
+   parameters: Material Icons
    description: Icon that appears when the item is in active state.
    default: null
  - name: vs-icon-off
    type: String
-   parameters: icon material
+   parameters: Material Icons
    description: Icon that appears in the inactive state.
    default: null
 ---
@@ -35,7 +35,7 @@ API:
 
 <box header>
 
- Simple and functional.
+Simple and functional.
 
 </box>
 
@@ -97,7 +97,7 @@ export default {
 
 ## Color
 
-You can choose the default **Switch** Color like: `primary`, `danger`, `success`, `dark`, `warning` or also put the color to your liking.
+You can choose the default **Switch** Color like: `primary`, `danger`, `success`, `dark`, `warning` or also change the color to your liking.
 
 :::warning
   Supported colors are **RGB** and **HEX**
@@ -165,7 +165,7 @@ export default {
 
 ## Text
 
-You can add a descriptive text with the slot `on` and `off` you can also join the text with the icons.
+You can add a descriptive text with the slot `on` or `off`. You can also join the text with the icons.
 
 <vuecode md>
 <div slot="demo">
@@ -223,7 +223,7 @@ export default {
 
 We can add a representative icon inside our switch with the property `vs-icon`.
 
-If you only need to add the icon in one of the states you can do it with the property `vs-icon-on` or with `vs-icon-off`
+If you only need to add the icon in one of the states you can do it with the property `vs-icon-on` or `vs-icon-off`
 
 ::: tip
 Vuesax use the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
@@ -289,11 +289,11 @@ export default {
 
 ## Array Value
 <!-- TODO es -->
-For saving the values in an array, you could simple pass it as a value.
+For saving the values in an array, you could simply pass it as a value.
 
 :::warning
   <!-- TODO es -->
-  for using an array as a value we need to use the `vs-value` property inside the switch component. That is the value that will be added to the array.
+  For using an array as a value, we need to use the `vs-value` property inside the switch component. That is the value that will be added to the array.
 :::
 
 <vuecode md>

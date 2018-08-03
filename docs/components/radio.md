@@ -30,7 +30,7 @@ API:
 
 ## Default
 
-To implement a radio button you just have to add the `vs-radio` component and add a `v-model`.
+To implement a radio button you just add the `vs-radio` component and add a `v-model`.
 
 :::warning
 The **Radio Button** is always going to replace the current value.
