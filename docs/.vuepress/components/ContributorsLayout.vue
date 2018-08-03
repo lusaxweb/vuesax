@@ -5,7 +5,7 @@
         Rank
       </li>
       <li :class="{'estas-contribucion':state==2}" @click="state=2">
-        Awwards
+        Awards
       </li>
     </ul>
     <div  class="con-contenedores">
