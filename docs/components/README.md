@@ -33,8 +33,8 @@ API:
   - name: vs-gradient-direction
     type: String
     parameters: null
-    description: Determina la posicion del gradiente en el boton (gradient)
-    default: 30deg
+    description: Determine the angle of the gradient on the button
+    default: 30 deg
   - name: vs-gradient-color-secondary
     type: String
     parameters: null
@@ -45,7 +45,7 @@ API:
 
 <box header>
 
-  Nice buttons and easy to use.
+  Easy-to-use button components
 
 </box>
 
@@ -54,7 +54,7 @@ API:
 
 ## Filled
 
-To define the type of button the directive is used `vs-type` with the value of some type of button like it can be: `filled`
+To define the type of button the directive is used `vs-type` with the value of some type of button like it can be: `filled`.
 
 <vuecode md center>
 <div slot="demo">
@@ -121,7 +121,7 @@ To add a type of button with edges we change the value of `border`.
 
 ## Flat
 
-To add a type of button with edges we change the value of `flat`
+To add a type of button with edges we change the value of `flat`.
 
 <vuecode md center>
 <div slot="demo">
@@ -158,7 +158,7 @@ To add a type of button with edges we change the value of `flat`
 To add a type of button with edges we change the value of `vs-type` by: `line`.
 
 :::tip
-  you can change the position of the line up with the property `vs-line-position="top"`, you can also change the way the line appears in hover with the property `vs-line-origin` the allowed values They are
+  you can change the position of the line up with the property `vs-line-position="top"`. You can also change the way the line appears on mouse hover with the property `vs-line-origin` using the allowed values:
 
   - left
   - center (default)

@@ -3,7 +3,7 @@ API:
  - name: v-model
    type: bind
    parameters: null
-   description: link values.
+   description: Link values.
    default: null
  - name: placeholder
    type: String
@@ -22,7 +22,7 @@ API:
    default: null
  - name: vs-icon
    type: String
-   parameters: Icon Material
+   parameters: Material Icon
    description: Element icon.
    default: null
  - name: vs-icon-pack
@@ -226,7 +226,7 @@ export default {
 
 ## Icons
 
-The input can have icons. The property that makes this possible is `vs-icon`, and we could also manipulate the icon's position with the property `vs-icon-after`.
+The input can have icons. Use the property `vs-icon`. You can also also manipulate the icon's position with the property `vs-icon-after`.
 
 ::: tip
 Vuesax use the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
@@ -376,7 +376,7 @@ You can add a state for example of in affirmative response to a validation with 
       placeholder="Date Warning"
       v-model="value3"/>
       <vs-input 
-      vs-description-text="Just enter the first 2 (two) numbers of your phone" 
+      vs-description-text="Just enter the first two numbers of your phone" 
       placeholder="Phone Description"
       v-model="value4"/>
   </div>

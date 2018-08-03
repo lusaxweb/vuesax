@@ -36,7 +36,7 @@ API:
 
 <box header>
 
-  Tabs very easy to implement
+  Tabs are very easy to implement
 
 </box>
 
@@ -45,7 +45,7 @@ API:
 
 ## Default
 
-To implement a tabs within the application we have the `vs-tabs` component that as an internal component needs `vs-tab` for each child.
+To implement a tabs, use the `vs-tabs` component. It must include `vs-tab` child components that represent each tab.
 
 :::tip
 For the title of each tab the `vs-tab` property is implemented in the` vs-tab` component.
@@ -163,7 +163,7 @@ export default {
 
 ## Alignments
 
-Change the alignment of the buttons with the property `vs-alignments` the allowed values ​​are:
+Change the alignment of the buttons with the property `vs-alignments`. The allowed values ​​are:
 
 - center
 - right

@@ -62,7 +62,7 @@ API:
 
 <box header>
 
-  Dilogs very easy to implement and practical to use in any case and need.
+  Dialogs very easy to implement and practical to use in any case and need.
 
 </box>
 
@@ -145,7 +145,7 @@ export default {
 
 ## Confirm
 
-If you need a dialog of type confirm you can do it just by changing the type as a parameter inside the main function
+If you need a dialog of type confirm you can do it just by changing the type as a parameter inside the main function.
 
 :::tip
   To do some action when the user approves or confirms we have the property `accept:myFunctionAccept`.
@@ -201,7 +201,7 @@ export default {
 
 ## Prompt
 
-To add a dialog of type prompt we have instead of a global function a completely independent component `vs-prompt` to be able to have more flexibility with the input and if necessary to be able to add any type of input and components
+To add a dialog of type prompt we have a global function a completely independent component `vs-prompt`. This allows more flexibility with the input and ability to add any type of input and components.
 
 :::tip
   The properties of the component are equivalent to those of the global function only with the vs before each property something like

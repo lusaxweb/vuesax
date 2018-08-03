@@ -3,7 +3,7 @@ API:
  - name: v-model
    type: String / bolean / array
    parameters: null
-   description: link values.
+   description: Link values.
    default: null
  - name: vs-color
    type: String
@@ -17,7 +17,7 @@ API:
    default: null
  - name: vs-icon
    type: String
-   parameters: Material icons
+   parameters: Material Icons
    description: Change the checkBox icon.
    default: checked
 ---
@@ -34,7 +34,7 @@ Aggressive and impacting effect and the most important functional
 
 ## State
 
-To add a checkBox to the application, we have the `vs-checkbox` component, which expects as principal parameter `v-model` that would be our value.
+To add a checkBox, we have the `vs-checkbox` component which expects a principal parameter `v-model` that would be our value.
 
 <vuecode md>
 <div slot="demo">
@@ -85,7 +85,7 @@ export default {
 
 ## Colors
 
-You can change the color of the checkBox with the property `vs-color`, as a value you can use the main `primary`,` success`, `danger`,` warning`, `dark` or any color **RGB** or **HEX**.
+You can change the color of the checkBox with the property `vs-color`. As a value, you can use the main `primary`,` success`, `danger`,` warning`, `dark` colors, or a different **RGB** or **HEX** color.
 
 :::warning
   Only RGB and HEX colors are supported.
@@ -152,7 +152,7 @@ export default {
 
 ## Boolean Value
 
-In most of the cases you will need a boolean data type while working with checkBoxes. For making this possible you have to link a boolean value in `v-model`.
+In most cases you will need a boolean data type while working with checkBoxes. For making this possible you have to link a boolean value in `v-model`.
 
 <vuecode md>
 <div slot="demo">
@@ -239,7 +239,7 @@ export default {
 
 ## Array Values
 
-You can have several checkBoxs linked to the same array only by using `v-model` with a value of **Array**.
+You can have several checkBoxs linked to the same array only by using `v-model` with a value of **array**.
 
 <vuecode md>
 <div slot="demo">
@@ -336,7 +336,7 @@ export default {
 
 ## Change Icon
 
-Sometimes we need to change the internal icon to make a different reference that will be in the checked state. For it, we have the property `vs-icon`
+Sometimes we want to change the internal icon inside the checkbox. To do so, we have the property `vs-icon`
 
 <vuecode md>
 <div slot="demo">
