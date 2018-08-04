@@ -201,7 +201,6 @@ export default {
       }
     },
     clickButton(event){
-      console.log(event)
       this.$emit('click',event)
       if(this.isActive){
         return
@@ -220,10 +219,6 @@ export default {
         xEvent += event.target.offsetLeft
         yEvent += event.target.offsetTop
       }
-
-      console.log("event.srcElement",event.srcElement)
-      console.log("xEvent",xEvent)
-      console.log("yEvent",yEvent)
       this.leftBackgorund = xEvent
       this.topBackgorund = yEvent
       this.radio = radio

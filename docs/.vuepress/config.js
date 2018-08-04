@@ -2,7 +2,6 @@
 module.exports = {
   base: '/vuesax/',
   head: [
-    ['title',{},'hola'],
     ['link', { rel: 'icon', href: `/favicon-vuesax.png` }],
     ['link', { rel: 'stylesheet', href: `https://fonts.googleapis.com/icon?family=Material+Icons` }],
     ['script',{},`(function(h,o,t,j,a,r){
@@ -32,6 +31,10 @@ module.exports = {
           {
             text:'Github',
             link:'https://github.com/lusaxweb/vuesax'
+          },
+          {
+            text:'Discord',
+            link:'https://discord.gg/9dsKtvB'
           },
           {
             text:'Twitter',
@@ -86,10 +89,6 @@ module.exports = {
           {
             text:'Lusaxweb',
             link:'http://www.lusaxweb.com.ve/'
-          },
-          {
-            text:'Discord',
-            link:'https://discord.gg/9dsKtvB'
           },
           {
             text:'Email',

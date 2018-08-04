@@ -33,7 +33,6 @@ const Vuesax = {
     vsFunctions(Vue)
 
     Vue.prototype.$vs.easing = easing
-    // Vue.directive('tooltip', vsTooltip)
   }
 }
 if (typeof window !== 'undefined' && window.Vue) {

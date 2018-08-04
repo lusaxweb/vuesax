@@ -22,13 +22,11 @@ export default {
         background: this.backgroundLoading,
         color: this.colorLoading,
         container: '#button-with-loading',
-        scale: 0.3
+        scale: 0.45
       })
       setTimeout( ()=> {
-        this.$vs.loading.close({
-          container: '#button-with-loading > .vs-con-loading'
-        })
-      }, 2000);
+        this.$vs.loading.close('#button-with-loading > .con-vs-loading')
+      }, 3000);
     },
     openLoadingInDiv(){
       this.$vs.loading({
@@ -36,29 +34,26 @@ export default {
         scale: 0.6
       })
       setTimeout( ()=> {
-        this.$vs.loading.close({
-          container: '#div-with-loading > .vs-con-loading'
-        })
-      }, 2000);
+        this.$vs.loading.close('#div-with-loading > .con-vs-loading')
+      }, 3000);
     },
   }
 }
 </script>
 
-<style lang="css">
-.fill-row {
+<style lang="stylus">
+.fill-row
   flex: 0 0 100%;
   margin-top: 20px;
   margin-bottom: 20px;
-}
-#div-with-loading {
+
+#div-with-loading
   width: 200px;
   height: 200px;
   margin: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #444;
   border-radius: 5px;
-}
+  box-shadow 0px 3px 10px 0px rgba(0,0,0,.1)
 </style>

@@ -17,7 +17,7 @@ export default {
       this.$vs.loading({background:this.backgroundLoading,color:'rgb(255, 255, 255)'})
       setTimeout( ()=> {
         this.$vs.loading.close()
-      }, 2000);
+      }, 3000);
     },
   }
 }

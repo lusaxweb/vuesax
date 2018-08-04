@@ -15,14 +15,40 @@ API:
    parameters: RGB, HEX, primary, danger, success, dark, warning
    description: Color of loading.
    default: null
+ - name: type
+   type: String
+   parameters: default, point, reduis, border, corners, sound, material
+   description: Change the type of animation.
+   default: default
  - name: background
    type: String
    parameters: RGB, HEX, primary, danger, success, dark, warning
    description: loading background.
    default: rgba(255, 255, 255,.8)
+ - name: text
+   type: String
+   parameters: null
+   description: Add a text on the loading .
+   default: null
+ - name: textAfter
+   type: Boolean
+   parameters: null
+   description: Change the position of the text when loading .
+   default: false
+ - name: scale
+   type: Number
+   parameters: 0 - 1
+   description: change the scale of the animation.
+   default: 1
+ - name: clickEffect
+   type: Boolean
+   parameters:
+   description: Add an animation to the user to click while loading is active.
+   default: false
+
 ---
 
-# Loading
+# Loading **- ssr**
 
 <box header>
 
@@ -35,7 +61,7 @@ API:
 
 ## Default
 
-To add a loading in any part of your application we have the global function `$ vs.loading ()`, and then when you want to remove it we have `$ vs.loading.close ()`.
+To add a loading in any part of your application we have the global function `$vs.loading ()`, and then when you want to remove it we have `$vs.loading.close()`.
 
 :::tip
 For the examples, the request or the delay is simulated with `setTimeout`.
@@ -73,12 +99,121 @@ export default {
 
 </box>
 
-<!-- Color -->
+<!-- Default -->
+<box>
+
+## Type
+
+You can change the type of animation with the `type` property and the animations so far are:
+
+- point
+- radius
+- border
+- corners
+- sound
+- material
+
+<vuecode md>
+<div slot="demo">
+  <Demos-Loading-Type />
+</div>
+<div slot="code">
+
+```html
+<template lang="html">
+  <div class="centerx example-loading">
+    <div
+      class="fill-row-loading">
+      <div
+        :class="{'activeLoading':activeLoading}"
+        @click="openLoading(type)"
+        v-for="type in types"
+        :id="[`loading-${type}`]"
+        class="vs-con-loading__container loading-example">
+        </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  data:()=>({
+    types:[
+      'default',
+      'point',
+      'radius',
+      'corners',
+      'border',
+      'sound',
+      'material',
+    ],
+    activeLoading:false,
+  }),
+  mounted(){
+    this.types.forEach((type)=>{
+      console.log(type)
+      this.$vs.loading({
+        container: `#loading-${type}`,
+        type,
+        text:type
+      })
+    })
+  },
+  methods:{
+    openLoading(type){
+      this.activeLoading = true
+      this.$vs.loading({
+        type:type,
+      })
+      setTimeout( ()=> {
+        this.activeLoading = false
+        this.$vs.loading.close()
+      }, 3000);
+    },
+  }
+}
+</script>
+
+<style lang="stylus">
+.fill-row-loading
+  display flex
+  align-items center
+  justify-content center
+  flex-wrap wrap
+  .loading-example
+    width 120px;
+    float left
+    height 120px;
+    box-shadow 0px 5px 20px 0px rgba(0,0,0,.05)
+    border-radius 10px;
+    margin 8px
+    transition all .3s ease
+    cursor pointer
+    &:hover
+      box-shadow 0px 0px 0px 0px rgba(0,0,0,.05)
+      transform translate(0,4px)
+    h4
+      z-index 40000
+      position relative
+      text-align center
+      padding 10px
+
+    &.activeLoading
+      opacity 0 !important
+      transform scale(.5)
+</style>
+```
+
+</div>
+</vuecode>
+
+</box>
+
 <box>
 
 ## Color
 
-You can change the color of the loading with the property `vs-color`.
+You can change the color of the loading with the property `color`.
 
 :::warning
   Only **RGB** and **HEX** colors are supported.
@@ -94,7 +229,7 @@ You can change the color of the loading with the property `vs-color`.
 <template lang="html">
   <div class="centerx">
     <input type="color" v-model="colorLoading" name="" value="">
-    <vs-button @click="openLoadingColor" vs-color="danger" vs-type="gradient">Primary</vs-button>
+    <vs-button @click="openLoadingColor" vs-type="gradient" vs-color="danger">Danger</vs-button>
   </div>
 </template>
 
@@ -127,7 +262,7 @@ export default {
 
 ## Background
 
-If you need to change the background of the loading, you can use the property `vs-background`
+If you need to change the background of the loading, you can use the property `background`
 
 :::warning
   Only **RGB** and **HEX** colors are supported.
@@ -143,7 +278,7 @@ If you need to change the background of the loading, you can use the property `v
 <template lang="html">
   <div class="centerx">
     <input type="color" v-model="backgroundLoading" name="" value="">
-    <vs-button @click="openLoadingBackground" vs-type="success-gradient">Primary</vs-button>
+    <vs-button @click="openLoadingBackground" vs-type="gradient" vs-color="success">Success</vs-button>
   </div>
 </template>
 
@@ -159,7 +294,7 @@ export default {
       this.$vs.loading({background:this.backgroundLoading,color:'rgb(255, 255, 255)'})
       setTimeout( ()=> {
         this.$vs.loading.close()
-      }, 2000);
+      }, 3000);
     },
   }
 }
@@ -190,7 +325,11 @@ For the examples, the request or the delay is simulated with `setTimeout`.
 ```html
 <template lang="html">
   <div class="centerx">
-    <vs-button id="button-with-loading" class="vs-con-loading__container" @click="openLoadingContained" vs-type="filled" vs-color="primary">Button with Loading</vs-button>
+    <vs-button id="button-with-loading" class="vs-con-loading__container" @click="openLoadingContained" vs-type="relief" vs-color="primary">Button with Loading</vs-button>
+    <vs-button @click="openLoadingInDiv" vs-type="relief" vs-color="primary">Div with Loading</vs-button>
+    <div class="fill-row">
+      <div id="div-with-loading" class="vs-con-loading__container">Load Me!</div>
+    </div>
   </div>
 </template>
 
@@ -208,13 +347,11 @@ export default {
         background: this.backgroundLoading,
         color: this.colorLoading,
         container: '#button-with-loading',
-        scale: 0.3
+        scale: 0.45
       })
       setTimeout( ()=> {
-        this.$vs.loading.close({
-          container: '#button-with-loading > .vs-con-loading'
-        })
-      }, 2000);
+        this.$vs.loading.close('#button-with-loading > .con-vs-loading')
+      }, 3000);
     },
     openLoadingInDiv(){
       this.$vs.loading({
@@ -222,31 +359,28 @@ export default {
         scale: 0.6
       })
       setTimeout( ()=> {
-        this.$vs.loading.close({
-          container: '#div-with-loading > .vs-con-loading'
-        })
-      }, 2000);
+        this.$vs.loading.close('#div-with-loading > .con-vs-loading')
+      }, 3000);
     },
   }
 }
 </script>
 
-<style lang="css">
-.fill-row {
+<style lang="stylus">
+.fill-row
   flex: 0 0 100%;
   margin-top: 20px;
   margin-bottom: 20px;
-}
-#div-with-loading {
+
+#div-with-loading
   width: 200px;
   height: 200px;
   margin: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #444;
   border-radius: 5px;
-}
+  box-shadow 0px 3px 10px 0px rgba(0,0,0,.1)
 </style>
 ```
 

@@ -3948,7 +3948,6 @@ var utils_color = __webpack_require__("Xp+x");
     clickButton: function clickButton(event) {
       var _this3 = this;
 
-      console.log(event);
       this.$emit('click', event);
 
       if (this.isActive) {
@@ -3971,9 +3970,6 @@ var utils_color = __webpack_require__("Xp+x");
         yEvent += event.target.offsetTop;
       }
 
-      console.log("event.srcElement", event.srcElement);
-      console.log("xEvent", xEvent);
-      console.log("yEvent", yEvent);
       this.leftBackgorund = xEvent;
       this.topBackgorund = yEvent;
       this.radio = radio;
@@ -4001,7 +3997,7 @@ var utils_color = __webpack_require__("Xp+x");
     }
   }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-1706c8c0","hasScoped":false,"optionsId":"2","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsButton/vsButton.vue
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-367ce18a","hasScoped":false,"optionsId":"1","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsButton/vsButton.vue
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('button',_vm._g(_vm._b({ref:"btn",staticClass:"vs-component vs-button",class:[("vs-button-" + (_vm.isColor()?_vm.vsColor:null)),("vs-button-" + _vm.vsType),{
     'isActive':_vm.isActive,
     'includeIcon':_vm.vsIcon
@@ -10677,93 +10673,301 @@ var instance;
     utils.insertBody(instance.vm.$el);
   }
 });
-// EXTERNAL MODULE: ./src/functions/vsLoading/vsLoading.css
-var vsLoading = __webpack_require__("zaE7");
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/functions/vsLoading/index.vue
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-// CONCATENATED MODULE: ./src/functions/vsLoading/vsLoading.js
+/* harmony default export */ var vsLoading = ({
+  data: function data() {
+    return {
+      active: false,
+      type: 'default',
+      color: null,
+      background: 'rgba(255,255,255,.6)',
+      src: '',
+      leftx: 0,
+      topx: 0,
+      clickEffect: false,
+      activeEffectClick: false,
+      scale: 1,
+      textAfter: false,
+      text: null
+    };
+  },
+  computed: {
+    styleEffectClick: function styleEffectClick() {
+      return {
+        left: "".concat(this.leftx, "px"),
+        top: "".concat(this.topx, "px")
+      };
+    },
+    styleEffect1: function styleEffect1() {
+      var style = {
+        borderLeft: "3px solid ".concat(utils_color["a" /* default */].getColor(this.color, 1))
+      };
+
+      if (this.type == 'border') {
+        style = {
+          borderLeft: "1px solid ".concat(utils_color["a" /* default */].getColor(this.color, 1))
+        };
+      }
+
+      if (this.type == 'point') {
+        style = {
+          background: utils_color["a" /* default */].getColor(this.color, .4)
+        };
+      }
+
+      if (this.type == 'radius') {
+        style = {
+          border: "3px solid ".concat(utils_color["a" /* default */].getColor(this.color, 1))
+        };
+      }
+
+      if (this.type == 'corners') {
+        style = {
+          border: "3px solid ".concat(utils_color["a" /* default */].getColor(this.color, 1))
+        };
+      }
+
+      if (this.type == 'sound') {
+        style = {
+          background: utils_color["a" /* default */].getColor(this.color, 1)
+        };
+      }
+
+      return style;
+    },
+    styleEffect2: function styleEffect2() {
+      var style = {
+        borderLeft: "3px solid ".concat(utils_color["a" /* default */].getColor(this.color, 1))
+      };
+
+      if (this.type == 'border') {
+        style = {
+          borderLeft: "1px solid ".concat(utils_color["a" /* default */].getColor(this.color, 1))
+        };
+      }
+
+      if (this.type == 'point') {
+        style = {
+          background: utils_color["a" /* default */].getColor(this.color, .4)
+        };
+      }
+
+      if (this.type == 'radius') {
+        style = {
+          border: "3px solid ".concat(utils_color["a" /* default */].getColor(this.color, 1))
+        };
+      }
+
+      if (this.type == 'corners') {
+        style = {};
+      }
+
+      if (this.type == 'sound') {
+        style = {
+          background: utils_color["a" /* default */].getColor(this.color, 1)
+        };
+      }
+
+      return style;
+    },
+    styleEffect3: function styleEffect3() {
+      var style = {
+        borderLeft: "3px solid ".concat(utils_color["a" /* default */].getColor(this.color, 1))
+      };
+
+      if (this.type == 'border') {
+        style = {
+          borderLeft: "1px solid ".concat(utils_color["a" /* default */].getColor(this.color, 1))
+        };
+      }
+
+      if (this.type == 'point') {
+        style = {
+          background: utils_color["a" /* default */].getColor(this.color, .4)
+        };
+      }
+
+      if (this.type == 'radius') {
+        style = {
+          border: "3px solid ".concat(utils_color["a" /* default */].getColor(this.color, 1))
+        };
+      }
+
+      if (this.type == 'corners') {
+        style = {};
+      }
+
+      if (this.type == 'sound') {
+        style = {
+          background: utils_color["a" /* default */].getColor(this.color, 1)
+        };
+      }
+
+      return style;
+    },
+    style: function style() {
+      return {
+        background: utils_color["a" /* default */].getColor(this.background, 1)
+      };
+    }
+  },
+  mounted: function mounted() {
+    this.active = true;
+  },
+  methods: {
+    effectClick: function effectClick(evt) {
+      var _this = this;
+
+      this.leftx = evt.offsetX;
+      this.topx = evt.offsetY;
+      this.activeEffectClick = true;
+      setTimeout(function () {
+        _this.activeEffectClick = false;
+      }, 50);
+    },
+    close: function close() {
+      this.active = false;
+    }
+  }
+});
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-578fba63","hasScoped":false,"optionsId":"1","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/functions/vsLoading/index.vue
+var vsLoading_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('transition',{attrs:{"name":"fade"}},[(_vm.active)?_c('div',{staticClass:"con-vs-loading",class:[("vs-loading-background-" + _vm.background),("vs-loading-color-" + _vm.color),{'textAfter':_vm.textAfter}],style:(_vm.style),on:{"click":_vm.effectClick}},[_c('transition',{attrs:{"name":"effect-click"}},[(_vm.activeEffectClick&&_vm.clickEffect)?_c('div',{staticClass:"effect-click",style:(_vm.styleEffectClick)}):_vm._e()]),_vm._v(" "),(_vm.text)?_c('h4',{staticClass:"title-loading"},[_vm._v(_vm._s(_vm.text))]):_vm._e(),_vm._v(" "),_c('div',{staticClass:"vs-loading",class:[_vm.type],style:({
+        transform:("scale(" + _vm.scale + ")")
+      })},[(_vm.type!='material')?_c('div',{staticClass:"effect-1 effects",style:(_vm.styleEffect1)}):_vm._e(),_vm._v(" "),(_vm.type!='material')?_c('div',{staticClass:"effect-2 effects",style:(_vm.styleEffect2)}):_vm._e(),_vm._v(" "),(_vm.type!='material')?_c('div',{staticClass:"effect-3 effects",style:(_vm.styleEffect3)}):_vm._e(),_vm._v(" "),_c('img',{attrs:{"src":_vm.src}}),_vm._v(" "),(_vm.type=='material')?_c('svg',{staticClass:"spinner",attrs:{"width":"50px","height":"50px","viewBox":"0 0 66 66","xmlns":"http://www.w3.org/2000/svg"}},[_c('circle',{staticClass:"path",attrs:{"fill":"none","stroke-width":"5","stroke-linecap":"round","cx":"33","cy":"33","r":"30"}})]):_vm._e()])],1):_vm._e()])}
+var vsLoading_staticRenderFns = []
+
+// CONCATENATED MODULE: ./src/functions/vsLoading/index.vue
+/* script */
 
 
-var vsLoading_vsLoading = {
+/* template */
+
+/* template functional */
+var vsLoading_vue_template_functional_ = false
+/* styles */
+var vsLoading_vue_styles_ = null
+/* scopeId */
+var vsLoading_vue_scopeId_ = null
+/* moduleIdentifier (server only) */
+var vsLoading_vue_module_identifier_ = null
+
+var vsLoading_Component = Object(component_normalizer["a" /* default */])(
+  vsLoading,
+  vsLoading_render,
+  vsLoading_staticRenderFns,
+  vsLoading_vue_template_functional_,
+  vsLoading_vue_styles_,
+  vsLoading_vue_scopeId_,
+  vsLoading_vue_module_identifier_
+)
+
+/* harmony default export */ var functions_vsLoading = (vsLoading_Component.exports);
+
+// CONCATENATED MODULE: ./src/functions/vsLoading/index.js
+
+
+
+var loadingConstructor = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend(functions_vsLoading);
+/* harmony default export */ var src_functions_vsLoading = ({
   name: 'loading',
-  vsfunction: function vsfunction(param) {
-    var colorx = 'rgb(var(--primary))';
-    var backgroundx = 'rgba(255, 255, 255,.8)';
+  vsfunction: function vsfunction(parameters) {
+    var instance = new loadingConstructor();
     var containerx = document.body;
-    var scalex = 1;
 
-    if (param !== undefined) {
-      if (param.hasOwnProperty('color')) {
-        colorx = /(^#(([a-f]|[A-F]|[0-9]){3}|([a-f]|[A-F]|[0-9]){6})$|^rgb\((1?[0-9]{1,2}|2[0-4][0-9]|25[0-5]),\s?(1?[0-9]{1,2}|2[0-4][0-9]|25[0-5]),\s?(1?[0-9]{1,2}|2[0-4][0-9]|25[0-5])\)$|^rgba\((1?[0-9]{1,2}|2[0-4][0-9]|25[0-5]),\s?(1?[0-9]{1,2}|2[0-4][0-9]|25[0-5]),\s?(1?[0-9]{1,2}|2[0-4][0-9]|25[0-5]),\s?(0?(\.\d+)?|1(\.0+)?)\)$|^transparent$)/.test(param.color) ? param.color : "rgb(var(--".concat(param.color, "))");
-      }
+    if (parameters) {
+      instance.$data.type = parameters.type || 'default';
+      instance.$data.background = parameters.background;
+      instance.$data.color = parameters.color;
+      instance.$data.scale = parameters.scale;
+      instance.$data.text = parameters.text;
+      instance.$data.clickEffect = parameters.clickEffect;
 
-      if (param.hasOwnProperty('background')) {
-        backgroundx = /(^#(([a-f]|[A-F]|[0-9]){3}|([a-f]|[A-F]|[0-9]){6})$|^rgb\((1?[0-9]{1,2}|2[0-4][0-9]|25[0-5]),\s?(1?[0-9]{1,2}|2[0-4][0-9]|25[0-5]),\s?(1?[0-9]{1,2}|2[0-4][0-9]|25[0-5])\)$|^rgba\((1?[0-9]{1,2}|2[0-4][0-9]|25[0-5]),\s?(1?[0-9]{1,2}|2[0-4][0-9]|25[0-5]),\s?(1?[0-9]{1,2}|2[0-4][0-9]|25[0-5]),\s?(0?(\.\d+)?|1(\.0+)?)\)$|^transparent$)/.test(param.background) ? param.background : "rgb(var(--".concat(param.background, "))");
-      }
-
-      if (param.hasOwnProperty('container')) {
-        containerx = document.querySelectorAll(param.container);
-      }
-
-      if (param.hasOwnProperty('scale')) {
-        scalex = /^\d+(\.\d+)?$/.test(param.scale) ? param.scale : 1;
+      if (parameters.container) {
+        containerx = document.querySelector(parameters.container);
       }
     }
 
-    var conLoading = document.createElement('div');
-    conLoading.classList.add('vs-con-loading');
-    conLoading.setAttribute('style', "background: ".concat(backgroundx, ";"));
-    conLoading.innerHTML = "\n      <div class=\"vs-loading-default\" style=\"transform: scale(".concat(scalex, ");\">\n        <div style=\"border-left: 4px solid ").concat(colorx, ";\" class=\"linea1\"></div>\n        <div style=\"border-left: 4px solid ").concat(colorx, ";\" class=\"linea2\"></div>\n        <div style=\"border-left: 4px solid ").concat(colorx, ";\" class=\"linea3\"></div>\n      </div>\n  ");
-    var loaders = [];
-
-    if (containerx.nodeType !== 1) {
-      containerx.forEach(function (containerEl) {
-        var conLoadClone = conLoading.cloneNode(true);
-        containerEl.insertBefore(conLoadClone, containerEl.firstChild);
-        loaders.push(conLoadClone);
-      });
-    } else {
-      loaders.push(conLoading);
-      containerx.insertBefore(conLoading, containerx.firstChild);
-    }
-
-    setTimeout(function () {
-      loaders.forEach(function (loader) {
-        loader.classList.add('loading-activo');
-      });
-    }, 10);
+    instance.vm = instance.$mount();
+    containerx.insertBefore(instance.vm.$el, containerx.firstChild);
+  },
+  close: function close(elx) {
+    var el = elx || 'body > .con-vs-loading';
+    var loadings = document.querySelectorAll(el);
+    loadings.forEach(function (loading) {
+      loading.classList.add('beforeRemove');
+      setTimeout(function () {
+        loading.remove();
+      }, 300);
+    });
   }
-};
-var vsLoadingClose = {
-  name: 'loading',
-  subName: 'close',
-  vsfunction: function vsfunction(param) {
-    var conLoading = document.querySelector('.vs-con-loading');
-
-    if (param !== undefined) {
-      if (param.hasOwnProperty('loadingQuery')) {
-        conLoading = document.querySelectorAll(param.loadingQuery);
-      }
-    }
-
-    if (conLoading.nodeType !== 1) {
-      conLoading.forEach(function (loadingNode) {
-        loadingNode.style.opacity = 0;
-      });
-    } else {
-      conLoading.style.opacity = 0;
-    }
-
-    setTimeout(function () {
-      if (conLoading.nodeType !== 1) {
-        conLoading.forEach(function (loadingNode) {
-          loadingNode.remove();
-        });
-      } else {
-        conLoading.remove();
-      }
-    }, 300);
-  }
-};
+});
 // CONCATENATED MODULE: ./src/functions/vsDialog/index.js
 
 
@@ -10820,14 +11024,12 @@ var vsDialog_instance;
 // Functions
 
 
-
  //theme
 
 
 var vsFunctions = {
   vsNotifications: src_functions_vsNotifications,
-  vsLoading: vsLoading_vsLoading,
-  vsLoadingClose: vsLoadingClose,
+  vsLoading: src_functions_vsLoading,
   vsTheme: theme,
   vsDialog: src_functions_vsDialog
 };
@@ -10840,6 +11042,7 @@ var vsFunctions = {
       Vue.prototype.$vs[vsFunctions.name] = vsFunctions.vsfunction;
     }
   });
+  Vue.prototype.$vs.loading.close = src_functions_vsLoading.close;
 });
 // CONCATENATED MODULE: ./src/utils/easing.js
 /* harmony default export */ var easing = ({
@@ -10992,7 +11195,7 @@ var Vuesax = {
       Vue.use(vsComponent);
     });
     functions(Vue);
-    Vue.prototype.$vs.easing = easing; // Vue.directive('tooltip', vsTooltip)
+    Vue.prototype.$vs.easing = easing;
   }
 };
 
@@ -12417,13 +12620,6 @@ exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O) {
   return $keys(O, hiddenKeys);
 };
 
-
-/***/ }),
-
-/***/ "zaE7":
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
 
 /***/ })
 
