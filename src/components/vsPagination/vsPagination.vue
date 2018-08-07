@@ -1,33 +1,39 @@
 <template lang="html">
-  <nav 
-    class="vs-component" 
-    aria-label="Page pagination" 
+  <nav
+    class="vs-component"
+    aria-label="Page pagination"
     role="navigation">
     <ul :class="['vs-pagination', vsType ? `vs-pager-${vsType}` : '', vsRounded ? 'vs-pager-rounded' : '']">
-      <li><button 
-        :disabled="onFirstPage() ? true : false" 
-        @click="previousPage()"><i class="material-icons">{{ vsPrevIcon }}</i></button></li>
-      <li 
-        v-for="(page, index) in pages" 
+      <li><button
+        :disabled="onFirstPage() ? true : false"
+        @click="previousPage()">
+        <i
+          translate="no"
+          class="material-icons notranslate">{{ vsPrevIcon }}</i></button></li>
+      <li
+        v-for="(page, index) in pages"
         :key="index">
-        <button 
+        <button
           :style="{
             'background':onCurrentPage(page)&&vsType?vsColor?/[#()]/.test(vsColor)?vsColor:`rgba(var(--${vsColor}),1)`:'rgb(var(--primary))':null
           }"
-          :class="onCurrentPage(page)" 
-          :disabled="isEllipsis(page) ? true : false" 
+          :class="onCurrentPage(page)"
+          :disabled="isEllipsis(page) ? true : false"
           @click="goTo(page)">{{ page }}</button>
       </li>
-      <li><button 
-        :disabled="onLastPage() ? true : false" 
-        @click="nextPage()"><i class="material-icons">{{ vsNextIcon }}</i></button></li>
-      <li 
-        v-if="vsGoto" 
-        class="goto"><vs-input 
-          v-model="go" 
-          :max="vsTotal" 
-          vs-type="number" 
-          min="1" 
+      <li><button
+        :disabled="onLastPage() ? true : false"
+        @click="nextPage()">
+        <i
+          translate="no"
+          class="material-icons notranslate">{{ vsNextIcon }}</i></button></li>
+      <li
+        v-if="vsGoto"
+        class="goto"><vs-input
+          v-model="go"
+          :max="vsTotal"
+          vs-type="number"
+          min="1"
           @change="goTo"/></li>
     </ul>
   </nav>
@@ -81,7 +87,16 @@ export default {
       nextRange: ''
     }
   },
-  computed: {
+  watch: {
+    current() {
+      this.pagination
+      this.$emit('page', this.current)
+    }
+  },
+  created() {
+    this.pagination
+  },
+  methods: {
     pagination() {
       if (this.vsTotal <= this.vsMax) {
         return this.pages = this.setPages(1, this.vsTotal)
@@ -103,21 +118,7 @@ export default {
           ...this.setPages(this.nextRange, this.vsTotal)
         ]
       }
-    }
-  },
-  watch: {
-    current() {
-      this.pagination
-      this.$emit('page', this.current)
-    }
-  },
-  created() {
-    this.pagination
-    if (this.vsGoto) {
-      const vsInput = () => import('../vsInput/vsInput.vue')
-    }
-  },
-  methods: {
+    },
     onFirstPage() {
       return this.current === 1
     },

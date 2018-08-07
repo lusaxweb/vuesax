@@ -2,16 +2,15 @@
   <nav
     v-bind="$attrs"
     :class="`vs-align-${vsAlign}`"
-    class="vs-breadcrumb" 
-    aria-label="breadcrumb" 
+    class="vs-breadcrumb"
+    aria-label="breadcrumb"
     v-on="$listeners">
     <ol>
       <slot/>
       <li
         v-for="item in vsItems"
-        v-if="!hasSlot"
+        v-show="!hasSlot"
         :key="item.title"
-
         :class="{'vs-active':item.active,'disabled-link':item.disabled}"
         :aria-current="item.active ? 'page' : null"
       >
@@ -24,17 +23,18 @@
           {{ item.title }}
         </a>
         <template v-else>
-          <span 
+          <span
             :style="{
               'color':vsColor?/[#()]/.test(vsColor)?vsColor:`rgba(var(--${vsColor}),1)`:'rgb(var(--primary))'
           }" >
             {{ item.title }}
           </span>
         </template>
-        <span 
-          v-if="!item.active" 
-          :class="vsSeparator.length > 1 ? 'material-icons' : null" 
-          class="separator" 
+        <span
+          v-if="!item.active"
+          :class="vsSeparator.length > 1 ? 'material-icons' : null"
+          class="separator notranslate"
+          translate="no"
           aria-hidden="true">{{ vsSeparator }}</span>
       </li>
     </ol>

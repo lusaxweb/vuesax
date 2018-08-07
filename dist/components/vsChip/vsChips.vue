@@ -1,31 +1,30 @@
 <template lang="html">
   <div class="">
-    <!-- <pre>
-      {{itemsx}}
-    </pre> -->
-    <div 
-      :class="{'no-items':itemsx.length==0}" 
+    <div
+      :class="{'no-items':itemsx.length==0}"
       class="con-chips">
-      <vs-chip 
-        v-for="item,index in itemsx" 
-        :vs-color="vsColor" 
-        :key="index" 
-        item 
-        vs-closable 
+      <vs-chip
+        v-for="(item,index) in itemsx"
+        :vs-color="vsColor"
+        :key="index"
+        item
+        vs-closable
         @vs-remove="removeItem(index)">
         {{ item }}
       </vs-chip>
-      <input 
-        :placeholder="itemsx.length>0?null:placeholder" 
-        v-model="newChip" 
-        type="text" 
-        name="" 
-        value="" 
+      <input
+        :placeholder="itemsx.length>0?null:placeholder"
+        v-model="newChip"
+        type="text"
+        name=""
+        value=""
         @keypress.enter="addItem">
-      <div 
-        class="x-global" 
+      <div
+        class="x-global"
         @click="removeTotalItems">
-        <i class="material-icons">close</i>
+        <i
+          translate="no"
+          class="material-icons notranslate">close</i>
       </div>
     </div>
   </div>

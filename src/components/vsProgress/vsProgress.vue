@@ -30,17 +30,6 @@
         'width':percent+'%'
       }"
       class="indeterminate-bar"/>
-      <!-- <div
-      class="vs-progress-text"
-      :style="{
-        'color':colorx // TODO get best color contrast based on background color
-      }"
-      >
-      <small>
-        <slot>
-        </slot>
-      </small>
-    </div> -->
   </div>
 </template>
 
@@ -71,11 +60,6 @@ export default {
       percent: 0
     }
   },
-  watch:{
-    vsPercent(){
-      this.percent = this.vsPercent
-    }
-  },
   computed: {
     colorx(){
       if(this.vsColor){
@@ -88,6 +72,11 @@ export default {
         return 'rgba(0, 0, 0,.7)'
       }
     },
+  },
+  watch:{
+    vsPercent(){
+      this.percent = this.vsPercent
+    }
   },
   created () {
     this.percent = 0

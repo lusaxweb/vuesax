@@ -8,14 +8,16 @@
       'border-color':vsColor?/[#()]/.test(vsColor)?vsColor:`rgba(var(--${vsColor}),1)`:'rgb(244,244,244)',
     }"
     class="vs-list-header">
-    <div 
-      v-if="vsIcon" 
+    <div
+      v-if="vsIcon"
       class="list-icon">
-      <i class="material-icons">{{ vsIcon }}</i>
+      <i
+        translate="no"
+        class="material-icons notranslate">{{ vsIcon }}</i>
     </div>
     <div class="list-titles">
-      <div 
-        v-if="vsTitle" 
+      <div
+        v-if="vsTitle"
         class="list-title">{{ vsTitle }}</div>
         <!-- <div class="list-subtitle" v-if="vsSubtitle">{{vsSubtitle}}</div> -->
     </div>
@@ -23,7 +25,6 @@
 </template>
 
 <script>
-import color from '../../utils/color.js'
 export default {
   name:'VsListHeader',
   props: {

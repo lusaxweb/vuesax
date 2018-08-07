@@ -1,12 +1,12 @@
 <template lang="html">
-  <label 
-    :class="[`vs-radio-${vsColor}`]" 
+  <label
+    :class="[`vs-radio-${vsColor}`]"
     class="vs-component con-vs-radio">
     <input
       v-bind="$attrs"
       :checked="isChecked"
       type="radio"
-      name="" 
+      name=""
       v-on="listeners">
     <span
       class="vs-radiox">
@@ -40,7 +40,7 @@ export default {
     listeners(){
       return {
         ...this.$listeners,
-        input: (event) => this.$emit('input', this.vsValue)
+        input: () => this.$emit('input', this.vsValue)
       }
     },
     attrs(){
@@ -54,7 +54,7 @@ export default {
     },
     styles(){
       return {
-        'border': `2px solid ${this.isChecked?_color.getColor(this.vsColor,1):'rgb(200, 200, 200)'}`  
+        'border': `2px solid ${this.isChecked?_color.getColor(this.vsColor,1):'rgb(200, 200, 200)'}`
       }
     },
     styleCircle(){

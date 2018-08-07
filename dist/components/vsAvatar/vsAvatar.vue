@@ -20,11 +20,11 @@
       class="dot-count">
       {{ typeof vsBadge != 'boolean'?vsBadge:null }}
     </div>
-    <div 
-      v-if="vsSrc" 
+    <div
+      v-if="vsSrc"
       class="con-img">
-      <img 
-        :src="vsSrc" 
+      <img
+        :src="vsSrc"
         alt="">
     </div>
     <span
@@ -37,7 +37,8 @@
         'transform':`translate(-50%,-50%) scale(${returnScale})`,
         'color':vsTextColor?/[#()]/.test(vsTextColor)?vsTextColor:`rgba(var(--${vsTextColor}),1)`:'rgb(var(--primary))'
       }"
-      class="vs-avatar-text">
+      translate="no"
+      class="vs-avatar-text notranslate">
       {{ vsText?returnText:vsIcon }}
     </span>
 

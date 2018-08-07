@@ -10,12 +10,13 @@
     }"
     class="con-vs-chip">
 
-    <i 
-      v-if="vsIcon" 
-      class="material-icons icon-chip">{{ vsIcon }}</i>
+    <i
+      v-if="vsIcon"
+      translate="no"
+      class="material-icons icon-chip notranslate">{{ vsIcon }}</i>
 
-    <h3 
-      v-if="vsText" 
+    <h3
+      v-if="vsText"
       class="textx">{{ vsText }}</h3>
     <!-- {{value}} -->
     <div class="vs-chip">
@@ -26,7 +27,9 @@
       v-if="vsClosable"
       class="con-x"
       @click="remove">
-      <i class="material-icons">close</i>
+      <i
+        translate="no"
+        class="material-icons notranslate">close</i>
     </div>
   </div>
 </template>

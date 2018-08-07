@@ -21,7 +21,8 @@
           </div>
           <span
             v-if="type=='alert'"
-            class="vs-dialog-cancel material-icons"
+            translate="no"
+            class="vs-dialog-cancel material-icons notranslate"
             @click="close">close</span>
         </header>
 

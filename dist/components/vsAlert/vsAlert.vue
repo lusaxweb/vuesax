@@ -15,20 +15,23 @@
       class="con-vs-alert"
       v-on="$listeners">
 
-      <i 
-        v-if="vsIcon" 
-        class="material-icons icon-alert">{{ vsIcon }}</i>
+      <i
+        v-if="vsIcon"
+        translate="no"
+        class="material-icons icon-alert notranslate">{{ vsIcon }}</i>
 
       <div
         v-if="vsClosable"
         class="con-x"
         @click="$emit('update:vsActive',false)">
-        <i class="material-icons">close</i>
+        <i
+          translate="no"
+          class="material-icons notranslate">close</i>
       </div>
 
-      <h3 
-        v-if="vsTitle" 
-        :style="{'background':'$primary'}" 
+      <h3
+        v-if="vsTitle"
+        :style="{'background':'$primary'}"
         class="titlex">{{ vsTitle }}</h3>
       <div class="vs-alert">
         <slot/>

@@ -64,7 +64,6 @@ export default {
       if(this.disabled){
         return
       }
-      let _self = this
       searchParent(this)
       function searchParent(_this){
         let parent = _this.$parent

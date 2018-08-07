@@ -7,6 +7,7 @@
       'input-icon-validate-success':vsSuccess,
       'input-icon-validate-danger':vsDanger,
       'input-icon-validate-warning':vsWarning,
+      'is-label-palcehoder':vsLabelPlaceholder
     }]"
     class="vs-component vs-con-input-label vs-input">
     <label
@@ -48,7 +49,8 @@
         :class="[vsIconPack,vsIcon,{
           'icon-after':vsIconAfter,
         }]"
-        class="icon-inputx"
+        translate="no"
+        class="icon-inputx notranslate"
         @click="focusInput">
         {{ vsIcon }}
       </i>

@@ -10,15 +10,16 @@
       v-if="vsIcon?true:$slots.default"
       :style="{
         'color':giveColor(1,'text')
-      }" 
+      }"
       class="vs-divider-text">
       <template v-if="!vsIcon">
         <slot/>
       </template>
 
-      <i 
-        v-else 
-        class="material-icons icon-divider">
+      <i
+        v-else
+        translate="no"
+        class="material-icons icon-divider notranslate">
         {{ vsIcon }}
       </i>
     </span>

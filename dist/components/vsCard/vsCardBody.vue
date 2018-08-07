@@ -7,7 +7,6 @@
 </template>
 
 <script>
-import color from '../../utils/color.js'
 export default {
   name:'VsCardBody'
 }

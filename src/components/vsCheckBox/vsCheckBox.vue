@@ -1,6 +1,6 @@
 <template lang="html">
-  <div 
-    :class="[`vs-checkbox-${vsColor}`]" 
+  <div
+    :class="[`vs-checkbox-${vsColor}`]"
     class="vs-component con-vs-checkbox">
     <input
       v-bind="$attrs"
@@ -11,11 +11,12 @@
     <span
       :style="style"
       class="checkbox_x">
-      <span 
-        :style="style_check" 
+      <span
+        :style="style_check"
         class="_check"/>
       <i
-        class="material-icons">
+        translate="no"
+        class="material-icons notranslate">
         {{ vsIcon }}
       </i>
     </span>

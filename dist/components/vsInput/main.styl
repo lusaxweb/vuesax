@@ -12,6 +12,8 @@
   position relative
   transition: all .3s ease
   width: 200px
+  &.is-label-palcehoder
+    margin-top: 17px
   .vs-con-input
     display flex
     align-items flex-start
@@ -32,14 +34,14 @@
         box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.150);
       &:focus,&.hasValue
         + .vs-placeholder-label
-          transform: translate(-5px,-95%) !important
+          transform: translate(-3px,-90%) !important
           font-size: .7rem
           padding-left: .5rem !important
       &:focus
         + .input-span-placeholder
-          transform: translate(5px)  
+          transform: translate(5px)
       &.hasIcon
-        padding-left: 32px;   
+        padding-left: 32px;
         + .input-span-placeholder
           padding-left: 32px;
       &.icon-after-input
@@ -73,7 +75,7 @@
       color rgba(0,0,0,.4)
       cursor default
       user-select none
-      
+
       &.icon-after
         left auto
         right 5px;
@@ -82,7 +84,7 @@
         padding-left: 3px;
         padding-right: 0px;
   .vs-input-label
-    padding-left 5px; 
+    padding-left 5px;
     font-size: .85rem
     color rgba(0,0,0,.7)
 

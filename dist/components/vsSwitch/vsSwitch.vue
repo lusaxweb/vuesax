@@ -10,35 +10,39 @@
     v-bind="$attrs"
     class="vs-component vs-switch"
     type="button"
-    name="button" 
+    name="button"
     @click="toggleCheckbox($event)">
     <input
       ref="inputCheckbox"
       :checked="value"
       :disabled="$attrs.disabled"
       class="input-switch"
-      type="checkbox" 
-      name="" 
-      value="" 
+      type="checkbox"
+      name=""
+      value=""
       v-on="listeners">
 
-    <span 
-      ref="on" 
-      :class="{'active-text':isChecked || $attrs.checked}" 
+    <span
+      ref="on"
+      :class="{'active-text':isChecked || $attrs.checked}"
       class="text-on text-switch">
       <slot name="on"/>
-      <!-- perro -->
-      <i class="material-icons icons-switch">
+
+      <i
+        translate="no"
+        class="material-icons icons-switch notranslate">
         {{ vsIconOn || vsIcon }}
       </i>
     </span>
-    <span 
-      ref="off" 
-      :class="{'active-text':!isChecked && !$attrs.checked}" 
+    <span
+      ref="off"
+      :class="{'active-text':!isChecked && !$attrs.checked}"
       class="text-off text-switch">
       <!-- gato con botas -->
       <slot name="off"/>
-      <i class="material-icons icons-switch">
+      <i
+        translate="no"
+        class="material-icons icons-switch notranslate">
         {{ vsIconOff || vsIcon }}
       </i>
     </span>
@@ -102,7 +106,7 @@ export default {
 
   },
   methods:{
-    toggleCheckbox(event) {
+    toggleCheckbox() {
       if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1){
         this.$refs.inputCheckbox.checked = !this.$refs.inputCheckbox.checked;
         this.$emit('input', this.$refs.inputCheckbox.checked);

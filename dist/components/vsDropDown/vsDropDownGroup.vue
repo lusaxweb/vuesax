@@ -2,15 +2,16 @@
   <li
     :class="{'marginIcon':vsCollapse, 'no-cascading':!vsCollapse, 'group-rightx':rightx}"
     class="vs-component vs-dropdown-group"
-    @mouseout="toggleGroup($event)" 
+    @mouseout="toggleGroup($event)"
     @mouseover="toggleGroup($event)">
-    <span 
-      v-if="vsCollapse" 
+    <span
+      v-if="vsCollapse"
       class="span">{{ vsLabel }}</span>
     <h3 v-else>{{ vsLabel }}</h3>
-    <i 
-      v-if="vsCollapse" 
-      class="material-icons icon-group">
+    <i
+      v-if="vsCollapse"
+      translate="no"
+      class="material-icons icon-group notranslate">
       keyboard_arrow_right
     </i>
     <transition
@@ -18,22 +19,16 @@
       @enter="enter"
       @leave="leave"
     >
-      <div 
-        v-if="activeGroup||!vsCollapse" 
-        ref="ulx" 
-        :class="{'con-dropdown-group-no-cascading':!vsCollapse}" 
+      <div
+        v-if="activeGroup||!vsCollapse"
+        ref="ulx"
+        :class="{'con-dropdown-group-no-cascading':!vsCollapse}"
         class="con-dropdown-group">
         <ul >
           <slot/>
         </ul>
       </div>
     </transition>
-    <!-- <div ref="ulx" v-if="!vsCollapse" class="con-dropdown-group-no-cascading">
-      <ul>
-        <slot>
-        </slot>
-      </ul>
-    </div> -->
   </li>
 </template>
 
@@ -71,14 +66,12 @@ export default {
           let hp = _this.$parent.$refs.ulx.scrollHeight
           _this.$parent.$refs.ulx.style.height = hp + h + 'px'
           parents(_this.$parent)
-        } else {
-
         }
       }
 
       done()
     },
-    leave: function (el, done) {
+    leave: function (el) {
       let __this = this
       addParents(this)
       function addParents(_this){
@@ -89,25 +82,12 @@ export default {
         }
       }
       if(!this.$parent.$refs.ulx){
-        let hp = this.$refs.ulx.scrollHeight
         this.$refs.ulx.style.height = 0 + 'px'
       }
       this.$refs.ulx.style.height = 0 + 'px'
       el.style.opacity = 0
     },
-    toggleGroup(event){
-      let parentx
-      let _self = this
-      searchParent(this)
-      function searchParent(_this){
-        let parent = _this.$parent
-        if(parent.$el.className.indexOf('con-vs-dropdown-menu')==-1){
-          searchParent(parent)
-        } else {
-          parentx = parent
-        }
-      }
-
+    toggleGroup(){
       this.activeGroup = !this.activeGroup
     }
   },

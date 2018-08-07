@@ -56,7 +56,8 @@
         </span>
         <i
           v-if="icon"
-          class="material-icons">
+          translate="no"
+          class="material-icons notranslate">
           {{ icon }}
         </i>
       </span>
@@ -86,7 +87,8 @@
         </span>
         <i
           v-if="icon"
-          class="material-icons">
+          translate="no"
+          class="material-icons notranslate">
           {{ icon }}
         </i>
       </span>

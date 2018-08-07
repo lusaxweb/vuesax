@@ -26,7 +26,8 @@
         'margin-right':$slots.default&&!vsIconAfter?'5px':'0px',
         'margin-left':$slots.default&&vsIconAfter?'5px':'0px'
       }"
-      class="material-icons vs-button-icon">
+      translate="no"
+      class="material-icons vs-button-icon notranslate">
       {{ vsIcon }}
     </i>
 

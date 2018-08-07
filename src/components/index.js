@@ -15,7 +15,7 @@ import vsUpload from './vsUpload'
 import vsPopup from './vsPopup'
 import vsAlert from './vsAlert'
 import vsChip from './vsChip'
-import vsChips from './vsChips'
+// import vsChips from './vsChips'
 import vsProgress from './vsProgress'
 import vsCard from './vsCard'
 import vsTopbar from './vsTopbar'
@@ -51,7 +51,7 @@ export {
   vsPopup,
   vsAlert,
   vsChip,
-  vsChips,
+  // vsChips,
   vsProgress,
   vsCard,
   vsTopbar,

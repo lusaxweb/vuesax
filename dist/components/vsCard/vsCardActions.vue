@@ -7,7 +7,6 @@
 </template>
 
 <script>
-import color from '../../utils/color.js'
 export default {
   name:'VsCardActions'
 }
@@ -18,5 +17,5 @@ export default {
     display flex
     justify-content flex-end
     align-items center
-    padding 5px; 
+    padding 5px;
 </style>

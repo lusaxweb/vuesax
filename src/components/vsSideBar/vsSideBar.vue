@@ -5,19 +5,19 @@
       ref="considebar"
       :class="{'vsStatic':vsStatic,'body-sidebar':vsParent=='body'}"
       class="vs-component con-sidebar">
-      <div 
-        v-if="vsBackgroundHidden?false:!vsStatic" 
-        class="con-darkx" 
+      <div
+        v-if="vsBackgroundHidden?false:!vsStatic"
+        class="con-darkx"
         @click="clickOut()"/>
       <!-- :style="{'color':vsColor?/[#()]/.test(vsColor)?vsColor:`rgba(var(--${vsColor}),1)`:'rgb(var(--primary))'}" -->
       <div
-        :class="{'reducex':reduce}" 
+        :class="{'reducex':reduce}"
         class="vs-sidebar">
-        <div 
-          v-if="vsReduceExpand" 
+        <div
+          v-if="vsReduceExpand"
           class="expand-reduce">
-          <i 
-            class="material-icons" 
+          <i
+            class="material-icons"
             @click="reduce=!reduce">
             {{ reduce?'menu':'first_page' }}
           </i>
@@ -109,11 +109,12 @@ export default {
     }
   },
   mounted(){
-    document.querySelector(this.vsParent).addEventListener("touchstart",this.onTouchStart)
-    document.querySelector(this.vsParent).addEventListener("touchend",this.onTouchEnd)
-    // @touchstart="onTouchStart"
-    // @touchend="onTouchEnd"
-    this.insertBody()
+    this.$nextTick(()=>{
+      document.querySelector(this.vsParent).addEventListener("touchstart",this.onTouchStart)
+      document.querySelector(this.vsParent).addEventListener("touchend",this.onTouchEnd)
+      this.insertBody()
+    })
+
 
   },
   methods:{

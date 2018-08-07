@@ -13,7 +13,9 @@
       @keydown.esc.stop.prevent="closeOptions"
       v-on="listeners">
 
-    <i class="material-icons icon-select">
+    <i
+      translate="no"
+      class="material-icons icon-select notranslate">
       keyboard_arrow_down
     </i>
 

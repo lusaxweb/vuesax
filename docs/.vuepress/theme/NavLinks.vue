@@ -115,7 +115,7 @@ export default {
   a
     // line-height 1.25rem
     color inherit
-    padding: .74rem;
+    padding: .7rem;
     transition: all .2s ease
     position: relative;
     &:after
@@ -137,7 +137,7 @@ export default {
     cursor: pointer
     position relative
     display inline-block
-    margin-left 1rem
+    margin-left .5rem
     font-weight 500
     // line-height 2rem
     position: relative

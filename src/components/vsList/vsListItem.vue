@@ -3,17 +3,19 @@
     <div class="list-avatar">
       <slot name="avatar"/>
     </div>
-    <div 
-      v-if="vsIcon" 
+    <div
+      v-if="vsIcon"
       class="list-icon">
-      <i class="material-icons">{{ vsIcon }}</i>
+      <i
+        translate="no"
+        class="material-icons notranslate">{{ vsIcon }}</i>
     </div>
     <div class="list-titles">
-      <div 
-        v-if="vsTitle" 
+      <div
+        v-if="vsTitle"
         class="list-title">{{ vsTitle }}</div>
-      <div 
-        v-if="vsSubtitle" 
+      <div
+        v-if="vsSubtitle"
         class="list-subtitle">{{ vsSubtitle }}</div>
     </div>
     <div class="list-slot">
@@ -23,8 +25,6 @@
 </template>
 
 <script>
-import vsAvatar from '../vsAvatar/vsAvatar'
-import color from '../../utils/color.js'
 export default {
   name:'VsListItem',
   props: {

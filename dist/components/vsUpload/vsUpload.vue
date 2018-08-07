@@ -30,7 +30,9 @@
         title="Upload"
         class="btn-upload-all"
         @click="uploadx('all')">
-        <i class="material-icons">
+        <i
+          translate="no"
+          class="material-icons notranslate">
           cloud_upload
         </i>
       </button>
@@ -50,7 +52,9 @@
           <button
             class="btn-x-file"
             @click="removeFile(index)">
-            <i class="material-icons">
+            <i
+              translate="no"
+              class="material-icons notranslate">
               clear
             </i>
           </button>
@@ -64,7 +68,9 @@
             }"
             class="btn-upload-file"
             @click="uploadx(index)">
-            <i class="material-icons">
+            <i
+              translate="no"
+              class="material-icons notranslate">
               {{ img.percent >= 100?img.error?'report_problem':'cloud_done':'cloud_upload' }}
             </i>
             <span>{{ img.percent }} %</span>
@@ -82,7 +88,9 @@
           <h4
             v-if="!img.src"
             class="text-archive">
-            <i class="material-icons">
+            <i
+              translate="no"
+              class="material-icons notranslate">
               description
             </i>
             <span>

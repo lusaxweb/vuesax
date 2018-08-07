@@ -15,7 +15,9 @@
       }"
       class="btn-less"
       type="button">
-      <i class="material-icons">
+      <i
+        translate="no"
+        class="material-icons notranslate">
         remove
       </i>
     </button>
@@ -37,7 +39,9 @@
       }"
       class="btn-plus"
       type="button">
-      <i class="material-icons">
+      <i
+        translate="no"
+        class="material-icons notranslate">
         add
       </i>
     </button>

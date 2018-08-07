@@ -8,22 +8,24 @@
       'border-top-left-radius':!vsFill?'5px':'inherit'
     }"
     class="con-vs-card-header">
-    <div 
-      v-if="this.$slots.default" 
+    <div
+      v-if="this.$slots.default"
       class="card-icon">
       <slot/>
     </div>
-    <div 
-      v-if="vsIcon" 
+    <div
+      v-if="vsIcon"
       class="card-icon">
-      <i class="material-icons">{{ vsIcon }}</i>
+      <i
+        translate="no"
+        class="material-icons notranslate">{{ vsIcon }}</i>
     </div>
     <div class="card-titles">
-      <div 
-        v-if="vsTitle" 
+      <div
+        v-if="vsTitle"
         class="card-title">{{ vsTitle }}</div>
-      <div 
-        v-if="vsSubtitle" 
+      <div
+        v-if="vsSubtitle"
         class="card-subtitle">{{ vsSubtitle }}</div>
     </div>
   </div>

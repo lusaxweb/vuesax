@@ -21,7 +21,8 @@
         </div>
         <i
           v-if="icon"
-          class="vs-icon-noti material-icons">
+          translate="no"
+          class="vs-icon-noti material-icons notranslate">
           {{ icon }}
         </i>
       </div>
