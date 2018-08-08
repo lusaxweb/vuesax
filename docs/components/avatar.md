@@ -5,6 +5,11 @@ API:
    parameters: null
    description: If the text is very long, only the first letter is added.
    default: null
+ - name: vs-text-color
+   type: String
+   parameters: Text colores principales, RGB, HEX
+   description: Define the color of the Text.
+   default: rgb(255, 255, 255)
  - name: vs-src
    type: String
    parameters: null
@@ -15,11 +20,6 @@ API:
    parameters: large, small, Costom measure (70px)
    description: Url of the image to show in the Avatar.
    default: 32px
- - name: vs-color
-   type: String
-   parameters: Colores Principales, RGB, HEX
-   description: Define the color of the Avatar (does not affect the image).
-   default: rgb(195, 195, 195)
  - name: vs-color
    type: String
    parameters: Colores Principales, RGB, HEX
