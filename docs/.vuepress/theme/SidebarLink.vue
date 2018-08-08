@@ -51,6 +51,7 @@ function renderLink (h, to, text, active, activeTag) {
     },
     nativeOn:{
       click: e => {
+        if (!document.querySelector('#carbonads')) return;
         if (typeof _carbonads !== 'undefined') _carbonads.refresh();
       }
     },

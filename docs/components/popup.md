@@ -1,38 +1,39 @@
 ---
 API:
- - name: vs-title
+ - name: title
    type: String
    parameters: null
    description: Popup title.
    default: null
- - name: vs-active
+ - name: active.sync
    type: Boolean
    parameters: null
    description: Determines if the popup is active (visible).
    default: null
- - name: vs-cancel
-   type: Function
-   parameters: null
-   description: Function that is executed when clicking on the close button.
-   default: null
- - name: vs-fullscreen
+ - name: fullscreen
    type: Boolean
    parameters: null
    description: Determines if the popup has the full size of the screen.
    default: null
- - name: vs-background-color
+ - name: background-color
    type: String
    parameters: primary, success, danger, warning, dark, RGB, HEX
-   description: Change the color of the popup.
-   default: null
- - name: :vs-close-button-color
+   description: Change the color of the popup content.
+   default: rgba(0,0,0,.5)
+ - name: background-color-popup
    type: String
    parameters: primary, success, danger, warning, dark, RGB, HEX
-   description: Change the color of the Button cancel popup .
-   default: null
+   description: Change the color of the popup only.
+   default: rgb(255,255,255)
+ - name: button-close-hidden
+   type: Boolean
+   parameters: null
+   description: Remove button cancel in header.
+   default: false
+
 ---
 
-# Popup
+# Popup **- ssr**
 
 <box header>
 
@@ -57,9 +58,10 @@ To implement the popup we have the component `vs-popup`.
 <template lang="html">
   <div class="centerx">
     <vs-button @click="popupActivo=true" vs-color="primary" vs-type="border">Open Default popup</vs-button>
-    <vs-popup class="holamundo"  vs-title="Lorem ipsum dolor sit amet" :vs-active="popupActivo" @vs-cancel="popupActivo=false">
+    <vs-popup class="holamundo"  title="Lorem ipsum dolor sit amet" :active.sync="popupActivo">
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
       </p>
     </vs-popup>
   </div>
@@ -96,13 +98,15 @@ You can add one popup inside another.
 ```html
 <template lang="html">
   <div class="centerx">
-    <vs-button @click="popupActivo2=true" vs-color="primary" vs-type="filled">Open Pupup</vs-button>
-    <vs-popup  vs-title="Lorem ipsum dolor sit amet" :vs-active="popupActivo2" @vs-cancel="popupActivo2=false">
+    <vs-button @click="popupActivo2=true" vs-color="primary" vs-type="filled">Open Popup</vs-button>
+    <vs-popup classContent="popup-example"  title="Lorem ipsum dolor sit amet" :active.sync="popupActivo2">
+      <vs-input class="inputx" placeholder="Placeholder" v-model="value1"/>
+      <vs-input disabled class="inputx" placeholder="Disabled" v-model="value2"/>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
       </p>
-      <vs-button @click="popupActivo3=true" vs-color="primary" vs-type="filled">Open Inner Pupup</vs-button>
-      <vs-popup vs-title="Inner popup" :vs-active="popupActivo3" @vs-cancel="popupActivo3=false">
+      <vs-button @click="popupActivo3=true" vs-color="primary" vs-type="filled">Open Inner Popup</vs-button>
+      <vs-popup title="Inner popup" :active.sync="popupActivo3">
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           <br><br>
@@ -119,12 +123,23 @@ You can add one popup inside another.
 export default {
   data(){
     return {
+      value1:'',
+      value2:'',
       popupActivo2:false,
       popupActivo3:false
     }
   }
 }
 </script>
+
+<style lang="stylus">
+.popup-example
+  .vs-input
+    float left
+    width 50%
+    margin 10px
+    margin-top 5px
+</style>
 ```
 
 </div>
@@ -136,7 +151,7 @@ export default {
 
 ## Fullscreen
 
-the popup can be full screen you just have to add the property `vs-fullscreen`.
+the popup can be full screen you just have to add the property `fullscreen`.
 
 <vuecode md>
 <div slot="demo">
@@ -148,7 +163,7 @@ the popup can be full screen you just have to add the property `vs-fullscreen`.
 <template lang="html">
   <div class="centerx">
     <vs-button @click="popupActivo4=true" vs-color="danger" vs-type="border">Open fullscreen popup</vs-button>
-    <vs-popup vs-fullscreen vs-title="fullscreen" :vs-active="popupActivo4" @vs-cancel="popupActivo4=false">
+    <vs-popup fullscreen title="fullscreen" :active.sync="popupActivo4">
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </p>
@@ -176,7 +191,7 @@ export default {
 
 ## Background
 
-You can change the color of the property with the property `vs-background`
+You can change the background of the property with the property `background-color` or if you want to change the color of the popup you can use the property `background-color-popup`
 
 <vuecode md>
 <div slot="demo">
@@ -188,9 +203,12 @@ You can change the color of the property with the property `vs-background`
 <template lang="html">
   <div class="centerx">
     <input v-model="colorx" type="color" name="" value="">
-    <vs-button :vs-color="colorx" @click="popupActivo5=true" vs-color="warning" vs-type="filled">Open background popup</vs-button>
+    <vs-button :vs-color="colorx" @click="popupActivo5=true" vs-type="filled">Open background popup</vs-button>
 
-    <vs-popup :vs-background-color="colorx" vs-title="background" :vs-active="popupActivo5" @vs-cancel="popupActivo5=false">
+    <vs-popup
+      style="color:rgb(255,255,255)"
+      background-color="rgba(255,255,255,.6)"
+      :background-color-popup="colorx" title="background" :active.sync="popupActivo5">
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         <br>
@@ -205,54 +223,8 @@ You can change the color of the property with the property `vs-background`
 export default {
   data(){
     return {
-      colorx:"#339898",
+      colorx:"#4a5153",
       popupActivo5:false
-    }
-  }
-}
-</script>
-```
-
-</div>
-</vuecode>
-</box>
-
-
-<box>
-
-## Color Button
-
-You can change the color of the button with the property `vs-close-button-color`.
-
-<vuecode md>
-<div slot="demo">
-  <Demos-Popup-Colorbutton />
-</div>
-<div slot="code">
-
-```html
-<template lang="html">
-  <div class="centerx">
-    <input v-model="colorx2" type="color" name="" value="">
-    <vs-button :vs-color="colorx2" @click="popupActivo6=true" vs-color="dark" vs-type="border">Open color button popup</vs-button>
-
-    <vs-popup :vs-close-button-color="colorx2" vs-title="Color Button" :vs-active="popupActivo6" @vs-cancel="popupActivo6=false">
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        <br>
-        <br>
-        e irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
-    </vs-popup>
-  </div>
-</template>
-
-<script>
-export default {
-  data(){
-    return {
-      popupActivo6:false,
-      colorx2:'#dd7617',
     }
   }
 }

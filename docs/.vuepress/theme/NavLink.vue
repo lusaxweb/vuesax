@@ -33,6 +33,7 @@ export default {
     isExternal,
     isMailto,
     changeAds(){
+      if (!document.querySelector('#carbonads')) return;
       if (typeof _carbonads !== 'undefined') _carbonads.refresh();
     }
   }

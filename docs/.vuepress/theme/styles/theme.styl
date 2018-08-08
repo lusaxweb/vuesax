@@ -145,12 +145,12 @@ body
   font-family -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
-  font-size 16px
+  font-size 15px
   color $textColor
 
 .page
   padding-left $sidebarWidth
-
+  padding-right: 160px
 .navbar
   position fixed
   z-index 20
@@ -193,9 +193,9 @@ body
 
 .content:not(.custom)
   max-width $contentWidth
-  // margin 0 auto
+  margin 0 auto
   padding 1.5rem 1.5rem
-  width: calc(100% - 180px)
+  // width: calc(100% - 160px)
   > *:first-child
     margin-top $navbarHeight
   a:hover
@@ -282,8 +282,23 @@ a.header-anchor
 code, kbd
   font-family source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace
 
-p, ul, ol
+ul, ol
   line-height 1.7
+  padding-top: 6px;
+  padding-bottom: 6px;
+
+&.con-menu-vc
+  ul
+    padding-top: 0px;
+    padding-bottom: 0px;
+    li
+      padding-top: 3px !important;
+      padding-bottom 3px !important
+
+.tip
+  ul
+    margin-left: 20px
+
 
 hr
   border 0
@@ -323,5 +338,6 @@ th, td
       display none
     .page
       padding-left 0
+      padding-right: 0px !important
 
 @require './mobile.styl'

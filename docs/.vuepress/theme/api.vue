@@ -79,7 +79,7 @@ export default {
   margin: auto;
   max-width: 1200px;
   background: rgb(255, 255, 255);
-  box-shadow: 0px 20px 40px -15px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 20px 40px -15px rgba(0, 0, 0, 0.05);
   padding: 10px;
   border-radius: 5px;
   overflow-x: auto;
@@ -102,14 +102,16 @@ table {
     border-collapse: collapse;
 }
 table td {
-  padding: 10px;
+  padding: 7px;
   border: 1px solid rgba(0, 0, 0, 0.050);
   color: rgba(0, 0, 0, 0.7);
+  font-size: .8rem
 }
 th {
-  padding: 10px;
+  padding: 7px;
   text-align: left;
   border: 1px solid rgba(0, 0, 0, 0.050);
+  font-size: .8rem !important;
   /* color: rgb(var(--morado)); */
   /* font-weight: lighter; */
   background: rgb(250, 250, 250);

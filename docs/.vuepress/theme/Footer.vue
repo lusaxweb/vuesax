@@ -64,7 +64,7 @@ export default {
 @import './styles/config.styl'
 
 footer.footerx_theme
-  width 100%
+  width calc(100% + 160px)
   height auto
   background #110d26
   position relative
@@ -88,13 +88,14 @@ footer.footerx_theme
 
 .con-links
   position relative
-  width 40%
+  width 50%
   display flex
   align-items flex-start
   justify-content center
   z-index 200
   left 0px
   padding-bottom 40px
+  padding-left 20px
   .lineax
     position absolute
     top -10px
@@ -119,8 +120,9 @@ footer.footerx_theme
   a
     cursor pointer
     font-size 13px
-    color rgba(255, 255, 255,.5)
+    color rgba(255, 255, 255,.6)
     transition all .2s ease
+    text-shadow 0px 0px 5px rgba(0,0,0,1)
     &:hover
       color rgb(255, 255, 255)
 
@@ -146,7 +148,7 @@ footer.footerx_theme
   position absolute
   z-index 100
   width 33%
-  right 20%
+  right 10%
   bottom 70px
 
 .svg-piso
@@ -162,6 +164,8 @@ footer.footerx_theme
   fill #110d26
 
 @media (max-width: $MQMobile)
+  .bosque
+    display none
   .con-copy
     position static
     text-align center
