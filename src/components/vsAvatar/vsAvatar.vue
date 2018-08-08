@@ -6,28 +6,28 @@
     class="con-vs-avatar"
     v-on="$listeners">
     <div
-      v-if="vsBadge && vsBadge > 0"
+      v-if="badge && badge > 0"
       :style="badgeStyle"
       :class="badgeClass"
       class="dot-count">
-      {{ typeof vsBadge != 'boolean' ? vsBadge : null }}
+      {{ typeof badge != 'boolean' ? badge : null }}
     </div>
     <div
-      v-if="vsSrc"
+      v-if="src"
       class="con-img">
       <img
-        :src="vsSrc"
+        :src="src"
         alt="">
     </div>
     <span
       v-else
-      :title="vsText"
+      :title="text"
       :style="textStyle"
       :class="textClass"
       translate="no"
       class="vs-avatar-text notranslate"
     >
-      {{ vsText ? returnText : vsIcon }}
+      {{ text ? returnText : icon }}
     </span>
 
   </div>
@@ -39,35 +39,35 @@ import _color from '../../utils/color.js'
 export default {
   name: 'VsAvatar',
   props:{
-    vsBadge:{
+    badge:{
       type:[Boolean,String,Number],
       default:false,
     },
-    vsBadgeColor:{
+    badgeColor:{
       default:'danger',
       type:String,
     },
-    vsSize:{
+    size:{
       type:String,
       default:null,
     },
-    vsSrc:{
+    src:{
       type:String,
       default:null
     },
-    vsIcon:{
+    icon:{
       type:String,
       default:'person'
     },
-    vsTextColor:{
+    textColor:{
       type:String,
       default:'rgb(255, 255, 255)',
     },
-    vsText:{
+    text:{
       type:[String,Number],
       default: null,
     },
-    vsColor:{
+    color:{
       type:String,
       default:'rgb(195, 195, 195)',
     }
@@ -75,44 +75,44 @@ export default {
   computed:{
     avatarClass() {
       const classes = {}
-      classes[this.vsSize] = true
-      if (_color.isColor(this.vsColor)) {
-        classes[`con-vs-avatar-${this.vsColor}`] = true
+      classes[this.size] = true
+      if (_color.isColor(this.color)) {
+        classes[`con-vs-avatar-${this.color}`] = true
       }
       return classes
     },
     avatarStyle() {
       const style = {
-        width: /[px]/.test(this.vsSize) ? this.vsSize : null,
-        height: /[px]/.test(this.vsSize) ? this.vsSize : null
+        width: /[px]/.test(this.size) ? this.size : null,
+        height: /[px]/.test(this.size) ? this.size : null
       }
-      if (!_color.isColor(this.vsColor)) {
-        style.background = _color.getColor(this.vsColor)
+      if (!_color.isColor(this.color)) {
+        style.background = _color.getColor(this.color)
       }
       return style
     },
     badgeClass() {
       const classes = {
-        badgeNumber: (typeof vsBadge != 'boolean')
+        badgeNumber: (typeof badge != 'boolean')
       }
-      if (_color.isColor(this.vsBadgeColor)) {
-        classes[`dot-count-${this.vsBadgeColor}`] = true
+      if (_color.isColor(this.badgeColor)) {
+        classes[`dot-count-${this.badgeColor}`] = true
       }
       return classes
     },
     badgeStyle() {
       const style = {}
-      if (!_color.isColor(this.vsBadgeColor)) {
-        style.background = _color.getColor(this.vsBadgeColor)
+      if (!_color.isColor(this.badgeColor)) {
+        style.background = _color.getColor(this.badgeColor)
       }
       return style
     },
     textClass() {
       const classes = {
-        'material-icons': !this.vsText
+        'material-icons': !this.text
       }
-      if (_color.isColor(this.vsTextColor)) {
-        classes[`vs-avatar-text-${this.vsTextColor}`] = true
+      if (_color.isColor(this.textColor)) {
+        classes[`vs-avatar-text-${this.textColor}`] = true
       }
       return classes
     },
@@ -120,28 +120,28 @@ export default {
       const style = {
         transform: `translate(-50%,-50%) scale(${this.returnScale})`
       }
-      if (!_color.isColor(this.vsTextColor)) {
-        style.color = _color.getColor(this.vsTextColor)
+      if (!_color.isColor(this.textColor)) {
+        style.color = _color.getColor(this.textColor)
       }
       return style
     },
     returnText(){
-      if(this.vsText.length <= 5) {
-        return this.vsText
+      if(this.text.length <= 5) {
+        return this.text
       }
       let exp = /\s/g
       var letras = ''
-      if(exp.test(this.vsText)){
-        this.vsText.split(exp).forEach((word)=>{
+      if(exp.test(this.text)){
+        this.text.split(exp).forEach((word)=>{
           letras += word[0].toUpperCase()
         })
       } else {
-        letras = this.vsText[0].toUpperCase()
+        letras = this.text[0].toUpperCase()
       }
       return letras.length>5?letras[0]:letras
     },
     returnScale(){
-      if(!this.vsText){
+      if(!this.text){
         return 1
       }
       let lengthx = this.returnText.length

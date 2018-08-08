@@ -1,41 +1,41 @@
 ---
 API:
- - name: vs-text
+ - name: text
    type: String
    parameters: null
    description: If the text is very long, only the first letter is added.
    default: null
- - name: vs-text-color
+ - name: text-color
    type: String
    parameters: Text colores principales, RGB, HEX
    description: Define the color of the Text.
    default: rgb(255, 255, 255)
- - name: vs-src
+ - name: src
    type: String
    parameters: null
    description: Url of the image to show in the Avatar.
    default: null
- - name: vs-size
+ - name: size
    type: String
    parameters: large, small, Costom measure (70px)
    description: Url of the image to show in the Avatar.
    default: 32px
- - name: vs-color
+ - name: color
    type: String
    parameters: Colores Principales, RGB, HEX
    description: Define the color of the Avatar (does not affect the image).
    default: rgb(195, 195, 195)
- - name: vs-badge
+ - name: badge
    type: Boolean, Number
    parameters: null
    description: Define if the badge is active and what is its value in number.
    default: null
- - name: vs-badge-color
+ - name: badge-color
    type: String
    parameters: Colores Principales, RGB, HEX
    description: Define the color of the Badge.
    default: danger
- - name: vs-icon
+ - name: icon
    type: String
    parameters: Material Icons
    description: Define the icon within the Avatar.
@@ -57,7 +57,7 @@ API:
 
 Often you need to add an user's avatar to your app. In order to make this we have the component `vs-avatar`.
 
-To add an internal text value such as `Luis` use the` vs-text` property.
+To add an internal text value such as `Luis` use the` text` property.
 
 :::tip
 If the text has more than 5 letters, only the first letter will be shown as in the second avatar, the name is `Luis Daniel` and only the letters `LD` will be shown if the word contains spaces the initial of each one is added.
@@ -66,18 +66,18 @@ If the text has more than 5 letters, only the first letter will be shown as in t
 <vuecode md center>
 <div slot="demo">
   <vs-avatar />
-  <vs-avatar vs-text="Luisdaniel"/>
-  <vs-avatar vs-text="Luisd"/>
-  <vs-avatar vs-text="Luis Daniel"/>
-  <vs-avatar vs-src="https://avatars2.githubusercontent.com/u/31676496?s=460&v=4"/>
+  <vs-avatar text="Luisdaniel"/>
+  <vs-avatar text="Luisd"/>
+  <vs-avatar text="Luis Daniel"/>
+  <vs-avatar src="https://avatars2.githubusercontent.com/u/31676496?s=460&v=4"/>
 </div>
 <div slot="code">
 
 ```html
 <vs-avatar />
-<vs-avatar vs-text="Luis Daniel"/>
-<vs-avatar vs-text="Luisd"/>
-<vs-avatar vs-src="https://avatars2.githubusercontent.com/u/31676496?s=460&v=4"/>
+<vs-avatar text="Luis Daniel"/>
+<vs-avatar text="Luisd"/>
+<vs-avatar src="https://avatars2.githubusercontent.com/u/31676496?s=460&v=4"/>
 ```
 
 </div>
@@ -90,7 +90,7 @@ If the text has more than 5 letters, only the first letter will be shown as in t
 
 ## Size
 
-You can change the size of the Avatar with the property `vs-size` the allowed values ​​are:
+You can change the size of the Avatar with the property `size` the allowed values ​​are:
 
 - large
 - small
@@ -102,18 +102,18 @@ You can change the size of the Avatar with the property `vs-size` the allowed va
 
 <vuecode md center>
 <div slot="demo">
-  <vs-avatar vs-size="small" />
-  <vs-avatar vs-text="Luis Daniel"/>
-  <vs-avatar vs-size="large" vs-src="https://avatars2.githubusercontent.com/u/31676496?s=460&v=4"/>
-  <vs-avatar vs-size="70px" vs-src="https://avatars2.githubusercontent.com/u/31676496?s=460&v=4"/>
+  <vs-avatar size="small" />
+  <vs-avatar text="Luis Daniel"/>
+  <vs-avatar size="large" src="https://avatars2.githubusercontent.com/u/31676496?s=460&v=4"/>
+  <vs-avatar size="70px" src="https://avatars2.githubusercontent.com/u/31676496?s=460&v=4"/>
 </div>
 <div slot="code">
 
 ```html
-<vs-avatar vs-size="small" />
-<vs-avatar vs-text="Luis Daniel"/>
-<vs-avatar vs-size="large" vs-src="https://avatars2.githubusercontent.com/u/31676496?s=460&v=4"/>
-<vs-avatar vs-size="70px" vs-src="https://avatars2.githubusercontent.com/u/31676496?s=460&v=4"/>
+<vs-avatar size="small" />
+<vs-avatar text="Luis Daniel"/>
+<vs-avatar size="large" src="https://avatars2.githubusercontent.com/u/31676496?s=460&v=4"/>
+<vs-avatar size="70px" src="https://avatars2.githubusercontent.com/u/31676496?s=460&v=4"/>
 ```
 
 </div>
@@ -124,30 +124,30 @@ You can change the size of the Avatar with the property `vs-size` the allowed va
 
 ## Color
 
-You can change the Avatar's color by using the property `vs-color`. If needed you could also change the text's color with the property `vs-text-color`.
+You can change the Avatar's color by using the property `color`. If needed you could also change the text's color with the property `text-color`.
 
 <vuecode md center>
 <div slot="demo">
-<vs-avatar vs-color="primary" vs-text="primary"/>
-<vs-avatar vs-color="success" vs-text="success"/>
-<vs-avatar vs-color="danger" vs-text="danger"/>
-<vs-avatar vs-color="warning" vs-text="warning"/>
-<vs-avatar vs-color="dark" vs-text="dark"/>
-<vs-avatar vs-color="rgb(200, 21, 129)" vs-text="RGB"/>
-<vs-avatar vs-color="#18cd5b" vs-text="HEX"/>
-<vs-avatar vs-color="#26302a" vs-text-color="rgb(246, 190, 16)" vs-text="HEX RGB"/>
+<vs-avatar color="primary" text="primary"/>
+<vs-avatar color="success" text="success"/>
+<vs-avatar color="danger" text="danger"/>
+<vs-avatar color="warning" text="warning"/>
+<vs-avatar color="dark" text="dark"/>
+<vs-avatar color="rgb(200, 21, 129)" text="RGB"/>
+<vs-avatar color="#18cd5b" text="HEX"/>
+<vs-avatar color="#26302a" text-color="rgb(246, 190, 16)" text="HEX RGB"/>
 </div>
 <div slot="code">
 
 ```html
-<vs-avatar vs-color="primary" vs-text="primary"/>
-<vs-avatar vs-color="success" vs-text="success"/>
-<vs-avatar vs-color="danger" vs-text="danger"/>
-<vs-avatar vs-color="warning" vs-text="warning"/>
-<vs-avatar vs-color="dark" vs-text="dark"/>
-<vs-avatar vs-color="rgb(200, 21, 129)" vs-text="RGB"/>
-<vs-avatar vs-color="#18cd5b" vs-text="HEX"/>
-<vs-avatar vs-color="#26302a" vs-text-color="rgb(246, 190, 16)" vs-text="HEX RGB"/>
+<vs-avatar color="primary" text="primary"/>
+<vs-avatar color="success" text="success"/>
+<vs-avatar color="danger" text="danger"/>
+<vs-avatar color="warning" text="warning"/>
+<vs-avatar color="dark" text="dark"/>
+<vs-avatar color="rgb(200, 21, 129)" text="RGB"/>
+<vs-avatar color="#18cd5b" text="HEX"/>
+<vs-avatar color="#26302a" text-color="rgb(246, 190, 16)" text="HEX RGB"/>
 ```
 
 </div>
@@ -158,9 +158,9 @@ You can change the Avatar's color by using the property `vs-color`. If needed yo
 
 ## With Badge
 
-You can add a notification label to the avatar, either a reference point or a number with the property `vs-badge`.
+You can add a notification label to the avatar, either a reference point or a number with the property `badge`.
 
-You could also change the badge's color by using the property `vs-badge-color`. You are able to use the [Main Colors](/theme/) or **RGB** and **HEX** colors.
+You could also change the badge's color by using the property `badge-color`. You are able to use the [Main Colors](/theme/) or **RGB** and **HEX** colors.
 
 :::warning
   Only **RGB** and **HEX** colors are supported.
@@ -176,13 +176,13 @@ You could also change the badge's color by using the property `vs-badge-color`. 
 <template lang="html">
   <div class="con-avatarsx">
     <div class="con-avatar-solo">
-    <vs-avatar vs-badge />
-    <vs-avatar :vs-badge="badge1" vs-text="Luisdaniel"/>
-    <vs-avatar vs-badge-color="rgb(140, 23, 164)" :vs-badge="badge2" vs-text="Luisd"/>
+    <vs-avatar badge />
+    <vs-avatar :badge="badge1" text="Luisdaniel"/>
+    <vs-avatar badge-color="rgb(140, 23, 164)" :badge="badge2" text="Luisd"/>
   </div>
-      <vs-button vs-color="danger" vs-type="filled" @click="increment">
+      <button color="danger" type="filled" @click="increment">
         Increment Badge counter
-      </vs-button>
+      </button>
   </div>
 </template>
 
@@ -211,12 +211,12 @@ export default {
 
 ## Icon
 
-You can change the main icon of the Avatar with the property `vs-icon`
+You can change the main icon of the Avatar with the property `icon`
 
 ::: tip
 Vuesax use the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
 
-This icon is only displayed when there is no property as `vs-text` o `vs-src`
+This icon is only displayed when there is no property as `text` o `src`
 :::
 
 
@@ -228,11 +228,11 @@ This icon is only displayed when there is no property as `vs-text` o `vs-src`
 
 ```html
   <vs-avatar />
-  <vs-avatar vs-color="primary" vs-icon="date_range" />
-  <vs-avatar vs-color="success" vs-icon="whatshot" />
-  <vs-avatar vs-color="danger" vs-icon="photo_camera" />
-  <vs-avatar vs-color="warning" vs-icon="filter_vintage" />
-  <vs-avatar vs-color="dark" vs-icon="watch" />
+  <vs-avatar color="primary" icon="date_range" />
+  <vs-avatar color="success" icon="whatshot" />
+  <vs-avatar color="danger" icon="photo_camera" />
+  <vs-avatar color="warning" icon="filter_vintage" />
+  <vs-avatar color="dark" icon="watch" />
 ```
 
 </div>

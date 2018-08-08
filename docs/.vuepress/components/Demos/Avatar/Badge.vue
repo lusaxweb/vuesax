@@ -1,11 +1,11 @@
 <template lang="html">
   <div class="con-avatarsx">
     <div class="con-avatar-solo">
-    <vs-avatar vs-badge />
-    <vs-avatar :vs-badge="badge1" vs-text="Luisdaniel"/>
-    <vs-avatar vs-badge-color="rgb(140, 23, 164)" :vs-badge="badge2" vs-text="Luisd"/>
+    <vs-avatar badge />
+    <vs-avatar :badge="badge1" text="Luisdaniel"/>
+    <vs-avatar badge-color="rgb(140, 23, 164)" :badge="badge2" text="Luisd"/>
   </div>
-      <vs-button vs-type="filled" @click="increment">
+      <vs-button type="filled" @click="increment">
         Increment Badge counter
       </vs-button>
   </div>

@@ -1,11 +1,11 @@
 <template lang="html">
   <div class="con-icons-avatar">
     <vs-avatar />
-    <vs-avatar vs-color="primary" vs-icon="date_range" />
-    <vs-avatar vs-color="success" vs-icon="whatshot" />
-    <vs-avatar vs-color="danger" vs-icon="photo_camera" />
-    <vs-avatar vs-color="warning" vs-icon="filter_vintage" />
-    <vs-avatar vs-color="dark" vs-icon="watch" />
+    <vs-avatar color="primary" icon="date_range" />
+    <vs-avatar color="success" icon="whatshot" />
+    <vs-avatar color="danger" icon="photo_camera" />
+    <vs-avatar color="warning" icon="filter_vintage" />
+    <vs-avatar color="dark" icon="watch" />
   </div>
 </template>
 
