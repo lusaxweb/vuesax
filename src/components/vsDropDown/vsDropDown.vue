@@ -78,7 +78,6 @@ export default {
         return item.hasOwnProperty('dropdownVisible')
       })
       let scrollTopx = window.pageYOffset || document.documentElement.scrollTop;
-      console.dir();
       if(this.$refs.dropdown.getBoundingClientRect().top + 300 >= window.innerHeight) {
         this.$nextTick(() => {
           dropdownMenu.topx = (this.$refs.dropdown.getBoundingClientRect().top - dropdownMenu.$el.clientHeight) + scrollTopx
@@ -101,7 +100,7 @@ export default {
         dropdownMenu.leftx = this.$refs.dropdown.getBoundingClientRect().left + this.$refs.dropdown.clientWidth
       });
     },
-    clickToogleMenu(evt,isContextmenu){
+    clickToogleMenu(evt){
       if(evt.type == 'contextmenu'){
         evt.preventDefault()
       }
@@ -121,7 +120,7 @@ export default {
         }
       }
     },
-    toggleMenu(typex,event){
+    toggleMenu(typex){
       let [dropdownMenu] = this.$children.filter((item)=>{
         return item.hasOwnProperty('dropdownVisible')
       })

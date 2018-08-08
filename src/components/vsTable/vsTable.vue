@@ -7,24 +7,29 @@
       <thead ref="thead">
         <tr>
           <!-- header for JSON -->
-          <th 
-            v-for="th in vsHeaders" 
-            v-if="ths.length<=0">
-            {{ th.title }}
-          </th>
+          <template
+            v-if="ths.length<=0"
+          >
+            <th
+              v-for="th in vsHeaders"
+            >
+              {{ th.title }}
+            </th>
+          </template>
 
           <!-- // header por template -->
           <slot v-else/>
         </tr>
       </thead>
-      <tbody 
-        v-for="tr,trIndex in vsData" 
-        :style="{'font-size':vsFontSize+'px'}" 
-        class="vs-tbody" 
+      <tbody
+        v-for="(tr,trIndex) in vsData"
+        :key="trIndex"
+        :style="{'font-size':vsFontSize+'px'}"
+        class="vs-tbody"
         @click="emitClickTr(tr,trIndex,$event)">
         <tr>
-          <slot 
-            :items="tr" 
+          <slot
+            :items="tr"
             name="trs"/>
         </tr>
 
@@ -43,9 +48,9 @@
             {{tr[td.property]}}
             {{vsEditable}}
           </td>
+        -->
 
-
-          <!-- editable  --
+        <!-- editable
           <td v-if="vsEditable" :style="{'font-size':td.vsFontSize+'px'}" v-for="td,index in ths.length>0?ths:vsHeaders">
             hola
             <a v-if="editTd != index" href="#" @click="editTd = index">{{tr[td.property]}}</a>

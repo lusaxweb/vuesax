@@ -1,19 +1,19 @@
 <template lang="html">
-  <div 
-    ref="considebar" 
-    :class="{'openx':open}" 
+  <div
+    ref="considebar"
+    :class="{'openx':open}"
     class="vs-component con-sidebar-group">
-    <li 
-      ref="labelx" 
-      class="labelx" 
+    <li
+      ref="labelx"
+      class="labelx"
       @click="open=!open">
-      <i 
-        v-if="vsIcon" 
+      <i
+        v-if="vsIcon"
         class="material-icons">
         {{ vsIcon }}
       </i>
-      <i 
-        v-if="vsIconReduce" 
+      <i
+        v-if="vsIconReduce"
         class="material-icons only-reduse">
         {{ vsIconReduce }}
       </i>
@@ -29,8 +29,8 @@
       @enter="enter"
       @leave="leave"
     >
-      <ul 
-        v-show="open" 
+      <ul
+        v-show="open"
         ref="ulx">
         <slot/>
       </ul>
@@ -71,10 +71,10 @@ export default {
     na(min=0, max=10000) {
       return Math.round(Math.random() * (max - min) + min);
     },
-    clickItem(active){
+    clickItem(){
       this.$parent.clickItem()
     },
-    beforeEnter(el) {
+    beforeEnter() {
       this.$refs.ulx.style.height = 0
     },
     enter(el, done){
@@ -87,28 +87,25 @@ export default {
           let hp = _this.$parent.$refs.ulx.scrollHeight
           _this.$parent.$refs.ulx.style.height = hp + h + 'px'
           parents(_this.$parent)
-        } else {
-
         }
       }
 
       done()
     },
-    leave: function (el, done) {
+    leave(){
       let __this = this
       addParents(this)
       function addParents(_this){
         if(_this.$parent.$refs.ulx){
           let hp = _this.$parent.$refs.ulx.scrollHeight - __this.$refs.ulx.scrollHeight
-          _this.$parent.$refs.ulx.style.height = hp + 'px'
+          _this.$parent.$refs.ulx.style.height = `${hp}px`
           addParents(_this.$parent)
         }
       }
       if(!this.$parent.$refs.ulx){
-        let hp = this.$refs.ulx.scrollHeight
-        this.$refs.ulx.style.height = 0 + 'px'
+        this.$refs.ulx.style.height = `${0}px`
       }
-      this.$refs.ulx.style.height = 0 + 'px'
+      this.$refs.ulx.style.height = `${0}px`
     },
   }
 }
