@@ -617,18 +617,18 @@ $export($export.P + $export.F * __webpack_require__("GFCQ")(INCLUDES), 'String',
 
 /***/ }),
 
-/***/ "7cJ5":
+/***/ "8V+I":
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__("ww9l");
+var content = __webpack_require__("BOll");
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = __webpack_require__("SZ7m").default
-var update = add("623ad9b0", content, true, {});
+var update = add("53b25a52", content, true, {});
 
 /***/ }),
 
@@ -763,6 +763,21 @@ module.exports = $export;
 
 /***/ }),
 
+/***/ "BOll":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("I1BE")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".con-sidebar-group .labelx{padding:8px;padding-left:20px;-webkit-transition:all .25s ease;transition:all .25s ease;position:relative;cursor:pointer;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}.con-sidebar-group .labelx.activeChild{background:#769f1d!important}.con-sidebar-group .labelx i.material-icons{margin-right:10px;font-size:1.25em}.con-sidebar-group .labelx .icon-arrowx{position:absolute;right:0;font-size:1.3125em;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);-webkit-transition:-webkit-transform .25s ease;transition:-webkit-transform .25s ease;transition:transform .25s ease;transition:transform .25s ease,-webkit-transform .25s ease}.con-sidebar-group ul{-webkit-transition:all .25s ease;transition:all .25s ease;overflow:hidden;padding-left:0;position:relative}.con-sidebar-group ul li{padding-left:10px}.con-sidebar-group a:hover{-webkit-transform:translate(0)!important;transform:translate(0)!important;border-radius:0!important;-webkit-box-shadow:none!important;box-shadow:none!important}.openx{border-bottom:1px solid rgba(0,0,0,.06)}.openx:last-child{border-bottom:0 solid rgba(0,0,0,.06)}.openx>.labelx{background:#f8f8f8}.openx>.labelx>.icon-arrowx{-webkit-transform:translateY(-50%) rotate(180deg);transform:translateY(-50%) rotate(180deg)}.openx .con-sidebar-group .labelx,.openx .con-sidebar-group a{padding-left:30px}", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "BXK8":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -802,6 +817,21 @@ function _nonIterableSpread() {
 }
 
 module.exports = _nonIterableSpread;
+
+/***/ }),
+
+/***/ "CGfM":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("I1BE")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".vs-con-dropdown{position:relative;display:inline-block;border:0;background:transparent}.vs-con-dropdown a{-webkit-user-select:none!important;-moz-user-select:none!important;-ms-user-select:none!important;user-select:none!important}.vs-con-dropdown:active{opacity:1!important}", ""]);
+
+// exports
+
 
 /***/ }),
 
@@ -1799,21 +1829,6 @@ var update = add("83bc4b64", content, true, {});
 
 /***/ }),
 
-/***/ "QewL":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("I1BE")(false);
-// imports
-
-
-// module
-exports.push([module.i, ".con-sidebar-group .labelx{padding:8px;padding-left:20px;-webkit-transition:all .25s ease;transition:all .25s ease;position:relative;cursor:pointer;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}.con-sidebar-group .labelx.activeChild{background:#769f1d!important}.con-sidebar-group .labelx i.material-icons{margin-right:10px;font-size:1.25em}.con-sidebar-group .labelx .icon-arrowx{position:absolute;right:0;font-size:1.3125em;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);-webkit-transition:-webkit-transform .25s ease;transition:-webkit-transform .25s ease;transition:transform .25s ease;transition:transform .25s ease,-webkit-transform .25s ease}.con-sidebar-group ul{-webkit-transition:all .25s ease;transition:all .25s ease;overflow:hidden;padding-left:0;position:relative}.con-sidebar-group ul li{padding-left:10px}.con-sidebar-group a:hover{-webkit-transform:translate(0)!important;transform:translate(0)!important;border-radius:0!important;-webkit-box-shadow:none!important;box-shadow:none!important}.openx{border-bottom:1px solid rgba(0,0,0,.06)}.openx:last-child{border-bottom:0 solid rgba(0,0,0,.06)}.openx>.labelx{background:#f8f8f8}.openx>.labelx>.icon-arrowx{-webkit-transform:translateY(-50%) rotate(180deg);transform:translateY(-50%) rotate(180deg)}.openx .con-sidebar-group .labelx,.openx .con-sidebar-group a{padding-left:30px}", ""]);
-
-// exports
-
-
-/***/ }),
-
 /***/ "Qf+M":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2231,6 +2246,21 @@ module.exports = function (index, length) {
   return index < 0 ? max(index + length, 0) : min(index, length);
 };
 
+
+/***/ }),
+
+/***/ "UFTM":
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__("CGfM");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__("SZ7m").default
+var update = add("31a80a49", content, true, {});
 
 /***/ }),
 
@@ -9032,10 +9062,10 @@ var vsSidebarItem_Component = normalizeComponent(
       var max = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 10000;
       return Math.round(Math.random() * (max - min) + min);
     },
-    clickItem: function clickItem(active) {
+    clickItem: function clickItem() {
       this.$parent.clickItem();
     },
-    beforeEnter: function beforeEnter(el) {
+    beforeEnter: function beforeEnter() {
       this.$refs.ulx.style.height = 0;
     },
     enter: function enter(el, done) {
@@ -9049,12 +9079,12 @@ var vsSidebarItem_Component = normalizeComponent(
           var hp = _this.$parent.$refs.ulx.scrollHeight;
           _this.$parent.$refs.ulx.style.height = hp + h + 'px';
           parents(_this.$parent);
-        } else {}
+        }
       }
 
       done();
     },
-    leave: function leave(el, done) {
+    leave: function leave() {
       var __this = this;
 
       addParents(this);
@@ -9062,27 +9092,26 @@ var vsSidebarItem_Component = normalizeComponent(
       function addParents(_this) {
         if (_this.$parent.$refs.ulx) {
           var hp = _this.$parent.$refs.ulx.scrollHeight - __this.$refs.ulx.scrollHeight;
-          _this.$parent.$refs.ulx.style.height = hp + 'px';
+          _this.$parent.$refs.ulx.style.height = "".concat(hp, "px");
           addParents(_this.$parent);
         }
       }
 
       if (!this.$parent.$refs.ulx) {
-        var hp = this.$refs.ulx.scrollHeight;
-        this.$refs.ulx.style.height = 0 + 'px';
+        this.$refs.ulx.style.height = "".concat(0, "px");
       }
 
-      this.$refs.ulx.style.height = 0 + 'px';
+      this.$refs.ulx.style.height = "".concat(0, "px");
     }
   }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-49686a6d","hasScoped":false,"optionsId":"2","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsSideBar/vsSidebarGroup.vue
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-623f2417","hasScoped":false,"optionsId":"1","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsSideBar/vsSidebarGroup.vue
 var vsSidebarGroup_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"considebar",staticClass:"vs-component con-sidebar-group",class:{'openx':_vm.open}},[_c('li',{ref:"labelx",staticClass:"labelx",on:{"click":function($event){_vm.open=!_vm.open}}},[(_vm.vsIcon)?_c('i',{staticClass:"material-icons"},[_vm._v("\n      "+_vm._s(_vm.vsIcon)+"\n    ")]):_vm._e(),_vm._v(" "),(_vm.vsIconReduce)?_c('i',{staticClass:"material-icons only-reduse"},[_vm._v("\n      "+_vm._s(_vm.vsIconReduce)+"\n    ")]):_vm._e(),_vm._v(" "),_c('span',{staticClass:"textx_span"},[_vm._v("\n      "+_vm._s(_vm.vsLabel)+"\n    ")]),_vm._v(" "),_c('i',{staticClass:"material-icons icon-arrowx"},[_vm._v("\n      keyboard_arrow_down\n    ")])]),_vm._v(" "),_c('transition',{on:{"before-enter":_vm.beforeEnter,"enter":_vm.enter,"leave":_vm.leave}},[_c('ul',{directives:[{name:"show",rawName:"v-show",value:(_vm.open),expression:"open"}],ref:"ulx"},[_vm._t("default")],2)])],1)}
 var vsSidebarGroup_staticRenderFns = []
 
 // CONCATENATED MODULE: ./src/components/vsSideBar/vsSidebarGroup.vue
 function vsSidebarGroup_injectStyle (context) {
-  __webpack_require__("vSd1")
+  __webpack_require__("8V+I")
 }
 /* script */
 
@@ -9451,7 +9480,6 @@ var slicedToArray_default = /*#__PURE__*/__webpack_require__.n(slicedToArray);
           dropdownMenu = _this$$children$filte4[0];
 
       var scrollTopx = window.pageYOffset || document.documentElement.scrollTop;
-      console.dir();
 
       if (this.$refs.dropdown.getBoundingClientRect().top + 300 >= window.innerHeight) {
         this.$nextTick(function () {
@@ -9473,7 +9501,7 @@ var slicedToArray_default = /*#__PURE__*/__webpack_require__.n(slicedToArray);
         dropdownMenu.leftx = _this3.$refs.dropdown.getBoundingClientRect().left + _this3.$refs.dropdown.clientWidth;
       });
     },
-    clickToogleMenu: function clickToogleMenu(evt, isContextmenu) {
+    clickToogleMenu: function clickToogleMenu(evt) {
       var _this4 = this;
 
       if (evt.type == 'contextmenu') {
@@ -9499,7 +9527,7 @@ var slicedToArray_default = /*#__PURE__*/__webpack_require__.n(slicedToArray);
         }
       }
     },
-    toggleMenu: function toggleMenu(typex, event) {
+    toggleMenu: function toggleMenu(typex) {
       var _this$$children$filte7 = this.$children.filter(function (item) {
         return item.hasOwnProperty('dropdownVisible');
       }),
@@ -9516,13 +9544,13 @@ var slicedToArray_default = /*#__PURE__*/__webpack_require__.n(slicedToArray);
     }
   }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-1fe9afd6","hasScoped":false,"optionsId":"2","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsDropDown/vsDropDown.vue
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-6af77d6b","hasScoped":false,"optionsId":"1","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/components/vsDropDown/vsDropDown.vue
 var vsDropDown_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('button',_vm._g(_vm._b({ref:"dropdown",staticClass:"vs-con-dropdown parent-dropdown"},'button',_vm.$attrs,false),_vm.listeners),[_vm._t("default")],2)}
 var vsDropDown_staticRenderFns = []
 
 // CONCATENATED MODULE: ./src/components/vsDropDown/vsDropDown.vue
 function vsDropDown_injectStyle (context) {
-  __webpack_require__("7cJ5")
+  __webpack_require__("UFTM")
 }
 /* script */
 
@@ -12320,21 +12348,6 @@ exports.push([module.i, ".vs-topbar[data-v-65b7a84f]{width:100%;height:auto;disp
 
 /***/ }),
 
-/***/ "vSd1":
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__("QewL");
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var add = __webpack_require__("SZ7m").default
-var update = add("5e34e893", content, true, {});
-
-/***/ }),
-
 /***/ "vbmC":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12448,21 +12461,6 @@ if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = __webpack_require__("SZ7m").default
 var update = add("380dce11", content, true, {});
-
-/***/ }),
-
-/***/ "ww9l":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("I1BE")(false);
-// imports
-
-
-// module
-exports.push([module.i, ".vs-con-dropdown{position:relative;display:inline-block;border:0;background:transparent}.vs-con-dropdown a{-webkit-user-select:none!important;-moz-user-select:none!important;-ms-user-select:none!important;user-select:none!important}.vs-con-dropdown:active{opacity:1!important}", ""]);
-
-// exports
-
 
 /***/ }),
 
