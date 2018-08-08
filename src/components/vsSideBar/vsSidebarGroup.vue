@@ -92,7 +92,7 @@ export default {
 
       done()
     },
-    leave(el){
+    leave(){
       let __this = this
       addParents(this)
       function addParents(_this){
