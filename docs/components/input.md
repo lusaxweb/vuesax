@@ -28,7 +28,7 @@ API:
  - name: vs-icon-pack
    type: String
    parameters: Icon Pack
-   description: Icon Pack Description. If not use, vs-icon will base in Material Icons. 
+   description: Icon Pack Description. If not use, vs-icon will base in Material Icons.
    default: null
  - name: vs-icon-after
    type: String
@@ -244,7 +244,7 @@ FontAwesome and other fonts library are supported. Simply use the `vs-icon-pack`
 ```html
 <template lang="html">
   <div class="centerx icons-example">
-    <vs-input vs-icon="search" vs-placeholder="Search" v-model="value1"/>
+    <vs-input vs-icon="search" placeholder="Search" v-model="value1"/>
     <vs-input vs-icon-after="true" vs-label-placeholder="icon-after" vs-icon="mode_edit" vs-placeholder="Nombre" v-model="value2"/>
     <vs-input vs-icon="add" vs-label-placeholder="Label-placeholder" v-model="value3"/>
     <vs-input vs-icon-after="true"  vs-icon="shopping_cart" vs-label-placeholder="Label-placeholder" v-model="value4"/>
@@ -360,23 +360,23 @@ You can add a state for example of in affirmative response to a validation with 
 ```html
 <template lang="html">
   <div>
-    <vs-input 
-      :vs-success="true"  
-      vs-success-text="The mail is valid" 
+    <vs-input
+      :vs-success="true"
+      vs-success-text="The mail is valid"
       placeholder="Email Success"
       v-model="value1"/>
-      <vs-input 
-      :vs-danger="true" 
-      vs-danger-text="The password does not meet the standards" 
+      <vs-input
+      :vs-danger="true"
+      vs-danger-text="The password does not meet the standards"
       placeholder="Password Danger"
       v-model="value2"/>
-      <vs-input 
-      :vs-warning="true" 
-      vs-warning-text="The entered data could not be verified" 
+      <vs-input
+      :vs-warning="true"
+      vs-warning-text="The entered data could not be verified"
       placeholder="Date Warning"
       v-model="value3"/>
-      <vs-input 
-      vs-description-text="Just enter the first two numbers of your phone" 
+      <vs-input
+      vs-description-text="Just enter the first two numbers of your phone"
       placeholder="Phone Description"
       v-model="value4"/>
   </div>
