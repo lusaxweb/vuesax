@@ -33,6 +33,7 @@
         <ul>
           <li @mouseenter="doc=true" @mouseleave="doc=false" v-for="action in data.vueThemes.actionsLinks">
             <router-link
+              @click.native="changeAds"
               class="nav-link"
               :to="action.link"
               :exact="action.link === '/'"
@@ -154,10 +155,16 @@ export default {
   },
   mounted(){
      fetch('https://api.github.com/repos/lusaxweb/vuesax')
-  .then(response => response.json())
-  .then(json => {
-    this.star = json.stargazers_count
-  })
+    .then(response => response.json())
+    .then(json => {
+      this.star = json.stargazers_count
+    })
+  },
+  methods:{
+    changeAds(){
+      if (!document.querySelector('#carbonads')) return;
+      if (typeof _carbonads !== 'undefined') _carbonads.refresh();
+    },
   }
 }
 </script>
@@ -422,9 +429,9 @@ export default {
     // box-shadow: 0px -7px 20px -10px rgba(0, 0, 0, 0.1);
     padding 1.2rem
     margin-top 2.5rem
-    display flex
-    flex-wrap wrap
-    align-items: center;
+    // display flex
+    // flex-wrap wrap
+    // align-items: center;
   .feature
     flex-grow 1
     flex-basis 100%
@@ -475,18 +482,18 @@ export default {
     .hero
       padding-left 0
     .features
-      flex-direction column
+      // flex-direction column
       .feature
         max-width 100%
         padding 0
         margin-bottom 2.5rem
-        flex-direction column
+        display block
+        // flex-direction column
         .con-text-feature
           &:nth-child(odd)
             order 1
         .con-img-feature
           padding 0
-          margin 20px
           &:nth-child(odd)
             order 0
   .con-home

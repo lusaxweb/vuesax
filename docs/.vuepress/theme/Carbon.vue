@@ -22,12 +22,13 @@ export default {
 };
 </script>
 <style lang="css">
-#carbonads {
-  --width: 180px;
-  --font-size: 14px;
+/* #-carbonads */
+div[id*="carbonads"] {
+  --width: 160px;
+  --font-size: 13px;
 }
 
-#carbonads {
+div[id*="carbonads"] {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;
   display: block;
   overflow: hidden;
@@ -46,20 +47,20 @@ export default {
   border: 0px;
   transition: all .3s ease;
 }
-#carbonads:hover {
+div[id*="carbonads"]:hover {
   transform: translate(0,5px);
   box-shadow: 0px 0px 0px 0px rgba(0,0,0,.05);
 }
-#carbonads a {
+div[id*="carbonads"] a {
   color: inherit;
   text-decoration: none;
 }
 
-#carbonads a:hover {
+div[id*="carbonads"] a:hover {
   color: inherit;
 }
 
-#carbonads span {
+div[id*="carbonads"] span {
   position: relative;
   display: block;
   overflow: hidden;
@@ -95,19 +96,20 @@ export default {
   line-height: 0;
 }
 
-@media only screen and (min-width: 320px) and (max-width: 759px) {
-  #carbonads {
+@media only screen and (max-width: 960px) {
+
+  div[id*="carbonads"] {
     float: none;
     margin: 0 auto;
     right: 0px;
-    max-width: 330px;
+    max-width: calc(100% - 20px);
     position: relative;
     margin-bottom: 20px
   }
-  #carbonads span {
+  div[id*="carbonads"] span {
     position: relative;
   }
-  #carbonads > span {
+  div[id*="carbonads"] > span {
     max-width: none;
   }
   .carbon-img {

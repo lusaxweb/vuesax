@@ -69,9 +69,9 @@ The framework is focused on facilitating the development of applications, improv
 - [Upload](https://lusaxweb.github.io/vuesax/components/upload.html) - SSR
 - [Loading](https://lusaxweb.github.io/vuesax/components/loading.html) - SSR
 - [Avatar](https://lusaxweb.github.io/vuesax/components/avatar.html) - SSR
+- [Popup](https://lusaxweb.github.io/vuesax/components/popup.html) - SSR
 - [Grid](https://lusaxweb.github.io/vuesax/layout/) - Working
 - [Chip](https://lusaxweb.github.io/vuesax/components/chip.html)
-- [Popup](https://lusaxweb.github.io/vuesax/components/popup.html)
 - [Progress](https://lusaxweb.github.io/vuesax/components/progress.html)
 - [Alert](https://lusaxweb.github.io/vuesax/components/alert.html)
 - [Card](https://lusaxweb.github.io/vuesax/components/card.html)

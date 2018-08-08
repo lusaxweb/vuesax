@@ -63,7 +63,7 @@ export default {
     margin-top 0px;
     h2
       border-radius: 6px 6px 0px 0px
-      padding: 10px
+      padding: 6px
       // padding-top: 4rem
       width: 100%
       background: rgb(245, 245, 245)

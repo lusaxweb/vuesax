@@ -24,12 +24,12 @@
     <div class="content page-nav" v-if="prev || next">
       <p class="inner">
         <span v-if="prev" class="prev">
-          ← <router-link v-if="prev" class="prev" :to="prev.path">
+          ← <router-link @click.native="changeAds" v-if="prev" class="prev" :to="prev.path">
             {{ prev.title || prev.path }}
           </router-link>
         </span>
         <span v-if="next" class="next">
-          <router-link v-if="next" :to="next.path">
+          <router-link @click.native="changeAds" v-if="next" :to="next.path">
             {{ next.title || next.path }}
           </router-link> →
         </span>
@@ -123,6 +123,12 @@ export default {
         `Edit this page`
       )
     }
+  },
+  methods:{
+    changeAds(){
+      if (!document.querySelector('#carbonads')) return;
+      if (typeof _carbonads !== 'undefined') _carbonads.refresh();
+    },
   }
 }
 

@@ -9,11 +9,24 @@ $mobileSidebarWidth = $sidebarWidth * 0.82
     width $mobileSidebarWidth
   .page
     padding-left $mobileSidebarWidth
+    padding-right: 0
+    h1
+      padding-top 5rem !important
   .content:not(.custom)
     padding 0rem
+  .carbon
+    width: 100%;
+    padding-left: 13rem
+  footer.footerx_theme
+    width: 100% !important
+
 
 // wide mobile
 @media (max-width: $MQMobile)
+  .carbon
+    width: 100%;
+    padding-left: 0rem
+
   .dropdown-wrapper
     display none
   .sidebar
@@ -23,6 +36,7 @@ $mobileSidebarWidth = $sidebarWidth * 0.82
     transition transform .2s ease
   .page
     padding-left 0
+    padding-right: 0
   .theme-container.sidebar-open
     .sidebar
       transform translateX(0)
