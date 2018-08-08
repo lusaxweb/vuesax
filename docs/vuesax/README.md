@@ -65,6 +65,9 @@ Then Import it to your project:
 import 'material-icons/iconfont/material-icons.css';
 ```
 
+Also, please check the available icons from the following.
+[https://material.io/tools/icons/](https://material.io/tools/icons/)
+
 </box>
 
 <box>
