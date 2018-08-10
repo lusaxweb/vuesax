@@ -2,7 +2,7 @@
   <div class="centerx">
     <vs-input vs-label="Enter only numbers" vs-placeholder="0123456789" v-model="value1"/>
 
-    <vs-alert :vs-active="inputValido" vs-color="danger" vs-icon="new_releases" >
+    <vs-alert :active="inputValid" color="danger" icon="new_releases" >
       the value is <b>invalid</b> you can only enter numbers
     </vs-alert>
   </div>
@@ -16,7 +16,7 @@ export default {
     }
   },
   computed:{
-    inputValido(){
+    inputValid(){
       if(/^\d+$/.test(this.value1)){
         return false
       } else {

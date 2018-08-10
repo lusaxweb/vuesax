@@ -1,14 +1,14 @@
 <template lang="html">
   <nav
     v-bind="$attrs"
-    :class="`vs-align-${vsAlign}`"
+    :class="`vs-align-${align}`"
     class="vs-breadcrumb"
     aria-label="breadcrumb"
     v-on="$listeners">
     <ol>
       <slot/>
       <li
-        v-for="item in vsItems"
+        v-for="item in items"
         v-show="!hasSlot"
         :key="item.title"
         :class="{'vs-active':item.active,'disabled-link':item.disabled}"
@@ -32,10 +32,10 @@
         </template>
         <span
           v-if="!item.active"
-          :class="vsSeparator.length > 1 ? 'material-icons' : null"
+          :class="separator.length > 1 ? 'material-icons' : null"
           class="separator notranslate"
           translate="no"
-          aria-hidden="true">{{ vsSeparator }}</span>
+          aria-hidden="true">{{ separator }}</span>
       </li>
     </ol>
   </nav>
@@ -47,18 +47,18 @@ import _color from '../../utils/color.js'
 export default {
   name:'VsBreadcrumb',
   props:{
-    vsItems:{
+    items:{
       type:Array
     },
-    vsSeparator:{
+    separator:{
       type:String,
       default:'/'
     },
-    vsColor:{
+    color:{
       type:String,
       default: 'primary'
     },
-    vsAlign:{
+    align:{
       type:String,
       default:'left'
     }
@@ -66,15 +66,15 @@ export default {
   computed: {
     textClass() {
       const classes = {}
-      if (_color.isColor(this.vsColor)) {
-        classes[`vs-breadcrumb-text-${this.vsColor}`] = true
+      if (_color.isColor(this.color)) {
+        classes[`vs-breadcrumb-text-${this.color}`] = true
       }
       return classes
     },
     textStyle() {
       const style = {}
-      if (!_color.isColor(this.vsColor)) {
-        style.color = _color.getColor(this.vsColor)
+      if (!_color.isColor(this.color)) {
+        style.color = _color.getColor(this.color)
       }
       return style
     },
