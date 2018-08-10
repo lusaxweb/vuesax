@@ -1,9 +1,9 @@
 <template lang="html">
   <div class="vs-component vs-divider">
     <span
-      class="vs-divider-border after"
       :class="borderClass"
       :style="afterStyle"
+      class="vs-divider-border after"
     />
     <span
       v-if=" vsIcon || $slots.default"
@@ -25,8 +25,8 @@
     </span>
     <span
       :style="beforeStyle"
-      class="vs-divider-border before"
       :class="borderClass"
+      class="vs-divider-border before"
     />
   </div>
 </template>
