@@ -23,9 +23,9 @@
         </a>
         <template v-else>
           <span
-            class="vs-breadcrumb-text"
             :class="textClass"
             :style="textStyle"
+            class="vs-breadcrumb-text"
           >
             {{ item.title }}
           </span>
