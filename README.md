@@ -70,6 +70,7 @@ The framework is focused on facilitating the development of applications, improv
 - [Loading](https://lusaxweb.github.io/vuesax/components/loading.html) - SSR
 - [Popup](https://lusaxweb.github.io/vuesax/components/popup.html) - SSR
 - [Avatar](https://lusaxweb.github.io/vuesax/components/avatar.html) - SSR
+- [Breadcrumb](https://lusaxweb.github.io/vuesax/components/breadcrumb.html) - SSR
 - [Alert](https://lusaxweb.github.io/vuesax/components/alert.html) - Working
 - [Grid](https://lusaxweb.github.io/vuesax/layout/)
 - [Chip](https://lusaxweb.github.io/vuesax/components/chip.html)
@@ -78,7 +79,6 @@ The framework is focused on facilitating the development of applications, improv
 - [List](https://lusaxweb.github.io/vuesax/components/list.html)
 - [Pagination](https://lusaxweb.github.io/vuesax/components/pagination.html)
 - [Topbar](https://lusaxweb.github.io/vuesax/components/topbar.html)
-- [Breadcrumb](https://lusaxweb.github.io/vuesax/components/breadcrumb.html)
 - [SideBar](https://lusaxweb.github.io/vuesax/components/sideBar.html)
 - [DropDown](https://lusaxweb.github.io/vuesax/components/dropDown.html)
 - [Divider](https://lusaxweb.github.io/vuesax/components/divider.html)
