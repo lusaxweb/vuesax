@@ -1,17 +1,17 @@
 <template lang="html">
   <div class="vs-component vs-divider">
     <span
-      :style="{
-        'width':getWidthAfter,
-        'border-top':`${vsBorderHeight} ${vsStyle} ${giveColor()}`
-      }"
-      class="after"/>
+      class="vs-divider-border after"
+      :class="borderClass"
+      :style="afterStyle"
+    />
     <span
-      v-if="vsIcon?true:$slots.default"
+      v-if=" vsIcon || $slots.default"
       :style="{
-        'color':giveColor(1,'text')
+        'color': textColor
       }"
-      class="vs-divider-text">
+      class="vs-divider-text"
+    >
       <template v-if="!vsIcon">
         <slot/>
       </template>
@@ -24,16 +24,16 @@
       </i>
     </span>
     <span
-      :style="{
-        'width':getWidthBefore,
-        'border-top':`${vsBorderHeight} ${vsStyle} ${giveColor()}`
-      }"
-      class="before"/>
+      :style="beforeStyle"
+      class="vs-divider-border before"
+      :class="borderClass"
+    />
   </div>
 </template>
 
 <script>
 import _color from '../../utils/color.js'
+
 export default {
   name: "VsDivider",
   props:{
@@ -84,47 +84,53 @@ export default {
         widthx = '0%'
       }
       return widthx
-    }
-  },
-  methods:{
-    giveColor(opacity=1,type){
-      if(this.vsColor == 'rgba(0, 0, 0,.1)' && type=='text'){
-        let color = this.vsColor.replace('.1','.8');
-        return _color.rColor(color,opacity)
-      } else {
-        return _color.rColor(this.vsColor,opacity)
-
-      }
-
     },
+    borderColor() {
+      if (!_color.isColor(this.vsColor)) {
+        return _color.getColor(this.vsColor)
+      }
+    },
+    afterStyle() {
+      const classes = {
+        width: this.getWidthAfter,
+        'border-top-width': this.vsBorderHeight,
+        'border-top-style': this.vsStyle
+      }
+      if (!_color.isColor(this.vsColor)) {
+        classes['border-top-color'] = this.borderColor
+      }
+      return classes
+    },
+    beforeStyle() {
+      const classes = {
+        width: this.getWidthBefore,
+        'border-top-width': this.vsBorderHeight,
+        'border-top-style': this.vsStyle
+      }
+      if (!_color.isColor(this.vsColor)) {
+        classes['border-top-color'] = this.borderColor
+      }
+      return classes
+    },
+    borderClass() {
+      const classes = {}
+      if (_color.isColor(this.vsColor)) {
+        classes[`vs-divider-border-${this.vsColor}`] = true
+      }
+      return classes
+    },
+    textColor() {
+      if (!_color.isColor(this.vsColor)) {
+        return _color.getColor(this.vsColor)
+      }
+    },
+    textClass() {
+      const classes = {}
+      if (_color.isColor(this.vsColor)) {
+        classes[`vs-divider-text-${this.vsColor}`] = true
+      }
+      return classes
+    }
   }
 }
 </script>
-
-<style lang="stylus">
-.vs-divider
-  width: 100%;
-  position: relative;
-  display: block;
-  margin: 15px 0px;
-  clear: both;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  .after,.before
-    position: relative;
-    display: block;
-    width: 100%;
-  .vs-divider-text
-    cursor: default;
-    user-select: none;
-    position: relative;
-    white-space: nowrap;
-    background: rgb(255, 255, 255);
-    padding-left: 12px;
-    padding-right: 12px;
-    font-size: 0.9375em;
-  i.icon-divider
-    font-size: 1.25em;
-
-</style>
