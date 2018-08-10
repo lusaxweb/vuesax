@@ -18,15 +18,15 @@
           v-if="!item.active"
           :href="item.url ? item.url : '#'"
           :title="item.title"
-
         >
           {{ item.title }}
         </a>
         <template v-else>
           <span
-            :style="{
-              'color':vsColor?/[#()]/.test(vsColor)?vsColor:`rgba(var(--${vsColor}),1)`:'rgb(var(--primary))'
-          }" >
+            class="vs-breadcrumb-text"
+            :class="textClass"
+            :style="textStyle"
+          >
             {{ item.title }}
           </span>
         </template>
@@ -42,6 +42,7 @@
 </template>
 
 <script>
+import _color from '../../utils/color.js'
 
 export default {
   name:'VsBreadcrumb',
@@ -55,7 +56,7 @@ export default {
     },
     vsColor:{
       type:String,
-      default:null
+      default: 'primary'
     },
     vsAlign:{
       type:String,
@@ -63,51 +64,23 @@ export default {
     }
   },
   computed: {
+    textClass() {
+      const classes = {}
+      if (_color.isColor(this.vsColor)) {
+        classes[`vs-breadcrumb-text-${this.vsColor}`] = true
+      }
+      return classes
+    },
+    textStyle() {
+      const style = {}
+      if (!_color.isColor(this.vsColor)) {
+        style.color = _color.getColor(this.vsColor)
+      }
+      return style
+    },
     hasSlot () {
       return !!this.$slots.default
     }
   }
 }
 </script>
-
-<style lang="stylus" scoped>
-
-  .vs-breadcrumb
-      display flex
-
-    ol
-      display flex
-      flex-wrap wrap
-      padding .75rem 1rem
-
-    a
-      transition: all .2s ease
-      color: rgba(0, 0, 0, 0.4);
-      &:hover
-      &:focus
-        // opacity .7
-        color: rgba(0, 0, 0, 0.7);
-        text-decoration none!important
-
-    li.vs-active
-      // color rgba(0, 0, 0, 0.4)
-      cursor: default;
-
-    .separator
-      color rgba(0, 0, 0, 0.4)
-      padding 0 .5rem 0 .5rem
-    &.material-icons
-      vertical-align: middle
-      margin-top: -2px
-      font-size inherit
-
-  &.vs-align-left
-    justify-content: flex-start
-  &.vs-align-center
-    justify-content: center
-  &.vs-align-right
-    justify-content: flex-end
-.disabled-link
-  opacity: .5
-  pointer-events: none;
-</style>
