@@ -20,7 +20,7 @@
               <th>Pull Request</th>
               <th>Commits</th>
               <th>Points</th>
-              <th>Github</th>
+              <th>GitHub</th>
             </tr>
           </thead>
           <tbody>

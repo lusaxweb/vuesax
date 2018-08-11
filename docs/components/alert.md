@@ -1,38 +1,33 @@
 ---
 API:
- - name: vs-active
+ - name: active
    type: Boolean
    parameters: true, false
    description: Determines if the component is visible.
    default: false
- - name: vs-title
+ - name: title
    type: String
    parameters: null
    description: Title of the alert
    default: null
- - name: vs-closable
+ - name: closable
    type: Boolean
    parameters: null
    description: Determines if the alert can be closed by the user
    default: false
- - name: vs-color
+ - name: color
    type: String
    parameters: primary, success, danger, warning, dark, RGB, HEX
    description: Color of the alert
    default: false
- - name: vs-margin
-   type: String
-   parameters: null
-   description: Mangin of the alert (top, bottom)
-   default: 10px
- - name: vs-icon
+ - name: icon
    type: String
    parameters: null
    description: Determines the alert icon
    default: null
 ---
 
-# Alert
+# Alert **- ssr**
 
 <box header>
 
@@ -45,18 +40,18 @@ API:
 
 ## Default
 
-To add a notification we have the `vs-alert` component that as the main parameter needs the `vs-active` property that determines if the alert is visible or not.
+To add a notification we have the `vs-alert` component that as the main parameter needs the `active` property that determines if the alert is visible or not.
 
 <vuecode md>
 <div slot="demo">
-<vs-alert vs-active="true">
+<vs-alert active="true">
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
 </vs-alert>
 </div>
 <div slot="code">
 
 ```html
-<vs-alert vs-active="true">
+<vs-alert active="true">
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
 </vs-alert>
 ```
@@ -69,18 +64,18 @@ To add a notification we have the `vs-alert` component that as the main paramete
 
 ## Title
 
-The alert can have a title with the property `vs-title` and its value would be the desired title
+The alert can have a title with the property `title` and its value would be the desired title
 
 <vuecode md>
 <div slot="demo">
-<vs-alert vs-title="Lorem ipsum dolor sit amet" vs-color="rgb(231, 154, 23)" vs-active="true">
+<vs-alert title="Lorem ipsum dolor sit amet" color="rgb(231, 154, 23)" active="true">
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
 </vs-alert>
 </div>
 <div slot="code">
 
 ```html
-<vs-alert vs-title="Lorem ipsum dolor sit amet" vs-color="rgb(231, 154, 23)" vs-active="true">
+<vs-alert title="Lorem ipsum dolor sit amet" color="rgb(231, 154, 23)" active="true">
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
 </vs-alert>
 ```
@@ -93,7 +88,7 @@ The alert can have a title with the property `vs-title` and its value would be t
 
 ## Color
 
-You can change the color of the alert with the property `vs-color`, the colors can be the main` primary`, `success`,` danger`, `warning`,` dark` or the colors **RGB**, **HEX**.
+You can change the color of the alert with the property `color`, the colors can be the main` primary`, `success`,` danger`, `warning`,` dark` or the colors **RGB**, **HEX**.
 
 :::warning
   Only **RGB** and **HEX** colors are supported.
@@ -101,25 +96,25 @@ You can change the color of the alert with the property `vs-color`, the colors c
 
 <vuecode md>
 <div slot="demo">
-<vs-alert vs-title="Primary" vs-active="true" vs-color="primary">
+<vs-alert  title="Primary" active="true" color="primary">
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
 </vs-alert>
-<vs-alert vs-title="Success" vs-active="true" vs-color="success">
+<vs-alert style="margin-top: 10px" title="Success" active="true" color="success">
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
 </vs-alert>
-<vs-alert vs-title="Danger" vs-active="true" vs-color="danger">
+<vs-alert style="margin-top: 10px" title="Danger" active="true" color="danger">
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 </vs-alert>
-<vs-alert vs-title="Danger" vs-active="true" vs-color="warning">
+<vs-alert style="margin-top: 10px" title="Danger" active="true" color="warning">
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 </vs-alert>
-<vs-alert vs-title="Dark" vs-active="true" vs-color="dark">
+<vs-alert style="margin-top: 10px" title="Dark" active="true" color="dark">
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
 </vs-alert>
-<vs-alert vs-title="RGB" vs-active="true" vs-color="rgb(41, 147, 138)">
+<vs-alert style="margin-top: 10px" title="RGB" active="true" color="rgb(41, 147, 138)">
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
 </vs-alert>
-<vs-alert vs-title="HEX" vs-active="true" vs-color="#842993">
+<vs-alert style="margin-top: 10px" title="HEX" active="true" color="#842993">
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
 </vs-alert>
 </div>
@@ -127,26 +122,26 @@ You can change the color of the alert with the property `vs-color`, the colors c
 
 ```html
 <vs-alert
-  vs-color="primary"
-  vs-title="Primary" vs-active="true">
+  color="primary"
+  title="Primary" active="true">
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
 </vs-alert>
-<vs-alert vs-title="Success" vs-active="true" vs-color="success">
+<vs-alert title="Success" active="true" color="success">
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
 </vs-alert>
-<vs-alert vs-title="Danger" vs-active="true" vs-color="danger">
+<vs-alert title="Danger" active="true" color="danger">
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 </vs-alert>
-<vs-alert vs-title="Danger" vs-active="true" vs-color="warning">
+<vs-alert title="Danger" active="true" color="warning">
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 </vs-alert>
-<vs-alert vs-title="Dark" vs-active="true" vs-color="dark">
+<vs-alert title="Dark" active="true" color="dark">
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
 </vs-alert>
-<vs-alert vs-title="RGB" vs-active="true" vs-color="rgb(41, 147, 138)">
+<vs-alert title="RGB" active="true" color="rgb(41, 147, 138)">
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
 </vs-alert>
-<vs-alert vs-title="HEX" vs-active="true" vs-color="#842993">
+<vs-alert title="HEX" active="true" color="#842993">
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
 </vs-alert>
 ```
@@ -159,9 +154,9 @@ You can change the color of the alert with the property `vs-color`, the colors c
 
 ## Closable
 
-You can show and hide the alert by means of `vs-active.sync` and a Boolean bind as value.
+You can show and hide the alert by means of `active.sync` and a Boolean bind as value.
 
-The property to determine if the alert can be closed is `vs-closable`.
+The property to determine if the alert can be closed is `closable`.
 
 <vuecode md>
 <div slot="demo">
@@ -169,13 +164,13 @@ The property to determine if the alert can be closed is `vs-closable`.
 </div>
 <div slot="code">
 
-```html {5,6}
+```html
 <template lang="html">
   <div class="centerx">
-    <vs-button @click="active1=!active1" vs-color="primary" vs-type="filled">{{!active1?'Open Alert':'Close Alert'}}</vs-button>
+    <vs-button @click="active1=!active1" color="primary" type="filled">{{!active1?'Open Alert':'Close Alert'}}</vs-button>
     <vs-alert
-    :vs-active.sync="active1"
-    vs-closable>
+    :active.sync="active1"
+    closable>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
     </vs-alert>
   </div>
@@ -200,7 +195,7 @@ export default {
 
 ## Icons
 
-You can add to the alert a descriptive icon with the property `vs-icon` and as a value the icon of [Material Icons](https://material.io/icons/)
+You can add to the alert a descriptive icon with the property `icon` and as a value the icon of [Material Icons](https://material.io/icons/)
 
 ::: tip
 Vuesax use the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
@@ -215,8 +210,8 @@ Vuesax use the **Google Material Icons** font library. For a list of all availab
 ```html
 <template lang="html">
   <div class="centerx">
-    <selected-icons :vs-icon.sync="icon1"/>
-   <vs-alert vs-active="true" vs-color="rgb(111, 38, 224)" :vs-icon="icon1" >
+    <selected-icons :icon.sync="icon1"/>
+   <vs-alert active="true" color="rgb(111, 38, 224)" :icon="icon1" >
      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
    </vs-alert>
   </div>
@@ -256,8 +251,8 @@ An example of serious use to have an input and when a condition is met show the 
 ```html
 <template lang="html">
   <div class="centerx">
-    <vs-input vs-label="Enter only numbers" vs-placeholder="0123456789" v-model="value1"/>
-    <vs-alert :vs-active="inputValido" vs-color="danger" vs-icon="new_releases" >
+    <input vs-label="Enter only numbers" vs-placeholder="0123456789" v-model="value1"/>
+    <vs-alert :active="inputValid" color="danger" icon="new_releases" >
       the value is <b>invalid</b> you can only enter numbers
     </vs-alert>
   </div>
@@ -271,7 +266,7 @@ export default {
     }
   },
   computed:{
-    inputValido(){
+    inputValid(){
       if(/^\d+$/.test(this.value1)){
         return false
       } else {

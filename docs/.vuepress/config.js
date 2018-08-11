@@ -29,7 +29,7 @@ module.exports = {
         title:'Social',
         items:[
           {
-            text:'Github',
+            text:'GitHub',
             link:'https://github.com/lusaxweb/vuesax'
           },
           {
@@ -137,7 +137,7 @@ module.exports = {
           {
             text: 'Social',
             items: [
-              { text: 'Github', link: 'https://github.com/lusaxweb/vuesax' },
+              { text: 'GitHub', link: 'https://github.com/lusaxweb/vuesax' },
               { text: 'Discord', link: 'https://discord.gg/9dsKtvB' },
               { text: 'Twitter', link: 'https://twitter.com/vuesax' },
               { text: 'Facebook', link: 'https://www.facebook.com/vuesax/' },
@@ -213,13 +213,13 @@ module.exports = {
           '/components/loading',
           '/components/popup',
           '/components/avatar',
+          '/components/breadcrumb',
           '/components/alert',
           '/components/chip',
           '/components/progress',
           '/components/card',
           '/components/list',
           '/components/pagination',
-          '/components/breadcrumb',
           '/components/topbar',
           '/components/sideBar',
           '/components/dropDown',

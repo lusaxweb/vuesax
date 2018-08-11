@@ -1,14 +1,14 @@
 <template lang="html">
   <nav
     v-bind="$attrs"
-    :class="`vs-align-${vsAlign}`"
+    :class="`vs-align-${align}`"
     class="vs-breadcrumb"
     aria-label="breadcrumb"
     v-on="$listeners">
     <ol>
       <slot/>
       <li
-        v-for="item in vsItems"
+        v-for="item in items"
         v-show="!hasSlot"
         :key="item.title"
         :class="{'vs-active':item.active,'disabled-link':item.disabled}"
@@ -18,96 +18,69 @@
           v-if="!item.active"
           :href="item.url ? item.url : '#'"
           :title="item.title"
-
         >
           {{ item.title }}
         </a>
         <template v-else>
           <span
-            :style="{
-              'color':vsColor?/[#()]/.test(vsColor)?vsColor:`rgba(var(--${vsColor}),1)`:'rgb(var(--primary))'
-          }" >
+            :class="textClass"
+            :style="textStyle"
+            class="vs-breadcrumb-text"
+          >
             {{ item.title }}
           </span>
         </template>
         <span
           v-if="!item.active"
-          :class="vsSeparator.length > 1 ? 'material-icons' : null"
+          :class="separator.length > 1 ? 'material-icons' : null"
           class="separator notranslate"
           translate="no"
-          aria-hidden="true">{{ vsSeparator }}</span>
+          aria-hidden="true">{{ separator }}</span>
       </li>
     </ol>
   </nav>
 </template>
 
 <script>
+import _color from '../../utils/color.js'
 
 export default {
   name:'VsBreadcrumb',
   props:{
-    vsItems:{
+    items:{
       type:Array
     },
-    vsSeparator:{
+    separator:{
       type:String,
       default:'/'
     },
-    vsColor:{
+    color:{
       type:String,
-      default:null
+      default: 'primary'
     },
-    vsAlign:{
+    align:{
       type:String,
       default:'left'
     }
   },
   computed: {
+    textClass() {
+      const classes = {}
+      if (_color.isColor(this.color)) {
+        classes[`vs-breadcrumb-text-${this.color}`] = true
+      }
+      return classes
+    },
+    textStyle() {
+      const style = {}
+      if (!_color.isColor(this.color)) {
+        style.color = _color.getColor(this.color)
+      }
+      return style
+    },
     hasSlot () {
       return !!this.$slots.default
     }
   }
 }
 </script>
-
-<style lang="stylus" scoped>
-
-  .vs-breadcrumb
-      display flex
-
-    ol
-      display flex
-      flex-wrap wrap
-      padding .75rem 1rem
-
-    a
-      transition: all .2s ease
-      color: rgba(0, 0, 0, 0.4);
-      &:hover
-      &:focus
-        // opacity .7
-        color: rgba(0, 0, 0, 0.7);
-        text-decoration none!important
-
-    li.vs-active
-      // color rgba(0, 0, 0, 0.4)
-      cursor: default;
-
-    .separator
-      color rgba(0, 0, 0, 0.4)
-      padding 0 .5rem 0 .5rem
-    &.material-icons
-      vertical-align: middle
-      margin-top: -2px
-      font-size inherit
-
-  &.vs-align-left
-    justify-content: flex-start
-  &.vs-align-center
-    justify-content: center
-  &.vs-align-right
-    justify-content: flex-end
-.disabled-link
-  opacity: .5
-  pointer-events: none;
-</style>

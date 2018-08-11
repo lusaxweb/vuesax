@@ -2,8 +2,8 @@
   <div class="centerx">
     <input v-model="colorx" type="color" name="" value="">
     <vs-breadcrumb
-    :vs-color="colorx"
-    :vs-items="items"
+    :color="colorx"
+    :items="items"
     ></vs-breadcrumb>
   </div>
 </template>

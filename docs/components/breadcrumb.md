@@ -1,21 +1,21 @@
 ---
 API:
- - name: vs-items
+ - name: items
    type: Array
    parameters: ["title", "url", "disabled", "active"]
    description: The items that will construct the breadcrumb
    default: false
- - name: vs-separator
+ - name: separator
    type: String
    parameters:
    description: Separator dividing the breadcrumb links
    default: "/"
- - name: vs-color
+ - name: color
    type: String
    parameters:
    description: Change the color of the breadcrumb links
    default: null
- - name: vs-align
+ - name: align
    type: String
    parameters: ["left", "center", "right"]
    description: Align the breadcrumb to the left, center or right.
@@ -23,13 +23,13 @@ API:
  - name: slot
    type: String
    parameters: ["left", "center", "right"]
-   description: Used instead of passing in an array of object into 'vs-items'
+   description: Used instead of passing in an array of object into 'items'
    default: false
 contributors:
  - VicGUTT
 ---
 
-# Breadcrumb <!--#new-->
+# Breadcrumb **- ssr**
 
 <box header>
 
@@ -43,12 +43,12 @@ contributors:
 ## Default
 
 <!-- The default breadcrumb comes with minimalist styling. More is not always better right ? -->
-Use the `vs-items` in order to programatically generate the breadcrumb links.
+Use the `items` in order to programatically generate the breadcrumb links.
 
 <vuecode md center>
 <div slot="demo">
 <vs-breadcrumb
-:vs-items="
+:items="
    [
      {
        title: 'Dashboard',
@@ -73,7 +73,7 @@ Use the `vs-items` in order to programatically generate the breadcrumb links.
 
 ```html
 <vs-breadcrumb
-:vs-items="
+:items="
    [
      {
        title: 'Dashboard',
@@ -104,7 +104,7 @@ Use the `vs-items` in order to programatically generate the breadcrumb links.
 
 ## Color
 
-Use the `vs-color` directive like for any other component that supports it to customize the breadcrumbs links color.
+Use the `color` directive like for any other component that supports it to customize the breadcrumbs links color.
 
 <vuecode md center>
 <div slot="demo">
@@ -118,8 +118,8 @@ Use the `vs-color` directive like for any other component that supports it to cu
   <div class="centerx">
     <input v-model="colorx" type="color" name="" value="">
     <vs-breadcrumb
-    :vs-color="colorx"
-    :vs-items="items"
+    :color="colorx"
+    :items="items"
     ></vs-breadcrumb>
   </div>
 </template>
@@ -160,7 +160,7 @@ export default {
 
 ## Separator
 
-You can change the separator dividing the links by either passing a string to the `vs-separator` directive like so "**•**", "**-**", "**|**" etc..., or by passing in one of the material icons text "**chevron_right**".
+You can change the separator dividing the links by either passing a string to the `separator` directive like so "**•**", "**-**", "**|**" etc..., or by passing in one of the material icons text "**chevron_right**".
 
 :::warning
   In order to differeciate a custom separator "**•**" from an icon "**chevron_right**", we verify the string length. If the length is **greater than 1** it will be considered a material icon.
@@ -168,8 +168,8 @@ You can change the separator dividing the links by either passing a string to th
 
 <vuecode md center>
 <div slot="demo">
-<vs-breadcrumb vs-separator="•"
-:vs-items="
+<vs-breadcrumb separator="•"
+:items="
    [
      {
        title: 'Dashboard',
@@ -189,8 +189,8 @@ You can change the separator dividing the links by either passing a string to th
      }
    ]"
 ></vs-breadcrumb>
-<vs-breadcrumb vs-separator="-"
-:vs-items="
+<vs-breadcrumb separator="-"
+:items="
    [
      {
        title: 'Dashboard',
@@ -210,8 +210,8 @@ You can change the separator dividing the links by either passing a string to th
      }
    ]"
 ></vs-breadcrumb>
-<vs-breadcrumb vs-separator="|"
-:vs-items="
+<vs-breadcrumb separator="|"
+:items="
    [
      {
        title: 'Dashboard',
@@ -231,8 +231,8 @@ You can change the separator dividing the links by either passing a string to th
      }
    ]"
 ></vs-breadcrumb>
-<vs-breadcrumb vs-separator="chevron_right"
-:vs-items="
+<vs-breadcrumb separator="chevron_right"
+:items="
    [
      {
        title: 'Dashboard',
@@ -256,10 +256,10 @@ You can change the separator dividing the links by either passing a string to th
 <div slot="code">
 
 ```html
-<vs-breadcrumb :vs-items="[{...}, {...}]" vs-separator="•"></vs-breadcrumb>
-<vs-breadcrumb :vs-items="[{...}, {...}]" vs-separator="-"></vs-breadcrumb>
-<vs-breadcrumb :vs-items="[{...}, {...}]" vs-separator="|"></vs-breadcrumb>
-<vs-breadcrumb :vs-items="[{...}, {...}]" vs-separator="chevron_right"></vs-breadcrumb>
+<vs-breadcrumb :items="[{...}, {...}]" separator="•"></vs-breadcrumb>
+<vs-breadcrumb :items="[{...}, {...}]" separator="-"></vs-breadcrumb>
+<vs-breadcrumb :items="[{...}, {...}]" separator="|"></vs-breadcrumb>
+<vs-breadcrumb :items="[{...}, {...}]" separator="chevron_right"></vs-breadcrumb>
 ```
 
 </div>
@@ -278,7 +278,7 @@ A default Vue slot that can be used instead of passing in an array of object. Th
 <vs-breadcrumb>
    <li><a href="#" title="Home">Home</a><span class="separator">/</span></li>
    <li><a href="#" title="Profil">Profil</a><span class="separator">/</span></li>
-   <li aria-current="page" class="vs-active">Infos</li>
+   <li aria-current="page" class="active">Infos</li>
 </vs-breadcrumb>
 </div>
 <div slot="code">
@@ -287,7 +287,7 @@ A default Vue slot that can be used instead of passing in an array of object. Th
 <vs-breadcrumb>
    <li><a href="#" title="Home">Home</a><span class="separator">/</span></li>
    <li><a href="#" title="Profil">Profil</a><span class="separator">/</span></li>
-   <li aria-current="page" class="vs-active">Infos</li>
+   <li aria-current="page" class="active">Infos</li>
 </vs-breadcrumb>
 ```
 
@@ -300,32 +300,32 @@ A default Vue slot that can be used instead of passing in an array of object. Th
 
 ## Alignement
 
-Use `vs-align` to either align the breadcrumb to the left, center or right.
+Use `align` to either align the breadcrumb to the left, center or right.
 
 <vuecode md>
 <div slot="demo">
-<vs-breadcrumb vs-align="left">
+<vs-breadcrumb align="left">
    <li><a href="#" title="Home">Home</a><span class="separator">/</span></li>
    <li><a href="#" title="Profil">Profil</a><span class="separator">/</span></li>
-   <li aria-current="page" class="vs-active">Infos</li>
+   <li aria-current="page" class="active">Infos</li>
 </vs-breadcrumb>
-<vs-breadcrumb vs-align="center">
+<vs-breadcrumb align="center">
    <li><a href="#" title="Home">Home</a><span class="separator">/</span></li>
    <li><a href="#" title="Profil">Profil</a><span class="separator">/</span></li>
-   <li aria-current="page" class="vs-active">Infos</li>
+   <li aria-current="page" class="active">Infos</li>
 </vs-breadcrumb>
-<vs-breadcrumb vs-align="right">
+<vs-breadcrumb align="right">
    <li><a href="#" title="Home">Home</a><span class="separator">/</span></li>
    <li><a href="#" title="Profil">Profil</a><span class="separator">/</span></li>
-   <li aria-current="page" class="vs-active">Infos</li>
+   <li aria-current="page" class="active">Infos</li>
 </vs-breadcrumb>
 </div>
 <div slot="code">
 
 ```html
-<vs-breadcrumb vs-align="left">...</vs-breadcrumb>
-<vs-breadcrumb vs-align="center">...</vs-breadcrumb>
-<vs-breadcrumb vs-align="right">...</vs-breadcrumb>
+<vs-breadcrumb align="left">...</vs-breadcrumb>
+<vs-breadcrumb align="center">...</vs-breadcrumb>
+<vs-breadcrumb align="right">...</vs-breadcrumb>
 ```
 
 </div>

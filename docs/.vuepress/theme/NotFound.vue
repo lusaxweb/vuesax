@@ -12,7 +12,7 @@
         <div class="">
           <a href="https://lusaxweb.github.io/vuesax/">Vuesax</a>
           <a href="https://lusaxweb.github.io/vuesax/vuesax/">Documents</a>
-          <a href="https://github.com/lusaxweb/vuesax">Github</a>
+          <a href="https://github.com/lusaxweb/vuesax">GitHub</a>
         </div>
       </div>
       <!-- <h1>404</h1>
