@@ -1,18 +1,18 @@
 <template lang="html">
   <div class="vs-component vs-divider">
     <span
-      :style="{
-        'width':getWidthAfter,
-        'border-top':`${vsBorderHeight} ${vsStyle} ${giveColor()}`
-      }"
-      class="after"/>
+      :class="borderClass"
+      :style="afterStyle"
+      class="vs-divider-border after"
+    />
     <span
-      v-if="vsIcon?true:$slots.default"
+      v-if=" icon || $slots.default"
       :style="{
-        'color':giveColor(1,'text')
+        'color': textColor
       }"
-      class="vs-divider-text">
-      <template v-if="!vsIcon">
+      class="vs-divider-text"
+    >
+      <template v-if="!icon">
         <slot/>
       </template>
 
@@ -20,40 +20,40 @@
         v-else
         translate="no"
         class="material-icons icon-divider notranslate">
-        {{ vsIcon }}
+        {{ icon }}
       </i>
     </span>
     <span
-      :style="{
-        'width':getWidthBefore,
-        'border-top':`${vsBorderHeight} ${vsStyle} ${giveColor()}`
-      }"
-      class="before"/>
+      :style="beforeStyle"
+      :class="borderClass"
+      class="vs-divider-border before"
+    />
   </div>
 </template>
 
 <script>
 import _color from '../../utils/color.js'
+
 export default {
   name: "VsDivider",
   props:{
-    vsColor:{
+    color:{
       type:String,
       default:'rgba(0, 0, 0,.1)'
     },
-    vsIcon:{
+    icon:{
       default:null,
       type:String
     },
-    vsStyle:{
+    borderStyle:{
       default:'solid',
       type:String
     },
-    vsBorderHeight:{
+    borderHeight:{
       default:'1px',
       type:String
     },
-    vsPosition:{
+    position:{
       default:'center',
       type:String
     }
@@ -61,70 +61,76 @@ export default {
   computed:{
     getWidthAfter(){
       let widthx = '100%'
-      if(this.vsPosition == 'left'){
+      if(this.position == 'left'){
         widthx = '0%'
-      } else if (this.vsPosition == 'left-center') {
+      } else if (this.position == 'left-center') {
         widthx = '25%'
-      } else if (this.vsPosition == 'right-center') {
+      } else if (this.position == 'right-center') {
         widthx = '75%'
-      } else if (this.vsPosition == 'right') {
+      } else if (this.position == 'right') {
         widthx = '100%'
       }
       return widthx
     },
     getWidthBefore(){
       let widthx = '100%'
-      if(this.vsPosition == 'left'){
+      if(this.position == 'left'){
         widthx = '100%'
-      } else if (this.vsPosition == 'left-center') {
+      } else if (this.position == 'left-center') {
         widthx = '75%'
-      } else if (this.vsPosition == 'right-center') {
+      } else if (this.position == 'right-center') {
         widthx = '25%'
-      } else if (this.vsPosition == 'right') {
+      } else if (this.position == 'right') {
         widthx = '0%'
       }
       return widthx
-    }
-  },
-  methods:{
-    giveColor(opacity=1,type){
-      if(this.vsColor == 'rgba(0, 0, 0,.1)' && type=='text'){
-        let color = this.vsColor.replace('.1','.8');
-        return _color.rColor(color,opacity)
-      } else {
-        return _color.rColor(this.vsColor,opacity)
-
-      }
-
     },
+    borderColor() {
+      if (!_color.isColor(this.color)) {
+        return _color.getColor(this.color)
+      }
+    },
+    afterStyle() {
+      const classes = {
+        width: this.getWidthAfter,
+        'border-top-width': this.borderHeight,
+        'border-top-style': this.borderStyle
+      }
+      if (!_color.isColor(this.color)) {
+        classes['border-top-color'] = this.borderColor
+      }
+      return classes
+    },
+    beforeStyle() {
+      const classes = {
+        width: this.getWidthBefore,
+        'border-top-width': this.borderHeight,
+        'border-top-style': this.borderStyle
+      }
+      if (!_color.isColor(this.color)) {
+        classes['border-top-color'] = this.borderColor
+      }
+      return classes
+    },
+    borderClass() {
+      const classes = {}
+      if (_color.isColor(this.color)) {
+        classes[`vs-divider-border-${this.color}`] = true
+      }
+      return classes
+    },
+    textColor() {
+      if (!_color.isColor(this.color)) {
+        return _color.getColor(this.color === 'rgba(0, 0, 0,.1)' ? 'rgba(0,0,0,0.8)' : this.color)
+      }
+    },
+    textClass() {
+      const classes = {}
+      if (_color.isColor(this.color)) {
+        classes[`vs-divider-text-${this.color}`] = true
+      }
+      return classes
+    }
   }
 }
 </script>
-
-<style lang="stylus">
-.vs-divider
-  width: 100%;
-  position: relative;
-  display: block;
-  margin: 15px 0px;
-  clear: both;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  .after,.before
-    position: relative;
-    display: block;
-    width: 100%;
-  .vs-divider-text
-    cursor: default;
-    user-select: none;
-    position: relative;
-    white-space: nowrap;
-    background: rgb(255, 255, 255);
-    padding-left: 12px;
-    padding-right: 12px;
-    font-size: 0.9375em;
-  i.icon-divider
-    font-size: 1.25em;
-
-</style>
