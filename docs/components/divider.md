@@ -1,21 +1,21 @@
 ---
 API:
- - name: vs-position
+ - name: position
    type: String
    parameters: (left, left-center, right-center, right)
    description: Determina la posicion del texto o icono.
    default: center
- - name: vs-color
+ - name: color
    type: String
    parameters: null
    description: Change the color of the line and the text.
    default: rgba(0,0,0.1)
- - name: vs-icon
+ - name: icon
    type: String
    parameters: Material Icons
    description: Add an icon instead of the text.
    default: null
- - name: vs-style
+ - name: border-style
    type: String
    parameters: null
    description: Determines the type of line in the component.
@@ -87,7 +87,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 
 ## Text Position
 
-You can guide the text in **5** ways with property `vs-position`:
+You can guide the text in **5** ways with property `position`:
 
 - left
 - left-center
@@ -97,38 +97,38 @@ You can guide the text in **5** ways with property `vs-position`:
 
 <vuecode md>
 <div slot="demo">
-  <vs-divider vs-position="left">
+  <vs-divider position="left">
     left
   </vs-divider>
-  <vs-divider vs-position="left-center">
+  <vs-divider position="left-center">
     left-center
   </vs-divider>
   <vs-divider>
     Center (default)
   </vs-divider>
-  <vs-divider vs-position="right-center">
+  <vs-divider position="right-center">
     right-center
   </vs-divider>
-  <vs-divider vs-position="right">
+  <vs-divider position="right">
     right
   </vs-divider>
 </div>
 <div slot="code">
 
 ```html
-<vs-divider vs-position="left">
+<vs-divider position="left">
   My Text
 </vs-divider>
-<vs-divider vs-position="left-center">
+<vs-divider position="left-center">
   My Text
 </vs-divider>
-<vs-divider vs-position="center">
+<vs-divider position="center">
   My Text
 </vs-divider>
-<vs-divider vs-position="right-center">
+<vs-divider position="right-center">
   My Text
 </vs-divider>
-<vs-divider vs-position="right">
+<vs-divider position="right">
   My Text
 </vs-divider>
 ```
@@ -141,7 +141,7 @@ You can guide the text in **5** ways with property `vs-position`:
 
 ## Color
 
-You can change the color of the component with the property `vs-color`, you can use the colors [main](/theme/) or the **RGB** and **HEX**
+You can change the color of the component with the property `color`, you can use the colors [main](/theme/) or the **RGB** and **HEX**
 :::warning
   Only **RGB** and **HEX** colors are supported.
 :::
@@ -149,26 +149,26 @@ You can change the color of the component with the property `vs-color`, you can 
 <vuecode md>
 <div slot="demo">
   <vs-divider>Default</vs-divider>
-  <vs-divider vs-color="primary">Primary</vs-divider>
-  <vs-divider vs-color="success">Success</vs-divider>
-  <vs-divider vs-color="danger">Danger</vs-divider>
-  <vs-divider vs-color="warning">Warning</vs-divider>
-  <vs-divider vs-color="dark">Dark</vs-divider>
-  <vs-divider vs-color="rgb(29, 222, 194)">RGB</vs-divider>
-  <vs-divider vs-color="#ad289f">HEX</vs-divider>
+  <vs-divider color="primary">Primary</vs-divider>
+  <vs-divider color="success">Success</vs-divider>
+  <vs-divider color="danger">Danger</vs-divider>
+  <vs-divider color="warning">Warning</vs-divider>
+  <vs-divider color="dark">Dark</vs-divider>
+  <vs-divider color="rgb(29, 222, 194)">RGB</vs-divider>
+  <vs-divider color="#ad289f">HEX</vs-divider>
 </div>
 <div slot="code">
 
 ```html
 <div slot="demo">
   <vs-divider>Default</vs-divider>
-  <vs-divider vs-color="primary">Primary</vs-divider>
-  <vs-divider vs-color="success">Success</vs-divider>
-  <vs-divider vs-color="danger">Danger</vs-divider>
-  <vs-divider vs-color="warning">Warning</vs-divider>
-  <vs-divider vs-color="dark">Dark</vs-divider>
-  <vs-divider vs-color="rgb(29, 222, 194)">RGB</vs-divider>
-  <vs-divider vs-color="#ad289f">HEX</vs-divider>
+  <vs-divider color="primary">Primary</vs-divider>
+  <vs-divider color="success">Success</vs-divider>
+  <vs-divider color="danger">Danger</vs-divider>
+  <vs-divider color="warning">Warning</vs-divider>
+  <vs-divider color="dark">Dark</vs-divider>
+  <vs-divider color="rgb(29, 222, 194)">RGB</vs-divider>
+  <vs-divider color="#ad289f">HEX</vs-divider>
 ```
 
 </div>
@@ -180,7 +180,7 @@ You can change the color of the component with the property `vs-color`, you can 
 
 ## Icons
 
-To add an icon within the division we have the property `vs-icon`.
+To add an icon within the division we have the property `icon`.
 
 ::: tip
 Vuesax use the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
@@ -188,22 +188,22 @@ Vuesax use the **Google Material Icons** font library. For a list of all availab
 
 <vuecode md>
 <div slot="demo">
-  <vs-divider vs-position="left" vs-icon="arrow_downward"></vs-divider>
-  <vs-divider vs-position="left-center" vs-color="primary" vs-icon="star"></vs-divider>
-  <vs-divider vs-color="success" vs-icon="check"></vs-divider>
-  <vs-divider vs-position="right-center" vs-color="danger" vs-icon="delete_forever"></vs-divider>
-  <vs-divider vs-position="right" vs-color="warning" vs-icon="report_problem"></vs-divider>
-  <vs-divider vs-color="dark" vs-icon="watch_later"></vs-divider>
+  <vs-divider position="left" icon="arrow_downward"></vs-divider>
+  <vs-divider position="left-center" color="primary" icon="star"></vs-divider>
+  <vs-divider color="success" icon="check"></vs-divider>
+  <vs-divider position="right-center" color="danger" icon="delete_forever"></vs-divider>
+  <vs-divider position="right" color="warning" icon="report_problem"></vs-divider>
+  <vs-divider color="dark" icon="watch_later"></vs-divider>
 </div>
 <div slot="code">
 
 ```html
-<vs-divider vs-icon="arrow_downward"></vs-divider>
-<vs-divider vs-color="primary" vs-icon="star"></vs-divider>
-<vs-divider vs-color="success" vs-icon="check"></vs-divider>
-<vs-divider vs-color="danger" vs-icon="delete_forever"></vs-divider>
-<vs-divider vs-color="warning" vs-icon="report_problem"></vs-divider>
-<vs-divider vs-color="dark" vs-icon="watch_later"></vs-divider>
+<vs-divider icon="arrow_downward"></vs-divider>
+<vs-divider color="primary" icon="star"></vs-divider>
+<vs-divider color="success" icon="check"></vs-divider>
+<vs-divider color="danger" icon="delete_forever"></vs-divider>
+<vs-divider color="warning" icon="report_problem"></vs-divider>
+<vs-divider color="dark" icon="watch_later"></vs-divider>
 ```
 
 </div>
@@ -215,7 +215,7 @@ Vuesax use the **Google Material Icons** font library. For a list of all availab
 
 ## Style
 
-You can change line's style with the property `vs-style` the allowed values ​​are equivalent to the border-style property in CSS.
+You can change line's style with the property `border-style` the allowed values ​​are equivalent to the border-style property in CSS.
 
 - **dotted** - Defines a dotted border
 - **dashed** - Defines a dashed border
@@ -223,16 +223,16 @@ You can change line's style with the property `vs-style` the allowed values ​�
 
 <vuecode md>
 <div slot="demo">
-  <vs-divider vs-style="dotted" vs-color="dark">dotted</vs-divider>
-  <vs-divider vs-style="dashed" vs-color="dark">dashed</vs-divider>
-  <vs-divider vs-style="solid" vs-color="dark">solid</vs-divider>
+  <vs-divider border-style="dotted" color="dark">dotted</vs-divider>
+  <vs-divider border-style="dashed" color="dark">dashed</vs-divider>
+  <vs-divider border-style="solid" color="dark">solid</vs-divider>
 </div>
 <div slot="code">
 
 ```html
-<vs-divider vs-style="dotted" vs-color="dark">dotted</vs-divider>
-<vs-divider vs-style="dashed" vs-color="dark">dashed</vs-divider>
-<vs-divider vs-style="solid" vs-color="dark">solid</vs-divider>
+<vs-divider border-style="dotted" color="dark">dotted</vs-divider>
+<vs-divider border-style="dashed" color="dark">dashed</vs-divider>
+<vs-divider border-style="solid" color="dark">solid</vs-divider>
 ```
 
 </div>

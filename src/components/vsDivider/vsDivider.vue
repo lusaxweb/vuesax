@@ -6,13 +6,13 @@
       class="vs-divider-border after"
     />
     <span
-      v-if=" vsIcon || $slots.default"
+      v-if=" icon || $slots.default"
       :style="{
         'color': textColor
       }"
       class="vs-divider-text"
     >
-      <template v-if="!vsIcon">
+      <template v-if="!icon">
         <slot/>
       </template>
 
@@ -20,7 +20,7 @@
         v-else
         translate="no"
         class="material-icons icon-divider notranslate">
-        {{ vsIcon }}
+        {{ icon }}
       </i>
     </span>
     <span
@@ -37,23 +37,23 @@ import _color from '../../utils/color.js'
 export default {
   name: "VsDivider",
   props:{
-    vsColor:{
+    color:{
       type:String,
       default:'rgba(0, 0, 0,.1)'
     },
-    vsIcon:{
+    icon:{
       default:null,
       type:String
     },
-    vsStyle:{
+    borderStyle:{
       default:'solid',
       type:String
     },
-    vsBorderHeight:{
+    borderHeight:{
       default:'1px',
       type:String
     },
-    vsPosition:{
+    position:{
       default:'center',
       type:String
     }
@@ -61,42 +61,42 @@ export default {
   computed:{
     getWidthAfter(){
       let widthx = '100%'
-      if(this.vsPosition == 'left'){
+      if(this.position == 'left'){
         widthx = '0%'
-      } else if (this.vsPosition == 'left-center') {
+      } else if (this.position == 'left-center') {
         widthx = '25%'
-      } else if (this.vsPosition == 'right-center') {
+      } else if (this.position == 'right-center') {
         widthx = '75%'
-      } else if (this.vsPosition == 'right') {
+      } else if (this.position == 'right') {
         widthx = '100%'
       }
       return widthx
     },
     getWidthBefore(){
       let widthx = '100%'
-      if(this.vsPosition == 'left'){
+      if(this.position == 'left'){
         widthx = '100%'
-      } else if (this.vsPosition == 'left-center') {
+      } else if (this.position == 'left-center') {
         widthx = '75%'
-      } else if (this.vsPosition == 'right-center') {
+      } else if (this.position == 'right-center') {
         widthx = '25%'
-      } else if (this.vsPosition == 'right') {
+      } else if (this.position == 'right') {
         widthx = '0%'
       }
       return widthx
     },
     borderColor() {
-      if (!_color.isColor(this.vsColor)) {
-        return _color.getColor(this.vsColor)
+      if (!_color.isColor(this.color)) {
+        return _color.getColor(this.color)
       }
     },
     afterStyle() {
       const classes = {
         width: this.getWidthAfter,
-        'border-top-width': this.vsBorderHeight,
-        'border-top-style': this.vsStyle
+        'border-top-width': this.borderHeight,
+        'border-top-style': this.borderStyle
       }
-      if (!_color.isColor(this.vsColor)) {
+      if (!_color.isColor(this.color)) {
         classes['border-top-color'] = this.borderColor
       }
       return classes
@@ -104,30 +104,30 @@ export default {
     beforeStyle() {
       const classes = {
         width: this.getWidthBefore,
-        'border-top-width': this.vsBorderHeight,
-        'border-top-style': this.vsStyle
+        'border-top-width': this.borderHeight,
+        'border-top-style': this.borderStyle
       }
-      if (!_color.isColor(this.vsColor)) {
+      if (!_color.isColor(this.color)) {
         classes['border-top-color'] = this.borderColor
       }
       return classes
     },
     borderClass() {
       const classes = {}
-      if (_color.isColor(this.vsColor)) {
-        classes[`vs-divider-border-${this.vsColor}`] = true
+      if (_color.isColor(this.color)) {
+        classes[`vs-divider-border-${this.color}`] = true
       }
       return classes
     },
     textColor() {
-      if (!_color.isColor(this.vsColor)) {
-        return _color.getColor(this.vsColor)
+      if (!_color.isColor(this.color)) {
+        return _color.getColor(this.color === 'rgba(0, 0, 0,.1)' ? 'rgba(0,0,0,0.8)' : this.color)
       }
     },
     textClass() {
       const classes = {}
-      if (_color.isColor(this.vsColor)) {
-        classes[`vs-divider-text-${this.vsColor}`] = true
+      if (_color.isColor(this.color)) {
+        classes[`vs-divider-text-${this.color}`] = true
       }
       return classes
     }
