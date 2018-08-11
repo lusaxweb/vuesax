@@ -1,16 +1,16 @@
 ---
 API:
- - name: vs-color
+ - name: color
    type: String
    parameters: RGB, HEX, primary, success, danger, warning, dark
    description: Component color
    default: primary
- - name: vs-closable
+ - name: closable
    type: Boolean
    parameters: null
    description: With closable button
    default: false
- - name: vs-icon
+ - name: icon
    type: String
    parameters: null
    description: With custom icon
@@ -20,21 +20,79 @@ API:
    parameters: null
    description: Placeholder text (only in vs-chips)
    default: null
- - name: items
-   type: Array
-   parameters: bind
-   description: the chips within the component that can be removed and add (only in vs-chips)
-   default: null
 contributors:
   - fergardi
-tag: new
 ---
 
- # Chip <!--#new-->
+ # Chip **- ssr**
 
 <box header>
 
   Chips are compact elements that represent an input, attribute, or action.
+
+</box>
+
+<box>
+
+## Default
+
+Helps you represent symple data with colorful options.
+
+<vuecode md center>
+<div slot="demo">
+  <vs-chip>
+    Basic Chip
+  </vs-chip>
+  <vs-chip>
+    <vs-avatar text="LD"/>
+    Avatar Text
+  </vs-chip>
+  <vs-chip>
+    <vs-avatar />
+    Avatar Icon
+  </vs-chip>
+  <vs-chip>
+    <vs-avatar src="https://randomuser.me/api/portraits/men/4.jpg"/>
+    Avatar Image
+  </vs-chip>
+  <vs-chip closable>
+    Closable chip
+  </vs-chip>
+</div>
+<div slot="code">
+
+```html
+<template lang="html">
+  <div class="centerx">
+    <vs-chip>
+        Basic Chip
+      </vs-chip>
+      <vs-chip>
+        <vs-avatar text="LD"/>
+        Avatar Text
+      </vs-chip>
+      <vs-chip>
+        <vs-avatar />
+        Avatar Icon
+      </vs-chip>
+      <vs-chip>
+        <vs-avatar src="https://randomuser.me/api/portraits/men/4.jpg"/>
+        Avatar Image
+      </vs-chip>
+      <vs-chip closable>
+        Closable chip
+      </vs-chip>
+  </div>
+</template>
+
+<script>
+export default {
+}
+</script>
+```
+
+</div>
+</vuecode>
 
 </box>
 
@@ -46,26 +104,56 @@ Helps you represent symple data with colorful options.
 
 <vuecode md center>
 <div slot="demo">
-  <vs-chip vs-color="primary">primary</vs-chip>
-  <vs-chip vs-color="warning">warning</vs-chip>
-  <vs-chip vs-color="danger">danger</vs-chip>
-  <vs-chip vs-color="success">success</vs-chip>
-  <vs-chip vs-color="dark">dark</vs-chip>
-  <vs-chip vs-color="rgb(164, 69, 15)">RGB</vs-chip>
-  <vs-chip vs-color="#24c1a0">HEX</vs-chip>
+  <vs-chip color="primary">
+    Basic Chip
+  </vs-chip>
+  <vs-chip color="success">
+    <vs-avatar text="LD"/>
+    Avatar Text
+  </vs-chip>
+  <vs-chip color="danger">
+    <vs-avatar />
+    Avatar Icon
+  </vs-chip>
+  <vs-chip color="warning">
+    <vs-avatar src="https://randomuser.me/api/portraits/men/4.jpg"/>
+    Avatar Image
+  </vs-chip >
+  <vs-chip closable color="dark">
+    Closable chip
+  </vs-chip>
+  <vs-chip closable color="#24c1a0">
+    <vs-avatar src="https://randomuser.me/api/portraits/men/16.jpg"/>
+    Closable chip
+  </vs-chip>
 </div>
 <div slot="code">
 
 ```html
 <template lang="html">
   <div class="centerx">
-    <vs-chip vs-color="primary">primary</vs-chip>
-    <vs-chip vs-color="warning">warning</vs-chip>
-    <vs-chip vs-color="danger">danger</vs-chip>
-    <vs-chip vs-color="success">success</vs-chip>
-    <vs-chip vs-color="dark">dark</vs-chip>
-    <vs-chip vs-color="rgb(164, 69, 15)">RGB</vs-chip>
-    <vs-chip vs-color="#24c1a0">HEX</vs-chip>
+      <vs-chip color="primary">
+        Basic Chip
+      </vs-chip>
+      <vs-chip color="success">
+        <vs-avatar text="LD"/>
+        Avatar Text
+      </vs-chip>
+      <vs-chip color="danger">
+        <vs-avatar />
+        Avatar Icon
+      </vs-chip>
+      <vs-chip color="warning">
+        <vs-avatar src="https://randomuser.me/api/portraits/men/4.jpg"/>
+        Avatar Image
+      </vs-chip >
+      <vs-chip closable color="dark">
+        Closable chip
+      </vs-chip>
+      <vs-chip closable color="#24c1a0">
+        <vs-avatar src="https://randomuser.me/api/portraits/men/16.jpg"/>
+        Closable chip
+      </vs-chip>
   </div>
 </template>
 
@@ -92,26 +180,60 @@ Vuesax use the **Google Material Icons** font library. For a list of all availab
 
 <vuecode md center>
 <div slot="demo">
-  <vs-chip vs-icon="info" vs-color="primary">primary</vs-chip>
-  <vs-chip vs-icon="help" vs-color="warning">warning</vs-chip>
-  <vs-chip vs-icon="error" vs-color="danger">danger</vs-chip>
-  <vs-chip vs-icon="check_circle" vs-color="success">success</vs-chip>
-  <vs-chip vs-icon="account_circle" vs-color="dark">dark</vs-chip>
-  <vs-chip vs-icon="alarm" vs-color="rgb(164, 69, 15)">RGB</vs-chip>
-  <vs-chip vs-icon="home" vs-color="#24c1a0">HEX</vs-chip>
+  <vs-chip>
+    <vs-avatar />
+    Icon Default
+  </vs-chip>
+  <vs-chip color="primary">
+    <vs-avatar icon="send" />
+    Icon send
+  </vs-chip>
+  <vs-chip color="success">
+    <vs-avatar icon="markunread" />
+    Icon markunread
+  </vs-chip>
+  <vs-chip color="danger">
+    <vs-avatar icon="link_off" />
+    Icon link_off
+  </vs-chip>
+  <vs-chip color="warning">
+    <vs-avatar icon="battery_alert" />
+    Icon battery_alert
+  </vs-chip>
+  <vs-chip color="dark">
+    <vs-avatar icon="edit" />
+    Icon edit
+  </vs-chip>
 </div>
 <div slot="code">
 
 ```html
 <template lang="html">
   <div class="centerx">
-    <vs-chip vs-icon="info" vs-color="primary">primary</vs-chip>
-    <vs-chip vs-icon="help" vs-color="warning">warning</vs-chip>
-    <vs-chip vs-icon="error" vs-color="danger">danger</vs-chip>
-    <vs-chip vs-icon="check_circle" vs-color="success">success</vs-chip>
-    <vs-chip vs-icon="account_circle" vs-color="dark">dark</vs-chip>
-    <vs-chip vs-icon="alarm" vs-color="rgb(164, 69, 15)">RGB</vs-chip>
-    <vs-chip vs-icon="home" vs-color="#24c1a0">HEX</vs-chip>
+    <vs-chip>
+      <vs-avatar />
+      Icon Default
+    </vs-chip>
+    <vs-chip color="primary">
+      <vs-avatar icon="send" />
+      Icon send
+    </vs-chip>
+    <vs-chip color="success">
+      <vs-avatar icon="markunread" />
+      Icon markunread
+    </vs-chip>
+    <vs-chip color="danger">
+      <vs-avatar icon="link_off" />
+      Icon link_off
+    </vs-chip>
+    <vs-chip color="warning">
+      <vs-avatar icon="battery_alert" />
+      Icon battery_alert
+    </vs-chip>
+    <vs-chip color="dark">
+      <vs-avatar icon="edit" />
+      Icon edit
+    </vs-chip>
   </div>
 </template>
 
@@ -141,12 +263,11 @@ For making a chip closable.
 ```html
 <template lang="html">
   <div class="centerx">
-    <vs-button vs-color="primary" v-if="!chip1&&!chip2&&!chip3&&!chip4&&!chip5" @click="chip1=true,chip2=true,chip3=true,chip4=true,chip5=true" vs-type="filled">Reset Chips</vs-button>
-    <vs-chip v-model="chip1" vs-closable vs-color="primary">primary</vs-chip>
-    <vs-chip v-model="chip2" vs-closable vs-color="warning">warning</vs-chip>
-    <vs-chip v-model="chip3" vs-closable vs-color="danger">danger</vs-chip>
-    <vs-chip v-model="chip4" vs-closable vs-color="success">success</vs-chip>
-    <vs-chip v-model="chip5" vs-closable vs-color="dark">dark</vs-chip>
+    <vs-button v-if="chips.length == 0" @click="reset" vs-type="filled">Reset Chips</vs-button>
+    <vs-chip @click="remove(chip)" v-for="chip in chips" closable>
+      {{ chip }}
+    </vs-chip>
+
   </div>
 </template>
 
@@ -154,15 +275,37 @@ For making a chip closable.
 export default {
   data(){
     return {
-      chip1:true,
-      chip2:true,
-      chip3:true,
-      chip4:true,
-      chip5:true
+      chips:[
+        'Dribbble',
+        'GitHub',
+        'Behance',
+        'Vuejs',
+        'Vuesax',
+      ],
+    }
+  },
+  methods: {
+    reset () {
+      this.chips = [
+        'Dribbble',
+        'GitHub',
+        'Behance',
+        'Vuejs',
+        'Vuesax',
+      ]
+    },
+    remove (item) {
+      this.chips.splice(this.chips.indexOf(item), 1)
     }
   }
 }
 </script>
+
+<style lang="css">
+.total {
+  width: 100%
+}
+</style>
 ```
 
 </div>
@@ -189,7 +332,14 @@ You can add and remove chips with the `vs-chips` component and as a main paramet
     <div class="modelx">
       {{chips}}
     </div>
-    <vs-chips vs-color="rgb(145, 32, 159)" placeholder="Nuevos Elementos" :items="chips"></vs-chips>
+    <vs-chips color="rgb(145, 32, 159)" placeholder="New Element" v-model="chips">
+      <vs-chip
+        :key="chip"
+        @click="remove(chip)"
+        v-for="chip in chips" closable>
+        {{ chip }}
+      </vs-chip>
+    </vs-chips>
   </div>
 </template>
 
@@ -198,14 +348,25 @@ export default {
   data(){
     return {
       chips:[
-        "luis",
-        "carols",
-        "summer"
+        "Vuejs",
+        "Node",
+        "Vuesax"
       ]
+    }
+  },
+  methods: {
+    remove (item) {
+      this.chips.splice(this.chips.indexOf(item), 1)
     }
   }
 }
 </script>
+
+<style lang="css">
+.total {
+  width: 100%
+}
+</style>
 ```
 
 </div>

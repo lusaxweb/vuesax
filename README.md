@@ -74,8 +74,8 @@ The framework is focused on facilitating the development of applications, improv
 - [Alert](https://lusaxweb.github.io/vuesax/components/alert.html) - SSR
 - [Divider](https://lusaxweb.github.io/vuesax/components/divider.html) - SSR
 - [Grid](https://lusaxweb.github.io/vuesax/layout/)
-- [Chip](https://lusaxweb.github.io/vuesax/components/chip.html) - Working
-- [Progress](https://lusaxweb.github.io/vuesax/components/progress.html)
+- [Chip](https://lusaxweb.github.io/vuesax/components/chip.html) - SSR
+- [Progress](https://lusaxweb.github.io/vuesax/components/progress.html) - Working
 - [Card](https://lusaxweb.github.io/vuesax/components/card.html)
 - [List](https://lusaxweb.github.io/vuesax/components/list.html)
 - [Pagination](https://lusaxweb.github.io/vuesax/components/pagination.html)

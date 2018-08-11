@@ -3,7 +3,14 @@
     <div class="modelx">
       {{chips}}
     </div>
-    <vs-chips vs-color="rgb(145, 32, 159)" placeholder="Nuevos Elementos" :items="chips"></vs-chips>
+    <vs-chips color="rgb(145, 32, 159)" placeholder="New Element" v-model="chips">
+      <vs-chip
+        :key="chip"
+        @click="remove(chip)"
+        v-for="chip in chips" closable>
+        {{ chip }}
+      </vs-chip>
+    </vs-chips>
   </div>
 </template>
 
@@ -12,10 +19,15 @@ export default {
   data(){
     return {
       chips:[
-        "luis",
-        "carols",
-        "summer"
+        "Vuejs",
+        "Node",
+        "Vuesax"
       ]
+    }
+  },
+  methods: {
+    remove (item) {
+      this.chips.splice(this.chips.indexOf(item), 1)
     }
   }
 }

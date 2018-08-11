@@ -1,19 +1,22 @@
 <template lang="html">
   <div class="">
     <div
-      :class="{'no-items':itemsx.length==0}"
+      :class="{'no-items':value.length==0}"
       class="con-chips">
-      <vs-chip
+      <!-- <vs-chip
         v-for="(item,index) in itemsx"
-        :vs-color="vsColor"
+        :color="color"
         :key="index"
         item
-        vs-closable
+        closable
         @vs-remove="removeItem(index)">
         {{ item }}
-      </vs-chip>
+      </vs-chip> -->
+      <slot>
+      </slot>
+
       <input
-        :placeholder="itemsx.length>0?null:placeholder"
+        :placeholder="value.length>0?null:placeholder"
         v-model="newChip"
         type="text"
         name=""
@@ -38,6 +41,7 @@ export default {
     vsChip
   },
   props:{
+    value:{},
     vsColor:{
       type:String,
       default:'primary',
@@ -59,15 +63,16 @@ export default {
   },
   methods:{
     addItem(){
-      this.itemsx.push(this.newChip)
+      // this.itemsx.push(this.newChip)
+      let valueOld = this.value
+      valueOld.push(this.newChip)
+      this.$emit('input', valueOld)
       this.newChip = ''
     },
-    removeItem(index){
-      this.itemsx.splice(index, 1);
-    },
     removeTotalItems(){
-      // this.itemsx = []
-      this.itemsx.splice(0, this.itemsx.length);
+      let valueOld = this.value
+      valueOld.splice(0, this.value.length);
+      this.$emit('input', valueOld)
     }
   }
 }

@@ -1,40 +1,36 @@
 <template lang="html">
   <div
-    v-if="eliminado"
-    :class="{
-      'con-icon':vsIcon,
-    }"
-    :style="{
-      'background':vsColor?/[#()]/.test(vsColor)?`rgba(${vsColor.replace(/[rgb()]/g,'')},.1)`:`rgba(var(--${vsColor}),.1)`:'rgba(var(--primary),.1)',
-      'color':vsColor?/[#()]/.test(vsColor)?vsColor:`rgba(var(--${vsColor}),1)`:'rgba(var(--primary),1)'
-    }"
+    :style="styleChip"
+    :class="[
+      `vs-chip-${color}`,
+      {
+        'closable': closable,
+        'con-color': color
+      }
+    ]"
     class="con-vs-chip">
 
-    <i
-      v-if="vsIcon"
-      translate="no"
-      class="material-icons icon-chip notranslate">{{ vsIcon }}</i>
 
-    <h3
-      v-if="vsText"
-      class="textx">{{ vsText }}</h3>
-    <!-- {{value}} -->
-    <div class="vs-chip">
-      <slot/>
-    </div>
+    <span class="text-chip">
+      <slot>
+      </slot>
+    </span>
 
-    <div
-      v-if="vsClosable"
-      class="con-x"
-      @click="remove">
-      <i
-        translate="no"
-        class="material-icons notranslate">close</i>
-    </div>
+
+    <button
+      v-if="closable"
+      class="btn-close"
+      @click="closeChip">
+      <i class="material-icons">
+        clear
+      </i>
+    </button>
   </div>
 </template>
 
 <script>
+import _color from '../../utils/color.js'
+
 export default {
   name:'VsChip',
   props:{
@@ -42,28 +38,34 @@ export default {
       type:Boolean,
     },
     value:{},
-    vsActive:{
+    active:{
       type:Boolean,
       default:true,
     },
-    vsText:{
+    text:{
       type:String,
       default:null,
     },
-    vsClosable:{
+    closable:{
       type:[Boolean,String],
       default:false,
     },
-    vsColor:{
+    color:{
       type:String,
-      default:'primary',
+      default:null,
     },
-    vsIcon:{
+    icon:{
       type:String,
       default:null,
     }
   },
   computed:{
+    styleChip () {
+      return {
+        background: _color.getColor(this.color,1),
+        color: this.color?'rgba(255,255,255,.9)':'rgba(0,0,0,.7)'
+      }
+    },
     eliminado(){
       if(this.item){
         return true
@@ -77,6 +79,10 @@ export default {
     }
   },
   methods:{
+    closeChip () {
+      this.$emit('input',false)
+      this.$emit('click')
+    },
     remove(){
       this.$emit('vs-remove', false)
       this.$emit('input', false)
@@ -84,84 +90,3 @@ export default {
   }
 }
 </script>
-
-<style lang="css" scoped>
-.inactive {
-  opacity: .1 !important;
-}
-.textx {
-  padding: 0;
-  font-weight: lighter;
-}
-.con-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.icon-chip {
-  position: relative;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-.con-x {
-  position: relative;
-  width: 22px;
-  height: 22px;
-  margin: 5px;
-  margin-left: 0px;
-  border-radius: 50%;
-  background: inherit;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: inherit;
-  cursor: pointer;
-  z-index: 100;
-  transition: all .3s ease;
-}
-.con-x:hover {
-  background: inherit;
-  background: rgba(var(--danger));
-  color: rgb(255, 255, 255);
-}
-.con-x i {
-  font-size: 1.0625em;
-  color: inherit;
-}
-.fade-enter-active, .fade-leave-active {
-  transition: all .3s;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  /* opacity: 0; */
-  max-height: 0 !important;
-  margin-bottom: 0px !important;
-  margin-top: 0px !important;
-}
-.con-vs-chip {
-  width: auto;
-  background: rgba(var(--primary),.1);
-  border-radius: 20px;
-  opacity: 1;
-  overflow: hidden;
-  position: relative;
-  margin: 5px;
-  display: inline-flex;
-  cursor: default;
-  align-items: center;
-  justify-content: center;
-  /* margin-top: 10px;
-  margin-bottom: 10px; */
-}
-.vs-chip {
-  color: inherit;
-  padding: 5px 10px;
-  font-size: 0.75em;
-  position: relative;
-}
-.vs-chip b {
-  color: rgb(var(--primary)) !important;
-
-}
-</style>

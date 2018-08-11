@@ -216,6 +216,7 @@ module.exports = {
           '/components/breadcrumb',
           '/components/alert',
           '/components/chip',
+          '/components/divider',
           '/components/progress',
           '/components/card',
           '/components/list',
@@ -223,7 +224,6 @@ module.exports = {
           '/components/topbar',
           '/components/sideBar',
           '/components/dropDown',
-          '/components/divider',
           // '/components/collapse',
           /*New Component*/
         ]
