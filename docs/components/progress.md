@@ -1,21 +1,21 @@
 ---
 API:
-  - name: vs-percent
+  - name: percent
     type: Number
     parameters: null
     description: Percentage of the progress
     default: 0
-  - name: vs-color
+  - name: color
     type: String
     parameters: RGB, HEX, primary, success, danger, warning, dark
     description: Component color
     default: primary
-  - name: vs-indeterminate
+  - name: indeterminate
     type: Boolean
     parameters: null
     description: determines if the progress bar its value is indeterminate and adds an animation
     default: false
-  - name: vs-height
+  - name: height
     type: Number
     parameters: null
     description: Determine the height of the progress bar
@@ -24,7 +24,7 @@ contributors:
   - fergardi
 ---
 
-# Progress <!--#new-->
+# Progress **- ssr**
 
 <box header>
 
@@ -41,24 +41,24 @@ Nice colors for your progress bar.
 
 <vuecode md>
 <div slot="demo">
-  <vs-progress :vs-percent="100" vs-color="primary">primary</vs-progress>
-  <vs-progress :vs-percent="90" vs-color="warning">warning</vs-progress>
-  <vs-progress :vs-percent="75" vs-color="danger">danger</vs-progress>
-  <vs-progress :vs-percent="60" vs-color="success">success</vs-progress>
-  <vs-progress :vs-percent="45" vs-color="dark">dark</vs-progress>
-  <vs-progress :vs-percent="30" vs-color="rgb(164, 69, 15)">RGB</vs-progress>
-  <vs-progress :vs-percent="15" vs-color="#24c1a0">HEX</vs-progress>
+  <vs-progress :percent="100" color="primary">primary</vs-progress>
+  <vs-progress :percent="90" color="warning">warning</vs-progress>
+  <vs-progress :percent="75" color="danger">danger</vs-progress>
+  <vs-progress :percent="60" color="success">success</vs-progress>
+  <vs-progress :percent="45" color="dark">dark</vs-progress>
+  <vs-progress :percent="30" color="rgb(164, 69, 15)">RGB</vs-progress>
+  <vs-progress :percent="15" color="#24c1a0">HEX</vs-progress>
 </div>
 <div slot="code">
 
 ```html
-  <vs-progress :vs-percent="100" vs-color="primary">primary</vs-progress>
-  <vs-progress :vs-percent="90" vs-color="warning">warning</vs-progress>
-  <vs-progress :vs-percent="75" vs-color="danger">danger</vs-progress>
-  <vs-progress :vs-percent="60" vs-color="success">success</vs-progress>
-  <vs-progress :vs-percent="45" vs-color="dark">dark</vs-progress>
-  <vs-progress :vs-percent="30" vs-color="rgb(164, 69, 15)">RGB</vs-progress>
-  <vs-progress :vs-percent="15" vs-color="#24c1a0">HEX</vs-progress>
+  <vs-progress :percent="100" color="primary">primary</vs-progress>
+  <vs-progress :percent="90" color="warning">warning</vs-progress>
+  <vs-progress :percent="75" color="danger">danger</vs-progress>
+  <vs-progress :percent="60" color="success">success</vs-progress>
+  <vs-progress :percent="45" color="dark">dark</vs-progress>
+  <vs-progress :percent="30" color="rgb(164, 69, 15)">RGB</vs-progress>
+  <vs-progress :percent="15" color="#24c1a0">HEX</vs-progress>
 ```
 
 </div>
@@ -71,16 +71,16 @@ Nice colors for your progress bar.
 
 ## Indeterminate
 
-You can have a progress bar with indeterminate value with the property `vs-indeterminate`.
+You can have a progress bar with indeterminate value with the property `indeterminate`.
 
 <vuecode md>
 <div slot="demo">
-  <vs-progress vs-indeterminate vs-color="primary">primary</vs-progress>
+  <vs-progress indeterminate color="primary">primary</vs-progress>
 </div>
 <div slot="code">
 
 ```html
-  <vs-progress vs-indeterminate vs-color="primary">primary</vs-progress>
+  <vs-progress indeterminate color="primary">primary</vs-progress>
 ```
 
 </div>
@@ -93,28 +93,26 @@ You can have a progress bar with indeterminate value with the property `vs-indet
 
 ## Height
 
-You can change the height size with the property `vs-height`.
+You can change the height size with the property `height`.
 
 :::tip
-by default the property `vs-height` is **6** (`6px`)
+by default the property `height` is **5** (`5px`)
 :::
 
 <vuecode md>
 <div slot="demo">
-  <vs-progress :vs-height="4" :vs-percent="100" vs-color="primary">primary</vs-progress>
-  <vs-progress :vs-height="8" :vs-percent="80" vs-color="warning">warning</vs-progress>
-  <vs-progress :vs-height="12" :vs-percent="60" vs-color="danger">danger</vs-progress>
-  <vs-progress :vs-height="16" :vs-percent="40" vs-color="success">success</vs-progress>
-  <vs-progress :vs-height="20" :vs-percent="20" vs-color="dark">dark</vs-progress>
+  <vs-progress :height="2" :percent="100" color="primary">primary</vs-progress>
+  <vs-progress :height="4" :percent="80" color="warning">warning</vs-progress>
+  <vs-progress :height="8" :percent="60" color="danger">danger</vs-progress>
+  <vs-progress :height="12" :percent="40" color="success">success</vs-progress>
 </div>
 <div slot="code">
 
 ```html
-<vs-progress :vs-height="4" :vs-percent="100" vs-color="primary">primary</vs-progress>
-<vs-progress :vs-height="8" :vs-percent="80" vs-color="warning">warning</vs-progress>
-<vs-progress :vs-height="12" :vs-percent="60" vs-color="danger">danger</vs-progress>
-<vs-progress :vs-height="16" :vs-percent="40" vs-color="success">success</vs-progress>
-<vs-progress :vs-height="20" :vs-percent="20" vs-color="dark">dark</vs-progress>
+<vs-progress :height="2" :percent="100" color="primary">primary</vs-progress>
+<vs-progress :height="4" :percent="80" color="warning">warning</vs-progress>
+<vs-progress :height="8" :percent="60" color="danger">danger</vs-progress>
+<vs-progress :height="12" :percent="40" color="success">success</vs-progress>
 ```
 
 </div>
