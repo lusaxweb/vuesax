@@ -8,17 +8,17 @@
         'left':leftx+'px',
         'top':topx+'px'
       }"
-      class="con-vs-dropdown-menu" 
-      @mouseover="toggleMenu($event)" 
+      class="con-vs-dropdown-menu"
+      @mouseover="toggleMenu($event)"
       @mouseout="toggleMenu($event)">
-      <ul 
-        v-if="!vsCustomContent" 
+      <ul
+        v-if="!vsCustomContent"
         class="vs-component vs-dropdown-menu" >
         <div class="after"/>
         <slot/>
       </ul>
-      <div 
-        v-else 
+      <div
+        v-else
         class="vs-dropdown-custom vs-dropdown-menu">
         <slot/>
       </div>

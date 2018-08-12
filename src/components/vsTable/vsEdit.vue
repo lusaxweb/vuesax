@@ -1,18 +1,18 @@
 <template lang="html">
-  <div 
-    slot-scope 
+  <div
+    slot-scope
     class="">
-    <a 
-      v-if="!editando" 
-      href="#" 
+    <a
+      v-if="!editando"
+      href="#"
       @click="editar()">{{ vsProperty }}</a>
-    <div 
-      v-else 
+    <div
+      v-else
       class="con-editx">
       <slot @enter="editando=false"/>
-      <button 
-        type="button" 
-        name="button" 
+      <button
+        type="button"
+        name="button"
         @click="editando=false">X</button>
     </div>
   </div>

@@ -1,7 +1,7 @@
 <template lang="html">
-  <li 
-    :class="{'con-tag':vsTag,'active-item':vsActive}" 
-    class="vs-component vs-sidebar-item" 
+  <li
+    :class="{'con-tag':vsTag,'active-item':vsActive}"
+    class="vs-component vs-sidebar-item"
     @click="clickItem">
     <router-link
       v-if="to"
@@ -10,13 +10,13 @@
       :to="to"
       v-on="$listeners">
       <span class="con-text-span">
-        <i 
-          v-if="vsIcon" 
+        <i
+          v-if="vsIcon"
           class="material-icons">
           {{ vsIcon }}
         </i>
-        <i 
-          v-if="vsIconReduce" 
+        <i
+          v-if="vsIconReduce"
           class="material-icons only-reduse">
           {{ vsIconReduce }}
         </i>
@@ -25,9 +25,9 @@
         </span>
       </span>
 
-      <span 
-        v-if="vsTag" 
-        :title="reduce?vsTag:null" 
+      <span
+        v-if="vsTag"
+        :title="reduce?vsTag:null"
         class="vs-tagx">{{ vsTag }}</span>
     </router-link>
 
@@ -42,13 +42,13 @@
       :href="href"
       v-on="$listeners">
       <span class="con-text-span">
-        <i 
-          v-if="vsIcon" 
+        <i
+          v-if="vsIcon"
           class="material-icons">
           {{ vsIcon }}
         </i>
-        <i 
-          v-if="vsIconReduce" 
+        <i
+          v-if="vsIconReduce"
           class="material-icons only-reduse">
           {{ vsIconReduce }}
         </i>
@@ -56,9 +56,9 @@
           <slot/>
         </span>
       </span>
-      <span 
-        v-if="vsTag" 
-        :title="reduce?vsTag:null" 
+      <span
+        v-if="vsTag"
+        :title="reduce?vsTag:null"
         class="vs-tagx">{{ vsTag }}</span>
     </a>
 
