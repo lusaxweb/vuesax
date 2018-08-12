@@ -1,18 +1,18 @@
 <template lang="html">
-  <th 
-    v-if="vsLabel||vsType" 
+  <th
+    v-if="vsLabel||vsType"
     :width="vsType=='checkbox'?'50px':'auto'">
     {{ vsLabel }}
     <!-- input checkbox -->
-    <div 
-      v-show="typeof vsCheckAll == 'Boolean'?vsCheckAll:vsCheckAll!='false'" 
-      v-if="vsType?vsType=='checkbox':false" 
+    <div
+      v-show="typeof vsCheckAll == 'Boolean'?vsCheckAll:vsCheckAll!='false'"
+      v-if="vsType?vsType=='checkbox':false"
       class="con-checkbox">
-      <input 
-        :disabled="lengthData==0" 
-        type="checkbox" 
-        name="" 
-        value="" 
+      <input
+        :disabled="lengthData==0"
+        type="checkbox"
+        name=""
+        value=""
         @change="changeCheckbox($event.target.checked)">
       <div class="vs-checkbox">
         <span class="flaticon-check"/>
