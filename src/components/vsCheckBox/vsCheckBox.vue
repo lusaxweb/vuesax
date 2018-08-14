@@ -5,8 +5,8 @@
     <input
       v-bind="$attrs"
       :checked="isChecked || $attrs.checked"
+      :value="value"
       type="checkbox"
-      value=""
       v-on="listeners">
     <span
       :style="style"

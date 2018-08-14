@@ -5,8 +5,8 @@
     <input
       v-bind="$attrs"
       :checked="isChecked"
+      :value="value"
       type="radio"
-      name=""
       v-on="listeners">
     <span
       class="vs-radiox">
