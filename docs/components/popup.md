@@ -102,9 +102,16 @@ You can add one popup inside another.
     <vs-popup classContent="popup-example"  title="Lorem ipsum dolor sit amet" :active.sync="popupActivo2">
       <vs-input class="inputx" placeholder="Placeholder" v-model="value1"/>
       <vs-input disabled class="inputx" placeholder="Disabled" v-model="value2"/>
+
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
       </p>
+      <vs-select
+      label="Figuras"
+      v-model="select1"
+      >
+        <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in options1" />
+      </vs-select>
       <vs-button @click="popupActivo3=true" vs-color="primary" vs-type="filled">Open Inner Popup</vs-button>
       <vs-popup title="Inner popup" :active.sync="popupActivo3">
         <p>
@@ -123,6 +130,12 @@ You can add one popup inside another.
 export default {
   data(){
     return {
+      select1:3,
+      options1:[
+        {text:'IT',value:0},
+        {text:'Blade Runner',value:2},
+        {text:'Thor Ragnarok',value:3},
+      ],
       value1:'',
       value2:'',
       popupActivo2:false,
@@ -139,6 +152,10 @@ export default {
     width 50%
     margin 10px
     margin-top 5px
+  .con-select
+    margin-left 10px
+    width 50%
+    margin-bottom 10px
 </style>
 ```
 

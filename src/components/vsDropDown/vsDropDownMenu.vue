@@ -82,7 +82,7 @@ export default {
   position: absolute;
   height: auto;
   width: auto;
-  z-index: 20000
+  z-index: 40000
   transform: translate(-100%);
   transition: opacity .25s, transform .25s, width .3s ease;
 .vs-dropdown-menu

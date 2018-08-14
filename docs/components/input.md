@@ -40,10 +40,10 @@ API:
    parameters: primary,success,danger,warning,dark,RGB,HEX
    description: Input and text color.
    default: primary
- - name: vs-type
+ - name: type
    type: String
    parameters: email, number, url, password, custom
-   description: The type of element.
+   description: The type of element input.
    default: text
  - name: vs-success
    type: Boolean
