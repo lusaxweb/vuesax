@@ -262,7 +262,7 @@ export default {
 
 ## Background
 
-If you need to change the background of the loading, you can use the property `background`
+If you need to change the background of the loading, you can use the property `background`.
 
 :::warning
   Only **RGB** and **HEX** colors are supported.

@@ -40,7 +40,7 @@ API:
 
 ## Default
 
-To add a notification we have the `vs-alert` component that as the main parameter needs the `active` property that determines if the alert is visible or not.
+To add a notification use the `vs-alert` component. For the main parameter, pass the `active` property that determines if the alert is visible or not.
 
 <vuecode md>
 <div slot="demo">
@@ -64,7 +64,7 @@ To add a notification we have the `vs-alert` component that as the main paramete
 
 ## Title
 
-The alert can have a title with the property `title` and its value would be the desired title
+Add a title to the alert with the property `title`.
 
 <vuecode md>
 <div slot="demo">
@@ -88,7 +88,7 @@ The alert can have a title with the property `title` and its value would be the 
 
 ## Color
 
-You can change the color of the alert with the property `color`, the colors can be the main` primary`, `success`,` danger`, `warning`,` dark` or the colors **RGB**, **HEX**.
+You can change the color of the alert with the property `color`. You are able to use the [Main Colors](/theme/) or **RGB** and **HEX** colors.
 
 :::warning
   Only **RGB** and **HEX** colors are supported.
@@ -198,7 +198,7 @@ export default {
 You can add to the alert a descriptive icon with the property `icon` and as a value the icon of [Material Icons](https://material.io/icons/)
 
 ::: tip
-Vuesax use the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
+Vuesax uses the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
 :::
 
 <vuecode md>

@@ -108,7 +108,7 @@ A `vs-list-header` separator with custom `vs-color`.
 The list items and the headers can have a `vs-icon` as well.
 
 ::: tip
-Vuesax use the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
+Vuesax uses the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
 :::
 
 <vuecode md>

@@ -85,7 +85,7 @@ export default {
 
 ## Colors
 
-You can change the color of the checkBox with the property `vs-color`. As a value, you can use the main `primary`,` success`, `danger`,` warning`, `dark` colors, or a different **RGB** or **HEX** color.
+You can change the color of the checkBox with the property `vs-color`. You are able to use the [Main Colors](/theme/) or **RGB** and **HEX** colors.
 
 :::warning
   Only RGB and HEX colors are supported.

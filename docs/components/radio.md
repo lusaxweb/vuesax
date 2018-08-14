@@ -84,7 +84,7 @@ export default {
 
 ## Colors
 
-You can change the color with the property `vs-color`. Also, you could pass as value the default colors: `primary`, `success`, `danger`, `warning`, `dark` or a RGB or HEX color.
+You can change the color with the property `vs-color`. You are able to use the [Main Colors](/theme/) or **RGB** and **HEX** colors.
 
 :::warning
   Only **RGB** and **HEX** colors are supported.
