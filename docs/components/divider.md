@@ -3,7 +3,7 @@ API:
  - name: position
    type: String
    parameters: (left, left-center, right-center, right)
-   description: Determina la posicion del texto o icono.
+   description: Determine the position of the text or icon.
    default: center
  - name: color
    type: String
@@ -34,7 +34,7 @@ API:
 
 ## Default
 
-You can add a line to divide with the component `vs-divider`
+You can add a line to divide with the component `vs-divider`.
 
 <vuecode md>
 <div slot="demo">
@@ -58,7 +58,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 
 ## Text
 
-You can add a text between the line to delimit two elements and have a description for the user
+You can add a text between the line to delimit two elements and have a description for the user.
 
 <vuecode md>
 <div slot="demo">
@@ -104,7 +104,7 @@ You can guide the text in **5** ways with property `position`:
     left-center
   </vs-divider>
   <vs-divider>
-    Center (default)
+    center (default)
   </vs-divider>
   <vs-divider position="right-center">
     right-center
@@ -141,7 +141,7 @@ You can guide the text in **5** ways with property `position`:
 
 ## Color
 
-You can change the color of the component with the property `color`, you can use the colors [main](/theme/) or the **RGB** and **HEX**
+You can change the color of the component with the property `color`, you can use the [main](/theme/) colors or **RGB** and **HEX**.
 :::warning
   Only **RGB** and **HEX** colors are supported.
 :::
@@ -183,7 +183,7 @@ You can change the color of the component with the property `color`, you can use
 To add an icon within the division we have the property `icon`.
 
 ::: tip
-Vuesax use the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
+Vuesax uses the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
 :::
 
 <vuecode md>
@@ -215,7 +215,7 @@ Vuesax use the **Google Material Icons** font library. For a list of all availab
 
 ## Style
 
-You can change line's style with the property `border-style` the allowed values ​​are equivalent to the border-style property in CSS.
+You can change line's style with the property `border-style`. The allowed values ​​are equivalent to the `border-style` property in CSS.
 
 - **dotted** - Defines a dotted border
 - **dashed** - Defines a dashed border

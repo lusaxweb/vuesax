@@ -97,7 +97,7 @@ export default {
 
 ## Color
 
-You can choose the default **Switch** Color like: `primary`, `danger`, `success`, `dark`, `warning` or also change the color to your liking.
+You can choose the default **Switch**. You are able to use the [Main Colors](/theme/) or **RGB** and **HEX** colors.
 
 :::warning
   Supported colors are **RGB** and **HEX**
@@ -226,7 +226,7 @@ We can add a representative icon inside our switch with the property `vs-icon`.
 If you only need to add the icon in one of the states you can do it with the property `vs-icon-on` or `vs-icon-off`
 
 ::: tip
-Vuesax use the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
+Vuesax uses the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
 :::
 
 <vuecode md>

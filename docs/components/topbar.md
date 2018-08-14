@@ -50,7 +50,7 @@ The distance between the elements contained in the topbar will be evenly spaced.
 
 ## Color
 
-You can change the color of the **Topbar** with the property `vs-color`, the color can be one of the main ones like:` primary`, `success`,` danger`, `warning`,` dark` or **RGB**, **HEX**.
+You can change the color of the **Topbar** with the property `vs-color`. You are able to use the [Main Colors](/theme/) or **RGB** and **HEX** colors.
 
 :::warning
   Only **RGB** and **HEX** colors are supported.

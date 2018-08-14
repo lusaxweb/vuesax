@@ -92,7 +92,7 @@ To add a card we have the components `vs-card`, `vs-card-header`, `vs-card-body`
 You can change the overall color of the card with property `vs-color` and `vs-background-color` for the component `vs-card-header`. You can make the color fill with `vs-fill`.
 
 ::: tip
-Vuesax use the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
+Vuesax uses the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
 :::
 
 <vuecode md center>

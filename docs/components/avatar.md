@@ -214,7 +214,7 @@ export default {
 You can change the main icon of the Avatar with the property `icon`
 
 ::: tip
-Vuesax use the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
+Vuesax uses the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
 
 This icon is only displayed when there is no property as `text` o `src`
 :::

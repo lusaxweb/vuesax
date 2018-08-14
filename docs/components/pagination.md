@@ -134,7 +134,7 @@ To customize the previous and next page icons change the value of the `vs-prev-i
 By default, their values are respectively **arrow_back** and **arrow_forward**.
 
 ::: tip
-Vuesax use the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
+Vuesax uses the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
 :::
 
 <vuecode md center>

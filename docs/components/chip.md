@@ -36,7 +36,7 @@ contributors:
 
 ## Default
 
-Helps you represent symple data with colorful options.
+Helps you represent simple data with colorful options.
 
 <vuecode md center>
 <div slot="demo">
@@ -100,7 +100,7 @@ export default {
 
 ## Color
 
-Helps you represent symple data with colorful options.
+Change the background color of the chip.
 
 <vuecode md center>
 <div slot="demo">
@@ -175,7 +175,7 @@ export default {
 Add a nice icon to the chip.
 
 ::: tip
-Vuesax use the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
+Vuesax uses the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
 :::
 
 <vuecode md center>
@@ -318,7 +318,7 @@ export default {
 
 ## Add and Remove Items
 
-You can add and remove chips with the `vs-chips` component and as a main parameter `items` an array.
+You can add and remove chips with the `vs-chips` component. For the main parameter, pass the `items` property, which is an array representing each chip.
 
 <vuecode md>
 <div slot="demo">

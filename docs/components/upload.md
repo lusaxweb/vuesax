@@ -104,7 +104,7 @@ export default {
 
 ## Multiple
 
-You can upload multiple files by adding the `multiple` property within the component
+You can upload multiple files by adding the `multiple` property within the component.
 
 <vuecode md>
 <div slot="demo">

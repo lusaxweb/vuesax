@@ -93,10 +93,10 @@ You can have a progress bar with indeterminate value with the property `indeterm
 
 ## Height
 
-You can change the height size with the property `height`.
+You can change the height of the loading bar with the property `height`.
 
 :::tip
-by default the property `height` is **5** (`5px`)
+By default the property `height` is **5** (`5px`)
 :::
 
 <vuecode md>

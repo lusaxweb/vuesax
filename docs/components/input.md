@@ -229,7 +229,7 @@ export default {
 The input can have icons. Use the property `vs-icon`. You can also also manipulate the icon's position with the property `vs-icon-after`.
 
 ::: tip
-Vuesax use the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
+Vuesax uses the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
 
 FontAwesome and other fonts library are supported. Simply use the `vs-icon-pack` with `fa` or `fas`. You still need to include the Font Awesome icons in your project.
 
@@ -286,7 +286,7 @@ export default {
 
 ## Colors
 
-You can change the color of the borders when the focus the input with the property `vs-color`. You could use the main colors: `primary`,`success`, `danger`,`warning`, `dark` or HEX and RGB colors.
+You can change the color of the borders when the focus the input with the property `vs-color`. You are able to use the [Main Colors](/theme/) or **RGB** and **HEX** colors.
 
 :::warning
 There is only support for **HEX** and **RGB** colors

@@ -269,7 +269,7 @@ There are cases in which we need something more personalized like a specific col
 If you need a gradient type button, to assign the color you have to use the property `vs-gradient-color-secondary`
 :::
 :::warning
-  Only colors are supported **RGB** y **HEX**. <br>
+  Only **RGB** and **HEX** colors are supported. <br>
   Example:
     `vs-color="rgb(215, 82, 39)"` o `vs-color="#d75227"`
 :::
@@ -322,7 +322,7 @@ export default {
 You can add an icon to the button with the property `vs-icon`
 
 ::: tip
-Vuesax use the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
+Vuesax uses the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
 :::
 
 :::tip

@@ -71,7 +71,7 @@ export default {
 
 ## Color
 
-You can change the color of the **Input-Number** with the property `color`. The color can be one of the main ones like:`primary`, `success`,`danger`, `warning`, or `dark` in addition to an **RGB** or **HEX** value.
+You can change the color of the **Input-Number** with the property `color`. You are able to use the [Main Colors](/theme/) or **RGB** and **HEX** colors.
 
 :::warning
   Only **RGB** and **HEX** colors are supported.

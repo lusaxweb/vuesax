@@ -152,7 +152,7 @@ You can change the delay in appearing the tooltip with the property `delay`.
 
 ## Color
 
-To change the color of the tooltip, use the property `color`. As a value, you can put the main colors such as:`primary`, `success`, `danger`, `warning`, or `dark`, in addition to an **RGB**, or **HEX** color.
+To change the color of the tooltip, use the property `color`. You are able to use the [Main Colors](/theme/) or **RGB** and **HEX** colors.
 
 :::warning
   Only **RGB** and **HEX** colors are supported.
