@@ -48,10 +48,8 @@
         </div>
       </transition>
     </div>
-
-
     
-     <!-- <transition-group
+    <transition-group
       @before-enter="beforeEnter"
       @enter="enter"
       @leave="leave"
@@ -96,7 +94,7 @@
           }}
         </span>
       </div>
-    </transition-group> -->
+    </transition-group>
   </div>
 </template>
 
@@ -151,6 +149,10 @@ export default {
       type:String
     },
     vsWarningText:{
+      default: null,
+      type:String
+    },
+    vsDescriptionText:{
       default: null,
       type:String
     },
@@ -209,7 +211,9 @@ export default {
     active(){
       if(this.active){
         this.$children.forEach((item)=>{
-          item.focusValue()
+          if (item.focusValue) {
+            item.focusValue()
+          }
         })
         setTimeout( () => {
           if(this.$refs.ulx.scrollHeight >= 260) this.scrollx = true
@@ -318,7 +322,7 @@ export default {
     },
     focus(){
       this.active = true
-      this.$refs.inputSelectLabel.classList.add('input-select-label-' + this.vsColor + '--active');
+      this.setLabelClass(this.$refs.inputSelectLabel, true)
       let inputx = this.$refs.inputselect
       setTimeout( ()=> {
         document.addEventListener('click',this.clickBlur)
@@ -357,8 +361,8 @@ export default {
     },
     closeOptions(){
       // this.$refs.inputselect.blur()
-      this.active = false
-      this.$refs.inputSelectLabel.classList.remove('input-select-label-' + this.vsColor + '--active');
+      this.active = false      
+      this.setLabelClass(this.$refs.inputSelectLabel, false)
       document.removeEventListener('click',this.clickBlur)
     },
     changePosition(){
@@ -388,6 +392,29 @@ export default {
       }
 
       return cords
+    },
+    beforeEnter(el) {
+      el.style.height = 0
+    },
+    enter(el, done){
+      let h = el.scrollHeight
+      el.style.height = h + 'px'
+      done()
+    },
+    leave: function (el) {
+      el.style.height = 0 + 'px'
+    },
+    setLabelClass: function(label, focusing) {
+      if (!label) {
+        return
+      }
+      
+      if (focusing) {
+        label.classList.add('input-select-label-' + this.vsColor + '--active')
+        return
+      }
+
+      label.classList.remove('input-select-label-' + this.vsColor + '--active')
     }
   }
 }

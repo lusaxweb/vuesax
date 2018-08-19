@@ -1,23 +1,47 @@
 <template lang="html">
   <div class="con-select-example">
     <vs-select
+     :vs-success="true"  
+      vs-success-text="This field is valid" 
       placeholder="Select"
       class="selectExample"
-      vs-label="Multiple"
+      vs-label="Success"
       vs-multiple
       v-model="select1"
       >
-      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in options1" />
+      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in exampleOptions" />
     </vs-select>
-    <vs-select
-      placeholder="Search and select"
+       <vs-select
+      :vs-danger="true" 
+      vs-danger-text="This field is invalid" 
+      placeholder="Select"
       class="selectExample"
-      vs-label="Autocomplete"
+      vs-label="Danger"
       vs-multiple
-      vs-autocomplete
       v-model="select2"
       >
-      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in options2" />
+      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in exampleOptions" />
+    </vs-select>
+       <vs-select
+      :vs-warning="true" 
+      vs-warning-text="This field is invalid" 
+      placeholder="Select"
+      class="selectExample"
+      vs-label="Warning"
+      vs-multiple
+      v-model="select3"
+      >
+      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in exampleOptions" />
+    </vs-select>
+       <vs-select
+      vs-description-text="Simple info for multiple select" 
+      placeholder="Select"
+      class="selectExample"
+      vs-label="Description"
+      vs-multiple
+      v-model="select4"
+      >
+      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in exampleOptions" />
     </vs-select>
   </div>
 </template>
@@ -31,12 +55,8 @@ export default {
       select1:[],
       select2:[],
       select3:[],
-      options1:[
-        {text:'IT',value:0},
-        {text:'Blade Runner',value:2},
-        {text:'Thor Ragnarok',value:3},
-      ],
-      options2:[
+      select4:[],
+      exampleOptions:[
         {text: 'Square', value: 1},
         {text: 'Rectangle', value: 2},
         {text: 'Rombo', value: 3},
