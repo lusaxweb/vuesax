@@ -30,7 +30,6 @@ export default {
       select1Normal:'',
       select1:[],
       select2:[],
-      select3:[],
       options1:[
         {text:'IT',value:0},
         {text:'Blade Runner',value:2},

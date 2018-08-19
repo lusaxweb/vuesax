@@ -468,7 +468,6 @@ export default {
       select1Normal:'',
       select1:[],
       select2:[],
-      select3:[],
       options1:[
         {text:'IT',value:0},
         {text:'Blade Runner',value:2},
@@ -576,12 +575,8 @@ export default {
       select1:[],
       select2:[],
       select3:[],
-      options1:[
-        {text:'IT',value:0},
-        {text:'Blade Runner',value:2},
-        {text:'Thor Ragnarok',value:3},
-      ],
-      options2:[
+      select4:[],
+      exampleOptions:[
         {text: 'Square', value: 1},
         {text: 'Rectangle', value: 2},
         {text: 'Rombo', value: 3},
