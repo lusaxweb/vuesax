@@ -20,6 +20,45 @@ API:
    parameters:
    description: Determine the number of maximum options to be able to select (only for active vs-multiple).
    default: All options
+ - name: vs-label
+   type: String
+   parameters: null
+   description: Label for the input element.
+ - name: vs-success
+   type: Boolean
+   parameters: boolean bind
+   description: Activate the status of success in the input.
+   default: false
+ - name: vs-danger
+   type: Boolean
+   parameters: boolean bind
+   description: Activate the status of danger in the input.
+   default: false
+ - name: vs-warning
+   type: Boolean
+   parameters: boolean bind
+   description: Activate the status of warning in the input.
+   default: false
+ - name: vs-description-text
+   type: String
+   parameters: null
+   description: Add a description text to the input.
+   default: false
+ - name: vs-danger-text
+   type: String
+   parameters: null
+   description: Text to show when the item is invalid.
+   default: null
+ - name: vs-success-text
+   type: String
+   parameters: null
+   description: Text to show when the item is valid.
+   default: null
+ - name: vs-warning-text
+   type: String
+   parameters: null
+   description: Text that is displayed in the warning state.
+   default: null
 ---
 
 # Select **- ssr**
