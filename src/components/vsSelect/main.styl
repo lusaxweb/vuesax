@@ -41,6 +41,23 @@
   transition: all .2s ease;
   padding-right: 20px;
   cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  &-con
+    position: relative;
+  &-label
+    padding-left 5px;
+    font-size: .85rem
+    color rgba(0,0,0,.7)
+.con-text-validation
+  position: relative
+  font-size: .65rem
+  overflow: hidden
+  transition: all .2s ease;
+  .span-text-validation
+    padding: 2px 4px;
+    padding-bottom: 4px
+    display: block
 
 .scrollx
   ul
@@ -97,6 +114,16 @@ for colorx, i in $vs-colors
         background: alpha($vs-colors[colorx],.1) !important;
         color: $vs-colors[colorx];
         font-weight: bold;
+  .input-select-label-{colorx}--active
+    color: $vs-colors[colorx]
+  .input-select-validate-{colorx}
+    .input-select-label
+      color $vs-colors[colorx]
+    .input-select-con
+      .input-select
+        border-color: $vs-colors[colorx]
+      .icon-select
+        color $vs-colors[colorx]
 
 
 // item style //
