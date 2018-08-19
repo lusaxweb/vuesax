@@ -207,7 +207,7 @@ export default {
       }
     },
     isValue(){
-      return this.vsLabelPlaceholder?true:(this.value == '')
+      return this.vsLabelPlaceholder?true:!this.value
     },
     getIcon(){
       let iconx = 'done'
