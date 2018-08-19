@@ -1,41 +1,102 @@
 <template lang="html">
   <div
-    :class="{'autocompletex':vsAutocomplete,'activeOptions':active}"
+    :class="{
+      'autocompletex':vsAutocomplete,
+      'activeOptions':active,
+      'input-select-validate-success':vsSuccess,
+      'input-select-validate-danger':vsDanger,
+      'input-select-validate-warning':vsWarning}"
     class="con-select">
-    <input
-      ref="inputselect"
-      v-bind="$attrs"
-      :readonly="!vsAutocomplete"
-      v-model="valueFilter"
-      class="input-select"
-      type="text"
-      @click.stop
-      @keydown.esc.stop.prevent="closeOptions"
-      v-on="listeners">
+    <label
+      ref="inputSelectLabel"
+      v-if="vsLabel"
+      class="input-select-label"
+      for="">{{ vsLabel }}</label>
+    <div class="input-select-con">
+      <input
+        ref="inputselect"
+        v-bind="$attrs"
+        :readonly="!vsAutocomplete"
+        v-model="valueFilter"
+        class="input-select"
+        type="text"
+        @click.stop
+        @keydown.esc.stop.prevent="closeOptions"
+        v-on="listeners">
 
-    <i
-      translate="no"
-      class="material-icons icon-select notranslate">
-      keyboard_arrow_down
-    </i>
+      <i
+        translate="no"
+        class="material-icons icon-select notranslate">
+        keyboard_arrow_down
+      </i>
 
-    <transition name="fade-select">
+      <transition name="fade-select">
+        <div
+          v-show="active"
+          ref="vsSelectOptions"
+          :style="cords"
+          :class="[`vs-select-${vsColor}`,{'scrollx':scrollx}]"
+          class="vs-select-options">
+          <ul ref="ulx">
+            <slot/>
+          </ul>
+          <ul v-show="clear">
+            <li @click="filterItems(''),changeValue()" >
+              {{ vsNoData }}
+            </li>
+          </ul>
+        </div>
+      </transition>
+    </div>
+
+
+    
+     <!-- <transition-group
+      @before-enter="beforeEnter"
+      @enter="enter"
+      @leave="leave"
+    >
       <div
-        v-show="active"
-        ref="vsSelectOptions"
-        :style="cords"
-        :class="[`vs-select-${vsColor}`,{'scrollx':scrollx}]"
-        class="vs-select-options">
-        <ul ref="ulx">
-          <slot/>
-        </ul>
-        <ul v-show="clear">
-          <li @click="filterItems(''),changeValue()" >
-            {{ vsNoData }}
-          </li>
-        </ul>
+        v-if="vsSuccess"
+        key="success"
+        class="con-text-validation">
+        <span class="span-text-validation span-text-validation-success">
+          {{
+            vsSuccessText
+          }}
+        </span>
       </div>
-    </transition>
+      <div
+        v-else-if="vsDanger"
+        key="danger"
+        class="con-text-validation span-text-validation-danger">
+        <span class="span-text-validation">
+          {{
+            vsDangerText
+          }}
+        </span>
+      </div>
+      <div
+        v-else-if="vsWarning"
+        key="warning"
+        class="con-text-validation span-text-validation-warning">
+        <span class="span-text-validation">
+          {{
+            vsWarningText
+          }}
+        </span>
+      </div>
+      <div
+        v-if="vsDescriptionText"
+        key="description"
+        class="con-text-validation span-text-validation">
+        <span class="span-text-validation">
+          {{
+            vsDescriptionText
+          }}
+        </span>
+      </div>
+    </transition-group> -->
   </div>
 </template>
 
@@ -64,7 +125,35 @@ export default {
     vsMultiple:{
       default:false,
       type:Boolean
-    }
+    },
+    vsLabel:{
+      default:null,
+      type:[String]
+    },
+    vsSuccess:{
+      default:false,
+      type:Boolean
+    },
+    vsDanger:{
+      default:false,
+      type:Boolean
+    },
+    vsWarning:{
+      default:false,
+      type:Boolean
+    },
+    vsSuccessText:{
+      default: null,
+      type:String
+    },
+    vsDangerText:{
+      default: null,
+      type:String
+    },
+    vsWarningText:{
+      default: null,
+      type:String
+    },
   },
   data:()=>({
     valueFilter:'',
@@ -229,6 +318,7 @@ export default {
     },
     focus(){
       this.active = true
+      this.$refs.inputSelectLabel.classList.add('input-select-label-' + this.vsColor + '--active');
       let inputx = this.$refs.inputselect
       setTimeout( ()=> {
         document.addEventListener('click',this.clickBlur)
@@ -268,6 +358,7 @@ export default {
     closeOptions(){
       // this.$refs.inputselect.blur()
       this.active = false
+      this.$refs.inputSelectLabel.classList.remove('input-select-label-' + this.vsColor + '--active');
       document.removeEventListener('click',this.clickBlur)
     },
     changePosition(){
@@ -297,7 +388,7 @@ export default {
       }
 
       return cords
-    },
+    }
   }
 }
 </script>

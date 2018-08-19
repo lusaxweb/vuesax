@@ -41,6 +41,14 @@
   transition: all .2s ease;
   padding-right: 20px;
   cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  &-con
+    position: relative;
+  &-label
+    padding-left 5px;
+    font-size: .85rem
+    color rgba(0,0,0,.7)
 
 .scrollx
   ul
@@ -97,6 +105,8 @@ for colorx, i in $vs-colors
         background: alpha($vs-colors[colorx],.1) !important;
         color: $vs-colors[colorx];
         font-weight: bold;
+  .input-select-label-{colorx}--active
+    color: $vs-colors[colorx]
 
 
 // item style //
