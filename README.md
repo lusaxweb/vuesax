@@ -64,6 +64,7 @@ If you feel awesome and want to support us in a small way, please consider starr
 - 🐦 Twitter: [@vuesax](https://twitter.com/vuesax)
 - 💬 Chat: [Discord](https://discord.gg/gd2kAjn)
 - 🎲 template:[Codepen](https://codepen.io/lusaxweb/pen/mxMKYr)
+- 📰 Tutorial Implement: [Medium](https://medium.com/@luisdanielrovira8/how-to-implement-vuesax-in-a-project-with-webpack-and-vue-cli-3-98d14398d139)
 
 ## Components
 
