@@ -44,6 +44,7 @@
               target="_blank"
               href="https://discord.gg/9dsKtvB"
               class="nav-link discord-link"
+              rel="noopener noreferrer"
             >
             <img :src="$withBase('/Discord-Logo-White.png')" alt="">
             Discord
@@ -83,7 +84,7 @@
               >{{feature.button.text?feature.button.text:'see more'}}</router-link>
               </button>
             <!-- <button v-if="feature.github" type="button" name="button"> -->
-              <a target="_blank" class="flaticon-github githubx" :href="data.vueThemes.github"></a>
+              <a target="_blank" class="flaticon-github githubx" :href="data.vueThemes.github" rel="noopener noreferrer"></a>
             <!-- </button> -->
           </div>
         </div>
