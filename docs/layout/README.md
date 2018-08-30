@@ -68,7 +68,7 @@ With the directive `vs-w` define the width of the column (`vs-col`) its value is
 
 <vuecode md>
 
-<div slot="demo">
+<div class="gridx" slot="demo">
 <vs-row>
 <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-w="12">
 
@@ -172,7 +172,7 @@ To give a distance with respect to the left we have the directive vs-offset that
 
 <vuecode md>
 
-<div slot="demo">
+<div class="gridx" slot="demo">
 <vs-row vs-w="12">
 <vs-col vs-offset="5" vs-type="flex" vs-justify="center" vs-align="center" vs-w="6">
 
@@ -219,31 +219,31 @@ offset - 4
 ```html
 <vs-row vs-w="12">
   <vs-col vs-offset="5" vs-type="flex" vs-justify="center" vs-align="center" vs-w="6">
-    offset - 6    
+    offset - 6
   </vs-col>
 </vs-row>
 
 <vs-row>
-  <vs-col vs-offset="0" v-tooltip="'col - 2'" vs-type="flex" vs-justify="center" vs-align="center" vs-w="2">  
-    offset - 2  
+  <vs-col vs-offset="0" v-tooltip="'col - 2'" vs-type="flex" vs-justify="center" vs-align="center" vs-w="2">
+    offset - 2
   </vs-col>
 </vs-row>
 
 <vs-row>
-  <vs-col vs-offset="2" v-tooltip="'col - 8'" vs-type="flex" vs-justify="center" vs-align="center" vs-w="8">    
-    offset - 8    
+  <vs-col vs-offset="2" v-tooltip="'col - 8'" vs-type="flex" vs-justify="center" vs-align="center" vs-w="8">
+    offset - 8
   </vs-col>
 </vs-row>
 
 <vs-row>
-  <vs-col vs-offset="10" v-tooltip="'col - 1'" vs-type="flex" vs-justify="center" vs-align="center" vs-w="1">    
-    offset - 7  
+  <vs-col vs-offset="10" v-tooltip="'col - 1'" vs-type="flex" vs-justify="center" vs-align="center" vs-w="1">
+    offset - 7
   </vs-col>
 </vs-row>
 
 <vs-row>
-  <vs-col vs-offset="4" v-tooltip="'col - 4'" vs-type="flex" vs-justify="center" vs-align="center" vs-w="4">    
-    offset - 4    
+  <vs-col vs-offset="4" v-tooltip="'col - 4'" vs-type="flex" vs-justify="center" vs-align="center" vs-w="4">
+    offset - 4
   </vs-col>
 </vs-row>
 ```
@@ -262,7 +262,7 @@ If we need to align the elements horizontally, use the `vs-justify` directive th
 
 <vuecode md>
 
-<div slot="demo">
+<div class="gridx" slot="demo">
 <vs-row vs-w="12">
 <vs-col :key="index" v-for="col,index in 3" vs-type="flex" vs-justify="center" vs-align="center" vs-w="2">
 
@@ -309,33 +309,33 @@ offset - 6
 
 ```html
 <vs-row vs-w="12">
-  <vs-col :key="index" v-for="col,index in 3" vs-type="flex" vs-justify="center" vs-align="center" vs-w="2">    
+  <vs-col :key="index" v-for="col,index in 3" vs-type="flex" vs-justify="center" vs-align="center" vs-w="2">
     offset - 6
   </vs-col>
 </vs-row>
 
 <vs-row vs-type="flex" vs-justify="center">
-  <vs-col :key="index" v-for="col,index in 3" vs-type="flex" vs-justify="center" vs-align="center" vs-w="2">    
-    offset - 6    
+  <vs-col :key="index" v-for="col,index in 3" vs-type="flex" vs-justify="center" vs-align="center" vs-w="2">
+    offset - 6
   </vs-col>
 </vs-row>
 
 <vs-row vs-type="flex" vs-justify="flex-end">
-  <vs-col :key="index" v-for="col,index in 3" vs-type="flex" vs-justify="center" vs-align="center" vs-w="2">    
-    offset - 6    
+  <vs-col :key="index" v-for="col,index in 3" vs-type="flex" vs-justify="center" vs-align="center" vs-w="2">
+    offset - 6
   </vs-col>
 </vs-row>
 
 
 <vs-row vs-type="flex" vs-justify="space-around">
-  <vs-col :key="index" v-for="col,index in 3" vs-type="flex" vs-justify="center" vs-align="center" vs-w="2">    
-    offset - 6    
+  <vs-col :key="index" v-for="col,index in 3" vs-type="flex" vs-justify="center" vs-align="center" vs-w="2">
+    offset - 6
   </vs-col>
 </vs-row>
 
 <vs-row vs-type="flex" vs-justify="space-between">
-  <vs-col :key="index" v-for="col,index in 3" vs-type="flex" vs-justify="center" vs-align="center" vs-w="2">    
-    offset - 6    
+  <vs-col :key="index" v-for="col,index in 3" vs-type="flex" vs-justify="center" vs-align="center" vs-w="2">
+    offset - 6
   </vs-col>
 </vs-row>
 ```
@@ -357,7 +357,7 @@ To align the elements vertically we have the directive `vs-align` that as parame
 
 <vuecode md>
 
-<div slot="demo">
+<div class="gridx" slot="demo">
 <vs-row vs-type="flex" vs-align="flex-start" vs-justify="center" vs-w="12">
 <vs-col :key="index" v-for="col,index in 4" vs-type="flex" vs-justify="center" vs-align="center" vs-w="2">
 
@@ -373,8 +373,8 @@ col - 3
 <vs-row
   vs-align="flex-start"
   vs-type="flex" vs-justify="center" vs-w="12">
-  <vs-col :key="index" v-for="col,index in 4" vs-type="flex" vs-justify="center" vs-align="center" vs-w="2">    
-    col - 3    
+  <vs-col :key="index" v-for="col,index in 4" vs-type="flex" vs-justify="center" vs-align="center" vs-w="2">
+    col - 3
   </vs-col>
 </vs-row>
 ```
@@ -388,7 +388,7 @@ col - 3
 
 <vuecode md>
 
-<div slot="demo">
+<div class="gridx" slot="demo">
 <vs-row vs-type="flex" vs-align="center" vs-justify="space-around" vs-w="12">
 <vs-col :key="index" v-for="col,index in 4" vs-type="flex" vs-justify="center" vs-align="center" vs-w="2">
 
@@ -404,8 +404,8 @@ col - 3
 <vs-row
   vs-align="center"
   vs-type="flex" vs-justify="space-around" vs-w="12">
-  <vs-col :key="index" v-for="col,index in 4" vs-type="flex" vs-justify="center" vs-align="center" vs-w="2">    
-    col - 3    
+  <vs-col :key="index" v-for="col,index in 4" vs-type="flex" vs-justify="center" vs-align="center" vs-w="2">
+    col - 3
   </vs-col>
 </vs-row>
 ```
@@ -418,7 +418,7 @@ col - 3
 
 <vuecode md>
 
-<div slot="demo">
+<div class="gridx" slot="demo">
 <vs-row vs-type="flex" vs-align="flex-end" vs-justify="space-between" vs-w="12">
 <vs-col :key="index" v-for="col,index in 4" vs-type="flex" vs-justify="center" vs-align="center" vs-w="2">
 
@@ -454,7 +454,7 @@ In some cases, we want to order the elements to our liking. To do this, use the 
 
 <vuecode md>
 
-<div slot="demo">
+<div class="gridx" slot="demo">
 <vs-row vs-type="flex">
 <vs-col vs-order="3" vs-type="flex" vs-justify="center" vs-align="center" vs-w="3">
 
@@ -523,7 +523,7 @@ There are some measures that can only be added in a specific size of the device,
 
 <vuecode md>
 
-<div slot="demo">
+<div class="gridx" slot="demo">
 <vs-row vs-w="12">
 <vs-col v-tooltip="'lg - 2 / sm - 4 / xs - 12'" vs-type="flex" vs-justify="center" vs-align="center" vs-lg="2" vs-sm="4" vs-xs="12" >
 

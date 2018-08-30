@@ -69,7 +69,7 @@ footer.footerx_theme
   background #110d26
   position relative
   z-index 1
-  margin-top 200px
+  margin-top 300px
   display block
 
 .con-footer
