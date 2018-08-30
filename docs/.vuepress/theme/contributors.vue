@@ -3,7 +3,7 @@
     <h3 :class="{'allcontribuitors':contributors == 'all'}">{{title || 'contributors of'}} <b>Vuesax</b>  </h3>
     <ul>
       <li v-if="index < 19" :title="contributor.login" v-for="(contributor,index) in contribuitorsx">
-        <a target="_blank" :href="contributor.html_url">
+        <a target="_blank" :href="contributor.html_url" rel="noopener noreferrer">
           <img :src="contributor.avatar_url" alt="">
           <img class="img-blur" :src="contributor.avatar_url" alt="">
         </a>

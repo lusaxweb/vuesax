@@ -1,7 +1,7 @@
 ---
 home: true
 heroImage: /vuesax-logo-beta.png
-heroText: <b>Vuesax</b> Frontend <a target="_blank" href="https://vuejs.org/">Vue</a> Components
+heroText: <b>Vuesax</b> Frontend <a target="_blank" href="https://vuejs.org/" rel="noopener noreferrer">Vue</a> Components
 heroBackgroundComponent: city
 features:
 - title: <b>Experience</b> design
@@ -13,7 +13,7 @@ features:
     link: /components/
 
 - title: <b>Responsive</b> components
-  details: We work with Responsive <a target="_blank" href="https://vuejs.org/">Components</a>, we strive to be available to everyone in our community.
+  details: We work with Responsive <a target="_blank" href="https://vuejs.org/" rel="noopener noreferrer">Components</a>, we strive to be available to everyone in our community.
   component: responsive
   github: true
   button:

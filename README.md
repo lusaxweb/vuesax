@@ -46,13 +46,27 @@ Vuesax is an open source [MIT](https://github.com/lusaxweb/vuesax/blob/master/LI
   </a>
  </p>
 
-# Introduction
+## Introduction
 
 [Vuesax](https://lusaxweb.github.io/vuesax/) is a framework of components based on [vue.js](https://vuejs.org/), it is a framework that is designed from scratch to be incrementally adoptable.
 
 The framework is focused on facilitating the development of applications, improving the design of the same without removing the necessary functionality. we want all the components to be independent in colors, shapes and design for a freedom that we like all front-end but without losing the speed of creation and production.
 
-# Components
+# Support the project ⭐
+
+If you feel awesome and want to support us in a small way, please consider starring and sharing the repo! This helps us getting known and grow the community. 🙏
+
+<img src="https://github.com/lusaxweb/vuesax/blob/master/public/github-vuesax-star.gif" alt="vuesax-star" />
+
+## Links
+
+- 📘 [Documentation](https://lusaxweb.github.io/vuesax/)
+- 🐦 Twitter: [@vuesax](https://twitter.com/vuesax)
+- 💬 Chat: [Discord](https://discord.gg/gd2kAjn)
+- 🎲 template:[Codepen](https://codepen.io/lusaxweb/pen/mxMKYr)
+- 📰 Tutorial Implement: [Medium](https://medium.com/@luisdanielrovira8/how-to-implement-vuesax-in-a-project-with-webpack-and-vue-cli-3-98d14398d139)
+
+## Components
 
 - [Buttons](https://lusaxweb.github.io/vuesax/components/) - SSR
 - [Selects](https://lusaxweb.github.io/vuesax/components/selects.html) - SSR
@@ -82,14 +96,10 @@ The framework is focused on facilitating the development of applications, improv
 - [SideBar](https://lusaxweb.github.io/vuesax/components/sideBar.html)
 - [DropDown](https://lusaxweb.github.io/vuesax/components/dropDown.html)
 
-# Demo and Documentation
-
-[Documentation](https://lusaxweb.github.io/vuesax/#/)
-
-# Browser Support
+## Browser Support
 Recent versions of **Firefox**, **Chrome**, **Edge**, **Opera** and **Safari**. **IE10+**
 
-# Quick-start CDN
+## Quick-start CDN
 
 ```html
 <!DOCTYPE html>
@@ -114,12 +124,12 @@ Recent versions of **Firefox**, **Chrome**, **Edge**, **Opera** and **Safari**. 
 </html>
 ```
 
-# CDN
+## CDN Links
 
 - https://cdn.jsdelivr.net/npm/vuesax/dist/vuesax.umd.js
 - https://cdn.jsdelivr.net/npm/vuesax/dist/vuesax.css
 
-# install en Proyecto NPM
+# Install en Proyecto NPM
 ``` bash
 # npm
 npm install vuesax
@@ -152,16 +162,6 @@ import 'vuesax/dist/vuesax.css'
 Vue.use(vsButton)
 Vue.use(vsSelect)
 Vue.use(vsPopup)
-```
-
-### Or use only the functions:
-
-```javascript
-import Vue from 'vue'
-import vsFunctions from 'vuesax/dist/functions'
-import 'vuesax/dist/vuesax.css'
-
-Vue.use(vsFunctions)
 ```
 
 ## Contribution
