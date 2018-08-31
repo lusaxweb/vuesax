@@ -27,6 +27,7 @@
 
       </span>
       <button
+        type="button"
         title="Upload"
         class="btn-upload-all"
         @click="uploadx('all')">
@@ -131,6 +132,10 @@
       headers:{
         default:null,
         type:String
+      },
+      automatic:{
+        default: false,
+        type: Boolean
       }
     },
     data:()=>({
@@ -193,6 +198,7 @@
         },301)
       },
       getFiles(e) {
+
         this.$emit('update:vsFile', e.target.value)
         let _this = this
         function uploadImage(e) {
@@ -265,6 +271,10 @@
         const input = this.$refs.fileInput
         input.type = 'text'
         input.type = 'file'
+
+        if (this.automatic) {
+          this.uploadx('all')
+        }
       },
       uploadx(index){
         let self = this
