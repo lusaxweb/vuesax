@@ -4,19 +4,19 @@
       <slot name="avatar"/>
     </div>
     <div
-      v-if="vsIcon"
+      v-if="icon"
       class="list-icon">
       <i
         translate="no"
-        class="material-icons notranslate">{{ vsIcon }}</i>
+        class="material-icons notranslate">{{ icon }}</i>
     </div>
     <div class="list-titles">
       <div
-        v-if="vsTitle"
-        class="list-title">{{ vsTitle }}</div>
+        v-if="title"
+        class="list-title">{{ title }}</div>
       <div
-        v-if="vsSubtitle"
-        class="list-subtitle">{{ vsSubtitle }}</div>
+        v-if="subtitle"
+        class="list-subtitle">{{ subtitle }}</div>
     </div>
     <div class="list-slot">
       <slot/>
@@ -32,58 +32,18 @@ export default {
       type:[Boolean,String],
       default:false,
     },
-    vsTitle:{
+    title:{
       type:String,
       default:null,
     },
-    vsSubtitle:{
+    subtitle:{
       type:String,
       default:null,
     },
-    vsIcon:{
+    icon:{
       type:String,
       default:null,
     },
   }
 }
 </script>
-
-<style lang="stylus" scoped>
-  .vs-list-item
-    border-left 1px solid rgb(235,235,235)
-    border-right 1px solid rgb(235,235,235)
-    display flex
-    justify-content center
-    align-items center
-    flex-direction row
-    font-weight 500
-    position relative
-    white-space nowrap
-    .list-avatar
-      margin-left: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    .list-icon
-      display flex
-      justify-content center
-      align-items center
-      i
-        font-size 1.5rem
-        margin 16px
-        margin-right: 0px;
-    .list-titles
-      width 100%
-      display flex
-      justify-content center
-      align-items flex-start
-      flex-direction column
-      padding 8px
-      margin-left: 10px;
-      .list-title
-        font-size 1rem
-      .list-subtitle
-        font-size 0.8rem
-    .list-slot
-      margin-left auto
-</style>

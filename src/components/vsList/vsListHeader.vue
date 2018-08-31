@@ -1,83 +1,54 @@
 <template lang="html">
   <div
-    :class="{
-      'with-icon':vsIcon,
-    }"
-    :style="{
-      'color':vsColor?/[#()]/.test(vsColor)?vsColor:`rgba(var(--${vsColor}),1)`:'rgb(244,244,244)',
-      'border-color':vsColor?/[#()]/.test(vsColor)?vsColor:`rgba(var(--${vsColor}),1)`:'rgb(244,244,244)',
-    }"
+    :class="[`vs-header-list-${color}`,{
+      'with-icon':icon,
+    }]"
+    :style="styleHeader"
     class="vs-list-header">
     <div
-      v-if="vsIcon"
+      v-if="icon"
       class="list-icon">
       <i
         translate="no"
-        class="material-icons notranslate">{{ vsIcon }}</i>
+        class="material-icons notranslate">{{ icon }}</i>
     </div>
     <div class="list-titles">
       <div
-        v-if="vsTitle"
-        class="list-title">{{ vsTitle }}</div>
-        <!-- <div class="list-subtitle" v-if="vsSubtitle">{{vsSubtitle}}</div> -->
+        v-if="title"
+        class="list-title">{{ title }}</div>
+        <!-- <div class="list-subtitle" v-if="subtitle">{{subtitle}}</div> -->
     </div>
   </div>
 </template>
 
 <script>
+import _color from '../../utils/color.js'
 export default {
   name:'VsListHeader',
   props: {
-    vsColor:{
+    color: {
       type:String,
       default:'primary',
     },
-    vsTitle:{
+    title:{
       type:String,
       default:null,
     },
-    vsSubtitle:{
+    subtitle:{
       type:String,
       default:null,
     },
-    vsIcon:{
+    icon:{
       type:String,
       default:null,
     },
+  },
+  computed: {
+    styleHeader () {
+      return {
+        color: _color.getColor(this.color)
+      }
+    }
   }
 }
 </script>
-
-<style lang="stylus" scoped>
-  .vs-list-header
-    border-left 3px solid red
-    background-color rgb(244,244,244)
-    border-left 3px solid rgba(0,0,0,.1)
-    display flex
-    justify-content center
-    align-items center
-    flex-direction row
-    font-weight 500
-    position relative
-    white-space nowrap
-    .list-icon
-      display flex
-      justify-content center
-      align-items center
-      i
-        font-size 1.5rem
-        margin 16px
-        margin-right: 0px;
-    .list-titles
-      width 100%
-      display flex
-      justify-content center
-      align-items flex-start
-      flex-direction column
-      padding 8px
-      margin-left: 10px;
-      .list-title
-        font-size 1rem
-      .list-subtitle
-        font-size 0.8rem
-</style>

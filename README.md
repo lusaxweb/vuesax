@@ -90,8 +90,8 @@ If you feel awesome and want to support us in a small way, please consider starr
 - [Chip](https://lusaxweb.github.io/vuesax/components/chip.html) - SSR
 - [Progress](https://lusaxweb.github.io/vuesax/components/progress.html) - SSR
 - [Card](https://lusaxweb.github.io/vuesax/components/card.html) - SSR
-- [List](https://lusaxweb.github.io/vuesax/components/list.html) - Working
-- [Pagination](https://lusaxweb.github.io/vuesax/components/pagination.html)
+- [List](https://lusaxweb.github.io/vuesax/components/list.html) - SSR
+- [Pagination](https://lusaxweb.github.io/vuesax/components/pagination.html) - Working
 - [Topbar](https://lusaxweb.github.io/vuesax/components/topbar.html)
 - [SideBar](https://lusaxweb.github.io/vuesax/components/sideBar.html)
 - [DropDown](https://lusaxweb.github.io/vuesax/components/dropDown.html)

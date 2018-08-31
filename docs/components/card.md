@@ -30,7 +30,7 @@ contributors:
   - RodSwanston
 ---
 
-# Card <!--#new-->
+# Card **- ssr**
 
 <box header>
 
