@@ -30,6 +30,11 @@ API:
    parameters: null
    description: Determines if the group of links is open.
    default: false
+ - name: vs-pos
+   type: String
+   parameters: null
+   description: Determines where the sidebar should be opened from.
+   default: left
  - name: vs-reduce-expand
    type: Boolean
    parameters: null
@@ -353,6 +358,69 @@ export default {
 <style lang="stylus">
 .con-example-sidebar
   height: 500px;
+</style>
+```
+
+</div>
+</vuecode>
+</box>
+
+<box>
+
+## Open on the right
+
+You can also choose where you'd like the sidebar to appear, right or left? By default, a sidebar will be located on
+the left of the screen but sometimes, a right-screened sidebar is really useful!
+
+:::warning
+A `static` sidebar will not appear on the right.
+:::
+
+<vuecode md>
+<div slot="demo">
+  <Demos-SideBar-Right />
+</div>
+<div slot="code">
+
+```html
+<template lang="html">
+  <div id="parentx4" class="con-example-sidebar">
+    <vs-button @click="active=!active" vs-type="filled">Open Sidebar</vs-button>
+    <vs-sidebar vs-parent="#parentx4" :vs-active.sync="active" vs-pos="right">
+
+      <vs-sidebar-item @click="actives=1" :vs-active="actives==1" vs-icon="question_answer">
+         Dashboard
+      </vs-sidebar-item>
+      <vs-sidebar-item @click="actives=2" :vs-active="actives==2" vs-icon="gavel">
+         History
+      </vs-sidebar-item>
+      <vs-sidebar-item @click="actives=3" :vs-active="actives==3" vs-icon="verified_user">
+         Configurations
+      </vs-sidebar-item>
+      <vs-sidebar-item @click="actives=4" :vs-active="actives==4" vs-icon="account_box">
+         Perfile
+      </vs-sidebar-item>
+      <vs-sidebar-item @click="actives=5" :vs-active="actives==5" vs-icon="card_giftcard">
+         card
+      </vs-sidebar-item>
+
+    </vs-sidebar>
+  </div>
+</template>
+
+<script>
+export default {
+  data:()=>({
+    active:false,
+    actives:2,
+  })
+}
+</script>
+
+<style lang="stylus">
+.con-example-sidebar
+  height: 500px;
+  position: relative;
 </style>
 ```
 
