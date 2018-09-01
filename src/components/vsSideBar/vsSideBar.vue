@@ -1,18 +1,30 @@
 <template lang="html">
-  <transition name="sidebarx">
-    <div
-      v-show="vsStatic?true:vsActive"
-      ref="considebar"
-      :class="{'vsStatic':vsStatic,'body-sidebar':vsParent=='body'}"
-      class="vs-component con-sidebar">
+  <div
+    v-show="vsStatic || vsActive"
+    ref="considebar"
+    :class="{'vsStatic':vsStatic,'body-sidebar':vsParent=='body'}"
+    class="vs-component con-sidebar">
+
+    <!-- Overlay -->
+    <transition name="vs-sidebar-overlay">
       <div
-        v-if="vsBackgroundHidden?false:!vsStatic"
+        v-show="vsActive && (!vsBackgroundHidden || !vsStatic)"
         class="con-darkx"
         @click="clickOut()"/>
-      <!-- :style="{'color':vsColor?/[#()]/.test(vsColor)?vsColor:`rgba(var(--${vsColor}),1)`:'rgb(var(--primary))'}" -->
+    </transition>
+
+    <!-- Core -->
+    <transition
+      :leave-to-class="`vs-sidebar-core-${vsPos}`"
+      :enter-class="`vs-sidebar-core-${vsPos}`"
+      appear
+      name="vs-sidebar-core">
       <div
+        v-show="vsStatic || vsActive"
         :class="{'reducex':reduce}"
-        class="vs-sidebar">
+        :style="posStyle"
+        class="vs-sidebar"
+      >
         <div
           v-if="vsReduceExpand"
           class="expand-reduce">
@@ -37,8 +49,8 @@
           <slot name="footer"/>
         </footer>
       </div>
-    </div>
-  </transition>
+    </transition>
+  </div>
 </template>
 
 <script>
@@ -81,11 +93,22 @@ export default {
     vsBackgroundHidden:{
       default:false,
       type:Boolean
+    },
+    vsPos:{
+      default:'left',
+      type:String
     }
   },
   data:()=>({
     reduce:false
   }),
+  computed:{
+    posStyle(){
+      return {
+        [this.vsPos]: '0px'
+      }
+    }
+  },
   watch:{
     vsReduce(){
       this.reduce = this.vsReduce
@@ -114,8 +137,6 @@ export default {
       document.querySelector(this.vsParent).addEventListener("touchend",this.onTouchEnd)
       this.insertBody()
     })
-
-
   },
   methods:{
     onTouchStart (e) {
@@ -155,30 +176,17 @@ export default {
 <style lang="stylus">
 // vars
 
+.vs-sidebar-overlay-enter, .vs-sidebar-overlay-leave-to
+  opacity 0 !important
 
-.sidebarx-enter-active , .sidebarx-leave-active {
-  transition: all .25s;
-}
-.sidebarx-enter , .sidebarx-leave-to /* .sidebarx-leave-active below version 2.1.8 */ {
-  // transition: all .5s ;
-  // transform: translate(-100%) !important;
-}
+.vs-sidebar-overlay-enter-active, .vs-sidebar-overlay-leave-active
+  transition opacity .25s
 
-.sidebarx-enter-active .vs-sidebar, .sidebarx-leave-active .vs-sidebar{
-  transition: all .25s;
-}
-.sidebarx-enter .vs-sidebar, .sidebarx-leave-to .vs-sidebar/* .sidebarx-leave-active below version 2.1.8 */ {
-  // transition: all .5s ;
-  transform: translate(-100%) !important;
-}
+.vs-sidebar-core-left
+  transform translate(-100%) !important
 
-.sidebarx-enter-active .con-darkx, .sidebarx-leave-active .con-darkx{
-  transition: all .25s ease !important;
-}
-.sidebarx-enter .con-darkx, .sidebarx-leave-to .con-darkx/* .sidebarx-leave-active below version 2.1.8 */ {
-  // transition: all .5s ;
-  opacity: 0 !important;
-}
+.vs-sidebar-core-right
+  transform translate(100%) !important
 
 .con-sidebar
   transition: all .25s ;
@@ -216,7 +224,6 @@ export default {
     max-width: 270px;
     height: 100%;
     position: absolute;
-    left: 0px;
     top: 0px;
     box-shadow: 5px 0px 20px 0px rgba(0, 0, 0, 0.1);
     background: rgb(255, 255, 255);

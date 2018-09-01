@@ -8,8 +8,8 @@
       'input-select-validate-warning':vsWarning}"
     class="con-select">
     <label
-      ref="inputSelectLabel"
       v-if="vsLabel"
+      ref="inputSelectLabel"
       class="input-select-label"
       for="">{{ vsLabel }}</label>
     <div class="input-select-con">
