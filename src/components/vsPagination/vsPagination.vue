@@ -1,152 +1,156 @@
-<template lang="html">
-  <nav
-    class="vs-component"
-    aria-label="Page pagination"
-    role="navigation">
-    <ul :class="['vs-pagination', vsType ? `vs-pager-${vsType}` : '', vsRounded ? 'vs-pager-rounded' : '']">
-      <li><button
-        :disabled="onFirstPage() ? true : false"
-        @click="previousPage()">
-        <i
-          translate="no"
-          class="material-icons notranslate">{{ vsPrevIcon }}</i></button></li>
-      <li
-        v-for="(page, index) in pages"
-        :key="index">
-        <button
-          :style="{
-            'background':onCurrentPage(page)&&vsType?vsColor?/[#()]/.test(vsColor)?vsColor:`rgba(var(--${vsColor}),1)`:'rgb(var(--primary))':null
-          }"
-          :class="onCurrentPage(page)"
-          :disabled="isEllipsis(page) ? true : false"
-          @click="goTo(page)">{{ page }}</button>
-      </li>
-      <li><button
-        :disabled="onLastPage() ? true : false"
-        @click="nextPage()">
-        <i
-          translate="no"
-          class="material-icons notranslate">{{ vsNextIcon }}</i></button></li>
-      <li
-        v-if="vsGoto"
-        class="goto"><vs-input
-          v-model="go"
-          :max="vsTotal"
-          vs-type="number"
-          min="1"
-          @change="goTo"/></li>
-    </ul>
-  </nav>
-</template>
+<template>
+  <div
+    :style="stylePagination"
+    :class="[`vs-pagination-${color}`]"
+    class="con-vs-pagination">
+    <nav class="nav-pagination">
+      <button
+        class="btn-pagination btn-prev-pagination"
+        @click="prevPage" >
+        <i class="material-icons">
+          {{ prevIcon }}
+        </i>
+      </button>
+      <ul>
+        <li
+          v-for="(page, index) in pages"
+          :key="index"
+          :class="{'is-current': page == current}"
+          class="item-pagination"
+          @click="goTo(page)">
+          <span>
+            {{ page }}
+          </span>
 
+          <div class="effect"></div>
+        </li>
+      </ul>
+      <!-- :style="styleBtn" -->
+      <button
+        class="btn-pagination btn-next-pagination"
+        @click="nextPage" >
+        <i class="material-icons">
+          {{ nextIcon }}
+        </i>
+      </button>
+      <input
+        v-if="goto"
+        v-model="go"
+        :max="total"
+        class="input-goto"
+        min="1"
+        type="number"
+        @change="goTo">
+    </nav>
+  </div>
+</template>
 <script>
+import _color from '../../utils/color.js'
 
 export default {
-  name:'VsPagination',
+  name: 'VsPagination',
   props:{
-    vsColor:{
+    color:{
       type:String,
       default:'primary'
     },
-    vsTotal:{
+    total:{
       type:Number,
       required:true
     },
-    vsCurrent:{
+    value:{
       type:Number,
-      required:true
+      required:true,
+      default: 1
     },
-    vsMax:{
+    max:{
       type:Number,
       default:9
     },
-    vsGoto:{
+    goto:{
       type:Boolean
     },
-    vsType:{
+    type:{
       type:String
     },
-    vsRounded:{
-      type:Boolean
-    },
-    vsPrevIcon:{
+    prevIcon:{
       type:String,
       default:'chevron_left'
     },
-    vsNextIcon:{
+    nextIcon:{
       type:String,
       default:'chevron_right'
     }
   },
-  data() {
-    return {
-      pages: [],
-      current: this.vsCurrent,
-      go: this.vsCurrent,
-      prevRange: '',
-      nextRange: ''
-    }
+  data: () => ({
+    pages: [],
+    current: 0,
+    go: 0,
+    prevRange: '',
+    nextRange: '',
+    hoverBtn1: false
+  }),
+  computed: {
+    stylePagination () {
+      return {
+        '--color-pagination': _color.getColor(this.color),
+        '--color-pagination-alpha': _color.getColor(this.color,.5)
+      }
+    },
   },
   watch: {
     current() {
-      this.pagination
-      this.$emit('page', this.current)
+      this.getPages()
+      this.$emit('input', this.current)
     }
   },
-  created() {
-    this.pagination
+
+  mounted () {
+    this.current = this.go = this.value
+    this.getPages()
   },
-  methods: {
-    pagination() {
-      if (this.vsTotal <= this.vsMax) {
-        return this.pages = this.setPages(1, this.vsTotal)
-      }
 
-      const even     = this.vsMax % 2 === 0 ? 1 : 0
-      this.prevRange = Math.floor(this.vsMax / 2)
-      this.nextRange = this.vsTotal - this.prevRange + 1 + even
-
-      if (this.current >= this.prevRange && this.current <= this.nextRange) {
-        const start = this.current - this.prevRange + 2
-        const end   = this.current + this.prevRange - 2 - even
-
-        return this.pages = [1, '...', ...this.setPages(start, end), '...', this.vsTotal]
-      } else {
-        return this.pages = [
-          ...this.setPages(1, this.prevRange),
-          '...',
-          ...this.setPages(this.nextRange, this.vsTotal)
-        ]
-      }
-    },
-    onFirstPage() {
-      return this.current === 1
-    },
-    previousPage() {
-      this.current--
-    },
-    onCurrentPage(page) {
-      return page === this.current ? 'vs-active' : ''
-    },
+  methods:{
     isEllipsis(page) {
       return page === '...'
     },
-    onLastPage() {
-      return this.current === this.vsTotal
-    },
-    nextPage() {
-      this.current++
-    },
     goTo(page) {
+      if(page === '...') {
+        return
+      }
       if (typeof page.target === 'undefined') {
         this.current = page
       } else {
         const value  = parseInt(page.target.value, 10)
         this.go      = (
-          value < 1 ? 1 : (value <= this.vsTotal ? value : this.vsTotal)
+          value < 1 ? 1 : (value <= this.total ? value : this.total)
         )
         this.current = this.go
       }
+    },
+    getPages() {
+      if (this.total <= this.max) {
+        let pages = this.setPages(1, this.total)
+        this.pages = pages
+      }
+
+      const even     = this.max % 2 === 0 ? 1 : 0
+      this.prevRange = Math.floor(this.max / 2)
+      this.nextRange = this.total - this.prevRange + 1 + even
+
+      if (this.current >= this.prevRange && this.current <= this.nextRange) {
+        const start = this.current - this.prevRange + 2
+        const end   = this.current + this.prevRange - 2 - even
+
+        this.pages = [1, '...', ...this.setPages(start, end), '...', this.total]
+      } else {
+        this.pages = [
+          ...this.setPages(1, this.prevRange),
+          '...',
+          ...this.setPages(this.nextRange, this.total)
+        ]
+      }
+
     },
     setPages(start, end) {
       const setPages = []
@@ -156,83 +160,17 @@ export default {
       }
 
       return setPages
+    },
+    nextPage() {
+      if(this.current < this.total) {
+        this.current++
+      }
+    },
+    prevPage() {
+      if(this.current > 1) {
+        this.current--
+      }
     }
-  },
+  }
 }
 </script>
-
-<style lang="stylus" scoped>
-  dark     = rgb(30, 30, 30) // TODO: Fix this so it uses css variables, Stylus doesn't seem to work well with them
-  primary  = rgb(31, 116, 255)
-  defaultx = rgb(244, 244, 245)
-
-  .vs-pagination
-    display flex
-    padding-left 0
-    // list-style none
-    // border-radius .25rem
-    button
-    .vs-ellipsis
-      min-height 40px
-      min-width 40px
-      margin 3px
-      color rgba(0, 0, 0, 0.7)
-      padding 3px 10px
-      line-height 2
-      text-align center
-      display inline-block
-      text-decoration none!important
-      border-radius 5px
-      background-color transparent
-      &.vs-active
-        color primary
-        font-weight bold
-        cursor default
-      &:hover
-        color primary
-      &:focus
-        // outline dotted 1px primary
-      &:active
-        opacity .7
-
-    .vs-ellipsis
-      &:hover
-      &:focus
-        color inherit
-        outline none
-
-    button i
-      vertical-align: top
-
-  .vs-pager-flat
-    button
-      background-color transparent;
-      &:hover
-        background-color rgba(30, 30, 30, .07)
-
-  .vs-pager-filled
-    button
-      background-color defaultx
-      &:hover
-        box-shadow 0px 8px 10px -4px rgba(0, 0, 0, 0.150)
-      &.vs-active
-        color #fff
-        background-color primary
-        box-shadow none
-
-  .vs-pager-rounded
-    // li:first-child button
-    // li:last-child button
-    //     border-radius 5px
-    button
-      border-radius 50px
-
-</style>
-
-<style lang="stylus">
-  .vs-pagination
-
-    li.goto .con-input
-      width 60px
-      margin-top 5px
-</style>
