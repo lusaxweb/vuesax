@@ -1,56 +1,56 @@
 <template lang="html">
-  <div
-    v-show="vsStatic || vsActive"
-    ref="considebar"
-    :class="{'vsStatic':vsStatic,'body-sidebar':vsParent=='body'}"
-    class="vs-component con-sidebar">
+  <transition name="vs-sidebar-overlay">
+    <div
+      v-show="vsStatic || vsActive"
+      ref="considebar"
+      :class="{'vsStatic':vsStatic,'body-sidebar':vsParent=='body'}"
+      class="vs-component con-sidebar">
 
-    <!-- Overlay -->
-    <transition name="vs-sidebar-overlay">
+      <!-- Overlay -->
       <div
-        v-show="vsActive && (!vsBackgroundHidden || !vsStatic)"
+        v-if="vsActive && (!vsBackgroundHidden || !vsStatic)"
         class="con-darkx"
         @click="clickOut()"/>
-    </transition>
 
-    <!-- Core -->
-    <transition
-      :leave-to-class="`vs-sidebar-core-${vsPos}`"
-      :enter-class="`vs-sidebar-core-${vsPos}`"
-      appear
-      name="vs-sidebar-core">
-      <div
-        v-show="vsStatic || vsActive"
-        :class="{'reducex':reduce}"
-        :style="posStyle"
-        class="vs-sidebar"
-      >
+      <!-- Core -->
+      <transition
+        :leave-to-class="`vs-sidebar-core-${vsPos}`"
+        :enter-class="`vs-sidebar-core-${vsPos}`"
+        appear
+        name="vs-sidebar-core">
         <div
-          v-if="vsReduceExpand"
-          class="expand-reduce">
-          <i
-            class="material-icons"
-            @click="reduce=!reduce">
-            {{ reduce?'menu':'first_page' }}
-          </i>
+          v-show="vsStatic || vsActive"
+          :class="{'reducex':reduce}"
+          :style="posStyle"
+          class="vs-sidebar"
+        >
+          <div
+            v-if="vsReduceExpand"
+            class="expand-reduce">
+            <i
+              class="material-icons"
+              @click="reduce=!reduce">
+              {{ reduce?'menu':'first_page' }}
+            </i>
+          </div>
+
+          <header>
+            <slot name="header"/>
+          </header>
+
+
+          <ul class="ulx">
+            <slot/>
+          </ul>
+
+
+          <footer>
+            <slot name="footer"/>
+          </footer>
         </div>
-
-        <header>
-          <slot name="header"/>
-        </header>
-
-
-        <ul class="ulx">
-          <slot/>
-        </ul>
-
-
-        <footer>
-          <slot name="footer"/>
-        </footer>
-      </div>
-    </transition>
-  </div>
+      </transition>
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -176,11 +176,13 @@ export default {
 <style lang="stylus">
 // vars
 
-.vs-sidebar-overlay-enter, .vs-sidebar-overlay-leave-to
-  opacity 0 !important
+.vs-sidebar-overlay-enter-active, .vs-sidebar-overlay-leave-active {
+  transition: opacity .5s;
+}
+.vs-sidebar-overlay-enter, .vs-sidebar-overlay-leave-to /* .vs-sidebar-overlay-leave-active below version 2.1.8 */ {
+  opacity: 0 !important;
+}
 
-.vs-sidebar-overlay-enter-active, .vs-sidebar-overlay-leave-active
-  transition opacity .25s
 
 .vs-sidebar-core-left
   transform translate(-100%) !important
@@ -222,6 +224,7 @@ export default {
     top 0px
     opacity 1
     background rgba(3, 7, 15,.2)
+    transition all .3s ease
 
   .vs-sidebar
     width calc(100% - 20px)
