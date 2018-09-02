@@ -15,13 +15,8 @@ API:
    parameters: null
    description: Limit the number of files that can be added.
    default: null
- - name: limit
-   type: Number
-   parameters: null
-   description: Limit the number of files that can be added.
-   default: null
  - name: headers
-   type: String
+   type: Object
    parameters: null
    description: Change the header of the request to the server.
    default: null
