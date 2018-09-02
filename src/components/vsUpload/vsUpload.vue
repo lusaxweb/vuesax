@@ -131,7 +131,7 @@
       },
       headers:{
         default:null,
-        type:String
+        type:Object
       },
       automatic:{
         default: false,
