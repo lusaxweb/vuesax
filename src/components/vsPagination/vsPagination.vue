@@ -92,10 +92,14 @@ export default {
   }),
   computed: {
     stylePagination () {
-      return {
-        '--color-pagination': _color.getColor(this.color),
-        '--color-pagination-alpha': _color.getColor(this.color,.5)
+      let style = {}
+      if (!_color.isColor(this.color)) {
+        style = {
+          '--color-pagination': _color.getColor(this.color),
+          '--color-pagination-alpha': _color.getColor(this.color,.5)
+        }
       }
+      return style
     },
   },
   watch: {
