@@ -20,6 +20,11 @@ API:
    parameters: null
    description: Change the header of the request to the server.
    default: null
+ - name: data
+   type: Object
+   parameters: null
+   description: Appends data to the form.
+   default: null
  - name: fileName
    type: String
    parameters: null
