@@ -133,6 +133,10 @@
         default:null,
         type:Object
       },
+      data: {
+        default: null,
+        type: Object
+      },
       automatic:{
         default: false,
         type: Boolean
@@ -293,6 +297,12 @@
         postFiles.forEach((filex)=>{
           formData.append(this.fileName, filex, filex.name)
         })
+        
+        const data = this.data || {};
+
+        for (var key in data) {
+          formData.append(key, data[key]);
+        }
 
         xhr.onerror = function error(e) {
           self.$emit('on-error',e)
