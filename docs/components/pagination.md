@@ -56,7 +56,18 @@ The pagination component consists of several elements, all of which are optional
 <div slot="code">
 
 ```html
-<vs-pagination :total="5" :current.sync="2"></vs-pagination>
+<template>
+  <div>
+    <vs-pagination :total="40" v-model="currentx"></vs-pagination>
+  </div>
+</template>
+<script>
+export default {
+  data: () => ({
+    currentx: 14
+  })
+}
+</script>
 ```
 
 </div>
@@ -155,7 +166,18 @@ If the value given is lower than **1** it will jump to page **1**. However if th
 <div slot="code">
 
 ```html
-<vs-pagination :total="20" :current="7" vs-goto vs-type="filled" vs-rounded></vs-pagination>
+<template>
+  <div>
+    <vs-pagination :total="20" v-model="currentx" goto ></vs-pagination>
+  </div>
+</template>
+<script>
+export default {
+  data: () => ({
+    currentx: 8
+  })
+}
+</script>
 ```
 
 </div>
@@ -179,7 +201,26 @@ You can change the color of the component with the property `color`, you can use
 <div slot="code">
 
 ```html
-<vs-pagination :total="5" :current="2" vs-type="filled"></vs-pagination>
+<template lang="html">
+  <div class="centerx">
+    <input class="input-color" v-model="colorx" type="color">
+    <vs-pagination :color="colorx" :total="20" v-model="currentx"></vs-pagination>
+  </div>
+</template>
+
+<script>
+export default {
+  data: ()=>({
+    colorx: '#f91f43',
+    currentx: 7
+  })
+}
+</script>
+
+<style lang="stylus">
+.input-color
+  margin-right 5px
+</style>
 ```
 
 </div>
