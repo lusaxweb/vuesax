@@ -60,6 +60,11 @@ API:
    parameters:
    description: It determines if the shipment is automatic when making a change of value.
    default: false
+ - name: show-upload-button
+   type: Boolean
+   parameters:
+   description: It determines whether to show the upload button or not.
+   default: true
 ---
 
 # Upload **- ssr**
