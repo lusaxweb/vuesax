@@ -27,6 +27,7 @@
 
       </span>
       <button
+        v-if="showUploadButton"
         type="button"
         title="Upload"
         class="btn-upload-all"
@@ -60,6 +61,7 @@
             </i>
           </button>
           <button
+            v-if="showUploadButton"
             :class="{
               'on-progress':img.percent,
               'ready-progress':img.percent >= 100
@@ -139,6 +141,10 @@
       },
       automatic:{
         default: false,
+        type: Boolean
+      },
+      showUploadButton: {
+        default: true,
         type: Boolean
       }
     },
