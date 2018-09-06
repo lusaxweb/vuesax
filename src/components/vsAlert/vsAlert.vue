@@ -4,7 +4,7 @@
     @enter="enter"
     @leave="leave">
     <div
-      v-show="active"
+      v-if="active"
       ref="alert"
       v-bind="$attrs"
       :class="[`con-vs-alert-${color}`,{
@@ -13,8 +13,6 @@
       :style="styleAlert"
       class="con-vs-alert"
       v-on="$listeners">
-
-
 
       <div
         v-if="closable"
@@ -49,27 +47,27 @@ export default {
   props:{
     active:{
       type:[Boolean,String],
-      default:false,
+      default:false
     },
     title:{
       type:String,
-      default:null,
+      default:null
     },
     closable:{
       type:Boolean,
-      default:false,
+      default:false
     },
     color:{
       type:String,
-      default:'primary',
+      default:'primary'
     },
     margin:{
       type:[String,Boolean],
-      default:'10px',
+      default:'10px'
     },
     icon:{
       type:String,
-      default:null,
+      default:null
     }
   },
   computed:{
@@ -82,7 +80,7 @@ export default {
     },
     styleTitle () {
       return {
-        boxShadow: `0px 6px 15px -7px ${_color.getColor(this.color,.4)}`,
+        boxShadow: `0px 6px 15px -7px ${_color.getColor(this.color,.4)}`
       }
     }
   },
@@ -95,13 +93,12 @@ export default {
       let h = this.$refs.alert.scrollHeight
       this.$refs.alert.style.height = h + 'px'
       el.style.opacity = 1
-
       done()
     },
     leave: function (el) {
       this.$refs.alert.style.height = 0 + 'px'
       el.style.opacity = 0
-    },
+    }
   }
 }
 </script>
