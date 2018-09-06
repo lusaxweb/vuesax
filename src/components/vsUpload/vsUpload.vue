@@ -27,6 +27,7 @@
 
       </span>
       <button
+        v-if="showUploadButton"
         type="button"
         title="Upload"
         class="btn-upload-all"
@@ -60,6 +61,7 @@
             </i>
           </button>
           <button
+            v-if="showUploadButton"
             :class="{
               'on-progress':img.percent,
               'ready-progress':img.percent >= 100
@@ -133,8 +135,16 @@
         default:null,
         type:Object
       },
+      data: {
+        default: null,
+        type: Object
+      },
       automatic:{
         default: false,
+        type: Boolean
+      },
+      showUploadButton: {
+        default: true,
         type: Boolean
       }
     },
@@ -293,6 +303,12 @@
         postFiles.forEach((filex)=>{
           formData.append(this.fileName, filex, filex.name)
         })
+        
+        const data = this.data || {};
+
+        for (var key in data) {
+          formData.append(key, data[key]);
+        }
 
         xhr.onerror = function error(e) {
           self.$emit('on-error',e)

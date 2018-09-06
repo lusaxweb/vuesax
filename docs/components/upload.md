@@ -20,6 +20,11 @@ API:
    parameters: null
    description: Change the header of the request to the server.
    default: null
+ - name: data
+   type: Object
+   parameters: null
+   description: Appends data to the form.
+   default: null
  - name: fileName
    type: String
    parameters: null
@@ -55,6 +60,11 @@ API:
    parameters:
    description: It determines if the shipment is automatic when making a change of value.
    default: false
+ - name: show-upload-button
+   type: Boolean
+   parameters:
+   description: It determines whether to show the upload button or not.
+   default: true
 ---
 
 # Upload **- ssr**
