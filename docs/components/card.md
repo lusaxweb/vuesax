@@ -230,7 +230,50 @@ You can add hover functionality with the property `actionable`
 <div slot="code">
 
 ```html
-
+<vs-row vs-justify="center">
+    <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-w="6">
+      <vs-card actionable class="cardx">
+        <div slot="header">
+          <h3>
+            Hello world !
+          </h3>
+        </div>
+        <div slot="media">
+          <img :src="$withBase('/card.png')">
+        </div>
+        <div>
+          <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
+        </div>
+        <div slot="footer">
+          <vs-row vs-justify="flex-end">
+            <vs-button vs-color="primary" vs-type="gradient" >View</vs-button>
+            <vs-button vs-color="danger" vs-type="gradient">Delete</vs-button>
+          </vs-row>
+        </div>
+      </vs-card>
+    </vs-col>
+    <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-w="6">
+      <vs-card actionable class="cardx">
+        <div slot="header">
+          <h3>
+            Hello world !
+          </h3>
+        </div>
+        <div slot="media">
+          <img :src="$withBase('/card2.png')">
+        </div>
+        <div>
+          <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
+        </div>
+        <div slot="footer">
+          <vs-row vs-justify="flex-end">
+            <vs-button vs-color="primary" vs-type="gradient" >View</vs-button>
+            <vs-button vs-color="danger" vs-type="gradient" >Delete</vs-button>
+          </vs-row>
+        </div>
+      </vs-card>
+    </vs-col>
+  </vs-row>
 ```
 
 </div>

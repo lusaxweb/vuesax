@@ -22,7 +22,7 @@ export default { name:'dialog', vsfunction(parameters){
   utils.insertBody(instance.vm.$el);
 
   Vue.nextTick(() => {
-    instance.active = true;
+    instance.active = true
   });
 }
 
