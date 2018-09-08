@@ -39,7 +39,7 @@
       :disabled="disabled"
       :class="{
         'hasTransition':effect,
-        'isIquals':isIquals,
+        'isEquals':isEquals,
         'changeValue':changeValue,
         'isEndValue':value == max
       }"
@@ -69,7 +69,7 @@
       :disabled="disabled"
       :class="{
         'hasTransition':effect,
-        'isIquals':isIquals,
+        'isEquals':isEquals,
         'changeValue':changeValue,
         'isEndValue':value == max
       }"
@@ -147,7 +147,7 @@ export default {
     valueCircle2:0,
   }),
   computed:{
-    isIquals(){
+    isEquals(){
       return Array.isArray(this.value)?this.value[0] == this.value[1]:false
     },
     countTicks(){
