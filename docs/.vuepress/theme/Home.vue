@@ -114,6 +114,11 @@
     <!-- <div class="con-contribuitors">
       <contributors :title="title" :repo="this.$site.themeConfig.repo" contributors="all"/>
     </div> -->
+
+
+    <partners />
+
+
   </div>
 
 
@@ -133,8 +138,9 @@ import NavLink from './NavLink.vue'
 import Footer from './Footer.vue'
 import contributors from './contributors.vue'
 import homePatreons from './homePatreons.vue'
+import Partners from './Partners.vue'
 export default {
-  components: { NavLink, Footer, contributors, trofeos, homePatreons },
+  components: { NavLink, Footer, contributors, trofeos, homePatreons, Partners },
   data(){
     return {
       star:0,
