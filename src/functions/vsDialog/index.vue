@@ -1,7 +1,7 @@
 <template lang="html">
   <transition name="dialog-t">
     <div
-      v-show="active || vsActive"
+      v-if="active || vsActive"
       ref="con"
       :class="[`vs-dialog-${isPrompt?vsColor:color}`]"
       class="vs-component con-vs-dialog"
@@ -121,8 +121,10 @@ export default {
       }
     }
   },
-  mounted(){
-    this.insertBody()
+  mounted () {
+    if (this.active) {
+      this.insertBody()
+    }
   },
   methods:{
     giveColor(color){

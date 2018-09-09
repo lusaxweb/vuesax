@@ -253,7 +253,7 @@ An example of serious use to have an input and when a condition is met show the 
   <div class="centerx">
     <input vs-label="Enter only numbers" vs-placeholder="0123456789" v-model="value1"/>
     <vs-alert :active="inputValid" color="danger" icon="new_releases" >
-      the value is <b>invalid</b> you can only enter numbers
+      <span>the value is <b>invalid</b> you can only enter numbers</span>
     </vs-alert>
   </div>
 </template>

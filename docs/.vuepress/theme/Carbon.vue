@@ -33,12 +33,12 @@ div[id*="carbonads"] {
   display: block;
   overflow: hidden;
   margin-bottom: 20px;
-  max-width: var(--width);
+  max-width: 160px;
   border-radius: 4px;
   text-align: center;
   box-shadow: 0px 5px 20px 0px rgba(0,0,0,.05);
   background: rgb(255,255,255) !important;
-  font-size: var(--font-size);
+  font-size: 13px;
   line-height: 1.5;
   position: fixed;
   right: 10px;
@@ -69,15 +69,15 @@ div[id*="carbonads"] span {
 .carbon-img {
   display: block;
   margin-bottom: 8px;
-  max-width: var(--width);
+  max-width: 160px;
   line-height: 1;
 }
 
 .carbon-img img {
   display: block;
   margin: 0 auto;
-  max-width: var(--width) !important;
-  width: var(--width);
+  max-width: 160px !important;
+  width: 160px;
   height: auto;
 }
 
@@ -88,7 +88,7 @@ div[id*="carbonads"] span {
 
 .carbon-poweredby {
   display: block;
-  padding: 10px var(--font-size);
+  padding: 10px 13px;
   text-transform: uppercase;
   letter-spacing: .5px;
   font-weight: 600;

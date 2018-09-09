@@ -4,7 +4,7 @@
     <ul>
 
       <li :class="{'patreonx':patreon.name}" :title="patreon.name?`Proudly patronized by ${patreon.name}`:'Become a Patron - Add your logo here'" v-for="patreon,index in patreons">
-        <a target="_blank" :href="patreon.link?patreon.link:'https://www.patreon.com/luisdanielroviracontreras'">
+        <a target="_blank" :href="patreon.link?patreon.link:'https://www.patreon.com/luisdanielroviracontreras'" rel="noopener noreferrer">
           <img v-if="patreon.img" :src="$withBase(patreon.img)" alt="vuesax-patreon">
           <i v-if="!patreon.img" class="material-icons">
           add
@@ -17,7 +17,7 @@
       <span>
       It helps to pay dedicated development time so that I can move forward and evolve.
       </span>
-      <a target="_blank" href="https://www.patreon.com/luisdanielroviracontreras" class="btn-patreon">
+      <a target="_blank" href="https://www.patreon.com/luisdanielroviracontreras" class="btn-patreon" rel="noopener noreferrer">
         <img :src="$withBase('/patreon.webp')" alt="vuesax-patreon">
         Become a patron
       </a>

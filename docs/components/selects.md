@@ -59,6 +59,11 @@ API:
    parameters: null
    description: Text that is displayed in the warning state.
    default: null
+ - name: is-selected.sync
+   type: Boolean sync
+   parameters: null
+   description: Determines if the option is selected.
+   default: null
 ---
 
 # Select **- ssr**
@@ -521,8 +526,8 @@ You can add a state for example of in affirmative response to a validation with 
 <template lang="html">
   <div class="con-select-example">
     <vs-select
-     :vs-success="true"  
-      vs-success-text="This field is valid" 
+     :vs-success="true"
+      vs-success-text="This field is valid"
       placeholder="Select"
       class="selectExample"
       vs-label="Success"
@@ -532,8 +537,8 @@ You can add a state for example of in affirmative response to a validation with 
       <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in exampleOptions" />
     </vs-select>
        <vs-select
-      :vs-danger="true" 
-      vs-danger-text="This field is invalid" 
+      :vs-danger="true"
+      vs-danger-text="This field is invalid"
       placeholder="Select"
       class="selectExample"
       vs-label="Danger"
@@ -543,8 +548,8 @@ You can add a state for example of in affirmative response to a validation with 
       <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in exampleOptions" />
     </vs-select>
        <vs-select
-      :vs-warning="true" 
-      vs-warning-text="This field is invalid" 
+      :vs-warning="true"
+      vs-warning-text="This field is invalid"
       placeholder="Select"
       class="selectExample"
       vs-label="Warning"
@@ -554,7 +559,7 @@ You can add a state for example of in affirmative response to a validation with 
       <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in exampleOptions" />
     </vs-select>
        <vs-select
-      vs-description-text="Simple info for multiple select" 
+      vs-description-text="Simple info for multiple select"
       placeholder="Select"
       class="selectExample"
       vs-label="Description"
@@ -594,6 +599,76 @@ export default {
   }
 }
 </script>
+```
+
+</div>
+</vuecode>
+</box>
+
+<box>
+
+## Is Selected Item
+
+You can validate if an option is selected with the property `is-selected.sync` and do with it multiple variants with changing the text of the selected options
+
+<vuecode md>
+<div slot="demo">
+
+ <Demos-Select-Selectedtext/>
+
+</div>
+
+<div slot="code">
+
+```html
+<template lang="html">
+  <div class="con-select-example">
+    <vs-select
+      class="selectExample"
+      label="Figuras"
+      v-model="select1"
+      >
+      <vs-select-item :is-selected.sync="item.isSelected" :key="index" :vs-value="item.value" :vs-text="item.isSelected?item.selectedText:item.label" v-for="item,index in options1" />
+    </vs-select>
+  </div>
+</template>
+
+<script>
+export default {
+  data(){
+    return {
+      select1:3,
+      options1:[
+        {value: 1, label: 'label 1', selectedText: 'show after select label 1', isSelected: false },
+        {value: 2, label: 'label 2', selectedText: 'show after select label 2', isSelected: false },
+        {value: 3, label: 'label 3', selectedText: 'show after select label 3', isSelected: false },
+      ],
+    }
+  }
+}
+</script>
+
+<style lang="css">
+.selectExample {
+  margin: 10px;
+}
+.con-select-example {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.con-select .vs-select {
+  width: 100%
+}
+@media (max-width: 550px) {
+  .con-select {
+    flex-direction: column;
+  }
+  .con-select .vs-select {
+    width: 100%
+  }
+}
+</style>
 ```
 
 </div>

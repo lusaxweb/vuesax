@@ -1,42 +1,27 @@
 ---
 API:
-  - name: vs-color
-    type: String
-    parameters: RGB, HEX, primary, success, danger, warning, dark
-    description: Component color
-    default: primary
-  - name: vs-title
-    type: String
+  - name: header
+    type: slot
     parameters:
-    description: Header title
+    description: slot header card
     default: null
-  - name: vs-subtitle
-    type: String
+  - name: footer
+    type: slot
     parameters:
-    description: Header subtitle
+    description: slot footer card
     default: null
-  - name: vs-fill
-    type: Boolean
+  - name: media
+    type: slot
     parameters:
-    description: Header filled with color
-    default: false
-  - name: vs-icon
-    type: String
-    parameters:
-    description: Header material icon
+    description: slot image media
     default: null
-  - name: vs-background
-    type: String
+  - name: extra-content
+    type: slot
     parameters:
-    description: Header background color
-    default: 'primary'
-  - name: vs-media
-    type: String
-    parameters:
-    description: Media image src
+    description: slot extra contend and card
     default: null
   - name: actionable
-    type: Bool
+    type: Boolean
     parameters:
     description: Hover effect
     default: false
@@ -45,7 +30,7 @@ contributors:
   - RodSwanston
 ---
 
-# Card <!--#new-->
+# Card **- ssr**
 
 <box header>
 
@@ -57,274 +42,245 @@ contributors:
 
 ## Default
 
-To add a card we have the components `vs-card`, `vs-card-header`, `vs-card-body`, `vs-card-media`, `vs-card-actions` each one has its own functionality inside of the card but an initial structure would be like this:
-
+To add a card we have the `vs-card` component, for the internal structure we use several **slots** (`header`, `footer`, `media`, ... )
 
 <vuecode md>
 <div slot="demo">
-<vs-card>
-  <vs-card-header vs-title="Default Card" />
-  <vs-card-body>
-    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
-  </vs-card-body>
-</vs-card>
+<vs-row vs-justify="center">
+  <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-w="6">
+    <vs-card>
+      <div slot="header">
+        <h3>
+          Hello world !
+        </h3>
+      </div>
+      <div>
+        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
+      </div>
+      <div slot="footer">
+        <vs-row vs-justify="flex-end">
+          <vs-button vs-type="gradient" vs-color="danger" vs-icon="favorite"></vs-button>
+          <vs-button vs-color="primary" vs-icon="turned_in_not"></vs-button>
+          <vs-button vs-color="rgb(230,230,230)" vs-color-text="rgb(50,50,50)" vs-icon="settings"></vs-button>
+        </vs-row>
+      </div>
+    </vs-card>
+  </vs-col>
+</vs-row>
 </div>
 <div slot="code">
 
 ```html
-<vs-card>
-  <vs-card-header vs-title="Default Card" />
-  <vs-card-body>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-  </vs-card-body>
-</vs-card>
+<vs-row vs-justify="center">
+  <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-w="6">
+    <vs-card>
+      <div slot="header">
+        <h3>
+          Hello world !
+        </h3>
+      </div>
+      <div>
+        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
+      </div>
+      <div slot="footer">
+        <vs-row vs-justify="flex-end">
+          <vs-button vs-type="gradient" vs-color="danger" vs-icon="favorite"></vs-button>
+          <vs-button vs-color="primary" vs-icon="turned_in_not"></vs-button>
+          <vs-button vs-color="rgb(230,230,230)" vs-color-text="rgb(50,50,50)" vs-icon="settings"></vs-button>
+        </vs-row>
+      </div>
+    </vs-card>
+  </vs-col>
+</vs-row>
 ```
 
 </div>
 </vuecode>
-</box>
-
-
-<box>
-
-## Color
-
-You can change the overall color of the card with property `vs-color` and `vs-background-color` for the component `vs-card-header`. You can make the color fill with `vs-fill`.
-
-::: tip
-Vuesax uses the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
-:::
-
-<vuecode md center>
-<div slot="demo" style="display: flex;">
-  <vs-card vs-color="danger">
-    <vs-card-header vs-background-color="danger" vs-title="A nice title" vs-icon="error" :vs-fill="true"></vs-card-header>
-    <vs-card-body>
-      <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
-    </vs-card-body>
-  </vs-card>
-  <vs-card vs-color="warning">
-    <vs-card-header vs-background-color="warning" vs-title="Another nice title" vs-subtitle="A nice subtitle" vs-icon="warning"></vs-card-header>
-    <vs-card-body>
-      <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
-    </vs-card-body>
-  </vs-card>
-</div>
-<div slot="code">
-
-```html
-<template lang="html">
-  <div class="centerx">
-    <vs-card vs-color="danger">
-      <vs-card-header vs-background-color="danger" vs-title="A nice title" vs-icon="error" :vs-fill="true"></vs-card-header>
-      <vs-card-body>
-        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
-      </vs-card-body>
-    </vs-card>
-    <vs-card vs-color="warning">
-      <vs-card-header vs-background-color="warning" vs-title="Another nice title" vs-subtitle="A nice subtitle" vs-icon="warning"></vs-card-header>
-      <vs-card-body>
-        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
-      </vs-card-body>
-    </vs-card>
-  </div>
-</template>
-
-<script>
-export default {
-}
-</script>
-```
-
-</div>
-</vuecode>
-
 </box>
 
 <box>
 
-## Avatar and actionable state
+## Media
 
-You can pass custom component as a child of `vs-card-header` <br>
-The actionable state enable a hover effect
+There are cases in which you need to add an image or video on the card so we have the `slot="media"`
 
-<script>
-export default {
-  methods: {
-    vClick() {
-      alert('Click!')
-    }
-  }
-}
-</script>
-
-<vuecode md center>
-<div slot="demo" style="display: flex;">
-  <vs-card actionable @vs-click="vClick()">
-    <vs-card-header vs-title="A nice title" :vs-fill="true">
-      <vs-avatar vs-size="large" vs-src="https://avatars2.githubusercontent.com/u/31676496?s=460&v=4"/>
-    </vs-card-header>
-    <vs-card-body>
-      <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
-    </vs-card-body>
-  </vs-card>
-  <vs-card actionable>
-    <vs-card-header vs-title="A nice title" vs-subtitle="A nice subtitle"  :vs-fill="true">
-      <vs-avatar vs-size="large" vs-text="Luis Daniel"/>
-    </vs-card-header>
-    <vs-card-body>
-      <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
-    </vs-card-body>
-  </vs-card>
+<vuecode md>
+<div slot="demo">
+  <Demos-Card-Media />
 </div>
 <div slot="code">
 
 ```html
-<template lang="html">
-  <div class="centerx">
-    <vs-card actionable @vs-click="vClick()">
-      <vs-card-header vs-title="A nice title" :vs-fill="true">
-        <vs-avatar vs-size="large" vs-src="https://avatars2.githubusercontent.com/u/31676496?s=460&v=4"/>
-      </vs-card-header>
-      <vs-card-body>
-        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
-      </vs-card-body>
-    </vs-card>
-    <vs-card actionable>
-      <vs-card-header vs-title="A nice title" vs-subtitle="A nice subtitle"  :vs-fill="true">
-        <vs-avatar vs-size="large" vs-text="Luis Daniel"/>
-      </vs-card-header>
-      <vs-card-body>
-        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
-      </vs-card-body>
-    </vs-card>
-  </div>
+<template>
+  <vs-row vs-justify="center">
+    <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-w="6">
+      <vs-card class="cardx">
+        <div slot="header">
+          <h3>
+            Hello world !
+          </h3>
+        </div>
+        <div slot="media">
+          <img :src="$withBase('/card.png')">
+        </div>
+        <div>
+          <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
+        </div>
+        <div slot="footer">
+          <vs-row vs-justify="flex-end">
+            <vs-button vs-type="gradient" vs-color="danger" vs-icon="favorite"></vs-button>
+            <vs-button vs-color="primary" vs-icon="turned_in_not"></vs-button>
+            <vs-button vs-color="rgb(230,230,230)" vs-color-text="rgb(50,50,50)" vs-icon="settings"></vs-button>
+          </vs-row>
+        </div>
+      </vs-card>
+    </vs-col>
+    <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-w="6">
+      <vs-card class="cardx">
+        <div slot="header">
+          <h3>
+            Hello world !
+          </h3>
+        </div>
+        <div slot="media">
+          <img :src="$withBase('/card2.png')">
+        </div>
+        <div>
+          <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
+        </div>
+        <div slot="footer">
+          <vs-row vs-justify="flex-end">
+            <vs-button vs-type="gradient" vs-color="danger" vs-icon="favorite"></vs-button>
+            <vs-button vs-color="primary" vs-icon="turned_in_not"></vs-button>
+            <vs-button vs-color="rgb(230,230,230)" vs-color-text="rgb(50,50,50)" vs-icon="settings"></vs-button>
+          </vs-row>
+        </div>
+      </vs-card>
+    </vs-col>
+  </vs-row>
 </template>
-
 <script>
 export default {
-  methods: {
-    vClick() {
-      alert('Click!')
-    }
-  }
+
 }
 </script>
+<style lang="stylus">
+.cardx
+  margin 15px
+</style>
 ```
 
 </div>
 </vuecode>
-
 </box>
 
 <box>
 
-## Image
+## Hover
 
-You can add a cool image to the card, even changing the orders of the components to fit your needs!
+You can add hover functionality with the property `actionable`
 
-<vuecode md center>
-<div slot="demo" style="display: flex;">
-  <vs-card vs-color="success">
-    <vs-card-media vs-media="https://placeimg.com/640/480/any"></vs-card-media>
-    <vs-card-header vs-background-color="success" vs-title="A nice title" vs-subtitle="A nice subtitle" vs-icon="check"></vs-card-header>
-    <vs-card-body>
-      <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
-    </vs-card-body>
-  </vs-card>
-  <vs-card vs-color="success">
-    <vs-card-header vs-background-color="success" vs-title="A nice title" vs-icon="check"></vs-card-header>
-    <vs-card-media vs-media="https://placeimg.com/640/480/any"></vs-card-media>
-    <vs-card-body>
-      <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
-    </vs-card-body>
-  </vs-card>
+<vuecode md>
+<div slot="demo">
+    <vs-row vs-justify="center">
+    <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-w="6">
+      <vs-card actionable class="cardx">
+        <div slot="header">
+          <h3>
+            Hello world !
+          </h3>
+        </div>
+        <div slot="media">
+          <img :src="$withBase('/card.png')">
+        </div>
+        <div>
+          <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
+        </div>
+        <div slot="footer">
+          <vs-row vs-justify="flex-end">
+            <vs-button vs-color="primary" vs-type="gradient" >View</vs-button>
+            <vs-button vs-color="danger" vs-type="gradient">Delete</vs-button>
+          </vs-row>
+        </div>
+      </vs-card>
+    </vs-col>
+    <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-w="6">
+      <vs-card actionable class="cardx">
+        <div slot="header">
+          <h3>
+            Hello world !
+          </h3>
+        </div>
+        <div slot="media">
+          <img :src="$withBase('/card2.png')">
+        </div>
+        <div>
+          <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
+        </div>
+        <div slot="footer">
+          <vs-row vs-justify="flex-end">
+            <vs-button vs-color="primary" vs-type="gradient" >View</vs-button>
+            <vs-button vs-color="danger" vs-type="gradient" >Delete</vs-button>
+          </vs-row>
+        </div>
+      </vs-card>
+    </vs-col>
+  </vs-row>
 </div>
 <div slot="code">
 
 ```html
-<template lang="html">
-  <vs-card vs-color="success">
-    <vs-card-media vs-media="https://placeimg.com/640/480/any"></vs-card-media>
-    <vs-card-header vs-background-color="success" vs-title="A nice title" vs-subtitle="A nice subtitle" vs-icon="check"></vs-card-header>
-    <vs-card-body>
-      <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
-    </vs-card-body>
-  </vs-card>
-  <vs-card vs-color="success">
-    <vs-card-header vs-background-color="success" vs-title="A nice title" vs-icon="check"></vs-card-header>
-    <vs-card-media vs-media="https://placeimg.com/640/480/any"></vs-card-media>
-    <vs-card-body>
-      <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
-    </vs-card-body>
-  </vs-card>
-</template>
-
-<script>
-export default {
-}
-</script>
+<vs-row vs-justify="center">
+    <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-w="6">
+      <vs-card actionable class="cardx">
+        <div slot="header">
+          <h3>
+            Hello world !
+          </h3>
+        </div>
+        <div slot="media">
+          <img :src="$withBase('/card.png')">
+        </div>
+        <div>
+          <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
+        </div>
+        <div slot="footer">
+          <vs-row vs-justify="flex-end">
+            <vs-button vs-color="primary" vs-type="gradient" >View</vs-button>
+            <vs-button vs-color="danger" vs-type="gradient">Delete</vs-button>
+          </vs-row>
+        </div>
+      </vs-card>
+    </vs-col>
+    <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-w="6">
+      <vs-card actionable class="cardx">
+        <div slot="header">
+          <h3>
+            Hello world !
+          </h3>
+        </div>
+        <div slot="media">
+          <img :src="$withBase('/card2.png')">
+        </div>
+        <div>
+          <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
+        </div>
+        <div slot="footer">
+          <vs-row vs-justify="flex-end">
+            <vs-button vs-color="primary" vs-type="gradient" >View</vs-button>
+            <vs-button vs-color="danger" vs-type="gradient" >Delete</vs-button>
+          </vs-row>
+        </div>
+      </vs-card>
+    </vs-col>
+  </vs-row>
 ```
 
 </div>
 </vuecode>
-
 </box>
 
-<box>
 
-## Actions
 
-A space for action buttons in the card
 
-<vuecode md center>
-<div slot="demo" style="display: flex;">
-  <vs-card vs-color="primary">
-    <vs-card-header vs-background-color="primary" vs-title="A nice title" vs-subtitle="A nice subtitle" vs-icon="account_circle"></vs-card-header>
-    <vs-card-body>
-      <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
-    </vs-card-body>
-    <vs-card-actions>
-      <vs-button vs-color="primary">One action</vs-button>
-      <vs-button vs-color="primary">Another action</vs-button>
-    </vs-card-actions>
-  </vs-card>
-</div>
-<div slot="code">
 
-```html
-<template lang="html">
-  <div class="centerx">
-    <vs-card vs-color="dark">
-      <vs-card-header vs-background-color="dark" vs-title="A nice title" vs-subtitle="A nice subtitle" vs-icon="account_circle"></vs-card-header>
-      <vs-card-body>
-        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
-      </vs-card-body>
-      <vs-card-actions>
-        <vs-button vs-color="dark">One action</vs-button>
-        <vs-button vs-color="dark">Another action</vs-button>
-      </vs-card-actions>
-    </vs-card>
-    <vs-card vs-color="dark">
-      <vs-card-header vs-background-color="dark" vs-title="A nice title" vs-subtitle="A nice subtitle" vs-icon="account_circle"></vs-card-header>
-      <vs-card-body>
-        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
-      </vs-card-body>
-      <vs-card-actions>
-        <vs-button vs-color="dark">One action</vs-button>
-        <vs-button vs-color="dark">Another action</vs-button>
-      </vs-card-actions>
-    </vs-card>
-  </div>
-</template>
-
-<script>
-export default {
-}
-</script>
-```
-
-</div>
-</vuecode>
-
-</box>

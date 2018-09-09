@@ -27,6 +27,8 @@
 
       </span>
       <button
+        v-if="showUploadButton"
+        type="button"
         title="Upload"
         class="btn-upload-all"
         @click="uploadx('all')">
@@ -59,6 +61,7 @@
             </i>
           </button>
           <button
+            v-if="showUploadButton"
             :class="{
               'on-progress':img.percent,
               'ready-progress':img.percent >= 100
@@ -130,7 +133,19 @@
       },
       headers:{
         default:null,
-        type:String
+        type:Object
+      },
+      data: {
+        default: null,
+        type: Object
+      },
+      automatic:{
+        default: false,
+        type: Boolean
+      },
+      showUploadButton: {
+        default: true,
+        type: Boolean
       }
     },
     data:()=>({
@@ -193,6 +208,7 @@
         },301)
       },
       getFiles(e) {
+
         this.$emit('update:vsFile', e.target.value)
         let _this = this
         function uploadImage(e) {
@@ -265,6 +281,10 @@
         const input = this.$refs.fileInput
         input.type = 'text'
         input.type = 'file'
+
+        if (this.automatic) {
+          this.uploadx('all')
+        }
       },
       uploadx(index){
         let self = this
@@ -283,6 +303,12 @@
         postFiles.forEach((filex)=>{
           formData.append(this.fileName, filex, filex.name)
         })
+        
+        const data = this.data || {};
+
+        for (var key in data) {
+          formData.append(key, data[key]);
+        }
 
         xhr.onerror = function error(e) {
           self.$emit('on-error',e)

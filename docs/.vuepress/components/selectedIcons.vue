@@ -8,7 +8,7 @@
         vs-type="filled" >
         change icon
        </vs-button>
-       <i v-tooltip="iconx" class="material-icons icon-final">{{iconx}}</i>
+       <i class="material-icons icon-final">{{iconx}}</i>
     </div>
 
     <transition name="fade-icons">

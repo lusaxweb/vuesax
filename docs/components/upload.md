@@ -15,15 +15,15 @@ API:
    parameters: null
    description: Limit the number of files that can be added.
    default: null
- - name: limit
-   type: Number
-   parameters: null
-   description: Limit the number of files that can be added.
-   default: null
  - name: headers
-   type: String
+   type: Object
    parameters: null
    description: Change the header of the request to the server.
+   default: null
+ - name: data
+   type: Object
+   parameters: null
+   description: Appends data to the form.
    default: null
  - name: fileName
    type: String
@@ -49,12 +49,22 @@ API:
    type: Function
    parameters: (event)
    description: callback function when successfully uploading the file.
-   default: false
+   default: null
  - name: on-error
    type: Function
    parameters: (event)
    description: callback function when an error occurs when trying to upload a file.
+   default: null
+ - name: automatic
+   type: Boolean
+   parameters:
+   description: It determines if the shipment is automatic when making a change of value.
    default: false
+ - name: show-upload-button
+   type: Boolean
+   parameters:
+   description: It determines whether to show the upload button or not.
+   default: true
 ---
 
 # Upload **- ssr**
@@ -116,6 +126,41 @@ You can upload multiple files by adding the `multiple` property within the compo
 <template lang="html">
   <div class="centerx">
     <vs-upload multiple text="Upload Multiple" action="https://jsonplaceholder.typicode.com/posts/" @on-success="successUpload" />
+  </div>
+</template>
+
+<script>
+export default {
+  methods:{
+    successUpload(){
+      this.$vs.notify({color:'success',title:'Upload Success',text:'Lorem ipsum dolor sit amet, consectetur'})
+    }
+  }
+}
+</script>
+```
+
+</div>
+</vuecode>
+</box>
+
+
+<box>
+
+## Automatic
+
+You can enable automatic submission with the `Automatic` property that executes the shipment by changing the value of the` input`
+
+<vuecode md>
+<div slot="demo">
+  <Demos-Upload-Automatic />
+</div>
+<div slot="code">
+
+```html
+<template lang="html">
+  <div class="centerx">
+    <vs-upload automatic action="https://jsonplaceholder.typicode.com/posts/" @on-success="successUpload" />
   </div>
 </template>
 

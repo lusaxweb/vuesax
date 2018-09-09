@@ -47,7 +47,7 @@ export default {
       default:'primary',
       type:String
     },
-    active:{
+    active: {
       default:false,
       type: Boolean
     },

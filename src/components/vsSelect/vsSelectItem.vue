@@ -100,6 +100,19 @@ export default {
     }
   },
   watch:{
+    '$parent.active': function () {
+      this.$nextTick(() => {
+        if( this.$parent.vsMultiple?this.getValue.indexOf(this.vsValue) != -1:this.getValue == this.vsValue ) {
+          this.$emit('update:isSelected', true)
+          this.getText = this.vsText
+          this.putValue()
+        } else {
+          this.$emit('update:isSelected', false)
+          this.getText = this.vsText
+          this.putValue()
+        }
+      })
+    },
     valueInputx(){
       if(this.visible){
         let valueInputx = this.valueInputx.split(',')
@@ -121,7 +134,17 @@ export default {
   },
   created(){
     this.putValue()
-    this.getText = this.vsText
+    this.$nextTick(() => {
+      if( this.$parent.vsMultiple?this.getValue.indexOf(this.vsValue) != -1:this.getValue == this.vsValue ) {
+        this.$emit('update:isSelected', true)
+        this.getText = this.vsText
+        this.putValue()
+      } else {
+        this.$emit('update:isSelected', false)
+        this.getText = this.vsText
+        this.putValue()
+      }
+    })
   },
   updated(){
     this.putValue()
@@ -186,6 +209,7 @@ export default {
       if(this.vsValue == this.$parent.value){
         this.$parent.valuex = this.vsText
       }
+
     },
     clickOption(){
       if(this.disabledx){
