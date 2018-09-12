@@ -221,7 +221,7 @@ module.exports = {
           '/components/card',
           '/components/list',
           '/components/pagination',
-          '/components/topbar',
+          '/components/navbar',
           '/components/sideBar',
           '/components/dropDown',
           // '/components/collapse',

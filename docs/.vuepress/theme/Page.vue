@@ -17,7 +17,7 @@
       <a :href="editLink" target="_blank" rel="noopener noreferrer">{{ editLinkText }}</a>
       <OutboundLink/>
     </div>
-    <div class="content">
+    <div class="content con-api">
       <api />
       <contributors title="Contributors" :repo="this.$site.themeConfig.repo" :contributors="this.$page.frontmatter.contributors"/>
     </div>
@@ -161,7 +161,8 @@ function find (page, items, offset) {
 <style lang="stylus">
 @import './styles/config.styl'
 
-
+.con-api
+  z-index 10 !important
 .contentx-enter-active, .contentx-leave-active {
   transition: all .250s;
 
@@ -246,6 +247,7 @@ function find (page, items, offset) {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  z-index 10
   a
     margin-top: 0px !important
     margin-right: 5px;
@@ -257,6 +259,7 @@ function find (page, items, offset) {
 .page-nav.content
   padding-top 1rem !important
   padding-bottom 0 !important
+  z-index 10
   .inner
     min-height 2rem
     margin-top 0 !important

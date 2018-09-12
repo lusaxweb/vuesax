@@ -15,8 +15,14 @@
     "vuejs",
     "vue-components",
     "components",
+    "component",
     "javascript",
-    "css"
+    "css",
+    "framework",
+    "ui",
+    "frontend",
+    "responsive",
+    "stylus"
   ],
   "main": "dist/vuesax.common.js",
   "unpkg": "dist/vuesax.umd.min.js",
