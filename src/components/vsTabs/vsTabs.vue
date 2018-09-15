@@ -11,10 +11,11 @@
         class="ul-tabs">
         <li
           v-for="(child,index) in children"
+          ref="li"
           :class="{'activeChild':childActive == index}"
           @mouseover="hover = true"
           @mouseout="hover = false"
-          @click="activeChild($event,index)">
+          @click="activeChild(index)">
           <button
             v-bind="child.attrs"
             type="button"
@@ -40,6 +41,10 @@ export default {
   name:'VsTabs',
   components:{vsButton},
   props:{
+    value: {
+      default: 0,
+      type: [Number, String],
+    },
     vsColor:{
       default:'primary',
       type: String
@@ -81,41 +86,42 @@ export default {
       }
     }
   },
+  watch: {
+    value(index) {
+      const activeIndex = this.parseIndex(index)
+      this.activeChild(activeIndex)
+    },
+  },
   mounted(){
-    this.changePositionLineCreated()
-    this.$children[this.childActive].active = true
-    if(this.vsPosition == 'left' || this.vsPosition == 'left'){
-      this.$children[this.childActive].vertical = true
-    }
+    const activeIndex = this.parseIndex(this.value)
+    this.childActive = activeIndex
+    this.$nextTick(() => {
+      this.activeChild(activeIndex, true)
+    })
   },
   methods:{
-    changePositionLineCreated(){
-      this.$nextTick(() => {
-        let lix = this.$refs.ul.querySelector('.activeChild')
-
-        if(this.vsPosition == 'left' || this.vsPosition == 'right'){
-          this.topx = lix.offsetTop
-          this.heightx = lix.offsetHeight
-          this.widthx = 2
-        } else {
-          setTimeout(()=>{
-            this.leftx = lix.offsetLeft
-            this.widthx = lix.offsetWidth
-          },100)
-        }
-
-      });
+    parseIndex(index) {
+      let activeIndex = this.childActive
+      if (index < 0) {
+        activeIndex = 0
+      } else if (index >= this.$children.length) {
+        activeIndex = this.$children.length - 1;
+      } else if (typeof this.$children[index].$attrs.disabled === 'undefined') {
+        activeIndex = parseInt(index);
+      }
+      return activeIndex;
     },
-    activeChild(evt,index){
-      if(this.childActive == index){
+    activeChild(index, initialAnimation){
+      initialAnimation = !!initialAnimation;
+      const elem = this.$refs.li[index]
+      if(this.childActive == index && !initialAnimation){
         this.these = true
-        evt.target.classList.add('isActive')
+        elem.classList.add('isActive')
         setTimeout(()=>{
-          evt.target.classList.remove('isActive')
+          elem.classList.remove('isActive')
           this.these = false
         }, 200);
       }
-
 
       this.$children.map((item,item_index)=>{
         if(item_index != index) {
@@ -131,28 +137,32 @@ export default {
         this.$children[index].invert = false
       }
 
-
-
-
-
       this.$children[index].active = true
       this.childActive = index
+      this.$emit('input', this.childActive)
 
       if(this.vsPosition == 'left' || this.vsPosition == 'right'){
         this.$children[index].vertical = true
       }
 
-      this.changePositionLine(evt)
+      this.changePositionLine(elem, initialAnimation)
 
     },
-    changePositionLine(evt){
+    changePositionLine(elem, initialAnimation){
       if(this.vsPosition == 'left' || this.vsPosition == 'right'){
-        this.topx = evt.target.offsetTop
-        this.heightx = evt.target.offsetHeight
+        this.topx = elem.offsetTop
+        this.heightx = elem.offsetHeight
         this.widthx = 2
       } else {
-        this.leftx = evt.target.offsetLeft
-        this.widthx = evt.target.offsetWidth
+        const update = () => {
+          this.leftx = elem.offsetLeft
+          this.widthx = elem.offsetWidth
+        }
+        if (!initialAnimation) {
+          update()
+        } else {
+          setTimeout(update, 100)
+        }
       }
     }
   }

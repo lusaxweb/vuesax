@@ -5,16 +5,16 @@ API:
    parameters: null
    description: Component that contains the children vs-tab.
    default: null
- - name: vs-tab
-   type: Component
+ - name: v-model
+   type: bind
    parameters: null
-   description: component that wraps everything inside.
+   description: Link active tab index.
    default: null
- - name: vs-label
-   type: String
+ - name: value
+   type: Number, String
    parameters: null
-   description: Text on the tab button.
-   default: null
+   description: Index of active tab.
+   default: 0
  - name: vs-position
    type: String
    parameters: top, left, bottom, right
@@ -29,7 +29,17 @@ API:
    type: String
    parameters: top (default), left, bottom, right
    description: Change the alignment of the tabs buttons.
-   default: top
+   default: top   
+ - name: vs-tab
+   type: Component
+   parameters: null
+   description: component that wraps everything inside.
+   default: null
+ - name: vs-label
+   type: String
+   parameters: null
+   description: Text on the tab button.
+   default: null
 ---
 
 # Tabs **- ssr**

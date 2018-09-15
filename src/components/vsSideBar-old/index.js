@@ -1,4 +1,4 @@
-import vsComponent from './vsSidebar'
+import vsComponent from './vsSideBar'
 import vsComponent2 from './vsSidebarItem'
 import vsComponent3 from './vsSidebarGroup'
 

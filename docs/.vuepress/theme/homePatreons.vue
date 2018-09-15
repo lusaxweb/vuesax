@@ -17,7 +17,7 @@
       <span>
       It helps to pay dedicated development time so that I can move forward and evolve.
       </span>
-      <a target="_blank" href="https://www.patreon.com/luisdanielroviracontreras" class="btn-patreon" rel="noopener noreferrer">
+      <a target="_blank" href="https://www.patreon.com/bePatron?c=1567892" class="btn-patreon" rel="noopener noreferrer">
         <img :src="$withBase('/patreon.webp')" alt="vuesax-patreon">
         Become a patron
       </a>

@@ -1,6 +1,6 @@
 {
   "name": "vuesax",
-  "version": "3.2.26",
+  "version": "3.3.1",
   "description": "Framework Components for Vue js",
   "license": "MIT",
   "author": "ldrovira <luisdanielrovira8@gmail.com>",
@@ -15,8 +15,14 @@
     "vuejs",
     "vue-components",
     "components",
+    "component",
     "javascript",
-    "css"
+    "css",
+    "framework",
+    "ui",
+    "frontend",
+    "responsive",
+    "stylus"
   ],
   "main": "dist/vuesax.common.js",
   "unpkg": "dist/vuesax.umd.min.js",
@@ -39,24 +45,24 @@
     "new:component": "sh scripts/newComponent.sh"
   },
   "dependencies": {
-    "vue": "^2.5.2"
+    "vue": "^2.5.17"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.49",
-    "@vue/cli-plugin-babel": "^3.0.0-beta.6",
-    "@vue/cli-plugin-eslint": "^3.0.0-beta.6",
-    "@vue/cli-service": "^3.0.0-beta.6",
-    "copy-webpack-plugin": "^4.5.1",
+    "@babel/core": "^7.0.1",
+    "@vue/cli-plugin-babel": "^3.0.3",
+    "@vue/cli-plugin-eslint": "^3.0.3",
+    "@vue/cli-service": "^3.0.3",
+    "copy-webpack-plugin": "^4.5.2",
     "eslint": "^5.1.0",
-    "eslint-plugin-vue": "^4.7.0",
+    "eslint-plugin-vue": "^4.7.1",
     "file-loader": "^1.1.11",
     "prefixfree": "^1.0.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "viewcode": "0.0.27",
-    "vue-template-compiler": "^2.5.13",
-    "vuepress": "^0.10.1",
-    "webpack": "^4.12.0"
+    "vue-template-compiler": "^2.5.17",
+    "vuepress": "^0.14.2",
+    "webpack": "^4.19.0"
   },
   "babel": {
     "presets": [
