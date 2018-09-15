@@ -93,8 +93,8 @@ If you feel awesome and want to support us in a small way, please consider starr
 - [List](https://lusaxweb.github.io/vuesax/components/list.html) - SSR
 - [Pagination](https://lusaxweb.github.io/vuesax/components/pagination.html) - SSR
 - [Topbar](https://lusaxweb.github.io/vuesax/components/topbar.html) - SSR
-- [SideBar](https://lusaxweb.github.io/vuesax/components/sideBar.html) - Working
-- [DropDown](https://lusaxweb.github.io/vuesax/components/dropDown.html)
+- [SideBar](https://lusaxweb.github.io/vuesax/components/sideBar.html) - SSR
+- [DropDown](https://lusaxweb.github.io/vuesax/components/dropDown.html) - Working
 
 ## Browser Support
 Recent versions of **Firefox**, **Chrome**, **Edge**, **Opera** and **Safari**. **IE10+**

@@ -1,58 +1,93 @@
 ---
 API:
- - name: vs-active.sync
+ - name: v-model
    type: Boolean
    parameters: null
    description: Determines if the sidebar is active (visible), if it is a vs-sidebar-item, determine if the link is active.
    default: false
- - name: vs-icon
+ - name: icon
    type: String
    parameters: null
    description: Add the icon to the item or group label.
    default: none
- - name: vs-parent
+ - name: parent
    type: Element (#idx | .classx)
    parameters: #parent | .parent
    description: Determine the parent of the sidebar .
    default: body
- - name: vs-static
+ - name: staticPosition
    type: String
    parameters: #parent | .parent
    description: Determines if the component is static and has a relative position.
    default: false
- - name: vs-label (vs-sidebar-group)
+ - name: title (vs-sidebar-group)
    type: String
    parameters: null
    description: Label of the group of links.
    default: null
- - name: vs-open (vs-sidebar-group)
+ - name: open (vs-sidebar-group)
    type: Boolean
    parameters: null
    description: Determines if the group of links is open.
    default: false
- - name: vs-pos
-   type: String
-   parameters: null
-   description: Determines where the sidebar should be opened from.
-   default: left
- - name: vs-reduce-expand
+ - name: openHover (vs-sidebar-group)
    type: Boolean
    parameters: null
-   description: Add functionality to expand and collapse icons to sidebar.
-   default: false
- - name: vs-reduce
+   description: Determine if the group expands when doing hover defaul click.
+   default: click
+ - name: position-right
+   type: String
+   parameters: null
+   description: Determines where the sidebar should be opened from right.
+   default: left
+ - name: reduce
    type: Boolean
    parameters: null
    description: Determines if the sidebar is of only icons.
    default: false
- - name: vs-icon-reduce
+ - name: hidden-background
    type: Boolean
    parameters: null
-   description: Add the icon that will only be displayed when the sidebar is in reduced mode.
+   description: Determines if the background is hidden.
    default: false
+ - name: reduce-not-hover-expand
+   type: Boolean
+   parameters: null
+   description: Determines if the component does not expand when in reduced mode.
+   default: false
+ - name: reduce-not-rebound
+   type: Boolean
+   parameters: null
+   description: Eliminates the bounce animation in the reduce mode when opening.
+   default: false
+ - name: click-not-close
+   type: Boolean
+   parameters: null
+   description: when clicking, the sidebar is no longer closed.
+   default: false
+ - name: default-index
+   type: Number, String
+   parameters: null
+   description: Determines the initial index of the options (the initial option selected).
+   default: 1
+ - name: index (vs-sidebar-item)
+   type: Number, String
+   parameters: null
+   description: determines the item's index.
+   default: 1
+ - name: href
+   type: url
+   parameters: null
+   description: add the href to the link.
+   default: null
+ - name: to
+   type: url
+   parameters: null
+   description: add the href to the vue-router link.
+   default: null
 ---
 
-# SideBar <!--#new-->
+# SideBar **- ssr**
 
 <box header>
 
@@ -73,7 +108,7 @@ One of the most common features is to have the hidden sidebar to show it when th
 :::
 
 :::tip Active Link
-  To make the link is in an active state we have the property `vs-active`
+  To make the link is in an active state we have the property `v-model`
 :::
 
 <vuecode md center>
@@ -84,38 +119,86 @@ One of the most common features is to have the hidden sidebar to show it when th
 
 ```html
 <template lang="html">
-  <div id="parentx">
-    <vs-button @click="active=!active" vs-type="filled">Open Sidebar</vs-button>
-    <vs-sidebar :vs-active.sync="active">
 
-      <vs-sidebar-item @click="actives=1" :vs-active="actives==1" vs-icon="question_answer">
-         Dashboard
+  <div id="parentx">
+
+    <vs-button @click="active=!active" vs-color="primary" vs-type="filled">Open Sidebar</vs-button>
+    <vs-sidebar parent="body" default-index="1"  color="primary" class="sidebarx" spacer v-model="active">
+
+      <div class="header-sidebar" slot="header">
+        <vs-avatar  size="70px" src="https://randomuser.me/api/portraits/men/85.jpg"/>
+
+        <h4>
+          My Name
+          <vs-button vs-color="primary" vs-icon="more_horiz" vs-type="flat"></vs-button>
+        </h4>
+
+      </div>
+
+      <vs-sidebar-item index="1" icon="question_answer">
+        Dashboard
       </vs-sidebar-item>
-      <vs-sidebar-item @click="actives=2" :vs-active="actives==2" vs-icon="gavel">
-         History
+
+      <vs-sidebar-item index="2" icon="gavel">
+        History
       </vs-sidebar-item>
-      <vs-sidebar-item @click="actives=3" :vs-active="actives==3" vs-icon="verified_user">
-         Settings
+
+      <vs-divider icon="person" position="left">
+        User
+      </vs-divider>
+
+      <vs-sidebar-item index="3" icon="verified_user">
+        Configurations
       </vs-sidebar-item>
-      <vs-sidebar-item @click="actives=4" :vs-active="actives==4" vs-icon="account_box">
-         Profile
+      <vs-sidebar-item index="4" icon="account_box">
+        Perfile
       </vs-sidebar-item>
-      <vs-sidebar-item @click="actives=5" :vs-active="actives==5" vs-icon="card_giftcard">
-         card
+      <vs-sidebar-item index="5" >
+        Card
       </vs-sidebar-item>
+
+      <div class="footer-sidebar" slot="footer">
+        <vs-button vs-icon="reply" vs-color="danger" vs-type="flat">log out</vs-button>
+        <vs-button vs-icon="settings" vs-color="primary" vs-type="border"></vs-button>
+      </div>
 
     </vs-sidebar>
   </div>
+
 </template>
 
 <script>
 export default {
   data:()=>({
     active:false,
-    actives:2,
   })
 }
 </script>
+
+<style lang="stylus">
+.header-sidebar
+  display flex
+  align-items center
+  justify-content center
+  flex-direction column
+  width 100%
+  h4
+    display flex
+    align-items center
+    justify-content center
+    width 100%
+    > button
+      margin-left 10px
+.footer-sidebar
+  display flex
+  align-items center
+  justify-content space-between
+  width 100%
+  > button
+      border 0px solid rgba(0,0,0,0) !important
+      border-left 1px solid rgba(0,0,0,.07) !important
+      border-radius 0px !important
+</style>
 ```
 
 </div>
@@ -128,7 +211,7 @@ export default {
 
 ## Parent
 
-You can change the parent of the sidebar with the property `vs-parent` that as a value requires an element of the DOM (**#idx**, **.classx**)
+You can change the parent of the sidebar with the property `parent` that as a value requires an element of the DOM (**#idx**, **.classx**) or a reference of Vuejs as `$refs.myrefContent`
 
 :::tip
   By default the father of the sidebar is the body
@@ -142,46 +225,90 @@ You can change the parent of the sidebar with the property `vs-parent` that as a
 
 ```html
 <template lang="html">
-  <div id="parentx2" class="con-example-sidebar">
+
+  <div ref="parentSidebar" id="parentx">
+
     <vs-button @click="active=!active" vs-color="primary" vs-type="filled">Open Sidebar</vs-button>
-    <vs-sidebar
+    <vs-sidebar :parent="$refs.parentSidebar" default-index="1"  color="primary" class="sidebarx" spacer v-model="active">
 
-      vs-parent="#parentx2"
-      :vs-active.sync="active">
+      <div class="header-sidebar" slot="header">
+        <vs-avatar  size="70px" src="https://randomuser.me/api/portraits/men/85.jpg"/>
 
-      <vs-sidebar-item @click="actives=1" :vs-active="actives==1" vs-icon="question_answer">
-         Dashboard
+        <h4>
+          My Name
+          <vs-button vs-color="primary" vs-icon="more_horiz" vs-type="flat"></vs-button>
+        </h4>
+
+      </div>
+
+      <vs-sidebar-item index="1" icon="question_answer">
+        Dashboard
       </vs-sidebar-item>
-      <vs-sidebar-item @click="actives=2" :vs-active="actives==2" vs-icon="gavel">
-         History
+
+      <vs-sidebar-item index="2" icon="gavel">
+        History
       </vs-sidebar-item>
-      <vs-sidebar-item @click="actives=3" :vs-active="actives==3" vs-icon="verified_user">
-         Settings
+
+      <vs-divider icon="person" position="left">
+        User
+      </vs-divider>
+
+      <vs-sidebar-item index="3" icon="verified_user">
+        Configurations
       </vs-sidebar-item>
-      <vs-sidebar-item @click="actives=4" :vs-active="actives==4" vs-icon="account_box">
-         Profile
+      <vs-sidebar-item index="4" icon="account_box">
+        Perfile
       </vs-sidebar-item>
-      <vs-sidebar-item @click="actives=5" :vs-active="actives==5" vs-icon="card_giftcard">
-         card
+      <vs-sidebar-item index="5" >
+        Card
       </vs-sidebar-item>
+
+      <div class="footer-sidebar" slot="footer">
+        <vs-button vs-icon="reply" vs-color="danger" vs-type="flat">log out</vs-button>
+        <vs-button vs-icon="settings" vs-color="primary" vs-type="border"></vs-button>
+      </div>
 
     </vs-sidebar>
   </div>
+
 </template>
 
 <script>
 export default {
   data:()=>({
     active:false,
-    actives:2,
   })
 }
 </script>
 
 <style lang="stylus">
-.con-example-sidebar
-  height: 500px;
-  position: relative;
+#parentx
+  overflow hidden
+  height 500px
+  position relative
+
+.header-sidebar
+  display flex
+  align-items center
+  justify-content center
+  flex-direction column
+  width 100%
+  h4
+    display flex
+    align-items center
+    justify-content center
+    width 100%
+    > button
+      margin-left 10px
+.footer-sidebar
+  display flex
+  align-items center
+  justify-content space-between
+  width 100%
+  > button
+      border 0px solid rgba(0,0,0,0) !important
+      border-left 1px solid rgba(0,0,0,.07) !important
+      border-radius 0px !important
 </style>
 ```
 
@@ -194,7 +321,7 @@ export default {
 
 ## Static
 
-You can also use the sidebar in static mode with the property `vs-static`
+You can also use the sidebar in static mode with the property `static`
 
 :::tip
   when putting the sidebar in static mode its position becomes relative for better manipulation
@@ -208,45 +335,89 @@ You can also use the sidebar in static mode with the property `vs-static`
 
 ```html
 <template lang="html">
-  <div id="parentx3" class="con-example-sidebar">
-    <vs-sidebar
-      style="width:200px"
-      vs-static
-      vs-parent="#parentx3"
-      :vs-active.sync="active">
 
-      <vs-sidebar-item @click="actives=1" :vs-active="actives==1" vs-icon="question_answer">
-         Dashboard
+  <div class="parentx-static">
+
+    <vs-sidebar static-position default-index="1" color="primary" class="sidebarx" spacer v-model="active">
+
+      <div class="header-sidebar" slot="header">
+        <vs-avatar  size="70px" src="https://randomuser.me/api/portraits/men/85.jpg"/>
+
+        <h4>
+          My Name
+          <vs-button vs-color="primary" vs-icon="more_horiz" vs-type="flat"></vs-button>
+        </h4>
+
+      </div>
+
+      <vs-sidebar-item index="1" icon="question_answer">
+        Dashboard
       </vs-sidebar-item>
-      <vs-sidebar-item @click="actives=2" :vs-active="actives==2" vs-icon="gavel">
-         History
+
+      <vs-sidebar-item index="2" icon="gavel">
+        History
       </vs-sidebar-item>
-      <vs-sidebar-item @click="actives=3" :vs-active="actives==3" vs-icon="verified_user">
-         Settings
+
+      <vs-divider icon="person" position="left">
+        User
+      </vs-divider>
+
+      <vs-sidebar-item index="3" icon="verified_user">
+        Configurations
       </vs-sidebar-item>
-      <vs-sidebar-item @click="actives=4" :vs-active="actives==4" vs-icon="account_box">
-         Profile
+      <vs-sidebar-item index="4" icon="account_box">
+        Perfile
       </vs-sidebar-item>
-      <vs-sidebar-item @click="actives=5" :vs-active="actives==5" vs-icon="card_giftcard">
-         card
+      <vs-sidebar-item index="5" >
+        Card
       </vs-sidebar-item>
+
+      <div class="footer-sidebar" slot="footer">
+        <vs-button vs-icon="reply" vs-color="danger" vs-type="flat">log out</vs-button>
+        <vs-button vs-icon="settings" vs-color="primary" vs-type="border"></vs-button>
+      </div>
 
     </vs-sidebar>
   </div>
+
 </template>
 
 <script>
 export default {
   data:()=>({
     active:false,
-    actives:2,
   })
 }
 </script>
 
 <style lang="stylus">
-.con-example-sidebar
-  height: 500px;
+.parentx-static
+  overflow hidden
+  height 500px
+  position relative
+
+.header-sidebar
+  display flex
+  align-items center
+  justify-content center
+  flex-direction column
+  width 100%
+  h4
+    display flex
+    align-items center
+    justify-content center
+    width 100%
+    > button
+      margin-left 10px
+.footer-sidebar
+  display flex
+  align-items center
+  justify-content space-between
+  width 100%
+  > button
+      border 0px solid rgba(0,0,0,0) !important
+      border-left 1px solid rgba(0,0,0,.07) !important
+      border-radius 0px !important
 </style>
 ```
 
@@ -259,10 +430,10 @@ export default {
 
 ## Group Collapsed
 
-You can have groups of sub menus with the component `vs-slider-group` that as a required parameter we have the `vs-label`, you can add as many groups as you need, including internally from the same component.
+You can have groups of sub menus with the component `vs-slider-group` that as a required parameter we have the `title`, you can add as many groups as you need, including internally from the same component.
 
 :::tip
-  By default the component is closed but if you need to initialize open you can use the property `vs-open`
+  By default the component is closed but if you need to initialize open you can use the property `open`
 :::
 
 <vuecode md center>
@@ -273,91 +444,100 @@ You can have groups of sub menus with the component `vs-slider-group` that as a 
 
 ```html
 <template lang="html">
+
   <div id="parentx">
-    <vs-button @click="active=!active" vs-type="filled">Open Sidebar</vs-button>
-    <vs-sidebar :vs-active.sync="active">
 
-      <vs-sidebar-item @click="actives=1" :vs-active="actives==1" vs-icon="question_answer">
-         Dashboard
-      </vs-sidebar-item>
-      <vs-sidebar-item @click="actives=2" :vs-active="actives==2" vs-icon="gavel">
-         History
-      </vs-sidebar-item>
+    <vs-button @click="active=!active" vs-color="primary" vs-type="filled">Open Sidebar</vs-button>
+    <vs-sidebar parent="body" default-index="1"  color="primary" class="sidebarx" spacer v-model="active">
 
-      <vs-sidebar-group vs-label="Phone">
-        <vs-sidebar-item @click="actives=3" :vs-active="actives==3" vs-icon="phonelink_erase">
-           Link
-        </vs-sidebar-item>
-        <vs-sidebar-item @click="actives=4" :vs-active="actives==4" vs-icon="phonelink_lock">
-           Lock
-        </vs-sidebar-item>
-        <vs-sidebar-item @click="actives=5" :vs-active="actives==5" vs-icon="phonelink_ring">
-           Ring
-        </vs-sidebar-item>
-        <vs-sidebar-item @click="actives=6" :vs-active="actives==6" vs-icon="phonelink_setup">
-           Setup
-        </vs-sidebar-item>
-      </vs-sidebar-group>
+      <div class="header-sidebar" slot="header">
+        <vs-avatar  size="70px" src="https://randomuser.me/api/portraits/men/85.jpg"/>
 
-      <vs-sidebar-group vs-open vs-icon="image" vs-label="Image">
-        <vs-sidebar-item @click="actives=7" :vs-active="actives==7" vs-icon="camera_roll">
-           Camera Roll
-        </vs-sidebar-item>
+        <h4>
+          My Name
+          <vs-button vs-color="primary" vs-icon="more_horiz" vs-type="flat"></vs-button>
+        </h4>
 
-        <vs-sidebar-group vs-icon="filter" vs-label="Filter">
-          <vs-sidebar-item @click="actives=8" :vs-active="actives==8" vs-icon="filter_b_and_w">
-            B and W
+      </div>
+      <vs-sidebar-group title="Aplication">
+        <vs-sidebar-item index="1" icon="question_answer">
+          Dashboard
+        </vs-sidebar-item>
+        <vs-sidebar-group title="Store">
+          <vs-sidebar-item index="2.1" icon="store">
+            Store
           </vs-sidebar-item>
-          <vs-sidebar-item @click="actives=9" :vs-active="actives==9" vs-icon="filter_center_focus">
-            Center Focus
+          <vs-sidebar-item index="2.2" icon="nature_people">
+            Nature
           </vs-sidebar-item>
-          <vs-sidebar-item @click="actives=10" :vs-active="actives==10" vs-icon="filter_drama">
-            Drama
-          </vs-sidebar-item>
-          <vs-sidebar-item @click="actives=11" :vs-active="actives==11" vs-icon="filter_frames">
-            Frames
-          </vs-sidebar-item>
-          <vs-sidebar-item @click="actives=12" :vs-active="actives==12" vs-icon="filter_hdr">
-            Hdr
+          <vs-sidebar-item index="2.3" icon="style">
+            Style
           </vs-sidebar-item>
         </vs-sidebar-group>
-
-        <vs-sidebar-item @click="actives=13" :vs-active="actives==13" vs-icon="color_lens">
-           Color
+        <vs-sidebar-item index="2" icon="gavel">
+          History
         </vs-sidebar-item>
-        <vs-sidebar-item @click="actives=14" :vs-active="actives==14" vs-icon="camera_alt">
-           Camera
+        <vs-sidebar-item index="3" icon="https">
+          security
+        </vs-sidebar-item>
+        <vs-sidebar-item index="4" icon="help">
+          Help
         </vs-sidebar-item>
       </vs-sidebar-group>
 
-      <vs-sidebar-item @click="actives=15" :vs-active="actives==15" vs-icon="verified_user">
-         Settings
+
+      <vs-divider icon="person" position="left">
+        User
+      </vs-divider>
+
+      <vs-sidebar-item index="5" icon="verified_user">
+        Configurations
       </vs-sidebar-item>
-      <vs-sidebar-item @click="actives=16" :vs-active="actives==16" vs-icon="account_box">
-         Profile
-      </vs-sidebar-item>
-      <vs-sidebar-item @click="actives=17" :vs-active="actives==17" vs-icon="card_giftcard">
-         card
+      <vs-sidebar-item index="6" icon="account_box">
+        Perfile
       </vs-sidebar-item>
 
-
+      <div class="footer-sidebar" slot="footer">
+        <vs-button vs-icon="reply" vs-color="danger" vs-type="flat">log out</vs-button>
+        <vs-button vs-icon="settings" vs-color="primary" vs-type="border"></vs-button>
+      </div>
 
     </vs-sidebar>
   </div>
+
 </template>
 
 <script>
 export default {
   data:()=>({
     active:false,
-    actives:2,
   })
 }
 </script>
 
 <style lang="stylus">
-.con-example-sidebar
-  height: 500px;
+.header-sidebar
+  display flex
+  align-items center
+  justify-content center
+  flex-direction column
+  width 100%
+  h4
+    display flex
+    align-items center
+    justify-content center
+    width 100%
+    > button
+      margin-left 10px
+.footer-sidebar
+  display flex
+  align-items center
+  justify-content space-between
+  width 100%
+  > button
+      border 0px solid rgba(0,0,0,0) !important
+      border-left 1px solid rgba(0,0,0,.07) !important
+      border-radius 0px !important
 </style>
 ```
 
@@ -384,43 +564,85 @@ A `static` sidebar will not appear on the right.
 
 ```html
 <template lang="html">
-  <div id="parentx4" class="con-example-sidebar">
-    <vs-button @click="active=!active" vs-type="filled">Open Sidebar</vs-button>
-    <vs-sidebar vs-parent="#parentx4" :vs-active.sync="active" vs-pos="right">
 
-      <vs-sidebar-item @click="actives=1" :vs-active="actives==1" vs-icon="question_answer">
-         Dashboard
+  <div id="parentx">
+
+    <vs-button @click="active=!active" vs-color="primary" vs-type="filled">Open Sidebar</vs-button>
+    <vs-sidebar position-right  parent="body" default-index="1"  color="primary" class="sidebarx" spacer v-model="active">
+
+      <div class="header-sidebar" slot="header">
+        <vs-avatar  size="70px" src="https://randomuser.me/api/portraits/men/85.jpg"/>
+
+        <h4>
+          My Name
+          <vs-button vs-color="primary" vs-icon="more_horiz" vs-type="flat"></vs-button>
+        </h4>
+
+      </div>
+
+      <vs-sidebar-item index="1" icon="question_answer">
+        Dashboard
       </vs-sidebar-item>
-      <vs-sidebar-item @click="actives=2" :vs-active="actives==2" vs-icon="gavel">
-         History
+
+      <vs-sidebar-item index="2" icon="gavel">
+        History
       </vs-sidebar-item>
-      <vs-sidebar-item @click="actives=3" :vs-active="actives==3" vs-icon="verified_user">
-         Configurations
+
+      <vs-divider icon="person" position="left">
+        User
+      </vs-divider>
+
+      <vs-sidebar-item index="3" icon="verified_user">
+        Configurations
       </vs-sidebar-item>
-      <vs-sidebar-item @click="actives=4" :vs-active="actives==4" vs-icon="account_box">
-         Perfile
+      <vs-sidebar-item index="4" icon="account_box">
+        Perfile
       </vs-sidebar-item>
-      <vs-sidebar-item @click="actives=5" :vs-active="actives==5" vs-icon="card_giftcard">
-         card
+      <vs-sidebar-item index="5" >
+        Card
       </vs-sidebar-item>
+
+      <div class="footer-sidebar" slot="footer">
+        <vs-button vs-icon="reply" vs-color="danger" vs-type="flat">log out</vs-button>
+        <vs-button vs-icon="settings" vs-color="primary" vs-type="border"></vs-button>
+      </div>
 
     </vs-sidebar>
   </div>
+
 </template>
 
 <script>
 export default {
   data:()=>({
     active:false,
-    actives:2,
   })
 }
 </script>
 
 <style lang="stylus">
-.con-example-sidebar
-  height: 500px;
-  position: relative;
+.header-sidebar
+  display flex
+  align-items center
+  justify-content center
+  flex-direction column
+  width 100%
+  h4
+    display flex
+    align-items center
+    justify-content center
+    width 100%
+    > button
+      margin-left 10px
+.footer-sidebar
+  display flex
+  align-items center
+  justify-content space-between
+  width 100%
+  > button
+      border 0px solid rgba(0,0,0,0) !important
+      border-left 1px solid rgba(0,0,0,.07) !important
+      border-radius 0px !important
 </style>
 ```
 
@@ -433,14 +655,10 @@ export default {
 
 ## Reduce and Expand
 
-You can add the beautiful functionality of reducing the sidebar to single icons or expand it by adding the property `vs-reduce-expand`, also if necessary you can only have the component rededited to icons with the property `vs-reduce`.
+You can have a reduced sidebar with the `reduce` property which by default makes the sidebar look reduced and when hover expands, if you do not want the functionality to expand when hovering you can remove it with the `reduce-not-hover-expand` property
 
 :::tip
-  If you have a sidebar without icons and you only need to visualize when it is reduced you can use the property `vs-icon-reduce` .
-:::
-
-:::warning
-  If no icon is specified by either `vs-icon` or `vs-icon-reduce` the link will be displayed in white please add some of them for a desired functionality.
+  puedes quitar la animacion de rebote al abrir el sidebar con la propiedad `reduce-not-rebound`
 :::
 
 <vuecode md>
@@ -451,93 +669,96 @@ You can add the beautiful functionality of reducing the sidebar to single icons 
 
 ```html
 <template lang="html">
+
   <div id="parentx">
-    <vs-button @click="active=!active,reducex=false" vs-type="filled">Open Sidebar Reduce and expand</vs-button>
-    <vs-button @click="active=!active,reducex=true" vs-type="filled">Open Sidebar Only Reduce</vs-button>
-    <vs-sidebar :vs-reduce="reducex" :vs-reduce-expand="!reducex" :vs-active.sync="active">
 
-      <vs-sidebar-item @click="actives=1" :vs-active="actives==1" vs-icon="question_answer">
-         Dashboard
-      </vs-sidebar-item>
-      <vs-sidebar-item @click="actives=2" :vs-active="actives==2" vs-icon="gavel">
-         History
-      </vs-sidebar-item>
+    <vs-button @click="active=!active, notExpand = false" vs-color="success" vs-type="filled">Open Sidebar Reduce-expand</vs-button>
+    <vs-button @click="active=!active, notExpand = true" vs-color="success" vs-type="filled">Open Sidebar Reduce-only</vs-button>
+    <vs-sidebar reduce :reduce-not-hover-expand="notExpand" parent="body" default-index="1"  color="success" class="sidebarx" spacer v-model="active">
 
-      <vs-sidebar-group vs-icon-reduce="phone_iphone" vs-label="Phone">
-        <vs-sidebar-item @click="actives=3" :vs-active="actives==3" vs-icon="phonelink_erase">
-           Link
+      <div class="header-sidebar" slot="header">
+        <vs-avatar  size="70px" src="https://randomuser.me/api/portraits/men/85.jpg"/>
+      </div>
+      <vs-sidebar-group open title="Aplication">
+        <vs-sidebar-item index="1" icon="question_answer">
+          Dashboard
         </vs-sidebar-item>
-        <vs-sidebar-item @click="actives=4" :vs-active="actives==4" vs-icon="phonelink_lock">
-           Lock
+        <vs-sidebar-item index="5" icon="verified_user">
+          Configurations
         </vs-sidebar-item>
-        <vs-sidebar-item @click="actives=5" :vs-active="actives==5" vs-icon="phonelink_ring">
-           Ring
-        </vs-sidebar-item>
-        <vs-sidebar-item @click="actives=6" :vs-active="actives==6" vs-icon="phonelink_setup">
-           Setup
-        </vs-sidebar-item>
-      </vs-sidebar-group>
-
-      <vs-sidebar-group vs-open vs-icon="image" vs-label="Image">
-        <vs-sidebar-item @click="actives=7" :vs-active="actives==7" vs-icon="camera_roll">
-           Camera Roll
-        </vs-sidebar-item>
-
-        <vs-sidebar-group vs-icon="filter" vs-label="Filter">
-          <vs-sidebar-item @click="actives=8" :vs-active="actives==8" vs-icon="filter_b_and_w">
-            B and W
+        <vs-sidebar-group title="Store">
+          <vs-sidebar-item index="2.1" icon="store">
+            Store
           </vs-sidebar-item>
-          <vs-sidebar-item @click="actives=9" :vs-active="actives==9" vs-icon="filter_center_focus">
-            Center Focus
+          <vs-sidebar-item index="2.2" icon="nature_people">
+            Nature
           </vs-sidebar-item>
-          <vs-sidebar-item @click="actives=10" :vs-active="actives==10" vs-icon="filter_drama">
-            Drama
-          </vs-sidebar-item>
-          <vs-sidebar-item @click="actives=11" :vs-active="actives==11" vs-icon="filter_frames">
-            Frames
-          </vs-sidebar-item>
-          <vs-sidebar-item @click="actives=12" :vs-active="actives==12" vs-icon="filter_hdr">
-            Hdr
+          <vs-sidebar-item index="2.3" icon="style">
+            Style
           </vs-sidebar-item>
         </vs-sidebar-group>
-
-        <vs-sidebar-item @click="actives=13" :vs-active="actives==13" vs-icon="color_lens">
-           Color
+        <vs-sidebar-item index="2" icon="gavel">
+          History
         </vs-sidebar-item>
-        <vs-sidebar-item @click="actives=14" :vs-active="actives==14" vs-icon="camera_alt">
-           Camera
+        <vs-sidebar-item index="3" icon="https">
+          security
+        </vs-sidebar-item>
+        <vs-sidebar-item index="4" icon="help">
+          Help
         </vs-sidebar-item>
       </vs-sidebar-group>
 
-      <vs-sidebar-item @click="actives=15" :vs-active="actives==15" vs-icon="verified_user">
-         Settings
-      </vs-sidebar-item>
-      <vs-sidebar-item @click="actives=16" :vs-active="actives==16" vs-icon="account_box">
-         Profile
-      </vs-sidebar-item>
-      <vs-sidebar-item @click="actives=17" :vs-active="actives==17" vs-icon="card_giftcard">
-         card
-      </vs-sidebar-item>
+
+      <vs-divider icon="person" position="left">
+        User
+      </vs-divider>
 
 
+      <vs-sidebar-item index="6" icon="account_box">
+        Perfile
+      </vs-sidebar-item>
+
+      <div class="footer-sidebar" slot="footer">
+        <vs-button vs-icon="settings" vs-color="primary" vs-type="border"></vs-button>
+      </div>
 
     </vs-sidebar>
   </div>
+
 </template>
 
 <script>
 export default {
   data:()=>({
     active:false,
-    actives:2,
-    reducex:false
+    notExpand: false
   })
 }
 </script>
 
 <style lang="stylus">
-.con-example-sidebar
-  height: 500px;
+.header-sidebar
+  display flex
+  align-items center
+  justify-content center
+  flex-direction column
+  width 100%
+  h4
+    display flex
+    align-items center
+    justify-content center
+    width 100%
+    > button
+      margin-left 10px
+.footer-sidebar
+  display flex
+  align-items center
+  justify-content space-between
+  width 100%
+  > button
+      border 0px solid rgba(0,0,0,0) !important
+      border-left 1px solid rgba(0,0,0,.07) !important
+      border-radius 0px !important
 </style>
 ```
 

@@ -21,9 +21,10 @@ export { default as vsBreadcrumb } from './vsBreadcrumb'
 export { default as vsPrompt } from './vsPrompt'
 export { default as vsDivider } from './vsDivider'
 export { default as vsSpacer } from './vsSpacer'
+export { default as vsIcon } from './vsIcon'
+export { default as vsNavbar } from './vsNavbar'
 
 // component not soport SSR
-export { default as vsNavbar } from './vsNavbar'
 export { default as vsSideBar } from './vsSideBar'
 export { default as vsDropDown } from './vsDropDown'
 export { default as vsCollapse } from './vsCollapse'
