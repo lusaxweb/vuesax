@@ -4,7 +4,9 @@
       v-show="staticPosition || value"
       ref="sidebarbackground"
       class="vs-content-sidebar">
-      <div v-if="!hiddenBackground" class="vs-sidebar-background"></div>
+      <div
+        v-if="!hiddenBackground"
+        class="vs-sidebar-background"></div>
       <div
         :class="[
           `vs-sidebar-${color}`,
@@ -108,7 +110,6 @@ export default {
       return this.currentIndex
     },
     setIndexActive (index) {
-      console.log('padrer final', index)
       this.currentIndex = index
     },
     addEventClick () {

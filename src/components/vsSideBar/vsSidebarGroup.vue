@@ -74,7 +74,6 @@ export default {
             this.maxHeight = 'none'
           },300)
         } else {
-          // console.log('poner en 0', scrollHeight)
           this.maxHeight = `${scrollHeight}px`
           setTimeout(() => {
             this.maxHeight = `${0}px`
