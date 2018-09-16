@@ -97,37 +97,3 @@ export default {
 
 }
 </script>
-
-<style lang="stylus">
-.vs-dropdown-item
-  transition: all .2s ease;
-  position: relative;
-  z-index: 100;
-  text-align: left;
-  border-radius: 5px;
-  width: calc(100% - 6px)
-  margin: 0px 3px;
-  list-style: none;
-  font-weight: normal !important;
-  font-size: 0.9375em;
-  a
-    background: inherit !important;
-    color: inherit !important;
-    cursor: pointer;
-    transition: all .2s ease;
-    padding: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    width: 100%;
-    position: relative;
-    display: block;
-    color: rgba(0, 0, 0, 0.7);
-    &.disabled
-      user-select: none;
-      pointer-events: none !important;
-      cursor: default;
-      opacity: .3 !important;
-  &.vsDivider
-    border-top: 1px solid rgba(0, 0, 0, 0.08)
-    margin-top: 5px;
-</style>
