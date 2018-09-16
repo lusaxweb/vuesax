@@ -49,7 +49,8 @@ export default {
   components: { Home, Page, Sidebar, Navbar, CodeFund, Carbon },
   data () {
     return {
-      isSidebarOpen: false
+      isSidebarOpen: false,
+      currentMetaTags: []
     }
   },
 
@@ -108,21 +109,20 @@ export default {
 
   mounted () {
     // update title / meta tags
-    this.currentMetaTags = []
-    const updateMeta = () => {
-      document.title = this.$title.replace('<!--#new-->','').replace('<!--#update-->','')
-      document.documentElement.lang = this.$lang
-      const meta = [
-        {
-          name: 'description',
-          content: this.$description
-        },
-        ...(this.$page.frontmatter.meta || [])
-      ]
-      this.currentMetaTags = updateMetaTags(meta, this.currentMetaTags)
-    }
-    this.$watch('$page', updateMeta)
-    updateMeta()
+    // this.currentMetaTags = []
+    // const updateMeta = () => {
+    //   document.documentElement.lang = this.$lang
+    //   const meta = [
+    //     {
+    //       name: 'description',
+    //       content: this.$description
+    //     },
+    //     ...(this.$page.frontmatter.meta || [])
+    //   ]
+    //   this.currentMetaTags = updateMetaTags(meta, this.currentMetaTags)
+    // }
+    // this.$watch('$page', updateMeta)
+    // updateMeta()
 
     // configure progress bar
     nprogress.configure({ showSpinner: false })

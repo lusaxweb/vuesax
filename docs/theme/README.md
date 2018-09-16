@@ -118,7 +118,7 @@ We almost always need a personalized application with own colors. In Vuesax, you
 
 When starting **Vuesax** tell it to use your colors. We add the new colors as parameters.
 
-```js
+```css
 Vue.use(Vuesax, {
   theme:{
     colors:{
