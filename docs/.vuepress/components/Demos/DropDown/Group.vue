@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="examplex">
-    <vs-dropdown @focus="logx">
+    <vs-dropdown>
       <a class="a-icon" href.prevent>
         Dropdown Option Group
         <i class="material-icons">

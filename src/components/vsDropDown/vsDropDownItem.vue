@@ -67,6 +67,9 @@ export default {
       searchParent(this)
       function searchParent(_this){
         let parent = _this.$parent
+        if(!parent.$el.className){
+          return
+        }
         if(parent.$el.className.indexOf('parent-dropdown')==-1){
           searchParent(parent)
         } else {
@@ -83,6 +86,9 @@ export default {
       searchParent(this)
       function searchParent(_this){
         let parent = _this.$parent
+        if(!parent.$el.className){
+          return
+        }
         if(parent.$el.className.indexOf('parent-dropdown')==-1){
           searchParent(parent)
         } else {

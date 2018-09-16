@@ -1,7 +1,7 @@
 <template lang="html">
   <transition name="dropdownx">
     <div
-      v-show="dropdownVisible"
+      v-if="dropdownVisible"
       ref="options"
       :class="{'rightx':rightx,'notHeight':notHeight}"
       :style="{
@@ -53,6 +53,9 @@ export default {
   mounted(){
     this.insertBody()
   },
+  beforeDestroy() {
+    this.$destroy()
+  },
   methods:{
     toggleMenu(event){
       if(event.type == 'mouseover' && !this.vsTriggerClick){
@@ -63,8 +66,10 @@ export default {
       this.widthx = this.$el.clientWidth
     },
     insertBody(){
+      let elp = this.$el
+      console.log('instance', elp)
       let elx = this.$refs.options
-      document.body.insertBefore(elx, document.body.firstChild)
+      document.body.insertBefore(elp, document.body.firstChild)
     },
   }
 
