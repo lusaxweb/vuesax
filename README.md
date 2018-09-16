@@ -25,10 +25,10 @@
 
 <h2 align="center">Supporting through Patreon</h2>
 
-Vuesax is an open source [MIT](https://github.com/lusaxweb/vuesax/blob/master/LICENSE) project if you want to contribute to keep improving, If you are interested in supporting this project, please consider becoming a patron. [Patron](https://www.patreon.com/luisdanielroviracontreras)
+Vuesax is an open source [MIT](https://github.com/lusaxweb/vuesax/blob/master/LICENSE) project if you want to contribute to keep improving, If you are interested in supporting this project, please consider becoming a patron. [Patron](https://www.patreon.com/bePatron?c=1567892)
 
 <p align="center">
-  <a href="https://www.patreon.com/luisdanielroviracontreras">
+  <a href="https://www.patreon.com/bePatron?c=1567892">
     <img src="https://c5.patreon.com/external/logo/become_a_patron_button.png" alt="Become a Patron" />
   </a>
 </p>

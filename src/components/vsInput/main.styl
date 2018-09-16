@@ -115,19 +115,19 @@ for colorx, i in $vs-colors
   .vs-input-{colorx}
     .vs-inputx
       &:focus
-        border: 1px solid $vs-colors[colorx] !important
+        border: 1px solid var(colorx) !important
         ~ .vs-placeholder-label, ~ .icon-inputx
-          color $vs-colors[colorx]
+          color var(colorx)
     &.isFocus
       .vs-input-label
-        color: $vs-colors[colorx]
+        color: var(colorx)
   &.span-text-validation-{colorx}
-    color: $vs-colors[colorx] !important
+    color: var(colorx) !important
   &.input-icon-validate-{colorx}
     .vs-inputx
-      border: 1px solid $vs-colors[colorx] !important
+      border: 1px solid var(colorx) !important
       &:focus
-        border: 1px solid $vs-colors[colorx] !important
+        border: 1px solid var(colorx) !important
     .input-icon-validate
-      background: alpha($vs-colors[colorx],.2)
-      color $vs-colors[colorx]
+      background: var(colorx, .2)
+      color var(colorx)

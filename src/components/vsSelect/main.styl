@@ -39,7 +39,7 @@
   position: relative;
   padding: 7px;
   border-radius: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: $vs-border
   transition: all .2s ease;
   padding-right: 20px;
   cursor: pointer;
@@ -50,12 +50,12 @@
   &-label
     padding-left 5px;
     font-size: .85rem
-    color rgba(0,0,0,.7)
+    color $vs-label-color
 .con-text-validation
   position: relative
   font-size: .65rem
   overflow: hidden
-  transition: all .2s ease;
+  transition: $vs-transition;
   .span-text-validation
     padding: 2px 4px;
     padding-bottom: 4px
@@ -69,11 +69,11 @@
   padding-top: 6px;
   padding-left: 5px;
   padding-bottom: 6px;
-  box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 0.1);
+  box-shadow: $vs-box-shadow;
   border-radius: 5px;
   position: absolute;
   z-index: 40000;
-  background: rgb(255, 255, 255);
+  background: $vs-background;
   ul
     max-height: 260px;
     overflow: auto;
@@ -87,8 +87,8 @@
       padding: 7px;
       border 0px;
       position relative
-      border-top: 1px solid rgb(255, 255, 255)
-      border-bottom: 1px solid rgb(255, 255, 255)
+      border-top: 1px solid $border-color
+      border-bottom: 1px solid $border-color
       transition: all .3s ease
       margin: 0px !important
       .icon-item
@@ -112,17 +112,17 @@ for colorx, i in $vs-colors
   .vs-select-{colorx}
     .vs-select-item-btn
       &.activex
-        background: alpha($vs-colors[colorx],.1) !important;
-        color: $vs-colors[colorx];
+        background: var(colorx, .1) !important;
+        color: var(colorx);
         font-weight: bold;
   .input-select-label-{colorx}--active
-    color: $vs-colors[colorx]
+    color: var(colorx)
   .input-select-validate-{colorx}
     .input-select-con
       .input-select
-        border-color: $vs-colors[colorx]
+        border-color: var(colorx)
       .icon-select
-        color $vs-colors[colorx]
+        color var(colorx)
 
 
 // item style //
@@ -134,7 +134,7 @@ for colorx, i in $vs-colors
   margin: 0px !important;
   text-transform: capitalize;
   &.disabledx
-    opacity: .4;
+    opacity: $vs-disabled-opacity;
   span.searchx
     background: rgba(0, 0, 0, 0.07);
     border-bottom: 1px solid rgba(0, 0, 0, 0.3);
