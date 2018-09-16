@@ -4,7 +4,8 @@
     v-bind="$attrs"
     :class="[`vs-button-${isColor()?vsColor:null}`,`vs-button-${vsType}`,{
       'isActive':isActive,
-      'includeIcon':vsIcon
+      'includeIcon':vsIcon,
+      'includeIconOnly':vsIcon && !$slots.default
     }, vsSize]"
     :style="[styles,{
       'width':/[px]/.test(vsSize)?`${vsSize}`:null,

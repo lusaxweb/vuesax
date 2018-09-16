@@ -80,7 +80,7 @@ export default {
       let scrollTopx = window.pageYOffset || document.documentElement.scrollTop;
       if(this.$refs.dropdown.getBoundingClientRect().top + 300 >= window.innerHeight) {
         this.$nextTick(() => {
-          dropdownMenu.topx = (this.$refs.dropdown.getBoundingClientRect().top - dropdownMenu.$el.clientHeight) + scrollTopx
+          dropdownMenu.topx = (this.$refs.dropdown.getBoundingClientRect().top - dropdownMenu.$el.clientHeight - 10) + scrollTopx
           dropdownMenu.notHeight = true
         });
 
@@ -135,15 +135,3 @@ export default {
   }
 }
 </script>
-
-<style lang="stylus">
-.vs-con-dropdown
-  position: relative;
-  display: inline-block;
-  border: 0px;
-  background: transparent;
-  a
-    user-select: none !important;
-  &:active
-    opacity: 1 !important;
-</style>
