@@ -47,9 +47,9 @@
     </vs-dropdown>
 
 
-    <vs-button class="btnx" vs-color="danger" vs-type="line-down">Icons</vs-button>
+    <vs-button class="btnx" vs-color="danger" vs-type="line">Icons</vs-button>
     <vs-dropdown>
-      <vs-button class="btn-drop" vs-color="danger" vs-type="line-down" vs-icon="mood"></vs-button>
+      <vs-button class="btn-drop" vs-color="danger" vs-type="line" vs-icon="mood"></vs-button>
       <!-- <a href="#">Hola mundo</a> -->
 
       <vs-dropdown-menu>

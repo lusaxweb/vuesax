@@ -32,7 +32,7 @@ API:
    default: false
 ---
 
-# DropDown <!--#new-->
+# DropDown **- ssr**
 
 <box header>
 
@@ -479,7 +479,7 @@ You can customize the component or element that initialize the dropdown in this 
     <!-- items and elements within the menu or custom dropdown -->
   </vs-dropdown-menu>
 </vs-dropdown>
-```  
+```
 :::
 
 <vuecode md>
