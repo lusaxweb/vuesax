@@ -3,6 +3,7 @@
     <input
       @input="query = $event.target.value"
       aria-label="Search"
+      placeholder="Search Components"
       :value="query"
       autocomplete="off"
       spellcheck="false"
@@ -41,11 +42,13 @@ export default {
   },
   computed: {
     showSuggestions () {
-      return (
+      let sg =
         this.focused &&
         this.suggestions &&
         this.suggestions.length
-      )
+
+      this.$parent.activeSuggestion = sg
+      return sg
     },
     suggestions () {
       const query = this.query.trim().toLowerCase()
@@ -95,7 +98,6 @@ export default {
   methods: {
     returnTitle(title){
       let titlex = title.replace('<!--#new-->','').replace('<!--#update-->','')
-      console.log(titlex);
       return titlex
     },
     getPageLocalePath (page) {
@@ -152,43 +154,50 @@ export default {
 }
 
 .search-box
-  display inline-block
+  display block
   position relative
-  margin-right 0.5rem
+  // margin-right 0.5rem
   z-index: 100;
   input
-    cursor pointer
-    width 10rem
+    cursor text
+    width calc(100% - 20px)
+    margin-left 10px
     color lighten($textColor, 25%)
     display inline-block
-    border 1px solid darken($borderColor, 10%)
-    border-radius 2rem
+    border 1px solid darken($borderColor, 5%)
+    border-radius 8px
     font-size 0.9rem
     line-height 2rem
     padding 0 0.5rem 0 2rem
     outline none
     transition all .2s ease
-    background #fff url(./search.svg) 0.6rem 0.5rem no-repeat
+    background transparent url(./search.svg) 0.6rem 0.5rem no-repeat
     background-size 1rem
     min-height 32px
+    &::placeholder
+      color rgba(0,0,0,.3)
     &:focus
       cursor auto
-      border-color $accentColor
+      // border-color $accentColor
+      background #fff none 0rem 0.5rem no-repeat
+      padding-left 12px
   .suggestions
     background #fff
-    width 20rem
+    width 13rem
     position absolute
-    top 3rem
+    top 2.3rem
+    left 10px
     // border 1px solid darken($borderColor, 10%)
     box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.080)
     border-radius 6px
-    padding 0.4rem
+    padding 0.3rem
     list-style-type none
+    font-size .85rem
     &.align-right
       right 0
   .suggestion
     line-height 1.4
-    padding 0.4rem 0.6rem
+    padding 0.3rem 0.5rem
     border-radius 4px
     cursor: pointer;
     transition: all .2s ease;

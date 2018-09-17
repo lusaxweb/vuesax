@@ -14,8 +14,8 @@
       </span>
     </router-link>
     <div :class="{'linksColor':!$page.frontmatter.home}" class="links">
-      <AlgoliaSearchBox v-if="isAlgoliaSearch" :options="algolia"/>
-      <SearchBox v-else-if="$site.themeConfig.search !== false"/>
+      <!-- <AlgoliaSearchBox v-if="isAlgoliaSearch" :options="algolia"/> -->
+      <!-- <SearchBox v-else-if="$site.themeConfig.search !== false"/> -->
       <NavLinks class="can-hide"/>
     </div>
     <!-- colors change
@@ -139,6 +139,7 @@ export default {
     vertical-align top
   .site-name
     font-size 1.3rem
+    display none
     font-weight 600
     color $textColor
     position relative

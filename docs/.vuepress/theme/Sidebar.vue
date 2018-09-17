@@ -1,9 +1,23 @@
 <template>
-  <div class="sidebar">
+  <div :class="{'activeSuggestion': activeSuggestion}" class="sidebar">
     <div class="c-sidebar">
 
     <NavLinks/>
     <slot name="top"/>
+    <div class="sponsor-sidebar">
+      <h4>Sponsors</h4>
+      <ul>
+        <li v-for="sponsor in 3">
+          <a target="_blank" href="https://www.patreon.com/bePatron?c=1567892">
+            <i v-if="!sponsor.img" class="material-icons">
+              add
+            </i>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <SearchBox v-if="$site.themeConfig.search !== false"/>
     <ul class="sidebar-links" v-if="items.length">
       <li v-for="(item, i) in items">
         <SidebarGroup v-if="item.type === 'group'"
@@ -24,14 +38,16 @@
 import SidebarGroup from './SidebarGroup.vue'
 import SidebarLink, { groupHeaders } from './SidebarLink.vue'
 import NavLinks from './NavLinks.vue'
+import SearchBox from './SearchBox.vue'
 import { isActive, resolveSidebarItems } from './util'
 
 export default {
-  components: { SidebarGroup, SidebarLink, NavLinks },
+  components: { SidebarGroup, SidebarLink, NavLinks, SearchBox },
   props: ['items'],
   data () {
     return {
-      openGroupIndex: 0
+      openGroupIndex: 0,
+      activeSuggestion: false
     }
   },
   created () {
@@ -74,6 +90,37 @@ function resolveOpenGroupIndex (route, items) {
 
 <style lang="stylus">
 @import './styles/config.styl'
+
+.sponsor-sidebar
+  padding-bottom 10px
+  h4
+    padding 10px
+  ul
+    display flex
+    align-items center
+    justify-content center
+    li
+      background transparent
+      margin 10px
+      margin-top 0px
+      border-radius 10px
+      border 1px dashed #dcdcdc
+      cursor pointer
+      transition all .25s ease
+      a
+        width 50px
+        height 50px
+        display flex
+        align-items center
+        justify-content center
+        color rgba(0,0,0,.15)
+        transition all .25s ease
+      &:hover
+        border 1px dashed $accentColor
+        background rgba(255,255,255,.5)
+        box-shadow 0px 4px 10px 0px rgba(0,0,0,.05)
+        a
+          color $accentColor
 .c-sidebar
   width: calc(100% - 5px)
   margin-right: 5px;
@@ -82,6 +129,9 @@ function resolveOpenGroupIndex (route, items) {
   margin-top: 5px;
   padding-right: 5px;
 .sidebar
+  &.activeSuggestion
+    .sidebar-links
+      filter: blur(3px);
   ul
     padding 0
     margin 0
@@ -102,7 +152,7 @@ function resolveOpenGroupIndex (route, items) {
       font-size 1.1em
       padding 0.5rem 0 0.5rem 1.5rem
   .sidebar-links
-    padding 1.5rem 0
+    padding 1rem 0
 @media (max-width: $MQMobile)
   .sidebar
     .nav-links

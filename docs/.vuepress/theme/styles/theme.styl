@@ -99,16 +99,30 @@ b
   display: inline-block
   border-radius:5px;
 }
-*::-webkit-scrollbar{
+*::-webkit-scrollbar {
   width: 5px;
   height: 5px;
+  display: block
 }
-*::-webkit-scrollbar-thumb{
-  background: rgb(210, 210, 210);
+*::-webkit-scrollbar-thumb {
+  background: #e4eaf5;
   border-radius: 5px;
 }
 *::-webkit-scrollbar-thumb:hover
-  background rgb(170, 170, 170);
+  background: rgb(196, 201, 211)
+.sidebar
+  .c-sidebar::-webkit-scrollbar
+    width: 0px !important
+.sidebar
+  .c-sidebar
+    padding-right: 5px
+  &:hover
+    .c-sidebar
+      padding-right: 0px
+
+.sidebar:hover
+  .c-sidebar::-webkit-scrollbar
+    width: 5px !important
 
 .gridx
   .vs-row
@@ -179,8 +193,8 @@ body
   display none
 
 .sidebar
-  font-size 15px
-  background-color #fff
+  font-size 14px
+  background-color #F5F7FB
   width $sidebarWidth
   position fixed
   z-index 1010
@@ -194,7 +208,6 @@ body
   //vuesax
   box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.040)
   // border-right 1px solid $borderColor
-
 .content:not(.custom)
   max-width $contentWidth
   margin 0 auto
