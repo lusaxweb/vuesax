@@ -27,13 +27,8 @@ API:
    default: null
  - name: position
    type: string
-   parameters: RGB, HEX, primary, success, danger, warning, dark
-   description: bottom-right, top-right, top-left, bottom-left, bottom-center, top-center.
-   default: null
- - name: position
-   type: string
    parameters: bottom-right, top-right, top-left, bottom-left, bottom-center, top-center
-   description: Posision in which the notification appears.
+   description: Position in which the notification appears.
    default: null
  - name: icon
    type: string
