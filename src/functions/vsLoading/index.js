@@ -23,8 +23,7 @@ export default {
     containerx.insertBefore(instance.vm.$el, containerx.firstChild)
   },
   close(elx){
-    let el = elx || 'body > .con-vs-loading'
-    let loadings = document.querySelectorAll(el)
+    let loadings = elx instanceof HTMLElement ? elx : document.querySelectorAll(elx || 'body > .con-vs-loading')
     loadings.forEach((loading)=>{
       loading.classList.add('beforeRemove')
       setTimeout(()=>{
