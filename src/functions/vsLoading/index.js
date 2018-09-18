@@ -16,7 +16,7 @@ export default {
       instance.$data.text = parameters.text
       instance.$data.clickEffect = parameters.clickEffect
       if(parameters.container) {
-        containerx = parameters.container instanceof HTMLElement ? parameters.container : document.querySelector(parameters.container)
+        containerx = parameters.container instanceof Element ? parameters.container : document.querySelector(parameters.container)
       }
     }
     instance.vm = instance.$mount();
@@ -25,7 +25,7 @@ export default {
   close(elx){
     let loadings
     
-    if (elx instanceof HTMLElement) {
+    if (elx instanceof Element) {
       // Mimicking the behavior of doing `elx.querySelectorAll('> .con-vs-loading')` but `>` is not well supported.
       // We are doing this because we can only add the respective classes to .con-vs-loading
       loadings = Array.from(elx.children).filter(el => el.classList.contains('.con-vs-loading'))
