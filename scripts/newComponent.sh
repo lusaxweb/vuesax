@@ -20,7 +20,7 @@ API:
    default: null
 ---
 
-# '$MAYUS' <!--#new-->
+# '$MAYUS' ** - new**
 
 <box header>
 
@@ -70,7 +70,7 @@ echo '<template lang="html">
 <script>
 export default {
   inheritAttrs:false,
-  name: "vs-'${NAME,,}'",
+  name: "Vs'${MAYUS,,}'",
   data:()=>({
 
   }),
@@ -120,15 +120,15 @@ export default {
 
 # agregar import
 
-IMPORT="import vs$MAYUS from '.\/vs$MAYUS'\n\/\/New Component import"
+IMPORT="export { default as vs$MAYUS } from '.\/vs$MAYUS'\n\/\/New Component import"
 
 sed -e "s/\/\/New Component import/$IMPORT/" src/components/index.js > script_tmp
 mv script_tmp src/components/index.js
 
-# agregar Export
-EXPORT="vs$MAYUS,\n  \/\/New Component export"
+# # agregar Export
+# EXPORT="vs$MAYUS,\n  \/\/New Component export"
 
-sed -e "s/\/\/New Component export/$EXPORT/" src/components/index.js > script_tmp
-mv script_tmp src/components/index.js
+# sed -e "s/\/\/New Component export/$EXPORT/" src/components/index.js > script_tmp
+# mv script_tmp src/components/index.js
 
 fi

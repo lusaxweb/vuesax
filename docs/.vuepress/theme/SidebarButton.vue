@@ -16,6 +16,7 @@
   position absolute
   top 0.8rem
   left 1rem
+  cursor pointer
   .icon
     display block
     width 1.25rem

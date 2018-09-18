@@ -1,16 +1,16 @@
 <template>
 
   <div class="page">
-    <div class="color">
+    <!-- <div class="color">
       <div class="colorMover">
 
       </div>
-    </div>
+    </div> -->
 
     <!-- <div id="codefund_ad"></div> -->
 
     <transition name="contentx">
-    <Content :custom="false"/>
+      <Content class="content-pagex" :custom="false"/>
     </transition>
 
     <div class="content edit-link" v-if="editLink">
@@ -240,7 +240,10 @@ function find (page, items, offset) {
   position: relative;
   z-index: 5;
   // padding-bottom 2rem
-  background: rgb(252, 252, 252)
+  background: rgb(253, 253, 253)
+  .content-pagex
+    margin auto
+    max-width 800px !important
 .edit-link.content
   padding: 2rem 4rem !important;
   padding-top 0 !important
@@ -295,10 +298,10 @@ function find (page, items, offset) {
       border-radius: 10px;
       margin-top: 6px;
     h1
-      background: rgb(255, 255, 255)
-      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1)
+      // background: rgb(255, 255, 255)
+      // box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1)
       padding: 15px
-      text-align: center;
+      // text-align: center;
       color: $accentColor
       border-radius: 0px
       font-size: 30px;

@@ -4,6 +4,22 @@ $mobileSidebarWidth = $sidebarWidth * 0.82
 
 // narrow desktop / iPad
 @media (max-width: $MQNarrow)
+  .sidebar-link, .sidebar-heading
+    padding-left .7rem !important
+  .sidebar-map
+    width "calc(100% - %s)" % $mobileSidebarWidth
+    margin-left: $mobileSidebarWidth
+    .carbon-img
+      margin-bottom: 0px !important
+    .notiads
+      box-shadow: none !important
+      border-bottom: 1px solid rgba(0,0,0,.03)
+  .no-sidebar
+    .sidebar-map
+      .notiads
+        padding-left: 30px
+        box-shadow: none !important
+        border-bottom: 1px solid rgba(0,0,0,.0)
   .sidebar
     font-size 15px
     width $mobileSidebarWidth
@@ -14,19 +30,25 @@ $mobileSidebarWidth = $sidebarWidth * 0.82
       padding-top 5rem !important
   .content:not(.custom)
     padding 0rem
-  .carbon
-    width: 100%;
-    padding-left: 13rem
+  // .carbon
+  //   width: 100%;
+  //   padding-left: 13rem
   footer.footerx_theme
     width: 100% !important
 
 
 // wide mobile
 @media (max-width: $MQMobile)
-  .carbon
-    width: 100%;
-    padding-left: 0rem
-
+  .no-sidebar
+    .sidebar-map
+      .notiads
+        padding-left: 0px
+  // .carbon
+  //   width: 100%;
+  //   padding-left: 0rem
+  .sidebar-map
+    width 100%
+    margin-left: 0px !important
   .dropdown-wrapper
     display none
   .sidebar

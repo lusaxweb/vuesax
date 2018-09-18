@@ -2,12 +2,11 @@
   <div :class="{'activeSuggestion': activeSuggestion}" class="sidebar">
     <div class="c-sidebar">
 
-    <NavLinks/>
     <slot name="top"/>
     <div class="sponsor-sidebar">
       <h4>Sponsors</h4>
       <ul>
-        <li v-for="sponsor in 3">
+        <li title="Become a Sponsor" v-for="sponsor in 3">
           <a target="_blank" href="https://www.patreon.com/bePatron?c=1567892">
             <i v-if="!sponsor.img" class="material-icons">
               add
@@ -18,6 +17,8 @@
     </div>
 
     <SearchBox v-if="$site.themeConfig.search !== false"/>
+
+    <NavLinks/>
     <ul class="sidebar-links" v-if="items.length">
       <li v-for="(item, i) in items">
         <SidebarGroup v-if="item.type === 'group'"
@@ -101,7 +102,7 @@ function resolveOpenGroupIndex (route, items) {
     justify-content center
     li
       background transparent
-      margin 10px
+      margin 5px
       margin-top 0px
       border-radius 10px
       border 1px dashed #dcdcdc
@@ -155,8 +156,9 @@ function resolveOpenGroupIndex (route, items) {
     padding 1rem 0
 @media (max-width: $MQMobile)
   .sidebar
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.040)
     .nav-links
       display block
     .sidebar-links
-      padding 1rem 0
+      padding 1rem 0 !important
 </style>

@@ -46,6 +46,11 @@ export default {
     border-top: 1px solid rgb(240, 240, 240)
     text-align: center;
     border-radius: 0px 0px 10px 10px !important;
+    box-shadow: 0 20px 40px -15px rgba(0,0,0,.0) !important
+    background transparent !important
+    p
+      text-align left
+      padding-left 35px
 .con-box
   padding-top: 50px
   width: calc(100% - 30px);
@@ -53,23 +58,25 @@ export default {
   margin-top: -40px
   // background: rgb(47, 194, 105)
   .box
-    background: rgb(198, 184, 76)
     // margin-top: 15px
     background: rgb(255, 255, 255)
     border-radius: 6px
-    box-shadow: 0 20px 40px -15px rgba(0,0,0,.13)
+    box-shadow: 0 20px 40px -15px rgba(0,0,0,.05)
     margin-bottom: 15px
     // padding-bottom: 10px;
     margin-top 0px;
     h2
       border-radius: 6px 6px 0px 0px
-      padding: 6px
+      padding: 10px
       // padding-top: 4rem
-      width: 100%
-      background: rgb(245, 245, 245)
-      border-bottom: 0px;
+      width: calc(100% - 30px)
+      margin-left 15px
+      // background: rgb(250, 250, 250)
+
+      // border-bottom: 0px;
       font-weight: bold;
-      padding-left: 25px !important
+      padding-left: 20px !important
+      font-size 1.4rem
       a
         text-decoration: none !important;
     h3

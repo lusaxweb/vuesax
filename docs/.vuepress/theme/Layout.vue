@@ -11,7 +11,8 @@
       template="image-centered"
       theme="light"
     /> -->
-    <Carbon/>
+    <!-- <Carbon/> -->
+     <sidebar-map :items="sidebarItems" />
 
     <div class="sidebar-mask" @click="toggleSidebar(false)"></div>
     <Sidebar :items="sidebarItems" @toggle-sidebar="toggleSidebar">
@@ -31,6 +32,8 @@
     </Page>
     </transition>
 
+
+
   </div>
 </template>
 
@@ -41,12 +44,13 @@ import Home from './Home.vue'
 import Navbar from './Navbar.vue'
 import Page from './Page.vue'
 import Sidebar from './Sidebar.vue'
+import sidebarMap from './SidebarMap.vue'
 import { resolveSidebarItems, pathToComponentName } from './util'
 import './icons/font/flaticon.css'
 import CodeFund from "./CodeFund";
 import Carbon from "./Carbon";
 export default {
-  components: { Home, Page, Sidebar, Navbar, CodeFund, Carbon },
+  components: { Home, Page, Sidebar, Navbar, CodeFund, Carbon, sidebarMap },
   data () {
     return {
       isSidebarOpen: false,
@@ -236,6 +240,12 @@ function updateMetaTags (meta, current) {
   transition: all .250s .3s;
 
 }
+
+@media only screen and (max-width: 1100px)
+  .con-contributors
+    width 100% !important
+    padding-right 0px
+    padding 10px
 </style>
 <style src="prismjs/themes/prism-tomorrow.css"></style>
 <style src="./styles/theme.styl" lang="stylus"></style>

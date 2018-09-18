@@ -23,13 +23,13 @@ export { default as vsDivider } from './vsDivider'
 export { default as vsSpacer } from './vsSpacer'
 export { default as vsIcon } from './vsIcon'
 export { default as vsNavbar } from './vsNavbar'
-
-// component not soport SSR
 export { default as vsSideBar } from './vsSideBar'
 export { default as vsDropDown } from './vsDropDown'
+//New Component import
+
+// component not soport SSR
 export { default as vsCollapse } from './vsCollapse'
 
-//New Component import
 
 //layout
 export { default as vsRow } from '../layout/vsRow/'

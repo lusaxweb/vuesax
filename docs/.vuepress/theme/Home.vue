@@ -247,7 +247,7 @@ export default {
   transition: all .3s ease
   opacity: 1;
   transform: translate(0);
-  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1)
+  box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.04)
   width: 180px
   border-radius: 6px
   padding-top: 25px
@@ -386,6 +386,9 @@ export default {
   max-width: 1300px
   width: 100%
   margin 0px auto
+.con-home,.con-contributors
+  padding-right 9rem
+  width: 100%;
 .home
   top: 0px;
   display: block;
@@ -470,6 +473,10 @@ export default {
     text-align center
     color lighten($textColor, 25%)
 
+@media only screen and (max-width: 1100px)
+  .con-home
+    padding-right 0px
+
 @media (max-width: $MQMobile)
   #codefund_ad
     width 100% !important
@@ -506,6 +513,7 @@ export default {
   .con-home
     footer
       margin-top 200px
+
 
 
 @media (max-width: $MQMobileNarrow)

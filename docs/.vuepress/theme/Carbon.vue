@@ -22,9 +22,15 @@ export default {
 };
 </script>
 <style lang="css">
+.carbon {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 80px
+}
 /* #-carbonads */
 div[id*="carbonads"] {
-  --width: 160px;
+  --width: 320px;
   --font-size: 13px;
 }
 
@@ -32,24 +38,27 @@ div[id*="carbonads"] {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;
   display: block;
   overflow: hidden;
-  margin-bottom: 20px;
-  max-width: 160px;
+  /* margin-bottom: 30px; */
+  max-width: calc(100% - 10px);
+  width: 100%;
   border-radius: 4px;
+  margin-left: 7px;
   text-align: center;
-  box-shadow: 0px 5px 20px 0px rgba(0,0,0,.05);
+  /* box-shadow: 0px 5px 20px 0px rgba(0,0,0,.05); */
   background: rgb(255,255,255) !important;
   font-size: 13px;
   line-height: 1.5;
-  position: fixed;
-  right: 10px;
-  top: 60px;
+  position: relative;
+  /* right: 10px; */
   z-index: 1000;
   border: 0px;
   transition: all .3s ease;
+  font-size: .7rem
 }
 div[id*="carbonads"]:hover {
-  transform: translate(0,5px);
-  box-shadow: 0px 0px 0px 0px rgba(0,0,0,.05);
+  transform: translate(0,-5px);
+  /* box-shadow: 0px 0px 0px 0px rgba(0,0,0,.05); */
+  box-shadow: 0px 5px 20px 0px rgba(0,0,0,.05);
 }
 div[id*="carbonads"] a {
   color: inherit;
@@ -76,9 +85,10 @@ div[id*="carbonads"] span {
 .carbon-img img {
   display: block;
   margin: 0 auto;
-  max-width: 160px !important;
-  width: 160px;
+  max-width: 160px;
+  width: 100%;
   height: auto;
+  border-radius: 10px
 }
 
 .carbon-text {
@@ -96,7 +106,7 @@ div[id*="carbonads"] span {
   line-height: 0;
 }
 
-@media only screen and (max-width: 960px) {
+@media only screen and (max-width: 1100) {
 
   div[id*="carbonads"] {
     float: none;
@@ -104,7 +114,7 @@ div[id*="carbonads"] span {
     right: 0px;
     max-width: calc(100% - 20px);
     position: relative;
-    margin-bottom: 20px
+    /* margin-bottom: 20px */
   }
   div[id*="carbonads"] span {
     position: relative;

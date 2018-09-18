@@ -108,7 +108,7 @@ export default {
 }
 
 .shadow {
-  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.050) !important
+  box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.040) !important
 }
 .logo {
   transition: all .3s ease

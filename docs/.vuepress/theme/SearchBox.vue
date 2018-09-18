@@ -213,15 +213,15 @@ export default {
       a
         color $accentColor
 
-@media (max-width: $MQNarrow)
-  .search-box input
-    width 0
-    border-color transparent
-    position relative
-    left 1rem
-    &:focus
-      left 0
-      width 10rem
+// @media (max-width: $MQNarrow)
+//   .search-box input
+//     width 0
+//     border-color transparent
+//     position relative
+//     left 1rem
+//     &:focus
+//       left 0
+//       width 10rem
 
 @media (max-width: $MQMobile)
   .search-box

@@ -32,7 +32,7 @@ export default {
       const children = groupHeaders(item.headers)
       return [link, renderChildren(h, children, item.path, $route, maxDepth)]
     } else {
-      return link
+      // return link
     }
   }
 }
@@ -94,7 +94,6 @@ function renderChildren (h, children, path, route, maxDepth, depth = 1) {
 .sidebar .sidebar-sub-headers
   padding-left 1rem
   font-size 0.95em
-  display none
 a.sidebar-link
   position: relative;
   font-weight 400

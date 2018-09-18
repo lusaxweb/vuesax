@@ -64,7 +64,8 @@ export default {
 @import './styles/config.styl'
 
 footer.footerx_theme
-  width calc(100% + 160px)
+  // width calc(100% + 160px)
+  width 100%
   height auto
   background #110d26
   position relative
@@ -85,6 +86,7 @@ footer.footerx_theme
   z-index 500
   display block
   font-size 12px
+  padding-right 30px
 
 .con-links
   position relative
