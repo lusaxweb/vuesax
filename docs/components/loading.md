@@ -10,6 +10,11 @@ API:
    parameters:
    description: function to close loading.
    default: null
+ - name: container
+   type: HTMLElement, String
+   parameters: null
+   description: Container that will be loading, pass a HTMLElement or query selector
+   default: null
  - name: color
    type: String
    parameters: RGB, HEX, primary, danger, success, dark, warning
@@ -325,7 +330,7 @@ For the examples, the request or the delay is simulated with `setTimeout`.
 ```html
 <template lang="html">
   <div class="centerx">
-    <vs-button id="button-with-loading" class="vs-con-loading__container" @click="openLoadingContained" vs-type="relief" vs-color="primary">Button with Loading</vs-button>
+    <vs-button ref="loadableButton" id="button-with-loading" class="vs-con-loading__container" @click="openLoadingContained" vs-type="relief" vs-color="primary">Button with Loading</vs-button>
     <vs-button @click="openLoadingInDiv" vs-type="relief" vs-color="primary">Div with Loading</vs-button>
     <div class="fill-row">
       <div id="div-with-loading" class="vs-con-loading__container">Load Me!</div>
@@ -346,11 +351,11 @@ export default {
       this.$vs.loading({
         background: this.backgroundLoading,
         color: this.colorLoading,
-        container: '#button-with-loading',
+        container: this.refs.loadableButton,
         scale: 0.45
       })
       setTimeout( ()=> {
-        this.$vs.loading.close('#button-with-loading > .con-vs-loading')
+        this.$vs.loading.close(this.refs.loadableButton)
       }, 3000);
     },
     openLoadingInDiv(){
