@@ -16,7 +16,7 @@ export default {
       instance.$data.text = parameters.text
       instance.$data.clickEffect = parameters.clickEffect
       if(parameters.container) {
-        containerx = document.querySelector(parameters.container)
+        containerx = parameters.container instanceof HTMLElement ? parameters.container : document.querySelector(parameters.container)
       }
     }
     instance.vm = instance.$mount();
