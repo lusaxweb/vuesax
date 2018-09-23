@@ -48,7 +48,7 @@
         </div>
       </transition>
     </div>
-    
+
     <transition-group
       @before-enter="beforeEnter"
       @enter="enter"
@@ -361,7 +361,7 @@ export default {
     },
     closeOptions(){
       // this.$refs.inputselect.blur()
-      this.active = false      
+      this.active = false
       this.setLabelClass(this.$refs.inputSelectLabel, false)
       document.removeEventListener('click',this.clickBlur)
     },
@@ -408,7 +408,7 @@ export default {
       if (!label) {
         return
       }
-      
+
       if (focusing) {
         label.classList.add('input-select-label-' + this.vsColor + '--active')
         return
