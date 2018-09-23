@@ -185,15 +185,17 @@ export default {
         }
       }
 
+      const children = this.$parent.$slots.default
       if(orientation == 'prev'){
         orientationObject = 'previousSibling'
-        lengthx = this.$parent.$children.length - 1
+        lengthx = children.length
       }
       let nextElement = getNextLi(this.$el[orientationObject],orientationObject)
       if(nextElement){
         nextElement.querySelector('.vs-select-item-btn').focus()
       } else {
-        getNextLi(this.$parent.$children[lengthx].$el,orientationObject).querySelector('.vs-select-item-btn').focus()
+        if (lengthx === children.length) lengthx--
+        getNextLi(children[lengthx].elm,orientationObject).querySelector('.vs-select-item-btn').focus()
       }
     },
     focusValue(){
