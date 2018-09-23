@@ -266,6 +266,7 @@ export default {
       let items = this.$children
       items.map((item)=>{
         // let text = item.$el.innerText.replace('check_circle','')
+        if (!('vsText' in item)) return
         let text = item.vsText
         if(this.vsMultiple){
           let valuesx = value.split(',')
