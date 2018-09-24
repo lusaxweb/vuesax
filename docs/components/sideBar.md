@@ -658,7 +658,7 @@ export default {
 You can have a reduced sidebar with the `reduce` property which by default makes the sidebar look reduced and when hover expands, if you do not want the functionality to expand when hovering you can remove it with the `reduce-not-hover-expand` property
 
 :::tip
-  puedes quitar la animacion de rebote al abrir el sidebar con la propiedad `reduce-not-rebound`
+  You can remove the bounce animation by opening the sidebar with the prop `reduce-not-rebound`
 :::
 
 <vuecode md>
@@ -674,14 +674,14 @@ You can have a reduced sidebar with the `reduce` property which by default makes
 
     <vs-button @click="active=!active, notExpand = false" vs-color="success" vs-type="filled">Open Sidebar Reduce-expand</vs-button>
     <vs-button @click="active=!active, notExpand = true" vs-color="success" vs-type="filled">Open Sidebar Reduce-only</vs-button>
-    <vs-sidebar reduce :reduce-not-hover-expand="notExpand" parent="body" default-index="1"  color="success" class="sidebarx" spacer v-model="active">
+    <vs-sidebar :reduce="reduce" :reduce-not-hover-expand="notExpand" parent="body" default-index="1"  color="success" class="sidebarx" spacer v-model="active">
 
       <div class="header-sidebar" slot="header">
         <vs-avatar  size="70px" src="https://randomuser.me/api/portraits/men/85.jpg"/>
       </div>
-      <vs-sidebar-group open title="Aplication">
-        <vs-sidebar-item index="1" icon="question_answer">
-          Dashboard
+      <vs-sidebar-group open title="Application">
+        <vs-sidebar-item index="1" icon="menu" @click="reduce=!reduce">
+         Toggle Sidebar
         </vs-sidebar-item>
         <vs-sidebar-item index="5" icon="verified_user">
           Configurations
@@ -701,7 +701,7 @@ You can have a reduced sidebar with the `reduce` property which by default makes
           History
         </vs-sidebar-item>
         <vs-sidebar-item index="3" icon="https">
-          security
+          Security
         </vs-sidebar-item>
         <vs-sidebar-item index="4" icon="help">
           Help
@@ -715,7 +715,7 @@ You can have a reduced sidebar with the `reduce` property which by default makes
 
 
       <vs-sidebar-item index="6" icon="account_box">
-        Perfile
+        Profile
       </vs-sidebar-item>
 
       <div class="footer-sidebar" slot="footer">
@@ -731,7 +731,8 @@ You can have a reduced sidebar with the `reduce` property which by default makes
 export default {
   data:()=>({
     active:false,
-    notExpand: false
+    notExpand: false,
+    reduce: true
   })
 }
 </script>
