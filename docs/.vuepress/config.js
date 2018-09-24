@@ -129,7 +129,7 @@ module.exports = {
     logo:'/vuesax-logo-vertical.png',
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Documents', link: '/vuesax/' },
+      { text: 'Documentation', link: '/vuesax/' },
       { text: 'Contributors', link: '/contributors/' },
       {
         text: 'Ecosystem',
@@ -225,6 +225,7 @@ module.exports = {
           '/components/sideBar',
           '/components/dropDown',
           // '/components/collapse',
+          '/components/table',
           /*New Component*/
         ]
       },

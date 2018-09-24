@@ -48,7 +48,7 @@
         </div>
       </transition>
     </div>
-    
+
     <transition-group
       @before-enter="beforeEnter"
       @enter="enter"
@@ -210,6 +210,7 @@ export default {
     },
     active(){
       if(this.active){
+        this.$children[0].focusValue(0)
         this.$children.forEach((item)=>{
           if (item.focusValue) {
             item.focusValue()
@@ -258,6 +259,7 @@ export default {
 
     },
     filterItems(value){
+      console.log('paso por el filtro')
       if(value){
         this.filterx = true
       } else {
@@ -317,7 +319,9 @@ export default {
         })
         this.$refs.inputselect.value = optionsValues.toString()
       } else {
-        this.$refs.inputselect.value = this.valuex
+        if(this.$refs.inputselect) {
+          this.$refs.inputselect.value = this.valuex
+        }
       }
     },
     focus(){
@@ -355,13 +359,15 @@ export default {
       let closestx = event.target.closest('.vs-select-options')
       if(!closestx){
         this.closeOptions()
-        this.filterItems('')
+        if(this.vsAutocomplete){
+          this.filterItems('')
+        }
         this.changeValue()
       }
     },
     closeOptions(){
       // this.$refs.inputselect.blur()
-      this.active = false      
+      this.active = false
       this.setLabelClass(this.$refs.inputSelectLabel, false)
       document.removeEventListener('click',this.clickBlur)
     },
@@ -408,7 +414,7 @@ export default {
       if (!label) {
         return
       }
-      
+
       if (focusing) {
         label.classList.add('input-select-label-' + this.vsColor + '--active')
         return

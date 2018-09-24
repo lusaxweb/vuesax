@@ -293,7 +293,7 @@ You can add a function that will be triggered every time the value changes with 
 ```html
 <template lang="html">
   <div class="centerx">
-    <vs-slider @change="cambio" :vs-color="'rgb(45, 208, 129)'" v-model="value1"/>
+    <vs-slider :min="50" @change="cambio" color="rgb(45, 208, 129)" v-model="value1"/>
     <div :style="{'width':widthx+'px','height':heightx+'px'}" class="cuadrox">
       {{value1}}
     </div>
@@ -330,6 +330,7 @@ export default {
     border-radius: 10px;
   }
 </style>
+
 ```
 
 </div>

@@ -39,7 +39,7 @@ export default {
 // }
 .headerx
   // background: rgb(151, 237, 254);
-  margin-top: -71px !important;
+  margin-top: -70px !important;
   width: 100% !important
   margin-left: 0px !important;
   .box
@@ -48,6 +48,7 @@ export default {
     border-radius: 0px 0px 10px 10px !important;
     box-shadow: 0 20px 40px -15px rgba(0,0,0,.0) !important
     background transparent !important
+
     p
       text-align left
       padding-left 35px
@@ -63,6 +64,7 @@ export default {
     border-radius: 6px
     box-shadow: 0 20px 40px -15px rgba(0,0,0,.05)
     margin-bottom: 15px
+    overflow hidden
     // padding-bottom: 10px;
     margin-top 0px;
     h2
@@ -82,7 +84,7 @@ export default {
     h3
       padding: 10px
       font-weight: bold;
-    p, iframe
+    p
       width: calc(100% - 30px)
       margin-left: 15px !important
     p

@@ -137,9 +137,13 @@ export default {
         let pages = this.setPages(1, this.total)
         this.pages = pages
       }
-
+      console.log('this.total', this.total)
       const even     = this.max % 2 === 0 ? 1 : 0
-      this.prevRange = Math.floor(this.max / 2)
+      if(this.total < 6) {
+        this.prevRange = Math.floor(this.max / (this.max/2))
+      } else {
+        this.prevRange = Math.floor(this.max / 2)
+      }
       this.nextRange = this.total - this.prevRange + 1 + even
 
       if (this.current >= this.prevRange && this.current <= this.nextRange) {
@@ -147,6 +151,10 @@ export default {
         const end   = this.current + this.prevRange - 2 - even
 
         this.pages = [1, '...', ...this.setPages(start, end), '...', this.total]
+      } else if (this.total < 6) {
+        this.pages = [
+          ...this.setPages(1, this.total)
+        ]
       } else {
         this.pages = [
           ...this.setPages(1, this.prevRange),

@@ -282,10 +282,10 @@ export default {
 .heroBackgroundComponent {
   position: absolute;
   z-index: 0;
-  width: 90%;
+  width: 80%;
   right:  -5%;
   bottom: -5%
-  max-width: 1150px;
+  max-width: 1000px;
   // transform: translate(0,40%);
 }
 @media (min-width: 1800px) {

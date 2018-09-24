@@ -25,6 +25,7 @@ export { default as vsIcon } from './vsIcon'
 export { default as vsNavbar } from './vsNavbar'
 export { default as vsSideBar } from './vsSideBar'
 export { default as vsDropDown } from './vsDropDown'
+export { default as vsTable } from './vsTable'
 //New Component import
 
 // component not soport SSR

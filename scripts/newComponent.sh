@@ -69,18 +69,13 @@ echo '<template lang="html">
 
 <script>
 export default {
+  name: "Vs'$MAYUS'",
   inheritAttrs:false,
-  name: "Vs'${MAYUS,,}'",
   data:()=>({
 
   }),
 }
-</script>
-
-<style lang="stylus">
-.vs-'${NAME,,}'
-  background: rgb(14, 142, 25)
-</style>' > src/components/vs$MAYUS/vs$MAYUS.vue
+</script>' > src/components/vs$MAYUS/vs$MAYUS.vue
 
 # editar config.js para agregar el componente nuevo al menu
 
@@ -89,6 +84,12 @@ echo "import vsComponent from './vs$MAYUS'
 export default Vue => {
   Vue.component(vsComponent.name, vsComponent)
 }" > src/components/vs$MAYUS/index.js
+
+# add Stylus archive
+
+echo ".vs-'${NAME,,}'
+  background: rgb(14, 142, 25)" > src/components/vs$MAYUS/main.styl
+
 
 SRC="\'\/components\/$1\',\n          \/\*New Component\*\/"
 
@@ -124,6 +125,13 @@ IMPORT="export { default as vs$MAYUS } from '.\/vs$MAYUS'\n\/\/New Component imp
 
 sed -e "s/\/\/New Component import/$IMPORT/" src/components/index.js > script_tmp
 mv script_tmp src/components/index.js
+
+# agregar import Stylus
+
+IMPORTSTYLUS="@import ./vs$MAYUS/main\n\/\/New Component import"
+
+sed -e "s/\/\/New Component import/$IMPORT/" src/components/components.styl > script_tmp
+mv script_tmp src/components/components.styl
 
 # # agregar Export
 # EXPORT="vs$MAYUS,\n  \/\/New Component export"

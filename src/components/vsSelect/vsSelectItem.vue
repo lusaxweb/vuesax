@@ -196,8 +196,14 @@ export default {
         getNextLi(this.$parent.$children[lengthx].$el,orientationObject).querySelector('.vs-select-item-btn').focus()
       }
     },
-    focusValue(){
+    focusValue(index){
       if(this.$parent.vsMultiple?this.$parent.value.indexOf(this.vsValue) != -1:this.vsValue == this.$parent.value){
+        if(!this.$parent.vsAutocomplete){
+          setTimeout( () => {
+            this.$refs.item.focus()
+          }, 50);
+        }
+      } else if (index === 0) {
         if(!this.$parent.vsAutocomplete){
           setTimeout( () => {
             this.$refs.item.focus()

@@ -1,6 +1,6 @@
 <template lang="html">
   <div
-    :class="[`vs-checkbox-${vsColor}`]"
+    :class="[`vs-checkbox-${vsColor}`, `vs-checkbox-${size}`]"
     class="vs-component con-vs-checkbox">
     <input
       v-bind="$attrs"
@@ -44,6 +44,10 @@ export default {
     vsValue:{
       type:[Boolean,Array,String,Number,Object],
       default:false
+    },
+    size:{
+      default: 'default',
+      type: String
     }
   },
   computed:{
@@ -85,13 +89,14 @@ export default {
       }
     },
     setArray(){
-      const value = this.value.slice(0) // Copy Array.
+      // Copy Array
+      const value = this.value.slice(0)
       if(this.isArrayIncludes()){
-        value.splice(value.indexOf(this.vsValue),1) // delete value
+        value.splice(value.indexOf(this.vsValue),1)
         this.$emit('input', value)
         this.$emit('change', value)
       } else {
-        value.push(this.vsValue) // add value new
+        value.push(this.vsValue)
         this.$emit('input', value)
         this.$emit('change', value)
       }

@@ -130,6 +130,8 @@ function resolveOpenGroupIndex (route, items) {
 
 
 @media only screen and (max-width: 1100px)
+  .c-sidebar-map
+    display none
   .sidebar .sidebar-sub-headers
     display block !important
   .page
@@ -143,6 +145,34 @@ function resolveOpenGroupIndex (route, items) {
     .notiads
       box-shadow: none !important
       border-bottom: 1px solid rgba(0,0,0,.03)
+  .sidebar-map
+      .notiads
+        padding-left: 30px
+        box-shadow: none !important
+        border-bottom: 1px solid rgba(0,0,0,.0)
+    .carbon
+      margin-bottom 0px !important
+      width 330px
+      .carbon-wrap
+        display flex
+        .carbon-text
+          display flex
+          align-items center
+          justify-content center
+          text-align left
+      .carbon-img
+        img
+          width auto !important
+    .con-carbon-noti
+      width 100% !important
+      .notiads
+        flex-direction row
+      .sponsor-special
+        margin-left 10px
+        width auto !important
+        padding 0px !important
+        h4
+          display none
   .no-sidebar
     .sidebar-map
       .notiads
