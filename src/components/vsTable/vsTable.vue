@@ -296,21 +296,15 @@ export default {
       this.changeTdsWidth()
     },
     changeTdsWidth() {
-      // console.log(this.$slots)
-      // let tbody = this.$slots.default.filter(item => item.tag)
       let tbody = this.$refs.table.querySelector('tbody')
 
       let tds = tbody.querySelector('.tr-values').querySelectorAll('.td')
 
-
       let tdsx = []
-      // let tdsx = []
 
       tds.forEach((td, index) => {
         tdsx.push({index: index, widthx: td.offsetWidth})
       });
-
-      console.log('tdsx', tdsx)
 
       let colgroup = this.$refs.colgroup
       let cols = colgroup.querySelectorAll('.col')

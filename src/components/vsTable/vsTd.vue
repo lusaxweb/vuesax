@@ -13,7 +13,6 @@
     <transition name="td">
       <div v-if="activeEdit" class="con-edit-td">
         <slot name="edit"></slot>
-        <!-- <button @click="activeEdit=false">Save</button> -->
         <vs-button @click="close" vs-icon="clear"  vs-size="small" vs-color="primary" vs-type="flat"></vs-button>
       </div>
     </transition>
@@ -57,9 +56,7 @@ export default {
       window.removeEventListener('click', this.closeEdit)
     },
     saveEdit () {
-      console.log('hola mundo')
       this.activeEdit = false
-
     }
   }
 }

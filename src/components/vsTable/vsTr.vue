@@ -69,9 +69,6 @@ export default {
         this.colspan ++
       }
     })
-    if (this.$slots.expand) {
-      console.log('hay un expand')
-    }
   },
   methods:{
     clicktr () {
