@@ -1,11 +1,10 @@
 <template>
   <tbody
-    :class="[`tr-table-state-${state}`, {'is-selected':isSelected, 'selected': data, 'is-expand': maxHeight != '0px', 'activeEdit': activeEdit}]"
+    :class="[`tr-table-state-${state}`, {'is-selected':isSelected, 'selected': data, 'is-expand': maxHeight != '0px', 'activeEdit': activeEdit, 'hoverFlat': $parent.hoverFlat}]"
     @click="clicktr"
     class="tr-table">
     <tr v-if="!$parent.notSpacer" class="tr-spacer"></tr>
     <tr class="tr-values">
-        <!-- v-if="$parent.multiple || $slots.expand" -->
       <td
         class="td-check"
         @click="clicktd()">
@@ -14,7 +13,7 @@
           :checked="isSelected"
           size="small"/>
 
-        <vs-icon v-if="!$parent.multiple && $slots.expand">keyboard_arrow_down</vs-icon>
+        <vs-icon v-if="$slots.expand">keyboard_arrow_down</vs-icon>
       </td>
       <slot></slot>
     </tr>

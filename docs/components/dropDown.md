@@ -32,7 +32,7 @@ API:
    default: false
 ---
 
-# DropDown **- ssr**
+# DropDown
 
 <box header>
 

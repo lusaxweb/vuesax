@@ -1,6 +1,6 @@
 <template lang="html">
   <div
-    :class="[{'stripe': stripe}, `vs-table-${color}`]"
+    :class="[{'stripe': stripe, 'hoverFlat': hoverFlat}, `vs-table-${color}`,]"
     class="vs-component vs-con-table">
 
     <!-- header -->
@@ -24,8 +24,9 @@
         :style="tableHeaderStyle"
         class="vs-table-theade">
         <colgroup ref="colgroup">
-          <col width="0"/>
+          <col width="20"/>
           <col
+            class="col"
             v-for="(col,index) in getThs"
             :key="index"
             :name="`col-${index}`">
@@ -51,7 +52,7 @@
         ref="table"
         class="vs-table">
         <colgroup ref="colgrouptable">
-          <col width="0"/>
+          <col width="20"/>
           <col
             v-for="(col,index) in 3"
             :key="index"
@@ -299,23 +300,26 @@ export default {
       // let tbody = this.$slots.default.filter(item => item.tag)
       let tbody = this.$refs.table.querySelector('tbody')
 
-      let tds = tbody.querySelector('.tr-values').querySelectorAll('td')
-      // let tdsx = [{
-      //   index: 0,
-      //   widthx: 20
-      // }]
+      let tds = tbody.querySelector('.tr-values').querySelectorAll('.td')
+
+
       let tdsx = []
+      // let tdsx = []
+
       tds.forEach((td, index) => {
         tdsx.push({index: index, widthx: td.offsetWidth})
       });
+
+      console.log('tdsx', tdsx)
+
       let colgroup = this.$refs.colgroup
-      let cols = colgroup.querySelectorAll('col')
+      let cols = colgroup.querySelectorAll('.col')
       cols.forEach((col, index) => {
         col.setAttribute('width', tdsx[index].widthx)
       });
 
       let colgrouptable = this.$refs.colgrouptable
-      let colsTable = colgrouptable.querySelectorAll('col')
+      let colsTable = colgrouptable.querySelectorAll('.col')
       colsTable.forEach((col, index) => {
         col.setAttribute('width', tdsx[index].widthx)
       });

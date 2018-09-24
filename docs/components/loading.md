@@ -48,7 +48,7 @@ API:
 
 ---
 
-# Loading **- ssr**
+# Loading
 
 <box header>
 

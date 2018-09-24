@@ -1,61 +1,62 @@
 <template lang="html">
   <div>
-    <vs-table >
+    <vs-table :data="users">
       <template slot="thead">
         <vs-th>
-          Email - Input
+          Email
         </vs-th>
         <vs-th>
-          Name - Select
+          Name
         </vs-th>
         <vs-th>
-          Nro - Input-number
+          Nro1
         </vs-th>
         <vs-th>
-          Nro - Slider
+          Nro2
         </vs-th>
       </template>
-      <vs-tr :key="indextr" v-for="(tr, indextr) in dataTable" >
-        <vs-td :data="dataTable[indextr].email">
-          {{dataTable[indextr].email}}
 
-          <template slot="edit">
-            <vs-input v-model="dataTable[indextr].email" class="inputx" placeholder="Email"/>
-          </template>
-        </vs-td>
+      <template slot-scope="{data}">
+        <vs-tr :key="indextr" v-for="(tr, indextr) in data" >
+          <vs-td :data="tr.email">
+            {{tr.email}}
 
-        <vs-td :data="dataTable[indextr].username">
-          {{dataTable[indextr].username}}
+            <template slot="edit">
+              <vs-input v-model="tr.email" class="inputx" placeholder="Email"/>
+            </template>
+          </vs-td>
 
-          <template slot="edit">
-            <!-- <vs-input v-model="dataTable[indextr].username" class="inputx" placeholder="Email"/> -->
-            <vs-select
-              label="Users"
-              v-model="dataTable[indextr].username"
-              >
-              <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="(item,index) in users" />
-            </vs-select>
-          </template>
-        </vs-td>
+          <vs-td :data="tr.username">
+            {{tr.username}}
 
-        <vs-td :data="dataTable[indextr].id">
-          {{dataTable[indextr].id}}
+            <template slot="edit">
+              <vs-select
+                label="Users"
+                v-model="tr.username"
+                >
+                <vs-select-item :key="index" :vs-value="item.name" :vs-text="item.name" v-for="(item,index) in users" />
+              </vs-select>
+            </template>
+          </vs-td>
 
-          <template slot="edit">
-            <vs-input-number v-model="dataTable[indextr].id"/>
-          </template>
-        </vs-td>
+          <vs-td :data="tr.id">
+            {{tr.id}}
 
-        <vs-td :data="dataTable[indextr].id">
-          {{dataTable[indextr].id}}
+            <template slot="edit">
+              <vs-input-number v-model="tr.id"/>
+            </template>
+          </vs-td>
 
-          <template slot="edit">
-            <!-- <vs-input-number v-model="dataTable[indextr].id"/> -->
-            <vs-slider :max="20" v-model="dataTable[indextr].id"/>
-          </template>
-        </vs-td>
+          <vs-td :data="tr.id">
+            {{tr.id}}
 
-      </vs-tr>
+            <template slot="edit">
+              <vs-slider :max="20" v-model="tr.id"/>
+            </template>
+          </vs-td>
+
+        </vs-tr>
+      </template>
     </vs-table>
   </div>
 </template>
@@ -63,6 +64,7 @@
 <script>
 export default {
   data:()=>({
+
     users:[
       {
         "id": 1,
@@ -138,6 +140,3 @@ export default {
   }),
 }
 </script>
-
-<style lang="stylus">
-</style>

@@ -67,7 +67,7 @@ API:
    default: true
 ---
 
-# Upload **- ssr**
+# Upload
 
 <box header>
 

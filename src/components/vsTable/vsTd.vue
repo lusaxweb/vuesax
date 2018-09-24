@@ -1,5 +1,5 @@
 <template>
-  <td :class="{'td-edit': $slots.edit}" ref="td">
+  <td class="td" :class="{'td-edit': $slots.edit}" ref="td">
     <span @click="clicktd">
       <vs-icon class="icon-edit" v-if="$slots.edit">
         edit
@@ -14,7 +14,7 @@
       <div v-if="activeEdit" class="con-edit-td">
         <slot name="edit"></slot>
         <!-- <button @click="activeEdit=false">Save</button> -->
-        <vs-button @click="close" vs-size="small" vs-color="primary" vs-type="filled">Save</vs-button>
+        <vs-button @click="close" vs-icon="clear"  vs-size="small" vs-color="primary" vs-type="flat"></vs-button>
       </div>
     </transition>
   </td>

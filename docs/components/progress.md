@@ -24,7 +24,7 @@ contributors:
   - fergardi
 ---
 
-# Progress **- ssr**
+# Progress
 
 <box header>
 

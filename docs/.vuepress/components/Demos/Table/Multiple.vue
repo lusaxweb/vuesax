@@ -1,8 +1,8 @@
 <template lang="html">
   <div>
     <vs-table
+      multiple
       v-model="selected"
-      @selected="handleSelected"
       :data="users">
       <template slot="header">
         <h3>
@@ -17,6 +17,9 @@
           Name
         </vs-th>
         <vs-th>
+          Website
+        </vs-th>
+        <vs-th>
           Nro
         </vs-th>
       </template>
@@ -29,6 +32,10 @@
 
           <vs-td :data="data[indextr].username">
             {{data[indextr].username}}
+          </vs-td>
+
+          <vs-td :data="data[indextr].website">
+            {{data[indextr].id}}
           </vs-td>
 
           <vs-td :data="data[indextr].id">
@@ -118,14 +125,6 @@ export default {
         "website": "ambrose.net",
       }
     ]
-  }),
-  methods:{
-    handleSelected(tr) {
-      this.$vs.notify({
-        title:`Selected ${tr.username}`,
-        text:`Email: ${tr.email}`
-      })
-    }
-  }
+  })
 }
 </script>

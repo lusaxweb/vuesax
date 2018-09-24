@@ -68,33 +68,34 @@ If you feel awesome and want to support us in a small way, please consider starr
 
 ## Components
 
-- [Buttons](https://lusaxweb.github.io/vuesax/components/) - SSR
-- [Selects](https://lusaxweb.github.io/vuesax/components/selects.html) - SSR
-- [Notifications](https://lusaxweb.github.io/vuesax/components/notifications.html) - SSR
-- [Switch](https://lusaxweb.github.io/vuesax/components/switch.html) - SSR
-- [CheckBox](https://lusaxweb.github.io/vuesax/components/checkbox.html) - SSR
-- [Radio](https://lusaxweb.github.io/vuesax/components/radio.html) - SSR
-- [Input](https://lusaxweb.github.io/vuesax/components/input.html) - SSR
-- [Dialogs](https://lusaxweb.github.io/vuesax/components/dialog.html) - SSR
-- [Tabs](https://lusaxweb.github.io/vuesax/components/tabs.html) - SSR
-- [Slider](https://lusaxweb.github.io/vuesax/components/slider.html) - SSR
-- [InputNumber](https://lusaxweb.github.io/vuesax/components/number.html) - SSR
-- [Tooltip](https://lusaxweb.github.io/vuesax/components/tooltip.html) - SSR
-- [Upload](https://lusaxweb.github.io/vuesax/components/upload.html) - SSR
-- [Loading](https://lusaxweb.github.io/vuesax/components/loading.html) - SSR
-- [Popup](https://lusaxweb.github.io/vuesax/components/popup.html) - SSR
-- [Avatar](https://lusaxweb.github.io/vuesax/components/avatar.html) - SSR
-- [Breadcrumb](https://lusaxweb.github.io/vuesax/components/breadcrumb.html) - SSR
-- [Alert](https://lusaxweb.github.io/vuesax/components/alert.html) - SSR
-- [Divider](https://lusaxweb.github.io/vuesax/components/divider.html) - SSR
-- [Chip](https://lusaxweb.github.io/vuesax/components/chip.html) - SSR
-- [Progress](https://lusaxweb.github.io/vuesax/components/progress.html) - SSR
-- [Card](https://lusaxweb.github.io/vuesax/components/card.html) - SSR
-- [List](https://lusaxweb.github.io/vuesax/components/list.html) - SSR
-- [Pagination](https://lusaxweb.github.io/vuesax/components/pagination.html) - SSR
-- [Topbar](https://lusaxweb.github.io/vuesax/components/topbar.html) - SSR
-- [SideBar](https://lusaxweb.github.io/vuesax/components/sideBar.html) - SSR
-- [DropDown](https://lusaxweb.github.io/vuesax/components/dropDown.html) - SSR
+- [Buttons](https://lusaxweb.github.io/vuesax/components/)
+- [Selects](https://lusaxweb.github.io/vuesax/components/selects.html)
+- [Notifications](https://lusaxweb.github.io/vuesax/components/notifications.html)
+- [Switch](https://lusaxweb.github.io/vuesax/components/switch.html)
+- [CheckBox](https://lusaxweb.github.io/vuesax/components/checkbox.html)
+- [Radio](https://lusaxweb.github.io/vuesax/components/radio.html)
+- [Input](https://lusaxweb.github.io/vuesax/components/input.html)
+- [Dialogs](https://lusaxweb.github.io/vuesax/components/dialog.html)
+- [Tabs](https://lusaxweb.github.io/vuesax/components/tabs.html)
+- [Slider](https://lusaxweb.github.io/vuesax/components/slider.html)
+- [InputNumber](https://lusaxweb.github.io/vuesax/components/number.html)
+- [Tooltip](https://lusaxweb.github.io/vuesax/components/tooltip.html)
+- [Upload](https://lusaxweb.github.io/vuesax/components/upload.html)
+- [Loading](https://lusaxweb.github.io/vuesax/components/loading.html)
+- [Popup](https://lusaxweb.github.io/vuesax/components/popup.html)
+- [Avatar](https://lusaxweb.github.io/vuesax/components/avatar.html)
+- [Breadcrumb](https://lusaxweb.github.io/vuesax/components/breadcrumb.html)
+- [Alert](https://lusaxweb.github.io/vuesax/components/alert.html)
+- [Divider](https://lusaxweb.github.io/vuesax/components/divider.html)
+- [Chip](https://lusaxweb.github.io/vuesax/components/chip.html)
+- [Progress](https://lusaxweb.github.io/vuesax/components/progress.html)
+- [Card](https://lusaxweb.github.io/vuesax/components/card.html)
+- [List](https://lusaxweb.github.io/vuesax/components/list.html)
+- [Pagination](https://lusaxweb.github.io/vuesax/components/pagination.html)
+- [Topbar](https://lusaxweb.github.io/vuesax/components/topbar.html)
+- [SideBar](https://lusaxweb.github.io/vuesax/components/sideBar.html)
+- [DropDown](https://lusaxweb.github.io/vuesax/components/dropDown.html)
+- [Table](https://lusaxweb.github.io/vuesax/components/table.html) - New
 
 ## Browser Support
 Recent versions of **Firefox**, **Chrome**, **Edge**, **Opera** and **Safari**. **IE10+**

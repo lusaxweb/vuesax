@@ -1,5 +1,5 @@
 <template>
-  <th  class="col-0" colspan="1" rowspan="1">
+  <th class="col-0 col" colspan="1" rowspan="1">
     <div class="vs-table-text">
       <span v-if="sortKey" class="sort-th">
         <i @click="sortValue(false)" class="material-icons up-sort">

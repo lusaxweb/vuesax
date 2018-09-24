@@ -66,7 +66,7 @@ API:
    default: null
 ---
 
-# Select **- ssr**
+# Select **- update**
 
 <box header>
 

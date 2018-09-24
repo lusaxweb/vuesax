@@ -24,7 +24,7 @@ contributors:
   - fergardi
 ---
 
- # Chip **- ssr**
+ # Chip
 
 <box header>
 

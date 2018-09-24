@@ -34,7 +34,7 @@ contributors:
  - VicGUTT
 ---
 
-# Pagination **- ssr**
+# Pagination **- update**
 
 <box header>
 

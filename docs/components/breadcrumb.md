@@ -29,7 +29,7 @@ contributors:
  - VicGUTT
 ---
 
-# Breadcrumb **- ssr**
+# Breadcrumb
 
 <box header>
 

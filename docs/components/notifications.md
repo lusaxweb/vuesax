@@ -52,7 +52,7 @@ API:
    default: null
 ---
 
-# Notifications **- ssr**
+# Notifications
 
 <box header>
 

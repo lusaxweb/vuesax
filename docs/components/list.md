@@ -29,7 +29,7 @@ contributors:
   - fergardi
 ---
 
-# List **- ssr**
+# List
 
 <box header>
 

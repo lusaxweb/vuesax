@@ -37,7 +37,7 @@ API:
    default: 100
 ---
 
-# Slider **- ssr**
+# Slider
 
 <box header>
 

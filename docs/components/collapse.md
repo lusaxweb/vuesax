@@ -7,7 +7,7 @@ API:
    default: null
 ---
 
-# Collapse <!--#new-->
+# Collapse
 
 <box header>
 

@@ -73,21 +73,6 @@ function renderChildren (h, children, path, route, maxDepth, depth = 1) {
 
 <style lang="stylus">
 @import './styles/config.styl'
-.span-new-update
-  position: absolute;
-  right: 5px;
-  background: $accentColor
-  color: rgb(255, 255, 255);
-  font-size: 10px;
-  font-weight: lighter !important;
-  border-radius: 5px;
-  padding-bottom: 2px;
-  padding-left: 4px;
-  padding-right: 4px;
-  line-height: 15px;
-  top: 50%;
-  transform: translate(0,-50%);
-  text-transform: uppercase;
 .sidebar-sub-header
   a
     opacity: 1 !important;

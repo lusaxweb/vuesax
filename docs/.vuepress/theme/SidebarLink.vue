@@ -87,7 +87,7 @@ function renderChildren (h, children, path, route, maxDepth, depth = 1) {
   line-height: 15px;
   top: 50%;
   transform: translate(0,-50%);
-  text-transform: uppercase;
+  text-transform: capitalize;
 .sidebar-sub-header
   a
     opacity: 1 !important;

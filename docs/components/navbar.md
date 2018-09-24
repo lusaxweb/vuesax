@@ -24,7 +24,7 @@ contributors:
   - fergardi
 ---
 
-# Navbar **- ssr**
+# Navbar
 
 <box header>
 

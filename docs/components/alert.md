@@ -27,7 +27,7 @@ API:
    default: null
 ---
 
-# Alert **- ssr**
+# Alert
 
 <box header>
 

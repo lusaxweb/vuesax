@@ -48,14 +48,6 @@
             // opacity: 0
   .td-edit
     text-decoration: underline
-    // &:hover
-    //   font-weight bold
-    //   .icon-edit
-    //     opacity: 1
-    //     transform translate(-9px, -13px)
-    //   >span
-    //     transform translate(5px)
-    //     transition: all .25s ease
     .icon-edit
       transition: all .25s ease
       font-size: .75rem
@@ -148,7 +140,10 @@
           z-index 500 !important
           + .tr-table
             transform: translate(0) !important
-        &:not(.activeEdit):not(.is-expand):hover
+        &.hoverFlat
+          &:not(.activeEdit):not(.is-expand):hover
+            opacity: .8
+        &:not(.activeEdit):not(.is-expand):not(.hoverFlat):hover
 
           // z-index 200
           border-radius: 5px
@@ -184,7 +179,7 @@
             .con-expand
               border-top: 1px solid rgba(0,0,0,.05) !important
           .vs-icon
-            transform rotate(0deg)
+            transform translate(7px) rotate(0deg)
       td
         border: 0px
         padding: 2px 8px
@@ -192,14 +187,15 @@
         &:first-child
           border-left: 1px solid rgba(0,0,0,.0)
         &.td-check
-          width: 20px
           cursor: pointer
+          padding: 5px !important
           .con-vs-checkbox
             margin-left: 0px !important
             margin-right: 0px !important
           .vs-icon
             transition: all .25s ease
-            transform rotate(-90deg)
+            transform translate(7px) rotate(-90deg)
+
 
 // header table
 
@@ -215,7 +211,7 @@
     padding-top: 5px
     // border-bottom: 1px solid rgba(0,0,0,.06)
     th
-      padding: 6px
+      padding: 6px 10px
       padding-top: 5px
       padding-bottom: 3px
       border: 0px
@@ -250,7 +246,7 @@
               box-shadow: 0px 3px 10px 0px rgba(0,0,0,.05)
 
       &.td-check
-        padding: 0px
+        padding: 0px !important
         .con-td-check
           display: block
           padding-top: 3px

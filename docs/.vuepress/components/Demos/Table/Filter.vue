@@ -1,6 +1,6 @@
 <template lang="html">
   <div>
-    <vs-table search :data="users">
+    <vs-table hoverFlat search :data="users">
       <template slot="header">
         <h3>
           Users

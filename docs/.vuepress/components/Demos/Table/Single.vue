@@ -17,6 +17,9 @@
           Name
         </vs-th>
         <vs-th>
+          Website
+        </vs-th>
+        <vs-th>
           Nro
         </vs-th>
       </template>
@@ -29,6 +32,10 @@
 
           <vs-td :data="data[indextr].username">
             {{data[indextr].username}}
+          </vs-td>
+
+          <vs-td :data="data[indextr].website">
+            {{data[indextr].website}}
           </vs-td>
 
           <vs-td :data="data[indextr].id">

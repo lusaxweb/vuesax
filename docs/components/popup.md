@@ -33,7 +33,7 @@ API:
 
 ---
 
-# Popup **- ssr**
+# Popup
 
 <box header>
 

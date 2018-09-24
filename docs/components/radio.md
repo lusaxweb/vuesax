@@ -17,7 +17,7 @@ API:
    default: false
 ---
 
-# Radio **- ssr**
+# Radio
 
 <box header>
 

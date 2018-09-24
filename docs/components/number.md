@@ -22,7 +22,7 @@ API:
    default: null
 ---
 
-# Number Input **- ssr**
+# Number Input
 
 <box header>
 

@@ -41,7 +41,7 @@ API:
     description: Change the secondary color on the button (gradient)
     default: primary
 ---
-# Buttons **- ssr**
+# Buttons **- Update**
 
 <box header>
 

@@ -1,6 +1,6 @@
 <template lang="html">
   <div>
-    <vs-table :data="users">
+    <vs-table max-items="3" pagination :data="users">
       <template slot="header">
         <h3>
           Users
@@ -12,6 +12,9 @@
         </vs-th>
         <vs-th>
           Name
+        </vs-th>
+        <vs-th>
+          Website
         </vs-th>
         <vs-th>
           Nro
@@ -26,6 +29,10 @@
 
           <vs-td :data="data[indextr].username">
             {{data[indextr].username}}
+          </vs-td>
+
+          <vs-td :data="data[indextr].id">
+            {{data[indextr].website}}
           </vs-td>
 
           <vs-td :data="data[indextr].id">

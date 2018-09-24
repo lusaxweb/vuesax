@@ -22,7 +22,7 @@ API:
    default: solid
 ---
 
-# Divider **- ssr**
+# Divider
 
 <box header>
 

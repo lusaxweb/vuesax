@@ -87,7 +87,7 @@ API:
    default: null
 ---
 
-# SideBar **- ssr**
+# SideBar
 
 <box header>
 

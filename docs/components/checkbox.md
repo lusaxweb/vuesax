@@ -22,7 +22,7 @@ API:
    default: checked
 ---
 
-# CheckBox **- ssr**
+# CheckBox **- update**
 
 <box header>
 
