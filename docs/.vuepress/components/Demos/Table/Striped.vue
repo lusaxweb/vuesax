@@ -15,7 +15,7 @@
         </vs-th>
         <vs-th>
           Website
-        </vs-th>s
+        </vs-th>
         <vs-th>
           Nro
         </vs-th>
