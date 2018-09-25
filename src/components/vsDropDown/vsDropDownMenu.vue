@@ -67,8 +67,6 @@ export default {
     },
     insertBody(){
       let elp = this.$el
-      console.log('instance', elp)
-      let elx = this.$refs.options
       document.body.insertBefore(elp, document.body.firstChild)
     },
   }
