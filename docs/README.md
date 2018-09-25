@@ -26,13 +26,13 @@ features:
   github: true
   button:
     text: Contributing
-    link: /vuesax/
+    link: /development/
 
 footer: MIT Licensed | Copyright © 2018-present Evan You
 vueThemes:
   github: 'https://github.com/lusaxweb/vuesax'
   actionsLinks:
-  - link: '/vuesax/'
-    text: 'Documents'
+  - link: '/development/'
+    text: 'Get Started'
 contributors: all
 ---

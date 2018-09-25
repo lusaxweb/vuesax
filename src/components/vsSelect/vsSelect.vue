@@ -13,11 +13,11 @@
       class="input-select-label"
       for="">{{ vsLabel }}</label>
     <div class="input-select-con">
+        <!-- v-model="valueFilter" -->
       <input
         ref="inputselect"
         v-bind="$attrs"
         :readonly="!vsAutocomplete"
-        v-model="valueFilter"
         class="input-select"
         type="text"
         @click.stop
@@ -167,6 +167,9 @@ export default {
     filterx:false
   }),
   computed:{
+    parent() {
+      return this
+    },
     listeners(){
       return {
         ...this.$listeners,
@@ -259,17 +262,25 @@ export default {
 
     },
     filterItems(value){
-      console.log('paso por el filtro')
       if(value){
         this.filterx = true
       } else {
         this.filterx = false
       }
       let items = this.$children
+
+      items.forEach((item)=>{
+        if(item.$children.length > 0) {
+          items = [...items,...item.$children]
+        }
+      })
+
       items.map((item)=>{
-        // let text = item.$el.innerText.replace('check_circle','')
+
         if (!('vsText' in item)) return
+
         let text = item.vsText
+
         if(this.vsMultiple){
           let valuesx = value.split(',')
           valuesx.forEach((value_multi)=>{
@@ -308,6 +319,13 @@ export default {
       if(this.vsMultiple){
         let values = this.value ? this.value : [];
         let options = this.$children
+
+        options.forEach((item)=>{
+          if(item.$children.length > 0) {
+            options = [...options,...item.$children]
+          }
+        })
+
         let optionsValues = []
         values.forEach((item)=>{
           options.forEach((item_option)=>{
@@ -333,6 +351,7 @@ export default {
         document.addEventListener('click',this.clickBlur)
       }, 100);
       if(this.vsAutocomplete && this.vsMultiple){
+        console.log(this.$refs.inputselect.value)
         setTimeout( ()=> {
           if(inputx.value){
             this.$refs.inputselect.value = inputx.value += ','

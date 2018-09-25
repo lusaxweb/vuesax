@@ -1,5 +1,6 @@
 <template lang="html">
   <li
+    :data-text="vsText"
     v-show="visible"
     class="vs-component">
     <button
@@ -8,8 +9,8 @@
       v-bind="$attrs"
       :style="styles"
       :class="{
-        'activex':$parent.vsMultiple?getValue.indexOf(vsValue) != -1:getValue == vsValue,
-        'con-icon':$parent.vsMultiple,
+        'activex':$parent.parent.vsMultiple?getValue.indexOf(vsValue) != -1:getValue == vsValue,
+        'con-icon':$parent.parent.vsMultiple,
         'disabledx':disabledx
       }"
       class="vs-select-item-btn"
@@ -21,7 +22,7 @@
       @keydown.up.prevent="navigateOptions('prev')"
       @keydown.enter.prevent="clickOption()">
       <i
-        v-if="$parent.vsMultiple"
+        v-if="$parent.parent.vsMultiple"
         class="material-icons icon-item">
         check_circle
       </i>
@@ -56,25 +57,25 @@ export default {
   }),
   computed:{
     disabledx(){
-      if(this.$parent.vsMultiple){
+      if(this.$parent.parent.vsMultiple){
         if(this.isActive){
           return false
         } else {
-          return this.$parent.vsMaxSelected == this.$parent.value.length
+          return this.$parent.parent.vsMaxSelected == this.$parent.parent.value.length
         }
       } else {
         return false
       }
     },
     isActive(){
-      return this.$parent.vsMultiple?this.getValue.indexOf(this.vsValue) != -1:this.getValue == this.vsValue
+      return this.$parent.parent.vsMultiple?this.getValue.indexOf(this.vsValue) != -1:this.getValue == this.vsValue
     },
     listeners() {
       return {
         ...this.$listeners,
         blur: (event) => {
           if(event.relatedTarget?!event.relatedTarget.closest('.vs-select-options'):true) {
-            this.$parent.closeOptions()
+            this.$parent.parent.closeOptions()
           }
         },
         click: (event) => this.clickOption(event),
@@ -90,19 +91,19 @@ export default {
     },
     styles(){
       return {
-        background: this.isActive?_color.getColor(this.$parent.vsColor,.1):null,
-        color: this.isActive?_color.getColor(this.$parent.vsColor,1):null,
+        background: this.isActive?_color.getColor(this.$parent.parent.vsColor,.1):null,
+        color: this.isActive?_color.getColor(this.$parent.parent.vsColor,1):null,
         fontWeight: this.isActive?'bold':null
       }
     },
     getValue(){
-      return this.$parent.value
+      return this.$parent.parent.value
     }
   },
   watch:{
-    '$parent.active': function () {
+    '$parent.parent.active': function () {
       this.$nextTick(() => {
-        if( this.$parent.vsMultiple?this.getValue.indexOf(this.vsValue) != -1:this.getValue == this.vsValue ) {
+        if( this.$parent.parent.vsMultiple?this.getValue.indexOf(this.vsValue) != -1:this.getValue == this.vsValue ) {
           this.$emit('update:isSelected', true)
           this.getText = this.vsText
           this.putValue()
@@ -135,7 +136,7 @@ export default {
   created(){
     this.putValue()
     this.$nextTick(() => {
-      if( this.$parent.vsMultiple?this.getValue.indexOf(this.vsValue) != -1:this.getValue == this.vsValue ) {
+      if( this.$parent.parent.vsMultiple?this.getValue.indexOf(this.vsValue) != -1:this.getValue == this.vsValue ) {
         this.$emit('update:isSelected', true)
         this.getText = this.vsText
         this.putValue()
@@ -157,10 +158,10 @@ export default {
       return string.charAt(0).toUpperCase() + string.slice(1);
     },
     backspace(){
-      if(this.$parent.vsAutocomplete){
-        let valueInput = this.$parent.$refs.inputselect.value
-        this.$parent.$refs.inputselect.value = valueInput.substr(0,valueInput.length-1)
-        this.$parent.$refs.inputselect.focus()
+      if(this.$parent.parent.vsAutocomplete){
+        let valueInput = this.$parent.parent.$refs.inputselect.value
+        this.$parent.parent.$refs.inputselect.value = valueInput.substr(0,valueInput.length-1)
+        this.$parent.parent.$refs.inputselect.focus()
       }
     },
     navigateOptions(orientation){
@@ -169,7 +170,8 @@ export default {
         lengthx = 0
 
       function getNextLi(li,orientationObject){
-        if(li){
+        // console.log('li>', li)
+        if(li && li.localName == 'li'){
           let lix = li[orientationObject]
           if(li.style){
             if(li.style.display == 'none'){
@@ -185,28 +187,40 @@ export default {
         }
       }
 
-      const children = this.$parent.$slots.default
+      var children = this.$parent.parent.$children
+
+      children.forEach((item)=>{
+        if(item.$children.length > 0) {
+          children = [...children,...item.$children]
+        }
+      })
+
+      children = children.filter((item) => {
+        return item.$children.length == 0 && item.$el.localName != 'span'
+      })
+
       if(orientation == 'prev'){
         orientationObject = 'previousSibling'
         lengthx = children.length
       }
       let nextElement = getNextLi(this.$el[orientationObject],orientationObject)
+
       if(nextElement){
         nextElement.querySelector('.vs-select-item-btn').focus()
       } else {
         if (lengthx === children.length) lengthx--
-        getNextLi(children[lengthx].elm,orientationObject).querySelector('.vs-select-item-btn').focus()
+        getNextLi(children[lengthx].$el,orientationObject).querySelector('.vs-select-item-btn').focus()
       }
     },
     focusValue(index){
-      if(this.$parent.vsMultiple?this.$parent.value.indexOf(this.vsValue) != -1:this.vsValue == this.$parent.value){
-        if(!this.$parent.vsAutocomplete){
+      if(this.$parent.parent.vsMultiple?this.$parent.parent.value.indexOf(this.vsValue) != -1:this.vsValue == this.$parent.parent.value){
+        if(!this.$parent.parent.vsAutocomplete){
           setTimeout( () => {
             this.$refs.item.focus()
           }, 50);
         }
       } else if (index === 0) {
-        if(!this.$parent.vsAutocomplete){
+        if(!this.$parent.parent.vsAutocomplete){
           setTimeout( () => {
             this.$refs.item.focus()
           }, 50);
@@ -214,8 +228,8 @@ export default {
       }
     },
     putValue(){
-      if(this.vsValue == this.$parent.value){
-        this.$parent.valuex = this.vsText
+      if(this.vsValue == this.$parent.parent.value){
+        this.$parent.parent.valuex = this.vsText
       }
 
     },
@@ -224,17 +238,17 @@ export default {
         return
       }
       let text = this.vsText
-      if(!this.$parent.vsMultiple){
-        this.$parent.active = false
-        document.removeEventListener('click',this.$parent.clickBlur)
-        this.$parent.valuex = text
-        this.$parent.$emit('input',this.vsValue)
-        this.$parent.changeValue()
-      } else if (this.$parent.vsMultiple) {
-        this.$parent.valuex = text
-        this.$parent.addMultiple(this.vsValue)
+      if(!this.$parent.parent.vsMultiple){
+        this.$parent.parent.active = false
+        document.removeEventListener('click',this.$parent.parent.clickBlur)
+        this.$parent.parent.valuex = text
+        this.$parent.parent.$emit('input',this.vsValue)
+        this.$parent.parent.changeValue()
+      } else if (this.$parent.parent.vsMultiple) {
+        this.$parent.parent.valuex = text
+        this.$parent.parent.addMultiple(this.vsValue)
       }
-      this.$parent.$children.map((item)=>{
+      this.$parent.parent.$children.map((item)=>{
         item.valueInputx = ''
       })
     },

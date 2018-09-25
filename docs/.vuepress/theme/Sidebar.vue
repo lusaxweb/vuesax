@@ -117,11 +117,12 @@ function resolveOpenGroupIndex (route, items) {
         color rgba(0,0,0,.15)
         transition all .25s ease
       &:hover
-        border 1px dashed $accentColor
-        background rgba(255,255,255,.5)
-        box-shadow 0px 4px 10px 0px rgba(0,0,0,.05)
+        border 1px dashed #f96854
+        background alpha(#f96854, .13)
+        transform translate(0, -3px)
+        box-shadow 0px 4px 10px 0px alpha(#f96854, .13)
         a
-          color $accentColor
+          color #f96854
 .c-sidebar
   width: calc(100% - 5px)
   margin-right: 5px;

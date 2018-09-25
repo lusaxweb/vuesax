@@ -24,14 +24,23 @@
     <div class="content page-nav" v-if="prev || next">
       <p class="inner">
         <span v-if="prev" class="prev">
-          ← <router-link @click.native="changeAds" v-if="prev" class="prev" :to="prev.path">
+
+          <router-link @click.native="changeAds" v-if="prev" class="prev" :to="prev.path">
+            <i class="material-icons">
+              keyboard_arrow_left
+            </i>
             {{ prev.title || prev.path }}
           </router-link>
         </span>
         <span v-if="next" class="next">
           <router-link @click.native="changeAds" v-if="next" :to="next.path">
             {{ next.title || next.path }}
-          </router-link> →
+            <i class="material-icons">
+              keyboard_arrow_right
+            </i>
+          </router-link>
+
+
         </span>
       </p>
     </div>
@@ -245,7 +254,7 @@ function find (page, items, offset) {
     margin auto
     max-width 800px !important
 .edit-link.content
-  padding: 2rem 4rem !important;
+  padding: 1rem 2rem !important;
   padding-top 0 !important
   display: flex;
   align-items: center;
@@ -266,26 +275,38 @@ function find (page, items, offset) {
   .inner
     min-height 2rem
     margin-top 0 !important
-    border-top 1px solid $borderColor
+    // border-top 1px solid $borderColor
     padding-top 1rem
     display: flex;
     align-items: center;
     justify-content: space-between;
     span
-      padding: 10px;
-      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-      background: rgb(255, 255, 255);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+
+      // box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+
+
       float: left;
-      border-radius: 10px;
+      cursor pointer
       a
+        background: rgb(255, 255, 255);
+        padding: 4px 10px;
         transition: all .250s ease
-    i
-      font-size: 26px;
-      display: inline-block;
-      color: $accentColor
+        text-transform none !important
+        text-decoration: none
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        outline none !important
+        border-radius: 15px;
+        color rgba(0,0,0,.6)
+        border 1px solid rgba(0,0,0,.03)
+        font-size .85rem
+        i
+          font-size 1rem !important
+        &:hover
+          background alpha($accentColor,.1)
+          color $accentColor
+          border 1px solid alpha($accentColor,.3)
   .next
     float right
     i
@@ -293,7 +314,6 @@ function find (page, items, offset) {
 .page
   .content
     p
-      background: rgb(252, 252, 252)
       padding: 10px;
       border-radius: 10px;
       margin-top: 6px;
@@ -301,6 +321,7 @@ function find (page, items, offset) {
       // background: rgb(255, 255, 255)
       // box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1)
       padding: 15px
+      padding-left 0px
       // text-align: center;
       color: $accentColor
       border-radius: 0px

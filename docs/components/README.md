@@ -41,14 +41,14 @@ API:
     description: Change the secondary color on the button (gradient)
     default: primary
 ---
-# Buttons **- Update**
+
+# Buttons **- update**
 
 <box header>
 
   Easy-to-use button components
 
 </box>
-
 
 <box>
 
@@ -238,7 +238,7 @@ To add a type of button with edges we change the value of `vs-type` by: `relief`
 <vs-button vs-color="danger" vs-type="relief">Danger</vs-button>
 <vs-button vs-color="warning" vs-type="relief">warning</vs-button>
 <vs-button vs-color="dark" vs-type="relief">dark</vs-button>
-<vs-button vs-color="rgb(187, 138, 0)" vs-type="relief">Color</vs-button>
+<vs-button vs-color="rgb(187, 138, 200)" vs-type="relief">Color</vs-button>
 <vs-button disabled vs-type="relief">Disabled</vs-button>
 </div>
 
@@ -250,7 +250,7 @@ To add a type of button with edges we change the value of `vs-type` by: `relief`
 <vs-button vs-color="danger" vs-type="relief">Danger</vs-button>
 <vs-button vs-color="warning" vs-type="relief">warning</vs-button>
 <vs-button vs-color="dark" vs-type="relief">dark</vs-button>
-<vs-button vs-color="rgb(187, 138, 0)" vs-type="relief">Color</vs-button>
+<vs-button vs-color="rgb(187, 138, 200)" vs-type="relief">Color</vs-button>
 <vs-button disabled vs-type="relief">Disabled</vs-button>
 ```
 

@@ -67,26 +67,34 @@ export default {
     overflow hidden
     // padding-bottom: 10px;
     margin-top 0px;
+    .header
+      // background transparent !important
+      // border-top 1px solid rgba(0,0,0,.0) !important
+      border-bottom 0px solid rgba(0,0,0,.03) !important
     h2
       border-radius: 6px 6px 0px 0px
       padding: 10px
-      // padding-top: 4rem
       width: calc(100% - 30px)
-      margin-left 15px
-      // background: rgb(250, 250, 250)
+      // margin-left 15px
+      border-bottom 0px !important
+      transition all .25s ease
 
       // border-bottom: 0px;
       font-weight: bold;
-      padding-left: 20px !important
+      // padding-left: 20px !important
       font-size 1.4rem
+      &:hover
+        padding-left 30px
       a
         text-decoration: none !important;
     h3
       padding: 10px
       font-weight: bold;
     p
-      width: calc(100% - 30px)
-      margin-left: 15px !important
+      // width: calc(100% - 20px)
+      width 100%
+      padding 6px 20px
+      // margin-left: 10px !important
     p
       background: transparent !important
       margin-top 0px;

@@ -674,3 +674,26 @@ export default {
 </div>
 </vuecode>
 </box>
+
+<box>
+
+## Group items
+
+You can group elements with the sub component `vs-select-group`
+
+<vuecode md>
+<div slot="demo">
+
+ <Demos-Select-Group/>
+
+</div>
+
+<div slot="code">
+
+```html
+
+```
+
+</div>
+</vuecode>
+</box>

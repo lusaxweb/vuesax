@@ -30,7 +30,7 @@ export default {
   data(){
     return {
       select1Normal:'',
-      select1:3,
+      select1:2,
       select2:7,
       select3:2,
       options1:[
@@ -57,7 +57,7 @@ export default {
         {text: 'Green', value: 2},
         {text: 'Blue', value: 3},
         {text: 'Purple', value: 4},
-      ],
+      ]
     }
   },
   methods:{

@@ -119,7 +119,10 @@ function resolveOpenGroupIndex (route, items) {
     padding-left 0px
   li
     list-style none
+    position relative
+    display block
     .sidebar-link
+      padding 5px
       padding-left 10px
       font-size .7rem
   .sidebar-group
@@ -130,6 +133,9 @@ function resolveOpenGroupIndex (route, items) {
 
 
 @media only screen and (max-width: 1100px)
+  .notiads
+    .btn-patreon
+      display: none !important
   .c-sidebar-map
     display none
   .sidebar .sidebar-sub-headers
@@ -206,6 +212,7 @@ function resolveOpenGroupIndex (route, items) {
       display none
 
 @media only screen and (max-width: 400px)
+
   .sidebar-map
     height auto
     padding-top 5px

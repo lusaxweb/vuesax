@@ -10,14 +10,14 @@
     </div>
 
     <!-- repo link -->
-    <a v-if="repoLink"
+    <!-- <a v-if="repoLink"
       :href="repoLink"
       class="repo-link flaticon-github"
       target="_blank"
       rel="noopener noreferrer">
-      <!-- {{ repoLabel }} -->
-      <!-- <OutboundLink/> -->
-    </a>
+      <! {{ repoLabel }} -->
+       <!-- <OutboundLink/> -->
+    <!-- </a> -->
   </nav>
 </template>
 
@@ -111,7 +111,7 @@ export default {
 }
 .nav-links
   display inline-block
-  padding-right: 20px;
+  padding-right: 0px;
   a
     // line-height 1.25rem
     color inherit
@@ -125,14 +125,15 @@ export default {
       width: 0%
       left: 50%
       transform: translate(-50%)
-      height: 2px
+      height: 3px
+      border-radius 0px 0px 2px 2px
       background: $accentColor
       transition: all .2s ease
-      bottom: 0px;
+      top: -1px;
     &:hover, &.router-link-active
       color $accentColor
     &:hover:after
-      width: 100%
+      width: 40% !important
   .nav-item
     cursor: pointer
     position relative
@@ -162,6 +163,6 @@ export default {
         color $accentColor
         // margin-bottom -2px
       &:hover:after, &.router-link-active:after
-        width: 100% !important
+        width: 40% !important
         // border-bottom 2px solid lighten($accentColor, 5%)
 </style>

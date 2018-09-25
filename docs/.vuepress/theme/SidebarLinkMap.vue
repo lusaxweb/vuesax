@@ -32,7 +32,7 @@ export default {
       const children = groupHeaders(item.headers)
       return [link, renderChildren(h, children, item.path, $route, maxDepth)]
     } else {
-      // return link
+      return link
     }
   }
 }
@@ -51,6 +51,7 @@ function renderLink (h, to, text, active, activeTag) {
     },
     nativeOn:{
       click: e => {
+        console.log('click', to, active, this)
         if (!document.querySelector('#carbonads')) return;
         if (typeof _carbonads !== 'undefined') _carbonads.refresh();
       }
@@ -106,6 +107,6 @@ a.sidebar-link
     padding-bottom 0.25rem
     border-left none
     &.active
-      font-weight 500
+      font-weight bold
       opacity: 1 !important;
 </style>

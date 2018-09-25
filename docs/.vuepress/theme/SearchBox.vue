@@ -171,7 +171,7 @@ export default {
     padding 0 0.5rem 0 2rem
     outline none
     transition all .2s ease
-    background transparent url(./search.svg) 0.6rem 0.5rem no-repeat
+    background rgb(255,255,255) url(./search.svg) 0.6rem 0.5rem no-repeat
     background-size 1rem
     min-height 32px
     &::placeholder
@@ -179,8 +179,10 @@ export default {
     &:focus
       cursor auto
       // border-color $accentColor
+
       background #fff none 0rem 0.5rem no-repeat
       padding-left 12px
+      box-shadow 0px 3px 10px 0px rgba(0,0,0,.1)
   .suggestions
     background #fff
     width 13rem

@@ -1,22 +1,36 @@
 <template>
   <header :class="{'shadow':shadow}" class="navbar">
     <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')"/>
-    <router-link @click.native="changeAds" :to="$localePath" class="home-link">
-      <div class="con-logo">
-        <img class="logo"
-        v-if="$site.themeConfig.logo"
-        :src="$withBase($site.themeConfig.logo)">
+    <div class="con-btns-header">
+      <router-link @click.native="changeAds" :to="$localePath" class="home-link">
+        <div class="con-logo">
+          <img class="logo"
+          v-if="$site.themeConfig.logo"
+          :src="$withBase($site.themeConfig.logo)">
+        </div>
+        <span class="site-name"
+          v-if="$siteTitle"
+          :class="{ 'can-hide': $site.themeConfig.logo }">
+          <!-- {{ $siteTitle }} -->
+        </span>
+      </router-link>
+      <div :class="{'linksColor':!$page.frontmatter.home}" class="links">
+        <!-- <AlgoliaSearchBox v-if="isAlgoliaSearch" :options="algolia"/> -->
+        <!-- <SearchBox v-else-if="$site.themeConfig.search !== false"/> -->
+        <NavLinks class="can-hide"/>
       </div>
-      <span class="site-name"
-        v-if="$siteTitle"
-        :class="{ 'can-hide': $site.themeConfig.logo }">
-        <!-- {{ $siteTitle }} -->
-      </span>
-    </router-link>
-    <div :class="{'linksColor':!$page.frontmatter.home}" class="links">
-      <!-- <AlgoliaSearchBox v-if="isAlgoliaSearch" :options="algolia"/> -->
-      <!-- <SearchBox v-else-if="$site.themeConfig.search !== false"/> -->
-      <NavLinks class="can-hide"/>
+    </div>
+
+    <div class="con-redes-download">
+      <a
+        v-if="repoLink"
+        :href="repoLink"
+        class="repo-link flaticon-github"
+        target="_blank"
+        rel="noopener noreferrer">
+          <!-- {{ repoLabel }} -->
+          <!-- <OutboundLink/> -->
+        </a>
     </div>
     <!-- colors change
     <div v-if="!$page.frontmatter.home" class="con-colors-input">
@@ -44,6 +58,14 @@ export default {
     }
   },
   computed: {
+    repoLink () {
+      const { repo } = this.$site.themeConfig
+      if (repo) {
+        return /^https?:/.test(repo)
+          ? repo
+          : `https://github.com/${repo}`
+      }
+    },
     algolia () {
       return this.$themeLocaleConfig.algolia || this.$site.themeConfig.algolia || {}
     },
@@ -82,6 +104,10 @@ export default {
 <style lang="stylus">
 @import './styles/config.styl'
 //vuesax
+.con-redes-download
+  padding 0px 10px
+
+
 .con-inputx-c {
   overflow: hidden;
   display: inline-block;
@@ -114,7 +140,6 @@ export default {
   transition: all .3s ease
   // opacity: 0;
   // transform: translate(0,-100%);
-  margin-left: 35px
 }
 .visible
   opacity: 1;
@@ -130,13 +155,22 @@ export default {
   z-index: 1200 !important
   position: fixed;
   width: calc(100% + 7px)
+  display flex
+  align-items center
+  justify-content space-between
+
+  .con-btns-header
+    display flex
+    align-items center
+    justify-content flex-start
   a, span, img
     display inline-block
   .logo
     height $navbarHeight - 0.7rem
     min-width $navbarHeight - 1.4rem
-    margin-right 0.8rem
+    margin-right 4.5rem
     vertical-align top
+    margin-left 2.5rem
   .site-name
     font-size 1.3rem
     display none
@@ -145,8 +179,8 @@ export default {
     position relative
   .links
     font-size 0.9rem
-    position absolute
-    right 0rem
+    position relative
+    // right 0rem
     top 0rem
     transition: all .2s ease;
     &.linksColor

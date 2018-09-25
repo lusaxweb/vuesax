@@ -9,6 +9,10 @@
           </i>
         </a>
       </div>
+      <a target="_blank" href="https://www.patreon.com/bePatron?c=1567892" class="btn-patreon" rel="noopener noreferrer">
+        <img :src="$withBase('/patreon.webp')" alt="vuesax-patreon">
+        Become a patron
+      </a>
     </div>
     <div class="noti">
 
@@ -36,6 +40,29 @@ export default {
   display flex
   flex-direction column
   box-shadow -4px 4px 10px 0px rgba(0,0,0,.02)
+  .btn-patreon
+    padding 4px
+    padding-left 6px
+    padding-right 6px;
+    border 1px solid rgb(249, 104, 84)
+    color $accentColor
+    background transparent
+    margin-top 15px;
+    border-radius 8px;
+    cursor pointer
+    transition all .2s ease
+    background rgb(249, 104, 84)
+    color rgb(255,255,255)
+    display flex
+    align-items center
+    justify-content center
+    text-transform uppercase
+    font-size 10px
+    font-weight bold
+    &:hover
+      box-shadow: 0px 9px 28px -9px rgb(249, 104, 84)
+    img
+      margin-right 5px
   .noti
     flex-grow: 1 !important
   .sponsor-special
@@ -59,6 +86,9 @@ export default {
         justify-content center
         transition all .3s ease
         &:hover
-          color $accentColor !important
-          border 1px dashed $accentColor
+          color #f96854 !important
+          border 1px dashed #f96854
+          background alpha(#f96854, .1)
+          box-shadow 0px 5px 10px 0px alpha(#f96854, .13)
+          transform translate(0, -4px)
 </style>

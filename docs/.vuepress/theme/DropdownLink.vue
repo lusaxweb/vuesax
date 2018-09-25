@@ -2,7 +2,10 @@
   <div class="dropdown-wrapper" :class="{ open }">
     <a class="dropdown-title" @click="toggle">
       <span class="title">{{ item.text }}</span>
-      <span class="arrow" :class="open ? 'down' : 'right'"></span>
+      <!-- <span class="arrow" :class="open ? 'down' : 'right'"></span> -->
+      <i class="material-icons">
+        keyboard_arrow_down
+      </i>
     </a>
     <DropdownTransition>
       <ul class="nav-dropdown">
@@ -56,6 +59,14 @@ export default {
 
 .dropdown-wrapper
   .dropdown-title
+    display flex
+    align-items center
+    justify-content center
+    i
+      transition all .25s ease
+    &:hover
+      i
+        transform rotate(180deg)
     // display block
     // &:hover
     //   border-color transparent
@@ -66,7 +77,7 @@ export default {
   .nav-dropdown
     .dropdown-item
       color inherit
-      line-height 1.7rem
+      line-height 1.5rem
       h4
         margin 0.45rem 0 0
         border-top 1px solid #eee
@@ -78,13 +89,14 @@ export default {
           font-size 0.9em
       a
         display block
-        height 1.7rem
-        line-height 1.7rem
+        height 1.5rem
+        line-height 1.5rem
         position relative
         border-bottom none
         font-weight 400
         margin-bottom 0
         padding 0 1.5rem 0 1.25rem
+        font-size .75rem
         &:hover
           color $accentColor
         &.router-link-active
@@ -160,11 +172,11 @@ export default {
       right 0
       background-color #fff
       padding 0.6rem 0
-      box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.080);
+      box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.060);
       // border 1px solid #ddd
       // border-bottom-color #ccc
       text-align left
-      border-radius 0.25rem
+      border-radius 0px 0px 8px 8px
       white-space nowrap
       margin 0
       transition: all .3s ease;
