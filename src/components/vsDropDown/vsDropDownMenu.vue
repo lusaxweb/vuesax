@@ -54,7 +54,7 @@ export default {
     this.insertBody()
   },
   beforeDestroy() {
-    this.$destroy()
+    this.$el.parentNode.removeChild(this.$el)
   },
   methods:{
     toggleMenu(event){
