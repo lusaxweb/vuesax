@@ -145,7 +145,7 @@
   padding-top: 5px;
   padding-bottom: 5px;
   position: relative;
-  .after
+  &::after
     content: '';
     position: absolute;
     right: 10px;
@@ -159,8 +159,9 @@
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     border-left: 1px solid rgba(0, 0, 0, 0.1);
     z-index: 10;
-&.notHeight
-  .after
+    box-sizing: border-box
+&.notHeight .vs-dropdown-menu
+  &::after
     top: auto;
     bottom: 0px;
     border-top: 1px solid rgba(0, 0, 0, 0.0);

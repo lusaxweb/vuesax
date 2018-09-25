@@ -14,7 +14,6 @@
       <ul
         v-if="!vsCustomContent"
         class="vs-component vs-dropdown-menu" >
-        <div class="after"/>
         <slot/>
       </ul>
       <div
