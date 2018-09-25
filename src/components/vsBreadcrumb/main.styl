@@ -42,4 +42,4 @@
 for colorx, i in $vs-colors
   .vs-breadcrumb
     .vs-breadcrumb-text.vs-breadcrumb-text-{colorx}
-      color: $vs-colors[colorx]
+      color: var(colorx, 1)

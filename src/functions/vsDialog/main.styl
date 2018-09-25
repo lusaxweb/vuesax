@@ -149,6 +149,6 @@
 for colorx, i in $vs-colors
   .vs-dialog-{colorx}
     header
-        color: $vs-colors[colorx]
+        color: var(colorx, 1)
       .after
-        background: $vs-colors[colorx]
+        background: var(colorx, 1)

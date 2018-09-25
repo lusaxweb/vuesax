@@ -49,8 +49,8 @@
 
 for colorx, i in $vs-colors
   .con-vs-avatar-{colorx}
-    background: $vs-colors[colorx]
+    background: var(colorx, 1)
   .dot-count-{colorx}
-    background: $vs-colors[colorx]
+    background: var(colorx, 1)
   .vs-avatar-text-{colorx}
-    color: $vs-colors[colorx]
+    color: var(colorx, 1)

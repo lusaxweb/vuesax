@@ -74,10 +74,10 @@
 for colorx, i in $vs-colors
   .vs-checkbox-{colorx}
     ._check
-      background: $vs-colors[colorx]
+      background: var(colorx, 1)
     .checkbox_x
       border: 2px solid rgb(180, 180, 180)
     input
       &:checked
         & + span.checkbox_x
-          border: 2px solid $vs-colors[colorx] !important
+          border: 2px solid var(colorx, 1) !important

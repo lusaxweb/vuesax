@@ -25,6 +25,6 @@
 
 for colorx, i in $vs-colors
   .vs-divider-border-{colorx}
-    border-top-color: $vs-colors[colorx]
+    border-top-color: var(colorx, 1)
   .vs-divider-text-{colorx}
-    color: $vs-colors[colorx]
+    color: var(colorx, 1)

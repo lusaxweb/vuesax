@@ -148,13 +148,14 @@ for colorx in $vs-colors
       &.is-active-item
         border-radius: 6px
         color rgb(255,255,255) !important
+        background: rgb(100,0,100)
         if colorx == 'danger' {
-          background: linear-gradient(30deg, $vs-colors[colorx] 0%, darken(spin($vs-colors[colorx],-20deg),40%) 100%) !important
+          background-image: linear-gradient(30deg, var(colorx, 1) 0%, var(colorx, .5) 100%) !important
         }
         else if colorx == 'dark' {
-          background: linear-gradient(30deg, $vs-colors[colorx] 0%, lighten($vs-colors[colorx],30%) 100%) !important
+          background-image: linear-gradient(30deg, var(colorx, 1) 0%, var(colorx, .5) 100%) !important
         }
         else {
-          background: linear-gradient(30deg, $vs-colors[colorx] 0%, spin($vs-colors[colorx],30deg) 100%) !important
+          background-image: linear-gradient(30deg, var(colorx, 1) 0%, var(colorx, .5) 100%) !important
         }
         text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3)

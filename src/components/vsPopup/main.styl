@@ -124,6 +124,5 @@
 for colorx, i in $vs-colors
   .vs-popup-{colorx}
     header
-        // color: $vs-colors[colorx]
       .after
-        background: $vs-colors[colorx]
+        background: var(colorx, 1)

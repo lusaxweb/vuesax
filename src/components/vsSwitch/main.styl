@@ -76,4 +76,4 @@ for colorx, i in $vs-colors
   .vs-switch-{colorx}
     background: rgb(226, 226, 226)
     &.vs-switch-active
-      background: $vs-colors[colorx]
+      background: var(colorx, 1)

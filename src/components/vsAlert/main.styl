@@ -42,11 +42,11 @@
       box-shadow: 0px 5px 15px 0px rgba(0,0,0,.1)
 for colorx, i in $vs-colors
   .con-vs-alert-{colorx}
-    background: alpha($vs-colors[colorx],.15)
-    box-shadow 0px 0px 25px 0px alpha($vs-colors[colorx],.15)
-    color: $vs-colors[colorx]
+    background: var(colorx, .15)
+    box-shadow 0px 0px 25px 0px var(colorx, .15)
+    color: var(colorx, 1)
     h4
-      box-shadow: 0px 6px 15px -7px alpha($vs-colors[colorx],.4)
+      box-shadow: 0px 6px 15px -7px var(colorx, .4)
     .con-x
-      background: $vs-colors[colorx]
+      background: var(colorx, 1)
       color: rgb(255,255,255)

@@ -40,6 +40,6 @@
 
 for colorx, i in $vs-colors
   .vs-progress-{colorx}
-    background: alpha($vs-colors[colorx],.1)
+    background: var(colorx, .1)
     .vs-progress-foreground,.indeterminate-bar
-      background: $vs-colors[colorx]
+      background: var(colorx, 1)

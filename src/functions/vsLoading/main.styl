@@ -316,44 +316,44 @@
 
 for colorx, i in $vs-colors
   .vs-loading-background-{colorx}
-    background: $vs-colors[colorx]
+    background: var(colorx, 1)
   .vs-loading-color-{colorx}
     .default,.border
       .effect-1
-        border-left: 3px solid $vs-colors[colorx] !important
+        border-left: 3px solid var(colorx, 1) !important
       .effect-2
-        border-left: 3px solid $vs-colors[colorx] !important
+        border-left: 3px solid var(colorx, 1) !important
       .effect-3
-        border-left: 3px solid $vs-colors[colorx] !important
+        border-left: 3px solid var(colorx, 1) !important
       //border type
     .border
       .effect-1,.effect-2,.effect-3
-        border-left: 1px solid $vs-colors[colorx] !important
+        border-left: 1px solid var(colorx, 1) !important
     //point type
     .point
       .effect-1
-        background: alpha($vs-colors[colorx],.4) !important
+        background: var(colorx, .4) !important
       .effect-2
-        background: alpha($vs-colors[colorx],.4) !important
+        background: var(colorx, .4) !important
       .effect-3
-        background: alpha($vs-colors[colorx],.4) !important
+        background: var(colorx, .4) !important
 
     .radius
       .effect-1
-        border: 3px solid $vs-colors[colorx] !important
+        border: 3px solid var(colorx, 1) !important
       .effect-2
-        border: 3px solid $vs-colors[colorx] !important
+        border: 3px solid var(colorx, 1) !important
       .effect-3
-        border: 3px solid $vs-colors[colorx] !important
+        border: 3px solid var(colorx, 1) !important
 
     .corners
       .effect-1
-        border: 3px solid $vs-colors[colorx] !important
+        border: 3px solid var(colorx, 1) !important
 
     .sound
       .effect-1
-        background: $vs-colors[colorx] !important
+        background: var(colorx, 1) !important
       .effect-2
-        background: $vs-colors[colorx] !important
+        background: var(colorx, 1) !important
       .effect-3
-        background: $vs-colors[colorx] !important
+        background: var(colorx, 1) !important

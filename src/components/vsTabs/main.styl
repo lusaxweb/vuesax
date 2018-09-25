@@ -187,16 +187,16 @@ for colorx, i in $vs-colors
       cursor default !important
     button:not(:disabled)
       &:hover
-        color: $vs-colors[colorx] !important
+        color: var(colorx, 1) !important
     .activeChild
       button
-        color: $vs-colors[colorx] !important
+        color: var(colorx, 1) !important
         &:active
           background rgb(0,0,0)
 
     .line-vs-tabs
-      background: linear-gradient(30deg, $vs-colors[colorx] 0%, alpha($vs-colors[colorx],.5) 100%) !important
-      box-shadow 0px 0px 8px 0px alpha($vs-colors[colorx],.4) !important
+      background: linear-gradient(30deg, var(colorx, 1) 0%, var(colorx, .5) 100%) !important
+      box-shadow 0px 0px 8px 0px var(colorx, .4) !important
 
 
 // vs-tab

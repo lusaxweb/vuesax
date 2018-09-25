@@ -190,19 +190,15 @@ for colorx, i in $vs-colors
     .vs-sidebar-item
       a
         &:hover
-          color: $vs-colors[colorx]
-          i.material-icons
-            // border-right 1px solid $vs-colors[colorx]
+          color: var(colorx, 1)
 
     .vs-sidebar-item-active
       font-weight: bold
       background: linear-gradient(90deg, rgba(0,0,0,.0) 0%, rgba(0,0,0,.01) 100%);
-      border-right: 3px solid $vs-colors[colorx] !important
+      border-right: 3px solid var(colorx, 1) !important
       a
-        color: $vs-colors[colorx] !important
+        color: var(colorx, 1) !important
         opacity 1 !important
-        // i.material-icons
-        //     border-right: 1px solid $vs-colors[colorx] !important
 
 // animations
 

@@ -5,6 +5,6 @@
   cursor: pointer;
 for colorx, i in $vs-colors
   .vs-collapse-{colorx}
-    color: $vs-colors[colorx]
+    color: var(colorx, 1)
     &:hover
-      background: alpha($vs-colors[colorx], 0.1) !important
+      background: var(colorx, .1) !important

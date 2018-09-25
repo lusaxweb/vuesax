@@ -159,12 +159,11 @@ for colorx, i in $vs-colors
   .vs-slider-{colorx}
 
     .vs-slider-line-one
-      background: $vs-colors[colorx]
+      background: var(colorx, 1)
     .vs-circles-slider
-      border: 2px solid $vs-colors[colorx]
+      border: 2px solid var(colorx, 1)
 
-      // background: $vs-colors[colorx]
     .text-circle-slider
-      background: $vs-colors[colorx]
+      background: var(colorx, 1)
     .vs-slider-line-efect
-      background: $vs-colors[colorx]
+      background: var(colorx, 1)
