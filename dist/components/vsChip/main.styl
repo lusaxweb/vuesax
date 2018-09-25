@@ -1,0 +1,62 @@
+
+
+.con-vs-chip
+  background: rgb(240,240,240)
+  border-radius: 20px
+  float left
+  display: flex
+  align-items: center
+  font-size .7rem
+  justify-content: center
+  margin-right: 2px
+  margin-bottom: 3px
+  min-height 28px
+  padding-right 10px
+  color: rgba(0,0,0,.7)
+  position: relative
+  &.closable
+    padding-right: 0px !important
+  &.con-color
+    .con-vs-avatar
+      background: rgba(255,255,255,.2) !important
+  .btn-close
+    width: 20px
+    height 20px
+    display: flex
+    align-items: center
+    justify-content: center
+    border-radius: 50%
+    border: 0px
+    margin: 0px 4px
+    cursor pointer
+    background: rgba(0,0,0,.15) !important
+    color: rgb(255,255,255)
+    transition: all .3s ease
+    &:hover
+      background: $vs-colors[danger] !important
+    i
+      font-size: .9rem
+  .con-vs-avatar
+    // margin: 0px !important
+    width: 24px
+    height 24px
+    position relative
+    display: block
+    margin: 2px 0px !important
+    transform: translate(-8px)
+    display: flex
+    align-items: center
+    justify-content: center
+    background: rgba(0,0,0,.15) !important
+    .material-icons
+      margin-top: 0px !important
+      font-size: .8rem
+  .text-chip
+    display: flex
+    align-items: center
+    justify-content: center
+    margin-left: 10px
+
+for colorx, i in $vs-colors
+  .vs-chip-{colorx}
+    background: var(colorx, 1)

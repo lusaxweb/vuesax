@@ -33,6 +33,13 @@
           <!-- <OutboundLink/> -->
         </a>
 
+        <div class="btn-download">
+          <i class="material-icons">
+            get_app
+          </i>
+          Download
+        </div>
+
       <div title="Change Color Primary" v-if="!$page.frontmatter.home" class="con-colors-input">
         <div :style="{
           'box-shadow': '0px 5px 20px -4px rgba(var(--primary),.9)',
@@ -112,7 +119,18 @@ export default {
   display flex
   align-items center
   justify-content center
-
+  .btn-download
+    padding 12px
+    font-size .8rem
+    display flex
+    align-items center
+    justify-content center
+    border-left 1px solid rgba(0,0,0,.05)
+    border-right 1px solid rgba(0,0,0,.05)
+    margin-left 10px
+    cursor pointer
+    i
+      margin-right 5px
 .con-inputx-c {
   overflow: hidden;
   display: inline-block;

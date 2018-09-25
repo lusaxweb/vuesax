@@ -1,0 +1,10 @@
+.vs-collapse
+  transition: all .3s ease;
+  padding: 10px;
+  color: $vs-light
+  cursor: pointer;
+for colorx, i in $vs-colors
+  .vs-collapse-{colorx}
+    color: var(colorx, 1)
+    &:hover
+      background: var(colorx, .1) !important

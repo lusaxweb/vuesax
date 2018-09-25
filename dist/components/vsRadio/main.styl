@@ -1,0 +1,73 @@
+
+.con-vs-radio
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:hover
+    .vs-radiox-borde
+      border: 2px solid rgb(160, 160, 160) !important;
+  .vs-radiox-labelx
+    margin-left: 5px;
+  input[type="radio"]
+    position: absolute;
+    left: 0px;
+    opacity: 0;
+    width: 20px;
+    width: 20px;
+    &:checked
+      + .vs-radiox
+        cursor: default;
+        .vs-radiox-circle
+          transform: scale(1) !important;
+          opacity: 1 !important;
+        .vs-radiox-borde
+          opacity: 0;
+          transform: scale(.3) !important;
+    &:active
+      + .vs-radiox
+        .vs-radiox-circle
+          // transform: scale(1.1) !important;
+        .vs-radiox-borde
+          transform: scale(1.1) !important;
+    &:disabled
+      + .vs-radiox
+        opacity: .4 !important;
+        .vs-radiox-circle
+          pointer-events: none;
+        .vs-radiox-borde
+          border: 2px solid rgb(180, 180, 180) !important
+          background: rgb(210, 210, 210)
+          pointer-events: none;
+  .vs-radiox
+    width: 18px;
+    height: 18px;
+    position: relative;
+    display: block;
+    border-radius: 50%;
+    cursor: pointer;
+    .vs-radiox-borde
+      border-radius: 50%;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0px;
+      transition: all .25s ease;
+      background: transparent;
+      top: 0px;
+    .vs-radiox-circle
+      transition: all .25s ease;
+      transform: scale(.1);
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      position: absolute;
+      left: 0px;
+      top: 0px;
+
+for colorx, i in $vs-colors
+  .vs-radio-{colorx}
+    .vs-radiox-circle
+      background: var(colorx, 1)
+      box-shadow: 0px 3px 12px 0px var(colorx, .4)

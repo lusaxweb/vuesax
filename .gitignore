@@ -1,12 +1,13 @@
 .DS_Store
 node_modules
-dist
+# dist
 
 # local env files
 .env.local
 .env.*.local
 *.map
 dist/demo.html
+docs/.vuepress/dist/
 
 # Log files
 npm-debug.log*

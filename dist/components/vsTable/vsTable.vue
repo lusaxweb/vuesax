@@ -1,0 +1,323 @@
+<template lang="html">
+  <div
+    :class="[{'stripe': stripe, 'hoverFlat': hoverFlat}, `vs-table-${color}`,]"
+    class="vs-component vs-con-table">
+
+    <!-- header -->
+    <header class="header-table">
+      <span>
+        <slot name="header"></slot>
+      </span>
+
+      <div v-if="search" class="con-input-search">
+        <input class="input-search" v-model="searchx" type="text">
+        <i class="material-icons">
+          search
+        </i>
+      </div>
+    </header>
+
+
+
+    <div class="vs-con-table-theade">
+      <table
+        :style="tableHeaderStyle"
+        class="vs-table-theade">
+        <colgroup ref="colgroup">
+          <col width="20"/>
+          <col
+            class="col"
+            v-for="(col,index) in getThs"
+            :key="index"
+            :name="`col-${index}`">
+        </colgroup>
+        <thead ref="thead">
+
+          <tr>
+            <th class="td-check">
+              <span v-if="multiple" class="con-td-check">
+                <vs-checkbox :vs-icon="isCheckedLine ? 'remove' : 'check'" @click="changeCheckedMultiple" :checked="isCheckedMultiple" size="small"/>
+              </span>
+            </th>
+            <slot name="thead"></slot>
+          </tr>
+        </thead>
+      </table>
+    </div>
+
+    <div
+      :style="styleConTbody"
+      class="vs-con-tbody">
+      <table
+        ref="table"
+        class="vs-table">
+        <colgroup ref="colgrouptable">
+          <col width="20"/>
+          <col
+            v-for="(col,index) in 3"
+            :key="index"
+            :name="`col-${index}`" >
+        </colgroup>
+        <!-- <tbody ref="tbody"> -->
+        <slot :data="datax"></slot>
+        <!-- </tbody> -->
+      </table>
+    </div>
+    <div v-if="isNoData" class="not-data-table">
+      No data Available
+    </div>
+
+    <div v-if="pagination" class="con-pagination-table">
+      <vs-pagination :total="getTotalPages" v-model="currentx"></vs-pagination>
+    </div>
+
+  </div>
+</template>
+
+<script>
+export default {
+  name: "VsTable",
+  props:{
+    value:{},
+    color: {
+      default:'primary',
+      type: String
+    },
+    stripe:{
+      default: false,
+      type: Boolean
+    },
+    hoverFlat:{
+      default: false,
+      type: Boolean
+    },
+    maxHeight:{
+      default: 'auto',
+      type: String
+    },
+    multiple:{
+      default: false,
+      type: Boolean
+    },
+    data:{
+      default: null,
+    },
+    notSpacer:{
+      default:false,
+      type:Boolean
+    },
+    search:{
+      default: false,
+      type: Boolean
+    },
+    maxItems:{
+      default: 5,
+      type: [Number, String]
+    },
+    pagination:{
+      default: false,
+      type: Boolean
+    }
+  },
+  data:()=>({
+    headerWidth: '100%',
+    trs: [],
+    datax: [],
+    searchx: null,
+    currentx: 1
+  }),
+  computed:{
+    getTotalPages() {
+      return Math.ceil(this.data.length / this.maxItems)
+    },
+    isNoData() {
+      return this.datax?this.datax.length == 0:false && this.search
+    },
+    isCheckedLine () {
+      let lengthx = this.data.length
+      let lengthSelected = this.value.length
+      return lengthx !== lengthSelected
+    },
+    isCheckedMultiple () {
+      return this.value.length > 0
+    },
+    styleConTbody () {
+      return {
+        maxHeight: this.maxHeight,
+        overflow: this.maxHeight != 'auto'?'auto':null
+      }
+    },
+    getThs () {
+      let ths = this.$slots.thead.filter(item => item.tag )
+      return ths.length
+    },
+    tableHeaderStyle () {
+      return {
+        width: this.headerWidth
+      }
+    }
+  },
+  watch:{
+    currentx() {
+      let max = Math.ceil(this.currentx * this.maxItems)
+      let min = max - this.maxItems
+
+      this.datax = this.getItems(min, max)
+    },
+    data() {
+      let max = Math.ceil(this.currentx * this.maxItems)
+      let min = max - this.maxItems
+
+      let datax = this.pagination ? this.getItems(min, max) : this.data
+
+      this.datax = datax || []
+      this.$nextTick(() => {
+        if(datax.length > 0) {
+          this.changeTdsWidth()
+        }
+      })
+    },
+    searchx() {
+      this.filterValues()
+    }
+  },
+  mounted () {
+    window.addEventListener('resize', this.listenerChangeWidth)
+
+    let max = Math.ceil(this.currentx * this.maxItems)
+    let min = max - this.maxItems
+
+    this.datax = this.pagination ? this.getItems(min, max) : this.data || []
+    this.$nextTick(() => {
+      if(this.datax.length > 0) {
+        this.changeTdsWidth()
+      }
+    })
+  },
+  methods:{
+    getItems(min, max) {
+      let items = []
+
+      this.data.forEach((item, index) => {
+        if(index >= min && index < max) {
+          items.push(item)
+        }
+      })
+      return items
+    },
+    sort(key, active) {
+      let datax = this.datax
+
+      function compare(a,b) {
+        if (a[key] < b[key])
+          return active?1:-1
+        if (a[key] > b[key])
+          return active?-1:1;
+        return 0;
+      }
+
+      this.datax = datax.sort(compare)
+
+    },
+    filterValues () {
+      let dataBase = this.data
+
+      let filterx = dataBase.filter((tr)=>{
+        let values = this.getValues(tr).toString().toLowerCase()
+        return values.indexOf(this.searchx.toLowerCase()) != -1
+      })
+
+      this.datax = filterx
+    },
+    getValues(obj) {
+      let valuesx = Object.values(obj)
+      let strings = []
+
+      function getStrings (obj) {
+
+        if(Array.isArray(obj)) {
+
+          strings = [...strings,...obj]
+          obj.forEach((item) => {
+            getStrings(item)
+          })
+        } else if (typeof obj == 'object') {
+          let subObj = Object.values(obj)
+          strings = [...strings,...subObj]
+          getStrings(subObj)
+        }
+
+      }
+      getStrings(valuesx)
+
+      strings = strings.filter(item => typeof item == 'string' || typeof item == 'number')
+
+      return valuesx
+    },
+    getStrings(obj, valuesx) {
+      let stringsx = Object.values(item)
+      valuesx.forEach((item) => {
+        if (typeof item == 'object') {
+          valuesx = [...valuesx,...Object.values(item)]
+        }
+      })
+      // return [...valuesx,...Object.values(item)]
+      return stringsx
+    },
+    changeCheckedMultiple () {
+      let lengthx = this.data.length
+      let lengthSelected = this.value.length
+      let selectedx = (lengthx - lengthSelected)
+      if (selectedx == 0) {
+        this.$emit('input', [])
+      } else {
+        this.$emit('input', this.data)
+      }
+    },
+    clicktr (tr, isTr) {
+
+      if(this.multiple && isTr){
+        let val = this.value.slice(0)
+        if(val.includes(tr)) {
+          val.splice(val.indexOf(tr),1)
+        } else {
+          val.push(tr)
+        }
+
+        this.$emit('input', val)
+        this.$emit('selected', tr)
+      } else if (isTr) {
+        this.$emit('input', tr)
+        this.$emit('selected', tr)
+      }
+    },
+    listenerChangeWidth () {
+      this.headerWidth = `${this.$refs.table.offsetWidth}px`
+      this.changeTdsWidth()
+    },
+    changeTdsWidth() {
+      let tbody = this.$refs.table.querySelector('tbody')
+
+      let tds = tbody.querySelector('.tr-values').querySelectorAll('.td')
+
+      let tdsx = []
+
+      tds.forEach((td, index) => {
+        tdsx.push({index: index, widthx: td.offsetWidth})
+      });
+
+      let colgroup = this.$refs.colgroup
+      let cols = colgroup.querySelectorAll('.col')
+      cols.forEach((col, index) => {
+        col.setAttribute('width', tdsx[index].widthx)
+      });
+
+      let colgrouptable = this.$refs.colgrouptable
+      let colsTable = colgrouptable.querySelectorAll('.col')
+      colsTable.forEach((col, index) => {
+        col.setAttribute('width', tdsx[index].widthx)
+      });
+    }
+  }
+}
+</script>
