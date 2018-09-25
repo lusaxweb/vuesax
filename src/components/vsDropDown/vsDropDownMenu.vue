@@ -14,7 +14,6 @@
       <ul
         v-if="!vsCustomContent"
         class="vs-component vs-dropdown-menu" >
-        <div class="after"/>
         <slot/>
       </ul>
       <div
@@ -54,7 +53,7 @@ export default {
     this.insertBody()
   },
   beforeDestroy() {
-    this.$destroy()
+    this.$el.parentNode.removeChild(this.$el)
   },
   methods:{
     toggleMenu(event){
@@ -67,8 +66,6 @@ export default {
     },
     insertBody(){
       let elp = this.$el
-      console.log('instance', elp)
-      let elx = this.$refs.options
       document.body.insertBefore(elp, document.body.firstChild)
     },
   }

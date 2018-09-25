@@ -136,6 +136,14 @@
   z-index: 40000
   transform: translate(-100%);
   transition: opacity .25s, transform .25s, width .3s ease;
+  &::after
+    content: ''
+    display block
+    width 100%
+    height 10px
+    position absolute
+    left 0
+    top 100%
 .vs-dropdown-menu
   background: rgb(255, 255, 255);
   padding-left: 0px !important;
@@ -145,7 +153,7 @@
   padding-top: 5px;
   padding-bottom: 5px;
   position: relative;
-  .after
+  &::after
     content: '';
     position: absolute;
     right: 10px;
@@ -159,8 +167,9 @@
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     border-left: 1px solid rgba(0, 0, 0, 0.1);
     z-index: 10;
-&.notHeight
-  .after
+    box-sizing: border-box
+&.notHeight .vs-dropdown-menu
+  &::after
     top: auto;
     bottom: 0px;
     border-top: 1px solid rgba(0, 0, 0, 0.0);
