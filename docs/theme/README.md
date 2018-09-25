@@ -272,3 +272,61 @@ export default {
 </div>
 </vuecode>
 </box>
+
+<box>
+
+## Change Colors SSR
+
+To change the main colors in SSR (Server-Side Rendering) for example if you are using [nuxt.js](https://nuxtjs.org/) the main variables of [stylus](http://stylus-lang.com) and those of css
+
+To change the variables we must first import them into a `.styl` file and change the values ​​of the variables by the colors required
+
+:::warning
+  In order to change the variables and use them you have to have implemented the stylus loaders, to implement them by npm would be something like this
+
+  ```bash
+    npm i stylus stylus-loader --save-dev
+  ```
+:::
+
+:::warning
+  The value of the colors can only be `RGB` and nothing else is added to the number without the letters `rgb` or the parentheses
+
+  For example if the color is `rgb(50,100,200)` the value to be implemented is only: `50,100,200`
+:::
+
+```css
+// main.styl
+
+@import '~vuesax/dist/styles/index.styl'
+
+$vs-primary = 50,100,200
+
+:root {
+  --primary: $vs-primary
+}
+```
+
+:::tip
+The stylus variables of the main colors are:
+
+  ```
+    $vs-primary
+    $vs-success
+    $vs-danger
+    $vs-warning
+    $vs-dark
+  ```
+
+and the css variables are:
+
+  ```
+    --primary
+    --success
+    --danger
+    --warning
+    --dark
+  ```
+:::
+
+</box>

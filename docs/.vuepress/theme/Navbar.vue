@@ -23,6 +23,7 @@
 
     <div class="con-redes-download">
       <a
+        title="Github"
         v-if="repoLink"
         :href="repoLink"
         class="repo-link flaticon-github"
@@ -31,15 +32,17 @@
           <!-- {{ repoLabel }} -->
           <!-- <OutboundLink/> -->
         </a>
-    </div>
-    <!-- colors change
-    <div v-if="!$page.frontmatter.home" class="con-colors-input">
-      <div :style="{
-        'box-shadow': '0px 5px 20px -4px rgba(var(--primary),.9)',
-        'background': 'rgb(var(--primary))'}" class="con-inputx-c">
-        <input @change="changeColor($event.target.value)" type="color" name="" :value="color">
+
+      <div title="Change Color Primary" v-if="!$page.frontmatter.home" class="con-colors-input">
+        <div :style="{
+          'box-shadow': '0px 5px 20px -4px rgba(var(--primary),.9)',
+          'background': 'rgb(var(--primary))'}" class="con-inputx-c">
+          <input @change="changeColor($event.target.value)" type="color" name="" :value="color">
+        </div>
       </div>
-    </div> -->
+    </div>
+    <!-- colors change -->
+
   </header>
 </template>
 
@@ -106,7 +109,9 @@ export default {
 //vuesax
 .con-redes-download
   padding 0px 10px
-
+  display flex
+  align-items center
+  justify-content center
 
 .con-inputx-c {
   overflow: hidden;
@@ -119,10 +124,11 @@ export default {
   box-shadow: 0px 0px
 }
 .con-colors-input{
-  position: absolute;
-  right: 15px;
-  top: 11px;
-  display: inline-block;
+  position: relative;
+  display flex
+  align-items center
+  justify-content center
+  margin-left 15px
 }
 .con-colors-input input{
   border: 0px;

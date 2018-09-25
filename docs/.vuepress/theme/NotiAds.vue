@@ -48,7 +48,7 @@ export default {
     color $accentColor
     background transparent
     margin-top 15px;
-    border-radius 8px;
+    border-radius 5px;
     cursor pointer
     transition all .2s ease
     background rgb(249, 104, 84)

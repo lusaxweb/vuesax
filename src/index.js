@@ -1,5 +1,5 @@
 import * as vsComponents from './components'
-import './styles/index.styl'
+// import './styles/index.styl'
 import vsFunctions from './functions'
 import easing from './utils/easing.js'
 import vsTheme from './utils/theme.js'
