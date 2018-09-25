@@ -136,6 +136,14 @@
   z-index: 40000
   transform: translate(-100%);
   transition: opacity .25s, transform .25s, width .3s ease;
+  &::after
+    content: ''
+    display block
+    width 100%
+    height 10px
+    position absolute
+    left 0
+    top 100%
 .vs-dropdown-menu
   background: rgb(255, 255, 255);
   padding-left: 0px !important;
