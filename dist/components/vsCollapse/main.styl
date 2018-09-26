@@ -1,10 +1,33 @@
 .vs-collapse
   transition: all .3s ease;
-  padding: 10px;
-  color: $vs-light
   cursor: pointer;
-for colorx, i in $vs-colors
-  .vs-collapse-{colorx}
-    color: var(colorx, 1)
-    &:hover
-      background: var(colorx, .1) !important
+  border-radius: 8px
+  box-shadow: 0px 2px 12px 0px rgba(0,0,0,.05)
+  padding: 10px
+  .vs-collapse-item
+    border-bottom: 1px solid rgba(0,0,0,.04)
+    overflow hidden
+    header
+      display: block
+      padding: 10px
+      position relative
+      .icon-header
+        position: absolute
+        right 10px
+        top: 50%
+        transform translate(-50%, -50%)
+        display block
+    .vs-collapse-item-content
+      overflow hidden
+      transition: all .25s ease
+      // box-shadow: inset 0px 0px 6px 0px rgba(0,0,0,.05)
+      .con-content-item
+        padding: 10px
+        padding-top: 0px
+    &:last-child
+      border-bottom: 0px solid rgba(0,0,0,.0)
+
+    &.open-item
+      background: #000
+      .icon-header
+        transform: rotate(180deg)

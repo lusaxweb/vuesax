@@ -1,10 +1,30 @@
 <template lang="html">
   <div>
-    <vs-collapse/>
-    <vs-collapse vs-color="rgba(108, 200, 27,.5)"/>
-    <vs-collapse vs-color="rgb(193, 163, 6)"/>
-    <vs-collapse vs-color="#6c0505"/>
-    <vs-collapse vs-color="warning"/>
+    <vs-collapse>
+     <vs-collapse-item>
+       <div slot="header">
+         hola mundo
+       </div>
+
+       Consistent with real life: in line with the process and logic of real life, and comply with languages and habits that the users are used to;
+       Consistent within interface: all elements should be consistent, such as: design style, icons and texts, position of elements, etc.
+     </vs-collapse-item>
+     <vs-collapse-item>
+       <div slot="header">
+         hola mundo 2
+       </div>
+
+       Consistent with real life: in line with the process and logic of real life, and comply  icons and texts, position of elements, etc.
+     </vs-collapse-item>
+     <vs-collapse-item>
+       <div slot="header">
+         hola mundo 3
+       </div>
+
+       Consistent with real life: in line with the process and logic of real life, and comply with languages and habits that the users are used to;
+       Consistent within interface: all elements should be consistent, such as: design style, icons and texts, position of elements, etc.
+     </vs-collapse-item>
+    </vs-collapse>
   </div>
 </template>
 
