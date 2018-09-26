@@ -4,9 +4,13 @@ $mobileSidebarWidth = $sidebarWidth * 0.82
 
 // narrow desktop / iPad
 @media (max-width: $MQNarrow)
-
+  .btn-download
+    span
+      display: none
   .navbar
-    .logo
+    .nav-item
+      margin-left: 0px
+    .home-link
       margin-left: 1rem
       margin-right: 3rem
   .sidebar-link, .sidebar-heading
@@ -40,7 +44,6 @@ $mobileSidebarWidth = $sidebarWidth * 0.82
   //   padding-left: 13rem
   footer.footerx_theme
     width: 100% !important
-
 
 // wide mobile
 @media (max-width: $MQMobile)

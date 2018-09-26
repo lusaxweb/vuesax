@@ -138,7 +138,7 @@ export default {
     cursor: pointer
     position relative
     display inline-block
-    margin-left .5rem
+    margin-left .4rem
     font-weight 500
     // line-height 2rem
     position: relative
@@ -154,7 +154,7 @@ export default {
     .repo-link
       display: none !important;
 .links
-  right 1.5rem !important
+  // right 1.5rem !important
 @media (min-width: $MQMobile)
   .nav-links
     a

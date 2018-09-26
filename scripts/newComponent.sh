@@ -20,7 +20,7 @@ API:
    default: null
 ---
 
-# '$MAYUS' ** - new**
+# '$MAYUS' **- new**
 
 <box header>
 
@@ -87,7 +87,7 @@ export default Vue => {
 
 # add Stylus archive
 
-echo ".vs-'${NAME,,}'
+echo ".vs-${NAME,,}
   background: rgb(14, 142, 25)" > src/components/vs$MAYUS/main.styl
 
 
@@ -130,7 +130,7 @@ mv script_tmp src/components/index.js
 
 IMPORTSTYLUS="@import ./vs$MAYUS/main\n\/\/New Component import"
 
-sed -e "s/\/\/New Component import/$IMPORT/" src/components/components.styl > script_tmp
+sed -e "s/\/\/New Component import/$IMPORTSTYLUS/" src/components/components.styl > script_tmp
 mv script_tmp src/components/components.styl
 
 # # agregar Export

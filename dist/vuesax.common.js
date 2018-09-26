@@ -123,13 +123,6 @@ __webpack_require__("uQXF")('search', 1, function (defined, SEARCH, $search) {
 
 /***/ }),
 
-/***/ "/kYV":
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-
 /***/ "0/6w":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1467,6 +1460,7 @@ __webpack_require__.d(components_namespaceObject, "vsNavbar", function() { retur
 __webpack_require__.d(components_namespaceObject, "vsSideBar", function() { return vsSideBar; });
 __webpack_require__.d(components_namespaceObject, "vsDropDown", function() { return components_vsDropDown; });
 __webpack_require__.d(components_namespaceObject, "vsTable", function() { return components_vsTable; });
+__webpack_require__.d(components_namespaceObject, "vsTextarea", function() { return components_vsTextarea; });
 __webpack_require__.d(components_namespaceObject, "vsCollapse", function() { return components_vsCollapse; });
 __webpack_require__.d(components_namespaceObject, "vsRow", function() { return layout_vsRow; });
 __webpack_require__.d(components_namespaceObject, "vsCol", function() { return layout_vsCol; });
@@ -9647,6 +9641,128 @@ vsTd_component.options.__file = "vsTd.vue"
   Vue.component(vsTr.name, vsTr);
   Vue.component(vsTd.name, vsTd);
 });
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://Users//DELL//Documents//vuesax//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!C:/Users/DELL/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsTextarea/vsTextarea.vue?vue&type=template&id=70dfd385&lang=html&
+var vsTextareavue_type_template_id_70dfd385_lang_html_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"vs-component vs-con-textarea",class:{'textarea-danger': _vm.counter ? _vm.value.length > _vm.counter : false, 'focusx': _vm.focusx}},[(_vm.label)?_c('h4',[_vm._v("\n    "+_vm._s(_vm.label)+"\n  ")]):_vm._e(),_c('textarea',_vm._g(_vm._b({staticClass:"vs-textarea",domProps:{"value":_vm.value}},'textarea',_vm.$attrs,false),_vm.listeners)),(_vm.counter)?_c('div',{staticClass:"count"},[_vm._v("\n    "+_vm._s(_vm.value.length)+" / "+_vm._s(_vm.counter)+"\n  ")]):_vm._e()])}
+var vsTextareavue_type_template_id_70dfd385_lang_html_staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./src/components/vsTextarea/vsTextarea.vue?vue&type=template&id=70dfd385&lang=html&
+
+// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib??ref--12-1!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsTextarea/vsTextarea.vue?vue&type=script&lang=js&
+
+
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ var vsTextareavue_type_script_lang_js_ = ({
+  name: "VsTextarea",
+  inheritAttrs: false,
+  props: {
+    value: {},
+    label: {
+      default: null,
+      type: String
+    },
+    counter: {
+      default: null,
+      type: [Number, String]
+    },
+    counterDanger: {
+      default: false,
+      type: Boolean
+    }
+  },
+  data: function data() {
+    return {
+      focusx: false
+    };
+  },
+  computed: {
+    listeners: function listeners() {
+      var _this = this;
+
+      return _objectSpread({}, this.$listeners, {
+        input: function input(evt) {
+          _this.$emit('input', evt.target.value);
+        },
+        focus: function focus() {
+          _this.focus();
+        },
+        blur: function blur() {
+          _this.blur();
+        }
+      });
+    }
+  },
+  watch: {
+    value: function value() {
+      if (this.value.length > this.counter) {
+        this.$emit('update:counterDanger', true);
+      } else {
+        this.$emit('update:counterDanger', false);
+      }
+    }
+  },
+  methods: {
+    focus: function focus() {
+      this.focusx = true;
+    },
+    blur: function blur() {
+      this.focusx = false;
+    }
+  }
+});
+// CONCATENATED MODULE: ./src/components/vsTextarea/vsTextarea.vue?vue&type=script&lang=js&
+ /* harmony default export */ var vsTextarea_vsTextareavue_type_script_lang_js_ = (vsTextareavue_type_script_lang_js_); 
+// CONCATENATED MODULE: ./src/components/vsTextarea/vsTextarea.vue
+
+
+
+
+
+/* normalize component */
+
+var vsTextarea_component = normalizeComponent(
+  vsTextarea_vsTextareavue_type_script_lang_js_,
+  vsTextareavue_type_template_id_70dfd385_lang_html_render,
+  vsTextareavue_type_template_id_70dfd385_lang_html_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+vsTextarea_component.options.__file = "vsTextarea.vue"
+/* harmony default export */ var vsTextarea = (vsTextarea_component.exports);
+// CONCATENATED MODULE: ./src/components/vsTextarea/index.js
+
+
+
+/* harmony default export */ var components_vsTextarea = (function (Vue) {
+  Vue.component(vsTextarea.name, vsTextarea);
+});
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://Users//DELL//Documents//vuesax//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!C:/Users/DELL/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsCollapse/vsCollapse.vue?vue&type=template&id=1c29ecaf&lang=html&
 var vsCollapsevue_type_template_id_1c29ecaf_lang_html_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',_vm._g(_vm._b({staticClass:"vs-component vs-collapse vs-collapse-",class:[("vs-collapse-" + (_vm.isColor()?_vm.vsColor:null))],style:(_vm.styles),on:{"mouseover":function($event){_vm.hoverx=true},"mouseout":function($event){_vm.hoverx=false}}},'div',_vm.$attrs,false),_vm.$listeners),[_vm._v("\n  Component vsCollapse\n")])}
 var vsCollapsevue_type_template_id_1c29ecaf_lang_html_staticRenderFns = []
@@ -9956,15 +10072,13 @@ vsCol_component.options.__file = "vsCol.vue"
 
 
 
+
  //New Component import
 // component not soport SSR
 
  //layout
 
 
-
-// EXTERNAL MODULE: ./src/styles/index.styl
-var src_styles = __webpack_require__("/kYV");
 
 // EXTERNAL MODULE: external {"commonjs":"vue","commonjs2":"vue","root":"Vue"}
 var external_commonjs_vue_commonjs2_vue_root_Vue_ = __webpack_require__("i7/w");
@@ -10733,7 +10847,7 @@ var vsFunctions = {
 
 
 
-
+ // import './styles/index.styl'
 
 
 

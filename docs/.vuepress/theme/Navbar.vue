@@ -1,5 +1,5 @@
 <template>
-  <header :class="{'shadow':shadow}" class="navbar">
+  <header :class="{'shadow':true}" class="navbar">
     <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')"/>
     <div class="con-btns-header">
       <router-link @click.native="changeAds" :to="$localePath" class="home-link">
@@ -32,13 +32,19 @@
           <!-- {{ repoLabel }} -->
           <!-- <OutboundLink/> -->
         </a>
+        <a target="_blank" title="@vuesax" href="https://twitter.com/vuesax">
+          <i class="flaticon-twitter twitterx"></i>
+        </a>
+        <a target="_blank" title="Discord" class="icon-discord" href="https://discord.gg/vbFpy4">
+          <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 245 240"><path class="st0" d="M104.4 103.9c-5.7 0-10.2 5-10.2 11.1s4.6 11.1 10.2 11.1c5.7 0 10.2-5 10.2-11.1.1-6.1-4.5-11.1-10.2-11.1zM140.9 103.9c-5.7 0-10.2 5-10.2 11.1s4.6 11.1 10.2 11.1c5.7 0 10.2-5 10.2-11.1s-4.5-11.1-10.2-11.1z"/><path class="st0" d="M189.5 20h-134C44.2 20 35 29.2 35 40.6v135.2c0 11.4 9.2 20.6 20.5 20.6h113.4l-5.3-18.5 12.8 11.9 12.1 11.2 21.5 19V40.6c0-11.4-9.2-20.6-20.5-20.6zm-38.6 130.6s-3.6-4.3-6.6-8.1c13.1-3.7 18.1-11.9 18.1-11.9-4.1 2.7-8 4.6-11.5 5.9-5 2.1-9.8 3.5-14.5 4.3-9.6 1.8-18.4 1.3-25.9-.1-5.7-1.1-10.6-2.7-14.7-4.3-2.3-.9-4.8-2-7.3-3.4-.3-.2-.6-.3-.9-.5-.2-.1-.3-.2-.4-.3-1.8-1-2.8-1.7-2.8-1.7s4.8 8 17.5 11.8c-3 3.8-6.7 8.3-6.7 8.3-22.1-.7-30.5-15.2-30.5-15.2 0-32.2 14.4-58.3 14.4-58.3 14.4-10.8 28.1-10.5 28.1-10.5l1 1.2c-18 5.2-26.3 13.1-26.3 13.1s2.2-1.2 5.9-2.9c10.7-4.7 19.2-6 22.7-6.3.6-.1 1.1-.2 1.7-.2 6.1-.8 13-1 20.2-.2 9.5 1.1 19.7 3.9 30.1 9.6 0 0-7.9-7.5-24.9-12.7l1.4-1.6s13.7-.3 28.1 10.5c0 0 14.4 26.1 14.4 58.3 0 0-8.5 14.5-30.6 15.2z"/></svg>
+        </a>
 
-        <div class="btn-download">
+        <a href="https://github.com/lusaxweb/vuesax/releases/download/v3.4.3/vuesax-3.4.3.zip" class="btn-download">
           <i class="material-icons">
             get_app
           </i>
-          Download
-        </div>
+          <span>Download</span>
+        </a>
 
       <div title="Change Color Primary" v-if="!$page.frontmatter.home" class="con-colors-input">
         <div :style="{
@@ -114,23 +120,47 @@ export default {
 <style lang="stylus">
 @import './styles/config.styl'
 //vuesax
+.st0
+  fill:#5b5777
+
+.icon-discord
+  position relative
+  svg
+    width 22px
+    height 22px
 .con-redes-download
-  padding 0px 10px
   display flex
   align-items center
   justify-content center
+  .twitterx
+    &:before
+      font-size 1.2rem !important
+  .repo-link
+    &:before
+      font-size 1.2rem !important
+  a
+    display flex !important
+    align-items center
+    justify-content center
+    padding 0px 4px
+    transition all .25s ease
+    color #5b5777
+    &:hover
+      color $accentColor !important
+      .st0
+        fill $accentColor !important
   .btn-download
-    padding 12px
+    padding 12px 10px
     font-size .8rem
     display flex
     align-items center
     justify-content center
     border-left 1px solid rgba(0,0,0,.05)
     border-right 1px solid rgba(0,0,0,.05)
-    margin-left 10px
+    margin-left 5px
     cursor pointer
-    i
-      margin-right 5px
+    span
+      margin-left 5px
 .con-inputx-c {
   overflow: hidden;
   display: inline-block;
@@ -146,7 +176,7 @@ export default {
   display flex
   align-items center
   justify-content center
-  margin-left 15px
+  margin-left 10px
 }
 .con-colors-input input{
   border: 0px;
@@ -158,7 +188,7 @@ export default {
 }
 
 .shadow {
-  box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.040) !important
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.04) !important
 }
 .logo {
   transition: all .3s ease
@@ -182,19 +212,21 @@ export default {
   display flex
   align-items center
   justify-content space-between
-
+  .home-link
+    margin-left 2.5rem
+    margin-right 3.5rem
   .con-btns-header
     display flex
     align-items center
-    justify-content flex-start
+    // justify-content flex-start
   a, span, img
-    display inline-block
+    display block
   .logo
     height $navbarHeight - 0.7rem
-    min-width $navbarHeight - 1.4rem
-    margin-right 4.5rem
+    // min-width $navbarHeight - 1.4rem
+    // margin-right 4.5rem
     vertical-align top
-    margin-left 2.5rem
+    // margin-left 2.5rem
   .site-name
     font-size 1.3rem
     display none
@@ -208,7 +240,7 @@ export default {
     top 0rem
     transition: all .2s ease;
     &.linksColor
-      right: 1.5rem
+      // right: 1.5rem
 @media (max-width: $MQMobile)
   .links
     line-height 48px
