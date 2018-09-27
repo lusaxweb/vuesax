@@ -1,6 +1,6 @@
 <template lang="html">
   <div>
-    <vs-collapse>
+    <vs-collapse accordion >
      <vs-collapse-item>
        <div slot="header">
          Collapse item
@@ -21,9 +21,9 @@
        <br><br>
        efficitur. Mauris quis faucibus nulla. Pellentesque egestas non ipsum vel maximus.
      </vs-collapse-item>
-     <vs-collapse-item disabled >
+     <vs-collapse-item>
        <div slot="header">
-         Collapse item 3 - Disabled
+         Collapse item 3
        </div>
 
        Suspendisse aliquet condimentum diam, sed aliquam nisl dapibus et. Aliquam euismod ullamcorper dolor eu

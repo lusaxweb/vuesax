@@ -226,7 +226,7 @@ module.exports = {
           '/components/dropDown',
           '/components/table',
           '/components/textarea',
-          // '/components/collapse',
+          '/components/collapse',
           /*New Component*/
         ]
       },

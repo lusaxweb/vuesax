@@ -1,17 +1,24 @@
 <template>
   <div
-    :class="{'open-item': maxHeight != '0px'}"
-    class="vs-collapse-item">
+    :class="{'open-item': maxHeight != '0px', 'disabledx': disabled}"
+    class="vs-collapse-item"
+    @mouseover="mouseover"
+    @mouseout="mouseout">
     <header @click="toggleContent">
       <slot name="header"></slot>
 
-      <span class="icon-header">
-        <i class="material-icons">
-          keyboard_arrow_down
-        </i>
+      <span
+        v-if="!notArrow"
+        class="icon-header">
+        <vs-icon>
+          {{ iconArrow }}
+        </vs-icon>
       </span>
     </header>
-    <div ref="content" :style="styleContent" class="vs-collapse-item-content">
+    <div
+      ref="content"
+      :style="styleContent"
+      class="vs-collapse-item-content">
       <div class="con-content-item">
         <slot></slot>
       </div>
@@ -21,26 +28,71 @@
 <script>
 export default {
   name:'VsCollapseItem',
+  props:{
+    disabled:{
+      default:false,
+      type: Boolean
+    },
+    notArrow:{
+      default: false,
+      type: Boolean
+    },
+    iconArrow:{
+      default: 'keyboard_arrow_down',
+      type: String
+    }
+  },
   data:() => ({
     maxHeight: '0px'
   }),
   computed:{
+    accordion() {
+      return this.$parent.accordion
+    },
+    openHover() {
+      return this.$parent.openHover
+    },
     styleContent() {
       return {
         maxHeight: this.maxHeight
       }
     }
   },
+  watch:{
+    maxHeight() {
+      this.$parent.emitChange()
+    }
+  },
   methods:{
     toggleContent() {
+      if(this.openHover || this.disabled) {
+        return
+      }
+
+      if(this.accordion) {
+        this.$parent.closeAllItems(this.$el)
+      }
+
       let maxHeightx = this.$refs.content.scrollHeight
-      console.dir(maxHeightx)
       if(this.maxHeight == '0px') {
         this.maxHeight = `${maxHeightx}px`
       } else {
         this.maxHeight = `0px`
       }
-
+    },
+    mouseover() {
+      if(this.disabled) {
+        return
+      }
+      let maxHeightx = this.$refs.content.scrollHeight
+      if(this.openHover) {
+        this.maxHeight = `${maxHeightx}px`
+      }
+    },
+    mouseout() {
+      if(this.openHover) {
+        this.maxHeight = `0px`
+      }
     }
   }
 }

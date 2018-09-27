@@ -97,6 +97,7 @@ If you feel awesome and want to support us in a small way, please consider starr
 - [DropDown](https://lusaxweb.github.io/vuesax/components/dropDown.html)
 - [Table](https://lusaxweb.github.io/vuesax/components/table.html) - New
 - [Textarea](https://lusaxweb.github.io/vuesax/components/textarea.html) - New
+- [Collapse](https://lusaxweb.github.io/vuesax/components/collapse.html) - New
 
 ## Browser Support
 Recent versions of **Firefox**, **Chrome**, **Edge**, **Opera** and **Safari**. **IE10+**

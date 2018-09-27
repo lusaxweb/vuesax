@@ -1,6 +1,12 @@
 <template lang="html">
   <div>
-    <vs-collapse>
+    <div class="con-radios-example">
+      <vs-radio v-model="type" vs-value="default">Default</vs-radio>
+      <vs-radio v-model="type" vs-value="shadow">Shadow</vs-radio>
+      <vs-radio v-model="type" vs-value="border">Border</vs-radio>
+      <vs-radio v-model="type" vs-value="margin">Margin</vs-radio>
+    </div>
+    <vs-collapse :type="type">
      <vs-collapse-item>
        <div slot="header">
          Collapse item
@@ -38,3 +44,25 @@
     </vs-collapse>
   </div>
 </template>
+
+<script>
+export default {
+  data(){
+    return {
+      type:'shadow',
+    }
+  }
+}
+</script>
+
+<style lang="stylus">
+.con-radios-example
+  display flex
+  justify-content flex-start
+  flex-direction column
+  align-items flex-start
+  padding-bottom 5px
+  .con-vs-radio
+    margin 5px
+</style>
+
