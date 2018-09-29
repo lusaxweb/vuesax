@@ -73,20 +73,20 @@ To add a notification we have the global function `$vs.notify`. The first parame
 ```html
 <template lang="html">
   <div class="con-notifications">
-    <vs-button @click="$vs.notify({title:'Default',text:'Lorem ipsum dolor sit amet, consectetur'})" vs-color="primary" vs-type="border">Notificacion white</vs-button>
-    <vs-button @click="$vs.notify({title:'Primary',text:'Lorem ipsum dolor sit amet, consectetur',color:'primary'})" vs-color="primary" vs-type="flat">Notificacion Primary</vs-button>
-    <vs-button @click="$vs.notify({title:'Success',text:'Lorem ipsum dolor sit amet, consectetur',color:'success'})" vs-color="success" vs-type="flat">Notificacion Success</vs-button>
-    <vs-button @click="$vs.notify({title:'Danger',text:'Lorem ipsum dolor sit amet, consectetur',color:'danger'})" vs-color="danger" vs-type="flat">Notificacion Danger</vs-button>
-    <vs-button @click="$vs.notify({title:'Warning',text:'Lorem ipsum dolor sit amet, consectetur',color:'warning'})" vs-color="warning" vs-type="flat">Notificacion Warning</vs-button>
-    <vs-button @click="$vs.notify({title:'dark',text:'Lorem ipsum dolor sit amet, consectetur',color:'dark'})" vs-color="dark" vs-type="flat">Notificacion Dark</vs-button>
-    <vs-button @click="notiAzar()" vs-color="success" vs-type="gradient">Notificacion Color Al Azar</vs-button>
+    <vs-button @click="$vs.notify({title:'Default',text:'Lorem ipsum dolor sit amet, consectetur'})" color="primary" vs-type="border">Notification white</vs-button>
+    <vs-button @click="$vs.notify({title:'Primary',text:'Lorem ipsum dolor sit amet, consectetur',color:'primary'})" color="primary" vs-type="flat">Notification Primary</vs-button>
+    <vs-button @click="$vs.notify({title:'Success',text:'Lorem ipsum dolor sit amet, consectetur',color:'success'})" color="success" vs-type="flat">Notification Success</vs-button>
+    <vs-button @click="$vs.notify({title:'Danger',text:'Lorem ipsum dolor sit amet, consectetur',color:'danger'})" color="danger" vs-type="flat">Notification Danger</vs-button>
+    <vs-button @click="$vs.notify({title:'Warning',text:'Lorem ipsum dolor sit amet, consectetur',color:'warning'})" color="warning" vs-type="flat">Notification Warning</vs-button>
+    <vs-button @click="$vs.notify({title:'dark',text:'Lorem ipsum dolor sit amet, consectetur',color:'dark'})" color="dark" vs-type="flat">Notification Dark</vs-button>
+    <vs-button @click="random()" color="success" vs-type="gradient">Notification Random Color</vs-button>
   </div>
 </template>
 
 <script>
 export default {
   methods:{
-    notiAzar(){
+    random(){
       function getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min)) + min;
       }
@@ -136,49 +136,23 @@ We can change the place where the notification appears with the property `positi
 ```html
 <template lang="html">
   <div class="con-notifications-position">
-    <vs-button @click="$vs.notify({
-      title:'Position Default',
-      text:'Lorem ipsum dolor sit amet, consectetur',
-      color:'primary'})" vs-color="primary" vs-type="flat">Position Default</vs-button>
-
-    <vs-button @click="$vs.notify({
-      title:'Position top-right',
-      text:'Lorem ipsum dolor sit amet, consectetur',
-      color:'success',
-      position:'top-right'})" vs-color="success" vs-type="flat">Position Top Right</vs-button>
-
-    <vs-button @click="$vs.notify({
-      title:'Position top-left',
-      text:'Lorem ipsum dolor sit amet, consectetur',
-      color:'danger',
-      position:'top-left'})" vs-color="danger" vs-type="flat">Position Top Left</vs-button>
-
-    <vs-button @click="$vs.notify({
-      title:'Position bottom-left',
-      text:'Lorem ipsum dolor sit amet, consectetur',
-      color:'warning',
-      position:'bottom-left'})" vs-color="warning" vs-type="flat">Position Bottom Left</vs-button>
-
-    <vs-button @click="$vs.notify({
-      title:'Position bottom-center',
-      text:'Lorem ipsum dolor sit amet,
-      consectetur',
-      color:'dark',
-      position:'bottom-center'})" vs-color="dark" vs-type="flat"> Position Bottom Center</vs-button>
-
-    <vs-button @click="notiAzarCenter()" vs-color="success" vs-type="gradient">Position Top Center Color Al Azar</vs-button>
+    <vs-button @click="$vs.notify({title:'Position Default',text:'Lorem ipsum dolor sit amet, consectetur',color:'primary'})" color="primary" vs-type="flat">Position Default</vs-button>
+    <vs-button @click="$vs.notify({title:'Position top-right',text:'Lorem ipsum dolor sit amet, consectetur',color:'success',position:'top-right'})" color="success" vs-type="flat">Position Top Right</vs-button>
+    <vs-button @click="$vs.notify({title:'Position top-left',text:'Lorem ipsum dolor sit amet, consectetur',color:'danger',position:'top-left'})" color="danger" vs-type="flat">Position Top Left</vs-button>
+    <vs-button @click="$vs.notify({title:'Position bottom-left',text:'Lorem ipsum dolor sit amet, consectetur',color:'warning',position:'bottom-left'})" color="warning" vs-type="flat">Position Bottom Left</vs-button>
+    <vs-button @click="$vs.notify({title:'Position bottom-center',text:'Lorem ipsum dolor sit amet, consectetur',color:'dark',position:'bottom-center'})" color="dark" vs-type="flat"> Position Bottom Center</vs-button>
+    <vs-button @click="randomCenter()" color="success" vs-type="gradient">Position Top Center Random Color</vs-button>
   </div>
 </template>
 
 <script>
 export default {
   methods:{
-    notiAzarCenter(){
+   randomCenter(){
       function getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min)) + min;
       }
       let color = `rgb(${getRandomInt(0,255)},${getRandomInt(0,255)},${getRandomInt(0,255)})`
-
       this.$vs.notify({title:'Position top-center',text:'Lorem ipsum dolor sit amet, consectetur',color:color,position:'top-center'})
     }
   }
@@ -210,30 +184,24 @@ Vuesax uses the **Google Material Icons** font library. For a list of all availa
 ```html
 <template lang="html">
   <div class="centerx">
-    <vs-button @click="$vs.notify({title:'Icon mail',text:'Lorem ipsum dolor sit amet, consectetur',color:'primary',icon:'mail'})" vs-color="primary" vs-type="flat">Icon Mail</vs-button>
-
-    <vs-button @click="$vs.notify({title:'Icon mail',text:'Lorem ipsum dolor sit amet, consectetur',color:'success',icon:'check_box'})" vs-color="success" vs-type="flat">Icon check_box</vs-button>
-
-    <vs-button @click="$vs.notify({title:'Icon mail',text:'Lorem ipsum dolor sit amet, consectetur',color:'danger',icon:'favorite'})" vs-color="danger" vs-type="flat">Icon favorite</vs-button>
-
-    <vs-button @click="$vs.notify({title:'Icon mail',text:'Lorem ipsum dolor sit amet, consectetur',color:'warning',icon:'error'})" vs-color="warning" vs-type="flat">Icon error</vs-button>
-
-    <vs-button @click="$vs.notify({title:'Icon mail',text:'Lorem ipsum dolor sit amet, consectetur',color:'dark',icon:'chat'})" vs-color="dark" vs-type="flat">Icon chat</vs-button>
-
-    <vs-button @click="notiAzarIcon()" vs-color="success" vs-type="gradient">Icon Color Al Azar</vs-button>
+    <vs-button @click="$vs.notify({title:'Icon mail',text:'Lorem ipsum dolor sit amet, consectetur',color:'primary',icon:'mail'})" color="primary" vs-type="flat">Icon Mail</vs-button>
+    <vs-button @click="$vs.notify({title:'Icon mail',text:'Lorem ipsum dolor sit amet, consectetur',color:'success',icon:'check_box'})" color="success" vs-type="flat">Icon check_box</vs-button>
+    <vs-button @click="$vs.notify({title:'Icon mail',text:'Lorem ipsum dolor sit amet, consectetur',color:'danger',icon:'favorite'})" color="danger" vs-type="flat">Icon favorite</vs-button>
+    <vs-button @click="$vs.notify({title:'Icon mail',text:'Lorem ipsum dolor sit amet, consectetur',color:'warning',icon:'error'})" color="warning" vs-type="flat">Icon error</vs-button>
+    <vs-button @click="$vs.notify({title:'Icon mail',text:'Lorem ipsum dolor sit amet, consectetur',color:'dark',icon:'chat'})" color="dark" vs-type="flat">Icon chat</vs-button>
+    <vs-button @click="randomIcon()" color="success" vs-type="gradient">Icon Random Color</vs-button>
   </div>
 </template>
 
 <script>
 export default {
   methods:{
-    notiAzarIcon(){
+    randomIcon(){
       function getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min)) + min;
       }
       let color = `rgb(${getRandomInt(0,255)},${getRandomInt(0,255)},${getRandomInt(0,255)})`
-
-      // this.vsNoti('Lorem ipsum dolor sit amet, consectetur',color,null,'verified_user')
+      
       this.$vs.notify({title:'Icon mail',text:'Lorem ipsum dolor sit amet, consectetur',color:color,icon:'verified_user'})
     }
   }
@@ -316,9 +284,9 @@ By default the notifications have a time of **2000** (2s)
 
 <vuecode md center>
 <div slot="demo">
-  <vs-button @click="$vs.notify({title:'Time default',text:'Lorem ipsum dolor sit amet, consectetur',color:'primary',icon:'query_builder'})" vs-color="primary" vs-type="flat">Time default</vs-button>
-  <vs-button @click="$vs.notify({time:4000,title:'Time 4s (4000)',text:'Lorem ipsum dolor sit amet, consectetur',color:'primary',icon:'query_builder'})" vs-color="primary" vs-type="flat">Time 4s (4000)</vs-button>
-  <vs-button @click="$vs.notify({time:8000,title:'Time 8s (8000)',text:'Lorem ipsum dolor sit amet, consectetur',color:'primary',icon:'query_builder'})" vs-color="primary" vs-type="flat">Time 8s (8000)</vs-button>
+  <vs-button @click="$vs.notify({title:'Time default',text:'Lorem ipsum dolor sit amet, consectetur',color:'primary',icon:'query_builder'})" color="primary" vs-type="flat">Time default</vs-button>
+  <vs-button @click="$vs.notify({time:4000,title:'Time 4s (4000)',text:'Lorem ipsum dolor sit amet, consectetur',color:'primary',icon:'query_builder'})" color="primary" vs-type="flat">Time 4s (4000)</vs-button>
+  <vs-button @click="$vs.notify({time:8000,title:'Time 8s (8000)',text:'Lorem ipsum dolor sit amet, consectetur',color:'primary',icon:'query_builder'})" color="primary" vs-type="flat">Time 8s (8000)</vs-button>
 </div>
 <div slot="code">
 
@@ -328,7 +296,7 @@ By default the notifications have a time of **2000** (2s)
   text:'Lorem ipsum dolor sit amet consectetur',
   color:'primary',
   icon:'query_builder'
-})" vs-color="primary" vs-type="flat">Time default</vs-button>
+})" color="primary" vs-type="flat">Time default</vs-button>
 
 <vs-button @click="$vs.notify({
   time:4000,
@@ -336,7 +304,7 @@ By default the notifications have a time of **2000** (2s)
   text:'Lorem ipsum dolor sit amet consectetur',
   color:'primary',
   icon:'query_builder'
-})" vs-color="primary" vs-type="flat">Time 4s (4000)</vs-button>
+})" color="primary" vs-type="flat">Time 4s (4000)</vs-button>
 
 <vs-button @click="$vs.notify({
   time:8000,
@@ -344,7 +312,7 @@ By default the notifications have a time of **2000** (2s)
   text:'Lorem ipsum dolor sit amet consectetur',
   color:'primary',
   icon:'query_builder'
-})" vs-color="primary" vs-type="flat">Time 8s (8000)</vs-button>
+})" color="primary" vs-type="flat">Time 8s (8000)</vs-button>
 ```
 
 </div>
