@@ -4,28 +4,28 @@
       {{switchArray}}
     </li>
     <li>
-      <vs-switch vs-icon-on="check" vs-color="success" v-model="switchArray" vs-value="luis">
+      <vs-switch vs-icon-on="check" color="success" v-model="switchArray" vs-value="luis">
         <span slot="off">
           Luis
         </span>
       </vs-switch>
     </li>
     <li>
-      <vs-switch vs-icon-on="check" vs-color="success" v-model="switchArray" vs-value="carols">
+      <vs-switch vs-icon-on="check" color="success" v-model="switchArray" vs-value="carols">
         <span slot="off">
           Carols
         </span>
       </vs-switch>
     </li>
     <li>
-      <vs-switch vs-icon-on="check" vs-color="success" v-model="switchArray" vs-value="summer">
+      <vs-switch vs-icon-on="check" color="success" v-model="switchArray" vs-value="summer">
         <span slot="off">
           Summer
         </span>
       </vs-switch>
     </li>
     <li>
-      <vs-switch vs-icon-on="check" vs-color="success" v-model="switchArray" vs-value="lyon">
+      <vs-switch vs-icon-on="check" color="success" v-model="switchArray" vs-value="lyon">
         <span slot="off">
           Lyon
         </span>
