@@ -2,7 +2,7 @@
   <div
     ref="coninput"
     :style="styleLabel"
-    :class="[`vs-input-${vsColor}`,{
+    :class="[`vs-input-${color}`,{
       'isFocus':isFocus,
       'input-icon-validate-success':vsSuccess,
       'input-icon-validate-danger':vsDanger,
@@ -143,7 +143,7 @@ export default {
       default:'material-icons',
       type:String
     },
-    vsColor:{
+    color:{
       default:'primary',
       type:String
     },
@@ -182,12 +182,12 @@ export default {
   computed:{
     style(){
       return {
-        border: `1px solid ${this.isFocus?_color.getColor(this.vsColor,1):'rgba(0, 0, 0,.2)'}`,
+        border: `1px solid ${this.isFocus?_color.getColor(this.color,1):'rgba(0, 0, 0,.2)'}`,
       }
     },
     styleLabel(){
       return {
-        color: this.isFocus?_color.getColor(this.vsColor,1):null,
+        color: this.isFocus?_color.getColor(this.color,1):null,
       }
     },
     listeners(){
