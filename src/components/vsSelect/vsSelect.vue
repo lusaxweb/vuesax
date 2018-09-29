@@ -35,7 +35,7 @@
           v-show="active"
           ref="vsSelectOptions"
           :style="cords"
-          :class="[`vs-select-${vsColor}`,{'scrollx':scrollx}]"
+          :class="[`vs-select-${color}`,{'scrollx':scrollx}]"
           class="vs-select-options">
           <ul ref="ulx">
             <slot/>
@@ -116,7 +116,7 @@ export default {
       default:false,
       type:Boolean
     },
-    vsColor:{
+    color:{
       default:'primary',
       type:String
     },
@@ -228,7 +228,6 @@ export default {
   mounted(){
     this.changeValue()
     utils.insertBody(this.$refs.vsSelectOptions)
-    // console.log("this.$children>>>>>>",this.$children);
   },
   updated(){
     if(!this.active){
@@ -351,7 +350,6 @@ export default {
         document.addEventListener('click',this.clickBlur)
       }, 100);
       if(this.vsAutocomplete && this.vsMultiple){
-        console.log(this.$refs.inputselect.value)
         setTimeout( ()=> {
           if(inputx.value){
             this.$refs.inputselect.value = inputx.value += ','
@@ -436,11 +434,11 @@ export default {
       }
 
       if (focusing) {
-        label.classList.add('input-select-label-' + this.vsColor + '--active')
+        label.classList.add('input-select-label-' + this.color + '--active')
         return
       }
 
-      label.classList.remove('input-select-label-' + this.vsColor + '--active')
+      label.classList.remove('input-select-label-' + this.color + '--active')
     }
   }
 }
