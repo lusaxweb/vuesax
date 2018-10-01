@@ -3568,7 +3568,7 @@ var vsInputvue_type_template_id_87126f0c_lang_html_render = function () {var _vm
     'input-icon-validate-success':_vm.vsSuccess,
     'input-icon-validate-danger':_vm.vsDanger,
     'input-icon-validate-warning':_vm.vsWarning,
-    'is-label-palcehoder':_vm.vsLabelPlaceholder
+    'is-label-placeholder':_vm.vsLabelPlaceholder
   }],style:(_vm.styleLabel)},[(_vm.vsLabelPlaceholder?false:_vm.vsLabel)?_c('label',{staticClass:"vs-input-label",attrs:{"for":""},on:{"click":_vm.focusInput}},[_vm._v(_vm._s(_vm.vsLabel))]):_vm._e(),_c('div',{staticClass:"vs-con-input"},[_c('input',_vm._g(_vm._b({ref:"vsinput",staticClass:"vs-inputx",class:{
         'hasValue':_vm.value != '',
         'hasIcon':_vm.vsIcon,

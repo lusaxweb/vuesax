@@ -7,7 +7,7 @@
       'input-icon-validate-success':vsSuccess,
       'input-icon-validate-danger':vsDanger,
       'input-icon-validate-warning':vsWarning,
-      'is-label-palcehoder':vsLabelPlaceholder
+      'is-label-placeholder':vsLabelPlaceholder
     }]"
     class="vs-component vs-con-input-label vs-input">
     <label
