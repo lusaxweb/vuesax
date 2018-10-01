@@ -194,6 +194,9 @@ export default {
       }
     })
   },
+  destroyed () {
+    window.removeEventListener('resize', this.listenerChangeWidth)
+  },
   methods:{
     getItems(min, max) {
       let items = []
