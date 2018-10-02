@@ -1478,6 +1478,7 @@ __webpack_require__.d(components_namespaceObject, "vsDropDown", function() { ret
 __webpack_require__.d(components_namespaceObject, "vsTable", function() { return components_vsTable; });
 __webpack_require__.d(components_namespaceObject, "vsTextarea", function() { return components_vsTextarea; });
 __webpack_require__.d(components_namespaceObject, "vsCollapse", function() { return components_vsCollapse; });
+__webpack_require__.d(components_namespaceObject, "vsImages", function() { return components_vsImages; });
 __webpack_require__.d(components_namespaceObject, "vsRow", function() { return layout_vsRow; });
 __webpack_require__.d(components_namespaceObject, "vsCol", function() { return layout_vsCol; });
 
@@ -10002,6 +10003,141 @@ vsCollapseItem_component.options.__file = "vsCollapseItem.vue"
   Vue.component(vsCollapse.name, vsCollapse);
   Vue.component(vsCollapseItem.name, vsCollapseItem);
 });
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://Users//DELL//Documents//vuesax//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!C:/Users/DELL/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsImages/vsImages.vue?vue&type=template&id=663d5078&lang=html&
+var vsImagesvue_type_template_id_663d5078_lang_html_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"vs-component vs-images",class:[("vs-images-hover-" + _vm.hover), {'alternating': _vm.alternating, 'notBorderRadius': _vm.notBorderRadius, 'notMargin': _vm.notMargin}]},[_c('ul',{staticClass:"vs-ul-images"},[_vm._t("default")],2)])}
+var vsImagesvue_type_template_id_663d5078_lang_html_staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./src/components/vsImages/vsImages.vue?vue&type=template&id=663d5078&lang=html&
+
+// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib??ref--12-1!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsImages/vsImages.vue?vue&type=script&lang=js&
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ var vsImagesvue_type_script_lang_js_ = ({
+  name: "VsImages",
+  inheritAttrs: false,
+  props: {
+    hover: {
+      default: 'default',
+      type: String
+    },
+    alternating: {
+      default: false,
+      type: Boolean
+    },
+    notBorderRadius: {
+      default: false,
+      type: Boolean
+    },
+    notMargin: {
+      default: false,
+      type: Boolean
+    }
+  },
+  data: function data() {
+    return {};
+  }
+});
+// CONCATENATED MODULE: ./src/components/vsImages/vsImages.vue?vue&type=script&lang=js&
+ /* harmony default export */ var vsImages_vsImagesvue_type_script_lang_js_ = (vsImagesvue_type_script_lang_js_); 
+// CONCATENATED MODULE: ./src/components/vsImages/vsImages.vue
+
+
+
+
+
+/* normalize component */
+
+var vsImages_component = normalizeComponent(
+  vsImages_vsImagesvue_type_script_lang_js_,
+  vsImagesvue_type_template_id_663d5078_lang_html_render,
+  vsImagesvue_type_template_id_663d5078_lang_html_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+vsImages_component.options.__file = "vsImages.vue"
+/* harmony default export */ var vsImages = (vsImages_component.exports);
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://Users//DELL//Documents//vuesax//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!C:/Users/DELL/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsImages/vsImage.vue?vue&type=template&id=26357db0&
+var vsImagevue_type_template_id_26357db0_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('li',{staticClass:"vs-image"},[_c('div',{staticClass:"con-vs-image"},[_c('div',{staticClass:"img",style:(_vm.styleImage),attrs:{"v-bind":_vm.$attrs}})]),_c('img',{staticClass:"imag-blur",attrs:{"src":_vm.src,"alt":""}})])}
+var vsImagevue_type_template_id_26357db0_staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./src/components/vsImages/vsImage.vue?vue&type=template&id=26357db0&
+
+// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib??ref--12-1!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsImages/vsImage.vue?vue&type=script&lang=js&
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ var vsImagevue_type_script_lang_js_ = ({
+  name: 'VsImage',
+  inheritAttrs: false,
+  props: {
+    src: {
+      default: null,
+      type: String
+    }
+  },
+  computed: {
+    styleImage: function styleImage() {
+      return {
+        backgroundImage: "url(".concat(this.src, ")")
+      };
+    }
+  }
+});
+// CONCATENATED MODULE: ./src/components/vsImages/vsImage.vue?vue&type=script&lang=js&
+ /* harmony default export */ var vsImages_vsImagevue_type_script_lang_js_ = (vsImagevue_type_script_lang_js_); 
+// CONCATENATED MODULE: ./src/components/vsImages/vsImage.vue
+
+
+
+
+
+/* normalize component */
+
+var vsImage_component = normalizeComponent(
+  vsImages_vsImagevue_type_script_lang_js_,
+  vsImagevue_type_template_id_26357db0_render,
+  vsImagevue_type_template_id_26357db0_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+vsImage_component.options.__file = "vsImage.vue"
+/* harmony default export */ var vsImage = (vsImage_component.exports);
+// CONCATENATED MODULE: ./src/components/vsImages/index.js
+
+
+
+
+/* harmony default export */ var components_vsImages = (function (Vue) {
+  Vue.component(vsImages.name, vsImages);
+  Vue.component(vsImage.name, vsImage);
+});
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://Users//DELL//Documents//vuesax//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!C:/Users/DELL/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/layout/vsRow/vsRow.vue?vue&type=template&id=512757c0&lang=html&
 var vsRowvue_type_template_id_512757c0_lang_html_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"vs-row",style:({
     'align-items':_vm.vsAlign,
@@ -10228,10 +10364,10 @@ vsCol_component.options.__file = "vsCol.vue"
 
 
 
- //New Component import
-// component not soport SSR
 
- //layout
+
+ //New Component import
+//layout
 
 
 
