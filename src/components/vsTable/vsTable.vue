@@ -67,7 +67,7 @@
       No data Available
     </div>
 
-    <div v-if="pagination" class="con-pagination-table">
+    <div v-if="pagination" v-show="!searchx" class="con-pagination-table">
       <vs-pagination :total="getTotalPages" v-model="currentx"></vs-pagination>
     </div>
 
@@ -230,7 +230,15 @@ export default {
         return values.indexOf(this.searchx.toLowerCase()) != -1
       })
 
-      this.datax = filterx
+      let pagex = filterx
+
+      if (this.pagination) {
+        let max = Math.ceil(this.currentx * this.maxItems)
+        let min = max - this.maxItems
+        pagex = this.getItems(min, max)
+      }
+
+      this.datax = (this.searchx !== '') ? filterx : pagex
     },
     getValues(obj) {
       let valuesx = Object.values(obj)
