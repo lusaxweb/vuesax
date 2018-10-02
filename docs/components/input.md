@@ -412,3 +412,24 @@ export default {
 </vuecode>
 
 </box>
+
+<box>
+
+## Size
+
+
+
+<vuecode md>
+<div slot="demo">
+  <Demos-Input-Size />
+</div>
+<div slot="code">
+
+```html
+
+```
+
+</div>
+</vuecode>
+
+</box>

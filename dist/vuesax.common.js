@@ -3553,31 +3553,37 @@ vsRadio_component.options.__file = "vsRadio.vue"
 /* harmony default export */ var components_vsRadio = (function (Vue) {
   Vue.component(vsRadio.name, vsRadio);
 });
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://Users//DELL//Documents//vuesax//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!C:/Users/DELL/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsInput/vsInput.vue?vue&type=template&id=87126f0c&lang=html&
-var vsInputvue_type_template_id_87126f0c_lang_html_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"coninput",staticClass:"vs-component vs-con-input-label vs-input",class:[("vs-input-" + _vm.vsColor),{
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://Users//DELL//Documents//vuesax//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!C:/Users/DELL/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsInput/vsInput.vue?vue&type=template&id=c6c2c968&lang=html&
+var vsInputvue_type_template_id_c6c2c968_lang_html_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"coninput",staticClass:"vs-component vs-con-input-label vs-input",class:[("vs-input-" + _vm.vsColor),{
     'isFocus':_vm.isFocus,
     'input-icon-validate-success':_vm.vsSuccess,
     'input-icon-validate-danger':_vm.vsDanger,
     'input-icon-validate-warning':_vm.vsWarning,
     'is-label-placeholder':_vm.vsLabelPlaceholder
-  }],style:(_vm.styleLabel)},[(_vm.vsLabelPlaceholder?false:_vm.vsLabel)?_c('label',{staticClass:"vs-input-label",attrs:{"for":""},on:{"click":_vm.focusInput}},[_vm._v(_vm._s(_vm.vsLabel))]):_vm._e(),_c('div',{staticClass:"vs-con-input"},[_c('input',_vm._g(_vm._b({ref:"vsinput",staticClass:"vs-inputx",class:{
+  }],style:(_vm.styleLabel)},[(_vm.vsLabelPlaceholder?false:_vm.vsLabel)?_c('label',{staticClass:"vs-input-label",attrs:{"for":""},on:{"click":_vm.focusInput}},[_vm._v(_vm._s(_vm.vsLabel))]):_vm._e(),_c('div',{staticClass:"vs-con-input"},[_c('input',_vm._g(_vm._b({ref:"vsinput",staticClass:"vs-inputx",class:[("vs-inputx-" + _vm.vsSize),{
         'hasValue':_vm.value != '',
         'hasIcon':_vm.vsIcon,
         'icon-after-input':_vm.vsIconAfter
-      },style:(_vm.style),attrs:{"placeholder":null,"type":_vm.$attrs.type?_vm.$attrs.type:'text'},domProps:{"value":_vm.value}},'input',_vm.$attrs,false),_vm.listeners)),_c('transition',{attrs:{"name":"placeholderx"}},[(_vm.isValue&&(_vm.vsLabelPlaceholder||_vm.$attrs.placeholder))?_c('span',{ref:"spanplaceholder",staticClass:"input-span-placeholder",class:{
-          'vs-placeholder-label':_vm.vsLabelPlaceholder,
-        },style:(_vm.styleLabel),on:{"click":_vm.focusInput}},[_vm._v("\n        "+_vm._s(_vm.$attrs.placeholder || _vm.vsLabelPlaceholder)+"\n      ")]):_vm._e()]),(_vm.vsIcon)?_c('i',{staticClass:"icon-inputx notranslate",class:[_vm.vsIconPack,_vm.vsIcon,{
+      }],style:(_vm.style),attrs:{"placeholder":null,"type":_vm.$attrs.type?_vm.$attrs.type:'text'},domProps:{"value":_vm.value}},'input',_vm.$attrs,false),_vm.listeners)),_c('transition',{attrs:{"name":"placeholderx"}},[(_vm.isValue&&(_vm.vsLabelPlaceholder||_vm.$attrs.placeholder))?_c('span',{ref:"spanplaceholder",staticClass:"input-span-placeholder",class:[
+        _vm.vsLabelPlaceholder&&(("vs-placeholder-label-" + _vm.vsSize)),
+        ("input-span-placeholder-" + _vm.vsSize),
+        {
+          'vs-placeholder-label': _vm.vsLabelPlaceholder,
+        }],style:(_vm.styleLabel),on:{"click":_vm.focusInput}},[_vm._v("\n        "+_vm._s(_vm.$attrs.placeholder || _vm.vsLabelPlaceholder)+"\n      ")]):_vm._e()]),(_vm.vsIcon)?_c('i',{staticClass:"icon-inputx notranslate",class:[_vm.vsIconPack,_vm.vsIcon, ("icon-inputx-" + _vm.vsSize), {
         'icon-after':_vm.vsIconAfter,
       }],attrs:{"translate":"no"},on:{"click":_vm.focusInput}},[_vm._v("\n      "+_vm._s(_vm.vsIcon)+"\n    ")]):_vm._e(),_c('transition',{attrs:{"name":"icon-validate"}},[(_vm.vsSuccess || _vm.vsDanger || _vm.vsWarning)?_c('span',{staticClass:"input-icon-validate material-icons"},[_vm._v("\n        "+_vm._s(_vm.getIcon)+"\n      ")]):_vm._e()])],1),_c('transition-group',{on:{"before-enter":_vm.beforeEnter,"enter":_vm.enter,"leave":_vm.leave}},[(_vm.vsSuccess)?_c('div',{key:"success",staticClass:"con-text-validation"},[_c('span',{staticClass:"span-text-validation span-text-validation-success"},[_vm._v("\n        "+_vm._s(_vm.vsSuccessText)+"\n      ")])]):(_vm.vsDanger)?_c('div',{key:"danger",staticClass:"con-text-validation span-text-validation-danger"},[_c('span',{staticClass:"span-text-validation"},[_vm._v("\n        "+_vm._s(_vm.vsDangerText)+"\n      ")])]):(_vm.vsWarning)?_c('div',{key:"warning",staticClass:"con-text-validation span-text-validation-warning"},[_c('span',{staticClass:"span-text-validation"},[_vm._v("\n        "+_vm._s(_vm.vsWarningText)+"\n      ")])]):_vm._e(),(_vm.vsDescriptionText)?_c('div',{key:"description",staticClass:"con-text-validation span-text-validation"},[_c('span',{staticClass:"span-text-validation"},[_vm._v("\n        "+_vm._s(_vm.vsDescriptionText)+"\n      ")])]):_vm._e()])],1)}
-var vsInputvue_type_template_id_87126f0c_lang_html_staticRenderFns = []
+var vsInputvue_type_template_id_c6c2c968_lang_html_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/vsInput/vsInput.vue?vue&type=template&id=87126f0c&lang=html&
+// CONCATENATED MODULE: ./src/components/vsInput/vsInput.vue?vue&type=template&id=c6c2c968&lang=html&
 
 // CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib??ref--12-1!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsInput/vsInput.vue?vue&type=script&lang=js&
 
 
 
+//
+//
+//
 //
 //
 //
@@ -3753,6 +3759,10 @@ var vsInputvue_type_template_id_87126f0c_lang_html_staticRenderFns = []
     vsDescriptionText: {
       default: null,
       type: String
+    },
+    vsSize: {
+      default: 'normal',
+      type: String
     }
   },
   data: function data() {
@@ -3838,8 +3848,8 @@ var vsInputvue_type_template_id_87126f0c_lang_html_staticRenderFns = []
 
 var vsInput_component = normalizeComponent(
   vsInput_vsInputvue_type_script_lang_js_,
-  vsInputvue_type_template_id_87126f0c_lang_html_render,
-  vsInputvue_type_template_id_87126f0c_lang_html_staticRenderFns,
+  vsInputvue_type_template_id_c6c2c968_lang_html_render,
+  vsInputvue_type_template_id_c6c2c968_lang_html_staticRenderFns,
   false,
   null,
   null,
