@@ -30,11 +30,25 @@
       box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.150);
       transition: all .3s ease
       width: 100%
+      &-small
+        padding: 0.2rem
+        + .vs-placeholder-label-small
+          padding: 0rem 0.4rem
+      &-normal
+        padding: 0.4rem
+      &-large
+        padding: 0.8rem
+        + .vs-placeholder-label-large
+          padding: 0.6rem
       &:focus
         box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.150);
       &:focus,&.hasValue
         + .vs-placeholder-label
           transform: translate(-3px,-90%) !important
+          font-size: .7rem
+          padding-left: .5rem !important
+        + .vs-placeholder-label-small
+          transform: translate(-3px,-120%) !important
           font-size: .7rem
           padding-left: .5rem !important
       &:focus
@@ -66,6 +80,10 @@
       cursor text
       user-select none
       top: 2px
+      &-small
+        padding: 0.2rem
+      &-large
+        padding: 0.6rem
     .icon-inputx
       position absolute
       left 5px;
@@ -77,7 +95,11 @@
       cursor default
       user-select none
       top: 8px
-
+      &-small
+        top: 4px
+        font-size: 1rem
+      &-large
+        top: 14px
       &.icon-after
         left auto
         right 5px;
