@@ -117,19 +117,19 @@ You can choose the default **Switch**. You are able to use the [Main Colors](/th
       <vs-switch v-model="switch1"/>
     </li>
     <li>
-      <label for="">success</label>
+      <label for="">Success</label>
       <vs-switch vs-color="success" v-model="switch2"/>
     </li>
     <li>
-      <label for="">danger</label>
+      <label for="">Danger</label>
       <vs-switch vs-color="danger" v-model="switch3"/>
     </li>
     <li>
-      <label for="">warning</label>
+      <label for="">Warning</label>
       <vs-switch vs-color="warning" v-model="switch4"/>
     </li>
     <li>
-      <label for="">dark</label>
+      <label for="">Dark</label>
       <vs-switch vs-color="dark" v-model="switch5"/>
     </li>
     <li class="con-input-color">
@@ -244,19 +244,19 @@ Vuesax uses the **Google Material Icons** font library. For a list of all availa
     </li>
     <li>
       <label for="">success</label>
-      <vs-switch vs-color="success" v-model="switch2" vs-icon="done"/>
+      <vs-switch vs-color="Success" v-model="switch2" vs-icon="done"/>
     </li>
     <li>
       <label for="">danger</label>
-      <vs-switch vs-color="danger" v-model="switch3" vs-icon="close"/>
+      <vs-switch vs-color="Danger" v-model="switch3" vs-icon="close"/>
     </li>
     <li>
       <label for="">warning</label>
-      <vs-switch vs-color="warning" v-model="switch4" vs-icon="error_outline"/>
+      <vs-switch vs-color="Warning" v-model="switch4" vs-icon="error_outline"/>
     </li>
     <li>
       <label for="">dark</label>
-      <vs-switch vs-color="dark" v-model="switch5" vs-icon="volume_off"/>
+      <vs-switch vs-color="Dark" v-model="switch5" vs-icon="volume_off"/>
     </li>
     <li>
       <label for="">rgb(color) / #color</label>
