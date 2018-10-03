@@ -1696,6 +1696,8 @@ You can add a **filtered, sorted, paginated and multi selected table** with comb
         </vs-tr>
       </template>
     </vs-table>
+
+    <pre>{{ selected }}</pre>
   </div>
 </template>
 
