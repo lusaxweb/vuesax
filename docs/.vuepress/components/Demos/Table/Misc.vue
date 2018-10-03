@@ -47,6 +47,8 @@
         </vs-tr>
       </template>
     </vs-table>
+
+    <pre>{{ selected }}</pre>
   </div>
 </template>
 
