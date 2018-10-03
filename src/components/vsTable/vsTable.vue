@@ -2,7 +2,6 @@
   <div
     :class="[{'stripe': stripe, 'hoverFlat': hoverFlat}, `vs-table-${color}`,]"
     class="vs-component vs-con-table">
-
     <!-- header -->
     <header class="header-table">
       <span>
@@ -16,61 +15,60 @@
         </i>
       </div>
     </header>
+    <div class="con-tablex">
 
+      <div class="vs-con-table-theade">
+        <table
+          :style="tableHeaderStyle"
+          class="vs-table-theade">
+          <colgroup ref="colgroup">
+            <col width="20"/>
+            <col
+              class="col"
+              v-for="(col,index) in getThs"
+              :key="index"
+              :name="`col-${index}`">
+          </colgroup>
+          <thead ref="thead">
 
+            <tr>
+              <th class="td-check">
+                <span v-if="multiple" class="con-td-check">
+                  <vs-checkbox :vs-icon="isCheckedLine ? 'remove' : 'check'" @click="changeCheckedMultiple" :checked="isCheckedMultiple" size="small"/>
+                </span>
+              </th>
+              <slot name="thead"></slot>
+            </tr>
+          </thead>
+        </table>
+      </div>
 
-    <div class="vs-con-table-theade">
-      <table
-        :style="tableHeaderStyle"
-        class="vs-table-theade">
-        <colgroup ref="colgroup">
-          <col width="20"/>
-          <col
-            class="col"
-            v-for="(col,index) in getThs"
-            :key="index"
-            :name="`col-${index}`">
-        </colgroup>
-        <thead ref="thead">
+      <div
+        :style="styleConTbody"
+        class="vs-con-tbody">
+        <table
+          ref="table"
+          class="vs-table">
+          <colgroup ref="colgrouptable">
+            <col width="20"/>
+            <col
+              v-for="(col,index) in 3"
+              :key="index"
+              :name="`col-${index}`" >
+          </colgroup>
+          <!-- <tbody ref="tbody"> -->
+          <slot :data="datax"></slot>
+          <!-- </tbody> -->
+        </table>
+      </div>
+      <div v-if="isNoData" class="not-data-table">
+        No data Available
+      </div>
 
-          <tr>
-            <th class="td-check">
-              <span v-if="multiple" class="con-td-check">
-                <vs-checkbox :vs-icon="isCheckedLine ? 'remove' : 'check'" @click="changeCheckedMultiple" :checked="isCheckedMultiple" size="small"/>
-              </span>
-            </th>
-            <slot name="thead"></slot>
-          </tr>
-        </thead>
-      </table>
+      <div v-if="pagination" v-show="!searchx" class="con-pagination-table">
+        <vs-pagination :total="getTotalPages" v-model="currentx"></vs-pagination>
+      </div>
     </div>
-
-    <div
-      :style="styleConTbody"
-      class="vs-con-tbody">
-      <table
-        ref="table"
-        class="vs-table">
-        <colgroup ref="colgrouptable">
-          <col width="20"/>
-          <col
-            v-for="(col,index) in 3"
-            :key="index"
-            :name="`col-${index}`" >
-        </colgroup>
-        <!-- <tbody ref="tbody"> -->
-        <slot :data="datax"></slot>
-        <!-- </tbody> -->
-      </table>
-    </div>
-    <div v-if="isNoData" class="not-data-table">
-      No data Available
-    </div>
-
-    <div v-if="pagination" v-show="!searchx" class="con-pagination-table">
-      <vs-pagination :total="getTotalPages" v-model="currentx"></vs-pagination>
-    </div>
-
   </div>
 </template>
 
