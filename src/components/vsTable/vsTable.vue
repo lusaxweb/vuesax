@@ -207,7 +207,7 @@ export default {
       return items
     },
     sort(key, active) {
-      let datax = this.datax
+      let datax = (this.pagination) ? this.data : this.datax
 
       function compare(a,b) {
         if (a[key] < b[key])
@@ -218,7 +218,6 @@ export default {
       }
 
       this.datax = datax.sort(compare)
-
     },
     filterValues () {
       let dataBase = this.data
