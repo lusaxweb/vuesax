@@ -70,11 +70,6 @@ API:
    parameters: null
    description: Determines the value of the element for when it is selected.
    default: null
- - name: data (vs-tr)
-   type: Object, Number, Array, String
-   parameters: null
-   description: Determines the value of the element for when it is selected.
-   default: null
  - name: sortKey (vs-th)
    type: String
    parameters: null
