@@ -20,11 +20,11 @@
       <div class="vs-con-table-theade">
         <table
           :style="tableHeaderStyle"
-          class="vs-table-theade">
+          class="vs-table-thead">
           <colgroup ref="colgroup">
             <col width="20"/>
             <col
-              class="col"
+              class="colx"
               v-for="(col,index) in getThs"
               :key="index"
               :name="`col-${index}`">
