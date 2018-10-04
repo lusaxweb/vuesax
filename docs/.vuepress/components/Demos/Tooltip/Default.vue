@@ -7,7 +7,7 @@
       <vs-input-number v-model="number1"/>
     </vs-tooltip>
     <vs-tooltip text="Tooltip Default">
-      <vs-button vs-color="primary" vs-type="border">Button</vs-button>
+      <vs-button color="primary" vs-type="border">Button</vs-button>
     </vs-tooltip>
   </div>
 </template>
