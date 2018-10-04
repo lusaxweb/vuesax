@@ -1,15 +1,15 @@
 <template lang="html">
   <div class="centerx con-exemple-prompt">
-    <!-- <vs-button @click="openPrompt" vs-color="primary" vs-type="border">Run prompt</vs-button> -->
+    <!-- <vs-button @click="openPrompt" color="primary" vs-type="border">Run prompt</vs-button> -->
     <div class="modelx">
       {{val==null?'null':val}}
     </div>
-     <vs-button @click="activePrompt = true" vs-color="primary" vs-type="border">Run prompt</vs-button>
+     <vs-button @click="activePrompt = true" color="primary" vs-type="border">Run prompt</vs-button>
      <div class="modelx">
        {{valMultipe.value1}}
        {{valMultipe.value2}}
      </div>
-     <vs-button @click="activePrompt2 = true" vs-color="primary" vs-type="border">Run prompt inputs</vs-button>
+     <vs-button @click="activePrompt2 = true" color="primary" vs-type="border">Run prompt inputs</vs-button>
 
      <vs-prompt
       @vs-cancel="val=''"
@@ -31,7 +31,7 @@
          <vs-input placeholder="Name" v-model="valMultipe.value1"/>
          <vs-input placeholder="Last Name" v-model="valMultipe.value2"/>
 
-         <vs-alert :vs-active="!validName" vs-color="danger" vs-icon="new_releases" >
+         <vs-alert :vs-active="!validName" color="danger" vs-icon="new_releases" >
            Fields can not be empty please enter the data
          </vs-alert>
        </div>
