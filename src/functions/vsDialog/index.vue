@@ -121,8 +121,17 @@ export default {
       }
     }
   },
+  watch:{
+    vsActive() {
+      this.$nextTick(() => {
+        if (this.vsActive) {
+          this.insertBody()
+        }
+      })
+    }
+  },
   mounted () {
-    if (this.active) {
+    if (this.active && this.isPrompt) {
       this.insertBody()
     }
   },

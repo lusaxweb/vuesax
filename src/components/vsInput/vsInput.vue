@@ -7,7 +7,7 @@
       'input-icon-validate-success':vsSuccess,
       'input-icon-validate-danger':vsDanger,
       'input-icon-validate-warning':vsWarning,
-      'is-label-palcehoder':vsLabelPlaceholder
+      'is-label-placeholder':vsLabelPlaceholder
     }]"
     class="vs-component vs-con-input-label vs-input">
     <label
@@ -19,11 +19,11 @@
       <input
         ref="vsinput"
         :style="style"
-        :class="{
+        :class="[`vs-inputx-${vsSize}`,{
           'hasValue':value != '',
           'hasIcon':vsIcon,
           'icon-after-input':vsIconAfter
-        }"
+        }]"
         :placeholder="null"
         :value="value"
         v-bind="$attrs"
@@ -35,9 +35,12 @@
           v-if="isValue&&(vsLabelPlaceholder||$attrs.placeholder)"
           ref="spanplaceholder"
           :style="styleLabel"
-          :class="{
-            'vs-placeholder-label':vsLabelPlaceholder,
-          }"
+          :class="[
+          vsLabelPlaceholder&&(`vs-placeholder-label-${vsSize}`),
+          `input-span-placeholder-${vsSize}`,
+          {
+            'vs-placeholder-label': vsLabelPlaceholder,
+          }]"
           class="input-span-placeholder"
           @click="focusInput">
           {{ $attrs.placeholder || vsLabelPlaceholder }}
@@ -46,7 +49,7 @@
 
       <i
         v-if="vsIcon"
-        :class="[vsIconPack,vsIcon,{
+        :class="[vsIconPack,vsIcon, `icon-inputx-${vsSize}`, {
           'icon-after':vsIconAfter,
         }]"
         translate="no"
@@ -175,6 +178,10 @@ export default {
       default: null,
       type:String
     },
+    vsSize:{
+      default:'normal',
+      type:String
+    }
   },
   data:()=>({
     isFocus:false

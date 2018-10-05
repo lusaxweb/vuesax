@@ -204,6 +204,7 @@ To add a type of button with edges we change the value of `vs-type` by: `gradien
 
 <vuecode md center>
 <div slot="demo">
+
 <vs-button vs-type="gradient">primary</vs-button>
 <vs-button color="success" vs-type="gradient">success</vs-button>
 <vs-button color="danger" vs-type="gradient">danger</vs-button>
@@ -216,6 +217,7 @@ To add a type of button with edges we change the value of `vs-type` by: `gradien
 <div slot="code">
 
 ```html
+
 <vs-button vs-type="gradient">primary</vs-button>
 <vs-button color="success" vs-type="gradient">success</vs-button>
 <vs-button color="danger" vs-type="gradient">danger</vs-button>
@@ -239,6 +241,7 @@ To add a type of button with edges we change the value of `vs-type` by: `relief`
 <vuecode md center>
 <div slot="demo">
 <vs-button vs-type="relief">Primary</vs-button>
+
 <vs-button color="success" vs-type="relief">Success</vs-button>
 <vs-button color="danger" vs-type="relief">Danger</vs-button>
 <vs-button color="warning" vs-type="relief">warning</vs-button>

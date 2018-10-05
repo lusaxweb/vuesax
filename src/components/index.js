@@ -27,11 +27,9 @@ export { default as vsSideBar } from './vsSideBar'
 export { default as vsDropDown } from './vsDropDown'
 export { default as vsTable } from './vsTable'
 export { default as vsTextarea } from './vsTextarea'
-//New Component import
-
-// component not soport SSR
 export { default as vsCollapse } from './vsCollapse'
-
+export { default as vsImages } from './vsImages'
+//New Component import
 
 //layout
 export { default as vsRow } from '../layout/vsRow/'

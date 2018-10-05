@@ -40,6 +40,11 @@ API:
    parameters: primary,success,danger,warning,dark,RGB,HEX
    description: Input and text color.
    default: primary
+ - name: vs-size
+   type: String
+   parameters: small,normal,large
+   description: Size of input.
+   default: normal
  - name: type
    type: String
    parameters: email, number, url, password, custom
@@ -401,6 +406,27 @@ export default {
     color: rgba(255, 255, 255,.8);
   }
 </style>
+```
+
+</div>
+</vuecode>
+
+</box>
+
+<box>
+
+## Size
+
+
+
+<vuecode md>
+<div slot="demo">
+  <Demos-Input-Size />
+</div>
+<div slot="code">
+
+```html
+
 ```
 
 </div>
