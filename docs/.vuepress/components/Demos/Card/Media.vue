@@ -15,9 +15,9 @@
         </div>
         <div slot="footer">
           <vs-row vs-justify="flex-end">
-            <vs-button vs-type="gradient" vs-color="danger" vs-icon="favorite"></vs-button>
-            <vs-button vs-color="primary" vs-icon="turned_in_not"></vs-button>
-            <vs-button vs-color="rgb(230,230,230)" vs-color-text="rgb(50,50,50)" vs-icon="settings"></vs-button>
+            <vs-button vs-type="gradient" color="danger" vs-icon="favorite"></vs-button>
+            <vs-button color="primary" vs-icon="turned_in_not"></vs-button>
+            <vs-button color="rgb(230,230,230)" color-text="rgb(50,50,50)" vs-icon="settings"></vs-button>
           </vs-row>
         </div>
       </vs-card>
@@ -37,9 +37,9 @@
         </div>
         <div slot="footer">
           <vs-row vs-justify="flex-end">
-            <vs-button vs-type="gradient" vs-color="danger" vs-icon="favorite"></vs-button>
-            <vs-button vs-color="primary" vs-icon="turned_in_not"></vs-button>
-            <vs-button vs-color="rgb(230,230,230)" vs-color-text="rgb(50,50,50)" vs-icon="settings"></vs-button>
+            <vs-button vs-type="gradient" color="danger" vs-icon="favorite"></vs-button>
+            <vs-button color="primary" vs-icon="turned_in_not"></vs-button>
+            <vs-button color="rgb(230,230,230)" color-text="rgb(50,50,50)" vs-icon="settings"></vs-button>
           </vs-row>
         </div>
       </vs-card>
