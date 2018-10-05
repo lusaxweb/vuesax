@@ -157,20 +157,15 @@ export default {
   },
   watch:{
     currentx() {
-      let max = Math.ceil(this.currentx * this.maxItems)
-      let min = max - this.maxItems
-
-      this.datax = this.getItems(min, max)
+      this.loadData()
+    },
+    maxItems() {
+      this.loadData()
     },
     data() {
-      let max = Math.ceil(this.currentx * this.maxItems)
-      let min = max - this.maxItems
-
-      let datax = this.pagination ? this.getItems(min, max) : this.data
-
-      this.datax = datax || []
+      this.loadData()
       this.$nextTick(() => {
-        if(datax.length > 0) {
+        if(this.datax.length > 0) {
           this.changeTdsWidth()
         }
       })
@@ -182,10 +177,8 @@ export default {
   mounted () {
     window.addEventListener('resize', this.listenerChangeWidth)
 
-    let max = Math.ceil(this.currentx * this.maxItems)
-    let min = max - this.maxItems
+    this.loadData()
 
-    this.datax = this.pagination ? this.getItems(min, max) : this.data || []
     this.$nextTick(() => {
       if(this.datax.length > 0) {
         this.changeTdsWidth()
@@ -196,6 +189,11 @@ export default {
     window.removeEventListener('resize', this.listenerChangeWidth)
   },
   methods:{
+    loadData() {
+      let max = Math.ceil(this.currentx * this.maxItems)
+      let min = max - this.maxItems
+      this.datax = this.pagination ? this.getItems(min, max) : this.data || []
+    },
     getItems(min, max) {
       let items = []
 
