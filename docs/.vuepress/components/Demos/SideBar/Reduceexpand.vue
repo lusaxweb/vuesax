@@ -2,8 +2,8 @@
 
   <div id="parentx">
 
-    <vs-button @click="active=!active, notExpand = false" vs-color="success" vs-type="filled">Open Sidebar Reduce-expand</vs-button>
-    <vs-button @click="active=!active, notExpand = true" vs-color="success" vs-type="filled">Open Sidebar Reduce-only</vs-button>
+    <vs-button @click="active=!active, notExpand = false" color="success" vs-type="filled">Open Sidebar Reduce-expand</vs-button>
+    <vs-button @click="active=!active, notExpand = true" color="success" vs-type="filled">Open Sidebar Reduce-only</vs-button>
     <vs-sidebar :reduce="reduce" :reduce-not-hover-expand="notExpand" parent="body" default-index="1"  color="success" class="sidebarx" spacer v-model="active">
 
       <div class="header-sidebar" slot="header">
@@ -49,7 +49,7 @@
       </vs-sidebar-item>
 
       <div class="footer-sidebar" slot="footer">
-        <vs-button vs-icon="settings" vs-color="primary" vs-type="border"></vs-button>
+        <vs-button vs-icon="settings" color="primary" vs-type="border"></vs-button>
       </div>
 
     </vs-sidebar>
