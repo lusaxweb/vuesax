@@ -10,7 +10,7 @@ API:
    parameters:
    description: Value if different from a boolean.
    default: null
- - name: vs-color
+ - name: color
    type: String
    parameters: Default Colors | HEX | RGB
    description: Type of element or color.
@@ -118,24 +118,24 @@ You can choose the default **Switch**. You are able to use the [Main Colors](/th
     </li>
     <li>
       <label for="">Success</label>
-      <vs-switch vs-color="success" v-model="switch2"/>
+      <vs-switch color="success" v-model="switch2"/>
     </li>
     <li>
       <label for="">Danger</label>
-      <vs-switch vs-color="danger" v-model="switch3"/>
+      <vs-switch color="danger" v-model="switch3"/>
     </li>
     <li>
       <label for="">Warning</label>
-      <vs-switch vs-color="warning" v-model="switch4"/>
+      <vs-switch color="warning" v-model="switch4"/>
     </li>
     <li>
       <label for="">Dark</label>
-      <vs-switch vs-color="dark" v-model="switch5"/>
+      <vs-switch color="dark" v-model="switch5"/>
     </li>
     <li class="con-input-color">
       <label for="">Color: <span>{{color}}</span></label>
       <input v-model="color" type="color">
-      <vs-switch :vs-color="color" v-model="switch6"/>
+      <vs-switch :color="color" v-model="switch6"/>
     </li>
   </ul>
 </template>
@@ -180,17 +180,17 @@ You can add a descriptive text with the slot `on` or `off`. You can also join th
       <span slot="on">On</span>
       <span slot="off">Off</span>
     </vs-switch>
-    <vs-switch vs-color="success" v-model="switch2">
+    <vs-switch color="success" v-model="switch2">
       <span slot="on">Accept</span>
       <span slot="off">Cancel</span>
     </vs-switch>
-    <vs-switch vs-color="danger" vs-icon-off="close" v-model="switch3">
+    <vs-switch color="danger" vs-icon-off="close" v-model="switch3">
       <span slot="on">Remove</span>
     </vs-switch>
-    <vs-switch vs-color="warning" vs-icon-on="error_outline" v-model="switch4">
+    <vs-switch color="warning" vs-icon-on="error_outline" v-model="switch4">
       <span slot="off">Prevent</span>
     </vs-switch>
-    <vs-switch vs-color="dark" vs-icon-on="check_box" vs-icon-off="block" v-model="switch5">
+    <vs-switch color="dark" vs-icon-on="check_box" vs-icon-off="block" v-model="switch5">
       <span slot="on">YES</span>
       <span slot="off">NO</span>
     </vs-switch>
@@ -244,23 +244,23 @@ Vuesax uses the **Google Material Icons** font library. For a list of all availa
     </li>
     <li>
       <label for="">Success</label>
-      <vs-switch vs-color="success" v-model="switch2" vs-icon="done"/>
+      <vs-switch color="success" v-model="switch2" vs-icon="done"/>
     </li>
     <li>
       <label for="">Danger</label>
-      <vs-switch vs-color="danger" v-model="switch3" vs-icon="close"/>
+      <vs-switch color="danger" v-model="switch3" vs-icon="close"/>
     </li>
     <li>
       <label for="">Warning</label>
-      <vs-switch vs-color="warning" v-model="switch4" vs-icon="error_outline"/>
+      <vs-switch color="warning" v-model="switch4" vs-icon="error_outline"/>
     </li>
     <li>
       <label for="">Dark</label>
-      <vs-switch vs-color="dark" v-model="switch5" vs-icon="volume_off"/>
+      <vs-switch color="dark" v-model="switch5" vs-icon="volume_off"/>
     </li>
     <li>
       <label for="">rgb(color) / #color</label>
-      <vs-switch vs-color="rgb(51, 53, 83)" v-model="switch6" vs-icon="photo_camera"/>
+      <vs-switch color="rgb(51, 53, 83)" v-model="switch6" vs-icon="photo_camera"/>
     </li>
   </ul>
 </template>

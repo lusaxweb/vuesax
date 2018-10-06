@@ -35,7 +35,7 @@ API:
    parameters: null
    description: Position of the icon after input.
    default: false
- - name: vs-color
+ - name: color
    type: String
    parameters: primary,success,danger,warning,dark,RGB,HEX
    description: Input and text color.
@@ -291,7 +291,7 @@ export default {
 
 ## Colors
 
-You can change the color of the borders when the focus the input with the property `vs-color`. You are able to use the [Main Colors](/theme/) or **RGB** and **HEX** colors.
+You can change the color of the borders when the focus the input with the property `color`. You are able to use the [Main Colors](/theme/) or **RGB** and **HEX** colors.
 
 :::warning
 There is only support for **HEX** and **RGB** colors
@@ -307,12 +307,12 @@ There is only support for **HEX** and **RGB** colors
 <template lang="html">
   <div class="centerx colors-example">
     <vs-input vs-label-placeholder="Default" v-model="value1"/>
-    <vs-input vs-color="success" vs-label-placeholder="Success" v-model="value2"/>
-    <vs-input vs-color="danger" vs-label-placeholder="Danger" v-model="value3"/>
-    <vs-input vs-color="warning" vs-label-placeholder="Warning" v-model="value4"/>
-    <vs-input vs-color="dark" vs-label-placeholder="Dark" v-model="value5"/>
-    <vs-input vs-color="rgb(213, 14, 151)" vs-label-placeholder="RGB: rgb(213, 14, 151)" v-model="value6"/>
-    <vs-input vs-color="#11e988" vs-label-placeholder="HEX: #11e988" v-model="value7"/>
+    <vs-input color="success" vs-label-placeholder="Success" v-model="value2"/>
+    <vs-input color="danger" vs-label-placeholder="Danger" v-model="value3"/>
+    <vs-input color="warning" vs-label-placeholder="Warning" v-model="value4"/>
+    <vs-input color="dark" vs-label-placeholder="Dark" v-model="value5"/>
+    <vs-input color="rgb(213, 14, 151)" vs-label-placeholder="RGB: rgb(213, 14, 151)" v-model="value6"/>
+    <vs-input color="#11e988" vs-label-placeholder="HEX: #11e988" v-model="value7"/>
   </div>
 </template>
 

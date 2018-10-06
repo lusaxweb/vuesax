@@ -91,8 +91,8 @@ export default {
     },
     styles(){
       return {
-        background: this.isActive?_color.getColor(this.$parent.parent.vsColor,.1):null,
-        color: this.isActive?_color.getColor(this.$parent.parent.vsColor,1):null,
+        background: this.isActive?_color.getColor(this.$parent.parent.color,.1):null,
+        color: this.isActive?_color.getColor(this.$parent.parent.color,1):null,
         fontWeight: this.isActive?'bold':null
       }
     },
@@ -170,7 +170,6 @@ export default {
         lengthx = 0
 
       function getNextLi(li,orientationObject){
-        // console.log('li>', li)
         if(li && li.localName == 'li'){
           let lix = li[orientationObject]
           if(li.style){
@@ -255,7 +254,7 @@ export default {
 
     // methods colors
     isColor(){
-      return _color.isColor(this.vsColor)
+      return _color.isColor(this.color)
     },
   }
 }

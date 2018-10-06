@@ -99,7 +99,7 @@ You can change the slider's color with the property `color`. You can also add th
 <template lang="html">
   <div class="centerx">
     <input type="color" v-model="colorx" name="" >
-    <vs-slider :vs-color="colorx" v-model="value1"/>
+    <vs-slider :color="colorx" v-model="value1"/>
   </div>
 </template>
 

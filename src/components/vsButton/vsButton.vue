@@ -2,7 +2,7 @@
   <button
     ref="btn"
     v-bind="$attrs"
-    :class="[`vs-button-${isColor()?vsColor:null}`,`vs-button-${vsType}`,{
+    :class="[`vs-button-${isColor()?color:null}`,`vs-button-${vsType}`,{
       'isActive':isActive,
       'includeIcon':vsIcon,
       'includeIconOnly':vsIcon && !$slots.default
@@ -55,11 +55,11 @@ export default {
       default:'filled',
       type:String
     },
-    vsColor:{
+    color:{
       default:'primary',
       type:String
     },
-    vsColorText:{
+    textColor:{
       default:null,
       type:String
     },
@@ -115,39 +115,39 @@ export default {
     styles() {
       if(this.is('filled')){
         return {
-          color: _color.getColor(this.vsColorText,1),
-          background: _color.getColor(this.vsColor,1),
-          boxShadow: this.hoverx?`0px 8px 25px -8px ${_color.getColor(this.vsColor,1)}`:null
+          color: _color.getColor(this.textColor,1),
+          background: _color.getColor(this.color,1),
+          boxShadow: this.hoverx?`0px 8px 25px -8px ${_color.getColor(this.color,1)}`:null
         }
       } else if (this.is('border') || this.is('flat')){
         return {
-          border: `${this.is('flat')?0:1}px solid ${_color.getColor(this.vsColor,1)}`,
-          background: this.hoverx?_color.getColor(this.vsColor,.1):'transparent',
-          color:_color.getColor(this.vsColorText,1) || _color.getColor(this.vsColor,1)
+          border: `${this.is('flat')?0:1}px solid ${_color.getColor(this.color,1)}`,
+          background: this.hoverx?_color.getColor(this.color,.1):'transparent',
+          color:_color.getColor(this.textColor,1) || _color.getColor(this.color,1)
         }
       } else if (this.is('line')) {
         return {
-          color:_color.getColor(this.vsColorText,1) || _color.getColor(this.vsColor,1),
+          color:_color.getColor(this.textColor,1) || _color.getColor(this.color,1),
           borderBottomWidth: this.vsLinePosition=='bottom'?`2px`:null,
-          borderColor: `${_color.getColor(this.vsColor,.2)}`,
+          borderColor: `${_color.getColor(this.color,.2)}`,
           borderTopWidth: this.vsLinePosition=='top'?`2px`:null,
         }
       } else if (this.is('gradient')) {
-        let backgroundx = `linear-gradient(${this.vsGradientDirection}, ${_color.getColor(this.vsColor)} 0%, ${_color.getColor(this.vsGradientColorSecondary,1)} 100%)`
+        let backgroundx = `linear-gradient(${this.vsGradientDirection}, ${_color.getColor(this.color)} 0%, ${_color.getColor(this.vsGradientColorSecondary,1)} 100%)`
         return {
           background: backgroundx,
         }
       } else if (this.is('relief')) {
-        let color = _color.getColor(this.vsColor,1)
+        let color = _color.getColor(this.color,1)
         return {
-          background: _color.getColor(this.vsColor,1),
+          background: _color.getColor(this.color,1),
           boxShadow: `0 3px 0 0 ${_color.darken(color,-0.4)}`
         }
       }
     },
     stylesBackGround(){
       let styles = {
-        background: this.is('flat') || this.is('border')?_color.getColor(this.vsColor,1,false):null,
+        background: this.is('flat') || this.is('border')?_color.getColor(this.color,1,false):null,
         opacity:this.opacity,
         left: `${this.leftBackgorund}px`,
         top: `${this.topBackgorund}px`,
@@ -170,7 +170,7 @@ export default {
       let styles = {
         top: this.vsLinePosition == 'top'?'-2px':'auto',
         bottom: this.vsLinePosition == 'bottom'?'-2px':'auto',
-        background: _color.getColor(this.vsColor,1),
+        background: _color.getColor(this.color,1),
         left: lineOrigin,
         right: lineOrigin == 'auto'?'0px':null,
         transform: lineOrigin=='50%'?'translate(-50%)':null
@@ -244,7 +244,7 @@ export default {
 
     },
     isColor(){
-      return _color.isColor(this.vsColor)
+      return _color.isColor(this.color)
     },
   }
 

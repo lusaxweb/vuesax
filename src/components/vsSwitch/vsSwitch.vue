@@ -1,7 +1,7 @@
 <template lang="html">
   <button
     :class="[
-      `vs-switch-${vsColor}`,
+      `vs-switch-${color}`,
       {
         'vs-switch-active':isChecked || $attrs.checked
       }
@@ -57,7 +57,7 @@ export default {
   inheritAttrs:false,
   props:{
     value:{},
-    vsColor:{
+    color:{
       default:'primary',
       type:String
     },
@@ -82,7 +82,7 @@ export default {
   computed:{
     style(){
       return {
-        background: this.value?_color.getColor(this.vsColor,1):null,
+        background: this.value?_color.getColor(this.color,1):null,
         width: `${this.widthx}px`
       }
     },

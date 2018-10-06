@@ -1,6 +1,6 @@
 ---
 API:
- - name: vs-color
+ - name: color
    type: String
    parameters: null
    description: Change the color of the dropdown.
@@ -148,7 +148,7 @@ export default {
 
 ## Color
 
-You can change the color of the component with the property `vs-color`
+You can change the color of the component with the property `color`
 
 :::warning
   Only **RGB** and **HEX** colors are supported.
@@ -166,7 +166,7 @@ You can change the color of the component with the property `vs-color`
 
     <input type="color" v-model="colorx">
 
-    <vs-dropdown :vs-color="colorx">
+    <vs-dropdown :color="colorx">
       <a class="a-icon" href="#">
         Dropdown hover
         <i class="material-icons">
@@ -281,7 +281,7 @@ If you need to group the options you can use the subcomponent `vs-dropdown-group
     </vs-dropdown>
 
     <vs-dropdown  >
-      <!-- <vs-button vs-color="primary" vs-type="filled">Segundo</vs-button> -->
+      <!-- <vs-button color="primary" vs-type="filled">Segundo</vs-button> -->
       <a class="a-icon" href.prevent>
         Dropdown Group Collapse
         <i class="material-icons">
@@ -404,7 +404,7 @@ Sometimes when we need something more personalized and not necessarily a menu fo
         vs-type="password"
         vs-label-placeholder="Password" v-model="value2"/>
 
-        <vs-button vs-width="100%" vs-color="success" vs-type="gradient">Login</vs-button>
+        <vs-button vs-width="100%" color="success" vs-type="gradient">Login</vs-button>
       </vs-dropdown-menu>
     </vs-dropdown>
   </div>

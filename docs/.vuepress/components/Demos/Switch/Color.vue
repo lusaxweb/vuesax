@@ -6,24 +6,24 @@
     </li>
     <li>
       <label for="">success</label>
-      <vs-switch vs-color="success" v-model="switch2"/>
+      <vs-switch color="success" v-model="switch2"/>
     </li>
     <li>
       <label for="">danger</label>
-      <vs-switch vs-color="danger" v-model="switch3"/>
+      <vs-switch color="danger" v-model="switch3"/>
     </li>
     <li>
       <label for="">warning</label>
-      <vs-switch vs-color="warning" v-model="switch4"/>
+      <vs-switch color="warning" v-model="switch4"/>
     </li>
     <li>
       <label for="">dark</label>
-      <vs-switch vs-color="dark" v-model="switch5"/>
+      <vs-switch color="dark" v-model="switch5"/>
     </li>
     <li class="con-input-color">
       <label for="">Color: <span>{{color}}</span></label>
       <input v-model="color" type="color" name="" value="">
-      <vs-switch :vs-color="color" v-model="switch6"/>
+      <vs-switch :color="color" v-model="switch6"/>
     </li>
   </ul>
 </template>

@@ -59,9 +59,9 @@ To add a card we have the `vs-card` component, for the internal structure we use
       </div>
       <div slot="footer">
         <vs-row vs-justify="flex-end">
-          <vs-button vs-type="gradient" vs-color="danger" vs-icon="favorite"></vs-button>
-          <vs-button vs-color="primary" vs-icon="turned_in_not"></vs-button>
-          <vs-button vs-color="rgb(230,230,230)" vs-color-text="rgb(50,50,50)" vs-icon="settings"></vs-button>
+          <vs-button vs-type="gradient" color="danger" vs-icon="favorite"></vs-button>
+          <vs-button color="primary" vs-icon="turned_in_not"></vs-button>
+          <vs-button color="rgb(230,230,230)" color-text="rgb(50,50,50)" vs-icon="settings"></vs-button>
         </vs-row>
       </div>
     </vs-card>
@@ -84,9 +84,9 @@ To add a card we have the `vs-card` component, for the internal structure we use
       </div>
       <div slot="footer">
         <vs-row vs-justify="flex-end">
-          <vs-button vs-type="gradient" vs-color="danger" vs-icon="favorite"></vs-button>
-          <vs-button vs-color="primary" vs-icon="turned_in_not"></vs-button>
-          <vs-button vs-color="rgb(230,230,230)" vs-color-text="rgb(50,50,50)" vs-icon="settings"></vs-button>
+          <vs-button vs-type="gradient" color="danger" vs-icon="favorite"></vs-button>
+          <vs-button color="primary" vs-icon="turned_in_not"></vs-button>
+          <vs-button color="rgb(230,230,230)" color-text="rgb(50,50,50)" vs-icon="settings"></vs-button>
         </vs-row>
       </div>
     </vs-card>
@@ -128,9 +128,9 @@ There are cases in which you need to add an image or video on the card so we hav
         </div>
         <div slot="footer">
           <vs-row vs-justify="flex-end">
-            <vs-button vs-type="gradient" vs-color="danger" vs-icon="favorite"></vs-button>
-            <vs-button vs-color="primary" vs-icon="turned_in_not"></vs-button>
-            <vs-button vs-color="rgb(230,230,230)" vs-color-text="rgb(50,50,50)" vs-icon="settings"></vs-button>
+            <vs-button vs-type="gradient" color="danger" vs-icon="favorite"></vs-button>
+            <vs-button color="primary" vs-icon="turned_in_not"></vs-button>
+            <vs-button color="rgb(230,230,230)" color-text="rgb(50,50,50)" vs-icon="settings"></vs-button>
           </vs-row>
         </div>
       </vs-card>
@@ -150,9 +150,9 @@ There are cases in which you need to add an image or video on the card so we hav
         </div>
         <div slot="footer">
           <vs-row vs-justify="flex-end">
-            <vs-button vs-type="gradient" vs-color="danger" vs-icon="favorite"></vs-button>
-            <vs-button vs-color="primary" vs-icon="turned_in_not"></vs-button>
-            <vs-button vs-color="rgb(230,230,230)" vs-color-text="rgb(50,50,50)" vs-icon="settings"></vs-button>
+            <vs-button vs-type="gradient" color="danger" vs-icon="favorite"></vs-button>
+            <vs-button color="primary" vs-icon="turned_in_not"></vs-button>
+            <vs-button color="rgb(230,230,230)" color-text="rgb(50,50,50)" vs-icon="settings"></vs-button>
           </vs-row>
         </div>
       </vs-card>
@@ -198,8 +198,8 @@ You can add hover functionality with the property `actionable`
         </div>
         <div slot="footer">
           <vs-row vs-justify="flex-end">
-            <vs-button vs-color="primary" vs-type="gradient" >View</vs-button>
-            <vs-button vs-color="danger" vs-type="gradient">Delete</vs-button>
+            <vs-button color="primary" vs-type="gradient" >View</vs-button>
+            <vs-button color="danger" vs-type="gradient">Delete</vs-button>
           </vs-row>
         </div>
       </vs-card>
@@ -219,8 +219,8 @@ You can add hover functionality with the property `actionable`
         </div>
         <div slot="footer">
           <vs-row vs-justify="flex-end">
-            <vs-button vs-color="primary" vs-type="gradient" >View</vs-button>
-            <vs-button vs-color="danger" vs-type="gradient" >Delete</vs-button>
+            <vs-button color="primary" vs-type="gradient" >View</vs-button>
+            <vs-button color="danger" vs-type="gradient" >Delete</vs-button>
           </vs-row>
         </div>
       </vs-card>
@@ -246,8 +246,8 @@ You can add hover functionality with the property `actionable`
         </div>
         <div slot="footer">
           <vs-row vs-justify="flex-end">
-            <vs-button vs-color="primary" vs-type="gradient" >View</vs-button>
-            <vs-button vs-color="danger" vs-type="gradient">Delete</vs-button>
+            <vs-button color="primary" vs-type="gradient" >View</vs-button>
+            <vs-button color="danger" vs-type="gradient">Delete</vs-button>
           </vs-row>
         </div>
       </vs-card>
@@ -267,8 +267,8 @@ You can add hover functionality with the property `actionable`
         </div>
         <div slot="footer">
           <vs-row vs-justify="flex-end">
-            <vs-button vs-color="primary" vs-type="gradient" >View</vs-button>
-            <vs-button vs-color="danger" vs-type="gradient" >Delete</vs-button>
+            <vs-button color="primary" vs-type="gradient" >View</vs-button>
+            <vs-button color="danger" vs-type="gradient" >Delete</vs-button>
           </vs-row>
         </div>
       </vs-card>

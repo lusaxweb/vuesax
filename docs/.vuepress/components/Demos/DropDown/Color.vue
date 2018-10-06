@@ -3,7 +3,7 @@
 
     <input type="color" v-model="colorx">
 
-    <vs-dropdown :vs-color="colorx">
+    <vs-dropdown :color="colorx">
       <a class="a-icon" href="#">
         Dropdown hover
         <i class="material-icons">
