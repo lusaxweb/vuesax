@@ -69,6 +69,10 @@ API:
    parameters: null
    description: Determines if the option is selected.
    default: null
+ - name: input-changed
+   type: Event
+   parameters: event (optional)
+   description:  Triggers method when input of select is changed (requires vs-autocomplete prop)
 ---
 
 # Select **- update**
@@ -265,6 +269,7 @@ You can add the autocomplete functionality in the desired selected with the prop
   <div class="con-select-example">
     <vs-select
       vs-autocomplete
+      @input-change="autoCompleteFunc"
     class="selectExample"
       label="Figuras"
       v-model="select1"
@@ -273,6 +278,7 @@ You can add the autocomplete functionality in the desired selected with the prop
     </vs-select>
     <vs-select
     vs-autocomplete
+    @input-change="autoCompleteFunc"
     class="selectExample"
       label="Figuras"
       v-model="select2"
@@ -281,6 +287,7 @@ You can add the autocomplete functionality in the desired selected with the prop
     </vs-select>
     <vs-select
     vs-autocomplete
+    @input-change="autoCompleteFunc"
       disabled="true"
       class="selectExample"
       label="Figuras"

@@ -184,8 +184,10 @@ export default {
           // document.removeEventListener('click',this.clickBlur)
           this.focus(event)
         },
-        input: () => {
-          return
+        input: (event) => {
+          if (this.vsAutocomplete) {
+            this.$emit('input-change', event)
+          }
         },
         keyup: (event) => {
           if(event.key == 'ArrowDown' || event.key == 'ArrowUp'){

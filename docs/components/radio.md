@@ -55,7 +55,7 @@ The **Radio Button** is always going to replace the current value.
       <vs-radio v-model="radios1" vs-value="carols">Carols</vs-radio>
     </li>
     <li>
-      <vs-radio v-model="radios1" vs-value="summer">summer</vs-radio>
+      <vs-radio v-model="radios1" vs-value="summer">Summer</vs-radio>
     </li>
     <li>
       <vs-radio disabled="true" v-model="radios1" vs-value="lyon">Lyon - disabled</vs-radio>
