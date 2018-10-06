@@ -2,6 +2,7 @@
   <div class="con-select-example">
     <vs-select
       vs-autocomplete
+      @input-change="autoCompleteFunc"
     class="selectExample"
       label="Figuras"
       v-model="select1"
@@ -10,6 +11,7 @@
     </vs-select>
     <vs-select
     vs-autocomplete
+    @input-change="autoCompleteFunc"
     class="selectExample"
       label="Figuras"
       v-model="select2"
@@ -18,6 +20,7 @@
     </vs-select>
     <vs-select
     vs-autocomplete
+    @input-change="autoCompleteFunc"
       disabled="true"
       class="selectExample"
       label="Figuras"
@@ -67,6 +70,9 @@ export default {
   methods:{
     logx(event){
       console.log("prueba de ",event);
+    },
+    autoCompleteFunc(event) {
+      console.log(event)
     }
   }
 }
