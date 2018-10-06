@@ -90,6 +90,10 @@ export default {
     vsIconAfter:{
       default:false,
       type:Boolean
+    },
+    to:{
+      default:false,
+      type:String | Object
     }
   },
   data:()=>({
@@ -180,6 +184,9 @@ export default {
     }
   },
   methods:{
+    routerPush() {
+      this.$router.push(this.to)
+    },
     is(which){
       let type = this.vsType
       return type == which
@@ -206,6 +213,9 @@ export default {
       this.$emit('click',event)
       if(this.isActive){
         return
+      }
+      if(this.to){
+        this.routerPush()
       }
       this.isActive = true
       let btn = this.$refs.btn
