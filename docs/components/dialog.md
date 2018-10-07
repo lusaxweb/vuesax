@@ -10,7 +10,7 @@ API:
    parameters: null
    description: Main title of the dialog.
    default: Dialog
- - name: vs-color
+ - name: color
    type: String
    parameters: null
    description: Dialog color and accept buttons.
@@ -90,12 +90,12 @@ To generate a dialog we have the global function `$vs.dialog` the parameters to 
 ```html
 <template lang="html">
   <div class="centerx">
-    <vs-button @click="openAlert('primary')" vs-color="primary" vs-type="flat">Alert Primary</vs-button>
-    <vs-button @click="openAlert('success')" vs-color="success" vs-type="flat">Alert success</vs-button>
-    <vs-button @click="openAlert('danger')" vs-color="danger" vs-type="flat">Alert Danger</vs-button>
-    <vs-button @click="openAlert('warning')" vs-color="warning" vs-type="flat">Alert Warning</vs-button>
-    <vs-button @click="openAlert('dark')" vs-color="dark" vs-type="flat">Alert Dark</vs-button>
-    <vs-button @click="openAlert(null)" vs-color="primary" vs-type="gradient">Alert Color RGB | HEX</vs-button>
+    <vs-button @click="openAlert('primary')" color="primary" vs-type="flat">Alert Primary</vs-button>
+    <vs-button @click="openAlert('success')" color="success" vs-type="flat">Alert success</vs-button>
+    <vs-button @click="openAlert('danger')" color="danger" vs-type="flat">Alert Danger</vs-button>
+    <vs-button @click="openAlert('warning')" color="warning" vs-type="flat">Alert Warning</vs-button>
+    <vs-button @click="openAlert('dark')" color="dark" vs-type="flat">Alert Dark</vs-button>
+    <vs-button @click="openAlert(null)" color="primary" vs-type="gradient">Alert Color RGB | HEX</vs-button>
   </div>
 </template>
 
@@ -160,7 +160,7 @@ If you need a dialog of type confirm you can do it just by changing the type as 
 ```html
 <template lang="html">
   <div class="centerx">
-    <vs-button @click="openConfirm()" vs-color="danger" vs-type="gradient">Alert Primary</vs-button>
+    <vs-button @click="openConfirm()" color="danger" vs-type="gradient">Alert Primary</vs-button>
   </div>
 </template>
 
@@ -225,16 +225,16 @@ To add a dialog of type prompt we have a global function a completely independen
 ```html
 <template lang="html">
   <div class="centerx con-exemple-prompt">
-    <!-- <vs-button @click="openPrompt" vs-color="primary" vs-type="border">Run prompt</vs-button> -->
+    <!-- <vs-button @click="openPrompt" color="primary" vs-type="border">Run prompt</vs-button> -->
     <div class="modelx">
       {{val==null?'null':val}}
     </div>
-     <vs-button @click="activePrompt = true" vs-color="primary" vs-type="border">Run prompt</vs-button>
+     <vs-button @click="activePrompt = true" color="primary" vs-type="border">Run prompt</vs-button>
      <div class="modelx">
        {{valMultipe.value1}}
        {{valMultipe.value2}}
      </div>
-     <vs-button @click="activePrompt2 = true" vs-color="primary" vs-type="border">Run prompt inputs</vs-button>
+     <vs-button @click="activePrompt2 = true" color="primary" vs-type="border">Run prompt inputs</vs-button>
 
      <vs-prompt
       @vs-cancel="val=''"
@@ -256,7 +256,7 @@ To add a dialog of type prompt we have a global function a completely independen
          <vs-input placeholder="Name" v-model="valMultipe.value1"/>
          <vs-input placeholder="Last Name" v-model="valMultipe.value2"/>
 
-         <vs-alert :vs-active="!validName" vs-color="danger" vs-icon="new_releases" >
+         <vs-alert :vs-active="!validName" color="danger" vs-icon="new_releases" >
            Fields can not be empty please enter the data
          </vs-alert>
        </div>

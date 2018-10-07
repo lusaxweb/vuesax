@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="">
-    <vs-tabs :vs-color="colorx">
+    <vs-tabs :color="colorx">
       <vs-tab @click="colorx = 'success'" vs-label="Success">
         <div class="con-tab-ejemplo">
           Success

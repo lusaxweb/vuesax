@@ -1,6 +1,6 @@
 <template lang="html">
   <div
-    :class="[`vs-checkbox-${vsColor}`, `vs-checkbox-${size}`]"
+    :class="[`vs-checkbox-${color}`, `vs-checkbox-${size}`]"
     class="vs-component con-vs-checkbox">
     <input
       v-bind="$attrs"
@@ -32,7 +32,7 @@ export default {
   name:'VsCheckbox',
   inheritAttrs: false,
   props:{
-    vsColor:{
+    color:{
       default:'primary',
       type:String,
     },
@@ -53,12 +53,12 @@ export default {
   computed:{
     style_check(){
       return {
-        background: this.isChecked?_color.getColor(this.vsColor,1):null,
+        background: this.isChecked?_color.getColor(this.color,1):null,
       }
     },
     style(){
       return {
-        border: `2px solid ${this.isChecked?_color.getColor(this.vsColor,1):'rgb(180, 180, 180)'}`,
+        border: `2px solid ${this.isChecked?_color.getColor(this.color,1):'rgb(180, 180, 180)'}`,
       }
     },
     listeners(){

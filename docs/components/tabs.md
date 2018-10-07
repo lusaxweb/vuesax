@@ -20,7 +20,7 @@ API:
    parameters: top, left, bottom, right
    description: Tabs menu position.
    default: null
- - name: vs-color
+ - name: color
    type: String
    parameters: RGB, HEX
    description: Color of the tabs component.
@@ -110,7 +110,7 @@ For the title of each tab the `vs-tab` property is implemented in the` vs-tab` c
 
 ## Color
 
-You can change the color of the component with the property `vs-color`, the parameter allows the main colors and HEX or RGB
+You can change the color of the component with the property `color`, the parameter allows the main colors and HEX or RGB
 
 :::warning
   Only **RGB** and **HEX** colors are supported.
@@ -125,7 +125,7 @@ You can change the color of the component with the property `vs-color`, the para
 ```html
 <template lang="html">
   <div>
-    <vs-tabs :vs-color="colorx">
+    <vs-tabs :color="colorx">
       <vs-tab @click="colorx = 'success'" vs-label="Success">
         <div class="con-tab-ejemplo">
           Success

@@ -51,7 +51,7 @@ export default {
   data:()=>({
     hoverx:false,
     vsDropDownItem:true,
-    vsColor:null
+    color:null
   }),
   mounted(){
     this.changeColor()
@@ -92,12 +92,12 @@ export default {
         if(parent.$el.className.indexOf('parent-dropdown')==-1){
           searchParent(parent)
         } else {
-          _self.vsColor = parent.vsColor
+          _self.color = parent.color
         }
       }
     },
     giveColor(opacity=1){
-      return _color.rColor(this.vsColor,opacity)
+      return _color.rColor(this.color,opacity)
     },
   },
 

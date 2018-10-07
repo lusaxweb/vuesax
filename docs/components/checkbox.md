@@ -5,7 +5,7 @@ API:
    parameters: null
    description: Link values.
    default: null
- - name: vs-color
+ - name: color
    type: String
    parameters: primary, success, danger, warning, dark, RGB, HEX
    description: Color options for checkBox.
@@ -85,7 +85,7 @@ export default {
 
 ## Colors
 
-You can change the color of the checkBox with the property `vs-color`. You are able to use the [Main Colors](/theme/) or **RGB** and **HEX** colors.
+You can change the color of the checkBox with the property `color`. You are able to use the [Main Colors](/theme/) or **RGB** and **HEX** colors.
 
 :::warning
   Only RGB and HEX colors are supported.
@@ -105,22 +105,22 @@ You can change the color of the checkBox with the property `vs-color`. You are a
         <vs-checkbox v-model="checkBox1">Primary</vs-checkbox>
       </li>
       <li>
-        <vs-checkbox vs-color="success" v-model="checkBox2">Success</vs-checkbox>
+        <vs-checkbox color="success" v-model="checkBox2">Success</vs-checkbox>
       </li>
       <li>
-        <vs-checkbox vs-color="danger" v-model="checkBox3">Danger</vs-checkbox>
+        <vs-checkbox color="danger" v-model="checkBox3">Danger</vs-checkbox>
       </li>
       <li>
-        <vs-checkbox vs-color="warning" v-model="checkBox4">Warning</vs-checkbox>
+        <vs-checkbox color="warning" v-model="checkBox4">Warning</vs-checkbox>
       </li>
       <li>
-        <vs-checkbox vs-color="dark" v-model="checkBox5">Dark</vs-checkbox>
+        <vs-checkbox color="dark" v-model="checkBox5">Dark</vs-checkbox>
       </li>
       <li>
-        <vs-checkbox vs-color="rgb(38, 187, 174)" v-model="checkBox6">Color RGB</vs-checkbox>
+        <vs-checkbox color="rgb(38, 187, 174)" v-model="checkBox6">Color RGB</vs-checkbox>
       </li>
       <li>
-        <vs-checkbox vs-color="#720ea8" v-model="checkBox7">Color HEX</vs-checkbox>
+        <vs-checkbox color="#720ea8" v-model="checkBox7">Color HEX</vs-checkbox>
       </li>
     </ul>
   </div>
@@ -212,7 +212,7 @@ You can pass as a value a string by giving it as a value of the property `vs-val
         {{checkBox1==null?'null':checkBox1}}
       </li>
       <li>
-        <vs-checkbox v-model="checkBox1" vs-value="Luis Daniel" >luis daniel</vs-checkbox>
+        <vs-checkbox v-model="checkBox1" vs-value="Luis Daniel" >Luis Daniel</vs-checkbox>
       </li>
     </ul>
   </div>
@@ -258,10 +258,10 @@ You can have several checkBoxs linked to the same array only by using `v-model` 
         <vs-checkbox v-model="checkBox1" vs-value="luis">Luis</vs-checkbox>
       </li>
       <li>
-        <vs-checkbox v-model="checkBox1" vs-value="carols">carols</vs-checkbox>
+        <vs-checkbox v-model="checkBox1" vs-value="carols">Carols</vs-checkbox>
       </li>
       <li>
-        <vs-checkbox v-model="checkBox1" vs-value="summer">summer</vs-checkbox>
+        <vs-checkbox v-model="checkBox1" vs-value="summer">Summer</vs-checkbox>
       </li>
       <li>
         <vs-checkbox v-model="checkBox1" vs-value="lyon">Lyon</vs-checkbox>
@@ -352,22 +352,22 @@ Sometimes we want to change the internal icon inside the checkbox. To do so, we 
         <vs-checkbox v-model="checkBox1">Primary</vs-checkbox>
       </li>
       <li>
-        <vs-checkbox vs-icon="sms" vs-color="success" v-model="checkBox2">sms</vs-checkbox>
+        <vs-checkbox vs-icon="sms" color="success" v-model="checkBox2">SMS</vs-checkbox>
       </li>
       <li>
-        <vs-checkbox vs-icon="close" vs-color="danger" v-model="checkBox3">Cancel</vs-checkbox>
+        <vs-checkbox vs-icon="close" color="danger" v-model="checkBox3">Cancel</vs-checkbox>
       </li>
       <li>
-        <vs-checkbox vs-icon="attach_file" vs-color="warning" v-model="checkBox4">File</vs-checkbox>
+        <vs-checkbox vs-icon="attach_file" color="warning" v-model="checkBox4">File</vs-checkbox>
       </li>
       <li>
-        <vs-checkbox vs-icon="format_bold" vs-color="dark" v-model="checkBox5">Bold</vs-checkbox>
+        <vs-checkbox vs-icon="format_bold" color="dark" v-model="checkBox5">Bold</vs-checkbox>
       </li>
       <li>
-        <vs-checkbox vs-icon="location_searching" vs-color="rgb(38, 187, 174)" v-model="checkBox6">location</vs-checkbox>
+        <vs-checkbox vs-icon="location_searching" color="rgb(38, 187, 174)" v-model="checkBox6">Location</vs-checkbox>
       </li>
       <li>
-        <vs-checkbox vs-icon="camera_alt" vs-color="#720ea8" v-model="checkBox7">Camera</vs-checkbox>
+        <vs-checkbox vs-icon="camera_alt" color="#720ea8" v-model="checkBox7">Camera</vs-checkbox>
       </li>
     </ul>
   </div>

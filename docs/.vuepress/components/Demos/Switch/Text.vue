@@ -4,17 +4,17 @@
       <span slot="on">On</span>
       <span slot="off">Off</span>
     </vs-switch>
-    <vs-switch vs-color="success" v-model="switch2">
+    <vs-switch color="success" v-model="switch2">
       <span slot="on">Accept</span>
       <span slot="off">Cancel</span>
     </vs-switch>
-    <vs-switch vs-color="danger" vs-icon-off="close" v-model="switch3">
+    <vs-switch color="danger" vs-icon-off="close" v-model="switch3">
       <span slot="on">Remove</span>
     </vs-switch>
-    <vs-switch vs-color="warning" vs-icon-on="error_outline" v-model="switch4">
+    <vs-switch color="warning" vs-icon-on="error_outline" v-model="switch4">
       <span slot="off">Prevent</span>
     </vs-switch>
-    <vs-switch vs-color="dark" vs-icon-on="check_box" vs-icon-off="block" v-model="switch5">
+    <vs-switch color="dark" vs-icon-on="check_box" vs-icon-off="block" v-model="switch5">
       <span slot="on">YES</span>
       <span slot="off">NO</span>
     </vs-switch>

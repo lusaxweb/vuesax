@@ -13,7 +13,7 @@
     <transition name="td">
       <div v-if="activeEdit" class="con-edit-td">
         <slot name="edit"></slot>
-        <vs-button @click="close" vs-icon="clear"  vs-size="small" vs-color="primary" vs-type="flat"></vs-button>
+        <vs-button @click="close" vs-icon="clear"  vs-size="small" color="primary" vs-type="flat"></vs-button>
       </div>
     </transition>
   </td>

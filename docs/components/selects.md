@@ -5,6 +5,11 @@ API:
    parameters: {text:'Example',value:'1'}
    description: Options to select.
    default: null
+ - name: color
+   type: String
+   parameters: null
+   description: Change the color of the button
+   default: primary
  - name: vs-autocomplete
    type: Boolean
    parameters:
@@ -64,6 +69,10 @@ API:
    parameters: null
    description: Determines if the option is selected.
    default: null
+ - name: input-changed
+   type: Event
+   parameters: event (optional)
+   description:  Triggers method when input of select is changed (requires vs-autocomplete prop)
 ---
 
 # Select **- update**
@@ -163,7 +172,7 @@ export default {
 
 ## Color
 
-You can change the color of the select with the property `vs-color`
+You can change the color of the select with the property `color`
 
 :::warning
   Only **RGB** and **HEX** colors are supported.
@@ -183,7 +192,7 @@ You can change the color of the select with the property `vs-color`
   <div class="con-select-example">
     <input v-model="colorx" type="color" name="" value="">
     <vs-select
-    :vs-color="colorx"
+    :color="colorx"
     class="selectExample"
       label="Figuras"
       v-model="select1"
@@ -191,7 +200,7 @@ You can change the color of the select with the property `vs-color`
       <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="(item,index) in options1" />
     </vs-select>
     <vs-select
-    :vs-color="select2"
+    :color="select2"
     class="selectExample"
       label="Figuras"
       v-model="select2"
@@ -260,6 +269,7 @@ You can add the autocomplete functionality in the desired selected with the prop
   <div class="con-select-example">
     <vs-select
       vs-autocomplete
+      @input-change="autoCompleteFunc"
     class="selectExample"
       label="Figuras"
       v-model="select1"
@@ -268,6 +278,7 @@ You can add the autocomplete functionality in the desired selected with the prop
     </vs-select>
     <vs-select
     vs-autocomplete
+    @input-change="autoCompleteFunc"
     class="selectExample"
       label="Figuras"
       v-model="select2"
@@ -276,6 +287,7 @@ You can add the autocomplete functionality in the desired selected with the prop
     </vs-select>
     <vs-select
     vs-autocomplete
+    @input-change="autoCompleteFunc"
       disabled="true"
       class="selectExample"
       label="Figuras"

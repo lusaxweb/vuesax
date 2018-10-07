@@ -2,7 +2,7 @@
   <div class="con-select-example">
     <input v-model="colorx" type="color" name="" value="">
     <vs-select
-    :vs-color="colorx"
+    :color="colorx"
     class="selectExample"
       label="Figuras"
       v-model="select1"
@@ -10,7 +10,7 @@
       <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in options1" />
     </vs-select>
     <vs-select
-    :vs-color="select2"
+    :color="select2"
     class="selectExample"
       label="Figuras"
       v-model="select2"

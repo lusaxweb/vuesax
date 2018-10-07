@@ -22,7 +22,7 @@ export default {
       default:false,
       type:Boolean
     },
-    vsColor:{
+    color:{
       default:'primary',
       type:String
     },
@@ -69,7 +69,7 @@ export default {
       let child = this.$children
       child.forEach((item)=>{
         if(item.$vnode.tag.indexOf('dropdown')!=-1){
-          item.vsColor = this.vsColor
+          item.color = this.color
         }
       })
     },
