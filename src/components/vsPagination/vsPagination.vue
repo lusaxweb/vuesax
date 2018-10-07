@@ -106,6 +106,9 @@ export default {
     current() {
       this.getPages()
       this.$emit('input', this.current)
+    },
+    total() {
+      this.getPages()
     }
   },
 
@@ -137,7 +140,6 @@ export default {
         let pages = this.setPages(1, this.total)
         this.pages = pages
       }
-      // console.log('this.total', this.total)
       const even     = this.max % 2 === 0 ? 1 : 0
       if(this.total < 6) {
         this.prevRange = Math.floor(this.max / (this.max/2))
