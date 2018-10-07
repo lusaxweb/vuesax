@@ -45,6 +45,11 @@ API:
     parameters: null
     description: Change the secondary color on the button (gradient)
     default: primary
+  - name: to
+    type: String | Object
+    parameters: null
+    description: Added router push navigation to button
+    default: false
 ---
 
 # Buttons **- update**
@@ -82,6 +87,7 @@ To define the type of button the directive is used `vs-type` with the value of s
 <vs-button color="dark" vs-type="filled">Dark</vs-button>
 <vs-button color="rgb(134, 4, 98)" vs-type="filled">RGB</vs-button>
 <vs-button disabled vs-type="filled">Disabled</vs-button>
+<vs-button vs-color="primary" vs-type="filled" to="/components/list.html">Router</vs-button>
 ```
 
 </div>
@@ -460,6 +466,34 @@ It is not important to specify the size when the button is of type `default`
 <vs-button vs-size="large">Large</vs-button>
 <vs-button>Default</vs-button>
 <vs-button vs-size="small">Small</vs-button>
+```
+
+</div>
+</vuecode>
+</box>
+
+<box>
+
+## Router
+
+You can send a string or object to directive `to`. This directive wrap a `$router.push()` vue method,
+you can use all programmatic navigation on vue router.
+
+<vuecode md center>
+<div slot="demo">
+<vs-button vs-color="primary" vs-type="filled" to="/components/list.html">String literal</vs-button>
+<vs-button vs-color="warning" vs-type="filled" :to="{path: '/components/list.html'}">Object Path</vs-button>
+<vs-button vs-color="success" vs-type="filled" :to="{ name: 'user', params: { userId: 123 }}">Named Router</vs-button>
+<vs-button vs-color="dark"    vs-type="filled" :to="{ path: 'register', query: { plan: 'private' }}">With Query</vs-button>
+</div>
+
+<div slot="code">
+
+```html
+<vs-button vs-color="primary" vs-type="filled" to="/components/list.html">String literal</vs-button>
+<vs-button vs-color="warning" vs-type="filled" :to="{ path: '/components/list.html' }">Object Path</vs-button>
+<vs-button vs-color="success" vs-type="filled" :to="{ name: 'user', params: { userId: 123 } }">Named Router</vs-button>
+<vs-button vs-color="dark"    vs-type="filled" :to="{ path: 'register', query: { plan: 'private' } }">With Query</vs-button>
 ```
 
 </div>
