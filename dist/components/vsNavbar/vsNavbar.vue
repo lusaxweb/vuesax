@@ -33,6 +33,11 @@ export default {
   },
   computed:{
     styleNavbar () {
+      if(_color.isColor(this.color)) {
+        return {
+          background: `rgb(${_color.changeColor(this.color)})`
+        }
+      }
       return {
         background: _color.getColor(this.color)
       }
