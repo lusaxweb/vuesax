@@ -1,6 +1,6 @@
 <template lang="html">
   <label
-    :class="[`vs-radio-${vsColor}`]"
+    :class="[`vs-radio-${color}`]"
     class="vs-component con-vs-radio">
     <input
       v-bind="$attrs"
@@ -31,7 +31,7 @@ export default {
   props:{
     value:{},
     vsValue:{},
-    vsColor:{
+    color:{
       default:'primary',
       type:String
     }
@@ -54,13 +54,13 @@ export default {
     },
     styles(){
       return {
-        'border': `2px solid ${this.isChecked?_color.getColor(this.vsColor,1):'rgb(200, 200, 200)'}`
+        'border': `2px solid ${this.isChecked?_color.getColor(this.color,1):'rgb(200, 200, 200)'}`
       }
     },
     styleCircle(){
       return {
-        'background': _color.getColor(this.vsColor,1),
-        'box-shadow': `0px 3px 12px 0px ${_color.getColor(this.vsColor,.4)}`
+        'background': _color.getColor(this.color,1),
+        'box-shadow': `0px 3px 12px 0px ${_color.getColor(this.color,.4)}`
       }
     }
   },

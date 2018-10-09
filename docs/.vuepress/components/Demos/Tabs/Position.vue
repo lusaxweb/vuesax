@@ -1,9 +1,9 @@
 <template lang="html">
   <div class="">
-    <vs-tabs vs-color="rgb(32, 201, 192)">
+    <vs-tabs color="rgb(32, 201, 192)">
       <vs-tab vs-label="Top">
         <!-- top -->
-        <vs-tabs vs-color="rgb(201, 32, 178)">
+        <vs-tabs color="rgb(201, 32, 178)">
           <vs-tab vs-label="Home">
             <div>
               Home
@@ -30,7 +30,7 @@
       <vs-tab vs-label="Right">
 
         <!-- right -->
-        <vs-tabs vs-position="right" vs-color="rgb(29, 55, 194)">
+        <vs-tabs vs-position="right" color="rgb(29, 55, 194)">
           <vs-tab vs-label="Home">
             <div>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo libero ac sapien pharetra finibus. Vestibulum hendrerit nibh at quam ullamcorper tempus id at nulla.
@@ -57,7 +57,7 @@
       <vs-tab vs-label="Bottom">
 
         <!-- bottom -->
-        <vs-tabs vs-position="bottom" vs-color="rgb(29, 55, 194)">
+        <vs-tabs vs-position="bottom" color="rgb(29, 55, 194)">
           <vs-tab vs-label="Home">
             <div>
               Home
@@ -83,7 +83,7 @@
       </vs-tab>
       <vs-tab vs-label="Left">
         <!-- left -->
-        <vs-tabs vs-position="left" vs-color="danger">
+        <vs-tabs vs-position="left" color="danger">
           <vs-tab vs-label="Home">
             <div>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo libero ac sapien pharetra finibus. Vestibulum hendrerit nibh at quam ullamcorper tempus id at nulla.

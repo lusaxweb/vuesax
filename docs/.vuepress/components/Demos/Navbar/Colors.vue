@@ -25,7 +25,7 @@
 
       <vs-spacer></vs-spacer>
 
-      <vs-button vs-color-text="rgb(255, 255, 255)" vs-color="rgba(255, 255, 255, 0.3)" vs-type="flat" vs-radius="50%" vs-icon="more_horiz"></vs-button>
+      <vs-button color-text="rgb(255, 255, 255)" color="rgba(255, 255, 255, 0.3)" vs-type="flat" vs-radius="50%" vs-icon="more_horiz"></vs-button>
     </vs-navbar>
   </div>
 </template>

@@ -1,6 +1,6 @@
 <template lang="html">
   <div
-    :class="[`vs-tabs-${vsColor}`,`vs-tabs-position-${vsPosition}`]"
+    :class="[`vs-tabs-${color}`,`vs-tabs-position-${vsPosition}`]"
     class="con-vs-tabs vs-tabs" >
     <div
       :style="styleTabs"
@@ -45,7 +45,7 @@ export default {
       default: 0,
       type: [Number, String],
     },
-    vsColor:{
+    color:{
       default:'primary',
       type: String
     },
@@ -71,7 +71,7 @@ export default {
   computed:{
     styleTabs(){
       return {
-        color: _color.getColor(this.vsColor,1),
+        color: _color.getColor(this.color,1),
       }
     },
     stylex(){
@@ -80,8 +80,8 @@ export default {
         left: `${this.leftx}px`,
         width: `${this.widthx}px`,
         height: `${this.heightx}px`,
-        background: `linear-gradient(30deg, ${_color.getColor(this.vsColor,1)} 0%, ${_color.getColor(this.vsColor,.5)} 100%)`,
-        boxShadow: `0px 0px 8px 0px ${_color.getColor(this.vsColor,.5)}`,
+        background: `linear-gradient(30deg, ${_color.getColor(this.color,1)} 0%, ${_color.getColor(this.color,.5)} 100%)`,
+        boxShadow: `0px 0px 8px 0px ${_color.getColor(this.color,.5)}`,
         transform: `scaleX(${this.these?1.3:1})`
       }
     }

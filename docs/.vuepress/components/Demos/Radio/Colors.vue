@@ -8,22 +8,22 @@
         <vs-radio v-model="radios2" vs-value="primary">Primary</vs-radio>
       </li>
       <li>
-        <vs-radio vs-color="success" v-model="radios2" vs-value="Success">Success</vs-radio>
+        <vs-radio color="success" v-model="radios2" vs-value="Success">Success</vs-radio>
       </li>
       <li>
-        <vs-radio vs-color="danger" v-model="radios2" vs-value="Danger">Danger</vs-radio>
+        <vs-radio color="danger" v-model="radios2" vs-value="Danger">Danger</vs-radio>
       </li>
       <li>
-        <vs-radio vs-color="warning" v-model="radios2" vs-value="Warning">Warning</vs-radio>
+        <vs-radio color="warning" v-model="radios2" vs-value="Warning">Warning</vs-radio>
       </li>
       <li>
-        <vs-radio vs-color="dark" v-model="radios2" vs-value="Dark">Dark</vs-radio>
+        <vs-radio color="dark" v-model="radios2" vs-value="Dark">Dark</vs-radio>
       </li>
       <li>
-        <vs-radio vs-color="rgb(87, 251, 187)" v-model="radios2" vs-value="RGB">RGB</vs-radio>
+        <vs-radio color="rgb(87, 251, 187)" v-model="radios2" vs-value="RGB">RGB</vs-radio>
       </li>
       <li>
-        <vs-radio vs-color="#e48346" v-model="radios2" vs-value="HEX">HEX</vs-radio>
+        <vs-radio color="#e48346" v-model="radios2" vs-value="HEX">HEX</vs-radio>
       </li>
     </ul>
   </div>

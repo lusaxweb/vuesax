@@ -227,6 +227,7 @@ module.exports = {
           '/components/table',
           '/components/textarea',
           '/components/collapse',
+          '/components/images',
           /*New Component*/
         ]
       },

@@ -2,7 +2,6 @@
   <div
     :class="[{'stripe': stripe, 'hoverFlat': hoverFlat}, `vs-table-${color}`,]"
     class="vs-component vs-con-table">
-
     <!-- header -->
     <header class="header-table">
       <span>
@@ -16,61 +15,60 @@
         </i>
       </div>
     </header>
+    <div class="con-tablex">
 
+      <div class="vs-con-table-theade">
+        <table
+          :style="tableHeaderStyle"
+          class="vs-table-thead">
+          <colgroup ref="colgroup">
+            <col width="20"/>
+            <col
+              class="colx"
+              v-for="(col,index) in getThs"
+              :key="index"
+              :name="`col-${index}`">
+          </colgroup>
+          <thead ref="thead">
 
+            <tr>
+              <th class="td-check">
+                <span v-if="multiple" class="con-td-check">
+                  <vs-checkbox :vs-icon="isCheckedLine ? 'remove' : 'check'" @click="changeCheckedMultiple" :checked="isCheckedMultiple" size="small"/>
+                </span>
+              </th>
+              <slot name="thead"></slot>
+            </tr>
+          </thead>
+        </table>
+      </div>
 
-    <div class="vs-con-table-theade">
-      <table
-        :style="tableHeaderStyle"
-        class="vs-table-theade">
-        <colgroup ref="colgroup">
-          <col width="20"/>
-          <col
-            class="col"
-            v-for="(col,index) in getThs"
-            :key="index"
-            :name="`col-${index}`">
-        </colgroup>
-        <thead ref="thead">
+      <div
+        :style="styleConTbody"
+        class="vs-con-tbody">
+        <table
+          ref="table"
+          class="vs-table">
+          <colgroup ref="colgrouptable">
+            <col width="20"/>
+            <col
+              v-for="(col,index) in 3"
+              :key="index"
+              :name="`col-${index}`" >
+          </colgroup>
+          <!-- <tbody ref="tbody"> -->
+          <slot :data="datax"></slot>
+          <!-- </tbody> -->
+        </table>
+      </div>
+      <div v-if="isNoData" class="not-data-table">
+        No data Available
+      </div>
 
-          <tr>
-            <th class="td-check">
-              <span v-if="multiple" class="con-td-check">
-                <vs-checkbox :vs-icon="isCheckedLine ? 'remove' : 'check'" @click="changeCheckedMultiple" :checked="isCheckedMultiple" size="small"/>
-              </span>
-            </th>
-            <slot name="thead"></slot>
-          </tr>
-        </thead>
-      </table>
+      <div v-if="pagination" v-show="!searchx" class="con-pagination-table">
+        <vs-pagination :total="getTotalPages" v-model="currentx"></vs-pagination>
+      </div>
     </div>
-
-    <div
-      :style="styleConTbody"
-      class="vs-con-tbody">
-      <table
-        ref="table"
-        class="vs-table">
-        <colgroup ref="colgrouptable">
-          <col width="20"/>
-          <col
-            v-for="(col,index) in 3"
-            :key="index"
-            :name="`col-${index}`" >
-        </colgroup>
-        <!-- <tbody ref="tbody"> -->
-        <slot :data="datax"></slot>
-        <!-- </tbody> -->
-      </table>
-    </div>
-    <div v-if="isNoData" class="not-data-table">
-      No data Available
-    </div>
-
-    <div v-if="pagination" class="con-pagination-table">
-      <vs-pagination :total="getTotalPages" v-model="currentx"></vs-pagination>
-    </div>
-
   </div>
 </template>
 
@@ -159,20 +157,15 @@ export default {
   },
   watch:{
     currentx() {
-      let max = Math.ceil(this.currentx * this.maxItems)
-      let min = max - this.maxItems
-
-      this.datax = this.getItems(min, max)
+      this.loadData()
+    },
+    maxItems() {
+      this.loadData()
     },
     data() {
-      let max = Math.ceil(this.currentx * this.maxItems)
-      let min = max - this.maxItems
-
-      let datax = this.pagination ? this.getItems(min, max) : this.data
-
-      this.datax = datax || []
+      this.loadData()
       this.$nextTick(() => {
-        if(datax.length > 0) {
+        if(this.datax.length > 0) {
           this.changeTdsWidth()
         }
       })
@@ -184,10 +177,8 @@ export default {
   mounted () {
     window.addEventListener('resize', this.listenerChangeWidth)
 
-    let max = Math.ceil(this.currentx * this.maxItems)
-    let min = max - this.maxItems
+    this.loadData()
 
-    this.datax = this.pagination ? this.getItems(min, max) : this.data || []
     this.$nextTick(() => {
       if(this.datax.length > 0) {
         this.changeTdsWidth()
@@ -198,6 +189,11 @@ export default {
     window.removeEventListener('resize', this.listenerChangeWidth)
   },
   methods:{
+    loadData() {
+      let max = Math.ceil(this.currentx * this.maxItems)
+      let min = max - this.maxItems
+      this.datax = this.pagination ? this.getItems(min, max) : this.data || []
+    },
     getItems(min, max) {
       let items = []
 
@@ -209,7 +205,7 @@ export default {
       return items
     },
     sort(key, active) {
-      let datax = this.datax
+      let datax = (this.pagination) ? this.data : this.datax
 
       function compare(a,b) {
         if (a[key] < b[key])
@@ -220,7 +216,6 @@ export default {
       }
 
       this.datax = datax.sort(compare)
-
     },
     filterValues () {
       let dataBase = this.data
@@ -230,7 +225,15 @@ export default {
         return values.indexOf(this.searchx.toLowerCase()) != -1
       })
 
-      this.datax = filterx
+      let pagex = filterx
+
+      if (this.pagination) {
+        let max = Math.ceil(this.currentx * this.maxItems)
+        let min = max - this.maxItems
+        pagex = this.getItems(min, max)
+      }
+
+      this.datax = (this.searchx !== '') ? filterx : pagex
     },
     getValues(obj) {
       let valuesx = Object.values(obj)

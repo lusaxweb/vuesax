@@ -1,11 +1,11 @@
 ---
 API:
- - name: vsValue
+ - name: vs-value
    type: String
    parameters: null
    description: Radius value.
    default: null
- - name: vsColor
+ - name: color
    type: String
    parameters: primary,success,danger,warning,dark,RGB,HEX
    description: Radio color.
@@ -55,7 +55,7 @@ The **Radio Button** is always going to replace the current value.
       <vs-radio v-model="radios1" vs-value="carols">Carols</vs-radio>
     </li>
     <li>
-      <vs-radio v-model="radios1" vs-value="summer">summer</vs-radio>
+      <vs-radio v-model="radios1" vs-value="summer">Summer</vs-radio>
     </li>
     <li>
       <vs-radio disabled="true" v-model="radios1" vs-value="lyon">Lyon - disabled</vs-radio>
@@ -84,7 +84,7 @@ export default {
 
 ## Colors
 
-You can change the color with the property `vs-color`. You are able to use the [Main Colors](/theme/) or **RGB** and **HEX** colors.
+You can change the color with the property `color`. You are able to use the [Main Colors](/theme/) or **RGB** and **HEX** colors.
 
 :::warning
   Only **RGB** and **HEX** colors are supported.
@@ -107,22 +107,22 @@ You can change the color with the property `vs-color`. You are able to use the [
         <vs-radio v-model="radios2" vs-value="primary">Primary</vs-radio>
       </li>
       <li>
-        <vs-radio vs-color="success" v-model="radios2" vs-value="Success">Success</vs-radio>
+        <vs-radio color="success" v-model="radios2" vs-value="Success">Success</vs-radio>
       </li>
       <li>
-        <vs-radio vs-color="danger" v-model="radios2" vs-value="Danger">Danger</vs-radio>
+        <vs-radio color="danger" v-model="radios2" vs-value="Danger">Danger</vs-radio>
       </li>
       <li>
-        <vs-radio vs-color="warning" v-model="radios2" vs-value="Warning">Warning</vs-radio>
+        <vs-radio color="warning" v-model="radios2" vs-value="Warning">Warning</vs-radio>
       </li>
       <li>
-        <vs-radio vs-color="dark" v-model="radios2" vs-value="Dark">Dark</vs-radio>
+        <vs-radio color="dark" v-model="radios2" vs-value="Dark">Dark</vs-radio>
       </li>
       <li>
-        <vs-radio vs-color="rgb(87, 251, 187)" v-model="radios2" vs-value="RGB">RGB</vs-radio>
+        <vs-radio color="rgb(87, 251, 187)" v-model="radios2" vs-value="RGB">RGB</vs-radio>
       </li>
       <li>
-        <vs-radio vs-color="#e48346" v-model="radios2" vs-value="HEX">HEX</vs-radio>
+        <vs-radio color="#e48346" v-model="radios2" vs-value="HEX">HEX</vs-radio>
       </li>
     </ul>
   </div>

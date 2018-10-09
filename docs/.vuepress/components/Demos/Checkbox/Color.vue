@@ -5,22 +5,22 @@
         <vs-checkbox v-model="checkBox1">Primary</vs-checkbox>
       </li>
       <li>
-        <vs-checkbox vs-color="success" v-model="checkBox2">Success</vs-checkbox>
+        <vs-checkbox color="success" v-model="checkBox2">Success</vs-checkbox>
       </li>
       <li>
-        <vs-checkbox vs-color="danger" v-model="checkBox3">Danger</vs-checkbox>
+        <vs-checkbox color="danger" v-model="checkBox3">Danger</vs-checkbox>
       </li>
       <li>
-        <vs-checkbox vs-color="warning" v-model="checkBox4">Warning</vs-checkbox>
+        <vs-checkbox color="warning" v-model="checkBox4">Warning</vs-checkbox>
       </li>
       <li>
-        <vs-checkbox vs-color="dark" v-model="checkBox5">Dark</vs-checkbox>
+        <vs-checkbox color="dark" v-model="checkBox5">Dark</vs-checkbox>
       </li>
       <li>
-        <vs-checkbox vs-color="rgb(38, 187, 174)" v-model="checkBox6">Color RGB</vs-checkbox>
+        <vs-checkbox color="rgb(38, 187, 174)" v-model="checkBox6">Color RGB</vs-checkbox>
       </li>
       <li>
-        <vs-checkbox vs-color="#720ea8" v-model="checkBox7">Color HEX</vs-checkbox>
+        <vs-checkbox color="#720ea8" v-model="checkBox7">Color HEX</vs-checkbox>
       </li>
     </ul>
   </div>

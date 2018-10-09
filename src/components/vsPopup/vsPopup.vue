@@ -113,10 +113,12 @@ export default {
       if(con){
         if(event.target.className.indexOf('vs-popup-dark')!=-1){
           this.$emit('update:active',false)
+          this.$emit('close', false)
         }
       } else {
         if(event?event.target.className.indexOf('vs-popup-cancel')!=-1:false ){
           this.$emit('update:active',false)
+          this.$emit('close', false)
         }
       }
     },

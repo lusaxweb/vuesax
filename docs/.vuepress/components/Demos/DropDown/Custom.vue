@@ -16,7 +16,7 @@
 
         <vs-input
     :vs-valid.sync="valid.email"
-    vs-success-text="Correo Valido"
+    vs-success-text="Valid mail"
     vs-danger-text="The email does not meet the requirements"
     vs-type="email" vs-label-placeholder="Email" v-model="value1"/>
 
@@ -27,7 +27,7 @@
         vs-type="password"
         vs-label-placeholder="Password" v-model="value2"/>
 
-        <vs-button vs-width="100%" vs-color="success" vs-type="gradient">Login</vs-button>
+        <vs-button vs-width="100%" color="success" vs-type="gradient">Login</vs-button>
       </vs-dropdown-menu>
     </vs-dropdown>
   </div>
