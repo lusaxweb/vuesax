@@ -53,6 +53,8 @@
           <input @change="changeColor($event.target.value)" type="color" name="" :value="color">
         </div>
       </div>
+
+      <btnApps />
     </div>
     <!-- colors change -->
 
@@ -60,13 +62,14 @@
 </template>
 
 <script>
+import btnApps from './btnApps.vue'
 import SidebarButton from './SidebarButton.vue'
 import AlgoliaSearchBox from '@AlgoliaSearchBox'
 import SearchBox from './SearchBox.vue'
 import NavLinks from './NavLinks.vue'
 
 export default {
-  components: { SidebarButton, NavLinks, SearchBox, AlgoliaSearchBox },
+  components: { SidebarButton, NavLinks, SearchBox, AlgoliaSearchBox, btnApps },
   data(){
     return {
       color: '#008afb',
