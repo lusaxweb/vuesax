@@ -91,7 +91,7 @@ To generate a dialog we have the global function `$vs.dialog` the parameters to 
 <template lang="html">
   <div class="centerx">
     <vs-button @click="openAlert('primary')" color="primary" vs-type="flat">Alert Primary</vs-button>
-    <vs-button @click="openAlert('success')" color="success" vs-type="flat">Alert success</vs-button>
+    <vs-button @click="openAlert('success')" color="success" vs-type="flat">Alert Success</vs-button>
     <vs-button @click="openAlert('danger')" color="danger" vs-type="flat">Alert Danger</vs-button>
     <vs-button @click="openAlert('warning')" color="warning" vs-type="flat">Alert Warning</vs-button>
     <vs-button @click="openAlert('dark')" color="dark" vs-type="flat">Alert Dark</vs-button>
