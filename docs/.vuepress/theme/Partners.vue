@@ -2,9 +2,11 @@
   <div class="con-partners">
     <h3>Partners</h3>
     <ul class="listPartners">
-      <li v-for="partner in partners" class="partner">
+      <li :class="partner.class" :title="partner.name" v-for="partner in partners" class="partner">
         <a target="_blank" :href="partner.link">
           <img :src="$withBase(partner.img)" alt="">
+
+          <span class="text-partner">{{ partner.text }}</span>
         </a>
       </li>
     </ul>
@@ -15,9 +17,16 @@ export default {
   data: ()=>({
     partners:[
       {
-        name:'Tipe',
+        name:'Madewithvuejs',
         img:'/made-with-vuejs.png',
         link:'https://madewithvuejs.com?ref=lusaxweb.github.io'
+      },
+      {
+        class:'vue-book',
+        text: 'Vue.js Book',
+        name:'Vue.js Book',
+        img:'/vue-book.png',
+        link:'https://vuejsbook.com?ref=lusaxweb.github.io'
       },
       ]
   })
@@ -40,6 +49,7 @@ export default {
     padding-left 0px
     li
       list-style none
+      margin 0px 5px
       a
         border-radius 50%
         width 150px
@@ -52,6 +62,8 @@ export default {
         border 1px solid rgba(0,0,0,.05)
         transition all .25s ease
         box-shadow: 0px 0px 0px 0px rgba(0, 0, 0,0)
+        flex-direction column
+        color #5b5777
         &:hover
           background rgba(255,255,255,1)
           border: 1px solid rgba(245,245,245,0)
@@ -59,4 +71,7 @@ export default {
       img
         width 100%
         transition all .25s ease
+      &.vue-book
+        img
+          width 60% !important
 </style>
