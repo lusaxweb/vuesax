@@ -1479,6 +1479,7 @@ __webpack_require__.d(components_namespaceObject, "vsTable", function() { return
 __webpack_require__.d(components_namespaceObject, "vsTextarea", function() { return components_vsTextarea; });
 __webpack_require__.d(components_namespaceObject, "vsCollapse", function() { return components_vsCollapse; });
 __webpack_require__.d(components_namespaceObject, "vsImages", function() { return components_vsImages; });
+__webpack_require__.d(components_namespaceObject, "vsTimePicker", function() { return components_vsTimePicker; });
 __webpack_require__.d(components_namespaceObject, "vsRow", function() { return layout_vsRow; });
 __webpack_require__.d(components_namespaceObject, "vsCol", function() { return layout_vsCol; });
 
@@ -10177,6 +10178,179 @@ vsImage_component.options.__file = "vsImage.vue"
   Vue.component(vsImages.name, vsImages);
   Vue.component(vsImage.name, vsImage);
 });
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://Users//DELL//Documents//vuesax//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!C:/Users/DELL/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsTimePicker/vsTimePicker.vue?vue&type=template&id=5a758c9b&lang=html&
+var vsTimePickervue_type_template_id_5a758c9b_lang_html_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',_vm._g(_vm._b({staticClass:"vs-component vs-timepicker"},'div',_vm.$attrs,false),_vm.$listeners),[_c('div',{staticClass:"con-vs-time"},[_c('div',{staticClass:"con-icon-timepicker"},[_c('vs-icon',[_vm._v("\n        schedule\n      ")])],1),_c('div',{ref:"hours",staticClass:"time-h time",on:{"click":function($event){_vm.activeHours = true}}},[_vm._v("\n      "+_vm._s(_vm.getHours)+"\n      "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.activeHours),expression:"activeHours"}],ref:"ulhours",staticClass:"con-ul-time",style:(_vm.styleUlHours)},[_c('ul',{staticClass:"ul-time"},_vm._l((_vm.hours24),function(hour){return _c('li',{class:{'active-time': hour == _vm.getHours},on:{"click":function($event){_vm.changeHours(hour)}}},[_vm._v("\n            "+_vm._s(hour)+"\n          ")])}))])]),_c('div',{ref:"minutes",staticClass:"time-m time",on:{"click":function($event){_vm.activeMinutes = true}}},[_vm._v("\n      "+_vm._s(_vm.getMinutes)+"\n      "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.activeMinutes),expression:"activeMinutes"}],ref:"ulminutes",staticClass:"con-ul-time",style:(_vm.styleUlminutes)},[_c('ul',{staticClass:"ul-time"},_vm._l((_vm.minutes),function(minute){return _c('li',{class:{'active-time': minute == _vm.getMinutes},on:{"click":function($event){_vm.changeMinutes(minute)}}},[_vm._v("\n            "+_vm._s(minute)+"\n          ")])}))])])])])}
+var vsTimePickervue_type_template_id_5a758c9b_lang_html_staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./src/components/vsTimePicker/vsTimePicker.vue?vue&type=template&id=5a758c9b&lang=html&
+
+// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib??ref--12-1!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsTimePicker/vsTimePicker.vue?vue&type=script&lang=js&
+
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ var vsTimePickervue_type_script_lang_js_ = ({
+  name: "VsTimePicker",
+  inheritAttrs: false,
+  props: {
+    value: {}
+  },
+  data: function data() {
+    return {
+      activeHours: false,
+      activeMinutes: false,
+      cords: {
+        hours: {},
+        minutes: {}
+      },
+      hours24: ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'],
+      minutes: ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52', '53', '54', '55', '56', '57', '58', '59']
+    };
+  },
+  computed: {
+    getMinutes: function getMinutes() {
+      var minutesx = this.value.split(':')[1];
+      return minutesx;
+    },
+    getHours: function getHours() {
+      var hoursx = this.value.split(':')[0];
+      return hoursx;
+    },
+    styleUlHours: function styleUlHours() {
+      return {
+        left: "".concat(this.cords.hours.left, "px"),
+        top: "".concat(this.cords.hours.top, "px")
+      };
+    },
+    styleUlminutes: function styleUlminutes() {
+      return {
+        left: "".concat(this.cords.minutes.left, "px"),
+        top: "".concat(this.cords.minutes.top, "px")
+      };
+    }
+  },
+  watch: {
+    value: function value() {
+      this.activeHours = false;
+      this.activeMinutes = false;
+    }
+  },
+  mounted: function mounted() {
+    this.insertBody(this.$refs.ulhours);
+    this.insertBody(this.$refs.ulminutes);
+    this.changePositions();
+  },
+  methods: {
+    changeHours: function changeHours(hour) {
+      this.$emit('input', "".concat(hour, ":").concat(this.getMinutes));
+    },
+    changeMinutes: function changeMinutes(minute) {
+      this.$emit('input', "".concat(this.getHours, ":").concat(minute));
+    },
+    changePositions: function changePositions() {
+      // add hours ul position
+      var cordsHours = this.$refs.hours.getBoundingClientRect();
+      this.cords.hours = cordsHours; // add minutes ul position
+
+      var cordsMinutes = this.$refs.minutes.getBoundingClientRect();
+      this.cords.minutes = cordsMinutes;
+    },
+    insertBody: function insertBody(elx) {
+      document.body.insertBefore(elx, document.body.firstChild);
+    }
+  }
+});
+// CONCATENATED MODULE: ./src/components/vsTimePicker/vsTimePicker.vue?vue&type=script&lang=js&
+ /* harmony default export */ var vsTimePicker_vsTimePickervue_type_script_lang_js_ = (vsTimePickervue_type_script_lang_js_); 
+// CONCATENATED MODULE: ./src/components/vsTimePicker/vsTimePicker.vue
+
+
+
+
+
+/* normalize component */
+
+var vsTimePicker_component = normalizeComponent(
+  vsTimePicker_vsTimePickervue_type_script_lang_js_,
+  vsTimePickervue_type_template_id_5a758c9b_lang_html_render,
+  vsTimePickervue_type_template_id_5a758c9b_lang_html_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+vsTimePicker_component.options.__file = "vsTimePicker.vue"
+/* harmony default export */ var vsTimePicker = (vsTimePicker_component.exports);
+// CONCATENATED MODULE: ./src/components/vsTimePicker/index.js
+
+
+
+/* harmony default export */ var components_vsTimePicker = (function (Vue) {
+  Vue.component(vsTimePicker.name, vsTimePicker);
+});
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://Users//DELL//Documents//vuesax//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!C:/Users/DELL/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/layout/vsRow/vsRow.vue?vue&type=template&id=512757c0&lang=html&
 var vsRowvue_type_template_id_512757c0_lang_html_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"vs-row",style:({
     'align-items':_vm.vsAlign,
@@ -10375,6 +10549,7 @@ vsCol_component.options.__file = "vsCol.vue"
   Vue.component(vsCol.name, vsCol);
 });
 // CONCATENATED MODULE: ./src/components/index.js
+
 
 
 

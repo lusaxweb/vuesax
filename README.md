@@ -35,16 +35,22 @@ Vuesax is an open source [MIT](https://github.com/lusaxweb/vuesax/blob/master/LI
 
 <p align="center"><b>Diamond</b></p>
 
-
-
 <p align="center">
   <a href="https://tipe.io/">
     <img width="20%" src="https://github.com/lusaxweb/vuesax/blob/master/docs/.vuepress/public/tipe.png" alt="Tipe" />
    </a>
   <a href="https://bitsrc.io/">
-    <img width="20%" src="https://github.com/lusaxweb/vuesax/blob/master/docs/.vuepress/public/bit-share-code.png" alt="travis ci badge">
+    <img width="20%" src="https://github.com/lusaxweb/vuesax/blob/master/docs/.vuepress/public/bit-share-code.png" alt="Bit">
   </a>
  </p>
+
+ <p align="center"><b>Gold</b></p>
+
+<p align="center">
+  <a href="https://devdojo.com/series/nice-to-meet-vue-2">
+    <img width="20%" src="https://github.com/lusaxweb/vuesax/blob/master/docs/.vuepress/public/devDojo.svg" alt="DevDojo">
+  </a>
+</p>
 
 ## Introduction
 

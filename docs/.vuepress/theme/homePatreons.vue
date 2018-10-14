@@ -2,7 +2,6 @@
   <div class="con-home-patreons">
     <h2>Patreon Sponsors</h2>
     <ul>
-
       <li :class="{'patreonx':patreon.name}" :title="patreon.name?`Proudly patronized by ${patreon.name}`:'Become a Patron - Add your logo here'" v-for="patreon,index in patreons">
         <a target="_blank" :href="patreon.link?patreon.link:'https://www.patreon.com/luisdanielroviracontreras'" rel="noopener noreferrer">
           <img v-if="patreon.img" :src="$withBase(patreon.img)" alt="vuesax-patreon">
@@ -13,6 +12,21 @@
         </a>
       </li>
     </ul>
+
+    <ul>
+      <li class="patreon2" :class="{'patreonx':patreon.name}" :title="patreon.name?`Proudly patronized by ${patreon.name}`:'Become a Patron - Add your logo here'" v-for="patreon,index in patreons2">
+        <a target="_blank" :href="patreon.link?patreon.link:'https://www.patreon.com/luisdanielroviracontreras'" rel="noopener noreferrer">
+          <img v-if="patreon.img" :src="$withBase(patreon.img)" alt="vuesax-patreon">
+          <i v-if="!patreon.img" class="material-icons">
+          add
+          </i>
+
+        </a>
+      </li>
+    </ul>
+
+
+
     <div class="con-text-home-patreons">
       <span>
       It helps to pay dedicated development time so that I can move forward and evolve.
@@ -50,6 +64,13 @@ export default {
       {
         name:null
       },
+    ],
+    patreons2: [
+      {
+        name:'devDojo',
+        img:'/devDojo.svg',
+        link:'https://devdojo.com/series/nice-to-meet-vue-2'
+      }
     ]
   })
 }
@@ -76,6 +97,10 @@ export default {
       border-radius 50%;
       border: 1px dashed  rgb(220,220,220)
       transition all .2s ease
+      &.patreon2
+        a
+          width 85px !important
+          height 85px !important
       &.patreonx
         border: 1px solid rgb(245,245,245)
         img
