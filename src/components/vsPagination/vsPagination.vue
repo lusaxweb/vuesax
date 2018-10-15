@@ -5,8 +5,10 @@
     class="con-vs-pagination">
     <nav class="nav-pagination">
       <button
+        :class="{disabled:current <= 1 ? 'disabled' : null}"
         class="btn-pagination btn-prev-pagination"
-        @click="prevPage" >
+        @click="prevPage"
+        :disabled="current === 1">
         <i class="material-icons">
           {{ prevIcon }}
         </i>
@@ -27,8 +29,10 @@
       </ul>
       <!-- :style="styleBtn" -->
       <button
+        :class="{disabled:current === total ? 'disabled' : null}"
         class="btn-pagination btn-next-pagination"
-        @click="nextPage" >
+        @click="nextPage"
+        :disabled="current === total">
         <i class="material-icons">
           {{ nextIcon }}
         </i>
