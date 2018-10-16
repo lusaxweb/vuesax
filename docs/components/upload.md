@@ -65,6 +65,11 @@ API:
    parameters:
    description: It determines whether to show the upload button or not.
    default: true
+ - name: single-upload
+   type: Boolean
+   parameters:
+   description: This causes each file to be sent separately on each request. Only used when multiple prop is true
+   default: false
 ---
 
 # Upload
