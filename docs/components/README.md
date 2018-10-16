@@ -52,7 +52,7 @@ API:
     default: false
 ---
 
-# Buttons **- update**
+# Buttons
 
 <box header>
 

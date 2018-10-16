@@ -75,7 +75,7 @@ API:
    description:  Triggers method when input of select is changed (requires vs-autocomplete prop)
 ---
 
-# Select **- update**
+# Select
 
 <box header>
 

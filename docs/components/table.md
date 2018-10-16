@@ -82,7 +82,7 @@ API:
    default: null
 ---
 
-# Table **- new**
+# Table
 
 <box header>
 

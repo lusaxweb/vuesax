@@ -22,7 +22,7 @@ API:
    default: false
 ---
 
-# Images **- new**
+# Images
 
 <box header>
 

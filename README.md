@@ -101,10 +101,10 @@ If you feel awesome and want to support us in a small way, please consider starr
 - [Topbar](https://lusaxweb.github.io/vuesax/components/topbar.html)
 - [SideBar](https://lusaxweb.github.io/vuesax/components/sideBar.html)
 - [DropDown](https://lusaxweb.github.io/vuesax/components/dropDown.html)
-- [Table](https://lusaxweb.github.io/vuesax/components/table.html) - New
-- [Textarea](https://lusaxweb.github.io/vuesax/components/textarea.html) - New
-- [Collapse](https://lusaxweb.github.io/vuesax/components/collapse.html) - New
-- [Images](https://lusaxweb.github.io/vuesax/components/images.html) - New
+- [Table](https://lusaxweb.github.io/vuesax/components/table.html)
+- [Textarea](https://lusaxweb.github.io/vuesax/components/textarea.html)
+- [Collapse](https://lusaxweb.github.io/vuesax/components/collapse.html)
+- [Images](https://lusaxweb.github.io/vuesax/components/images.html)
 
 ## Browser Support
 Recent versions of **Firefox**, **Chrome**, **Edge**, **Opera** and **Safari**. **IE10+**

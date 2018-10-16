@@ -17,7 +17,7 @@ API:
    default: false
 ---
 
-# Textarea **- new**
+# Textarea
 
 <box header>
 

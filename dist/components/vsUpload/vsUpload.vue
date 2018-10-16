@@ -31,7 +31,7 @@
         type="button"
         title="Upload"
         class="btn-upload-all"
-        @click="uploadx('all')">
+        @click="upload('all')">
         <i
           translate="no"
           class="material-icons notranslate">
@@ -70,7 +70,7 @@
               height: `${img.percent}%`
             }"
             class="btn-upload-file"
-            @click="uploadx(index)">
+            @click="upload(index)">
             <i
               translate="no"
               class="material-icons notranslate">
@@ -145,6 +145,10 @@
       },
       showUploadButton: {
         default: true,
+        type: Boolean
+      },
+      singleUpload: {
+        default: false,
         type: Boolean
       }
     },
@@ -286,9 +290,7 @@
           this.uploadx('all')
         }
       },
-      uploadx(index){
-        let self = this
-        const xhr = new XMLHttpRequest();
+      upload(index) {
         const formData = new FormData();
         let postFiles = Array.prototype.slice.call(this.filesx);
         if(typeof index == 'number'){
@@ -298,17 +300,31 @@
             return !item.hasOwnProperty('remove')
           })
         }
-
-
-        postFiles.forEach((filex)=>{
-          formData.append(this.fileName, filex, filex.name)
-        })
-        
         const data = this.data || {};
-
         for (var key in data) {
           formData.append(key, data[key]);
         }
+
+        if(this.singleUpload) {
+          postFiles.forEach((filex)=>{
+            const formData = new FormData();
+            for (var key in data) {
+              formData.append(key, data[key]);
+            }
+            formData.append(this.fileName, filex, filex.name)
+
+            this.uploadx(index, formData)
+          })
+        } else {
+          postFiles.forEach((filex)=>{
+            formData.append(this.fileName, filex, filex.name)
+          })
+          this.uploadx(index, formData)
+        }
+      },
+      uploadx(index, formData){
+        let self = this
+        const xhr = new XMLHttpRequest();
 
         xhr.onerror = function error(e) {
           self.$emit('on-error',e)

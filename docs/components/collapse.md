@@ -27,7 +27,7 @@ API:
    default: false
 ---
 
-# Collapse **- new**
+# Collapse
 
 <box header>
 
