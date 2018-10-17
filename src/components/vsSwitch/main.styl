@@ -49,7 +49,9 @@
       opacity: 1
       transform: translate(0px);
   &:disabled
-    opacity: .5;
+    opacity $vs-disabled-opacity
+    cursor: default
+    pointer-events: none
   .vs-circle-switch
     display: block;
     width: 18px;
