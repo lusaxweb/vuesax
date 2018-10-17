@@ -9,9 +9,11 @@
     <button
       v-repeat-click="less"
       :disabled="$attrs.disabled"
+      :class="{
+        limit:value <= min
+      }"
       :style="{
-        background:getColor,
-        opacity:(value == min?.5:1)
+        background:getColor
       }"
       class="btn-less"
       type="button">
@@ -33,9 +35,11 @@
     <button
       v-repeat-click="plus"
       :disabled="$attrs.disabled"
+      :class="{
+        limit:value >= max && max !== null
+      }"
       :style="{
-        background:getColor,
-        opacity:value == max?.5:1
+        background:getColor
       }"
       class="btn-plus"
       type="button">
