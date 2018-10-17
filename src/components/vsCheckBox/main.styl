@@ -22,6 +22,16 @@
     z-index: 200;
     cursor: pointer;
     background: rgb(85, 215, 117);
+    &:disabled
+      cursor: default;
+      pointer-events: none;
+      & + span.checkbox_x
+        opacity $vs-disabled-opacity;
+        cursor: default;
+        pointer-events: none;
+        span._check
+          cursor: default;
+          pointer-events: none;
     &:active:checked
       & + span.checkbox_x
         span._check
