@@ -464,9 +464,9 @@ export default {
 
 <box>
 
-## Buttom
+## Button
 
-You can customize the component or element that initialize the dropdown in this case is a Buttom that is the most common
+You can customize the component or element that initialize the dropdown in this case, it is a Button that is the most common
 
 :::tip
   The component or element that initializes the dropdown is the one inside it with the possibility of total customization and flexibility in the required use
@@ -484,7 +484,7 @@ You can customize the component or element that initialize the dropdown in this 
 
 <vuecode md>
 <div slot="demo">
-  <Demos-DropDown-Buttom />
+  <Demos-DropDown-Button />
 </div>
 <div slot="code">
 
@@ -591,7 +591,7 @@ export default {
   align-items: center;
   justify-content: center;
   button
-    margin: 0px !important
+    margin: 0px !important;
     &.btnx
       margin-left: 10px !important;
       border-radius: 5px 0px 0px 5px;
