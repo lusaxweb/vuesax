@@ -25,6 +25,11 @@ API:
    parameters: null
    description: Function that executes the user cancel the dialog.
    default: null
+ - name: vs-close
+   type: function
+   parameters: null
+   description: function that is executed when the dialog as closed.
+   default: null
  - name: vs-is-valid
    type: Boolean
    parameters: null
@@ -239,6 +244,7 @@ To add a dialog of type prompt we have a global function a completely independen
      <vs-prompt
       @vs-cancel="val=''"
       @vs-accept="acceptAlert"
+      @vs-close="close"
       :vs-active.sync="activePrompt">
        <div class="con-exemple-prompt">
           Enter the security code
@@ -249,6 +255,7 @@ To add a dialog of type prompt we have a global function a completely independen
      <vs-prompt
       @vs-cancel="valMultipe.value1='',valMultipe.value2=''"
       @vs-accept="acceptAlert"
+      @vs-close="close"
       :vs-is-valid="validName"
       :vs-active.sync="activePrompt2">
        <div class="con-exemple-prompt">
@@ -292,6 +299,13 @@ export default {
         text:'Lorem ipsum dolor sit amet, consectetur'
       })
     },
+    close(){
+      this.$vs.notify({
+        color:'danger',
+        title:'Closed',
+        text:'You close a dialog!'
+      })
+    },
   }
 }
 </script>
@@ -304,6 +318,7 @@ export default {
     width 100%
     margin-top 10px;
 </style>
+
 ```
 
 </div>

@@ -4,9 +4,10 @@
       v-if="active || vsActive"
       ref="con"
       :class="[`vs-dialog-${isPrompt?vsColor:color}`]"
-      class="vs-component con-vs-dialog"
-      @click="close($event,true)">
-      <div class="vs-dialog-dark"/>
+      class="vs-component con-vs-dialog">
+      <div
+        class="vs-dialog-dark"
+        @click="close($event,true)"/>
       <div
         ref="dialogx"
         class="vs-dialog">
@@ -177,6 +178,7 @@ export default {
           this.$emit('update:vsActive',false)
         }
       }
+      this.$emit('vs-close')
     },
     cancelClose(){
       this.active = false

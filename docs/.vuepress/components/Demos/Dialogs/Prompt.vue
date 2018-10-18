@@ -14,6 +14,7 @@
      <vs-prompt
       @vs-cancel="val=''"
       @vs-accept="acceptAlert"
+      @vs-close="close"
       :vs-active.sync="activePrompt">
        <div class="con-exemple-prompt">
           Enter the security code
@@ -24,6 +25,7 @@
      <vs-prompt
       @vs-cancel="valMultipe.value1='',valMultipe.value2=''"
       @vs-accept="acceptAlert"
+      @vs-close="close"
       :vs-is-valid="validName"
       :vs-active.sync="activePrompt2">
        <div class="con-exemple-prompt">
@@ -65,6 +67,13 @@ export default {
         color:'success',
         title:'Accept Selected',
         text:'Lorem ipsum dolor sit amet, consectetur'
+      })
+    },
+    close(){
+      this.$vs.notify({
+        color:'danger',
+        title:'Closed',
+        text:'You close a dialog!'
       })
     },
   }
