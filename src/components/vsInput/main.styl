@@ -65,6 +65,14 @@
         + .input-span-placeholder
           padding-left: .4rem;
           padding-right: 28px
+      &:disabled
+        opacity: $vs-disabled-opacity;
+        cursor: default;
+        pointer-events: none;
+        + .input-span-placeholder
+          opacity: $vs-disabled-opacity;
+          cursor: default;
+          pointer-events: none;
     .input-span-placeholder
       transition: all .2s ease
       position: absolute

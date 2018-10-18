@@ -43,7 +43,9 @@
     color: rgba(255,255,255,1)
     backface-visibility hidden
     &:disabled
-      opacity: .5 !important
+      opacity: $vs-disabled-opacity;
+      cursor: default;
+      pointer-events: none;
     i
       font-size: .9rem
 
@@ -52,10 +54,30 @@
       transform translate(10px)
       &:active
         transform scale(.9) translate(10px) !important
+      &:disabled
+        opacity: $vs-disabled-opacity;
+        cursor: default;
+        pointer-events: none;
+        background-color: rgba(0,0,0,$vs-disabled-opacity) !important;
+    &.btn-plus.limit
+        opacity: $vs-disabled-opacity;
+        cursor: default;
+        pointer-events: none;
+        background-color: rgba(0,0,0,$vs-disabled-opacity) !important;
     &.btn-less
       transform translate(-10px)
       &:active
         transform scale(.9) translate(-10px) !important
+      &:disabled
+        opacity: $vs-disabled-opacity;
+        cursor: default;
+        pointer-events: none;
+        background-color: rgba(0,0,0,$vs-disabled-opacity) !important;
+    &.btn-less.limit
+        opacity: $vs-disabled-opacity;
+        cursor: default;
+        pointer-events: none;
+        background-color: rgba(0,0,0,$vs-disabled-opacity) !important;
 
   &.vs-input-number-size-medium
     input
