@@ -51,6 +51,10 @@
     padding-left 5px;
     font-size: .85rem
     color $vs-label-color
+  &:disabled
+    opacity $vs-disabled-opacity
+    cursor: default
+    pointer-events: none
 .con-text-validation
   position: relative
   font-size: .65rem
@@ -135,6 +139,8 @@ for colorx, i in $vs-colors
   text-transform: capitalize;
   &.disabledx
     opacity: $vs-disabled-opacity;
+    cursor: default
+    pointer-events: none
   span.searchx
     background: rgba(0, 0, 0, 0.07);
     border-bottom: 1px solid rgba(0, 0, 0, 0.3);
