@@ -15,7 +15,7 @@
         <vs-dropdown-item>
           Option 2
         </vs-dropdown-item>
-        <vs-dropdown-group >
+        <vs-dropdown-group>
           <vs-dropdown-item>
             Option 1
           </vs-dropdown-item>
@@ -55,7 +55,7 @@
           Option 2
         </vs-dropdown-item>
 
-        <vs-dropdown-group vs-collapse vs-label="Group Collapse">
+        <vs-dropdown-group vs-collapse vs-label="Group Collapse" vs-icon="add">
           <vs-dropdown-item>
             Option Collapse 1
           </vs-dropdown-item>
