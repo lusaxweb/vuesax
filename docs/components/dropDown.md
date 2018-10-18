@@ -30,6 +30,11 @@ API:
    parameters: null
    description: Determines if the group of options is closed until the user poses in the title (vs-dropdown-group).
    default: false
+ - name: vs-icon
+   type: String
+   parameters: null
+   description: Define the icon show when have a (vs-dropdown-group).
+   default: keyboard_arrow_right
 ---
 
 # DropDown
@@ -230,6 +235,8 @@ If you need to group the options you can use the subcomponent `vs-dropdown-group
 
 :::tip
   The group can be hidden from the user and only open when it is sitting on the property with the `vs-collapse` property
+  
+  You can modify the icon with a property `vs-icon`
 :::
 
 <vuecode md>
@@ -241,7 +248,7 @@ If you need to group the options you can use the subcomponent `vs-dropdown-group
 ```html
 <template lang="html">
   <div class="examplex">
-    <vs-dropdown @focus="logx">
+    <vs-dropdown>
       <a class="a-icon" href.prevent>
         Dropdown Option Group
         <i class="material-icons">
@@ -281,7 +288,6 @@ If you need to group the options you can use the subcomponent `vs-dropdown-group
     </vs-dropdown>
 
     <vs-dropdown  >
-      <!-- <vs-button color="primary" vs-type="filled">Segundo</vs-button> -->
       <a class="a-icon" href.prevent>
         Dropdown Group Collapse
         <i class="material-icons">
@@ -297,7 +303,7 @@ If you need to group the options you can use the subcomponent `vs-dropdown-group
           Option 2
         </vs-dropdown-item>
 
-        <vs-dropdown-group vs-collapse vs-label="Group Collapse">
+        <vs-dropdown-group vs-collapse vs-label="Group Collapse" vs-icon="add">
           <vs-dropdown-item>
             Option Collapse 1
           </vs-dropdown-item>
@@ -351,6 +357,7 @@ export default {
     i
       font-size: 18px;
 </style>
+
 ```
 
 </div>

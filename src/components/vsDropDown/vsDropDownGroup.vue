@@ -12,7 +12,7 @@
       v-if="vsCollapse"
       translate="no"
       class="material-icons icon-group notranslate">
-      keyboard_arrow_right
+      {{ vsIcon }}
     </i>
     <transition
       @before-enter="beforeEnter"
@@ -43,6 +43,10 @@ export default {
     vsCollapse:{
       default:false,
       type:Boolean
+    },
+    vsIcon: {
+      default: 'keyboard_arrow_right',
+      type:String
     }
   },
   data:()=>({
