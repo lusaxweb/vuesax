@@ -63,7 +63,16 @@ export default {
       this.$parent.emitChange()
     }
   },
+  mounted () {
+    window.addEventListener('resize', this.changeHeight)
+  },
   methods:{
+    changeHeight () {
+      let maxHeightx = this.$refs.content.scrollHeight
+      if(this.maxHeight != '0px') {
+        this.maxHeight = `${maxHeightx}px`
+      }
+    },
     toggleContent() {
       if(this.openHover || this.disabled) {
         return

@@ -16,9 +16,9 @@ export default {
     return {
       select1:3,
       options1:[
-        {value: 1, label: 'label 1', selectedText: 'show after select label 1', isSelected: false },
-        {value: 2, label: 'label 2', selectedText: 'show after select label 2', isSelected: false },
-        {value: 3, label: 'label 3', selectedText: 'show after select label 3', isSelected: false },
+        {value: 1, label: 'label 1 --------', selectedText: 'label 1', isSelected: false },
+        {value: 2, label: 'label 2 ------', selectedText: 'label 2', isSelected: false },
+        {value: 3, label: 'label 3 ---', selectedText: 'label 3', isSelected: false },
       ],
     }
   }

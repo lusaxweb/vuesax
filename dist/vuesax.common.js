@@ -9945,12 +9945,12 @@ var vsCollapse_component = normalizeComponent(
 
 vsCollapse_component.options.__file = "vsCollapse.vue"
 /* harmony default export */ var vsCollapse = (vsCollapse_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://Users//DELL//Documents//vuesax//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!C:/Users/DELL/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsCollapse/vsCollapseItem.vue?vue&type=template&id=4a19e3b8&
-var vsCollapseItemvue_type_template_id_4a19e3b8_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"vs-collapse-item",class:{'open-item': _vm.maxHeight != '0px', 'disabledx': _vm.disabled},on:{"mouseover":_vm.mouseover,"mouseout":_vm.mouseout}},[_c('header',{on:{"click":_vm.toggleContent}},[_vm._t("header"),(!_vm.notArrow)?_c('span',{staticClass:"icon-header"},[_c('vs-icon',[_vm._v("\n        "+_vm._s(_vm.iconArrow)+"\n      ")])],1):_vm._e()],2),_c('div',{ref:"content",staticClass:"vs-collapse-item-content",style:(_vm.styleContent)},[_c('div',{staticClass:"con-content-item"},[_vm._t("default")],2)])])}
-var vsCollapseItemvue_type_template_id_4a19e3b8_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://Users//DELL//Documents//vuesax//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!C:/Users/DELL/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsCollapse/vsCollapseItem.vue?vue&type=template&id=5b007914&
+var vsCollapseItemvue_type_template_id_5b007914_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"vs-collapse-item",class:{'open-item': _vm.maxHeight != '0px', 'disabledx': _vm.disabled},on:{"mouseover":_vm.mouseover,"mouseout":_vm.mouseout}},[_c('header',{on:{"click":_vm.toggleContent}},[_vm._t("header"),(!_vm.notArrow)?_c('span',{staticClass:"icon-header"},[_c('vs-icon',[_vm._v("\n        "+_vm._s(_vm.iconArrow)+"\n      ")])],1):_vm._e()],2),_c('div',{ref:"content",staticClass:"vs-collapse-item-content",style:(_vm.styleContent)},[_c('div',{staticClass:"con-content-item"},[_vm._t("default")],2)])])}
+var vsCollapseItemvue_type_template_id_5b007914_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/vsCollapse/vsCollapseItem.vue?vue&type=template&id=4a19e3b8&
+// CONCATENATED MODULE: ./src/components/vsCollapse/vsCollapseItem.vue?vue&type=template&id=5b007914&
 
 // CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib??ref--12-1!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsCollapse/vsCollapseItem.vue?vue&type=script&lang=js&
 //
@@ -10019,7 +10019,17 @@ var vsCollapseItemvue_type_template_id_4a19e3b8_staticRenderFns = []
       this.$parent.emitChange();
     }
   },
+  mounted: function mounted() {
+    window.addEventListener('resize', this.changeHeight);
+  },
   methods: {
+    changeHeight: function changeHeight() {
+      var maxHeightx = this.$refs.content.scrollHeight;
+
+      if (this.maxHeight != '0px') {
+        this.maxHeight = "".concat(maxHeightx, "px");
+      }
+    },
     toggleContent: function toggleContent() {
       if (this.openHover || this.disabled) {
         return;
@@ -10067,8 +10077,8 @@ var vsCollapseItemvue_type_template_id_4a19e3b8_staticRenderFns = []
 
 var vsCollapseItem_component = normalizeComponent(
   vsCollapse_vsCollapseItemvue_type_script_lang_js_,
-  vsCollapseItemvue_type_template_id_4a19e3b8_render,
-  vsCollapseItemvue_type_template_id_4a19e3b8_staticRenderFns,
+  vsCollapseItemvue_type_template_id_5b007914_render,
+  vsCollapseItemvue_type_template_id_5b007914_staticRenderFns,
   false,
   null,
   null,
