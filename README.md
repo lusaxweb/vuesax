@@ -70,7 +70,7 @@ If you feel awesome and want to support us in a small way, please consider starr
 - 🐦 Twitter: [@vuesax](https://twitter.com/vuesax)
 - 💬 Chat: [Discord](https://discord.gg/gd2kAjn)
 - 🎲 template:[Codepen](https://codepen.io/lusaxweb/pen/mxMKYr)
-- 📰 Tutorial Implement: [dev.to](https://dev.to/luisdanielroviracontreras/implement-vuesax-new-framework-for-vuejs-13gh)
+- 📰 Tutorial Implement: [DevAwesome](https://lusaxweb.github.io/devAwesome/#/article/-LPDgBxyylgg9h194wuE)
 
 ## Components
 
