@@ -63,6 +63,7 @@ To implement a **Slider** we have the `vs-slider` component.
   <div class="">
     <vs-slider v-model="value1"/>
     <vs-slider disabled="true" v-model="value2"/>
+    <vs-slider max=200 v-model="value3"/>
   </div>
 </template>
 
@@ -70,8 +71,9 @@ To implement a **Slider** we have the `vs-slider` component.
 export default {
   data(){
     return {
-      value1:79,
-      value2:40
+      value1:67,
+      value2:34,
+      value3:60
     }
   }
 }
@@ -258,7 +260,7 @@ Determine the text that will be fixed next to the value with the property `text-
 export default {
   data(){
     return {
-      value1:60,
+      value1:6,
       value2:25,
       value3:[2,4]
     }

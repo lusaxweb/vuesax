@@ -277,12 +277,11 @@ export default {
       }
     },
     changePosition(){
-      let lengthPerStep = 100 / ((this.max - this.min) / this.step);
       if(Array.isArray(this.value)){
         this.leftx =  Math.round((this.value[1] - this.min) / (this.max - this.min) * 100)
         this.leftTwo = Math.round((this.value[0] - this.min) / (this.max - this.min) * 100)
       } else {
-        this.leftx = Math.round(this.value / lengthPerStep) * lengthPerStep
+        this.leftx =  Math.round((this.value - this.min) / (this.max - this.min) * 100)
       }
     },
     styleTicks(index){

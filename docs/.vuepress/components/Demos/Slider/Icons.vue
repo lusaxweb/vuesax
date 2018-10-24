@@ -10,7 +10,7 @@
 export default {
   data(){
     return {
-      value1:60,
+      value1:6,
       value2:25,
       value3:[2,4]
     }
