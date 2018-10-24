@@ -50,6 +50,16 @@ API:
     parameters: null
     description: Added router push navigation to button
     default: false
+  - name: vs-href
+    type: String | Object
+    parameters: null
+    description: Added href property to button
+    default: null
+  - name: vs-target
+    type: Boolean
+    parameters: null
+    description: Presence or absence of target property
+    default: false
 ---
 
 # Buttons
@@ -494,6 +504,36 @@ you can use all programmatic navigation on vue router.
 <vs-button vs-color="warning" vs-type="filled" :to="{ path: '/components/list.html' }">Object Path</vs-button>
 <vs-button vs-color="success" vs-type="filled" :to="{ name: 'user', params: { userId: 123 } }">Named Router</vs-button>
 <vs-button vs-color="dark"    vs-type="filled" :to="{ path: 'register', query: { plan: 'private' } }">With Query</vs-button>
+```
+
+</div>
+</vuecode>
+</box>
+
+<box>
+
+## Link
+
+You can specify for `window.location.href`
+
+:::tip
+  you can use the `vs-target` property to window.open()
+:::
+
+<vuecode md center>
+<div slot="demo">
+<vs-button vs-color="primary" target="_blank" vs-type="filled" vs-href="https://lusaxweb.github.io/vuesax/">String literal</vs-button>
+<vs-button vs-color="primary" vs-type="filled" :vs-href="{url: 'https://lusaxweb.github.io/vuesax/'}">Object Path</vs-button>
+<vs-button vs-color="primary" vs-type="filled" vs-target vs-href="https://lusaxweb.github.io/vuesax/">Open Current Tab</vs-button>
+</div>
+
+<div slot="code">
+
+```html
+<vs-button vs-color="primary" vs-type="filled" vs-href="https://lusaxweb.github.io/vuesax/">String literal</vs-button>
+<vs-button vs-color="primary" vs-type="filled" :vs-href="{url: 'https://lusaxweb.github.io/vuesax/'}">Object Path</vs-button>
+<vs-button vs-color="primary" vs-type="filled" vs-target :vs-href="{url: 'https://lusaxweb.github.io/vuesax/'}">Open Current Tab</vs-button>
+
 ```
 
 </div>
