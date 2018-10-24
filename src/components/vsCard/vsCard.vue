@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="{'withHover': actionable }"
+    :class="{'withHover': actionable, 'fixedHeight': fixedHeight }"
     class="con-vs-card">
     <header
       v-if="hasSlot('header')"
@@ -16,6 +16,7 @@
 
     <div
       v-if="hasSlot('default')"
+      :class="{'fixedHeight': fixedHeight }"
       class="vs-card-content">
       <slot></slot>
     </div>
@@ -28,6 +29,7 @@
 
     <footer
       v-if="hasSlot('footer')"
+      :class="{'fixedHeight': fixedHeight }"
       class="vs-card-footer">
       <slot name="footer"></slot>
     </footer>
@@ -39,7 +41,11 @@
     props:{
       actionable: {
         default: false,
-        type: [Boolean, String]
+        type: Boolean
+      },
+      fixedHeight: {
+        default: false,
+        type: Boolean
       }
     },
     methods: {
