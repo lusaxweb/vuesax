@@ -81,7 +81,7 @@ For the examples, the request or the delay is simulated with `setTimeout`.
 ```html
 <template lang="html">
   <div class="centerx">
-    <vs-button @click="openLoading" vs-type="filled" vs-color="primary">Loading Default</vs-button>
+    <vs-button @click="openLoading" type="filled" color="primary">Loading Default</vs-button>
   </div>
 </template>
 
@@ -234,7 +234,7 @@ You can change the color of the loading with the property `color`.
 <template lang="html">
   <div class="centerx">
     <input type="color" v-model="colorLoading" name="" value="">
-    <vs-button @click="openLoadingColor" vs-type="gradient" vs-color="danger">Danger</vs-button>
+    <vs-button @click="openLoadingColor" type="gradient" color="danger">Danger</vs-button>
   </div>
 </template>
 
@@ -283,7 +283,7 @@ If you need to change the background of the loading, you can use the property `b
 <template lang="html">
   <div class="centerx">
     <input type="color" v-model="backgroundLoading" name="" value="">
-    <vs-button @click="openLoadingBackground" vs-type="gradient" vs-color="success">Success</vs-button>
+    <vs-button @click="openLoadingBackground" type="gradient" color="success">Success</vs-button>
   </div>
 </template>
 
@@ -330,8 +330,8 @@ For the examples, the request or the delay is simulated with `setTimeout`.
 ```html
 <template lang="html">
   <div class="centerx">
-    <vs-button ref="loadableButton" id="button-with-loading" class="vs-con-loading__container" @click="openLoadingContained" vs-type="relief" vs-color="primary">Button with Loading</vs-button>
-    <vs-button @click="openLoadingInDiv" vs-type="relief" vs-color="primary">Div with Loading</vs-button>
+    <vs-button ref="loadableButton" id="button-with-loading" class="vs-con-loading__container" @click="openLoadingContained" type="relief" vslor="primary">Button with Loading</vs-button>
+    <vs-button @click="openLoadingInDiv" type="relief" vslor="primary">Div with Loading</vs-button>
     <div class="fill-row">
       <div id="div-with-loading" class="vs-con-loading__container">Load Me!</div>
     </div>

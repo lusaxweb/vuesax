@@ -10,7 +10,7 @@
     </vs-select>
 
     <vs-navbar :type="type" v-model="activeItem" class="nabarx">
-      <vs-button vs-type="flat" vs-icon="menu"></vs-button>
+      <vs-button type="flat" icon="menu"></vs-button>
 
       <vs-navbar-title>
         Type {{type}}

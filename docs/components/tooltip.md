@@ -58,7 +58,7 @@ To add a tooltip we have the component `vs-tooltip`
       <vs-input-number v-model="number1"/>
     </vs-tooltip>
     <vs-tooltip text="Tooltip Default">
-      <vs-button color="primary" vs-type="border">Button</vs-button>
+      <vs-button color="primary" type="border">Button</vs-button>
     </vs-tooltip>
   </div>
 </template>
@@ -97,16 +97,16 @@ You can change the position at which the tooltip appears with the property `posi
 <template lang="html">
   <div class="centerx">
     <vs-tooltip text="Tooltip position Left" position="left" >
-      <vs-button vs-type="gradient">Left</vs-button>
+      <vs-button type="gradient">Left</vs-button>
     </vs-tooltip>
     <vs-tooltip text="Tooltip position Top" position="top" >
-      <vs-button vs-type="gradient">Top</vs-button>
+      <vs-button type="gradient">Top</vs-button>
     </vs-tooltip>
     <vs-tooltip text="Tooltip position Bottom" position="bottom" >
-      <vs-button vs-type="gradient">Bottom</vs-button>
+      <vs-button type="gradient">Bottom</vs-button>
     </vs-tooltip>
     <vs-tooltip text="Tooltip position Right" position="right" >
-      <vs-button vs-type="gradient">Right</vs-button>
+      <vs-button type="gradient">Right</vs-button>
     </vs-tooltip>
   </div>
 </template>
@@ -168,28 +168,28 @@ To change the color of the tooltip, use the property `color`. You are able to us
 <template lang="html">
   <div class="centerx">
     <vs-tooltip text="Tooltip default delay">
-      <vs-button vs-type="gradient">Default Color</vs-button>
+      <vs-button type="gradient">Default Color</vs-button>
     </vs-tooltip>
     <vs-tooltip color="primary" text="Tooltip default delay">
-      <vs-button vs-type="border">Color primary</vs-button>
+      <vs-button type="border">Color primary</vs-button>
     </vs-tooltip>
     <vs-tooltip color="success" text="Tooltip default delay">
-      <vs-button color="success" vs-type="border">Color success</vs-button>
+      <vs-button color="success" type="border">Color success</vs-button>
     </vs-tooltip>
     <vs-tooltip color="danger" text="Tooltip default delay">
-      <vs-button color="danger" vs-type="border">Color danger</vs-button>
+      <vs-button color="danger" type="border">Color danger</vs-button>
     </vs-tooltip>
     <vs-tooltip color="warning" text="Tooltip default delay">
-      <vs-button color="warning" vs-type="border">Color warning</vs-button>
+      <vs-button color="warning" type="border">Color warning</vs-button>
     </vs-tooltip>
     <vs-tooltip color="dark" text="Tooltip default delay">
-      <vs-button color="dark" vs-type="border">Color dark</vs-button>
+      <vs-button color="dark" type="border">Color dark</vs-button>
     </vs-tooltip>
     <vs-tooltip color="rgb(42, 207, 133)" text="Tooltip default delay">
-      <vs-button color="rgb(42, 207, 133)" vs-type="border">Color RGB</vs-button>
+      <vs-button color="rgb(42, 207, 133)" type="border">Color RGB</vs-button>
     </vs-tooltip>
     <vs-tooltip color="#4a0d6b" text="Tooltip default delay">
-      <vs-button color="#4a0d6b" vs-type="border">Color HEX</vs-button>
+      <vs-button color="#4a0d6b" type="border">Color HEX</vs-button>
     </vs-tooltip>
   </div>
 </template>
@@ -218,7 +218,7 @@ If necessary, you can add a title to the tooltip with the property `title`
       title="Are you sure?"
       color="warning"
       text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras scelerisque non neque sed aliquet.">
-       <vs-button color="warning" vs-type="flat">Title Tooltip</vs-button>
+       <vs-button color="warning" type="flat">Title Tooltip</vs-button>
     </vs-tooltip>
   </div>
 </template>

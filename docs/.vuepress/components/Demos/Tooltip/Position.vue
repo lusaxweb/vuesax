@@ -1,16 +1,16 @@
 <template lang="html">
   <div class="centerx">
     <vs-tooltip text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed velit a ipsum dictum hendrerit in id urna. Aliquam erat volutpat. Nam eleifend id ex at viverra" position="left" >
-      <vs-button vs-type="gradient">Left</vs-button>
+      <vs-button type="gradient">Left</vs-button>
     </vs-tooltip>
     <vs-tooltip text="Tooltip position Top" position="top" >
-      <vs-button vs-type="gradient">Top</vs-button>
+      <vs-button type="gradient">Top</vs-button>
     </vs-tooltip>
     <vs-tooltip text="Tooltip position Bottom" position="bottom" >
-      <vs-button vs-type="gradient">Bottom</vs-button>
+      <vs-button type="gradient">Bottom</vs-button>
     </vs-tooltip>
     <vs-tooltip text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed velit a ipsum dictum hendrerit in id urna. Aliquam erat volutpat. Nam eleifend id ex at viverra" position="right" >
-      <vs-button vs-type="gradient">Right</vs-button>
+      <vs-button type="gradient">Right</vs-button>
     </vs-tooltip>
   </div>
 </template>

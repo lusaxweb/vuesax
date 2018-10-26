@@ -15,37 +15,37 @@ API:
     parameters: null
     description: Change the font color of the button
     default: null
-  - name: vs-icon
+  - name: icon
     type: String
     parameters: Material Icons
     description: Determine the button icon
     default: null
-  - name: vs-icon-after
+  - name: icon-after
     type: Boolean
     parameters: null
     description: Determines if the icon is set after the text
     default: false
-  - name: vs-line-origin
+  - name: line-origin
     type: String
     parameters: null
     description: Determines the output of the line on the button (line)
     default: center
-  - name: vs-line-position
+  - name: line-position
     type: String
     parameters: null
     description: Determine if the button (line) has the line up or down
     default: center
-  - name: vs-gradient-direction
+  - name: gradient-direction
     type: String
     parameters: null
     description: Determine the angle of the gradient on the button
     default: 30 deg
-  - name: vs-gradient-color-secondary
+  - name: gradient-color-secondary
     type: String
     parameters: null
     description: Change the secondary color on the button (gradient)
     default: primary
-  - name: vs-radius
+  - name: radius
     type: Boolean
     parameters: null
     description: Change button radius to circle
@@ -55,12 +55,12 @@ API:
     parameters: null
     description: Added router push navigation to button
     default: false
-  - name: vs-href
+  - name: href
     type: String | Object
     parameters: null
     description: Added href property to button
     default: null
-  - name: vs-target
+  - name: target
     type: Boolean
     parameters: null
     description: Presence or absence of target property
@@ -184,7 +184,7 @@ To add a type of button with edges we change the value of `flat`.
 To add a type of button with edges we change the value of `vs-type` by: `line`.
 
 :::tip
-  you can change the position of the line up with the property `vs-line-position="top"`. You can also change the way the line appears on mouse hover with the property `vs-line-origin` using the allowed values:
+  you can change the position of the line up with the property `line-position="top"`. You can also change the way the line appears on mouse hover with the property `line-origin` using the allowed values:
 
   - left
   - center (default)
@@ -194,10 +194,10 @@ To add a type of button with edges we change the value of `vs-type` by: `line`.
 <vuecode md center>
 <div slot="demo">
 <vs-button vs-type="line">Primary</vs-button>
-<vs-button vs-line-origin="left" color="success" vs-type="line">Success</vs-button>
+<vs-button line-origin="left" color="success" vs-type="line">Success</vs-button>
 <vs-button  color="danger" vs-type="line">Danger</vs-button>
-<vs-button vs-line-position="top" vs-line-origin="left" color="warning" vs-type="line">Warning</vs-button>
-<vs-button vs-line-position="top" vs-line-origin="right" color="dark" vs-type="line">Dark</vs-button>
+<vs-button line-position="top" line-origin="left" color="warning" vs-type="line">Warning</vs-button>
+<vs-button line-position="top" line-origin="right" color="dark" vs-type="line">Dark</vs-button>
 <vs-button disabled vs-type="line">Disabled</vs-button>
 </div>
 
@@ -205,10 +205,10 @@ To add a type of button with edges we change the value of `vs-type` by: `line`.
 
 ```html
 <vs-button vs-type="line">Primary</vs-button>
-<vs-button vs-line-origin="left" color="success" vs-type="line">Success</vs-button>
+<vs-button line-origin="left" color="success" vs-type="line">Success</vs-button>
 <vs-button  color="danger" vs-type="line">Danger</vs-button>
-<vs-button vs-line-position="top" vs-line-origin="left" color="warning" vs-type="line">Warning</vs-button>
-<vs-button vs-line-position="top" vs-line-origin="right" color="dark" vs-type="line">Dark</vs-button>
+<vs-button line-position="top" line-origin="left" color="warning" vs-type="line">Warning</vs-button>
+<vs-button line-position="top" line-origin="right" color="dark" vs-type="line">Dark</vs-button>
 <vs-button disabled vs-type="line">Disabled</vs-button>
 ```
 
@@ -231,7 +231,7 @@ To add a type of button with edges we change the value of `vs-type` by: `gradien
 <vs-button color="danger" vs-type="gradient">danger</vs-button>
 <vs-button color="warning" vs-type="gradient">warning</vs-button>
 <vs-button color="dark" vs-type="gradient">dark</vs-button>
-<vs-button color="#3dd495" vs-gradient-color-secondary="rgb(130, 207, 23)" vs-type="gradient">dark</vs-button>
+<vs-button color="#3dd495" gradient-color-secondary="rgb(130, 207, 23)" vs-type="gradient">dark</vs-button>
 <vs-button disabled vs-type="gradient">Disabled</vs-button>
 </div>
 
@@ -244,7 +244,7 @@ To add a type of button with edges we change the value of `vs-type` by: `gradien
 <vs-button color="danger" vs-type="gradient">danger</vs-button>
 <vs-button color="warning" vs-type="gradient">warning</vs-button>
 <vs-button color="dark" vs-type="gradient">dark</vs-button>
-<vs-button color="#3dd495" vs-gradient-color-secondary="rgb(130, 207, 23)" vs-type="gradient">dark</vs-button>
+<vs-button color="#3dd495" gradient-color-secondary="rgb(130, 207, 23)" vs-type="gradient">dark</vs-button>
 <vs-button disabled vs-type="gradient">Disabled</vs-button>
 ```
 
@@ -295,7 +295,7 @@ To add a type of button with edges we change the value of `vs-type` by: `relief`
 There are cases in which we need something more personalized like a specific color, you can change the color of the button with the property `color` giving it as a value the color.
 
 :::tip
-If you need a gradient type button, to assign the color you have to use the property `vs-gradient-color-secondary`
+If you need a gradient type button, to assign the color you have to use the property `gradient-color-secondary`
 :::
 
 <vuecode md center>
@@ -316,7 +316,7 @@ If you need a gradient type button, to assign the color you have to use the prop
     <vs-button :color="colorx" vs-type="border">Color</vs-button>
     <vs-button :color="colorx" vs-type="flat">Color</vs-button>
     <vs-button :color="colorx" vs-type="line">Color</vs-button>
-    <vs-button :color="colorx" :vs-gradient-color-secondary="colorx2" vs-type="gradient">Color</vs-button>
+    <vs-button :color="colorx" :gradient-color-secondary="colorx2" vs-type="gradient">Color</vs-button>
     <vs-button :color="colorx"  vs-type="relief">Color</vs-button>
   </div>
 </template>
@@ -376,35 +376,35 @@ You can change the font color of buttons, need only set the prop `text-color` wi
 
 ## Icon
 
-You can add an icon to the button with the property `vs-icon`
+You can add an icon to the button with the property `icon`
 
 ::: tip
 Vuesax uses the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
 :::
 
 :::tip
-  You can change the position of the icon so that it is after the text with the property `vs-icon-after`
+  You can change the position of the icon so that it is after the text with the property `icon-after`
 :::
 
 <vuecode md center>
 <div slot="demo">
-<vs-button color="primary" vs-type="border" vs-icon="home">Home</vs-button>
-<vs-button color="warning" vs-type="filled" vs-icon="star">Star</vs-button>
-<vs-button color="success" vs-type="flat" vs-icon="done">Done</vs-button>
-<vs-button vs-icon-after color="dark" vs-type="line" vs-icon="menu">menu</vs-button>
-<vs-button vs-icon-after color="danger" vs-type="gradient" vs-icon="favorite">favorite</vs-button>
-<vs-button disabled color="primary" vs-type="border" vs-icon="home">Disabled</vs-button>
+<vs-button color="primary" vs-type="border" icon="home">Home</vs-button>
+<vs-button color="warning" vs-type="filled" icon="star">Star</vs-button>
+<vs-button color="success" vs-type="flat" icon="done">Done</vs-button>
+<vs-button icon-after color="dark" vs-type="line" icon="menu">menu</vs-button>
+<vs-button icon-after color="danger" vs-type="gradient" icon="favorite">favorite</vs-button>
+<vs-button disabled color="primary" vs-type="border" icon="home">Disabled</vs-button>
 </div>
 
 <div slot="code">
 
 ```html
-<vs-button color="primary" vs-type="border" vs-icon="home">Home</vs-button>
-<vs-button color="warning" vs-type="filled" vs-icon="star">Star</vs-button>
-<vs-button color="success" vs-type="flat" vs-icon="done">Done</vs-button>
-<vs-button color="dark" vs-type="line" vs-icon="menu">menu</vs-button>
-<vs-button color="danger" vs-type="gradient" vs-icon="favorite">favorite</vs-button>
-<vs-button disabled color="primary" vs-type="border" vs-icon="home">Disabled</vs-button>
+<vs-button color="primary" vs-type="border" icon="home">Home</vs-button>
+<vs-button color="warning" vs-type="filled" icon="star">Star</vs-button>
+<vs-button color="success" vs-type="flat" icon="done">Done</vs-button>
+<vs-button color="dark" vs-type="line" icon="menu">menu</vs-button>
+<vs-button color="danger" vs-type="gradient" icon="favorite">favorite</vs-button>
+<vs-button disabled color="primary" vs-type="border" icon="home">Disabled</vs-button>
 ```
 
 </div>
@@ -415,46 +415,46 @@ Vuesax uses the **Google Material Icons** font library. For a list of all availa
 
 ## Icon only
 
-You can have a button with only the icon you want with the property `vs-icon` and not add any internal value to the button
+You can have a button with only the icon you want with the property `icon` and not add any internal value to the button
 
 :::tip
-  you can use the `vs-radius` property to determine the border-radius of the button, there are many cases in which we need it to be round for example.
+  you can use the `radius` property to determine the border-radius of the button, there are many cases in which we need it to be round for example.
 :::
 
 <vuecode md center>
 <div slot="demo">
-<vs-button color="primary" vs-type="border" vs-icon="search"></vs-button>
-<vs-button color="warning" vs-type="filled" vs-icon="public"></vs-button>
-<vs-button color="success" vs-type="flat" vs-icon="photo_camera"></vs-button>
-<vs-button color="dark" vs-type="line" vs-icon="event_note"></vs-button>
-<vs-button color="danger" vs-type="gradient" vs-icon="person_add"></vs-button>
-<vs-button disabled color="primary" vs-type="border" vs-icon="search"></vs-button>
+<vs-button color="primary" vs-type="border" icon="search"></vs-button>
+<vs-button color="warning" vs-type="filled" icon="public"></vs-button>
+<vs-button color="success" vs-type="flat" icon="photo_camera"></vs-button>
+<vs-button color="dark" vs-type="line" icon="event_note"></vs-button>
+<vs-button color="danger" vs-type="gradient" icon="person_add"></vs-button>
+<vs-button disabled color="primary" vs-type="border" icon="search"></vs-button>
 <br>
 <br>
-<vs-button vs-radius color="primary" vs-type="border" vs-icon="search"></vs-button>
-<vs-button vs-radius color="warning" vs-type="filled" vs-icon="public"></vs-button>
-<vs-button vs-radius color="success" vs-type="flat" vs-icon="photo_camera"></vs-button>
-<vs-button vs-radius color="dark" vs-type="line" vs-icon="event_note"></vs-button>
-<vs-button vs-radius color="danger" vs-type="gradient" vs-icon="person_add"></vs-button>
-<vs-button disabled vs-radius color="primary" vs-type="border" vs-icon="search"></vs-button>
+<vs-button radius color="primary" vs-type="border" icon="search"></vs-button>
+<vs-button radius color="warning" vs-type="filled" icon="public"></vs-button>
+<vs-button radius color="success" vs-type="flat" icon="photo_camera"></vs-button>
+<vs-button radius color="dark" vs-type="line" icon="event_note"></vs-button>
+<vs-button radius color="danger" vs-type="gradient" icon="person_add"></vs-button>
+<vs-button disabled radius color="primary" vs-type="border" icon="search"></vs-button>
 </div>
 <div slot="code">
 
 ```html
-<vs-button color="primary" vs-type="border" vs-icon="search"></vs-button>
-<vs-button color="warning" vs-type="filled" vs-icon="public"></vs-button>
-<vs-button color="success" vs-type="flat" vs-icon="photo_camera"></vs-button>
-<vs-button color="dark" vs-type="line" vs-icon="event_note"></vs-button>
-<vs-button color="danger" vs-type="gradient" vs-icon="person_add"></vs-button>
-<vs-button disabled color="primary" vs-type="border" vs-icon="search"></vs-button>
+<vs-button color="primary" vs-type="border" icon="search"></vs-button>
+<vs-button color="warning" vs-type="filled" icon="public"></vs-button>
+<vs-button color="success" vs-type="flat" icon="photo_camera"></vs-button>
+<vs-button color="dark" vs-type="line" icon="event_note"></vs-button>
+<vs-button color="danger" vs-type="gradient" icon="person_add"></vs-button>
+<vs-button disabled color="primary" vs-type="border" icon="search"></vs-button>
 <br>
 <br>
-<vs-button vs-radius color="primary" vs-type="border" vs-icon="search"></vs-button>
-<vs-button vs-radius color="warning" vs-type="filled" vs-icon="public"></vs-button>
-<vs-button vs-radius color="success" vs-type="flat" vs-icon="photo_camera"></vs-button>
-<vs-button vs-radius color="dark" vs-type="line" vs-icon="event_note"></vs-button>
-<vs-button vs-radius color="danger" vs-type="gradient" vs-icon="person_add"></vs-button>
-<vs-button disabled vs-radius color="primary" vs-type="border" vs-icon="search"></vs-button>
+<vs-button radius color="primary" vs-type="border" icon="search"></vs-button>
+<vs-button radius color="warning" vs-type="filled" icon="public"></vs-button>
+<vs-button radius color="success" vs-type="flat" icon="photo_camera"></vs-button>
+<vs-button radius color="dark" vs-type="line" icon="event_note"></vs-button>
+<vs-button radius color="danger" vs-type="gradient" icon="person_add"></vs-button>
+<vs-button disabled radius color="primary" vs-type="border" icon="search"></vs-button>
 ```
 
 </div>
@@ -522,22 +522,22 @@ you can use all programmatic navigation on vue router.
 You can specify for `window.location.href`
 
 :::tip
-  you can use the `vs-target` property to window.open()
+  you can use the `target` property to window.open()
 :::
 
 <vuecode md center>
 <div slot="demo">
-<vs-button vs-color="primary" target="_blank" vs-type="filled" vs-href="https://lusaxweb.github.io/vuesax/">String literal</vs-button>
-<vs-button vs-color="primary" vs-type="filled" :vs-href="{url: 'https://lusaxweb.github.io/vuesax/'}">Object Path</vs-button>
-<vs-button vs-color="primary" vs-type="filled" vs-target vs-href="https://lusaxweb.github.io/vuesax/">Open Current Tab</vs-button>
+<vs-button vs-color="primary" target="_blank" vs-type="filled" href="https://lusaxweb.github.io/vuesax/">String literal</vs-button>
+<vs-button vs-color="primary" vs-type="filled" :href="{url: 'https://lusaxweb.github.io/vuesax/'}">Object Path</vs-button>
+<vs-button vs-color="primary" vs-type="filled" target href="https://lusaxweb.github.io/vuesax/">Open Current Tab</vs-button>
 </div>
 
 <div slot="code">
 
 ```html
-<vs-button vs-color="primary" vs-type="filled" vs-href="https://lusaxweb.github.io/vuesax/">String literal</vs-button>
-<vs-button vs-color="primary" vs-type="filled" :vs-href="{url: 'https://lusaxweb.github.io/vuesax/'}">Object Path</vs-button>
-<vs-button vs-color="primary" vs-type="filled" vs-target :vs-href="{url: 'https://lusaxweb.github.io/vuesax/'}">Open Current Tab</vs-button>
+<vs-button vs-color="primary" vs-type="filled" href="https://lusaxweb.github.io/vuesax/">String literal</vs-button>
+<vs-button vs-color="primary" vs-type="filled" :href="{url: 'https://lusaxweb.github.io/vuesax/'}">Object Path</vs-button>
+<vs-button vs-color="primary" vs-type="filled" target :href="{url: 'https://lusaxweb.github.io/vuesax/'}">Open Current Tab</vs-button>
 
 ```
 

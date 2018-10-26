@@ -1,7 +1,7 @@
 <template>
   <div>
     <vs-navbar v-model="activeItem" class="nabarx">
-      <vs-button vs-type="flat" vs-radius="50%" vs-icon="menu"></vs-button>
+      <vs-button type="flat" icon="menu"></vs-button>
 
       <vs-navbar-title>
         Hello world

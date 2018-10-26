@@ -2,7 +2,7 @@
 
   <div id="parentx">
 
-    <vs-button @click="active=!active" color="primary" vs-type="filled">Open Sidebar</vs-button>
+    <vs-button @click="active=!active" color="primary" type="filled">Open Sidebar</vs-button>
     <vs-sidebar parent="body" default-index="1"  color="primary" class="sidebarx" spacer v-model="active">
 
       <div class="header-sidebar" slot="header">
@@ -10,7 +10,7 @@
 
         <h4>
           My Name
-          <vs-button color="primary" vs-icon="more_horiz" vs-type="flat"></vs-button>
+          <vs-button color="primary" icon="more_horiz" type="flat"></vs-button>
         </h4>
 
       </div>
@@ -38,8 +38,8 @@
       </vs-sidebar-item>
 
       <div class="footer-sidebar" slot="footer">
-        <vs-button vs-icon="reply" color="danger" vs-type="flat">log out</vs-button>
-        <vs-button vs-icon="settings" color="primary" vs-type="border"></vs-button>
+        <vs-button icon="reply" color="danger" type="flat">log out</vs-button>
+        <vs-button icon="settings" color="primary" type="border"></vs-button>
       </div>
 
     </vs-sidebar>

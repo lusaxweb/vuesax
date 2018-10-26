@@ -1,11 +1,11 @@
 <template lang="html">
   <div class="centerx">
-    <vs-button @click="openAlert('primary')" color="primary" vs-type="flat">Alert Primary</vs-button>
-    <vs-button @click="openAlert('success')" color="success" vs-type="flat">Alert success</vs-button>
-    <vs-button @click="openAlert('danger')" color="danger" vs-type="flat">Alert Danger</vs-button>
-    <vs-button @click="openAlert('warning')" color="warning" vs-type="flat">Alert Warning</vs-button>
-    <vs-button @click="openAlert('dark')" color="dark" vs-type="flat">Alert Dark</vs-button>
-    <vs-button @click="openAlert(null)" color="primary" vs-type="gradient">Alert Color RGB | HEX</vs-button>
+    <vs-button @click="openAlert('primary')" color="primary" type="flat">Alert Primary</vs-button>
+    <vs-button @click="openAlert('success')" color="success" type="flat">Alert success</vs-button>
+    <vs-button @click="openAlert('danger')" color="danger" type="flat">Alert Danger</vs-button>
+    <vs-button @click="openAlert('warning')" color="warning" type="flat">Alert Warning</vs-button>
+    <vs-button @click="openAlert('dark')" color="dark" type="flat">Alert Dark</vs-button>
+    <vs-button @click="openAlert(null)" color="primary" type="gradient">Alert Color RGB | HEX</vs-button>
   </div>
 </template>
 

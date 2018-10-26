@@ -1,8 +1,8 @@
 <template lang="html">
   <div class="examplex">
-    <vs-button class="btnx" vs-type="filled">Dropdown</vs-button>
+    <vs-button class="btnx" type="filled">Dropdown</vs-button>
     <vs-dropdown @focus="logx">
-      <vs-button class="btn-drop" vs-type="filled" vs-icon="expand_more"></vs-button>
+      <vs-button class="btn-drop" type="filled" icon="expand_more"></vs-button>
       <!-- <a href="#">Hola mundo</a> -->
 
       <vs-dropdown-menu>

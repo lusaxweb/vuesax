@@ -122,7 +122,7 @@ One of the most common features is to have the hidden sidebar to show it when th
 
   <div id="parentx">
 
-    <vs-button @click="active=!active" color="primary" vs-type="filled">Open Sidebar</vs-button>
+    <vs-button @click="active=!active" color="primary" type="filled">Open Sidebar</vs-button>
     <vs-sidebar parent="body" default-index="1"  color="primary" class="sidebarx" spacer v-model="active">
 
       <div class="header-sidebar" slot="header">
@@ -130,7 +130,7 @@ One of the most common features is to have the hidden sidebar to show it when th
 
         <h4>
           My Name
-          <vs-button color="primary" vs-icon="more_horiz" vs-type="flat"></vs-button>
+          <vs-button color="primary" icon="more_horiz" type="flat"></vs-button>
         </h4>
 
       </div>
@@ -158,8 +158,8 @@ One of the most common features is to have the hidden sidebar to show it when th
       </vs-sidebar-item>
 
       <div class="footer-sidebar" slot="footer">
-        <vs-button vs-icon="reply" color="danger" vs-type="flat">log out</vs-button>
-        <vs-button vs-icon="settings" color="primary" vs-type="border"></vs-button>
+        <vs-button icon="reply" color="danger" type="flat">log out</vs-button>
+        <vs-button icon="settings" color="primary" type="border"></vs-button>
       </div>
 
     </vs-sidebar>
@@ -228,7 +228,7 @@ You can change the parent of the sidebar with the property `parent` that as a va
 
   <div ref="parentSidebar" id="parentx">
 
-    <vs-button @click="active=!active" color="primary" vs-type="filled">Open Sidebar</vs-button>
+    <vs-button @click="active=!active" color="primary" type="filled">Open Sidebar</vs-button>
     <vs-sidebar :parent="$refs.parentSidebar" default-index="1"  color="primary" class="sidebarx" spacer v-model="active">
 
       <div class="header-sidebar" slot="header">
@@ -236,7 +236,7 @@ You can change the parent of the sidebar with the property `parent` that as a va
 
         <h4>
           My Name
-          <vs-button color="primary" vs-icon="more_horiz" vs-type="flat"></vs-button>
+          <vs-button color="primary" icon="more_horiz" type="flat"></vs-button>
         </h4>
 
       </div>
@@ -264,8 +264,8 @@ You can change the parent of the sidebar with the property `parent` that as a va
       </vs-sidebar-item>
 
       <div class="footer-sidebar" slot="footer">
-        <vs-button vs-icon="reply" color="danger" vs-type="flat">log out</vs-button>
-        <vs-button vs-icon="settings" color="primary" vs-type="border"></vs-button>
+        <vs-button icon="reply" color="danger" type="flat">log out</vs-button>
+        <vs-button icon="settings" color="primary" type="border"></vs-button>
       </div>
 
     </vs-sidebar>
@@ -345,7 +345,7 @@ You can also use the sidebar in static mode with the property `static`
 
         <h4>
           My Name
-          <vs-button color="primary" vs-icon="more_horiz" vs-type="flat"></vs-button>
+          <vs-button color="primary" icon="more_horiz" type="flat"></vs-button>
         </h4>
 
       </div>
@@ -373,8 +373,8 @@ You can also use the sidebar in static mode with the property `static`
       </vs-sidebar-item>
 
       <div class="footer-sidebar" slot="footer">
-        <vs-button vs-icon="reply" color="danger" vs-type="flat">log out</vs-button>
-        <vs-button vs-icon="settings" color="primary" vs-type="border"></vs-button>
+        <vs-button icon="reply" color="danger" type="flat">log out</vs-button>
+        <vs-button icon="settings" color="primary" type="border"></vs-button>
       </div>
 
     </vs-sidebar>
@@ -447,7 +447,7 @@ You can have groups of sub menus with the component `vs-slider-group` that as a 
 
   <div id="parentx">
 
-    <vs-button @click="active=!active" color="primary" vs-type="filled">Open Sidebar</vs-button>
+    <vs-button @click="active=!active" color="primary" type="filled">Open Sidebar</vs-button>
     <vs-sidebar parent="body" default-index="1"  color="primary" class="sidebarx" spacer v-model="active">
 
       <div class="header-sidebar" slot="header">
@@ -455,7 +455,7 @@ You can have groups of sub menus with the component `vs-slider-group` that as a 
 
         <h4>
           My Name
-          <vs-button color="primary" vs-icon="more_horiz" vs-type="flat"></vs-button>
+          <vs-button color="primary" icon="more_horiz" type="flat"></vs-button>
         </h4>
 
       </div>
@@ -498,8 +498,8 @@ You can have groups of sub menus with the component `vs-slider-group` that as a 
       </vs-sidebar-item>
 
       <div class="footer-sidebar" slot="footer">
-        <vs-button vs-icon="reply" color="danger" vs-type="flat">log out</vs-button>
-        <vs-button vs-icon="settings" color="primary" vs-type="border"></vs-button>
+        <vs-button icon="reply" color="danger" type="flat">log out</vs-button>
+        <vs-button icon="settings" color="primary" type="border"></vs-button>
       </div>
 
     </vs-sidebar>
@@ -567,7 +567,7 @@ A `static` sidebar will not appear on the right.
 
   <div id="parentx">
 
-    <vs-button @click="active=!active" color="primary" vs-type="filled">Open Sidebar</vs-button>
+    <vs-button @click="active=!active" color="primary" type="filled">Open Sidebar</vs-button>
     <vs-sidebar position-right  parent="body" default-index="1"  color="primary" class="sidebarx" spacer v-model="active">
 
       <div class="header-sidebar" slot="header">
@@ -575,7 +575,7 @@ A `static` sidebar will not appear on the right.
 
         <h4>
           My Name
-          <vs-button color="primary" vs-icon="more_horiz" vs-type="flat"></vs-button>
+          <vs-button color="primary" icon="more_horiz" type="flat"></vs-button>
         </h4>
 
       </div>
@@ -603,8 +603,8 @@ A `static` sidebar will not appear on the right.
       </vs-sidebar-item>
 
       <div class="footer-sidebar" slot="footer">
-        <vs-button vs-icon="reply" color="danger" vs-type="flat">log out</vs-button>
-        <vs-button vs-icon="settings" color="primary" vs-type="border"></vs-button>
+        <vs-button icon="reply" color="danger" type="flat">log out</vs-button>
+        <vs-button icon="settings" color="primary" type="border"></vs-button>
       </div>
 
     </vs-sidebar>
@@ -672,8 +672,8 @@ You can have a reduced sidebar with the `reduce` property which by default makes
 
   <div id="parentx">
 
-    <vs-button @click="active=!active, notExpand = false" color="success" vs-type="filled">Open Sidebar Reduce-expand</vs-button>
-    <vs-button @click="active=!active, notExpand = true" color="success" vs-type="filled">Open Sidebar Reduce-only</vs-button>
+    <vs-button @click="active=!active, notExpand = false" color="success" type="filled">Open Sidebar Reduce-expand</vs-button>
+    <vs-button @click="active=!active, notExpand = true" color="success" type="filled">Open Sidebar Reduce-only</vs-button>
     <vs-sidebar :reduce="reduce" :reduce-not-hover-expand="notExpand" parent="body" default-index="1"  color="success" class="sidebarx" spacer v-model="active">
 
       <div class="header-sidebar" slot="header">
@@ -719,7 +719,7 @@ You can have a reduced sidebar with the `reduce` property which by default makes
       </vs-sidebar-item>
 
       <div class="footer-sidebar" slot="footer">
-        <vs-button vs-icon="settings" color="primary" vs-type="border"></vs-button>
+        <vs-button icon="settings" color="primary" type="border"></vs-button>
       </div>
 
     </vs-sidebar>

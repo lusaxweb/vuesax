@@ -27,7 +27,7 @@
         vs-type="password"
         vs-label-placeholder="Password" v-model="value2"/>
 
-        <vs-button vs-width="100%" color="success" vs-type="gradient">Login</vs-button>
+        <vs-button width="100%" color="success" type="gradient">Login</vs-button>
       </vs-dropdown-menu>
     </vs-dropdown>
   </div>

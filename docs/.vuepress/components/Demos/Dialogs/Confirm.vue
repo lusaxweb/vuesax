@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="centerx">
-    <vs-button @click="openConfirm()" color="danger" vs-type="gradient">Alert Primary</vs-button>
+    <vs-button @click="openConfirm()" color="danger" type="gradient">Alert Primary</vs-button>
   </div>
 </template>
 

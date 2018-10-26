@@ -53,7 +53,7 @@ To add a navbar we have the component `vs-navbar`, there is a series of sub comp
 <template>
   <div>
     <vs-navbar v-model="activeItem" class="nabarx">
-      <vs-button vs-type="flat" vs-radius="50%" vs-icon="menu"></vs-button>
+      <vs-button type="flat" radius="50%" icon="menu"></vs-button>
 
       <vs-navbar-title>
         Hello world
@@ -103,7 +103,7 @@ You may need an entry in the menu to simply use the `vs-input` component, for ex
 <template>
   <div>
     <vs-navbar v-model="activeItem" class="nabarx">
-      <vs-button vs-type="flat" vs-radius="50%" vs-icon="menu"></vs-button>
+      <vs-button type="flat" radius="50%" icon="menu"></vs-button>
 
       <vs-navbar-title>
         Hello world
@@ -119,7 +119,7 @@ You may need an entry in the menu to simply use the `vs-input` component, for ex
         <a href="#">Update</a>
       </vs-navbar-item>
       <vs-spacer></vs-spacer>
-      <vs-input vs-icon="search" placeholder="Search" v-model="search"/>
+      <vs-input icon="search" placeholder="Search" v-model="search"/>
     </vs-navbar>
   </div>
 </template>
@@ -164,7 +164,7 @@ If you want you can change the style of the buttons and the navbar by changing t
     </vs-select>
 
     <vs-navbar :type="type" v-model="activeItem" class="nabarx">
-      <vs-button vs-type="flat" vs-radius="50%" vs-icon="menu"></vs-button>
+      <vs-button type="flat" radius="50%" icon="menu"></vs-button>
 
       <vs-navbar-title>
         Type {{type}}
@@ -263,7 +263,7 @@ You can change the color of the **Topbar** with the property `color`. You are ab
 
       <vs-spacer></vs-spacer>
 
-      <vs-button color-text="rgb(255, 255, 255)" color="rgba(255, 255, 255, 0.3)" vs-type="flat" vs-radius="50%" vs-icon="more_horiz"></vs-button>
+      <vs-button color-text="rgb(255, 255, 255)" color="rgba(255, 255, 255, 0.3)" type="flat" radius="50%" icon="more_horiz"></vs-button>
     </vs-navbar>
   </div>
 </template>

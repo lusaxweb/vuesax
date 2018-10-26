@@ -51,9 +51,9 @@
                 </div>
 
                 <div>
-                  <vs-button vs-type="border" vs-size="small" vs-icon="phone_in_talk"></vs-button>
-                  <vs-button vs-type="gradient" vs-size="small" color="success" vs-icon="send"></vs-button>
-                  <vs-button vs-type="flat" vs-size="small" color="danger" vs-icon="delete_sweep"></vs-button>
+                  <vs-button type="border" size="small" icon="phone_in_talk"></vs-button>
+                  <vs-button type="gradient" size="small" color="success" icon="send"></vs-button>
+                  <vs-button type="flat" size="small" color="danger" icon="delete_sweep"></vs-button>
                 </div>
               </div>
               <vs-list>

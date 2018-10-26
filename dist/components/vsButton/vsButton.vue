@@ -2,7 +2,7 @@
   <button
     ref="btn"
     v-bind="$attrs"
-    :class="[`vs-button-${isColor()?color:null}`,`vs-button-${vsType}`,{
+    :class="[`vs-button-${isColor()?color:null}`,`vs-button-${type}`,{
       'isActive':isActive,
       'includeIcon':vsIcon,
       'includeIconOnly':vsIcon && !$slots.default,
@@ -53,7 +53,7 @@ export default {
   name:'VsButton',
   inheritAttrs:false,
   props:{
-    vsType:{
+    type:{
       default:'filled',
       type:String
     },
@@ -65,35 +65,35 @@ export default {
       default:null,
       type:String
     },
-    vsLineOrigin:{
+    lineOrigin:{
       default:'center',
       type:String
     },
-    vsLinePosition:{
+    linePosition:{
       default:'bottom',
       type:String
     },
-    vsGradientDirection:{
+    gradientDirection:{
       default:'30deg',
       type:String
     },
-    vsGradientColorSecondary:{
+    gradientColorSecondary:{
       default:'primary',
       type:String
     },
-    vsSize:{
+    size:{
       type:String,
       default:null,
     },
-    vsIcon:{
+    icon:{
       type:String,
       default:null
     },
-    vsIconAfter:{
+    iconAfter:{
       default:false,
       type:Boolean
     },
-    vsRadius:{
+    radius:{
       default:false,
       type:Boolean
     },
@@ -101,11 +101,11 @@ export default {
       default:false,
       type:String | Object
     },
-    vsHref:{
+    href:{
       default:'',
       type:String | Object
     },
-    vsTarget:{
+    target:{
       default:false,
       type:Boolean
     }
@@ -146,12 +146,12 @@ export default {
       } else if (this.is('line')) {
         return {
           color:_color.getColor(this.textColor,1) || _color.getColor(this.color,1),
-          borderBottomWidth: this.vsLinePosition=='bottom'?`2px`:null,
+          borderBottomWidth: this.linePosition=='bottom'?`2px`:null,
           borderColor: `${_color.getColor(this.color,.2)}`,
-          borderTopWidth: this.vsLinePosition=='top'?`2px`:null,
+          borderTopWidth: this.linePosition=='top'?`2px`:null,
         }
       } else if (this.is('gradient')) {
-        let backgroundx = `linear-gradient(${this.vsGradientDirection}, ${_color.getColor(this.color)} 0%, ${_color.getColor(this.vsGradientColorSecondary,1)} 100%)`
+        let backgroundx = `linear-gradient(${this.gradientDirection}, ${_color.getColor(this.color)} 0%, ${_color.getColor(this.gradientColorSecondary,1)} 100%)`
         return {
           background: backgroundx,
         }
@@ -179,15 +179,15 @@ export default {
     },
     styleLine(){
       let lineOrigin = '50%'
-      if(this.vsLineOrigin == 'left'){
+      if(this.lineOrigin == 'left'){
         lineOrigin = '0%'
-      } else if (this.vsLineOrigin == 'right') {
+      } else if (this.lineOrigin == 'right') {
         lineOrigin = 'auto'
       }
 
       let styles = {
-        top: this.vsLinePosition == 'top'?'-2px':'auto',
-        bottom: this.vsLinePosition == 'bottom'?'-2px':'auto',
+        top: this.linePosition == 'top'?'-2px':'auto',
+        bottom: this.linePosition == 'bottom'?'-2px':'auto',
         background: _color.getColor(this.color,1),
         left: lineOrigin,
         right: lineOrigin == 'auto'?'0px':null,
@@ -202,7 +202,7 @@ export default {
       this.$router.push(this.to)
     },
     is(which){
-      let type = this.vsType
+      let type = this.type
       return type == which
     },
     mouseoverx(event){
@@ -215,7 +215,7 @@ export default {
     },
     blurButton(event){
       this.$emit('blur',event)
-      if(this.vsType == 'border' || this.vsType == 'flat'){
+      if(this.type == 'border' || this.type == 'flat'){
         this.opacity = 0
         setTimeout( () => {
           this.radio = 0
@@ -231,8 +231,8 @@ export default {
       if(this.to){
         this.routerPush()
       }
-      if(this.vsHref){
-        this.vsTarget ? window.open(this.vsHref) : window.location.href = this.vsHref
+      if(this.href){
+        this.target ? window.open(this.href) : window.location.href = this.href
       }
       this.isActive = true
       let btn = this.$refs.btn

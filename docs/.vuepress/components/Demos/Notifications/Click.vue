@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="centerx">
-    <vs-button @click="myFunction()" color="primary" vs-type="flat">Run Example</vs-button>
+    <vs-button @click="myFunction()" color="primary" type="flat">Run Example</vs-button>
   </div>
 </template>
 

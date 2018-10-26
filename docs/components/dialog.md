@@ -95,12 +95,12 @@ To generate a dialog we have the global function `$vs.dialog` the parameters to 
 ```html
 <template lang="html">
   <div class="centerx">
-    <vs-button @click="openAlert('primary')" color="primary" vs-type="flat">Alert Primary</vs-button>
-    <vs-button @click="openAlert('success')" color="success" vs-type="flat">Alert Success</vs-button>
-    <vs-button @click="openAlert('danger')" color="danger" vs-type="flat">Alert Danger</vs-button>
-    <vs-button @click="openAlert('warning')" color="warning" vs-type="flat">Alert Warning</vs-button>
-    <vs-button @click="openAlert('dark')" color="dark" vs-type="flat">Alert Dark</vs-button>
-    <vs-button @click="openAlert(null)" color="primary" vs-type="gradient">Alert Color RGB | HEX</vs-button>
+    <vs-button @click="openAlert('primary')" color="primary" type="flat">Alert Primary</vs-button>
+    <vs-button @click="openAlert('success')" color="success" type="flat">Alert Success</vs-button>
+    <vs-button @click="openAlert('danger')" color="danger" type="flat">Alert Danger</vs-button>
+    <vs-button @click="openAlert('warning')" color="warning" type="flat">Alert Warning</vs-button>
+    <vs-button @click="openAlert('dark')" color="dark" type="flat">Alert Dark</vs-button>
+    <vs-button @click="openAlert(null)" color="primary" type="gradient">Alert Color RGB | HEX</vs-button>
   </div>
 </template>
 
@@ -165,7 +165,7 @@ If you need a dialog of type confirm you can do it just by changing the type as 
 ```html
 <template lang="html">
   <div class="centerx">
-    <vs-button @click="openConfirm()" color="danger" vs-type="gradient">Alert Primary</vs-button>
+    <vs-button @click="openConfirm()" color="danger" type="gradient">Alert Primary</vs-button>
   </div>
 </template>
 
@@ -230,16 +230,16 @@ To add a dialog of type prompt we have a global function a completely independen
 ```html
 <template lang="html">
   <div class="centerx con-exemple-prompt">
-    <!-- <vs-button @click="openPrompt" color="primary" vs-type="border">Run prompt</vs-button> -->
+    <!-- <vs-button @click="openPrompt" color="primary" type="border">Run prompt</vs-button> -->
     <div class="modelx">
       {{val==null?'null':val}}
     </div>
-     <vs-button @click="activePrompt = true" color="primary" vs-type="border">Run prompt</vs-button>
+     <vs-button @click="activePrompt = true" color="primary" type="border">Run prompt</vs-button>
      <div class="modelx">
        {{valMultipe.value1}}
        {{valMultipe.value2}}
      </div>
-     <vs-button @click="activePrompt2 = true" color="primary" vs-type="border">Run prompt inputs</vs-button>
+     <vs-button @click="activePrompt2 = true" color="primary" type="border">Run prompt inputs</vs-button>
 
      <vs-prompt
       @vs-cancel="val=''"

@@ -37,18 +37,18 @@
           <vs-button
             :disabled="vsIsValid=='none'?false:!vsIsValid"
             :color="isPrompt?vsColor:color"
-            :vs-type="isPrompt?vsButtonAccept:buttonAccept"
+            :type="isPrompt?vsButtonAccept:buttonAccept"
             @click="acceptDialog">{{ isPrompt?vsAcceptText:acceptText }}</vs-button>
           <vs-button
             :color="'rgb(0,0,0,.5)'"
-            :vs-type="isPrompt?vsButtonCancel:buttonCancel"
+            :type="isPrompt?vsButtonCancel:buttonCancel"
             @click="cancelClose">{{ isPrompt?vsCancelText:cancelText }}</vs-button>
         </footer>
 
         <footer v-if="type=='alert'&&!isPrompt" >
           <vs-button
             :color="isPrompt?vsColor:color"
-            :vs-type="buttonAccept"
+            :type="buttonAccept"
             @click="acceptDialog">{{ isPrompt?vsAcceptText:acceptText }}</vs-button>
         </footer>
       </div>

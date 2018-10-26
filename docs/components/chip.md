@@ -263,7 +263,7 @@ For making a chip closable.
 ```html
 <template lang="html">
   <div class="centerx">
-    <vs-button v-if="chips.length == 0" @click="reset" vs-type="filled">Reset Chips</vs-button>
+    <vs-button v-if="chips.length == 0" @click="reset" type="filled">Reset Chips</vs-button>
     <vs-chip @click="remove(chip)" v-for="chip in chips" closable>
       {{ chip }}
     </vs-chip>

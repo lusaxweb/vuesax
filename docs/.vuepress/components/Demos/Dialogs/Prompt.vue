@@ -1,15 +1,15 @@
 <template lang="html">
   <div class="centerx con-exemple-prompt">
-    <!-- <vs-button @click="openPrompt" color="primary" vs-type="border">Run prompt</vs-button> -->
+    <!-- <vs-button @click="openPrompt" color="primary" type="border">Run prompt</vs-button> -->
     <div class="modelx">
       {{val==null?'null':val}}
     </div>
-     <vs-button @click="activePrompt = true" color="primary" vs-type="border">Run prompt</vs-button>
+     <vs-button @click="activePrompt = true" color="primary" type="border">Run prompt</vs-button>
      <div class="modelx">
        {{valMultipe.value1}}
        {{valMultipe.value2}}
      </div>
-     <vs-button @click="activePrompt2 = true" color="primary" vs-type="border">Run prompt inputs</vs-button>
+     <vs-button @click="activePrompt2 = true" color="primary" type="border">Run prompt inputs</vs-button>
 
      <vs-prompt
       @vs-cancel="val=''"

@@ -1,6 +1,6 @@
 <template>
   <vs-row vs-justify="center">
-    <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-w="6">
+    <vs-col type="flex" vs-justify="center" vs-align="center" vs-w="6">
       <vs-card class="cardx">
         <div slot="header">
           <h3>
@@ -15,14 +15,14 @@
         </div>
         <div slot="footer">
           <vs-row vs-justify="flex-end">
-            <vs-button vs-type="gradient" color="danger" vs-icon="favorite"></vs-button>
-            <vs-button color="primary" vs-icon="turned_in_not"></vs-button>
-            <vs-button color="rgb(230,230,230)" color-text="rgb(50,50,50)" vs-icon="settings"></vs-button>
+            <vs-button type="gradient" color="danger" icon="favorite"></vs-button>
+            <vs-button color="primary" icon="turned_in_not"></vs-button>
+            <vs-button color="rgb(230,230,230)" color-text="rgb(50,50,50)" icon="settings"></vs-button>
           </vs-row>
         </div>
       </vs-card>
     </vs-col>
-    <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-w="6">
+    <vs-col type="flex" vs-justify="center" vs-align="center" vs-w="6">
       <vs-card class="cardx">
         <div slot="header">
           <h3>
@@ -37,9 +37,9 @@
         </div>
         <div slot="footer">
           <vs-row vs-justify="flex-end">
-            <vs-button vs-type="gradient" color="danger" vs-icon="favorite"></vs-button>
-            <vs-button color="primary" vs-icon="turned_in_not"></vs-button>
-            <vs-button color="rgb(230,230,230)" color-text="rgb(50,50,50)" vs-icon="settings"></vs-button>
+            <vs-button type="gradient" color="danger" icon="favorite"></vs-button>
+            <vs-button color="primary" icon="turned_in_not"></vs-button>
+            <vs-button color="rgb(230,230,230)" color-text="rgb(50,50,50)" icon="settings"></vs-button>
           </vs-row>
         </div>
       </vs-card>

@@ -57,7 +57,7 @@ To implement the popup we have the component `vs-popup`.
 ```html
 <template lang="html">
   <div class="centerx">
-    <vs-button @click="popupActivo=true" color="primary" vs-type="border">Open Default popup</vs-button>
+    <vs-button @click="popupActivo=true" color="primary" type="border">Open Default popup</vs-button>
     <vs-popup class="holamundo"  title="Lorem ipsum dolor sit amet" :active.sync="popupActivo">
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -98,7 +98,7 @@ You can add one popup inside another.
 ```html
 <template lang="html">
   <div class="centerx">
-    <vs-button @click="popupActivo2=true" color="primary" vs-type="filled">Open Popup</vs-button>
+    <vs-button @click="popupActivo2=true" color="primary" type="filled">Open Popup</vs-button>
     <vs-popup classContent="popup-example"  title="Lorem ipsum dolor sit amet" :active.sync="popupActivo2">
       <vs-input class="inputx" placeholder="Placeholder" v-model="value1"/>
       <vs-input disabled class="inputx" placeholder="Disabled" v-model="value2"/>
@@ -112,7 +112,7 @@ You can add one popup inside another.
       >
         <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="item,index in options1" />
       </vs-select>
-      <vs-button @click="popupActivo3=true" color="primary" vs-type="filled">Open Inner Popup</vs-button>
+      <vs-button @click="popupActivo3=true" color="primary" type="filled">Open Inner Popup</vs-button>
       <vs-popup title="Inner popup" :active.sync="popupActivo3">
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -179,7 +179,7 @@ the popup can be full screen you just have to add the property `fullscreen`.
 ```html
 <template lang="html">
   <div class="centerx">
-    <vs-button @click="popupActivo4=true" color="danger" vs-type="border">Open fullscreen popup</vs-button>
+    <vs-button @click="popupActivo4=true" color="danger" type="border">Open fullscreen popup</vs-button>
     <vs-popup fullscreen title="fullscreen" :active.sync="popupActivo4">
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -220,7 +220,7 @@ You can change the background of the property with the property `background-colo
 <template lang="html">
   <div class="centerx">
     <input v-model="colorx" type="color" name="" value="">
-    <vs-button :color="colorx" @click="popupActivo5=true" vs-type="filled">Open background popup</vs-button>
+    <vs-button :color="colorx" @click="popupActivo5=true" type="filled">Open background popup</vs-button>
 
     <vs-popup
       style="color:rgb(255,255,255)"

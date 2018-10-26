@@ -399,19 +399,19 @@ Sometimes when we need something more personalized and not necessarily a menu fo
 
 
         <vs-input
-    :vs-valid.sync="valid.email"
-    vs-success-text="Correo Valido"
-    vs-danger-text="The email does not meet the requirements"
-    vs-type="email" vs-label-placeholder="Email" v-model="value1"/>
+    :valid.sync="valid.email"
+    success-text="Correo Valido"
+    danger-text="The email does not meet the requirements"
+    type="email" label-placeholder="Email" v-model="value1"/>
 
     <vs-input
-        :vs-valid.sync="valid.password"
-        vs-success-text="Password Valida"
-        vs-danger-text="The password must have at least 8 characters, 1 number, 1 special character"
-        vs-type="password"
-        vs-label-placeholder="Password" v-model="value2"/>
+        :valid.sync="valid.password"
+        success-text="Password Valida"
+        danger-text="The password must have at least 8 characters, 1 number, 1 special character"
+        type="password"
+        label-placeholder="Password" v-model="value2"/>
 
-        <vs-button vs-width="100%" color="success" vs-type="gradient">Login</vs-button>
+        <vs-button width="100%" color="success" type="gradient">Login</vs-button>
       </vs-dropdown-menu>
     </vs-dropdown>
   </div>
@@ -498,9 +498,9 @@ You can customize the component or element that initialize the dropdown in this 
 ```html
 <template lang="html">
   <div class="examplex">
-    <vs-button class="btnx" vs-type="filled">Dropdown</vs-button>
+    <vs-button class="btnx" type="filled">Dropdown</vs-button>
     <vs-dropdown>
-      <vs-button class="btn-drop" vs-type="filled" vs-icon="expand_more"></vs-button>
+      <vs-button class="btn-drop" type="filled" icon="expand_more"></vs-button>
       <!-- <a href="#">Hola mundo</a> -->
 
       <vs-dropdown-menu>
@@ -526,9 +526,9 @@ You can customize the component or element that initialize the dropdown in this 
     </vs-dropdown>
 
 
-    <vs-button class="btnx" vs-type="success-gradient">Dropdown</vs-button>
+    <vs-button class="btnx" type="success-gradient">Dropdown</vs-button>
     <vs-dropdown>
-      <vs-button class="btn-drop" vs-type="success-gradient" vs-icon="more_horiz"></vs-button>
+      <vs-button class="btn-drop" type="success-gradient" icon="more_horiz"></vs-button>
       <!-- <a href="#">Hola mundo</a> -->
 
       <vs-dropdown-menu>
@@ -545,9 +545,9 @@ You can customize the component or element that initialize the dropdown in this 
     </vs-dropdown>
 
 
-    <vs-button class="btnx" vs-type="danger-line-down">Icons</vs-button>
+    <vs-button class="btnx" type="danger-line-down">Icons</vs-button>
     <vs-dropdown>
-      <vs-button class="btn-drop" vs-type="danger-line-down" vs-icon="mood"></vs-button>
+      <vs-button class="btn-drop" type="danger-line-down" icon="mood"></vs-button>
       <!-- <a href="#">Hola mundo</a> -->
 
       <vs-dropdown-menu>

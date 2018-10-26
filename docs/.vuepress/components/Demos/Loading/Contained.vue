@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="centerx">
-    <vs-button id="button-with-loading" class="vs-con-loading__container" @click="openLoadingContained" vs-type="relief" vs-color="primary">Button with Loading</vs-button>
-    <vs-button @click="openLoadingInDiv" vs-type="relief" vs-color="primary">Div with Loading</vs-button>
+    <vs-button id="button-with-loading" class="vs-con-loading__container" @click="openLoadingContained" type="relief" color="primary">Button with Loading</vs-button>
+    <vs-button @click="openLoadingInDiv" type="relief" color="primary">Div with Loading</vs-button>
     <div class="fill-row">
       <div id="div-with-loading" class="vs-con-loading__container">Load Me!</div>
     </div>
