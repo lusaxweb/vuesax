@@ -18,7 +18,7 @@
         <vs-dropdown-item>
           option 2
         </vs-dropdown-item>
-        <vs-dropdown-item vs-divider>
+        <vs-dropdown-item divider>
           option 3
         </vs-dropdown-item>
       </vs-dropdown-menu>

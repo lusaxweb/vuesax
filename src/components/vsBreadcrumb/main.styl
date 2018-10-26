@@ -1,37 +1,6 @@
 
 .vs-breadcrumb
   display flex
-
-  .disabled-link
-    opacity: .5
-    pointer-events: none;
-
-  ol
-    display flex
-    flex-wrap wrap
-    padding .75rem 1rem
-
-  a
-    transition: all .2s ease
-    color: rgba(0, 0, 0, 0.4);
-    &:hover
-    &:focus
-      // opacity .7
-      color: rgba(0, 0, 0, 0.7);
-      text-decoration none!important
-
-  li.vs-active
-    // color rgba(0, 0, 0, 0.4)
-    cursor: default;
-
-  .separator
-    color rgba(0, 0, 0, 0.4)
-    padding 0 .5rem 0 .5rem
-  &.material-icons
-    vertical-align: middle
-    // margin-top: -2px
-    font-size inherit
-
   &.vs-align-left
     justify-content: flex-start
   &.vs-align-center
@@ -39,7 +8,37 @@
   &.vs-align-right
     justify-content: flex-end
 
+  .disabled-link
+    opacity: .5
+    pointer-events: none;
+
+.vs-breadcrumb--ol
+  display flex
+  flex-wrap wrap
+  padding .75rem 1rem
+  li.vs-active
+    cursor: default;
+  a
+    transition: all .2s ease
+    color: rgba(0, 0, 0, 0.4);
+    &:hover
+    &:focus
+      // opacity .7
+      color: rgba(0, 0, 0, 0.7);
+      text-decoration none
+
+
+
+.vs-breadcrum--separator
+  color rgba(0, 0, 0, 0.4)
+  padding 0 .5rem 0 .5rem
+  &.material-icons
+    vertical-align: middle
+    // margin-top: -2px
+    font-size inherit
+
+
+
 for colorx, i in $vs-colors
-  .vs-breadcrumb
-    .vs-breadcrumb-text.vs-breadcrumb-text-{colorx}
-      color: var(colorx, 1)
+  .vs-breadcrumb-text-{colorx}
+    color: var(colorx, 1)

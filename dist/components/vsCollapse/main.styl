@@ -5,56 +5,18 @@
   // box-shadow: 0px 2px 12px 0px rgba(0,0,0,.05)
   padding: 10px
 
-  .vs-collapse-item
-    border-bottom: 1px solid rgba(0,0,0,.04)
-    transition: all .25s ease
-    &.disabledx
-      opacity: $vs-disabled-opacity;
-      cursor: default;
-      pointer-events: none;
-      z-index: 999;
-    header
-      display: block
-      padding: 10px
-      position relative
-      transition: all .25s ease
-      .icon-header
-        position: absolute
-        right 0px
-        top: 50%
-        transform translate(-50%, -50%)
-        display block
-        transition: all .25s ease
-        display: flex
-        align-items: center
-        justify-content: center
-        border-radius: 5px
-    .vs-collapse-item-content
-      overflow hidden
-      transition: all .2s ease
-      // box-shadow: inset 0px 0px 6px 0px rgba(0,0,0,.05)
-      .con-content-item
-        padding: 10px
-        padding-top: 0px
-        font-size: .85rem
-        // transform: translate(0,-20px)
-        opacity .2
-        transition: all .25s ease
-    &:last-child
-      border-bottom: 0px solid rgba(0,0,0,.0) !important
-
   &.shadow
-    .open-item
-      transform: scale(1.01)
-      box-shadow: 0px 2px 15px 0px rgba(0,0,0,.05)
-      margin-top: 5px
-      border-bottom: 0px solid rgba(0,0,0,.0)
-      margin-bottom: 10px
-      border-radius: 6px
-      .con-content-item
-        opacity 1
-      .icon-header
-        transform: translate(-50%, -50%) rotate(180deg)
+  .open-item
+    transform: scale(1.01)
+    box-shadow: 0px 2px 15px 0px rgba(0,0,0,.05)
+    margin-top: 5px
+    border-bottom: 0px solid rgba(0,0,0,.0)
+    margin-bottom: 10px
+    border-radius: 6px
+    .con-content-item
+      opacity 1
+    .vs-collapse-item--icon-header
+      transform: translate(-50%, -50%) rotate(180deg)
 
   &.margin
     .vs-collapse-item
@@ -66,7 +28,7 @@
     .open-item
       .con-content-item
         opacity 1
-      .icon-header
+      .vs-collapse-item--icon-header
         transform: translate(-50%, -50%) rotate(180deg)
 
   &.border
@@ -77,13 +39,57 @@
     .open-item
       .con-content-item
         opacity 1
-      .icon-header
+      .vs-collapse-item--icon-header
         transform: translate(-50%, -50%) rotate(180deg)
 
 
   &.default
     .open-item
-      .con-content-item
+      .con-content--item
         opacity 1
-      .icon-header
+      .vs-collapse-item--icon-header
         transform: translate(-50%, -50%) rotate(180deg)
+
+.vs-collapse-item
+  border-bottom: 1px solid rgba(0,0,0,.04)
+  transition: all .25s ease
+  &.disabledx
+    opacity: $vs-disabled-opacity
+    cursor: default
+    pointer-events: none
+    z-index: 999;
+  &:last-child
+    border-bottom: 0px solid rgba(0,0,0,.0) !important
+
+.vs-collapse-item--header
+  display: block
+  padding: 10px
+  position relative
+  transition: all .25s ease
+
+.vs-collapse-item--icon-header
+  position: absolute
+  right 0px
+  top: 50%
+  transform translate(-50%, -50%)
+  display block
+  transition: all .25s ease
+  display: flex
+  align-items: center
+  justify-content: center
+  border-radius: 5px
+
+.vs-collapse-item--content
+  overflow hidden
+  transition: all .2s ease
+  // box-shadow: inset 0px 0px 6px 0px rgba(0,0,0,.05)
+.con-content--item
+  padding: 10px
+  padding-top: 0px
+  font-size: .85rem
+  // transform: translate(0,-20px)
+  opacity .2
+  transition: all .25s ease
+
+
+

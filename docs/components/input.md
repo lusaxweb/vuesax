@@ -10,27 +10,27 @@ API:
    parameters: null
    description: Brief suggestion describing the expected value of the input field.
    default: null
- - name: vs-label
+ - name: label
    type: String
    parameters: null
    description: Label for the input element.
    default: null
- - name: vs-label-placeholder
+ - name: label-placeholder
    type: String
    parameters: null
    description: Label label with placeholder shape for the entry element.
    default: null
- - name: vs-icon
+ - name: icon
    type: String
    parameters: Material Icon
    description: Element icon.
    default: null
- - name: vs-icon-pack
+ - name: icon-pack
    type: String
    parameters: Icon Pack
-   description: Icon Pack Description. If not use, vs-icon will base in Material Icons.
+   description: Icon Pack Description. If not use, icon will base in Material Icons.
    default: null
- - name: vs-icon-after
+ - name: icon-after
    type: String
    parameters: null
    description: Position of the icon after input.
@@ -40,7 +40,7 @@ API:
    parameters: primary,success,danger,warning,dark,RGB,HEX
    description: Input and text color.
    default: primary
- - name: vs-size
+ - name: size
    type: String
    parameters: small,normal,large
    description: Size of input.
@@ -50,37 +50,37 @@ API:
    parameters: email, number, url, password, custom
    description: The type of element input.
    default: text
- - name: vs-success
+ - name: success
    type: Boolean
    parameters: boolean bind
    description: Activate the status of success in the input.
    default: false
- - name: vs-danger
+ - name: danger
    type: Boolean
    parameters: boolean bind
    description: Activate the status of danger in the input.
    default: false
- - name: vs-warning
+ - name: warning
    type: Boolean
    parameters: boolean bind
    description: Activate the status of warning in the input.
    default: false
- - name: vs-description-text
+ - name: description-text
    type: String
    parameters: null
    description: Add a description text to the input.
    default: false
- - name: vs-danger-text
+ - name: danger-text
    type: String
    parameters: null
    description: Text to show when the item is invalid.
    default: null
- - name: vs-success-text
+ - name: success-text
    type: String
    parameters: null
    description: Text to show when the item is valid.
    default: null
- - name: vs-warning-text
+ - name: warning-text
    type: String
    parameters: null
    description: Text that is displayed in the warning state.
@@ -145,7 +145,7 @@ export default {
 
 ## Label
 
-Add a label to the input with the property `vs-label`.
+Add a label to the input with the property `label`.
 
 <vuecode md>
 <div slot="demo">
@@ -156,8 +156,8 @@ Add a label to the input with the property `vs-label`.
 ```html
 <template lang="html">
   <div class="centerx labelx">
-    <vs-input vs-label="Name" vs-placeholder="Placeholder" v-model="value1"/>
-    <vs-input type="password" vs-label="Password" vs-placeholder="Disabled" v-model="value2"/>
+    <vs-input label="Name" placeholder="Placeholder" v-model="value1"/>
+    <vs-input type="password" label="Password" placeholder="Disabled" v-model="value2"/>
   </div>
 </template>
 
@@ -189,10 +189,10 @@ export default {
 
 ## Label Placeholder
 
-The placeholder can become a label when the input is focused. Use the property `vs-label-placeholder` for making this.
+The placeholder can become a label when the input is focused. Use the property `label-placeholder` for making this.
 
 :::warning
-This property overrides the `vs-label` and the` placeholder`
+This property overrides the `label` and the` placeholder`
 :::
 
 <vuecode md>
@@ -204,8 +204,8 @@ This property overrides the `vs-label` and the` placeholder`
 ```html
 <template lang="html">
   <div class="centerx">
-    <vs-input vs-label-placeholder="Label-placeholder" v-model="value1"/>
-    <vs-input disabled="true" vs-label-placeholder="Label-placeholder-disabled" v-model="value2"/>
+    <vs-input label-placeholder="Label-placeholder" v-model="value1"/>
+    <vs-input disabled="true" label-placeholder="Label-placeholder-disabled" v-model="value2"/>
   </div>
 </template>
 
@@ -231,12 +231,12 @@ export default {
 
 ## Icons
 
-The input can have icons. Use the property `vs-icon`. You can also also manipulate the icon's position with the property `vs-icon-after`.
+The input can have icons. Use the property `icon`. You can also also manipulate the icon's position with the property `icon-after`.
 
 ::: tip
 Vuesax uses the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
 
-FontAwesome and other fonts library are supported. Simply use the `vs-icon-pack` with `fa` or `fas`. You still need to include the Font Awesome icons in your project.
+FontAwesome and other fonts library are supported. Simply use the `icon-pack` with `fa` or `fas`. You still need to include the Font Awesome icons in your project.
 
 :::
 
@@ -249,12 +249,12 @@ FontAwesome and other fonts library are supported. Simply use the `vs-icon-pack`
 ```html
 <template lang="html">
   <div class="centerx icons-example">
-    <vs-input vs-icon="search" placeholder="Search" v-model="value1"/>
-    <vs-input vs-icon-after="true" vs-label-placeholder="icon-after" vs-icon="mode_edit" vs-placeholder="Nombre" v-model="value2"/>
-    <vs-input vs-icon="add" vs-label-placeholder="Label-placeholder" v-model="value3"/>
-    <vs-input vs-icon-after="true"  vs-icon="shopping_cart" vs-label-placeholder="Label-placeholder" v-model="value4"/>
-    <vs-input disabled="true" vs-icon="error_outline" vs-label-placeholder="icon-disabled" v-model="value5"/>
-    <vs-input vs-icon-after="true" disabled="true" vs-icon="email" vs-label-placeholder="icon-disabled" v-model="value6"/>
+    <vs-input icon="search" placeholder="Search" v-model="value1"/>
+    <vs-input icon-after="true" label-placeholder="icon-after" icon="mode_edit" placeholder="Nombre" v-model="value2"/>
+    <vs-input icon="add" label-placeholder="Label-placeholder" v-model="value3"/>
+    <vs-input icon-after="true"  icon="shopping_cart" label-placeholder="Label-placeholder" v-model="value4"/>
+    <vs-input disabled="true" icon="error_outline" label-placeholder="icon-disabled" v-model="value5"/>
+    <vs-input icon-after="true" disabled="true" icon="email" label-placeholder="icon-disabled" v-model="value6"/>
   </div>
 </template>
 
@@ -306,13 +306,13 @@ There is only support for **HEX** and **RGB** colors
 ```html
 <template lang="html">
   <div class="centerx colors-example">
-    <vs-input vs-label-placeholder="Default" v-model="value1"/>
-    <vs-input color="success" vs-label-placeholder="Success" v-model="value2"/>
-    <vs-input color="danger" vs-label-placeholder="Danger" v-model="value3"/>
-    <vs-input color="warning" vs-label-placeholder="Warning" v-model="value4"/>
-    <vs-input color="dark" vs-label-placeholder="Dark" v-model="value5"/>
-    <vs-input color="rgb(213, 14, 151)" vs-label-placeholder="RGB: rgb(213, 14, 151)" v-model="value6"/>
-    <vs-input color="#11e988" vs-label-placeholder="HEX: #11e988" v-model="value7"/>
+    <vs-input label-placeholder="Default" v-model="value1"/>
+    <vs-input color="success" label-placeholder="Success" v-model="value2"/>
+    <vs-input color="danger" label-placeholder="Danger" v-model="value3"/>
+    <vs-input color="warning" label-placeholder="Warning" v-model="value4"/>
+    <vs-input color="dark" label-placeholder="Dark" v-model="value5"/>
+    <vs-input color="rgb(213, 14, 151)" label-placeholder="RGB: rgb(213, 14, 151)" v-model="value6"/>
+    <vs-input color="#11e988" label-placeholder="HEX: #11e988" v-model="value7"/>
   </div>
 </template>
 
@@ -350,10 +350,10 @@ export default {
 
 ## Validations
 
-You can add a state for example of in affirmative response to a validation with `vs-success` and if it is necessary to add a description or help to the user you can do it with the property `vs-description`
+You can add a state for example of in affirmative response to a validation with `success` and if it is necessary to add a description or help to the user you can do it with the property `description`
 
 :::tip
-  Each of the states you can change the text, for example in the case of `vs-danger-text` for the state of danger.
+  Each of the states you can change the text, for example in the case of `danger-text` for the state of danger.
 :::
 
 <vuecode md>
@@ -366,22 +366,22 @@ You can add a state for example of in affirmative response to a validation with 
 <template lang="html">
   <div>
     <vs-input
-      :vs-success="true"
-      vs-success-text="The mail is valid"
+      :success="true"
+      success-text="The mail is valid"
       placeholder="Email Success"
       v-model="value1"/>
       <vs-input
-      :vs-danger="true"
-      vs-danger-text="The password does not meet the standards"
+      :danger="true"
+      danger-text="The password does not meet the standards"
       placeholder="Password Danger"
       v-model="value2"/>
       <vs-input
-      :vs-warning="true"
-      vs-warning-text="The entered data could not be verified"
+      :warning="true"
+      warning-text="The entered data could not be verified"
       placeholder="Date Warning"
       v-model="value3"/>
       <vs-input
-      vs-description-text="Just enter the first two numbers of your phone"
+      description-text="Just enter the first two numbers of your phone"
       placeholder="Phone Description"
       v-model="value4"/>
   </div>

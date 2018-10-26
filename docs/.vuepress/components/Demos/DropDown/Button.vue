@@ -21,7 +21,7 @@
           </vs-dropdown-item>
 
         </vs-dropdown-group>
-        <vs-dropdown-item vs-divider>
+        <vs-dropdown-item divider>
           option 3
         </vs-dropdown-item>
       </vs-dropdown-menu>
@@ -40,7 +40,7 @@
         <vs-dropdown-item>
           Contributors
         </vs-dropdown-item>
-        <vs-dropdown-item vs-divider>
+        <vs-dropdown-item divider>
           Logout
         </vs-dropdown-item>
       </vs-dropdown-menu>

@@ -1,3 +1,11 @@
+//transitions
+.dropdown-group-enter-active, .dropdown-group-leave-active {
+  transition: opacity .25s;
+}
+.dropdown-group-enter, .dropdown-group-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
 .vs-con-dropdown
   position: relative;
   display: inline-block;
@@ -8,15 +16,7 @@
   &:active
     opacity: 1 !important;
 
-//transitions
-.dropdown-group-enter-active, .dropdown-group-leave-active {
-  transition: opacity .25s;
-}
-.dropdown-group-enter, .dropdown-group-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-}
-
-.vs-dropdown-group
+.vs-dropdown--group
   position: relative;
   list-style: none;
   width: calc(100% - 6px);
@@ -29,42 +29,45 @@
   box-sizing: border-box;
   cursor: pointer;
   transition: all .3s ease;
-  .span
-    font-size: 0.9375em;
-    font-weight: normal;
   &.marginIcon
     padding-right: 25px;
     &:hover
-      .con-dropdown-group
+      .con-dropdown--group
         border-left: 1px solid rgba(0, 0, 0, 0.1);
       >.icon-group
         transform: translate(0,-50%) rotate(-180deg);
         opacity: 0;
-  .icon-group
-    position: absolute;
-    right: 4px;
-    font-size: 1.125em;
-    top: 50%;
-    transition: all .25s ease;
-    transform: translate(0,-50%);
-  .con-dropdown-group
-    padding-left: 3px
-    position: relative;
-    right: 0px;
-    top: 0px;
-    min-width: 130px;
-    width: auto;
-    z-index: 1000;
-    background: inherit
-    overflow: hidden;
-    transition: all .3s ease;
-    border-left: 1px solid rgba(0, 0, 0, 0.1);
-    ul
-      padding-top: 5px;
-      padding-left: 0px;
-      position: relative;
-      background: rgb(255, 255, 255);
-      border-radius: 5px;
+.vs-dropdown--group-label
+  font-size: 0.9375em;
+  font-weight: normal;
+
+.vs-dropdown--group-icon
+  position: absolute;
+  right: 4px;
+  font-size: 1.125em;
+  top: 50%;
+  transition: all .25s ease;
+  transform: translate(0,-50%);
+
+.con-dropdown--group-con-ul
+  padding-left: 3px
+  position: relative;
+  right: 0px;
+  top: 0px;
+  min-width: 130px;
+  width: auto;
+  z-index: 1000;
+  background: inherit
+  overflow: hidden;
+  transition: all .3s ease;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+.con-dropdown--group-ul
+  padding-top: 5px;
+  padding-left: 0px;
+  position: relative;
+  background: rgb(255, 255, 255);
+  border-radius: 5px;
+
 .no-cascading
   font-weight: bold;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
@@ -78,7 +81,7 @@
     padding-top: 6px;
     padding-bottom: 6px;
     cursor: default;
-  .con-dropdown-group-no-cascading
+  .con-dropdown--group-no-cascading
     width: 100% !important;
     font-weight: bold;
     height: auto !important;
@@ -90,7 +93,7 @@
       padding-left: 0px !important;
 
 
-.vs-dropdown-item
+.vs-dropdown--item
   transition: all .2s ease;
   position: relative;
   z-index: 100;
@@ -101,7 +104,7 @@
   list-style: none;
   font-weight: normal !important;
   font-size: 0.9375em;
-  a
+  .vs-dropdown--item-link
     background: inherit !important;
     color: inherit !important;
     cursor: pointer;
@@ -119,7 +122,7 @@
       cursor: default;
       opacity: $vs-disabled-opacity !important;
       color: rgba(0,0,0,$vs-disabled-opacity) !important;
-  &.vsDivider
+  &.divider
     border-top: 1px solid rgba(0, 0, 0, 0.08)
     margin-top: 5px;
 
@@ -129,7 +132,7 @@
   opacity: 0;
   transform: translate(-100%,8px) !important;
 }
-.con-vs-dropdown-menu
+.con-vs-dropdown--menu
   padding-top: 10px
   position: absolute;
   height: auto;
@@ -145,7 +148,8 @@
     position absolute
     left 0
     top 100%
-.vs-dropdown-menu
+
+.vs-dropdown--menu
   background: rgb(255, 255, 255);
   padding-left: 0px !important;
   border-radius: 5px;
@@ -169,6 +173,7 @@
     border-left: 1px solid rgba(0, 0, 0, 0.1);
     z-index: 10;
     box-sizing: border-box
+
 &.notHeight .vs-dropdown-menu
   &::after
     top: auto;
@@ -179,6 +184,6 @@
     border-right: 1px solid rgba(0, 0, 0, 0.1);
     transform: rotate(45deg) translate(7px);
 
-.vs-dropdown-custom
+.vs-dropdown--custom
   padding: 5px !important;
   padding-top: 8px !important;

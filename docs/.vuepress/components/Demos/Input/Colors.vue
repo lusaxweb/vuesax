@@ -1,12 +1,12 @@
 <template lang="html">
   <div class="centerx colors-example">
-    <vs-input vs-label-placeholder="Default" v-model="value1"/>
-    <vs-input color="success" vs-label-placeholder="Success" v-model="value2"/>
-    <vs-input color="danger" vs-label-placeholder="Danger" v-model="value3"/>
-    <vs-input color="warning" vs-label-placeholder="Warning" v-model="value4"/>
-    <vs-input color="dark" vs-label-placeholder="Dark" v-model="value5"/>
-    <vs-input color="rgb(213, 14, 151)" vs-label-placeholder="RGB: rgb(213, 14, 151)" v-model="value6"/>
-    <vs-input color="#11e988" vs-label-placeholder="HEX: #11e988" v-model="value7"/>
+    <vs-input label-placeholder="Default" v-model="value1"/>
+    <vs-input color="success" label-placeholder="Success" v-model="value2"/>
+    <vs-input color="danger" label-placeholder="Danger" v-model="value3"/>
+    <vs-input color="warning" label-placeholder="Warning" v-model="value4"/>
+    <vs-input color="dark" label-placeholder="Dark" v-model="value5"/>
+    <vs-input color="rgb(213, 14, 151)" label-placeholder="RGB: rgb(213, 14, 151)" v-model="value6"/>
+    <vs-input color="#11e988" label-placeholder="HEX: #11e988" v-model="value7"/>
   </div>
 </template>
 

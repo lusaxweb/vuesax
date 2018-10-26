@@ -4,12 +4,12 @@
     class="vs-collapse-item"
     @mouseover="mouseover"
     @mouseout="mouseout">
-    <header @click="toggleContent">
+    <header class="vs-collapse-item--header" @click="toggleContent">
       <slot name="header"></slot>
 
       <span
         v-if="!notArrow"
-        class="icon-header">
+        class="icon-header vs-collapse-item--icon-header">
         <vs-icon>
           {{ iconArrow }}
         </vs-icon>
@@ -18,8 +18,8 @@
     <div
       ref="content"
       :style="styleContent"
-      class="vs-collapse-item-content">
-      <div class="con-content-item">
+      class="vs-collapse-item--content">
+      <div class="con-content--item">
         <slot></slot>
       </div>
     </div>

@@ -10,7 +10,7 @@
       :style="{
         'color': textColor
       }"
-      class="vs-divider-text"
+      class="vs-divider--text"
     >
       <template v-if="!icon">
         <slot/>
@@ -19,7 +19,7 @@
       <i
         v-else
         translate="no"
-        class="material-icons icon-divider notranslate">
+        class="material-icons icon-divider notranslate vs-divider--icon">
         {{ icon }}
       </i>
     </span>

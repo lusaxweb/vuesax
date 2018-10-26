@@ -1,8 +1,8 @@
 <template lang="html">
   <div class="centerx default-input">
-     <vs-input vs-size="large" class="inputx" placeholder="Size large" v-model="value1"/>
+     <vs-input size="large" class="inputx" placeholder="Size large" v-model="value1"/>
      <vs-input class="inputx" placeholder="Size Default" v-model="value2"/>
-     <vs-input vs-size="small" class="inputx" placeholder="Size small" v-model="value3"/>
+     <vs-input size="small" class="inputx" placeholder="Size small" v-model="value3"/>
    </div>
 </template>
 

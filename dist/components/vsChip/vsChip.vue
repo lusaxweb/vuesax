@@ -10,16 +10,14 @@
     ]"
     class="con-vs-chip">
 
-
-    <span class="text-chip">
+    <span class="text-chip vs-chip--text">
       <slot>
       </slot>
     </span>
 
-
     <button
       v-if="closable"
-      class="btn-close"
+      class="btn-close vs-chip--close"
       @click="closeChip">
       <i class="material-icons">
         clear

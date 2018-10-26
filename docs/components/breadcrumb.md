@@ -276,8 +276,8 @@ A default Vue slot that can be used instead of passing in an array of object. Th
 <vuecode md center>
 <div slot="demo">
 <vs-breadcrumb>
-   <li><a href="#" title="Home">Home</a><span class="separator">/</span></li>
-   <li><a href="#" title="Profil">Profil</a><span class="separator">/</span></li>
+   <li><a href="#" title="Home">Home</a><span class="vs-breadcrum--separator">/</span></li>
+   <li><a href="#" title="Profil">Profil</a><span class="vs-breadcrum--separator">/</span></li>
    <li aria-current="page" class="active">Infos</li>
 </vs-breadcrumb>
 </div>
@@ -285,8 +285,8 @@ A default Vue slot that can be used instead of passing in an array of object. Th
 
 ```html
 <vs-breadcrumb>
-   <li><a href="#" title="Home">Home</a><span class="separator">/</span></li>
-   <li><a href="#" title="Profil">Profil</a><span class="separator">/</span></li>
+   <li><a href="#" title="Home">Home</a><span class="vs-breadcrum--separator">/</span></li>
+   <li><a href="#" title="Profil">Profil</a><span class="vs-breadcrum--separator">/</span></li>
    <li aria-current="page" class="active">Infos</li>
 </vs-breadcrumb>
 ```
@@ -305,18 +305,18 @@ Use `align` to either align the breadcrumb to the left, center or right.
 <vuecode md>
 <div slot="demo">
 <vs-breadcrumb align="left">
-   <li><a href="#" title="Home">Home</a><span class="separator">/</span></li>
-   <li><a href="#" title="Profil">Profil</a><span class="separator">/</span></li>
+   <li><a href="#" title="Home">Home</a><span class="vs-breadcrum--separator">/</span></li>
+   <li><a href="#" title="Profil">Profil</a><span class="vs-breadcrum--separator">/</span></li>
    <li aria-current="page" class="active">Infos</li>
 </vs-breadcrumb>
 <vs-breadcrumb align="center">
-   <li><a href="#" title="Home">Home</a><span class="separator">/</span></li>
-   <li><a href="#" title="Profil">Profil</a><span class="separator">/</span></li>
+   <li><a href="#" title="Home">Home</a><span class="vs-breadcrum--separator">/</span></li>
+   <li><a href="#" title="Profil">Profil</a><span class="vs-breadcrum--separator">/</span></li>
    <li aria-current="page" class="active">Infos</li>
 </vs-breadcrumb>
 <vs-breadcrumb align="right">
-   <li><a href="#" title="Home">Home</a><span class="separator">/</span></li>
-   <li><a href="#" title="Profil">Profil</a><span class="separator">/</span></li>
+   <li><a href="#" title="Home">Home</a><span class="vs-breadcrum--separator">/</span></li>
+   <li><a href="#" title="Profil">Profil</a><span class="vs-breadcrum--separator">/</span></li>
    <li aria-current="page" class="active">Infos</li>
 </vs-breadcrumb>
 </div>

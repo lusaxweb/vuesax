@@ -4,64 +4,64 @@
     :style="styleLabel"
     :class="[`vs-input-${color}`,{
       'isFocus':isFocus,
-      'input-icon-validate-success':vsSuccess,
-      'input-icon-validate-danger':vsDanger,
-      'input-icon-validate-warning':vsWarning,
-      'is-label-placeholder':vsLabelPlaceholder
+      'input-icon-validate-success':success,
+      'input-icon-validate-danger':danger,
+      'input-icon-validate-warning':warning,
+      'is-label-placeholder':labelPlaceholder
     }]"
     class="vs-component vs-con-input-label vs-input">
     <label
-      v-if="vsLabelPlaceholder?false:vsLabel"
-      class="vs-input-label"
+      v-if="labelPlaceholder?false:label"
+      class="vs-input--label"
       for=""
-      @click="focusInput">{{ vsLabel }}</label>
+      @click="focusInput">{{ label }}</label>
     <div class="vs-con-input">
       <input
         ref="vsinput"
         :style="style"
-        :class="[`vs-inputx-${vsSize}`,{
+        :class="[size,{
           'hasValue':value != '',
-          'hasIcon':vsIcon,
-          'icon-after-input':vsIconAfter
+          'hasIcon':icon,
+          'icon-after-input':iconAfter
         }]"
         :placeholder="null"
         :value="value"
         v-bind="$attrs"
         :type="$attrs.type?$attrs.type:'text'"
-        class="vs-inputx"
+        class="vs-inputx vs-input--input"
         v-on="listeners">
       <transition name="placeholderx">
         <span
-          v-if="isValue&&(vsLabelPlaceholder||$attrs.placeholder)"
+          v-if="isValue&&(labelPlaceholder||$attrs.placeholder)"
           ref="spanplaceholder"
           :style="styleLabel"
           :class="[
-          vsLabelPlaceholder&&(`vs-placeholder-label-${vsSize}`),
-          `input-span-placeholder-${vsSize}`,
-          {
-            'vs-placeholder-label': vsLabelPlaceholder,
+            labelPlaceholder&&(size),
+            size,
+            {
+              'vs-placeholder-label': labelPlaceholder,
           }]"
-          class="input-span-placeholder"
+          class="input-span-placeholder vs-input--placeholder"
           @click="focusInput">
-          {{ $attrs.placeholder || vsLabelPlaceholder }}
+          {{ $attrs.placeholder || labelPlaceholder }}
         </span>
       </transition>
 
       <i
-        v-if="vsIcon"
-        :class="[vsIconPack,vsIcon, `icon-inputx-${vsSize}`, {
-          'icon-after':vsIconAfter,
+        v-if="icon"
+        :class="[iconPack,icon, size, {
+          'icon-after':iconAfter,
         }]"
         translate="no"
-        class="icon-inputx notranslate"
+        class="icon-inputx notranslate vs-input--icon"
         @click="focusInput">
-        {{ vsIcon }}
+        {{ icon }}
       </i>
 
       <transition name="icon-validate">
         <span
-          v-if="vsSuccess || vsDanger || vsWarning"
-          class="input-icon-validate material-icons">
+          v-if="success || danger || warning"
+          class="input-icon-validate material-icons vs-input--icon-validate">
           {{ getIcon }}
         </span>
       </transition>
@@ -73,42 +73,42 @@
       @leave="leave"
     >
       <div
-        v-if="vsSuccess"
+        v-if="success"
         key="success"
-        class="con-text-validation">
-        <span class="span-text-validation span-text-validation-success">
+        class="con-text-validation vs-input--text-validation">
+        <span class="span-text-validation span-text-validation-success vs-input--text-validation-span">
           {{
-            vsSuccessText
+            successText
           }}
         </span>
       </div>
       <div
-        v-else-if="vsDanger"
+        v-else-if="danger"
         key="danger"
-        class="con-text-validation span-text-validation-danger">
+        class="con-text-validation span-text-validation-danger vs-input--text-validation-span">
         <span class="span-text-validation">
           {{
-            vsDangerText
+            dangerText
           }}
         </span>
       </div>
       <div
-        v-else-if="vsWarning"
+        v-else-if="warning"
         key="warning"
-        class="con-text-validation span-text-validation-warning">
+        class="con-text-validation span-text-validation-warning vs-input--text-validation-span">
         <span class="span-text-validation">
           {{
-            vsWarningText
+            warningText
           }}
         </span>
       </div>
       <div
-        v-if="vsDescriptionText"
+        v-if="descriptionText"
         key="description"
-        class="con-text-validation span-text-validation">
+        class="con-text-validation span-text-validation vs-input--text-validation-span">
         <span class="span-text-validation">
           {{
-            vsDescriptionText
+            descriptionText
           }}
         </span>
       </div>
@@ -126,23 +126,23 @@ export default {
   inheritAttrs: false,
   props:{
     value:{},
-    vsLabelPlaceholder:{
+    labelPlaceholder:{
       default:null,
       type:[String,Number]
     },
-    vsLabel:{
+    label:{
       default:null,
       type:[String,Number]
     },
-    vsIcon:{
+    icon:{
       default:null,
       type:String
     },
-    vsIconAfter:{
+    iconAfter:{
       default:false,
       type:[Boolean,String]
     },
-    vsIconPack:{
+    iconPack:{
       default:'material-icons',
       type:String
     },
@@ -150,35 +150,35 @@ export default {
       default:'primary',
       type:String
     },
-    vsSuccess:{
+    success:{
       default:false,
       type:Boolean
     },
-    vsDanger:{
+    danger:{
       default:false,
       type:Boolean
     },
-    vsWarning:{
+    warning:{
       default:false,
       type:Boolean
     },
-    vsSuccessText:{
+    successText:{
       default: null,
       type:String
     },
-    vsDangerText:{
+    dangerText:{
       default: null,
       type:String
     },
-    vsWarningText:{
+    warningText:{
       default: null,
       type:String
     },
-    vsDescriptionText:{
+    descriptionText:{
       default: null,
       type:String
     },
-    vsSize:{
+    size:{
       default:'normal',
       type:String
     }
@@ -214,13 +214,13 @@ export default {
       }
     },
     isValue(){
-      return this.vsLabelPlaceholder?true:!this.value
+      return this.labelPlaceholder?true:!this.value
     },
     getIcon(){
       let iconx = 'done'
-      if(this.vsDanger){
+      if(this.danger){
         iconx = 'clear'
-      } else if (this.vsWarning) {
+      } else if (this.warning) {
         iconx = 'warning'
       }
       return iconx

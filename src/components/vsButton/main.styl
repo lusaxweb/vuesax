@@ -21,38 +21,38 @@
     opacity $vs-disabled-opacity
     cursor: default
     pointer-events: none
-  .vs-button-icon
-    z-index: 100;
-    display: block;
-    position: relative;
-    font-size: 1.125em;
-    transition: all .2s ease;
-  .vs-button-backgroundx
-    border-radius: 50%;
-    width: 10px;
-    position: absolute;
-    height: 10px;
-    z-index: 0;
-    transform: translate(-50%,-50%);
-    -moz-transform: translate(-50%,-50%);
-    box-shadow:inset 0px 0px 60px 0px rgba(255, 255, 255,.5);
-  .vs-button-text
-    position: relative;
-    color: inherit
-    display: inline-block;
-    transition: $vs-transition;
+.vs-button--icon
+  z-index: 100;
+  display: block;
+  position: relative;
+  font-size: 1.125em;
+  transition: all .2s ease;
+.vs-button--background
+  border-radius: 50%;
+  width: 10px;
+  position: absolute;
+  height: 10px;
+  z-index: 0;
+  transform: translate(-50%,-50%);
+  -moz-transform: translate(-50%,-50%);
+  box-shadow:inset 0px 0px 60px 0px rgba(255, 255, 255,.5);
+.vs-button--text
+  position: relative;
+  color: inherit
+  display: inline-block;
+  transition: $vs-transition;
 &.vs-button-border
   padding: 9px;
 &.vs-button-border,&.vs-button-flat
   &.isActive
-    .vs-button-text,.vs-button-icon
+    .vs-button--text,.vs-button-icon
       color: rgb(255, 255, 255) !important
 
-&.vs-button-filled
+.vs-button-filled
   &:hover
     box-shadow: 0px 9px 28px -9px
 
-&.vs-button-line
+.vs-button-line
   padding: 9px 10px;
   border-radius: 0px
   overflow: visible;
@@ -65,31 +65,31 @@
     bottom: -2px;
     height: 2px;
   &:hover
-    .vs-button-text,.vs-button-icon
+    .vs-button--text,.vs-button-icon
       transform: translate(0,2px);
     .vs-button-linex
       width: 100% !important
 
-&.vs-button-gradient
+.vs-button-gradient
   &:hover
     transform: translate(0,-2px);
     box-shadow: 0px 8px 25px -8px rgb(170, 170, 170)
   &:active
     transform: translate(0,0px);
     box-shadow: 0px 8px 0px -8px rgb(170, 170, 170)
-&.vs-button-relief
+.vs-button-relief
   padding: 10px;
   &:active
     transform: translate(0,3px);
     box-shadow: none !important;
 
-&.includeIcon
+.includeIcon
   display: flex;
   align-items: center;
   justify-content: center;
   float: left;
 
-&.includeIconOnly
+.includeIconOnly
   width: 38px !important
   height 38px !important
   &.large
@@ -113,7 +113,7 @@ for colorx, i in $vs-colors
      border: 1px solid var(colorx)
      background: transparent !important
      color: var(colorx)
-     .vs-button-text
+     .vs-button--text
        &.isActive
          color: rgb(255, 255, 255) !important
      &:hover

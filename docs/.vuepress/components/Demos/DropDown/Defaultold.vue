@@ -30,7 +30,7 @@
           </vs-dropdown-group>
 
         </vs-dropdown-group>
-        <vs-dropdown-item vs-divider>
+        <vs-dropdown-item divider>
           option 3
         </vs-dropdown-item>
       </vs-dropdown-menu>
@@ -64,7 +64,7 @@
           </vs-dropdown-group>
         </vs-dropdown-group>
 
-        <vs-dropdown-item vs-divider>
+        <vs-dropdown-item divider>
           option 3
         </vs-dropdown-item>
       </vs-dropdown-menu>

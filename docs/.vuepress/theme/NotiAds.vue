@@ -36,11 +36,6 @@ export default {
   data: () => ({
     ramdom: 1
   }),
-  watch:{
-    '$route': function () {
-      this.ramdom = this.numeroAleatorio(1, 7)
-    }
-  },
   computed: {
     titlex () {
       let titlex = 'Coffe'

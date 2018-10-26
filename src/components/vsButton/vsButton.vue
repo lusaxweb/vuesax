@@ -19,7 +19,7 @@
       v-if="!is('line')&&!is('gradient')&&!is('relief')"
       ref="backgroundx"
       :style="stylesBackGround"
-      class="vs-button-backgroundx">
+      class="vs-button-backgroundx vs-button--background">
     </span>
 
     <i
@@ -29,13 +29,13 @@
         'margin-left':$slots.default&&vsIconAfter?'5px':'0px'
       }"
       translate="no"
-      class="material-icons vs-button-icon notranslate">
+      class="material-icons vs-button--icon notranslate">
       {{ vsIcon }}
     </i>
 
     <span
       v-if="$slots.default"
-      class="vs-button-text">
+      class="vs-button-text vs-button--text">
       <slot/>
     </span>
 
@@ -43,6 +43,7 @@
       ref="linex"
       :style="styleLine"
       class="vs-button-linex"/>
+
   </button>
 </template>
 

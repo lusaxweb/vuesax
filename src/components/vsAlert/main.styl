@@ -8,38 +8,39 @@
   cursor: default
   transition: all .25s ease
   overflow hidden
-  .icon-alert
-    height: 100%
-    position: relative
-    float: left
-    padding: 0px 10px
-    padding-left: 5px
-    font-size: 1.1rem
-  .vs-alert
-    padding: 10px
-    overflow hidden
-    position relative
-    display: flex
-    align-items: center
-  h4
-    font-size .9rem
-    font-weight: bold
-    // margin-bottom: 3px
-    padding: 8px 10px
-  .con-x
-    position: relative
-    margin-top: 4px
-    margin-right: 4px
-    display: inline-block
-    float: right
-    padding: 4px
-    border-radius: 6px
-    padding-bottom: 1px
-    // padding-top: 1px
-    cursor: pointer
-    transition: all .2s ease
-    &:hover
-      box-shadow: 0px 5px 15px 0px rgba(0,0,0,.1)
+.icon-alert
+  height: 100%
+  position: relative
+  float: left
+  padding: 0px 10px
+  padding-left: 5px
+  font-size: 1.1rem
+.vs-alert
+  padding: 10px
+  overflow hidden
+  position relative
+  display: flex
+  align-items: center
+.vs-alert--title
+  font-size .9rem
+  font-weight: bold
+  // margin-bottom: 3px
+  padding: 8px 10px
+.vs-alert--close
+  position: relative
+  margin-top: 4px
+  margin-right: 4px
+  display: inline-block
+  float: right
+  padding: 4px
+  border-radius: 6px
+  padding-bottom: 1px
+  // padding-top: 1px
+  cursor: pointer
+  transition: all .2s ease
+  &:hover
+    box-shadow: 0px 5px 15px 0px rgba(0,0,0,.1)
+
 for colorx, i in $vs-colors
   .con-vs-alert-{colorx}
     background: var(colorx, .15)

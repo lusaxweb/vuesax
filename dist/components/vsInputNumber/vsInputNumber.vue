@@ -15,7 +15,7 @@
       :style="{
         background:getColor
       }"
-      class="btn-less"
+      class="btn-less vs-input-number--button-less"
       type="button">
       <i
         translate="no"
@@ -31,6 +31,7 @@
       :value="value"
       v-bind="$attrs"
       type="number"
+      class="vs-input-number--input"
       v-on="listeners">
     <button
       v-repeat-click="plus"
@@ -41,7 +42,7 @@
       :style="{
         background:getColor
       }"
-      class="btn-plus"
+      class="btn-plus vs-input-number--button-plus"
       type="button">
       <i
         translate="no"

@@ -9,12 +9,12 @@
       v-if="badge && badge > 0"
       :style="badgeStyle"
       :class="badgeClass"
-      class="dot-count">
+      class="dot-count vs-avatar--count">
       {{ typeof badge != 'boolean' ? badge : null }}
     </div>
     <div
       v-if="src"
-      class="con-img">
+      class="con-img vs-avatar--con-img">
       <img
         :src="src"
         alt="">
@@ -25,7 +25,7 @@
       :style="textStyle"
       :class="textClass"
       translate="no"
-      class="vs-avatar-text notranslate"
+      class="vs-avatar--text notranslate"
     >
       {{ text ? returnText : icon }}
     </span>

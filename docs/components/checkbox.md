@@ -15,7 +15,7 @@ API:
    parameters: primary, success, danger, warning, dark, RGB, HEX
    description: Value if different from a boolean.
    default: null
- - name: vs-icon
+ - name: icon
    type: String
    parameters: Material Icons
    description: Change the checkBox icon.
@@ -336,7 +336,7 @@ export default {
 
 ## Change Icon
 
-Sometimes we want to change the internal icon inside the checkbox. To do so, we have the property `vs-icon`
+Sometimes we want to change the internal icon inside the checkbox. To do so, we have the property `icon`
 
 <vuecode md>
 <div slot="demo">
@@ -352,22 +352,22 @@ Sometimes we want to change the internal icon inside the checkbox. To do so, we 
         <vs-checkbox v-model="checkBox1">Primary</vs-checkbox>
       </li>
       <li>
-        <vs-checkbox vs-icon="sms" color="success" v-model="checkBox2">SMS</vs-checkbox>
+        <vs-checkbox icon="sms" color="success" v-model="checkBox2">SMS</vs-checkbox>
       </li>
       <li>
-        <vs-checkbox vs-icon="close" color="danger" v-model="checkBox3">Cancel</vs-checkbox>
+        <vs-checkbox icon="close" color="danger" v-model="checkBox3">Cancel</vs-checkbox>
       </li>
       <li>
-        <vs-checkbox vs-icon="attach_file" color="warning" v-model="checkBox4">File</vs-checkbox>
+        <vs-checkbox icon="attach_file" color="warning" v-model="checkBox4">File</vs-checkbox>
       </li>
       <li>
-        <vs-checkbox vs-icon="format_bold" color="dark" v-model="checkBox5">Bold</vs-checkbox>
+        <vs-checkbox icon="format_bold" color="dark" v-model="checkBox5">Bold</vs-checkbox>
       </li>
       <li>
-        <vs-checkbox vs-icon="location_searching" color="rgb(38, 187, 174)" v-model="checkBox6">Location</vs-checkbox>
+        <vs-checkbox icon="location_searching" color="rgb(38, 187, 174)" v-model="checkBox6">Location</vs-checkbox>
       </li>
       <li>
-        <vs-checkbox vs-icon="camera_alt" color="#720ea8" v-model="checkBox7">Camera</vs-checkbox>
+        <vs-checkbox icon="camera_alt" color="#720ea8" v-model="checkBox7">Camera</vs-checkbox>
       </li>
     </ul>
   </div>

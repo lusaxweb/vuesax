@@ -33,7 +33,7 @@ Vuesax is an open source [MIT](https://github.com/lusaxweb/vuesax/blob/master/LI
   </a>
 </p>
 
-<p align="center"><b>Diamond</b></p>
+<p align="center"><b>Silver</b></p>
 
 <p align="center">
   <a href="https://tipe.io/">
@@ -44,7 +44,7 @@ Vuesax is an open source [MIT](https://github.com/lusaxweb/vuesax/blob/master/LI
   </a>
  </p>
 
- <p align="center"><b>Gold</b></p>
+ <p align="center"><b>Bronze</b></p>
 
 <p align="center">
   <a href="https://devdojo.com/series/nice-to-meet-vue-2">

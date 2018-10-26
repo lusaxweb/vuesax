@@ -7,17 +7,18 @@
       :checked="isChecked || $attrs.checked"
       :value="value"
       type="checkbox"
+      class="vs-checkbox--input"
       v-on="listeners">
     <span
       :style="style"
-      class="checkbox_x">
+      class="checkbox_x vs-checkbox">
       <span
         :style="style_check"
-        class="_check"/>
+        class="vs-checkbox--check"/>
       <i
         translate="no"
-        class="material-icons notranslate">
-        {{ vsIcon }}
+        class="material-icons notranslate vs-checkbox--icon">
+        {{ icon }}
       </i>
     </span>
     <span class="con-slot-label">
@@ -37,7 +38,7 @@ export default {
       type:String,
     },
     value:{},
-    vsIcon:{
+    icon:{
       default:'check',
       type:String
     },

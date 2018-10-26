@@ -5,7 +5,7 @@
     class="vs-breadcrumb"
     aria-label="breadcrumb"
     v-on="$listeners">
-    <ol>
+    <ol class="vs-breadcrumb--ol">
       <slot/>
       <li
         v-for="item in items"
@@ -18,6 +18,7 @@
           v-if="!item.active"
           :href="item.url ? item.url : '#'"
           :title="item.title"
+          class="vs-breadcrumb--link"
         >
           {{ item.title }}
         </a>
@@ -25,7 +26,7 @@
           <span
             :class="textClass"
             :style="textStyle"
-            class="vs-breadcrumb-text"
+            class="vs-breadcrumb--text"
           >
             {{ item.title }}
           </span>
@@ -33,7 +34,7 @@
         <span
           v-if="!item.active"
           :class="separator.length > 1 ? 'material-icons' : null"
-          class="separator notranslate"
+          class="separator notranslate vs-breadcrum--separator"
           translate="no"
           aria-hidden="true">{{ separator }}</span>
       </li>

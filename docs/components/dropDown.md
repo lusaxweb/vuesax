@@ -10,7 +10,7 @@ API:
    parameters: null
    description: Determine if the dropdown opens when you click, changing the default functionality.
    default: false
- - name: vs-divider
+ - name: divider
    type: Boolean
    parameters: null
    description: Add a top line to split a link from others.
@@ -94,7 +94,7 @@ To add the Dropdown we have three types of components the main `vs-dropdown` tha
         <vs-dropdown-item>
           Option 2
         </vs-dropdown-item>
-        <vs-dropdown-item vs-divider>
+        <vs-dropdown-item divider>
           Option 3
         </vs-dropdown-item>
       </vs-dropdown-menu>
@@ -115,7 +115,7 @@ To add the Dropdown we have three types of components the main `vs-dropdown` tha
         <vs-dropdown-item disabled>
           Option 2
         </vs-dropdown-item >
-        <vs-dropdown-item disabled vs-divider>
+        <vs-dropdown-item disabled divider>
           Option 3
         </vs-dropdown-item>
       </vs-dropdown-menu>
@@ -186,7 +186,7 @@ You can change the color of the component with the property `color`
         <vs-dropdown-item>
           option 2
         </vs-dropdown-item>
-        <vs-dropdown-item vs-divider>
+        <vs-dropdown-item divider>
           option 3
         </vs-dropdown-item>
       </vs-dropdown-menu>
@@ -235,7 +235,7 @@ If you need to group the options you can use the subcomponent `vs-dropdown-group
 
 :::tip
   The group can be hidden from the user and only open when it is sitting on the property with the `vs-collapse` property
-  
+
   You can modify the icon with a property `vs-icon`
 :::
 
@@ -281,7 +281,7 @@ If you need to group the options you can use the subcomponent `vs-dropdown-group
           </vs-dropdown-group>
 
         </vs-dropdown-group>
-        <vs-dropdown-item vs-divider>
+        <vs-dropdown-item divider>
           Option 3
         </vs-dropdown-item>
       </vs-dropdown-menu>
@@ -330,7 +330,7 @@ If you need to group the options you can use the subcomponent `vs-dropdown-group
           </vs-dropdown-group>
         </vs-dropdown-group>
 
-        <vs-dropdown-item vs-divider>
+        <vs-dropdown-item divider>
           Option 3
         </vs-dropdown-item>
       </vs-dropdown-menu>
@@ -519,7 +519,7 @@ You can customize the component or element that initialize the dropdown in this 
           </vs-dropdown-item>
 
         </vs-dropdown-group>
-        <vs-dropdown-item vs-divider>
+        <vs-dropdown-item divider>
           option 3
         </vs-dropdown-item>
       </vs-dropdown-menu>
@@ -538,7 +538,7 @@ You can customize the component or element that initialize the dropdown in this 
         <vs-dropdown-item>
           Contributors
         </vs-dropdown-item>
-        <vs-dropdown-item vs-divider>
+        <vs-dropdown-item divider>
           Logout
         </vs-dropdown-item>
       </vs-dropdown-menu>

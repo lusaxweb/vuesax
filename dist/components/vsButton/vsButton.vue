@@ -5,7 +5,8 @@
     :class="[`vs-button-${isColor()?color:null}`,`vs-button-${vsType}`,{
       'isActive':isActive,
       'includeIcon':vsIcon,
-      'includeIconOnly':vsIcon && !$slots.default
+      'includeIconOnly':vsIcon && !$slots.default,
+      'vs-radius':vsRadius
     }, vsSize]"
     :style="[styles,{
       'width':/[px]/.test(vsSize)?`${vsSize}`:null,
@@ -18,7 +19,7 @@
       v-if="!is('line')&&!is('gradient')&&!is('relief')"
       ref="backgroundx"
       :style="stylesBackGround"
-      class="vs-button-backgroundx">
+      class="vs-button-backgroundx vs-button--background">
     </span>
 
     <i
@@ -28,13 +29,13 @@
         'margin-left':$slots.default&&vsIconAfter?'5px':'0px'
       }"
       translate="no"
-      class="material-icons vs-button-icon notranslate">
+      class="material-icons vs-button--icon notranslate">
       {{ vsIcon }}
     </i>
 
     <span
       v-if="$slots.default"
-      class="vs-button-text">
+      class="vs-button-text vs-button--text">
       <slot/>
     </span>
 
@@ -42,6 +43,7 @@
       ref="linex"
       :style="styleLine"
       class="vs-button-linex"/>
+
   </button>
 </template>
 
@@ -91,9 +93,21 @@ export default {
       default:false,
       type:Boolean
     },
+    vsRadius:{
+      default:false,
+      type:Boolean
+    },
     to:{
       default:false,
       type:String | Object
+    },
+    vsHref:{
+      default:'',
+      type:String | Object
+    },
+    vsTarget:{
+      default:false,
+      type:Boolean
     }
   },
   data:()=>({
@@ -216,6 +230,9 @@ export default {
       }
       if(this.to){
         this.routerPush()
+      }
+      if(this.vsHref){
+        this.vsTarget ? window.open(this.vsHref) : window.location.href = this.vsHref
       }
       this.isActive = true
       let btn = this.$refs.btn

@@ -13,10 +13,9 @@
       :style="styleAlert"
       class="con-vs-alert"
       v-on="$listeners">
-
       <div
         v-if="closable"
-        class="con-x"
+        class="con-x vs-alert--close"
         @click="$emit('update:active',false)">
         <i
           translate="no"
@@ -26,7 +25,7 @@
       <h4
         v-if="title"
         :style="styleTitle"
-        class="titlex">{{ title }}</h4>
+        class="titlex vs-alert--title">{{ title }}</h4>
 
       <div class="vs-alert">
         <i

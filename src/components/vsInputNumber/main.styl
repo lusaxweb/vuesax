@@ -9,10 +9,10 @@
   padding: 2px;
   border-radius: 5px;
   &.isChangeValue
-    input
+    .vs-input-number--input
       transform: translate(0,-2px)
       opacity .5
-  input
+  .vs-input-number--input
     transition: all .2s ease;
     width: 40px;
     min-width 40px;
@@ -22,8 +22,8 @@
     padding: 4px;
     -moz-appearance: textfield;
 
-  input[type=number]::-webkit-inner-spin-button,
-  input[type=number]::-webkit-outer-spin-button
+  .vs-input-number--input[type=number]::-webkit-inner-spin-button,
+  .vs-input-number--input[type=number]::-webkit-outer-spin-button
     -webkit-appearance: none;
     margin: 0;
   button
@@ -50,34 +50,34 @@
       font-size: .9rem
 
 
-    &.btn-plus
+    &.vs-input-number--button-plus
       transform translate(10px)
       &:active
-        transform scale(.9) translate(10px) !important
+        transform scale(.9) translate(10px)
       &:disabled
         opacity: $vs-disabled-opacity;
         cursor: default;
         pointer-events: none;
-        background-color: rgba(0,0,0,$vs-disabled-opacity) !important;
-    &.btn-plus.limit
+        background-color: rgba(0,0,0,$vs-disabled-opacity);
+    &.vs-input-number--button-plus.limit
         opacity: $vs-disabled-opacity;
         cursor: default;
         pointer-events: none;
-        background-color: rgba(0,0,0,$vs-disabled-opacity) !important;
-    &.btn-less
+        background-color: rgba(0,0,0,$vs-disabled-opacity);
+    &.vs-input-number--button-less
       transform translate(-10px)
       &:active
-        transform scale(.9) translate(-10px) !important
+        transform scale(.9) translate(-10px)
       &:disabled
         opacity: $vs-disabled-opacity;
         cursor: default;
         pointer-events: none;
-        background-color: rgba(0,0,0,$vs-disabled-opacity) !important;
-    &.btn-less.limit
+        background-color: rgba(0,0,0,$vs-disabled-opacity);
+    &.vs-input-number--button-less.limit
         opacity: $vs-disabled-opacity;
         cursor: default;
         pointer-events: none;
-        background-color: rgba(0,0,0,$vs-disabled-opacity) !important;
+        background-color: rgba(0,0,0,$vs-disabled-opacity);
 
   &.vs-input-number-size-medium
     input
@@ -88,16 +88,16 @@
       min-height: 19px
       i
         font-size: .8rem
-      &.btn-plus
+      &.vs-input-number--button-plus
         transform translate(8px)
         &:active
-          transform scale(.9) translate(8px) !important
-      &.btn-less
+          transform scale(.9) translate(8px)
+      &.vs-input-number--button-less
         transform translate(-8px)
         &:active
-          transform scale(.9) translate(-8px) !important
+          transform scale(.9) translate(-8px)
   &.vs-input-number-size-small
-    input
+    .vs-input-number--input
       padding: 2px;
       font-size: .7rem
     button
@@ -105,16 +105,16 @@
       min-height: 16px
       i
         font-size: .7rem
-      &.btn-plus
+      &.vs-input-number--button-plus
         transform translate(7px)
         &:active
-          transform scale(.9) translate(7px) !important
-      &.btn-less
+          transform scale(.9) translate(7px)
+      &.vs-input-number--button-less
         transform translate(-7px)
         &:active
-          transform scale(.9) translate(-7px) !important
+          transform scale(.9) translate(-7px)
   &.vs-input-number-size-mini
-    input
+    .vs-input-number--input
       padding: 1px;
       font-size: .6rem
     button
@@ -122,14 +122,14 @@
       min-height: 14px
       i
         font-size: .6rem
-      &.btn-plus
+      &.vs-input-number--button-plus
         transform translate(6px)
         &:active
-          transform scale(.9) translate(6px) !important
-      &.btn-less
+          transform scale(.9) translate(6px)
+      &.vs-input-number--button-less
         transform translate(-6px)
         &:active
-          transform scale(.9) translate(-6px) !important
+          transform scale(.9) translate(-6px)
 for colorx, i in $vs-colors
   .vs-input-number-{colorx}
     button

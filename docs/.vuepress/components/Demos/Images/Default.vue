@@ -2,7 +2,7 @@
   <div class="con-example-images">
     <vs-images>
       <vs-image :key="index" :src="`https://picsum.photos/400/400?image=2${index}`" v-for="(image, index) in 9" />
-      <vs-image :key="index" :src="`https://picsum.photos/400/400?image=1${index}`" v-for="(image, index) in 7" />
+      <vs-image :key="`index-${index}`" :src="`https://picsum.photos/400/400?image=1${index}`" v-for="(image, index) in 7" />
     </vs-images>
   </div>
 </template>

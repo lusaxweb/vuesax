@@ -1,11 +1,11 @@
 <template lang="html">
   <li
-    :class="{vsDivider}"
+    :class="{'divider':divider}"
     :style="{
       'color':hoverx?giveColor()+' !important':null,
       'background':hoverx?giveColor(.01)+' !important':null
     }"
-    class="vs-component vs-dropdown-item"
+    class="vs-component vs-dropdown--item"
     @click="closeParent"
     @mouseover="hoverx=true"
     @mouseout="hoverx=false">
@@ -14,8 +14,8 @@
       :to="to"
       v-bind="$attrs"
       :class="{'disabled':disabled}"
+      class="vs-dropdown--item-link"
       v-on="$listeners"
-
     >
       {{ $attrs.disabled }}
       <slot/>
@@ -25,6 +25,7 @@
       v-else
       v-bind="$attrs"
       :class="{'disabled':disabled}"
+      class="vs-dropdown--item-link"
       v-on="$listeners"
     >
       <slot/>
@@ -43,7 +44,7 @@ export default {
       default:false,
       type:Boolean
     },
-    vsDivider:{
+    divider:{
       default:false,
       type:Boolean
     },

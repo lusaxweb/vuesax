@@ -1,17 +1,17 @@
 <template lang="html">
   <li
     :class="{'marginIcon':vsCollapse, 'no-cascading':!vsCollapse, 'group-rightx':rightx}"
-    class="vs-component vs-dropdown-group"
+    class="vs-component vs-dropdown--group"
     @mouseout="toggleGroup($event)"
     @mouseover="toggleGroup($event)">
     <span
       v-if="vsCollapse"
-      class="span">{{ vsLabel }}</span>
+      class="span vs-dropdown--group-label">{{ vsLabel }}</span>
     <h3 v-else>{{ vsLabel }}</h3>
     <i
       v-if="vsCollapse"
       translate="no"
-      class="material-icons icon-group notranslate">
+      class="material-icons icon-group notranslate vs-dropdown--group-icon">
       {{ vsIcon }}
     </i>
     <transition
@@ -23,8 +23,8 @@
         v-if="activeGroup||!vsCollapse"
         ref="ulx"
         :class="{'con-dropdown-group-no-cascading':!vsCollapse}"
-        class="con-dropdown-group">
-        <ul >
+        class="con-dropdown--group-con-ul">
+        <ul class="con-dropdown--group-ul">
           <slot/>
         </ul>
       </div>
@@ -65,7 +65,7 @@ export default {
       el.style.opacity = 1
       parents(this)
       function parents(_this){
-        if(_this.$parent.$el.className.search('vs-dropdown-group')!=-1){
+        if(_this.$parent.$el.className.search('vs-dropdown--group')!=-1){
           // this.$parent.$el
           let hp = _this.$parent.$refs.ulx.scrollHeight
           _this.$parent.$refs.ulx.style.height = hp + h + 'px'

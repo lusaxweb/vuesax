@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="centerx labelPlaceholder">
-    <vs-input vs-label-placeholder="Label-placeholder" v-model="value1"/>
-    <vs-input disabled="true" vs-label-placeholder="Label-placeholder-disabled" v-model="value2"/>
+    <vs-input label-placeholder="Label-placeholder" v-model="value1"/>
+    <vs-input disabled="true" label-placeholder="Label-placeholder-disabled" v-model="value2"/>
   </div>
 </template>
 

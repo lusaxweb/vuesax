@@ -3,15 +3,6 @@
     <div
       :class="{'no-items':value.length==0}"
       class="con-chips">
-      <!-- <vs-chip
-        v-for="(item,index) in itemsx"
-        :color="color"
-        :key="index"
-        item
-        closable
-        @vs-remove="removeItem(index)">
-        {{ item }}
-      </vs-chip> -->
       <slot>
       </slot>
 
@@ -19,11 +10,10 @@
         :placeholder="value.length>0?null:placeholder"
         v-model="newChip"
         type="text"
-        name=""
-        value=""
+        class="con-chips--input"
         @keypress.enter="addItem">
       <div
-        class="x-global"
+        class="x-global con-chips--remove-all"
         @click="removeTotalItems">
         <i
           translate="no"
@@ -77,52 +67,3 @@ export default {
   }
 }
 </script>
-
-<style lang="css">
-.con-chips {
-  width: 100%;
-  /* background: rgb(136, 231, 39); */
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-  overflow: hidden;
-  padding: 5px;
-}
-.con-chips .con-vs-chip {
-  margin-top: 0px;
-  margin-bottom: 0px;
-}
-.con-chips input {
-  display: inline-block;
-  flex:1;
-  /* height: 30px; */
-  padding: 9px;
-  box-sizing: border-box;
-  min-width: 80px;
-  border: 0px;
-  padding-left: 2px;
-}
-.x-global {
-  position: absolute;
-  right: 0px;
-  top: 50%;
-  transform: translate(0,-50%);
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 5px;
-  cursor: pointer;
-  transition: all .3s ease;
-}
-.x-global:hover {
-  color: rgb(var(--danger))
-}
-.no-items input{
-  padding-left: 10px !important;
-}
-</style>

@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="centerx labelx">
-    <vs-input vs-label="Name" vs-placeholder="Placeholder" v-model="value1"/>
-    <vs-input type="password" vs-label="Password" vs-placeholder="Disabled" v-model="value2"/>
+    <vs-input label="Name" placeholder="Placeholder" v-model="value1"/>
+    <vs-input type="password" label="Password" placeholder="Disabled" v-model="value2"/>
   </div>
 </template>
 

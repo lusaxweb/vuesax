@@ -10,7 +10,7 @@
     <div class="con-example-images">
       <vs-images :hover="hover">
         <vs-image :key="index" :src="`https://picsum.photos/400/400?image=3${index}`" v-for="(image, index) in 9" />
-        <vs-image :key="index" :src="`https://picsum.photos/400/400?image=4${index}`" v-for="(image, index) in 7" />
+        <vs-image :key="`index-${index}`" :src="`https://picsum.photos/400/400?image=4${index}`" v-for="(image, index) in 7" />
       </vs-images>
     </div>
   </div>

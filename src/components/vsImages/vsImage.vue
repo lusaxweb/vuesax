@@ -4,10 +4,13 @@
       <div
         :v-bind="$attrs"
         :style="styleImage"
-        class="img">
+        class="vs-image--img">
       </div>
     </div>
-    <img class="imag-blur" :src="src" alt="">
+    <img
+      :src="src"
+      class="imag-blur"
+      alt="">
   </li>
 </template>
 <script>
