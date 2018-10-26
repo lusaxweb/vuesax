@@ -12,10 +12,10 @@
       theme="light"
     /> -->
     <!-- <Carbon/> -->
-     <sidebar-map :items="sidebarItems" />
+     <sidebar-map :items="sortComponents" />
 
     <div class="sidebar-mask" @click="toggleSidebar(false)"></div>
-    <Sidebar :items="sidebarItems" @toggle-sidebar="toggleSidebar">
+    <Sidebar :items="sortComponents" @toggle-sidebar="toggleSidebar">
       <slot name="sidebar-top" slot="top"/>
       <slot name="sidebar-bottom" slot="bottom"/>
     </Sidebar>
@@ -26,7 +26,7 @@
     <Home v-if="$page.frontmatter.home"/>
     </transition>
     <transition name="homex">
-    <Page v-if="!$page.frontmatter.home&&!$page.frontmatter.layout" :sidebar-items="sidebarItems">
+    <Page v-if="!$page.frontmatter.home&&!$page.frontmatter.layout" :sidebar-items="sortComponents">
       <slot name="page-top" slot="top"/>
       <slot name="page-bottom" slot="bottom"/>
     </Page>
@@ -88,6 +88,14 @@ export default {
         this.$site,
         this.$localePath
       )
+    },
+    sortComponents () {
+      return this.sidebarItems.map((items) => {
+        if(items.title == 'Components') {
+          items.children = items.children.sort((a, b) => a.title.localeCompare(b.title))
+        }
+        return items
+      })
     },
     pageClasses() {
       const userPageClass = this.$page.frontmatter.pageClass
