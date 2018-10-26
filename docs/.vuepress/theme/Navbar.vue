@@ -215,6 +215,10 @@ export default {
   display flex
   align-items center
   justify-content space-between
+
+  i
+    font-size 1rem
+
   .home-link
     margin-left 2.5rem
     margin-right 3.5rem
