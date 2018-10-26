@@ -8,11 +8,12 @@
       <ul
         ref="ul"
         :class="[`ul-tabs-${vsAlignment}`]"
-        class="ul-tabs">
+        class="ul-tabs vs-tabs--ul">
         <li
           v-for="(child,index) in children"
           ref="li"
           :class="{'activeChild':childActive == index}"
+          class="vs-tabs--li"
           @mouseover="hover = true"
           @mouseout="hover = false"
           @click="activeChild(index)">

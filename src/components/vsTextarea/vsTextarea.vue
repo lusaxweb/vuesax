@@ -14,9 +14,9 @@
       v-on="listeners">
     </textarea>
 
-    <div 
-      v-if="counter" 
-      class="count">
+    <div
+      v-if="counter"
+      class="count vs-textarea--count">
       {{ value.length }} / {{ counter }}
     </div>
 

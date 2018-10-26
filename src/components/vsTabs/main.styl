@@ -79,57 +79,59 @@
     overflow hidden
   .con-ul-tabs
     position relative
-    .ul-tabs
-      width 100%
-      padding-left 0px;
-      position relative
-      box-shadow: 0px 0px 25px 0px rgba(0,0,0,.04)
-      &.ul-tabs-center
-        justify-content center
-      &.ul-tabs-right
-        justify-content flex-end
-      &.ul-tabs-fixed
-        justify-content space-between
-        li
-          width 100%
 
-      li
-        display: block
-        button
-          box-sizing: border-box
-          display: block
-          position relative
-          width 100%;
-          background transparent
-          margin 0px
-          padding 10px
-          border 0px
-          cursor pointer
-          transition all .2s ease
-          &:hover:not(:disabled)
-            color inherit
-      .activeChild
-        button:not(:disabled)
-          color inherit
-        button
-          padding-top 8px ;
-          padding-bottom 12px ;
-    .line-vs-tabs
-      width 100px
-      height 2px
-      display block
-      position absolute
-      transition all .2s ease
-      transform: translateZ(0);
-      will-change: left,right;
+.vs-tabs--ul
+  width 100%
+  padding-left 0px;
+  position relative
+  box-shadow: 0px 0px 25px 0px rgba(0,0,0,.04)
+  &.ul-tabs-center
+    justify-content center
+  &.ul-tabs-right
+    justify-content flex-end
+  &.ul-tabs-fixed
+    justify-content space-between
+    li
+      width 100%
+
+.line-vs-tabs
+  width 100px
+  height 2px
+  display block
+  position absolute
+  transition all .2s ease
+  transform: translateZ(0);
+  will-change: left,right;
+
+.vs-tabs--li
+  display: block
+  button
+    box-sizing: border-box
+    display: block
+    position relative
+    width 100%;
+    background transparent
+    margin 0px
+    padding 10px
+    border 0px
+    cursor pointer
+    transition all .2s ease
+    &:hover:not(:disabled)
+      color inherit
+.activeChild
+  button:not(:disabled)
+    color inherit
+  button
+    padding-top 8px ;
+    padding-bottom 12px ;
 
 .vs-tabs-position-top
-  .ul-tabs
+  .vs-tabs--ul
     display: flex
 .vs-tabs-position-bottom
   display flex
   flex-direction: column
-  .ul-tabs
+  .vs-tabs--ul
     border-top 1px solid rgba(0,0,0,.05)
     border-bottom: 0px !important;
   .con-ul-tabs
@@ -146,7 +148,7 @@
     float left
     height: 100%;
     display: block
-  .ul-tabs
+  .vs-tabs--ul
     display block
     width: auto
     border-bottom: 0px !important;
@@ -168,7 +170,7 @@
     height: 100%;
     display: block
     order: 2;
-  .ul-tabs
+  .vs-tabs--ul
     display block
     width: auto
     border-bottom: 0px !important;
@@ -201,7 +203,7 @@ for colorx, i in $vs-colors
 
 // vs-tab
 
-.con-tab
+.vs-tabs--content
   position relative
   width 100%
   display block

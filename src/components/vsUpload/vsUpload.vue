@@ -30,7 +30,7 @@
         v-if="showUploadButton"
         type="button"
         title="Upload"
-        class="btn-upload-all"
+        class="btn-upload-all vs-upload--button-upload"
         @click="upload('all')">
         <i
           translate="no"
