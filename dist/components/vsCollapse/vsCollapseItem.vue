@@ -4,7 +4,9 @@
     class="vs-collapse-item"
     @mouseover="mouseover"
     @mouseout="mouseout">
-    <header class="vs-collapse-item--header" @click="toggleContent">
+    <header 
+      class="vs-collapse-item--header" 
+      @click="toggleContent">
       <slot name="header"></slot>
 
       <span

@@ -1,7 +1,7 @@
 <template lang="html">
   <li
-    :data-text="vsText"
     v-show="visible"
+    :data-text="vsText"
     class="vs-component">
     <button
       ref="item"
@@ -13,7 +13,7 @@
         'con-icon':$parent.parent.vsMultiple,
         'disabledx':disabledx
       }"
-      class="vs-select-item-btn"
+      class="vs-select--item"
       type="button"
       name="button"
       v-on="listeners"
@@ -23,7 +23,7 @@
       @keydown.enter.prevent="clickOption()">
       <i
         v-if="$parent.parent.vsMultiple"
-        class="material-icons icon-item">
+        class="material-icons icon-item vs-select--item-icon">
         check_circle
       </i>
       <span
@@ -74,7 +74,7 @@ export default {
       return {
         ...this.$listeners,
         blur: (event) => {
-          if(event.relatedTarget?!event.relatedTarget.closest('.vs-select-options'):true) {
+          if(event.relatedTarget?!event.relatedTarget.closest('.vs-select--options'):true) {
             this.$parent.parent.closeOptions()
           }
         },

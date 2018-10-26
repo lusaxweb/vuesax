@@ -1,5 +1,5 @@
 <template>
-  <div class="vs-navbar-items">
+  <div class="vs-navbar--items">
     <slot></slot>
   </div>
 </template>

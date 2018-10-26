@@ -1,11 +1,11 @@
 <template lang="html">
-  <div class="vs-list-item">
-    <div class="list-avatar">
+  <div class="vs-list--item">
+    <div class="vs-list--avatar">
       <slot name="avatar"/>
     </div>
     <div
       v-if="icon"
-      class="list-icon">
+      class="vs-list--icon">
       <i
         translate="no"
         class="material-icons notranslate">{{ icon }}</i>
@@ -13,12 +13,12 @@
     <div class="list-titles">
       <div
         v-if="title"
-        class="list-title">{{ title }}</div>
+        class="vs-list--title">{{ title }}</div>
       <div
         v-if="subtitle"
-        class="list-subtitle">{{ subtitle }}</div>
+        class="vs-list--subtitle">{{ subtitle }}</div>
     </div>
-    <div class="list-slot">
+    <div class="vs-list--slot">
       <slot/>
     </div>
   </div>

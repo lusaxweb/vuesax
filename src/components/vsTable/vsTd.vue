@@ -1,19 +1,33 @@
 <template>
-  <td class="td" :class="{'td-edit': $slots.edit}" ref="td">
+  <td 
+    ref="td" 
+    :class="{'td-edit': $slots.edit}" 
+    class="td">
     <span @click="clicktd">
-      <vs-icon class="icon-edit" v-if="$slots.edit">
+      <vs-icon 
+        v-if="$slots.edit" 
+        class="icon-edit">
         edit
       </vs-icon>
       <slot></slot>
-      <span v-if="$slots.edit" class="empty">
-        {{data ? '' : 'Empty'}}
+      <span 
+        v-if="$slots.edit" 
+        class="empty">
+        {{ data ? '' : 'Empty' }}
       </span>
     </span>
 
     <transition name="td">
-      <div v-if="activeEdit" class="con-edit-td">
+      <div 
+        v-if="activeEdit" 
+        class="con-edit-td">
         <slot name="edit"></slot>
-        <vs-button @click="close" vs-icon="clear"  vs-size="small" color="primary" vs-type="flat"></vs-button>
+        <vs-button 
+          vs-icon="clear" 
+          vs-size="small" 
+          color="primary" 
+          vs-type="flat" 
+          @click="close"></vs-button>
       </div>
     </transition>
   </td>

@@ -8,8 +8,13 @@
         <slot name="header"></slot>
       </span>
 
-      <div v-if="search" class="con-input-search">
-        <input class="input-search" v-model="searchx" type="text">
+      <div
+        v-if="search"
+        class="con-input-search">
+        <input
+          v-model="searchx"
+          class="input-search"
+          type="text">
         <i class="material-icons">
           search
         </i>
@@ -24,17 +29,23 @@
           <colgroup ref="colgroup">
             <col width="20"/>
             <col
-              class="colx"
               v-for="(col,index) in getThs"
               :key="index"
-              :name="`col-${index}`">
+              :name="`col-${index}`"
+              class="colx">
           </colgroup>
           <thead ref="thead">
 
             <tr>
               <th class="td-check">
-                <span v-if="multiple" class="con-td-check">
-                  <vs-checkbox :vs-icon="isCheckedLine ? 'remove' : 'check'" @click="changeCheckedMultiple" :checked="isCheckedMultiple" size="small"/>
+                <span
+                  v-if="multiple"
+                  class="con-td-check">
+                  <vs-checkbox
+                    :vs-icon="isCheckedLine ? 'remove' : 'check'"
+                    :checked="isCheckedMultiple"
+                    size="small"
+                    @click="changeCheckedMultiple"/>
                 </span>
               </th>
               <slot name="thead"></slot>
@@ -61,12 +72,19 @@
           <!-- </tbody> -->
         </table>
       </div>
-      <div v-if="isNoData" class="not-data-table">
+      <div
+        v-if="isNoData"
+        class="not-data-table">
         No data Available
       </div>
 
-      <div v-if="pagination" v-show="!searchx" class="con-pagination-table">
-        <vs-pagination :total="getTotalPages" v-model="currentx"></vs-pagination>
+      <div
+        v-if="pagination"
+        v-show="!searchx"
+        class="con-pagination-table">
+        <vs-pagination
+          :total="getTotalPages"
+          v-model="currentx"></vs-pagination>
       </div>
     </div>
   </div>
@@ -261,7 +279,7 @@ export default {
       return valuesx
     },
     getStrings(obj, valuesx) {
-      let stringsx = Object.values(item)
+      let stringsx = Object.values(obj)
       valuesx.forEach((item) => {
         if (typeof item == 'object') {
           valuesx = [...valuesx,...Object.values(item)]

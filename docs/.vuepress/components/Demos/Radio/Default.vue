@@ -22,16 +22,8 @@
 export default {
   data(){
     return {
-      radios1:'lyon',
-    }
-  },
-  methods:{
-    logx(){
-      console.log("hola mundo");
+      radios1:'summer',
     }
   }
 }
 </script>
-
-<style lang="css">
-</style>

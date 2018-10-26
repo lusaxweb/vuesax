@@ -7,17 +7,18 @@
       :checked="isChecked"
       :value="value"
       type="radio"
+      class="vs-radio--input"
       v-on="listeners">
     <span
-      class="vs-radiox">
+      class="vs-radio">
       <span
         :style="styles"
-        class="vs-radiox-borde"/>
+        class="vs-radio--borde"/>
       <span
         :style="styleCircle"
-        class="vs-radiox-circle"/>
+        class="vs-radio--circle"/>
     </span>
-    <span class="vs-radiox-labelx">
+    <span class="vs-radio--label">
       <slot/>
     </span>
   </label>

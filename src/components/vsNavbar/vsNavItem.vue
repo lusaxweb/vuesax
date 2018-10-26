@@ -2,7 +2,7 @@
   <li
     :style="[styleHover]"
     :class="[{'is-active-item': isActiveItem}, `vs-navbar-item-${getActiveTextColor}`]"
-    class="vs-navbar-item"
+    class="vs-navbar--item"
     @click="clickItem()"
     @mouseout="mouseout"
     @mouseover="mouseover">
@@ -10,12 +10,6 @@
     <span
       :style="[styleAfter]"
       class="vs-navbar-after"></span>
-
-    <!-- <ul
-      v-if="$slots.submenu"
-      class="vs-navbar-submenu">
-      <slot name="submenu"></slot>
-    </ul> -->
   </li>
 </template>
 <script>

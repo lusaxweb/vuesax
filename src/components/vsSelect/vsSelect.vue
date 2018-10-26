@@ -10,15 +10,15 @@
     <label
       v-if="vsLabel"
       ref="inputSelectLabel"
-      class="input-select-label"
+      class="vs-select--label"
       for="">{{ vsLabel }}</label>
     <div class="input-select-con">
-        <!-- v-model="valueFilter" -->
+      <!-- v-model="valueFilter" -->
       <input
         ref="inputselect"
         v-bind="$attrs"
         :readonly="!vsAutocomplete"
-        class="input-select"
+        class="input-select vs-select--input"
         type="text"
         @click.stop
         @keydown.esc.stop.prevent="closeOptions"
@@ -26,7 +26,7 @@
 
       <i
         translate="no"
-        class="material-icons icon-select notranslate">
+        class="material-icons icon-select notranslate vs-select--icon">
         keyboard_arrow_down
       </i>
 
@@ -36,7 +36,7 @@
           ref="vsSelectOptions"
           :style="cords"
           :class="[`vs-select-${color}`,{'scrollx':scrollx}]"
-          class="vs-select-options">
+          class="vs-select--options">
           <ul ref="ulx">
             <slot/>
           </ul>
@@ -174,7 +174,7 @@ export default {
       return {
         ...this.$listeners,
         blur: (event) => {
-          if(this.vsAutocomplete && event.relatedTarget?!event.relatedTarget.closest('.vs-select-options'):false ){
+          if(this.vsAutocomplete && event.relatedTarget?!event.relatedTarget.closest('.vs-select--options'):false ){
             this.closeOptions()
           }
           this.$emit('blur',event)
@@ -376,7 +376,7 @@ export default {
 
     },
     clickBlur(event){
-      let closestx = event.target.closest('.vs-select-options')
+      let closestx = event.target.closest('.vs-select--options')
       if(!closestx){
         this.closeOptions()
         if(this.vsAutocomplete){

@@ -4,14 +4,14 @@
       'indeterminate':indeterminate,
     }]"
     :style="styleConProgress"
-    class="vs-progress-background">
+    class="vs-progress--background">
     <div
       :style="styleProgress"
-      class="vs-progress-foreground"/>
+      class="vs-progress--foreground"/>
     <div
       v-if="indeterminate"
       :style="styleProgress"
-      class="indeterminate-bar"/>
+      class="vs-progress--indeterminate"/>
   </div>
 </template>
 

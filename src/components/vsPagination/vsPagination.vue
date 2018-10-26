@@ -3,22 +3,22 @@
     :style="stylePagination"
     :class="[`vs-pagination-${color}`]"
     class="con-vs-pagination">
-    <nav class="nav-pagination">
+    <nav class="vs-pagination--nav">
       <button
         :class="{disabled:current <= 1 ? 'disabled' : null}"
-        class="btn-pagination btn-prev-pagination"
-        @click="prevPage"
-        :disabled="current === 1">
+        :disabled="current === 1"
+        class="vs-pagination--buttons btn-prev-pagination vs-pagination--button-prev"
+        @click="prevPage">
         <i class="material-icons">
           {{ prevIcon }}
         </i>
       </button>
-      <ul>
+      <ul class="vs-pagination--ul">
         <li
           v-for="(page, index) in pages"
           :key="index"
           :class="{'is-current': page == current}"
-          class="item-pagination"
+          class="item-pagination vs-pagination--li"
           @click="goTo(page)">
           <span>
             {{ page }}
@@ -30,9 +30,9 @@
       <!-- :style="styleBtn" -->
       <button
         :class="{disabled:current === total ? 'disabled' : null}"
-        class="btn-pagination btn-next-pagination"
-        @click="nextPage"
-        :disabled="current === total">
+        :disabled="current === total"
+        class="vs-pagination--buttons btn-next-pagination vs-pagination--button-next"
+        @click="nextPage">
         <i class="material-icons">
           {{ nextIcon }}
         </i>
@@ -41,7 +41,7 @@
         v-if="goto"
         v-model="go"
         :max="total"
-        class="input-goto"
+        class="vs-pagination--input-goto"
         min="1"
         type="number"
         @change="goTo">

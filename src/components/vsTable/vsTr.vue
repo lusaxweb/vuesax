@@ -1,9 +1,11 @@
 <template>
   <tbody
     :class="[`tr-table-state-${state}`, {'is-selected':isSelected, 'selected': data, 'is-expand': maxHeight != '0px', 'activeEdit': activeEdit, 'hoverFlat': $parent.hoverFlat}]"
-    @click="clicktr"
-    class="tr-table">
-    <tr v-if="!$parent.notSpacer" class="tr-spacer"></tr>
+    class="tr-table"
+    @click="clicktr">
+    <tr 
+      v-if="!$parent.notSpacer" 
+      class="tr-spacer"></tr>
     <tr class="tr-values">
       <td
         class="td-check"
@@ -17,9 +19,15 @@
       </td>
       <slot></slot>
     </tr>
-    <tr v-if="$slots.expand" class="tr-expand">
-      <td ref="td" :colspan="colspan">
-        <div class="con-expand" :style="styleExpand">
+    <tr 
+      v-if="$slots.expand" 
+      class="tr-expand">
+      <td 
+        ref="td" 
+        :colspan="colspan">
+        <div 
+          :style="styleExpand" 
+          class="con-expand">
           <slot name="expand"></slot>
         </div>
       </td>

@@ -8,21 +8,23 @@
       @click="close($event,true)">
       <div
         :style="styleCon"
-        class="vs-popup-dark"/>
+        class="vs-popup--background"/>
       <div
         ref="popupx"
         :style="stylePopup"
         class="vs-popup">
 
         <!-- //header -->
-        <header :style="styleHeader">
-          <div class="con-title-after">
+        <header 
+          :style="styleHeader" 
+          class="vs-popup--header">
+          <div class="vs-popup--title">
             <h3>{{ title }}</h3>
           </div>
           <span
             v-if="!buttonCloseHidden"
             translate="no"
-            class="vs-popup-cancel material-icons notranslate"
+            class="vs-popup--close material-icons notranslate "
             @click="close">close</span>
         </header>
 
@@ -30,7 +32,7 @@
         <div
           :style="styleContent"
           :class="classContent"
-          class="vs-popup-text">
+          class="vs-popup--content">
           <slot/>
         </div>
       </div>
@@ -111,12 +113,12 @@ export default {
     },
     close(event,con){
       if(con){
-        if(event.target.className.indexOf('vs-popup-dark')!=-1){
+        if(event.target.className.indexOf('vs-popup--background')!=-1){
           this.$emit('update:active',false)
           this.$emit('close', false)
         }
       } else {
-        if(event?event.target.className.indexOf('vs-popup-cancel')!=-1:false ){
+        if(event?event.target.className.indexOf('vs-popup--close')!=-1:false ){
           this.$emit('update:active',false)
           this.$emit('close', false)
         }
