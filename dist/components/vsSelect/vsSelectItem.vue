@@ -205,10 +205,10 @@ export default {
       let nextElement = getNextLi(this.$el[orientationObject],orientationObject)
 
       if(nextElement){
-        nextElement.querySelector('.vs-select-item-btn').focus()
+        nextElement.querySelector('.vs-select--item').focus()
       } else {
         if (lengthx === children.length) lengthx--
-        getNextLi(children[lengthx].$el,orientationObject).querySelector('.vs-select-item-btn').focus()
+        getNextLi(children[lengthx].$el,orientationObject).querySelector('.vs-select--item').focus()
       }
     },
     focusValue(index){

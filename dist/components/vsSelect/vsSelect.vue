@@ -195,7 +195,7 @@ export default {
             let childrens = this.$children.filter((item)=>{
               return item.visible
             })
-            childrens[0].$el.querySelector('.vs-select-item-btn').focus()
+            childrens[0].$el.querySelector('.vs-select--item').focus()
           } else {
             if(this.autocomplete){
               this.filterItems(event.target.value)
@@ -366,7 +366,7 @@ export default {
       if (!this.autocomplete) {
         if(this.multiple?this.value.length == 0:!this.value || this.multiple){
           setTimeout( () => {
-            this.$children[0].$el.querySelector('.vs-select-item-btn').focus()
+            this.$children[0].$el.querySelector('.vs-select--item').focus()
           }, 50);
         }
       }
