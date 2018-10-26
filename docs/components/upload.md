@@ -41,7 +41,7 @@ API:
    description: change the types of files allowed.
    default: all
  - name: disabled
-   type: File types
+   type: Boolean
    parameters: null
    description: disables the component, making it impossible to add any file.
    default: false
