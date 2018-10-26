@@ -94,6 +94,14 @@ export default {
     to:{
       default:false,
       type:String | Object
+    },
+    vsHref:{
+      default:'',
+      type:String | Object
+    },
+    vsTarget:{
+      default:false,
+      type:Boolean
     }
   },
   data:()=>({
@@ -216,6 +224,9 @@ export default {
       }
       if(this.to){
         this.routerPush()
+      }
+      if(this.vsHref){
+        this.vsTarget ? window.open(this.vsHref) : window.location.href = this.vsHref
       }
       this.isActive = true
       let btn = this.$refs.btn
