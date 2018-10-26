@@ -2,33 +2,33 @@
   <div class="con-select-example">
 
     <vs-select
-    placeholder="Multiple"
-    vs-multiple
-    class="selectExample"
+      placeholder="Multiple"
+      multiple
+      class="selectExample"
       label="Figuras"
       v-model="select1"
       >
-      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in options1" />
+      <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="item,index in options1" />
     </vs-select>
     <vs-select
-    placeholder="Multiple and autocomplete"
-    vs-multiple
-    vs-autocomplete
-    class="selectExample"
+      placeholder="Multiple and autocomplete"
+      multiple
+      autocomplete
+      class="selectExample"
       label="Figuras"
       v-model="select2"
       >
-      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in options2" />
+      <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="item,index in options2" />
     </vs-select>
     <vs-select
-    placeholder="Max Selected"
-    vs-max-selected="2"
-    vs-multiple
+      placeholder="Max Selected"
+      max-selected="2"
+      multiple
       class="selectExample"
       label="Figuras"
       v-model="select3"
       >
-      <vs-select-item :key="index" :vs-value="item.value"  :vs-text="item.text" v-for="item,index in options3" />
+      <vs-select-item :key="index" :value="item.value"  :text="item.text" v-for="item,index in options3" />
     </vs-select>
   </div>
 </template>

@@ -97,8 +97,11 @@ export default {
 .con-btns-contribuitors button {
   transition: all .2s ease;
   top: 0px;
+  border 0px
+  background transparent
 }
 .con-btns-contribuitors button a{
+  border-radius 10px !important
   padding: 13px;
   background: $accentColor
   color: rgb(255, 255, 255);

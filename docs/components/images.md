@@ -98,7 +98,7 @@ the types of hover are:
       label="Figuras"
       v-model="hover"
       >
-      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="(item,index) in hovers" />
+      <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="(item,index) in hovers" />
     </vs-select>
 
     <vs-images :hover="hover">

@@ -160,7 +160,7 @@ If you want you can change the style of the buttons and the navbar by changing t
       label="Figuras"
       v-model="type"
       >
-      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="(item,index) in types" />
+      <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="(item,index) in types" />
     </vs-select>
 
     <vs-navbar :type="type" v-model="activeItem" class="nabarx">

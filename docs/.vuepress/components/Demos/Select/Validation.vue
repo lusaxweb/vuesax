@@ -1,47 +1,47 @@
 <template lang="html">
   <div class="con-select-example">
     <vs-select
-     :vs-success="true"  
-      vs-success-text="This field is valid" 
+     :success="true"
+      success-text="This field is valid"
       placeholder="Select"
       class="selectExample"
-      vs-label="Success"
-      vs-multiple
+      label="Success"
+      multiple
       v-model="select1"
       >
-      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in exampleOptions" />
+      <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="item,index in exampleOptions" />
     </vs-select>
        <vs-select
-      :vs-danger="true" 
-      vs-danger-text="This field is invalid" 
+      :danger="true"
+      danger-text="This field is invalid"
       placeholder="Select"
       class="selectExample"
-      vs-label="Danger"
-      vs-multiple
+      label="Danger"
+      multiple
       v-model="select2"
       >
-      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in exampleOptions" />
+      <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="item,index in exampleOptions" />
     </vs-select>
        <vs-select
-      :vs-warning="true" 
-      vs-warning-text="This field is invalid" 
+      :warning="true"
+      warning-text="This field is invalid"
       placeholder="Select"
       class="selectExample"
-      vs-label="Warning"
-      vs-multiple
+      label="Warning"
+      multiple
       v-model="select3"
       >
-      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in exampleOptions" />
+      <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="item,index in exampleOptions" />
     </vs-select>
        <vs-select
-      vs-description-text="Simple info for multiple select" 
+      description-text="Simple info for multiple select"
       placeholder="Select"
       class="selectExample"
-      vs-label="Description"
-      vs-multiple
+      label="Description"
+      multiple
       v-model="select4"
       >
-      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in exampleOptions" />
+      <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="item,index in exampleOptions" />
     </vs-select>
   </div>
 </template>

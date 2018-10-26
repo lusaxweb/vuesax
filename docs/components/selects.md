@@ -10,56 +10,56 @@ API:
    parameters: null
    description: Change the color of the button
    default: primary
- - name: vs-autocomplete
+ - name: autocomplete
    type: Boolean
    parameters:
    description: Enables the use of autocomplete in the select.
    default: false
- - name: vs-multiple
+ - name: multiple
    type: Boolean
    parameters:
    description: Determines whether the selection is of multiple selection.
    default: false
- - name: vs-max-selected
+ - name: max-selected
    type: Number
    parameters:
-   description: Determine the number of maximum options to be able to select (only for active vs-multiple).
+   description: Determine the number of maximum options to be able to select (only for active multiple).
    default: All options
- - name: vs-label
+ - name: label
    type: String
    parameters: null
    description: Label for the input element.
- - name: vs-success
+ - name: success
    type: Boolean
    parameters: boolean bind
    description: Activate the status of success in the input.
    default: false
- - name: vs-danger
+ - name: danger
    type: Boolean
    parameters: boolean bind
    description: Activate the status of danger in the input.
    default: false
- - name: vs-warning
+ - name: warning
    type: Boolean
    parameters: boolean bind
    description: Activate the status of warning in the input.
    default: false
- - name: vs-description-text
+ - name: description-text
    type: String
    parameters: null
    description: Add a description text to the input.
    default: false
- - name: vs-danger-text
+ - name: danger-text
    type: String
    parameters: null
    description: Text to show when the item is invalid.
    default: null
- - name: vs-success-text
+ - name: success-text
    type: String
    parameters: null
    description: Text to show when the item is valid.
    default: null
- - name: vs-warning-text
+ - name: warning-text
    type: String
    parameters: null
    description: Text that is displayed in the warning state.
@@ -72,7 +72,7 @@ API:
  - name: input-changed
    type: Event
    parameters: event (optional)
-   description:  Triggers method when input of select is changed (requires vs-autocomplete prop)
+   description:  Triggers method when input of select is changed (requires autocomplete prop)
 ---
 
 # Select
@@ -102,18 +102,18 @@ To add a select to the application we have the component `vs-select`.
 <template lang="html">
   <div class="con-select-example">
     <vs-select
-    class="selectExample"
+      class="selectExample"
       label="Figuras"
       v-model="select1"
       >
-      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="(item,index) in options1" />
+      <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="(item,index) in options1" />
     </vs-select>
     <vs-select
-    class="selectExample"
+      class="selectExample"
       label="Figuras"
       v-model="select2"
       >
-      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="(item,index) in options2" />
+      <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="(item,index) in options2" />
     </vs-select>
     <vs-select
       disabled="true"
@@ -121,7 +121,7 @@ To add a select to the application we have the component `vs-select`.
       label="Figuras"
       v-model="select3"
       >
-      <vs-select-item :key="index" :disabled="index==2" :vs-value="item.value" :vs-text="item.text" v-for="(item,index) in options3" />
+      <vs-select-item :key="index" :disabled="index==2" :value="item.value" :text="item.text" v-for="(item,index) in options3" />
     </vs-select>
   </div>
 </template>
@@ -192,12 +192,12 @@ You can change the color of the select with the property `color`
   <div class="con-select-example">
     <input v-model="colorx" type="color" name="" value="">
     <vs-select
-    :color="colorx"
-    class="selectExample"
+      :color="colorx"
+      class="selectExample"
       label="Figuras"
       v-model="select1"
       >
-      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="(item,index) in options1" />
+      <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="(item,index) in options1" />
     </vs-select>
     <vs-select
     :color="select2"
@@ -205,7 +205,7 @@ You can change the color of the select with the property `color`
       label="Figuras"
       v-model="select2"
       >
-      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="(item,index) in options2" />
+      <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="(item,index) in options2" />
     </vs-select>
   </div>
 </template>
@@ -253,7 +253,7 @@ export default {
 
 ## Autocomplete
 
-You can add the autocomplete functionality in the desired selected with the property `vs-autocomplete`.
+You can add the autocomplete functionality in the desired selected with the property `autocomplete`.
 
 <vuecode md>
 <div slot="demo">
@@ -268,32 +268,32 @@ You can add the autocomplete functionality in the desired selected with the prop
 <template lang="html">
   <div class="con-select-example">
     <vs-select
-      vs-autocomplete
+      autocomplete
       @input-change="autoCompleteFunc"
-    class="selectExample"
+      class="selectExample"
       label="Figuras"
       v-model="select1"
       >
-      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="(item,index) in options1" />
+      <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="(item,index) in options1" />
     </vs-select>
     <vs-select
-    vs-autocomplete
-    @input-change="autoCompleteFunc"
-    class="selectExample"
+      autocomplete
+      @input-change="autoCompleteFunc"
+      class="selectExample"
       label="Figuras"
       v-model="select2"
       >
-      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="(item,index) in options2" />
+      <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="(item,index) in options2" />
     </vs-select>
     <vs-select
-    vs-autocomplete
-    @input-change="autoCompleteFunc"
+      autocomplete
+      @input-change="autoCompleteFunc"
       disabled="true"
       class="selectExample"
       label="Figuras"
       v-model="select3"
       >
-      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="(item,index) in options3" />
+      <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="(item,index) in options3" />
     </vs-select>
   </div>
 </template>
@@ -346,7 +346,7 @@ export default {
 
 ## Multiple
 
-You can have a selection with multiple selections with the property `vs-multiple`. If you need the user to select only a certain number of options you can use the property `vs-max-selected`.
+You can have a selection with multiple selections with the property `multiple`. If you need the user to select only a certain number of options you can use the property `max-selected`.
 
 <vuecode md>
 <div slot="demo">
@@ -361,33 +361,33 @@ You can have a selection with multiple selections with the property `vs-multiple
 <template lang="html">
   <div class="con-select-example">
     <vs-select
-    placeholder="Multiple"
-    vs-multiple
-    class="selectExample"
+      placeholder="Multiple"
+      multiple
+      class="selectExample"
       label="Figuras"
       v-model="select1"
       >
-      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="(item,index) in options1" />
+      <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="(item,index) in options1" />
     </vs-select>
     <vs-select
-    placeholder="Multiple and autocomplete"
-    vs-multiple
-    vs-autocomplete
-    class="selectExample"
+      placeholder="Multiple and autocomplete"
+      multiple
+      autocomplete
+      class="selectExample"
       label="Figuras"
       v-model="select2"
       >
-      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="(item,index) in options2" />
+      <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="(item,index) in options2" />
     </vs-select>
     <vs-select
-    placeholder="Max Selected"
-    vs-max-selected="2"
-    vs-multiple
+      placeholder="Max Selected"
+      max-selected="2"
+      multiple
       class="selectExample"
       label="Figuras"
       v-model="select3"
       >
-      <vs-select-item :key="index" :vs-value="item.value"  :vs-text="item.text" v-for="(item,index) in options3" />
+      <vs-select-item :key="index" :value="item.value"  :text="item.text" v-for="(item,index) in options3" />
     </vs-select>
   </div>
 </template>
@@ -439,7 +439,7 @@ export default {
 
 ## Labels
 
-Add a label to the input with the property `vs-label`.
+Add a label to the input with the property `label`.
 
 <vuecode md>
 <div slot="demo">
@@ -456,23 +456,23 @@ Add a label to the input with the property `vs-label`.
     <vs-select
       placeholder="Select"
       class="selectExample"
-      vs-label="Multiple"
-      vs-label-placeholder="vs-Multiple"
-      vs-multiple
+      label="Multiple"
+      label-placeholder="Multiple"
+      multiple
       v-model="select1"
       >
-      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in options1" />
+      <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="item,index in options1" />
     </vs-select>
     <vs-select
       placeholder="Search and select"
       class="selectExample"
-      vs-label="Autocomplete"
-      vs-label-placeholder="vs-Autocomplete"
-      vs-multiple
-      vs-autocomplete
+      label="Autocomplete"
+      label-placeholder="Autocomplete"
+      multiple
+      autocomplete
       v-model="select2"
       >
-      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in options2" />
+      <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="item,index in options2" />
     </vs-select>
   </div>
 </template>
@@ -519,10 +519,10 @@ export default {
 
 ## Validators
 
-You can add a state for example of in affirmative response to a validation with `vs-success` and if it is necessary to add a description or help to the user you can do it with the property `vs-description`
+You can add a state for example of in affirmative response to a validation with `success` and if it is necessary to add a description or help to the user you can do it with the property `description`
 
 :::tip
-  Each of the states you can change the text, for example in the case of `vs-danger-text` for the state of danger.
+  Each of the states you can change the text, for example in the case of `danger-text` for the state of danger.
 :::
 
 <vuecode md>
@@ -538,47 +538,47 @@ You can add a state for example of in affirmative response to a validation with 
 <template lang="html">
   <div class="con-select-example">
     <vs-select
-     :vs-success="true"
-      vs-success-text="This field is valid"
+     :success="true"
+      success-text="This field is valid"
       placeholder="Select"
       class="selectExample"
-      vs-label="Success"
-      vs-multiple
+      label="Success"
+      multiple
       v-model="select1"
       >
-      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in exampleOptions" />
+      <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="item,index in exampleOptions" />
     </vs-select>
        <vs-select
-      :vs-danger="true"
-      vs-danger-text="This field is invalid"
+      :danger="true"
+      danger-text="This field is invalid"
       placeholder="Select"
       class="selectExample"
-      vs-label="Danger"
-      vs-multiple
+      label="Danger"
+      multiple
       v-model="select2"
       >
-      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in exampleOptions" />
+      <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="item,index in exampleOptions" />
     </vs-select>
        <vs-select
-      :vs-warning="true"
-      vs-warning-text="This field is invalid"
+      :warning="true"
+      warning-text="This field is invalid"
       placeholder="Select"
       class="selectExample"
-      vs-label="Warning"
-      vs-multiple
+      label="Warning"
+      multiple
       v-model="select3"
       >
-      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in exampleOptions" />
+      <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="item,index in exampleOptions" />
     </vs-select>
        <vs-select
-      vs-description-text="Simple info for multiple select"
+      description-text="Simple info for multiple select"
       placeholder="Select"
       class="selectExample"
-      vs-label="Description"
-      vs-multiple
+      label="Description"
+      multiple
       v-model="select4"
       >
-      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in exampleOptions" />
+      <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="item,index in exampleOptions" />
     </vs-select>
   </div>
 </template>
@@ -640,7 +640,7 @@ You can validate if an option is selected with the property `is-selected.sync` a
       label="Figuras"
       v-model="select1"
       >
-      <vs-select-item :is-selected.sync="item.isSelected" :key="index" :vs-value="item.value" :vs-text="item.isSelected?item.selectedText:item.label" v-for="item,index in options1" />
+      <vs-select-item :is-selected.sync="item.isSelected" :key="index" :value="item.value" :text="item.isSelected?item.selectedText:item.label" v-for="item,index in options1" />
     </vs-select>
   </div>
 </template>
@@ -707,36 +707,36 @@ You can group elements with the sub component `vs-select-group`
   <div class="con-select-example">
     <vs-select
         class="selectExample"
-        vs-label="Defautl"
+        label="Defautl"
         v-model="select1"
         >
         <div :key="index" v-for="item,index in options1">
           <vs-select-group :title="item.title" v-if="item.group">
-            <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in item.group"/>
+            <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="item,index in item.group"/>
           </vs-select-group>
         </div>
     </vs-select>
     <vs-select
-        vs-multiple
+        multiple
         class="selectExample"
-        vs-label="Multiple"
+        label="Multiple"
         v-model="select2"
         >
         <div :key="index" v-for="item,index in options2">
           <vs-select-group :title="item.title" v-if="item.group">
-            <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in item.group"/>
+            <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="item,index in item.group"/>
           </vs-select-group>
         </div>
     </vs-select>
     <vs-select
-        vs-autocomplete
+        autocomplete
         class="selectExample"
-        vs-label="Autocomplete"
+        label="Autocomplete"
         v-model="select3"
         >
         <div :key="index" v-for="item,index in options3">
           <vs-select-group :title="item.title" v-if="item.group">
-            <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in item.group"/>
+            <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="item,index in item.group"/>
           </vs-select-group>
         </div>
     </vs-select>

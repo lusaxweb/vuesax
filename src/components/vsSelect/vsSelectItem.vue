@@ -1,7 +1,7 @@
 <template lang="html">
   <li
     v-show="visible"
-    :data-text="vsText"
+    :data-text="text"
     class="vs-component">
     <button
       ref="item"
@@ -9,8 +9,8 @@
       v-bind="$attrs"
       :style="styles"
       :class="{
-        'activex':$parent.parent.vsMultiple?getValue.indexOf(vsValue) != -1:getValue == vsValue,
-        'con-icon':$parent.parent.vsMultiple,
+        'activex':$parent.parent.multiple?getValue.indexOf(value) != -1:getValue == value,
+        'con-icon':$parent.parent.multiple,
         'disabledx':disabledx
       }"
       class="vs-select--item"
@@ -22,7 +22,7 @@
       @keydown.up.prevent="navigateOptions('prev')"
       @keydown.enter.prevent="clickOption()">
       <i
-        v-if="$parent.parent.vsMultiple"
+        v-if="$parent.parent.multiple"
         class="material-icons icon-item vs-select--item-icon">
         check_circle
       </i>
@@ -42,10 +42,10 @@ export default {
       type:Boolean,
       default:false
     },
-    vsValue:{
+    value:{
       default:null,
     },
-    vsText:{
+    text:{
       default:null,
     }
   },
@@ -57,18 +57,18 @@ export default {
   }),
   computed:{
     disabledx(){
-      if(this.$parent.parent.vsMultiple){
+      if(this.$parent.parent.multiple){
         if(this.isActive){
           return false
         } else {
-          return this.$parent.parent.vsMaxSelected == this.$parent.parent.value.length
+          return this.$parent.parent.maxSelected == this.$parent.parent.value.length
         }
       } else {
         return false
       }
     },
     isActive(){
-      return this.$parent.parent.vsMultiple?this.getValue.indexOf(this.vsValue) != -1:this.getValue == this.vsValue
+      return this.$parent.parent.multiple?this.getValue.indexOf(this.value) != -1:this.getValue == this.value
     },
     listeners() {
       return {
@@ -103,13 +103,13 @@ export default {
   watch:{
     '$parent.parent.active': function () {
       this.$nextTick(() => {
-        if( this.$parent.parent.vsMultiple?this.getValue.indexOf(this.vsValue) != -1:this.getValue == this.vsValue ) {
+        if( this.$parent.parent.multiple?this.getValue.indexOf(this.value) != -1:this.getValue == this.value ) {
           this.$emit('update:isSelected', true)
-          this.getText = this.vsText
+          this.getText = this.text
           this.putValue()
         } else {
           this.$emit('update:isSelected', false)
-          this.getText = this.vsText
+          this.getText = this.text
           this.putValue()
         }
       })
@@ -118,31 +118,31 @@ export default {
       if(this.visible){
         let valueInputx = this.valueInputx.split(',')
         if(valueInputx[valueInputx.length-1] == ''){
-          this.getText = this.vsText
+          this.getText = this.text
           return
         }
         let valuex = valueInputx[valueInputx.length-1]
         var re = new RegExp(valuex,"i");
-        if(this.vsText.toUpperCase().indexOf(valuex.toUpperCase()) == 0){
+        if(this.text.toUpperCase().indexOf(valuex.toUpperCase()) == 0){
           valuex = this.MaysPrimera(valuex)
         }
-        let text = this.vsText.replace(re,`<span class="searchx">${valuex}</span>`)
+        let text = this.text.replace(re,`<span class="searchx">${valuex}</span>`)
         this.getText = text
       } else {
-        this.getText = this.vsText
+        this.getText = this.text
       }
     }
   },
   created(){
     this.putValue()
     this.$nextTick(() => {
-      if( this.$parent.parent.vsMultiple?this.getValue.indexOf(this.vsValue) != -1:this.getValue == this.vsValue ) {
+      if( this.$parent.parent.multiple?this.getValue.indexOf(this.value) != -1:this.getValue == this.value ) {
         this.$emit('update:isSelected', true)
-        this.getText = this.vsText
+        this.getText = this.text
         this.putValue()
       } else {
         this.$emit('update:isSelected', false)
-        this.getText = this.vsText
+        this.getText = this.text
         this.putValue()
       }
     })
@@ -158,7 +158,7 @@ export default {
       return string.charAt(0).toUpperCase() + string.slice(1);
     },
     backspace(){
-      if(this.$parent.parent.vsAutocomplete){
+      if(this.$parent.parent.autocomplete){
         let valueInput = this.$parent.parent.$refs.inputselect.value
         this.$parent.parent.$refs.inputselect.value = valueInput.substr(0,valueInput.length-1)
         this.$parent.parent.$refs.inputselect.focus()
@@ -212,14 +212,14 @@ export default {
       }
     },
     focusValue(index){
-      if(this.$parent.parent.vsMultiple?this.$parent.parent.value.indexOf(this.vsValue) != -1:this.vsValue == this.$parent.parent.value){
-        if(!this.$parent.parent.vsAutocomplete){
+      if(this.$parent.parent.multiple?this.$parent.parent.value.indexOf(this.value) != -1:this.value == this.$parent.parent.value){
+        if(!this.$parent.parent.autocomplete){
           setTimeout( () => {
             this.$refs.item.focus()
           }, 50);
         }
       } else if (index === 0) {
-        if(!this.$parent.parent.vsAutocomplete){
+        if(!this.$parent.parent.autocomplete){
           setTimeout( () => {
             this.$refs.item.focus()
           }, 50);
@@ -227,8 +227,8 @@ export default {
       }
     },
     putValue(){
-      if(this.vsValue == this.$parent.parent.value){
-        this.$parent.parent.valuex = this.vsText
+      if(this.value == this.$parent.parent.value){
+        this.$parent.parent.valuex = this.text
       }
 
     },
@@ -236,16 +236,16 @@ export default {
       if(this.disabledx){
         return
       }
-      let text = this.vsText
-      if(!this.$parent.parent.vsMultiple){
+      let text = this.text
+      if(!this.$parent.parent.multiple){
         this.$parent.parent.active = false
         document.removeEventListener('click',this.$parent.parent.clickBlur)
         this.$parent.parent.valuex = text
-        this.$parent.parent.$emit('input',this.vsValue)
+        this.$parent.parent.$emit('input',this.value)
         this.$parent.parent.changeValue()
-      } else if (this.$parent.parent.vsMultiple) {
+      } else if (this.$parent.parent.multiple) {
         this.$parent.parent.valuex = text
-        this.$parent.parent.addMultiple(this.vsValue)
+        this.$parent.parent.addMultiple(this.value)
       }
       this.$parent.parent.$children.map((item)=>{
         item.valueInputx = ''

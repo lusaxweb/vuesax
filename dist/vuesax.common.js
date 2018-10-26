@@ -2112,17 +2112,17 @@ component.options.__file = "vsButton.vue"
 /* harmony default export */ var components_vsButton = (function (Vue) {
   Vue.component(vsButton.name, vsButton);
 });
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://Users//DELL//Documents//vuesax//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!C:/Users/DELL/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsSelect/vsSelect.vue?vue&type=template&id=4ec51ceb&lang=html&
-var vsSelectvue_type_template_id_4ec51ceb_lang_html_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"con-select",class:{
-    'autocompletex':_vm.vsAutocomplete,
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://Users//DELL//Documents//vuesax//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!C:/Users/DELL/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsSelect/vsSelect.vue?vue&type=template&id=13b73bdf&lang=html&
+var vsSelectvue_type_template_id_13b73bdf_lang_html_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"con-select",class:{
+    'autocompletex':_vm.autocomplete,
     'activeOptions':_vm.active,
-    'input-select-validate-success':_vm.vsSuccess,
-    'input-select-validate-danger':_vm.vsDanger,
-    'input-select-validate-warning':_vm.vsWarning}},[(_vm.vsLabel)?_c('label',{ref:"inputSelectLabel",staticClass:"vs-select--label",attrs:{"for":""}},[_vm._v(_vm._s(_vm.vsLabel))]):_vm._e(),_c('div',{staticClass:"input-select-con"},[_c('input',_vm._g(_vm._b({ref:"inputselect",staticClass:"input-select vs-select--input",attrs:{"readonly":!_vm.vsAutocomplete,"type":"text"},on:{"click":function($event){$event.stopPropagation();},"keydown":function($event){if(!('button' in $event)&&_vm._k($event.keyCode,"esc",27,$event.key,"Escape")){ return null; }$event.stopPropagation();$event.preventDefault();return _vm.closeOptions($event)}}},'input',_vm.$attrs,false),_vm.listeners)),_c('i',{staticClass:"material-icons icon-select notranslate vs-select--icon",attrs:{"translate":"no"}},[_vm._v("\n      keyboard_arrow_down\n    ")]),_c('transition',{attrs:{"name":"fade-select"}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.active),expression:"active"}],ref:"vsSelectOptions",staticClass:"vs-select--options",class:[("vs-select-" + _vm.color),{'scrollx':_vm.scrollx}],style:(_vm.cords)},[_c('ul',{ref:"ulx"},[_vm._t("default")],2),_c('ul',{directives:[{name:"show",rawName:"v-show",value:(_vm.clear),expression:"clear"}]},[_c('li',{on:{"click":function($event){_vm.filterItems(''),_vm.changeValue()}}},[_vm._v("\n            "+_vm._s(_vm.vsNoData)+"\n          ")])])])])],1),_c('transition-group',{on:{"before-enter":_vm.beforeEnter,"enter":_vm.enter,"leave":_vm.leave}},[(_vm.vsSuccess)?_c('div',{key:"success",staticClass:"con-text-validation"},[_c('span',{staticClass:"span-text-validation span-text-validation-success"},[_vm._v("\n        "+_vm._s(_vm.vsSuccessText)+"\n      ")])]):(_vm.vsDanger)?_c('div',{key:"danger",staticClass:"con-text-validation span-text-validation-danger"},[_c('span',{staticClass:"span-text-validation"},[_vm._v("\n        "+_vm._s(_vm.vsDangerText)+"\n      ")])]):(_vm.vsWarning)?_c('div',{key:"warning",staticClass:"con-text-validation span-text-validation-warning"},[_c('span',{staticClass:"span-text-validation"},[_vm._v("\n        "+_vm._s(_vm.vsWarningText)+"\n      ")])]):_vm._e(),(_vm.vsDescriptionText)?_c('div',{key:"description",staticClass:"con-text-validation span-text-validation"},[_c('span',{staticClass:"span-text-validation"},[_vm._v("\n        "+_vm._s(_vm.vsDescriptionText)+"\n      ")])]):_vm._e()])],1)}
-var vsSelectvue_type_template_id_4ec51ceb_lang_html_staticRenderFns = []
+    'input-select-validate-success':_vm.success,
+    'input-select-validate-danger':_vm.danger,
+    'input-select-validate-warning':_vm.warning}},[(_vm.label)?_c('label',{ref:"inputSelectLabel",staticClass:"vs-select--label",attrs:{"for":""}},[_vm._v(_vm._s(_vm.label))]):_vm._e(),_c('div',{staticClass:"input-select-con"},[_c('input',_vm._g(_vm._b({ref:"inputselect",staticClass:"input-select vs-select--input",attrs:{"readonly":!_vm.autocomplete,"type":"text"},on:{"click":function($event){$event.stopPropagation();},"keydown":function($event){if(!('button' in $event)&&_vm._k($event.keyCode,"esc",27,$event.key,"Escape")){ return null; }$event.stopPropagation();$event.preventDefault();return _vm.closeOptions($event)}}},'input',_vm.$attrs,false),_vm.listeners)),_c('i',{staticClass:"material-icons icon-select notranslate vs-select--icon",attrs:{"translate":"no"}},[_vm._v("\n      keyboard_arrow_down\n    ")]),_c('transition',{attrs:{"name":"fade-select"}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.active),expression:"active"}],ref:"vsSelectOptions",staticClass:"vs-select--options",class:[("vs-select-" + _vm.color),{'scrollx':_vm.scrollx}],style:(_vm.cords)},[_c('ul',{ref:"ulx"},[_vm._t("default")],2),_c('ul',{directives:[{name:"show",rawName:"v-show",value:(_vm.clear),expression:"clear"}]},[_c('li',{on:{"click":function($event){_vm.filterItems(''),_vm.changeValue()}}},[_vm._v("\n            "+_vm._s(_vm.noData)+"\n          ")])])])])],1),_c('transition-group',{on:{"before-enter":_vm.beforeEnter,"enter":_vm.enter,"leave":_vm.leave}},[(_vm.success)?_c('div',{key:"success",staticClass:"con-text-validation"},[_c('span',{staticClass:"span-text-validation span-text-validation-success"},[_vm._v("\n        "+_vm._s(_vm.successText)+"\n      ")])]):(_vm.danger)?_c('div',{key:"danger",staticClass:"con-text-validation span-text-validation-danger"},[_c('span',{staticClass:"span-text-validation"},[_vm._v("\n        "+_vm._s(_vm.dangerText)+"\n      ")])]):(_vm.warning)?_c('div',{key:"warning",staticClass:"con-text-validation span-text-validation-warning"},[_c('span',{staticClass:"span-text-validation"},[_vm._v("\n        "+_vm._s(_vm.warningText)+"\n      ")])]):_vm._e(),(_vm.descriptionText)?_c('div',{key:"description",staticClass:"con-text-validation span-text-validation"},[_c('span',{staticClass:"span-text-validation"},[_vm._v("\n        "+_vm._s(_vm.descriptionText)+"\n      ")])]):_vm._e()])],1)}
+var vsSelectvue_type_template_id_13b73bdf_lang_html_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/vsSelect/vsSelect.vue?vue&type=template&id=4ec51ceb&lang=html&
+// CONCATENATED MODULE: ./src/components/vsSelect/vsSelect.vue?vue&type=template&id=13b73bdf&lang=html&
 
 // CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/builtin/es6/arrayWithoutHoles.js
 function _arrayWithoutHoles(arr) {
@@ -2308,15 +2308,15 @@ var es6_number_constructor = __webpack_require__("C7kS");
   name: 'VsSelect',
   props: {
     value: {},
-    vsNoData: {
+    noData: {
       default: 'data no available',
       type: String
     },
-    vsMaxSelected: {
+    maxSelected: {
       default: null,
       type: [Number, String]
     },
-    vsAutocomplete: {
+    autocomplete: {
       default: false,
       type: Boolean
     },
@@ -2324,39 +2324,39 @@ var es6_number_constructor = __webpack_require__("C7kS");
       default: 'primary',
       type: String
     },
-    vsMultiple: {
+    multiple: {
       default: false,
       type: Boolean
     },
-    vsLabel: {
+    label: {
       default: null,
       type: [String]
     },
-    vsSuccess: {
+    success: {
       default: false,
       type: Boolean
     },
-    vsDanger: {
+    danger: {
       default: false,
       type: Boolean
     },
-    vsWarning: {
+    warning: {
       default: false,
       type: Boolean
     },
-    vsSuccessText: {
+    successText: {
       default: null,
       type: String
     },
-    vsDangerText: {
+    dangerText: {
       default: null,
       type: String
     },
-    vsWarningText: {
+    warningText: {
       default: null,
       type: String
     },
-    vsDescriptionText: {
+    descriptionText: {
       default: null,
       type: String
     }
@@ -2381,7 +2381,7 @@ var es6_number_constructor = __webpack_require__("C7kS");
 
       return _objectSpread({}, this.$listeners, {
         blur: function blur(event) {
-          if (_this.vsAutocomplete && event.relatedTarget ? !event.relatedTarget.closest('.vs-select--options') : false) {
+          if (_this.autocomplete && event.relatedTarget ? !event.relatedTarget.closest('.vs-select--options') : false) {
             _this.closeOptions();
           }
 
@@ -2394,7 +2394,7 @@ var es6_number_constructor = __webpack_require__("C7kS");
           _this.focus(event);
         },
         input: function input(event) {
-          if (_this.vsAutocomplete) {
+          if (_this.autocomplete) {
             _this.$emit('input-change', event);
           }
         },
@@ -2408,7 +2408,7 @@ var es6_number_constructor = __webpack_require__("C7kS");
 
             childrens[0].$el.querySelector('.vs-select-item-btn').focus();
           } else {
-            if (_this.vsAutocomplete) {
+            if (_this.autocomplete) {
               _this.filterItems(event.target.value);
             }
           }
@@ -2458,11 +2458,11 @@ var es6_number_constructor = __webpack_require__("C7kS");
         this.$emit('input', currentValues);
         this.changeValue();
 
-        if (this.vsAutocomplete) {
+        if (this.autocomplete) {
           this.$refs.inputselect.focus();
         }
       } else {
-        if (this.vsAutocomplete) {
+        if (this.autocomplete) {
           currentValues.push(value);
           this.$emit('input', currentValues);
           this.filterItems('');
@@ -2492,10 +2492,10 @@ var es6_number_constructor = __webpack_require__("C7kS");
         }
       });
       items.map(function (item) {
-        if (!('vsText' in item)) return;
-        var text = item.vsText;
+        if (!('text' in item)) return;
+        var text = item.text;
 
-        if (_this3.vsMultiple) {
+        if (_this3.multiple) {
           var valuesx = value.split(',');
           valuesx.forEach(function (value_multi) {
             if (text.toUpperCase().indexOf(value_multi.toUpperCase()) == -1) {
@@ -2527,7 +2527,7 @@ var es6_number_constructor = __webpack_require__("C7kS");
       });
     },
     changeValue: function changeValue() {
-      if (this.vsMultiple) {
+      if (this.multiple) {
         var values = this.value ? this.value : [];
         var options = this.$children;
         options.forEach(function (item) {
@@ -2538,8 +2538,8 @@ var es6_number_constructor = __webpack_require__("C7kS");
         var optionsValues = [];
         values.forEach(function (item) {
           options.forEach(function (item_option) {
-            if (item_option.vsValue == item) {
-              var text = item_option.vsText;
+            if (item_option.value == item) {
+              var text = item_option.text;
               text = text.replace('check_circle', '');
               optionsValues.push(text.trim());
             }
@@ -2562,7 +2562,7 @@ var es6_number_constructor = __webpack_require__("C7kS");
         document.addEventListener('click', _this4.clickBlur);
       }, 100);
 
-      if (this.vsAutocomplete && this.vsMultiple) {
+      if (this.autocomplete && this.multiple) {
         setTimeout(function () {
           if (inputx.value) {
             _this4.$refs.inputselect.value = inputx.value += ',';
@@ -2570,12 +2570,12 @@ var es6_number_constructor = __webpack_require__("C7kS");
 
           inputx.selectionStart = inputx.selectionEnd = 10000;
         }, 10);
-      } else if (this.vsAutocomplete && !this.vsMultiple) {
+      } else if (this.autocomplete && !this.multiple) {
         this.$refs.inputselect.select();
       }
 
-      if (!this.vsAutocomplete) {
-        if (this.vsMultiple ? this.value.length == 0 : !this.value || this.vsMultiple) {
+      if (!this.autocomplete) {
+        if (this.multiple ? this.value.length == 0 : !this.value || this.multiple) {
           setTimeout(function () {
             _this4.$children[0].$el.querySelector('.vs-select-item-btn').focus();
           }, 50);
@@ -2592,7 +2592,7 @@ var es6_number_constructor = __webpack_require__("C7kS");
       if (!closestx) {
         this.closeOptions();
 
-        if (this.vsAutocomplete) {
+        if (this.autocomplete) {
           this.filterItems('');
         }
 
@@ -2608,7 +2608,7 @@ var es6_number_constructor = __webpack_require__("C7kS");
     changePosition: function changePosition() {
       var elx = this.$refs.inputselect;
       var content = this.$refs.vsSelectOptions;
-      var conditional = this.vsAutocomplete;
+      var conditional = this.autocomplete;
       var topx = 0;
       var leftx = 0;
       var widthx = 0;
@@ -2670,8 +2670,8 @@ var es6_number_constructor = __webpack_require__("C7kS");
 
 var vsSelect_component = normalizeComponent(
   vsSelect_vsSelectvue_type_script_lang_js_,
-  vsSelectvue_type_template_id_4ec51ceb_lang_html_render,
-  vsSelectvue_type_template_id_4ec51ceb_lang_html_staticRenderFns,
+  vsSelectvue_type_template_id_13b73bdf_lang_html_render,
+  vsSelectvue_type_template_id_13b73bdf_lang_html_staticRenderFns,
   false,
   null,
   null,
@@ -2681,16 +2681,16 @@ var vsSelect_component = normalizeComponent(
 
 vsSelect_component.options.__file = "vsSelect.vue"
 /* harmony default export */ var vsSelect = (vsSelect_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://Users//DELL//Documents//vuesax//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!C:/Users/DELL/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsSelect/vsSelectItem.vue?vue&type=template&id=66a0010c&lang=html&
-var vsSelectItemvue_type_template_id_66a0010c_lang_html_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('li',{directives:[{name:"show",rawName:"v-show",value:(_vm.visible),expression:"visible"}],staticClass:"vs-component",attrs:{"data-text":_vm.vsText}},[_c('button',_vm._g(_vm._b({ref:"item",staticClass:"vs-select--item",class:{
-      'activex':_vm.$parent.parent.vsMultiple?_vm.getValue.indexOf(_vm.vsValue) != -1:_vm.getValue == _vm.vsValue,
-      'con-icon':_vm.$parent.parent.vsMultiple,
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://Users//DELL//Documents//vuesax//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!C:/Users/DELL/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsSelect/vsSelectItem.vue?vue&type=template&id=5273c42e&lang=html&
+var vsSelectItemvue_type_template_id_5273c42e_lang_html_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('li',{directives:[{name:"show",rawName:"v-show",value:(_vm.visible),expression:"visible"}],staticClass:"vs-component",attrs:{"data-text":_vm.text}},[_c('button',_vm._g(_vm._b({ref:"item",staticClass:"vs-select--item",class:{
+      'activex':_vm.$parent.parent.multiple?_vm.getValue.indexOf(_vm.value) != -1:_vm.getValue == _vm.value,
+      'con-icon':_vm.$parent.parent.multiple,
       'disabledx':_vm.disabledx
-    },style:(_vm.styles),attrs:{"disabled":_vm.disabled,"type":"button","name":"button"},on:{"keydown":[function($event){if(!('button' in $event)&&_vm._k($event.keyCode,"backspace",undefined,$event.key,undefined)){ return null; }$event.preventDefault();return _vm.backspace($event)},function($event){if(!('button' in $event)&&_vm._k($event.keyCode,"down",40,$event.key,["Down","ArrowDown"])){ return null; }$event.preventDefault();_vm.navigateOptions('next')},function($event){if(!('button' in $event)&&_vm._k($event.keyCode,"up",38,$event.key,["Up","ArrowUp"])){ return null; }$event.preventDefault();_vm.navigateOptions('prev')},function($event){if(!('button' in $event)&&_vm._k($event.keyCode,"enter",13,$event.key,"Enter")){ return null; }$event.preventDefault();_vm.clickOption()}]}},'button',_vm.$attrs,false),_vm.listeners),[(_vm.$parent.parent.vsMultiple)?_c('i',{staticClass:"material-icons icon-item vs-select--item-icon"},[_vm._v("\n      check_circle\n    ")]):_vm._e(),_c('span',{domProps:{"innerHTML":_vm._s(_vm.getText)}})])])}
-var vsSelectItemvue_type_template_id_66a0010c_lang_html_staticRenderFns = []
+    },style:(_vm.styles),attrs:{"disabled":_vm.disabled,"type":"button","name":"button"},on:{"keydown":[function($event){if(!('button' in $event)&&_vm._k($event.keyCode,"backspace",undefined,$event.key,undefined)){ return null; }$event.preventDefault();return _vm.backspace($event)},function($event){if(!('button' in $event)&&_vm._k($event.keyCode,"down",40,$event.key,["Down","ArrowDown"])){ return null; }$event.preventDefault();_vm.navigateOptions('next')},function($event){if(!('button' in $event)&&_vm._k($event.keyCode,"up",38,$event.key,["Up","ArrowUp"])){ return null; }$event.preventDefault();_vm.navigateOptions('prev')},function($event){if(!('button' in $event)&&_vm._k($event.keyCode,"enter",13,$event.key,"Enter")){ return null; }$event.preventDefault();_vm.clickOption()}]}},'button',_vm.$attrs,false),_vm.listeners),[(_vm.$parent.parent.multiple)?_c('i',{staticClass:"material-icons icon-item vs-select--item-icon"},[_vm._v("\n      check_circle\n    ")]):_vm._e(),_c('span',{domProps:{"innerHTML":_vm._s(_vm.getText)}})])])}
+var vsSelectItemvue_type_template_id_5273c42e_lang_html_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/vsSelect/vsSelectItem.vue?vue&type=template&id=66a0010c&lang=html&
+// CONCATENATED MODULE: ./src/components/vsSelect/vsSelectItem.vue?vue&type=template&id=5273c42e&lang=html&
 
 // EXTERNAL MODULE: C:/Users/DELL/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/core-js/modules/es6.regexp.constructor.js
 var es6_regexp_constructor = __webpack_require__("Sg3o");
@@ -2749,10 +2749,10 @@ var es6_regexp_constructor = __webpack_require__("Sg3o");
       type: Boolean,
       default: false
     },
-    vsValue: {
+    value: {
       default: null
     },
-    vsText: {
+    text: {
       default: null
     }
   },
@@ -2766,18 +2766,18 @@ var es6_regexp_constructor = __webpack_require__("Sg3o");
   },
   computed: {
     disabledx: function disabledx() {
-      if (this.$parent.parent.vsMultiple) {
+      if (this.$parent.parent.multiple) {
         if (this.isActive) {
           return false;
         } else {
-          return this.$parent.parent.vsMaxSelected == this.$parent.parent.value.length;
+          return this.$parent.parent.maxSelected == this.$parent.parent.value.length;
         }
       } else {
         return false;
       }
     },
     isActive: function isActive() {
-      return this.$parent.parent.vsMultiple ? this.getValue.indexOf(this.vsValue) != -1 : this.getValue == this.vsValue;
+      return this.$parent.parent.multiple ? this.getValue.indexOf(this.value) != -1 : this.getValue == this.value;
     },
     listeners: function listeners() {
       var _this = this;
@@ -2819,16 +2819,16 @@ var es6_regexp_constructor = __webpack_require__("Sg3o");
       var _this2 = this;
 
       this.$nextTick(function () {
-        if (_this2.$parent.parent.vsMultiple ? _this2.getValue.indexOf(_this2.vsValue) != -1 : _this2.getValue == _this2.vsValue) {
+        if (_this2.$parent.parent.multiple ? _this2.getValue.indexOf(_this2.value) != -1 : _this2.getValue == _this2.value) {
           _this2.$emit('update:isSelected', true);
 
-          _this2.getText = _this2.vsText;
+          _this2.getText = _this2.text;
 
           _this2.putValue();
         } else {
           _this2.$emit('update:isSelected', false);
 
-          _this2.getText = _this2.vsText;
+          _this2.getText = _this2.text;
 
           _this2.putValue();
         }
@@ -2839,21 +2839,21 @@ var es6_regexp_constructor = __webpack_require__("Sg3o");
         var valueInputx = this.valueInputx.split(',');
 
         if (valueInputx[valueInputx.length - 1] == '') {
-          this.getText = this.vsText;
+          this.getText = this.text;
           return;
         }
 
         var valuex = valueInputx[valueInputx.length - 1];
         var re = new RegExp(valuex, "i");
 
-        if (this.vsText.toUpperCase().indexOf(valuex.toUpperCase()) == 0) {
+        if (this.text.toUpperCase().indexOf(valuex.toUpperCase()) == 0) {
           valuex = this.MaysPrimera(valuex);
         }
 
-        var text = this.vsText.replace(re, "<span class=\"searchx\">".concat(valuex, "</span>"));
+        var text = this.text.replace(re, "<span class=\"searchx\">".concat(valuex, "</span>"));
         this.getText = text;
       } else {
-        this.getText = this.vsText;
+        this.getText = this.text;
       }
     }
   },
@@ -2862,16 +2862,16 @@ var es6_regexp_constructor = __webpack_require__("Sg3o");
 
     this.putValue();
     this.$nextTick(function () {
-      if (_this3.$parent.parent.vsMultiple ? _this3.getValue.indexOf(_this3.vsValue) != -1 : _this3.getValue == _this3.vsValue) {
+      if (_this3.$parent.parent.multiple ? _this3.getValue.indexOf(_this3.value) != -1 : _this3.getValue == _this3.value) {
         _this3.$emit('update:isSelected', true);
 
-        _this3.getText = _this3.vsText;
+        _this3.getText = _this3.text;
 
         _this3.putValue();
       } else {
         _this3.$emit('update:isSelected', false);
 
-        _this3.getText = _this3.vsText;
+        _this3.getText = _this3.text;
 
         _this3.putValue();
       }
@@ -2888,7 +2888,7 @@ var es6_regexp_constructor = __webpack_require__("Sg3o");
       return string.charAt(0).toUpperCase() + string.slice(1);
     },
     backspace: function backspace() {
-      if (this.$parent.parent.vsAutocomplete) {
+      if (this.$parent.parent.autocomplete) {
         var valueInput = this.$parent.parent.$refs.inputselect.value;
         this.$parent.parent.$refs.inputselect.value = valueInput.substr(0, valueInput.length - 1);
         this.$parent.parent.$refs.inputselect.focus();
@@ -2943,14 +2943,14 @@ var es6_regexp_constructor = __webpack_require__("Sg3o");
     focusValue: function focusValue(index) {
       var _this4 = this;
 
-      if (this.$parent.parent.vsMultiple ? this.$parent.parent.value.indexOf(this.vsValue) != -1 : this.vsValue == this.$parent.parent.value) {
-        if (!this.$parent.parent.vsAutocomplete) {
+      if (this.$parent.parent.multiple ? this.$parent.parent.value.indexOf(this.value) != -1 : this.value == this.$parent.parent.value) {
+        if (!this.$parent.parent.autocomplete) {
           setTimeout(function () {
             _this4.$refs.item.focus();
           }, 50);
         }
       } else if (index === 0) {
-        if (!this.$parent.parent.vsAutocomplete) {
+        if (!this.$parent.parent.autocomplete) {
           setTimeout(function () {
             _this4.$refs.item.focus();
           }, 50);
@@ -2958,8 +2958,8 @@ var es6_regexp_constructor = __webpack_require__("Sg3o");
       }
     },
     putValue: function putValue() {
-      if (this.vsValue == this.$parent.parent.value) {
-        this.$parent.parent.valuex = this.vsText;
+      if (this.value == this.$parent.parent.value) {
+        this.$parent.parent.valuex = this.text;
       }
     },
     clickOption: function clickOption() {
@@ -2967,17 +2967,17 @@ var es6_regexp_constructor = __webpack_require__("Sg3o");
         return;
       }
 
-      var text = this.vsText;
+      var text = this.text;
 
-      if (!this.$parent.parent.vsMultiple) {
+      if (!this.$parent.parent.multiple) {
         this.$parent.parent.active = false;
         document.removeEventListener('click', this.$parent.parent.clickBlur);
         this.$parent.parent.valuex = text;
-        this.$parent.parent.$emit('input', this.vsValue);
+        this.$parent.parent.$emit('input', this.value);
         this.$parent.parent.changeValue();
-      } else if (this.$parent.parent.vsMultiple) {
+      } else if (this.$parent.parent.multiple) {
         this.$parent.parent.valuex = text;
-        this.$parent.parent.addMultiple(this.vsValue);
+        this.$parent.parent.addMultiple(this.value);
       }
 
       this.$parent.parent.$children.map(function (item) {
@@ -3002,8 +3002,8 @@ var es6_regexp_constructor = __webpack_require__("Sg3o");
 
 var vsSelectItem_component = normalizeComponent(
   vsSelect_vsSelectItemvue_type_script_lang_js_,
-  vsSelectItemvue_type_template_id_66a0010c_lang_html_render,
-  vsSelectItemvue_type_template_id_66a0010c_lang_html_staticRenderFns,
+  vsSelectItemvue_type_template_id_5273c42e_lang_html_render,
+  vsSelectItemvue_type_template_id_5273c42e_lang_html_staticRenderFns,
   false,
   null,
   null,

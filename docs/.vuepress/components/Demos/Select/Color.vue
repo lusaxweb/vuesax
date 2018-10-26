@@ -2,20 +2,20 @@
   <div class="con-select-example">
     <input v-model="colorx" type="color" name="" value="">
     <vs-select
-    :color="colorx"
-    class="selectExample"
+      :color="colorx"
+      class="selectExample"
       label="Figuras"
       v-model="select1"
       >
-      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in options1" />
+      <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="item,index in options1" />
     </vs-select>
     <vs-select
-    :color="select2"
-    class="selectExample"
+      :color="select2"
+      class="selectExample"
       label="Figuras"
       v-model="select2"
       >
-      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in options2" />
+      <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="item,index in options2" />
     </vs-select>
   </div>
 </template>

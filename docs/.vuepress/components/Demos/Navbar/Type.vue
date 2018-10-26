@@ -2,15 +2,15 @@
   <div class="con-type-example">
 
     <vs-select
-    class="selectExample"
+      class="selectExample"
       label="Figuras"
       v-model="type"
       >
-      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="(item,index) in types" />
+      <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="(item,index) in types" />
     </vs-select>
 
     <vs-navbar :type="type" v-model="activeItem" class="nabarx">
-      <vs-button vs-type="flat" vs-radius="50%" vs-icon="menu"></vs-button>
+      <vs-button vs-type="flat" vs-icon="menu"></vs-button>
 
       <vs-navbar-title>
         Type {{type}}

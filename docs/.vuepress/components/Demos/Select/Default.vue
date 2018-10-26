@@ -1,26 +1,26 @@
 <template lang="html">
   <div class="con-select-example">
     <vs-select
-    class="selectExample"
+      class="selectExample"
       label="Figuras"
       v-model="select1"
       >
-      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in options1" />
+      <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="item,index in options1" />
     </vs-select>
     <vs-select
-    class="selectExample"
+      class="selectExample"
       label="Figuras"
       v-model="select2"
       >
-      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in options2" />
+      <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="item,index in options2" />
     </vs-select>
     <vs-select
-      disabled="true"
+      disabled
       class="selectExample"
       label="Figuras"
       v-model="select3"
       >
-      <vs-select-item :key="index" :disabled="index==2" :vs-value="item.value" :vs-text="item.text" v-for="item,index in options3" />
+      <vs-select-item :key="index" :disabled="index==2" :value="item.value" :text="item.text" v-for="item,index in options3" />
     </vs-select>
   </div>
 </template>

@@ -2,36 +2,36 @@
   <div class="con-select-example">
     <vs-select
         class="selectExample"
-        vs-label="Defautl"
+        label="Defautl"
         v-model="select1"
         >
         <div :key="index" v-for="item,index in options1">
           <vs-select-group :title="item.title" v-if="item.group">
-            <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in item.group"/>
+            <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="item,index in item.group"/>
           </vs-select-group>
         </div>
     </vs-select>
     <vs-select
-        vs-multiple
+        multiple
         class="selectExample"
-        vs-label="Multiple"
+        label="Multiple"
         v-model="select2"
         >
         <div :key="index" v-for="item,index in options2">
           <vs-select-group :title="item.title" v-if="item.group">
-            <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in item.group"/>
+            <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="item,index in item.group"/>
           </vs-select-group>
         </div>
     </vs-select>
     <vs-select
-        vs-autocomplete
+        autocomplete
         class="selectExample"
-        vs-label="Autocomplete"
+        label="Autocomplete"
         v-model="select3"
         >
         <div :key="index" v-for="item,index in options3">
           <vs-select-group :title="item.title" v-if="item.group">
-            <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in item.group"/>
+            <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="item,index in item.group"/>
           </vs-select-group>
         </div>
     </vs-select>

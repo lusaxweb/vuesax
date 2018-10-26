@@ -3,21 +3,21 @@
     <vs-select
       placeholder="Select"
       class="selectExample"
-      vs-label="Multiple"
-      vs-multiple
+      label="Multiple"
+      multiple
       v-model="select1"
       >
-      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in options1" />
+      <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="item,index in options1" />
     </vs-select>
     <vs-select
       placeholder="Search and select"
       class="selectExample"
-      vs-label="Autocomplete"
-      vs-multiple
-      vs-autocomplete
+      label="Autocomplete"
+      multiple
+      autocomplete
       v-model="select2"
       >
-      <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in options2" />
+      <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="item,index in options2" />
     </vs-select>
   </div>
 </template>

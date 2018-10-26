@@ -12,7 +12,7 @@
       label="Figuras"
       v-model="select1"
       >
-        <vs-select-item :key="index" :vs-value="item.value" :vs-text="item.text" v-for="item,index in options1" />
+        <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="item,index in options1" />
       </vs-select>
       <vs-button @click="popupActivo3=true" color="primary" vs-type="filled">Open Inner Popup</vs-button>
       <vs-popup title="Inner popup" :active.sync="popupActivo3">

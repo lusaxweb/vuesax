@@ -34,7 +34,7 @@
                 label="Users"
                 v-model="tr.username"
                 >
-                <vs-select-item :key="index" :vs-value="item.name" :vs-text="item.name" v-for="(item,index) in users" />
+                <vs-select-item :key="index" :value="item.name" :text="item.name" v-for="(item,index) in users" />
               </vs-select>
             </template>
           </vs-td>

@@ -1,23 +1,23 @@
 <template lang="html">
   <div
     :class="{
-      'autocompletex':vsAutocomplete,
+      'autocompletex':autocomplete,
       'activeOptions':active,
-      'input-select-validate-success':vsSuccess,
-      'input-select-validate-danger':vsDanger,
-      'input-select-validate-warning':vsWarning}"
+      'input-select-validate-success':success,
+      'input-select-validate-danger':danger,
+      'input-select-validate-warning':warning}"
     class="con-select">
     <label
-      v-if="vsLabel"
+      v-if="label"
       ref="inputSelectLabel"
       class="vs-select--label"
-      for="">{{ vsLabel }}</label>
+      for="">{{ label }}</label>
     <div class="input-select-con">
       <!-- v-model="valueFilter" -->
       <input
         ref="inputselect"
         v-bind="$attrs"
-        :readonly="!vsAutocomplete"
+        :readonly="!autocomplete"
         class="input-select vs-select--input"
         type="text"
         @click.stop
@@ -42,7 +42,7 @@
           </ul>
           <ul v-show="clear">
             <li @click="filterItems(''),changeValue()" >
-              {{ vsNoData }}
+              {{ noData }}
             </li>
           </ul>
         </div>
@@ -55,42 +55,42 @@
       @leave="leave"
     >
       <div
-        v-if="vsSuccess"
+        v-if="success"
         key="success"
         class="con-text-validation">
         <span class="span-text-validation span-text-validation-success">
           {{
-            vsSuccessText
+            successText
           }}
         </span>
       </div>
       <div
-        v-else-if="vsDanger"
+        v-else-if="danger"
         key="danger"
         class="con-text-validation span-text-validation-danger">
         <span class="span-text-validation">
           {{
-            vsDangerText
+            dangerText
           }}
         </span>
       </div>
       <div
-        v-else-if="vsWarning"
+        v-else-if="warning"
         key="warning"
         class="con-text-validation span-text-validation-warning">
         <span class="span-text-validation">
           {{
-            vsWarningText
+            warningText
           }}
         </span>
       </div>
       <div
-        v-if="vsDescriptionText"
+        v-if="descriptionText"
         key="description"
         class="con-text-validation span-text-validation">
         <span class="span-text-validation">
           {{
-            vsDescriptionText
+            descriptionText
           }}
         </span>
       </div>
@@ -104,15 +104,15 @@ export default {
   name:'VsSelect',
   props:{
     value:{},
-    vsNoData:{
+    noData:{
       default:'data no available',
       type:String
     },
-    vsMaxSelected:{
+    maxSelected:{
       default:null,
       type:[Number,String]
     },
-    vsAutocomplete:{
+    autocomplete:{
       default:false,
       type:Boolean
     },
@@ -120,39 +120,39 @@ export default {
       default:'primary',
       type:String
     },
-    vsMultiple:{
+    multiple:{
       default:false,
       type:Boolean
     },
-    vsLabel:{
+    label:{
       default:null,
       type:[String]
     },
-    vsSuccess:{
+    success:{
       default:false,
       type:Boolean
     },
-    vsDanger:{
+    danger:{
       default:false,
       type:Boolean
     },
-    vsWarning:{
+    warning:{
       default:false,
       type:Boolean
     },
-    vsSuccessText:{
+    successText:{
       default: null,
       type:String
     },
-    vsDangerText:{
+    dangerText:{
       default: null,
       type:String
     },
-    vsWarningText:{
+    warningText:{
       default: null,
       type:String
     },
-    vsDescriptionText:{
+    descriptionText:{
       default: null,
       type:String
     },
@@ -174,7 +174,7 @@ export default {
       return {
         ...this.$listeners,
         blur: (event) => {
-          if(this.vsAutocomplete && event.relatedTarget?!event.relatedTarget.closest('.vs-select--options'):false ){
+          if(this.autocomplete && event.relatedTarget?!event.relatedTarget.closest('.vs-select--options'):false ){
             this.closeOptions()
           }
           this.$emit('blur',event)
@@ -185,7 +185,7 @@ export default {
           this.focus(event)
         },
         input: (event) => {
-          if (this.vsAutocomplete) {
+          if (this.autocomplete) {
             this.$emit('input-change', event)
           }
         },
@@ -197,7 +197,7 @@ export default {
             })
             childrens[0].$el.querySelector('.vs-select-item-btn').focus()
           } else {
-            if(this.vsAutocomplete){
+            if(this.autocomplete){
               this.filterItems(event.target.value)
             }
           }
@@ -243,11 +243,11 @@ export default {
         currentValues.splice(currentValues.indexOf(value),1)
         this.$emit('input', currentValues);
         this.changeValue()
-        if(this.vsAutocomplete) {
+        if(this.autocomplete) {
           this.$refs.inputselect.focus()
         }
       } else {
-        if(this.vsAutocomplete){
+        if(this.autocomplete){
           currentValues.push(value)
           this.$emit('input', currentValues);
           this.filterItems('')
@@ -278,11 +278,11 @@ export default {
 
       items.map((item)=>{
 
-        if (!('vsText' in item)) return
+        if (!('text' in item)) return
 
-        let text = item.vsText
+        let text = item.text
 
-        if(this.vsMultiple){
+        if(this.multiple){
           let valuesx = value.split(',')
           valuesx.forEach((value_multi)=>{
             if(text.toUpperCase().indexOf(value_multi.toUpperCase()) == -1){
@@ -317,7 +317,7 @@ export default {
       })
     },
     changeValue(){
-      if(this.vsMultiple){
+      if(this.multiple){
         let values = this.value ? this.value : [];
         let options = this.$children
 
@@ -330,8 +330,8 @@ export default {
         let optionsValues = []
         values.forEach((item)=>{
           options.forEach((item_option)=>{
-            if(item_option.vsValue == item) {
-              let text = item_option.vsText
+            if(item_option.value == item) {
+              let text = item_option.text
               text = text.replace('check_circle','')
               optionsValues.push(text.trim())
             }
@@ -351,7 +351,7 @@ export default {
       setTimeout( ()=> {
         document.addEventListener('click',this.clickBlur)
       }, 100);
-      if(this.vsAutocomplete && this.vsMultiple){
+      if(this.autocomplete && this.multiple){
         setTimeout( ()=> {
           if(inputx.value){
             this.$refs.inputselect.value = inputx.value += ','
@@ -359,12 +359,12 @@ export default {
           inputx.selectionStart = inputx.selectionEnd = 10000;
         }, 10);
 
-      } else if (this.vsAutocomplete && !this.vsMultiple) {
+      } else if (this.autocomplete && !this.multiple) {
         this.$refs.inputselect.select()
       }
 
-      if (!this.vsAutocomplete) {
-        if(this.vsMultiple?this.value.length == 0:!this.value || this.vsMultiple){
+      if (!this.autocomplete) {
+        if(this.multiple?this.value.length == 0:!this.value || this.multiple){
           setTimeout( () => {
             this.$children[0].$el.querySelector('.vs-select-item-btn').focus()
           }, 50);
@@ -379,7 +379,7 @@ export default {
       let closestx = event.target.closest('.vs-select--options')
       if(!closestx){
         this.closeOptions()
-        if(this.vsAutocomplete){
+        if(this.autocomplete){
           this.filterItems('')
         }
         this.changeValue()
@@ -394,7 +394,7 @@ export default {
     changePosition(){
       let elx = this.$refs.inputselect
       let content = this.$refs.vsSelectOptions
-      let conditional = this.vsAutocomplete
+      let conditional = this.autocomplete
       let topx = 0
       let leftx = 0
       let widthx = 0

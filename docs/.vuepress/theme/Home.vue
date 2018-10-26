@@ -260,6 +260,7 @@ export default {
   justify-content: flex-start;
   padding-top: 10px;
   button
+    margin-right 8px
     background: $accentColor !important
     border: 0px;
     border-radius: 6px;
