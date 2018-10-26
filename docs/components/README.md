@@ -45,6 +45,11 @@ API:
     parameters: null
     description: Change the secondary color on the button (gradient)
     default: primary
+  - name: vs-radius
+    type: Boolean
+    parameters: null
+    description: Change button radius to circle
+    default: false
   - name: to
     type: String | Object
     parameters: null
@@ -426,12 +431,12 @@ You can have a button with only the icon you want with the property `vs-icon` an
 <vs-button disabled color="primary" vs-type="border" vs-icon="search"></vs-button>
 <br>
 <br>
-<vs-button style="border-radius: 50%" color="primary" vs-type="border" vs-icon="search"></vs-button>
-<vs-button style="border-radius: 50%" color="warning" vs-type="filled" vs-icon="public"></vs-button>
-<vs-button style="border-radius: 50%" color="success" vs-type="flat" vs-icon="photo_camera"></vs-button>
-<vs-button style="border-radius: 50%" color="dark" vs-type="line" vs-icon="event_note"></vs-button>
-<vs-button style="border-radius: 50%" color="danger" vs-type="gradient" vs-icon="person_add"></vs-button>
-<vs-button disabled style="border-radius: 50%" color="primary" vs-type="border" vs-icon="search"></vs-button>
+<vs-button vs-radius color="primary" vs-type="border" vs-icon="search"></vs-button>
+<vs-button vs-radius color="warning" vs-type="filled" vs-icon="public"></vs-button>
+<vs-button vs-radius color="success" vs-type="flat" vs-icon="photo_camera"></vs-button>
+<vs-button vs-radius color="dark" vs-type="line" vs-icon="event_note"></vs-button>
+<vs-button vs-radius color="danger" vs-type="gradient" vs-icon="person_add"></vs-button>
+<vs-button disabled vs-radius color="primary" vs-type="border" vs-icon="search"></vs-button>
 </div>
 <div slot="code">
 
@@ -444,12 +449,12 @@ You can have a button with only the icon you want with the property `vs-icon` an
 <vs-button disabled color="primary" vs-type="border" vs-icon="search"></vs-button>
 <br>
 <br>
-<vs-button style="border-radius: 50%" color="primary" vs-type="border" vs-icon="search"></vs-button>
-<vs-button style="border-radius: 50%" color="warning" vs-type="filled" vs-icon="public"></vs-button>
-<vs-button style="border-radius: 50%" color="success" vs-type="flat" vs-icon="photo_camera"></vs-button>
-<vs-button style="border-radius: 50%" color="dark" vs-type="line" vs-icon="event_note"></vs-button>
-<vs-button style="border-radius: 50%" color="danger" vs-type="gradient" vs-icon="person_add"></vs-button>
-<vs-button disabled style="border-radius: 50%" color="primary" vs-type="border" vs-icon="search"></vs-button>
+<vs-button vs-radius color="primary" vs-type="border" vs-icon="search"></vs-button>
+<vs-button vs-radius color="warning" vs-type="filled" vs-icon="public"></vs-button>
+<vs-button vs-radius color="success" vs-type="flat" vs-icon="photo_camera"></vs-button>
+<vs-button vs-radius color="dark" vs-type="line" vs-icon="event_note"></vs-button>
+<vs-button vs-radius color="danger" vs-type="gradient" vs-icon="person_add"></vs-button>
+<vs-button disabled vs-radius color="primary" vs-type="border" vs-icon="search"></vs-button>
 ```
 
 </div>
@@ -491,19 +496,19 @@ you can use all programmatic navigation on vue router.
 
 <vuecode md center>
 <div slot="demo">
-<vs-button vs-color="primary" vs-type="filled" to="/components/list.html">String literal</vs-button>
-<vs-button vs-color="warning" vs-type="filled" :to="{path: '/components/list.html'}">Object Path</vs-button>
-<vs-button vs-color="success" vs-type="filled" :to="{ name: 'user', params: { userId: 123 }}">Named Router</vs-button>
-<vs-button vs-color="dark"    vs-type="filled" :to="{ path: 'register', query: { plan: 'private' }}">With Query</vs-button>
+<vs-button color="primary" vs-type="filled" to="/components/list.html">String literal</vs-button>
+<vs-button color="warning" vs-type="filled" :to="{path: '/components/list.html'}">Object Path</vs-button>
+<vs-button color="success" vs-type="filled" :to="{ name: 'user', params: { userId: 123 }}">Named Router</vs-button>
+<vs-button color="dark"    vs-type="filled" :to="{ path: 'register', query: { plan: 'private' }}">With Query</vs-button>
 </div>
 
 <div slot="code">
 
 ```html
-<vs-button vs-color="primary" vs-type="filled" to="/components/list.html">String literal</vs-button>
-<vs-button vs-color="warning" vs-type="filled" :to="{ path: '/components/list.html' }">Object Path</vs-button>
-<vs-button vs-color="success" vs-type="filled" :to="{ name: 'user', params: { userId: 123 } }">Named Router</vs-button>
-<vs-button vs-color="dark"    vs-type="filled" :to="{ path: 'register', query: { plan: 'private' } }">With Query</vs-button>
+<vs-button color="primary" vs-type="filled" to="/components/list.html">String literal</vs-button>
+<vs-button color="warning" vs-type="filled" :to="{ path: '/components/list.html' }">Object Path</vs-button>
+<vs-button color="success" vs-type="filled" :to="{ name: 'user', params: { userId: 123 } }">Named Router</vs-button>
+<vs-button color="dark"    vs-type="filled" :to="{ path: 'register', query: { plan: 'private' } }">With Query</vs-button>
 ```
 
 </div>

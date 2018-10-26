@@ -5,7 +5,8 @@
     :class="[`vs-button-${isColor()?color:null}`,`vs-button-${vsType}`,{
       'isActive':isActive,
       'includeIcon':vsIcon,
-      'includeIconOnly':vsIcon && !$slots.default
+      'includeIconOnly':vsIcon && !$slots.default,
+      'vs-radius':vsRadius
     }, vsSize]"
     :style="[styles,{
       'width':/[px]/.test(vsSize)?`${vsSize}`:null,
@@ -88,6 +89,10 @@ export default {
       default:null
     },
     vsIconAfter:{
+      default:false,
+      type:Boolean
+    },
+    vsRadius:{
       default:false,
       type:Boolean
     },
