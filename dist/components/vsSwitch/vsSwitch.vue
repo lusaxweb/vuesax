@@ -16,7 +16,7 @@
       ref="inputCheckbox"
       :checked="value"
       :disabled="$attrs.disabled"
-      class="input-switch"
+      class="input-switch vs-switch--input"
       type="checkbox"
       name=""
       value=""
@@ -25,28 +25,28 @@
     <span
       ref="on"
       :class="{'active-text':isChecked || $attrs.checked}"
-      class="text-on text-switch">
+      class="text-on text-switch vs-switch--text">
       <slot name="on"/>
 
       <i
         translate="no"
-        class="material-icons icons-switch notranslate">
+        class="material-icons icons-switch notranslate vs-switch--icon">
         {{ vsIconOn || vsIcon }}
       </i>
     </span>
     <span
       ref="off"
       :class="{'active-text':!isChecked && !$attrs.checked}"
-      class="text-off text-switch">
+      class="text-off text-switch vs-switch--text">
       <!-- gato con botas -->
       <slot name="off"/>
       <i
         translate="no"
-        class="material-icons icons-switch notranslate">
+        class="material-icons icons-switch notranslate vs-switch--icon">
         {{ vsIconOff || vsIcon }}
       </i>
     </span>
-    <span class="vs-circle-switch"/>
+    <span class="vs-circle-switch vs-switch--circle"/>
   </button>
 </template>
 

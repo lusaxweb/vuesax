@@ -1,5 +1,5 @@
 <template lang="html">
-  <ul class="con-s">
+  <ul class="con-s examplex">
     <li>
       <label for="">Primary</label>
       <vs-switch v-model="switch1"/>

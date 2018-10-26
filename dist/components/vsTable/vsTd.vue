@@ -2,7 +2,7 @@
   <td
     ref="td"
     :class="{'td-edit': $slots.edit}"
-    class="td">
+    class="td vs-table--td">
     <span @click="clicktd">
       <vs-icon
         v-if="$slots.edit"

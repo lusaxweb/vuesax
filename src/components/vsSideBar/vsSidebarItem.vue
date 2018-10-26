@@ -1,7 +1,7 @@
 <template>
   <div
     :class="{'vs-sidebar-item-active':getActive}"
-    class="vs-sidebar-item"
+    class="vs-sidebar--item"
     @click="setIndexActive">
     <router-link
       v-if="to"

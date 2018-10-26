@@ -5,11 +5,11 @@
     @mouseover="mouseover"
     @mouseout="mouseout">
     <h4 @click="clickGroup">{{ title }} <vs-icon>keyboard_arrow_down</vs-icon></h4>
-    <span class="vs-sidebar-tooltip">{{ title }}</span>
+    <span class="vs-sidebar--tooltip">{{ title }}</span>
     <ul
       ref="items"
       :style="styleItems"
-      class="vs-sidebar-group-items">
+      class="vs-sidebar--group-items">
       <slot></slot>
     </ul>
   </div>

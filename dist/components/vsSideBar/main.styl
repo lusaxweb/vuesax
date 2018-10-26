@@ -1,7 +1,7 @@
 .parentx-static
   .vs-sidebar-background
     display none
-.vs-sidebar-background
+.vs-sidebar--background
   background: rgba(0,0,0,.2)
   width: 100%
   height 100%
@@ -87,35 +87,38 @@
 
   .vs-divider-text
     opacity .7
-  header
-    border-bottom: 1px solid rgba(0,0,0,.06)
-    padding: 10px 5px
-  footer
-    border-top: 1px solid rgba(0,0,0,.06)
-  .vs-sidebar-items
-    padding: 10px 0px
-    background: inherit
-    overflow-y auto
-    .vs-sidebar-item
-      transition: all .25s ease
 
-      i.material-icons
-        margin-right 8px
-        // border-right 1px solid rgba(0,0,0,.06)
-        // padding: 10px
-        transition: border .25s ease
-      a
-        padding: 10px
-        transition: all .25s ease
-        display: block
-        display: flex
-        align-items: center
-        color: inherit
-        opacity .8
-        font-size: .85rem
-        text-decoration none
-        &:hover
-          opacity 1
+.vs-sidebar--footer
+  border-top: 1px solid rgba(0,0,0,.06)
+
+.vs-sidebar--items
+  padding: 10px 0px
+  background: inherit
+  overflow-y auto
+
+.vs-sidebar--item
+  transition: all .25s ease
+
+  i.material-icons
+    margin-right 8px
+    transition: border .25s ease
+    font-size: 1rem
+  a
+    padding: 10px
+    transition: all .25s ease
+    display: block
+    display: flex
+    align-items: center
+    color: inherit
+    opacity .8
+    font-size: .85rem
+    text-decoration none
+    &:hover
+      opacity 1
+
+.vs-sidebar--header
+  border-bottom: 1px solid rgba(0,0,0,.06)
+  padding: 10px 5px
 
 // vs-sidebar-group
 
@@ -138,35 +141,6 @@
     i
       position: absolute
       right 10px
-  .vs-sidebar-tooltip
-    opacity 0
-    transition: all .25s ease
-    background: inherit
-    box-shadow: 0px 0px 6px 0px rgba(0,0,0,.07)
-    padding: 4px 8px
-    border-radius: 4px
-    position fixed
-    // top: 5px
-    left 60px
-    pointer-events: none
-    visibility hidden
-    transform: translate(15px, -110%)
-    &:after
-      content: ''
-      left -5px
-      width: 10px
-      height 10px
-      background: inherit
-      box-shadow: -4px 0px 6px -3px rgba(0,0,0,.07)
-      position: absolute
-      top: 50%
-      transform: translate(0,-50%) rotate(45deg)
-  .vs-sidebar-group-items
-    padding: 0px
-    transition: all .25s ease
-    max-height: 0px
-    overflow: hidden
-    background: inherit
   .vs-icon
     transition: all .2s ease
     user-select: none
@@ -174,7 +148,7 @@
     >ul
       padding-left: 10px
       opacity: 1
-      .vs-sidebar-item:last-child
+      .vs-sidebar--item:last-child
         border-bottom: 1px solid rgba(0,0,0,.05)
     >h4
       // background: rgba(0,0,0,.01)
@@ -184,10 +158,40 @@
       >.vs-icon
         transform rotate(180deg)
 
+.vs-sidebar--tooltip
+  opacity 0
+  transition: all .25s ease
+  background: inherit
+  box-shadow: 0px 0px 6px 0px rgba(0,0,0,.07)
+  padding: 4px 8px
+  border-radius: 4px
+  position fixed
+  // top: 5px
+  left 60px
+  pointer-events: none
+  visibility hidden
+  transform: translate(15px, -110%)
+  &:after
+    content: ''
+    left -5px
+    width: 10px
+    height 10px
+    background: inherit
+    box-shadow: -4px 0px 6px -3px rgba(0,0,0,.07)
+    position: absolute
+    top: 50%
+    transform: translate(0,-50%) rotate(45deg)
+
+.vs-sidebar--group-items
+  padding: 0px
+  transition: all .25s ease
+  max-height: 0px
+  overflow: hidden
+  background: inherit
 
 for colorx, i in $vs-colors
   .vs-sidebar-{colorx}
-    .vs-sidebar-item
+    .vs-sidebar--item
       a
         &:hover
           color: var(colorx, 1)

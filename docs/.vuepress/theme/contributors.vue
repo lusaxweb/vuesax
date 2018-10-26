@@ -110,7 +110,7 @@ export default {
   padding-right: 35px;
   transition: all .3s ease;
 }
-.con-btns-contribuitors button:hover {
+.con-btns-contribuitors button a:hover {
   box-shadow: 0px 9px 28px -9px #5b3cc4 !important;
 }
 .allcontribuitors {

@@ -3,29 +3,29 @@
     :class="[{'stripe': stripe, 'hoverFlat': hoverFlat}, `vs-table-${color}`,]"
     class="vs-component vs-con-table">
     <!-- header -->
-    <header class="header-table">
+    <header class="header-table vs-table--header">
       <span>
         <slot name="header"></slot>
       </span>
 
       <div
         v-if="search"
-        class="con-input-search">
+        class="con-input-search vs-table--search">
         <input
           v-model="searchx"
-          class="input-search"
+          class="input-search vs-table--search-input"
           type="text">
         <i class="material-icons">
           search
         </i>
       </div>
     </header>
-    <div class="con-tablex">
+    <div class="con-tablex vs-table--content">
 
-      <div class="vs-con-table-theade">
+      <div class="vs-con-table-theade vs-table--thead">
         <table
           :style="tableHeaderStyle"
-          class="vs-table-thead">
+          class="vs-table--thead-table">
           <colgroup ref="colgroup">
             <col width="20"/>
             <col
@@ -35,7 +35,6 @@
               class="colx">
           </colgroup>
           <thead ref="thead">
-
             <tr>
               <th class="td-check">
                 <span
@@ -56,10 +55,10 @@
 
       <div
         :style="styleConTbody"
-        class="vs-con-tbody">
+        class="vs-con-tbody vs-table--tbody">
         <table
           ref="table"
-          class="vs-table">
+          class="vs-table vs-table--tbody-table">
           <colgroup ref="colgrouptable">
             <col width="20"/>
             <col
@@ -74,14 +73,14 @@
       </div>
       <div
         v-if="isNoData"
-        class="not-data-table">
+        class="not-data-table vs-table--not-data">
         No data Available
       </div>
 
       <div
         v-if="pagination"
         v-show="!searchx"
-        class="con-pagination-table">
+        class="con-pagination-table vs-table--pagination">
         <vs-pagination
           :total="getTotalPages"
           v-model="currentx"></vs-pagination>

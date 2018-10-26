@@ -6,7 +6,7 @@
       class="vs-content-sidebar">
       <div
         v-if="!hiddenBackground"
-        class="vs-sidebar-background"></div>
+        class="vs-sidebar--background"></div>
       <div
         :class="[
           `vs-sidebar-${color}`,
@@ -20,17 +20,17 @@
           }
         ]"
         class="vs-sidebar">
-        <header v-if="$slots.header">
+        <header class="vs-sidebar--header" v-if="$slots.header">
           <slot name="header"></slot>
         </header>
 
-        <div class="vs-sidebar-items">
+        <div class="vs-sidebar--items">
           <slot></slot>
         </div>
 
         <vs-spacer v-if="spacer"></vs-spacer>
 
-        <footer v-if="$slots.footer">
+        <footer class="vs-sidebar--footer" v-if="$slots.footer">
           <slot name="footer"></slot>
         </footer>
       </div>

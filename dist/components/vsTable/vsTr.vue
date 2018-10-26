@@ -3,10 +3,10 @@
     :class="[`tr-table-state-${state}`, {'is-selected':isSelected, 'selected': data, 'is-expand': maxHeight != '0px', 'activeEdit': activeEdit, 'hoverFlat': $parent.hoverFlat}]"
     class="tr-table"
     @click="clicktr">
-    <tr 
-      v-if="!$parent.notSpacer" 
+    <tr
+      v-if="!$parent.notSpacer"
       class="tr-spacer"></tr>
-    <tr class="tr-values">
+    <tr class="tr-values vs-table--tr">
       <td
         class="td-check"
         @click="clicktd()">
@@ -19,14 +19,14 @@
       </td>
       <slot></slot>
     </tr>
-    <tr 
-      v-if="$slots.expand" 
+    <tr
+      v-if="$slots.expand"
       class="tr-expand">
-      <td 
-        ref="td" 
+      <td
+        ref="td"
         :colspan="colspan">
-        <div 
-          :style="styleExpand" 
+        <div
+          :style="styleExpand"
           class="con-expand">
           <slot name="expand"></slot>
         </div>

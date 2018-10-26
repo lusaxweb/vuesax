@@ -1,5 +1,5 @@
 <template lang="html">
-  <ul class="ul">
+  <ul class="ul examplex">
     <li class="modelx">
       {{switchArray}}
     </li>
@@ -44,18 +44,17 @@ export default {
 }
 </script>
 
-<style lang="css">
-.ul {
+<style lang="stylus">
+.ul
   width: 100%;
   display: flex;
   align-items: flex-start;
   justify-content: center;
   flex-direction: column;
-}
-.modelx {
+.modelx
   padding: 10px;
   margin-left: 10px;
   background: rgb(235, 235, 235);
   border-radius: 5px;
-}
+
 </style>

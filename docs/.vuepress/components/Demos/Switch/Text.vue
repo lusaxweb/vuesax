@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="centex">
+  <div class="centex examplex">
     <vs-switch v-model="switch1">
       <span slot="on">On</span>
       <span slot="off">Off</span>

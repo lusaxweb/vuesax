@@ -4,13 +4,13 @@
     v-bind="$attrs"
     :class="[`vs-button-${isColor()?color:null}`,`vs-button-${type}`,{
       'isActive':isActive,
-      'includeIcon':vsIcon,
-      'includeIconOnly':vsIcon && !$slots.default,
-      'vs-radius':vsRadius
-    }, vsSize]"
+      'includeIcon':icon,
+      'includeIconOnly':icon && !$slots.default,
+      'vs-radius':radius
+    }, size]"
     :style="[styles,{
-      'width':/[px]/.test(vsSize)?`${vsSize}`:null,
-      'height':/[px]/.test(vsSize)?`${vsSize}`:null
+      'width':/[px]/.test(size)?`${size}`:null,
+      'height':/[px]/.test(size)?`${size}`:null
     }]"
     class="vs-component vs-button"
     name="button"
@@ -24,13 +24,13 @@
 
     <i
       :style="{
-        'order':vsIconAfter?2:0,
-        'margin-right':$slots.default&&!vsIconAfter?'5px':'0px',
-        'margin-left':$slots.default&&vsIconAfter?'5px':'0px'
+        'order':iconAfter?2:0,
+        'margin-right':$slots.default&&!iconAfter?'5px':'0px',
+        'margin-left':$slots.default&&iconAfter?'5px':'0px'
       }"
       translate="no"
       class="material-icons vs-button--icon notranslate">
-      {{ vsIcon }}
+      {{ icon }}
     </i>
 
     <span

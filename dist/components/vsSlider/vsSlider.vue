@@ -31,7 +31,7 @@
         v-if="ticks&&tick"
         :class="{'isEnd':index == countTicks-1}"
         :style="styleTicks(index)"
-        class="vs-slider-ticks">
+        class="vs-slider--tick">
       </span>
     </button>
     <button
@@ -44,12 +44,12 @@
         'isEndValue':value == max
       }"
       :style="styleCircle"
-      class="vs-circle-slider vs-circles-slider"
+      class="vs-circle-slider vs-circles-slider vs-slider--circles vs-slider--circle"
       @touchstart="activeFocus($event),actived = true"
       @mousedown="activeFocus($event),actived = true">
       <span
         :style="styleText"
-        class="text-circle-slider">
+        class="text-circle-slider vs-slider--circle-text">
         {{ valueCircle1 }}
         <span v-if="textFixed">
           {{ textFixed }}
@@ -74,13 +74,13 @@
         'isEndValue':value == max
       }"
       :style="styleCircleTwo"
-      class="vs-circle-slider-two vs-circles-slider"
+      class="vs-circle-slider-two vs-circles-slider vs-slider--circles vs-slider--circle-two"
       @touchstart="activeFocus($event),two = true,actived = true"
       @mousedown="activeFocus($event),two = true,actived = true">
 
       <span
         :style="styleText"
-        class="text-circle-slider">
+        class="text-circle-slider vs-slider--circle-text">
         {{ valueCircle2 }}
         <span v-if="textFixed">
           {{ textFixed }}
