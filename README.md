@@ -58,7 +58,7 @@ Vuesax is an open source [MIT](https://github.com/lusaxweb/vuesax/blob/master/LI
 
 The framework is focused on facilitating the development of applications, improving the design of the same without removing the necessary functionality. we want all the components to be independent in colors, shapes and design for a freedom that we like all front-end but without losing the speed of creation and production.
 
-# Support the project ⭐
+## Support the project ⭐
 
 If you feel awesome and want to support us in a small way, please consider starring and sharing the repo! This helps us getting known and grow the community. 🙏
 
