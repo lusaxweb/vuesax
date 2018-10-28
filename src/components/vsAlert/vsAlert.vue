@@ -19,7 +19,9 @@
         @click="$emit('update:active',false)">
         <i
           translate="no"
-          class="material-icons notranslate">close</i>
+          class="notranslate"
+          :class="[iconPack, closeIcon]">
+          {{iconPack == 'material-icons' ? closeIcon : ''}}</i>
       </div>
 
       <h4
@@ -31,7 +33,9 @@
         <i
           v-if="icon"
           translate="no"
-          class="material-icons icon-alert notranslate">{{ icon }}</i>
+          class="icon-alert notranslate"
+          :class="[iconPack, icon]">
+          {{ iconPack == 'material-icons' ? icon : ''}}</i>
         <slot/>
       </div>
     </div>
@@ -67,6 +71,14 @@ export default {
     icon:{
       type:String,
       default:null
+    },
+    closeIcon:{
+      type:String,
+      default:null
+    },
+    iconPack:{
+      type:String,
+      default:'material-icons'
     }
   },
   computed:{

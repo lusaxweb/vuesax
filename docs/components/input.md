@@ -43,7 +43,7 @@ API:
  - name: icon-pack
    type: String
    parameters: Icon Pack Class Name
-   description: Icon Pack Description. If not set, icon will default to Material Icons. ex. FA4 uses fa or fas, FA5 uses fas, far, or fal.
+   description: Icon Pack to be used. If not set, icon will default to Material Icons. ex. FA4 uses fa or fas, FA5 uses fas, far, or fal.
    default: material-icons
  - name: icon-after
    type: String
