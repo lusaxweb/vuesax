@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="centerx">
+  <div class="centerx examplex">
     <vs-tooltip text="Tooltip default delay">
       <vs-button type="gradient">Default Color</vs-button>
     </vs-tooltip>

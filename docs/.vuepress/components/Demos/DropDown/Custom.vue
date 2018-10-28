@@ -15,17 +15,17 @@
 
 
         <vs-input
-    :vs-valid.sync="valid.email"
-    vs-success-text="Valid mail"
-    vs-danger-text="The email does not meet the requirements"
-    vs-type="email" vs-label-placeholder="Email" v-model="value1"/>
+    :valid.sync="valid.email"
+    success-text="Valid mail"
+    danger-text="The email does not meet the requirements"
+    type="email" label-placeholder="Email" v-model="value1"/>
 
     <vs-input
-        :vs-valid.sync="valid.password"
-        vs-success-text="Password Valida"
-        vs-danger-text="The password must have at least 8 characters, 1 number, 1 special character"
-        vs-type="password"
-        vs-label-placeholder="Password" v-model="value2"/>
+        :valid.sync="valid.password"
+        success-text="Password Valida"
+        danger-text="The password must have at least 8 characters, 1 number, 1 special character"
+        type="password"
+        label-placeholder="Password" v-model="value2"/>
 
         <vs-button width="100%" color="success" type="gradient">Login</vs-button>
       </vs-dropdown-menu>
@@ -42,12 +42,7 @@ export default {
       email:false,
       password:false,
     }
-  }),
-  methods:{
-    logx(){
-      console.log("click");
-    }
-  }
+  })
 }
 </script>
 

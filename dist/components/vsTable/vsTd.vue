@@ -61,7 +61,7 @@ export default {
       }
     },
     closeEdit (evt) {
-      if (!evt.target.closest('.con-edit-td') && !evt.target.closest('.vs-select-options')) {
+      if (!evt.target.closest('.con-edit-td') && !evt.target.closest('.vs-select--options')) {
         this.close()
       }
     },
