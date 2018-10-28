@@ -29,8 +29,9 @@
         'margin-left':$slots.default&&iconAfter?'5px':'0px'
       }"
       translate="no"
-      class="material-icons vs-button--icon notranslate">
-      {{ icon }}
+      class="vs-button--icon notranslate"
+      :class="iconPack">
+      {{ iconPack == 'material-icons' ? icon : ''}}
     </i>
 
     <span
@@ -88,6 +89,10 @@ export default {
     icon:{
       type:String,
       default:null
+    },
+    iconPack:{
+      type:String,
+      default:'material-icons'
     },
     iconAfter:{
       default:false,
