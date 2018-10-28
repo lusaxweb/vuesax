@@ -17,8 +17,9 @@
         class="vs-checkbox--check"/>
       <i
         translate="no"
-        class="material-icons notranslate vs-checkbox--icon">
-        {{ icon }}
+        class="notranslate vs-checkbox--icon"
+        :class="iconPack">
+        {{ iconPack == 'material-icons' ? icon : ''}}
       </i>
     </span>
     <span class="con-slot-label">
@@ -40,6 +41,10 @@ export default {
     value:{},
     icon:{
       default:'check',
+      type:String
+    },
+    iconPack:{
+      default:'material-icons',
       type:String
     },
     vsValue:{
