@@ -15,11 +15,27 @@ API:
    parameters: null
    description: With custom icon
    default: null
+ - name: icon-pack
+   type: String
+   parameters: Icon Pack Class Name
+   description: Icon Pack to be used. If not set, icon will default to Material Icons. ex. FA4 uses fa or fas, FA5 uses fas, far, or fal.
+   default: material-icons
+ - name: close-icon
+   type: String
+   parameters: null
+   description: provides an icon for the button to close chip.
+   default: clear
  - name: placeholder
    type: String
    parameters: null
    description: Placeholder text (only in vs-chips)
    default: null
+ - name: remove-icon
+   type: String
+   parameters: null
+   description: provides an icon for the button to remove chips (only in vs-chips)
+   default: close
+
 contributors:
   - fergardi
 ---
@@ -55,7 +71,7 @@ Helps you represent simple data with colorful options.
     <vs-avatar src="https://randomuser.me/api/portraits/men/4.jpg"/>
     Avatar Image
   </vs-chip>
-  <vs-chip closable>
+  <vs-chip closable close-icon='clear'>
     Closable chip
   </vs-chip>
 </div>
@@ -122,7 +138,7 @@ Change the background color of the chip.
   <vs-chip closable color="dark">
     Closable chip
   </vs-chip>
-  <vs-chip closable color="#24c1a0">
+  <vs-chip closable color="#24c1a0" close-icon="close">
     <vs-avatar src="https://randomuser.me/api/portraits/men/16.jpg"/>
     Closable chip
   </vs-chip>
@@ -150,7 +166,7 @@ Change the background color of the chip.
       <vs-chip closable color="dark">
         Closable chip
       </vs-chip>
-      <vs-chip closable color="#24c1a0">
+      <vs-chip closable color="#24c1a0" close-icon="close">
         <vs-avatar src="https://randomuser.me/api/portraits/men/16.jpg"/>
         Closable chip
       </vs-chip>

@@ -17,7 +17,8 @@
         @click="removeTotalItems">
         <i
           translate="no"
-          class="material-icons notranslate">close</i>
+          class="notranslate"
+          :class="iconPack">{{ iconPack == 'material-icons' ? removeIcon : '' }}</i>
       </div>
     </div>
   </div>
@@ -42,7 +43,15 @@ export default {
     },
     items:{
       type:Array,
-    }
+    },
+    iconPack:{
+      type:String,
+      default:'material-icons'
+    },
+    removeIcon:{
+      type:String,
+      default:'close',
+    },
   },
   data(){
     return {
