@@ -8,7 +8,7 @@
         'left':leftx+'px',
         'top':topx+'px'
       }"
-      class="con-vs-dropdown--menu"
+      class="con-vs-dropdown--menu vs-dropdown-menu"
       @mouseover="toggleMenu($event)"
       @mouseout="toggleMenu($event)">
       <ul

@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="centerx">
+  <div class="centerx examplex">
     <vs-tooltip
       title="Are you sure?"
       color="warning"

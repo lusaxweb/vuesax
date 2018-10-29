@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="centerx">
+  <div class="centerx examplex">
     <vs-tooltip text="Tooltip Default">
        <vs-switch v-model="switch1"/>
     </vs-tooltip>

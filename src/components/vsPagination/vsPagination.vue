@@ -116,6 +116,7 @@ export default {
     current() {
       this.getPages()
       this.$emit('input', this.current)
+      this.$emit('change', this.current)
     },
     total() {
       this.getPages()
