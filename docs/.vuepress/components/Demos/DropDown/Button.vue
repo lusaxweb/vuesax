@@ -2,7 +2,7 @@
   <div class="examplex">
     <vs-button class="btnx" type="filled">Dropdown</vs-button>
     <vs-dropdown>
-      <vs-button class="btn-drop" type="filled" vs-icon="expand_more"></vs-button>
+      <vs-button class="btn-drop" type="filled" icon="expand_more"></vs-button>
       <!-- <a href="#">Hola mundo</a> -->
 
       <vs-dropdown-menu>
@@ -28,9 +28,9 @@
     </vs-dropdown>
 
 
-    <vs-button class="btnx" vs-color="success" type="gradient">Dropdown</vs-button>
+    <vs-button class="btnx" color="success" type="gradient">Dropdown</vs-button>
     <vs-dropdown>
-      <vs-button class="btn-drop" vs-color="success" type="gradient" vs-icon="more_horiz"></vs-button>
+      <vs-button class="btn-drop" color="success" type="gradient" icon="more_horiz"></vs-button>
       <!-- <a href="#">Hola mundo</a> -->
 
       <vs-dropdown-menu>
@@ -47,9 +47,9 @@
     </vs-dropdown>
 
 
-    <vs-button class="btnx" vs-color="danger" type="line">Icons</vs-button>
+    <vs-button class="btnx" color="danger" type="line">Icons</vs-button>
     <vs-dropdown>
-      <vs-button class="btn-drop" vs-color="danger" type="line" vs-icon="mood"></vs-button>
+      <vs-button class="btn-drop" color="danger" type="line" icon="mood"></vs-button>
       <!-- <a href="#">Hola mundo</a> -->
 
       <vs-dropdown-menu>

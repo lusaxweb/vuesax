@@ -35,6 +35,11 @@ API:
    parameters: null
    description: Define the icon show when have a (vs-dropdown-group).
    default: keyboard_arrow_right
+ - name: icon-pack
+   type: String
+   parameters: Icon Pack Class Name
+   description: Icon Pack to be used. If not set, icon will default to Material Icons. ex. FA4 uses fa or fas, FA5 uses fas, far, or fal.
+   default: material-icons
 ---
 
 # DropDown
