@@ -73,6 +73,16 @@ API:
    type: Event
    parameters: event (optional)
    description:  Triggers method when input of select is changed (requires autocomplete prop)
+ - name: icon
+   type: String
+   parameters: icon name
+   description: Element icon.
+   default: keyboard_arrow_down
+ - name: icon-pack
+   type: String
+   parameters: Icon Pack Class Name
+   description: Icon Pack to be used. If not set, icon will default to Material Icons. ex. FA4 uses fa or fas, FA5 uses fas, far, or fal.
+   default: material-icons
 ---
 
 # Select
