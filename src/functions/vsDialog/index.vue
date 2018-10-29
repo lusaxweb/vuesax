@@ -20,11 +20,12 @@
               class="after"/>
             <h3>{{ title || vsTitle }}</h3>
           </div>
-          <span
-            v-if="type=='alert'"
-            translate="no"
-            class="vs-dialog-cancel material-icons notranslate"
-            @click="close">close</span>
+            <vs-icon
+              v-if="type=='alert'"
+              class="vs-dialog-cancel notranslate"
+              :icon-pack="vsIconPack"
+              :icon="vsCloseIcon"
+            ></vs-icon>
         </header>
 
         <!-- // slots  -->
@@ -95,6 +96,14 @@ export default {
     },
     vsCancelText:{
       default:'Cancel',
+      type:String
+    },
+    vsIconPack:{
+      default:'material-icons',
+      type:String
+    },
+    vsCloseIcon:{
+      default:'close',
       type:String
     }
   },
