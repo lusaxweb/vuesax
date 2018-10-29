@@ -9,9 +9,10 @@
         :disabled="current === 1"
         class="vs-pagination--buttons btn-prev-pagination vs-pagination--button-prev"
         @click="prevPage">
-        <i class="material-icons">
-          {{ prevIcon }}
-        </i>
+        <vs-icon
+          :icon-pack="iconPack"
+          :icon="prevIcon"
+        ></vs-icon>
       </button>
       <ul class="vs-pagination--ul">
         <li
@@ -33,9 +34,10 @@
         :disabled="current === total"
         class="vs-pagination--buttons btn-next-pagination vs-pagination--button-next"
         @click="nextPage">
-        <i class="material-icons">
-          {{ nextIcon }}
-        </i>
+        <vs-icon
+          :icon-pack="iconPack"
+          :icon="nextIcon"
+        ></vs-icon>
       </button>
       <input
         v-if="goto"
@@ -84,7 +86,11 @@ export default {
     nextIcon:{
       type:String,
       default:'chevron_right'
-    }
+    },
+    IconPack:{
+      type:String,
+      default:'material-icons'
+    },
   },
   data: () => ({
     pages: [],
