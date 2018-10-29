@@ -35,6 +35,11 @@ API:
    parameters: Material Icon
    description: Notification Icon.
    default: null
+ - name: icon-pack
+   type: String
+   parameters: Icon Pack Class Name
+   description: Icon Pack to be used. If not set, icon will default to Material Icons. ex. FA4 uses fa or fas, FA5 uses fas, far, or fal.
+   default: material-icons
  - name: click
    type: Function
    parameters: function(){ ... }, ()=>{ ... }
