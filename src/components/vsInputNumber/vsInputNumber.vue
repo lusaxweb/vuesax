@@ -17,11 +17,10 @@
       }"
       class="btn-less vs-input-number--button-less"
       type="button">
-      <i
-        translate="no"
-        class="material-icons notranslate">
-        remove
-      </i>
+      <vs-icon
+        :icon-pack="iconPack"
+        :icon="iconDec"
+      ></vs-icon>
     </button>
     <input
       ref="input"
@@ -44,11 +43,10 @@
       }"
       class="btn-plus vs-input-number--button-plus"
       type="button">
-      <i
-        translate="no"
-        class="material-icons notranslate">
-        add
-      </i>
+      <vs-icon
+        :icon-pack="iconPack"
+        :icon="iconInc"
+      ></vs-icon>
     </button>
   </div>
 </template>
@@ -106,6 +104,18 @@ export default {
     },
     size:{
       default:null,
+      type:String
+    },
+    iconPack:{
+      default:'material-icons',
+      type:String
+    },
+    iconDec:{
+      default:'remove',
+      type:String
+    },
+    iconInc:{
+      default:'add',
       type:String
     }
   },
