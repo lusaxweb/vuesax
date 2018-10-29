@@ -15,17 +15,19 @@
         class="vs-popup">
 
         <!-- //header -->
-        <header 
-          :style="styleHeader" 
+        <header
+          :style="styleHeader"
           class="vs-popup--header">
           <div class="vs-popup--title">
             <h3>{{ title }}</h3>
           </div>
-          <span
+          <vs-icon
             v-if="!buttonCloseHidden"
-            translate="no"
-            class="vs-popup--close material-icons notranslate "
-            @click="close">close</span>
+            class="vs-popup--close"
+            @click="close"
+            :icon-pack="iconPack"
+            :icon="iconClose"
+            ></vs-icon>
         </header>
 
         <!-- // slots  -->
@@ -80,7 +82,15 @@ export default {
     classContent:{
       default:null,
       type: String
-    }
+    },
+    iconPack:{
+      default:'material-icons',
+      type:String
+    },
+    iconClose:{
+      default:'close',
+      type:String
+    },
   },
   computed:{
     styleHeader(){
