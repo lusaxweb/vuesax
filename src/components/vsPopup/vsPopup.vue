@@ -21,13 +21,15 @@
           <div class="vs-popup--title">
             <h3>{{ title }}</h3>
           </div>
-          <vs-icon
-            v-if="!buttonCloseHidden"
-            class="vs-popup--close"
-            @click="close"
-            :icon-pack="iconPack"
-            :icon="iconClose"
-            ></vs-icon>
+          <span class="vs-popup--close"
+              @click="close">
+            <vs-icon
+              v-if="!buttonCloseHidden"
+              :icon-pack="iconPack"
+              :icon="iconClose"
+              :click="close"
+              class="vs-popup--close--icon"
+            ></vs-icon></span>
         </header>
 
         <!-- // slots  -->
@@ -128,7 +130,7 @@ export default {
           this.$emit('close', false)
         }
       } else {
-        if(event?event.target.className.indexOf('vs-popup--close')!=-1:false ){
+        if(event?event.target.className.indexOf('vs-popup--close')!=-1:event?event.target.className.indexOf('vs-popup--close--icon')!=-1:false ){
           this.$emit('update:active',false)
           this.$emit('close', false)
         }

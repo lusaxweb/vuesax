@@ -65,15 +65,15 @@ API:
    parameters: Icon Pack Class Name
    description: Icon Pack to be used. If not set, icon will default to Material Icons. ex. FA4 uses fa or fas, FA5 uses fas, far, or fal.
    default: material-icons
- - name: vs-close-icon
-   type: String
-   parameters: null
-   description: Determines the close icon
-   default: close
+#  - name: vs-close-icon
+#    type: String
+#    parameters: null
+#    description: Determines the close icon
+#    default: close
 
 ---
 
-# Dialogs
+# Dialogs **- update**
 
 <box header>
 

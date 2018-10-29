@@ -87,7 +87,7 @@ export default {
       type:String,
       default:'chevron_right'
     },
-    IconPack:{
+    iconPack:{
       type:String,
       default:'material-icons'
     },

@@ -92,7 +92,7 @@ API:
    default: null
 ---
 
-# SideBar
+# SideBar **- update**
 
 <box header>
 

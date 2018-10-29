@@ -47,7 +47,7 @@ API:
    default: material-icons
 ---
 
-# Avatar
+# Avatar **- update**
 
 <box header>
 

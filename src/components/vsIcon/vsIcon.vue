@@ -1,7 +1,8 @@
 <template>
   <i
     class="vs-icon notranslate"
-    :class="[iconPack, iconPack !='material-icons' ? icon : '']">
+    :class="[iconPack, iconPack !='material-icons' ? icon : '']"
+    @click="click">
     <slot>{{iconPack =='material-icons' ? icon : ''}}</slot>
   </i>
 </template>
@@ -17,6 +18,10 @@ export default {
       default: 'material-icons',
       type: String
     },
+    click: {
+      default: null,
+      type: Function
+    }
   }
 }
 </script>

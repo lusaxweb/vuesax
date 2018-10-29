@@ -28,8 +28,8 @@
         'margin-right':$slots.default&&!iconAfter?'5px':'0px',
         'margin-left':$slots.default&&iconAfter?'5px':'0px'
       }"
-      :iconPack="text ? '' : iconPack"
-      :icon="text ? '' : icon"
+      :iconPack="iconPack"
+      :icon="icon"
       class="vs-button--icon "
     ></vs-icon>
 

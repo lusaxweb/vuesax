@@ -38,7 +38,7 @@ API:
 ---
 
 
-# Number Input
+# Number Input **- update**
 
 <box header>
 
@@ -50,7 +50,7 @@ API:
 
 ## Default
 
-If you need to add a component that handles a single number, use the component `vs-input-number`.
+If you need to add a component that handles a single number, use the component `vs-input-number`. You can also change the increment and decrement button icons using the properties `icon-inc` and `icon-dec` respectively.
 
 <vuecode md>
 <div slot="demo">
@@ -63,6 +63,7 @@ If you need to add a component that handles a single number, use the component `
   <div class="centerx">
     <vs-input-number v-model="number"/>
     <vs-input-number :disabled="true" v-model="number1"/>
+    <vs-input-number v-model="number2" icon-inc="expand_less" icon-dec="expand_more"/>
   </div>
 </template>
 
@@ -71,7 +72,8 @@ export default {
   data(){
     return {
       number:34,
-      number1:48
+      number1:48,
+      number2:50
     }
   }
 }

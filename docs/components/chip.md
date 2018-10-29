@@ -40,7 +40,7 @@ contributors:
   - fergardi
 ---
 
- # Chip
+ # Chip **- update**
 
 <box header>
 
@@ -353,6 +353,73 @@ You can add and remove chips with the `vs-chips` component. For the main paramet
         :key="chip"
         @click="remove(chip)"
         v-for="chip in chips" closable>
+        {{ chip }}
+      </vs-chip>
+    </vs-chips>
+  </div>
+</template>
+
+<script>
+export default {
+  data(){
+    return {
+      chips:[
+        "Vuejs",
+        "Node",
+        "Vuesax"
+      ]
+    }
+  },
+  methods: {
+    remove (item) {
+      this.chips.splice(this.chips.indexOf(item), 1)
+    }
+  }
+}
+</script>
+
+<style lang="css">
+.total {
+  width: 100%
+}
+</style>
+```
+
+</div>
+</vuecode>
+
+</box>
+
+<box>
+
+## Customize Close and Clear Chips Icons
+
+You can change the icons used for the close button and the clear button when using multiple chips with the `vs-chips` component. For the main parameter, pass the `close-icon` property, which is the close icon that appears on each chip. You can change the Clear Chips button with the `remove-icon` property.
+
+::: tip
+Vuesax uses the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
+
+FontAwesome and other fonts library are supported. Simply use the `icon-pack` with `fa` or `fas`. You still need to include the Font Awesome icons in your project.
+
+:::
+
+<vuecode md>
+<div slot="demo">
+  <Demos-Chips-Changecloseclearicons />
+</div>
+<div slot="code">
+
+```html
+<template lang="html">
+  <div class="total">
+    <div class="modelx">
+      {{chips}}
+    </div>
+    <vs-chips color="rgb(145, 32, 159)" placeholder="New Element" v-model="chips" remove-icon="delete_forever">
+      <vs-chip
+        :key="chip"
+        @click="remove(chip)"
+        v-for="chip in chips" closable close-icon="delete">
         {{ chip }}
       </vs-chip>
     </vs-chips>

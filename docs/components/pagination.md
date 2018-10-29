@@ -88,6 +88,9 @@ By default, their values are respectively **arrow_back** and **arrow_forward**.
 
 ::: tip
 Vuesax uses the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
+
+FontAwesome and other fonts library are supported. Simply use the `icon-pack` with `fa` or `fas`. You still need to include the Font Awesome icons in your project.
+
 :::
 
 <vuecode md center>
