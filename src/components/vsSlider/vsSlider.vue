@@ -54,12 +54,10 @@
         <span v-if="textFixed">
           {{ textFixed }}
         </span>
-        <i
-          v-if="icon"
-          translate="no"
-          class="material-icons notranslate">
-          {{ icon }}
-        </i>
+        <vs-icon
+          :icon-pack="iconPack"
+          :icon="icon"
+        ></vs-icon>
       </span>
 
     </button>
@@ -129,6 +127,10 @@ export default {
     },
     icon:{
       default:null,
+      type:String
+    },
+    iconPack:{
+      default:'material-icons',
       type:String
     },
     textFixed:{
