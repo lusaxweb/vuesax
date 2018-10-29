@@ -12,7 +12,7 @@ API:
    default: rgba(0,0,0.1)
  - name: icon
    type: String
-   parameters: Material Icons
+   parameters: Icon Class
    description: Add an icon instead of the text.
    default: null
  - name: border-style
@@ -20,6 +20,11 @@ API:
    parameters: null
    description: Determines the type of line in the component.
    default: solid
+ - name: icon-pack
+   type: String
+   parameters: Icon Pack Class Name
+   description: Icon Pack to be used. If not set, icon will default to Material Icons. ex. FA4 uses fa or fas, FA5 uses fas, far, or fal.
+   default: material-icons
 ---
 
 # Divider
