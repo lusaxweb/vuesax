@@ -15,12 +15,11 @@
       <span
         :style="style_check"
         class="vs-checkbox--check"/>
-      <i
-        translate="no"
-        class="notranslate vs-checkbox--icon"
-        :class="iconPack">
-        {{ iconPack == 'material-icons' ? icon : ''}}
-      </i>
+      <vs-icon
+      :iconPack="text ? '' : iconPack"
+      :icon="text ? '' : icon"
+      class="vs-checkbox--icon "
+    ></vs-icon>
     </span>
     <span class="con-slot-label">
       <slot/>

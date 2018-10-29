@@ -17,11 +17,7 @@
         v-if="closable"
         class="con-x vs-alert--close"
         @click="$emit('update:active',false)">
-        <i
-          translate="no"
-          class="notranslate"
-          :class="[iconPack, closeIcon]">
-          {{iconPack == 'material-icons' ? closeIcon : ''}}</i>
+        <vs-icon :icon-pack="iconPack" :icon="closeIcon"></vs-icon>
       </div>
 
       <h4
@@ -30,12 +26,12 @@
         class="titlex vs-alert--title">{{ title }}</h4>
 
       <div class="vs-alert">
-        <i
+        <vs-icon
           v-if="icon"
-          translate="no"
-          class="icon-alert notranslate"
-          :class="[iconPack, icon]">
-          {{ iconPack == 'material-icons' ? icon : ''}}</i>
+          :icon-pack="iconPack"
+          :icon="icon"
+          class="icon-alert"
+        ></vs-icon>
         <slot/>
       </div>
     </div>
@@ -74,7 +70,7 @@ export default {
     },
     closeIcon:{
       type:String,
-      default:null
+      default:'close'
     },
     iconPack:{
       type:String,

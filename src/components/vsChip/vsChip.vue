@@ -19,9 +19,10 @@
       v-if="closable"
       class="btn-close vs-chip--close"
       @click="closeChip">
-      <i :class="[iconPack, iconPack == 'material-icons' ? closeIcon : '' ]">
-        {{iconPack == 'material-icons' ? closeIcon : ''}}
-      </i>
+      <vs-icon
+        :iconPack="text ? '' : iconPack"
+        :icon="text ? '' : closeIcon"
+      ></vs-icon>
     </button>
   </div>
 </template>

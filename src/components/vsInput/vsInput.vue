@@ -47,23 +47,25 @@
         </span>
       </transition>
 
-      <i
+      <vs-icon
         v-if="icon"
-        :class="[iconPack,icon, size, {
-          'icon-after':iconAfter,
-        }]"
-        translate="no"
         class="icon-inputx notranslate vs-input--icon"
+        :class="{'icon-after':iconAfter}"
+        :iconPack="iconPack"
+        :icon="icon"
         @click="focusInput">
-        {{ icon }}
-      </i>
+      </vs-icon>
 
       <transition name="icon-validate" >
         <span
           v-if="success || danger || warning"
           class="input-icon-validate vs-input--icon-validate"
-          :class="[iconPack,{'icon-before':iconAfter},icon]">
-          {{ iconPack == 'material-icons' ? getIcon : '' }}
+          :class="{'icon-before':iconAfter}">
+          <vs-icon
+            :class="{'icon-before':iconAfter}"
+            :iconPack="iconPack"
+            :icon="getIcon"
+          ></vs-icon>
         </span>
       </transition>
     </div>

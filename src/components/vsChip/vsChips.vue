@@ -15,10 +15,10 @@
       <div
         class="x-global con-chips--remove-all"
         @click="removeTotalItems">
-        <i
-          translate="no"
-          class="notranslate"
-          :class="iconPack">{{ iconPack == 'material-icons' ? removeIcon : '' }}</i>
+        <vs-icon
+          :iconPack="text ? '' : iconPack"
+          :icon="text ? '' : removeIcon"
+        ></vs-icon>
       </div>
     </div>
   </div>

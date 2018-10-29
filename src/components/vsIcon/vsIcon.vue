@@ -1,8 +1,8 @@
 <template>
   <i
-    translate="no"
-    class="vs-icon material-icons notranslate">
-    <slot></slot>
+    class="vs-icon notranslate"
+    :class="[iconPack, iconPack !='material-icons' ? icon : '']">
+    <slot>{{iconPack =='material-icons' ? icon : ''}}</slot>
   </i>
 </template>
 <script>
@@ -12,7 +12,11 @@ export default {
     icon: {
       default: null,
       type: String
-    }
+    },
+    iconPack: {
+      default: 'material-icons',
+      type: String
+    },
   }
 }
 </script>

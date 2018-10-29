@@ -22,17 +22,16 @@
       class="vs-button-backgroundx vs-button--background">
     </span>
 
-    <i
+    <vs-icon
       :style="{
         'order':iconAfter?2:0,
         'margin-right':$slots.default&&!iconAfter?'5px':'0px',
         'margin-left':$slots.default&&iconAfter?'5px':'0px'
       }"
-      translate="no"
-      class="vs-button--icon notranslate"
-      :class="iconPack">
-      {{ iconPack == 'material-icons' ? icon : ''}}
-    </i>
+      :iconPack="text ? '' : iconPack"
+      :icon="text ? '' : icon"
+      class="vs-button--icon "
+    ></vs-icon>
 
     <span
       v-if="$slots.default"
