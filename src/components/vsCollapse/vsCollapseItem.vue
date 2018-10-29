@@ -4,16 +4,15 @@
     class="vs-collapse-item"
     @mouseover="mouseover"
     @mouseout="mouseout">
-    <header 
-      class="vs-collapse-item--header" 
+    <header
+      class="vs-collapse-item--header"
       @click="toggleContent">
       <slot name="header"></slot>
 
       <span
         v-if="!notArrow"
         class="icon-header vs-collapse-item--icon-header">
-        <vs-icon>
-          {{ iconArrow }}
+        <vs-icon :icon-pack="iconPack"  :icon="iconArrow" >
         </vs-icon>
       </span>
     </header>
@@ -28,6 +27,9 @@
   </div>
 </template>
 <script>
+
+import vsicon from '../vsIcon';
+
 export default {
   name:'VsCollapseItem',
   props:{
@@ -42,11 +44,18 @@ export default {
     iconArrow:{
       default: 'keyboard_arrow_down',
       type: String
-    }
+    },
+    iconPack:{
+      default: 'material-icons',
+      type: String
+    },
   },
   data:() => ({
     maxHeight: '0px'
   }),
+  components:{
+    vsicon
+  },
   computed:{
     accordion() {
       return this.$parent.accordion

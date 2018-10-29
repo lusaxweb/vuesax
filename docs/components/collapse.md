@@ -23,8 +23,13 @@ API:
  - name: icon-arrow
    type: String
    parameters: null
-   description: Cambia los iconos de los items.
+   description: Change the icons of items.
    default: false
+ - name: icon-pack
+   type: String
+   parameters: Icon Pack Class Name
+   description: Icon Pack to be used. If not set, icon will default to Material Icons. ex. FA4 uses fa or fas, FA5 uses fas, far, or fal.
+   default: material-icons
 ---
 
 # Collapse
