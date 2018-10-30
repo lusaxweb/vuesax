@@ -17,7 +17,7 @@
         v-if="closable"
         class="con-x vs-alert--close"
         @click="$emit('update:active',false)">
-        <vs-icon :icon-pack="iconPack" :icon="closeIcon"></vs-icon>
+        <vs-icon icon-pack="iconPack" icon="closeIcon"></vs-icon>
       </div>
 
       <h4

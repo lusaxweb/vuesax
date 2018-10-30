@@ -26,18 +26,14 @@
         <span v-if="prev" class="prev">
 
           <router-link @click.native="changeAds" v-if="prev" class="prev" :to="prev.path">
-            <i class="material-icons">
-              keyboard_arrow_left
-            </i>
+            <vs-icon class="" icon="keyboard_arrow_left"></vs-icon>
             {{ prev.title || prev.path }}
           </router-link>
         </span>
         <span v-if="next" class="next">
           <router-link @click.native="changeAds" v-if="next" :to="next.path">
             {{ next.title || next.path }}
-            <i class="material-icons">
-              keyboard_arrow_right
-            </i>
+            <vs-icon class="" icon="keyboard_arrow_right"></vs-icon>
           </router-link>
 
 

@@ -12,9 +12,7 @@
         <router-link
           to="/contribuitors/"
         >
-          <i class="material-icons">
-            add
-          </i>
+          <vs-icon class="" icon="add"></vs-icon>
         </router-link>
       </li>
     </ul>

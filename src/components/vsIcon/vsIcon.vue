@@ -22,7 +22,7 @@ export default {
       type: String
     },
     color: {
-      default: 'black',
+      default: null,
       type: String
     },
     bg: {
@@ -30,7 +30,7 @@ export default {
       type: String
     },
     size: {
-      default: '1rem',
+      default: null,
       type: String
     },
     round: {

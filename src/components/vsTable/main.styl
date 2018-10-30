@@ -154,7 +154,8 @@
         .con-expand
           border-top: 1px solid rgba(0,0,0,.05) !important
       .vs-icon
-        transform translate(7px) rotate(0deg)
+        &.tr-expand-btn
+          transform translate(7px) rotate(0deg)
   td
     border: 0px
     padding: 2px 8px
@@ -168,8 +169,9 @@
         margin-left: 0px !important
         margin-right: 0px !important
       .vs-icon
-        transition: all .25s ease
-        transform translate(7px) rotate(-90deg)
+        &.tr-expand-btn
+          transition: all .25s ease
+          transform translate(7px) rotate(-90deg)
 
 .vs-table--content
   width: 100%
@@ -285,7 +287,7 @@ for colorx, i in $vs-colors
       box-shadow: 0px 0px 1px 0px var(colorx, 1) !important
   .vs-table-{colorx}
     .is-selected
-      transform: translate(0) !important
+      //transform: translate(0) !important
       .tr-values
 
         color: var(colorx, 1)

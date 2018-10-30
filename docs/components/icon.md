@@ -3,7 +3,7 @@ API:
  - name: icon
    type: String
    parameters: null
-   description: Determines the icon
+   description: Sets the icon to be displayed.
    default: null
  - name: icon-pack
    type: String
@@ -13,27 +13,23 @@ API:
  - name: color
    type: String
    parameters: Vuesax color presets, RGB, HEX, html color presets
-   description: Determines the icon pack. If not set, icon will default to Material Icons. ex. FA4 uses fa or fas, FA5 uses fas, far, or fal.
-   default: black
+   description: Sets the color of the icon.
+   default: auto
  - name: bg
    type: String
    parameters: Vuesax color presets, RGB, HEX, html color presets
-   description: Sets the background color
+   description: Sets the background color.
    default: null
  - name: size
    type: String
    parameters: small, medium, large, custom measure(75px, 3rem, 2em)
-   description: Sets the size of the icon
-   default: 1rem
+   description: Sets the size of the icon.
+   default: auto
  - name: round
    type: Boolean
    parameters: null
    description: Makes the background round.
    default: false
- - name: click
-   type: Function
-   parameters: null
-   description: a function to be executed on click of the icon
 ---
 
 # Icon **- new**
@@ -218,13 +214,13 @@ You can change the background color with the property `bg`.
   <vs-icon icon="child_care" size="small" bg="red" color="white"></vs-icon>
 </span>
 <span>
-  <vs-icon icon="pets" size="medium" bg="primary"></vs-icon>
+  <vs-icon icon="pets" size="medium" bg="primary" color="black"></vs-icon>
 </span>
 <span>
-  <vs-icon icon="android" size="large" bg="rgb(70, 150, 0)"></vs-icon>
+  <vs-icon icon="android" size="large" bg="rgb(70, 150, 0)" color="black"></vs-icon>
 </span>
 <span>
-  <vs-icon icon="polymer" size="75px" bg="#BC1254"></vs-icon>
+  <vs-icon icon="polymer" size="75px" bg="#BC1254" color="black"></vs-icon>
 </span>
 </div>
 <div slot="code">
@@ -234,16 +230,16 @@ You can change the background color with the property `bg`.
   <vs-icon icon="mood"></vs-icon>
 </span>
 <span>
-  <vs-icon icon="child_care" size="small" bg="red"></vs-icon>
+  <vs-icon icon="child_care" size="small" bg="red" color="white"></vs-icon>
 </span>
 <span>
-  <vs-icon icon="pets" size="medium" bg="primary"></vs-icon>
+  <vs-icon icon="pets" size="medium" bg="primary" color="black"></vs-icon>
 </span>
 <span>
-  <vs-icon icon="android" size="large" bg="rgb(70, 150, 0)"></vs-icon>
+  <vs-icon icon="android" size="large" bg="rgb(70, 150, 0)" color="black"></vs-icon>
 </span>
 <span>
-  <vs-icon icon="polymer" size="75px" bg="#BC1254"></vs-icon>
+  <vs-icon icon="polymer" size="75px" bg="#BC1254" color="black"></vs-icon>
 </span>
 ```
 
@@ -270,13 +266,13 @@ To make the icon round, pass the property `round`.
   <vs-icon icon="child_care" size="small" bg="red" color="white" round></vs-icon>
 </span>
 <span>
-  <vs-icon icon="pets" size="medium" bg="primary" round></vs-icon>
+  <vs-icon icon="pets" size="medium" bg="primary" color="black" round></vs-icon>
 </span>
 <span>
-  <vs-icon icon="android" size="large" bg="rgb(70, 150, 0)" round></vs-icon>
+  <vs-icon icon="android" size="large" bg="rgb(70, 150, 0)" color="black" round></vs-icon>
 </span>
 <span>
-  <vs-icon icon="polymer" size="75px" bg="#BC1254" round></vs-icon>
+  <vs-icon icon="polymer" size="75px" bg="#BC1254" color="black" round></vs-icon>
 </span>
 </div>
 <div slot="code">
@@ -286,16 +282,16 @@ To make the icon round, pass the property `round`.
   <vs-icon icon="mood"></vs-icon>
 </span>
 <span>
-  <vs-icon icon="child_care" size="small" bg="red" round></vs-icon>
+  <vs-icon icon="child_care" size="small" bg="red" color="white" round></vs-icon>
 </span>
 <span>
-  <vs-icon icon="pets" size="medium" bg="primary" round></vs-icon>
+  <vs-icon icon="pets" size="medium" bg="primary" color="black" round></vs-icon>
 </span>
 <span>
-  <vs-icon icon="android" size="large" bg="rgb(70, 150, 0)" round></vs-icon>
+  <vs-icon icon="android" size="large" bg="rgb(70, 150, 0)" color="black" round></vs-icon>
 </span>
 <span>
-  <vs-icon icon="polymer" size="75px" bg="#BC1254" round></vs-icon>
+  <vs-icon icon="polymer" size="75px" bg="#BC1254" color="black" round></vs-icon>
 </span>
 ```
 

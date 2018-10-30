@@ -6,9 +6,7 @@
     <vs-dropdown :color="colorx">
       <a class="a-icon" href="#">
         Dropdown hover
-        <i class="material-icons">
-        expand_more
-        </i>
+        <vs-icon icon="expand_more"></vs-icon>
       </a>
 
       <vs-dropdown-menu>

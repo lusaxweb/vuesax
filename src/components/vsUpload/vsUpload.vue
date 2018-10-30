@@ -32,11 +32,7 @@
         title="Upload"
         class="btn-upload-all vs-upload--button-upload"
         @click="upload('all')">
-        <i
-          translate="no"
-          class="material-icons notranslate">
-          cloud_upload
-        </i>
+        <vs-icon class="" icon="cloud_upload"></vs-icon>
       </button>
     </div>
 

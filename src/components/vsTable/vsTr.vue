@@ -15,7 +15,7 @@
           :checked="isSelected"
           size="small"/>
 
-        <vs-icon v-if="$slots.expand">keyboard_arrow_down</vs-icon>
+        <vs-icon class="tr-expand-btn" size="1rem" v-if="$slots.expand" icon="keyboard_arrow_down"></vs-icon>
       </td>
       <slot></slot>
     </tr>

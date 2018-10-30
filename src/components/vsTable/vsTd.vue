@@ -6,8 +6,8 @@
     <span @click="clicktd">
       <vs-icon
         v-if="$slots.edit"
-        class="icon-edit">
-        edit
+        class="icon-edit"
+        icon="edit">
       </vs-icon>
       <slot></slot>
       <span

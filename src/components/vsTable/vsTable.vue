@@ -15,9 +15,7 @@
           v-model="searchx"
           class="input-search vs-table--search-input"
           type="text">
-        <i class="material-icons">
-          search
-        </i>
+        <vs-icon icon="search"></vs-icon>
       </div>
     </header>
     <div class="con-tablex vs-table--content">

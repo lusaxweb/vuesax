@@ -87,9 +87,7 @@ To add the Dropdown we have three types of components the main `vs-dropdown` tha
     <vs-dropdown >
       <a class="a-icon" href="#">
         Dropdown hover
-        <i class="material-icons">
-        expand_more
-        </i>
+        <vs-icon class="" icon="expand_more"></vs-icon>
       </a>
 
       <vs-dropdown-menu>
@@ -108,9 +106,7 @@ To add the Dropdown we have three types of components the main `vs-dropdown` tha
     <vs-dropdown >
       <a class="a-icon" href.prevent>
         Dropdown Option Disabled
-        <i class="material-icons">
-        expand_more
-        </i>
+        <vs-icon class="" icon="expand_more"></vs-icon>
       </a>
 
       <vs-dropdown-menu>
@@ -179,9 +175,7 @@ You can change the color of the component with the property `color`
     <vs-dropdown :color="colorx">
       <a class="a-icon" href="#">
         Dropdown hover
-        <i class="material-icons">
-        expand_more
-        </i>
+        <vs-icon class="" icon="expand_more"></vs-icon>
       </a>
 
       <vs-dropdown-menu>
@@ -256,9 +250,7 @@ If you need to group the options you can use the subcomponent `vs-dropdown-group
     <vs-dropdown>
       <a class="a-icon" href.prevent>
         Dropdown Option Group
-        <i class="material-icons">
-        expand_more
-        </i>
+        <vs-icon class="" icon="expand_more"></vs-icon>
       </a>
 
       <vs-dropdown-menu>
@@ -295,9 +287,7 @@ If you need to group the options you can use the subcomponent `vs-dropdown-group
     <vs-dropdown  >
       <a class="a-icon" href.prevent>
         Dropdown Group Collapse
-        <i class="material-icons">
-        expand_more
-        </i>
+        <vs-icon class="" icon="expand_more"></vs-icon>
       </a>
 
       <vs-dropdown-menu>
@@ -393,9 +383,7 @@ Sometimes when we need something more personalized and not necessarily a menu fo
     <vs-dropdown vs-custom-content vs-trigger-click >
       <a class="a-icon" href.prevent>
         Click me open login
-        <i class="material-icons">
-        expand_more
-        </i>
+        <vs-icon class="" icon="expand_more"></vs-icon>
       </a>
 
       <vs-dropdown-menu class="loginx">
@@ -562,34 +550,22 @@ Vuesax uses the **Google Material Icons** font library by default. For a list of
 
       <vs-dropdown-menu>
         <vs-dropdown-item>
-          <i class="material-icons">
-            mood
-          </i>
+          <vs-icon class="" icon="mood"></vs-icon>
         </vs-dropdown-item>
         <vs-dropdown-item>
-          <i class="material-icons">
-            mood_bad
-          </i>
+          <vs-icon class="" icon="mood_bad"></vs-icon>
         </vs-dropdown-item>
         <vs-dropdown-item>
-          <i class="material-icons">
-            sentiment_dissatisfied
-          </i>
+          <vs-icon class="" icon="sentiment_dissatisfied"></vs-icon>
         </vs-dropdown-item>
         <vs-dropdown-item>
-          <i class="material-icons">
-            sentiment_satisfied
-          </i>
+          <vs-icon class="" icon="sentiment_satisfied"></vs-icon>
         </vs-dropdown-item>
         <vs-dropdown-item>
-          <i class="material-icons">
-            sentiment_very_dissatisfied
-          </i>
+          <vs-icon class="" icon="sentiment_very_dissatisfied"></vs-icon>
         </vs-dropdown-item>
         <vs-dropdown-item>
-          <i class="material-icons">
-            sentiment_very_satisfied
-          </i>
+          <vs-icon class="" icon="sentiment_very_satisfied"></vs-icon>
         </vs-dropdown-item>
       </vs-dropdown-menu>
     </vs-dropdown>
