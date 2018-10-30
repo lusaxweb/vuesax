@@ -8,9 +8,9 @@
     <div
       v-if="icon"
       class="vs-list--icon">
-      <i
-        translate="no"
-        class="material-icons notranslate">{{ icon }}</i>
+      <vs-icon
+        :icon-pack="iconPack"
+        :icon="icon"></vs-icon>
     </div>
     <div class="list-titles">
       <div
@@ -41,6 +41,10 @@ export default {
     icon:{
       type:String,
       default:null,
+    },
+    iconPack:{
+      type:String,
+      default:'material-icons',
     },
   },
   computed: {

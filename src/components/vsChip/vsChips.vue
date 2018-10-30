@@ -15,9 +15,10 @@
       <div
         class="x-global con-chips--remove-all"
         @click="removeTotalItems">
-        <i
-          translate="no"
-          class="material-icons notranslate">close</i>
+        <vs-icon
+          :iconPack="text ? '' : iconPack"
+          :icon="text ? '' : removeIcon"
+        ></vs-icon>
       </div>
     </div>
   </div>
@@ -42,7 +43,15 @@ export default {
     },
     items:{
       type:Array,
-    }
+    },
+    iconPack:{
+      type:String,
+      default:'material-icons'
+    },
+    removeIcon:{
+      type:String,
+      default:'close',
+    },
   },
   data(){
     return {

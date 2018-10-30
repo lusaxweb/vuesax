@@ -10,6 +10,11 @@ API:
    parameters: Material Icons
    description: Determines the icon displayed when displaying the value.
    default: null
+ - name: icon-pack
+   type: String
+   parameters: Icon Pack Class Name
+   description: Icon Pack to be used. If not set, icon will default to Material Icons. ex. FA4 uses fa or fas, FA5 uses fas, far, or fal.
+   default: material-icons
  - name: step
    type: Number
    parameters: 1-100
@@ -37,7 +42,7 @@ API:
    default: 100
 ---
 
-# Slider
+# Slider **- update**
 
 <box header>
 
@@ -200,7 +205,7 @@ export default {
 You can add an icon with the `icon` property to better representation the sliders to the user.
 
 ::: tip
-Vuesax uses the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
+Vuesax uses the **Google Material Icons** font library by default. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/). Other icon libraries can be used by providing the class for the respective pack in the icon-pack property. ex. FA4 uses fa or fas, FA5 uses fas, far, or fal.
 :::
 
 <vuecode md>
@@ -212,9 +217,9 @@ Vuesax uses the **Google Material Icons** font library. For a list of all availa
 ```html
 <template lang="html">
   <div class="">
-    <vs-slider icon=volume_up max=10 v-model="value1"/>
-    <vs-slider icon=group_add ticks step=25 v-model="value2"/>
-    <vs-slider icon=star ticks max=5 v-model="value3"/>
+    <vs-slider icon="volume_up" max=10 v-model="value1"/>
+    <vs-slider icon="group_add" ticks step=25 v-model="value2"/>
+    <vs-slider icon="star" ticks max=5 v-model="value3"/>
   </div>
 </template>
 

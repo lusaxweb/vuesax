@@ -20,6 +20,11 @@ API:
     parameters: Material Icons
     description: Determine the button icon
     default: null
+  - name: icon-pack
+    type: String
+    parameters: Icon Pack Class Name
+    description: Icon Pack to be used. If not set, icon will default to Material Icons. ex. FA4 uses fa or fas, FA5 uses fas, far, or fal.
+    default: material-icons
   - name: icon-after
     type: Boolean
     parameters: null
@@ -67,7 +72,7 @@ API:
     default: false
 ---
 
-# Buttons
+# Buttons **- update**
 
 <box header>
 
@@ -379,7 +384,7 @@ You can change the font color of buttons, need only set the prop `text-color` wi
 You can add an icon to the button with the property `icon`
 
 ::: tip
-Vuesax uses the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
+Vuesax uses the **Google Material Icons** font library by default. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/). Other icon libraries can be used by providing the class for the respective pack in the icon-pack property. ex. FA4 uses fa or fas, FA5 uses fas, far, or fal.
 :::
 
 :::tip

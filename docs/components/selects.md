@@ -73,13 +73,23 @@ API:
    type: Event
    parameters: event (optional)
    description:  Triggers method when input of select is changed (requires autocomplete prop)
+ - name: icon
+   type: String
+   parameters: icon name
+   description: Element icon.
+   default: keyboard_arrow_down
+ - name: icon-pack
+   type: String
+   parameters: Icon Pack Class Name
+   description: Icon Pack to be used. If not set, icon will default to Material Icons. ex. FA4 uses fa or fas, FA5 uses fas, far, or fal.
+   default: material-icons
 ---
 
-# Select
+# Select **- update**
 
 <box header>
 
-Selects clean and with a nice effect, very easy to implement
+Selects with a clean and smooth animation, that are very easy to implement.
 
 </box>
 
@@ -87,7 +97,14 @@ Selects clean and with a nice effect, very easy to implement
 
 ## Single selection
 
-To add a select to the application we have the component `vs-select`.
+To add a select to the application we have the component `vs-select`. You can customize the arrow icon by passing an icon name to `icon`.
+
+::: tip
+Vuesax uses the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
+
+FontAwesome and other fonts library are supported. Simply use the `icon-pack` with `fa` or `fas`. You still need to include the Font Awesome icons in your project.
+
+:::
 
 <vuecode md>
 <div slot="demo">
@@ -106,22 +123,30 @@ To add a select to the application we have the component `vs-select`.
       label="Figuras"
       v-model="select1"
       >
-      <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="(item,index) in options1" />
+      <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="item,index in options1" />
     </vs-select>
     <vs-select
       class="selectExample"
       label="Figuras"
       v-model="select2"
       >
-      <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="(item,index) in options2" />
+      <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="item,index in options2" />
     </vs-select>
     <vs-select
-      disabled="true"
+      disabled
       class="selectExample"
       label="Figuras"
       v-model="select3"
       >
-      <vs-select-item :key="index" :disabled="index==2" :value="item.value" :text="item.text" v-for="(item,index) in options3" />
+      <vs-select-item :key="index" :disabled="index==2" :value="item.value" :text="item.text" v-for="item,index in options3" />
+    </vs-select>
+    <vs-select
+      class="selectExample"
+      label="Figuras"
+      v-model="select4"
+      icon="arrow_downward"
+      >
+      <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="item,index in options4" />
     </vs-select>
   </div>
 </template>
@@ -130,9 +155,11 @@ To add a select to the application we have the component `vs-select`.
 export default {
   data(){
     return {
-      select1:3,
+      select1Normal:'',
+      select1:2,
       select2:7,
       select3:2,
+      select4:5,
       options1:[
         {text:'IT',value:0},
         {text:'Blade Runner',value:2},
@@ -158,10 +185,46 @@ export default {
         {text: 'Blue', value: 3},
         {text: 'Purple', value: 4},
       ],
+      options4:[
+        {text: 'Square', value: 1},
+        {text: 'Rectangle', value: 2},
+        {text: 'Rombo', value: 3},
+        {text: 'Romboid', value: 4},
+        {text: 'Trapeze', value: 5},
+        {text: 'Triangle', value: 6},
+        {text: 'Polygon', value: 7},
+      ],
     }
   },
+  methods:{
+    prueba(){
+      console.log("prueba de focsu");
+    }
+  }
 }
 </script>
+
+<style lang="css">
+.selectExample {
+  margin: 10px;
+}
+.con-select-example {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.con-select .vs-select {
+  width: 100%
+}
+@media (max-width: 550px) {
+  .con-select {
+    flex-direction: column;
+  }
+  .con-select .vs-select {
+    width: 100%
+  }
+}
+</style>
 ```
 
 </div>

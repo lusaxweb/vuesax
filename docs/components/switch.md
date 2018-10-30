@@ -30,8 +30,13 @@ API:
    parameters: Material Icons
    description: Icon that appears in the inactive state.
    default: null
+ - name: icon-pack
+   type: String
+   parameters: Icon Pack Class Name
+   description: Icon Pack to be used. If not set, icon will default to Material Icons. ex. FA4 uses fa or fas, FA5 uses fas, far, or fal.
+   default: material-icons
 ---
-# Switch
+# Switch **- update**
 
 <box header>
 
@@ -226,7 +231,7 @@ We can add a representative icon inside our switch with the property `vs-icon`.
 If you only need to add the icon in one of the states you can do it with the property `vs-icon-on` or `vs-icon-off`
 
 ::: tip
-Vuesax uses the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
+Vuesax uses the **Google Material Icons** font library by default. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/). Other icon libraries can be used by providing the class for the respective pack in the icon-pack property. ex. FA4 uses fa or fas, FA5 uses fas, far, or fal.
 :::
 
 <vuecode md>

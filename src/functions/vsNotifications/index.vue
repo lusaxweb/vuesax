@@ -19,12 +19,11 @@
 
           <slot/>
         </div>
-        <i
+        <vs-icon
           v-if="icon"
-          translate="no"
-          class="vs-icon-noti material-icons notranslate">
-          {{ icon }}
-        </i>
+          class="vs-icon-noti"
+          :icon-pack="iconPack"
+          :icon="icon"></vs-icon>
       </div>
       <span
         :style="fillingStyle"
@@ -38,6 +37,7 @@ export default {
   data:()=>({
     fullWidth:false,
     icon:null,
+    iconPack:'material-icons',
     color:'primary',
     colorText:'rgb(255, 255, 255)',
     active:true,

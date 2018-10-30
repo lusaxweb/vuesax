@@ -1,7 +1,7 @@
 ---
 API:
  - name: v-model
-   type: String / bolean / array
+   type: String / boolean / array
    parameters: null
    description: Link values.
    default: null
@@ -20,9 +20,14 @@ API:
    parameters: Material Icons
    description: Change the checkBox icon.
    default: checked
+ - name: icon-pack
+   type: String
+   parameters: Icon Pack Class Name
+   description: Icon Pack to be used. If not set, icon will default to Material Icons. ex. FA4 uses fa or fas, FA5 uses fas, far, or fal.
+   default: material-icons
 ---
 
-# CheckBox
+# CheckBox **- update**
 
 <box header>
 
@@ -337,6 +342,11 @@ export default {
 ## Change Icon
 
 Sometimes we want to change the internal icon inside the checkbox. To do so, we have the property `icon`
+
+::: tip
+Vuesax uses the **Google Material Icons** font library by default. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/). Other icon libraries can be used by providing the class for the respective pack in the icon-pack property. ex. FA4 uses fa or fas, FA5 uses fas, far, or fal.
+
+:::
 
 <vuecode md>
 <div slot="demo">

@@ -6,16 +6,18 @@
     <router-link
       v-if="to"
       :to="to">
-      <vs-icon>
-        {{ icon }}
+      <vs-icon
+        :icon-pack="iconPack"
+        :icon="icon">
       </vs-icon>
       <slot></slot>
     </router-link>
     <a
       v-else
       :href="href">
-      <vs-icon>
-        {{ icon }}
+      <vs-icon
+        :icon-pack="iconPack"
+        :icon="icon">
       </vs-icon>
       <slot></slot>
     </a>
@@ -29,6 +31,10 @@ export default {
       default: null,
       type: String
     },
+    iconPack: {
+      default: 'material-icons',
+      type: String
+    },
     href: {
       default:'#',
       type: String
@@ -40,7 +46,7 @@ export default {
     index: {
       default: null,
       type: [String, Number]
-    }
+    },
   },
   computed:{
     getActive () {

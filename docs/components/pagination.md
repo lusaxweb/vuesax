@@ -25,6 +25,11 @@ API:
    parameters:
    description: Customize the next button icon
    default: chevron_right
+ - name: icon-pack
+   type: String
+   parameters: Icon Pack Class Name
+   description: Icon Pack to be used. If not set, icon will default to Material Icons. ex. FA4 uses fa or fas, FA5 uses fas, far, or fal.
+   default: material-icons
  - name: color
    type: String
    parameters:
@@ -83,6 +88,9 @@ By default, their values are respectively **arrow_back** and **arrow_forward**.
 
 ::: tip
 Vuesax uses the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
+
+FontAwesome and other fonts library are supported. Simply use the `icon-pack` with `fa` or `fas`. You still need to include the Font Awesome icons in your project.
+
 :::
 
 <vuecode md center>

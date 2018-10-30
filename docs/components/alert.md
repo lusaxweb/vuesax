@@ -25,13 +25,23 @@ API:
    parameters: null
    description: Determines the alert icon
    default: null
+ - name: close-icon
+   type: String
+   parameters: null
+   description: Determines the close icon
+   default: close
+ - name: icon-pack
+   type: String
+   parameters: null
+   description: Determines the icon pack. If not set, icon will default to Material Icons. ex. FA4 uses fa or fas, FA5 uses fas, far, or fal.
+   default: material-icons
 ---
 
-# Alert
+# Alert **- update**
 
 <box header>
 
-  Notifications to the user in time of execution with good animation and functionality
+  Notifications to the user at execution time with good animation and functionality
 
 </box>
 
@@ -170,8 +180,10 @@ The property to determine if the alert can be closed is `closable`.
     <vs-button @click="active1=!active1" color="primary" type="filled">{{!active1?'Open Alert':'Close Alert'}}</vs-button>
     <vs-alert
     :active.sync="active1"
-    closable>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+    closable
+    close-icon="close">
+      Lorem ip
+      sum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
     </vs-alert>
   </div>
 </template>
@@ -187,6 +199,50 @@ export default {
 </script>
 ```
 
+
+</div>
+</vuecode>
+
+<br/>
+
+You can also change the icon used for the close buton on the alerts.
+
+::: tip
+Vuesax uses the **Google Material Icons** font library by default. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/). Other icon libraries can be used by providing the class for the respective pack in the icon-pack property. ex. FA4 uses fa or fas, FA5 uses fas, far, or fal.
+:::
+
+<vuecode md>
+<div slot="demo">
+  <Demos-Alert-Closeicon />
+</div>
+<div slot="code">
+
+```html
+<template lang="html">
+  <div class="centerx">
+    <vs-button @click="active1=!active1" color="primary" type="filled">{{!active1?'Open Alert':'Close Alert'}}</vs-button>
+    <vs-alert
+    :active.sync="active1"
+    closable
+    close-icon="cancel">
+      Lorem ip
+      sum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+    </vs-alert>
+  </div>
+</template>
+
+<script>
+export default {
+  data(){
+    return {
+      active1:true,
+    }
+  }
+}
+</script>
+```
+
+
 </div>
 </vuecode>
 </box>
@@ -195,10 +251,10 @@ export default {
 
 ## Icons
 
-You can add to the alert a descriptive icon with the property `icon` and as a value the icon of [Material Icons](https://material.io/icons/)
+You can add to the alert a descriptive icon with the property `icon` and as a value the icon name of the icon in the currently selected icon pack. (The default is [Material Icons](https://material.io/icons/))
 
 ::: tip
-Vuesax uses the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
+Vuesax uses the **Google Material Icons** font library by default. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/). Other icon libraries can be used by providing the class for the respective pack in the icon-pack property. ex. FA4 uses fa or fas, FA5 uses fas, far, or fal.
 :::
 
 <vuecode md>
@@ -240,7 +296,7 @@ export default {
 
 ## Example of use
 
-An example of serious use to have an input and when a condition is met show the **vs-alert**.
+An example would be to have an input and when a condition is met show the **vs-alert**.
 
 <vuecode md>
 <div slot="demo">
@@ -281,3 +337,4 @@ export default {
 </div>
 </vuecode>
 </box>
+

@@ -16,12 +16,12 @@
         <slot/>
       </template>
 
-      <i
+      <vs-icon
         v-else
-        translate="no"
-        class="material-icons icon-divider notranslate vs-divider--icon">
-        {{ icon }}
-      </i>
+        class="icon-divider notranslate vs-divider--icon"
+        :icon-pack="iconPack"
+        :icon="icon"
+      ></vs-icon>
     </span>
     <span
       :style="beforeStyle"
@@ -56,7 +56,11 @@ export default {
     position:{
       default:'center',
       type:String
-    }
+    },
+    iconPack:{
+      default:'material-icons',
+      type:String
+    },
   },
   computed:{
     getWidthAfter(){

@@ -47,22 +47,25 @@
         </span>
       </transition>
 
-      <i
+      <vs-icon
         v-if="icon"
-        :class="[iconPack,icon, size, {
-          'icon-after':iconAfter,
-        }]"
-        translate="no"
         class="icon-inputx notranslate vs-input--icon"
+        :class="{'icon-after':iconAfter}"
+        :iconPack="iconPack"
+        :icon="icon"
         @click="focusInput">
-        {{ icon }}
-      </i>
+      </vs-icon>
 
-      <transition name="icon-validate">
+      <transition name="icon-validate" >
         <span
           v-if="success || danger || warning"
-          class="input-icon-validate material-icons vs-input--icon-validate">
-          {{ getIcon }}
+          class="input-icon-validate vs-input--icon-validate"
+          :class="{'icon-before':iconAfter}">
+          <vs-icon
+            :class="{'icon-before':iconAfter}"
+            :iconPack="iconPack"
+            :icon="getIcon"
+          ></vs-icon>
         </span>
       </transition>
     </div>
@@ -181,7 +184,19 @@ export default {
     size:{
       default:'normal',
       type:String
-    }
+    },
+    valIconSuccess:{
+      default: null,
+      type:String
+    },
+    valIconDanger:{
+      default: null,
+      type:String
+    },
+    valIconWarning:{
+      default: null,
+      type:String
+    },
   },
   data:()=>({
     isFocus:false
@@ -217,14 +232,11 @@ export default {
       return this.labelPlaceholder?true:!this.value
     },
     getIcon(){
-      let iconx = 'done'
-      if(this.danger){
-        iconx = 'clear'
-      } else if (this.warning) {
-        iconx = 'warning'
-      }
-      return iconx
-    }
+      return this.danger  ? this.valIconDanger
+           : this.warning ? this.valIconWarning
+           : this.success ? this.valIconSuccess
+           : ''
+    },
   },
   methods:{
     // animation

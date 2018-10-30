@@ -24,11 +24,11 @@
         @keydown.esc.stop.prevent="closeOptions"
         v-on="listeners">
 
-      <i
-        translate="no"
-        class="material-icons icon-select notranslate vs-select--icon">
-        keyboard_arrow_down
-      </i>
+      <vs-icon
+      class="icon-select vs-select--icon"
+      :icon-pack="iconPack"
+      :icon="icon"
+      ></vs-icon>
 
       <transition name="fade-select">
         <div
@@ -154,6 +154,14 @@ export default {
     },
     descriptionText:{
       default: null,
+      type:String
+    },
+    iconPack:{
+      default: 'material-icons',
+      type:String
+    },
+    icon:{
+      default: 'keyboard_arrow_down',
       type:String
     },
   },

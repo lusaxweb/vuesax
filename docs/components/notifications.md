@@ -35,6 +35,11 @@ API:
    parameters: Material Icon
    description: Notification Icon.
    default: null
+ - name: icon-pack
+   type: String
+   parameters: Icon Pack Class Name
+   description: Icon Pack to be used. If not set, icon will default to Material Icons. ex. FA4 uses fa or fas, FA5 uses fas, far, or fal.
+   default: material-icons
  - name: click
    type: Function
    parameters: function(){ ... }, ()=>{ ... }
@@ -47,7 +52,7 @@ API:
    default: null
 ---
 
-# Notifications
+# Notifications **- update**
 
 <box header>
 
@@ -171,7 +176,7 @@ export default {
 
 Notifications can include icons to improve the user experience and to construct a more pleasant and intuitive notification. To make this, use the `icon` property. A practical example would be: `icon: 'chat'`.
 ::: tip
-Vuesax uses the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
+Vuesax uses the **Google Material Icons** font library by default. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/). Other icon libraries can be used by providing the class for the respective pack in the icon-pack property. ex. FA4 uses fa or fas, FA5 uses fas, far, or fal.
 :::
 <vuecode md>
 <div slot="demo">

@@ -22,18 +22,33 @@ API:
    default: null
  - name: icon
    type: String
-   parameters: Material Icon
+   parameters: icon name
    description: Element icon.
+   default: null
+ - name: val-icon-success
+   type: String
+   parameters: icon name
+   description: The icon to use for success validations
+   default: null
+ - name: val-icon-danger
+   type: String
+   parameters: icon name
+   description: The icon to use for danger validations
+   default: null
+ - name: val-icon-warning
+   type: String
+   parameters: icon name
+   description: The icon to use for warning validations
    default: null
  - name: icon-pack
    type: String
-   parameters: Icon Pack
-   description: Icon Pack Description. If not use, icon will base in Material Icons.
-   default: null
+   parameters: Icon Pack Class Name
+   description: Icon Pack to be used. If not set, icon will default to Material Icons. ex. FA4 uses fa or fas, FA5 uses fas, far, or fal.
+   default: material-icons
  - name: icon-after
-   type: String
+   type: Boolean,String
    parameters: null
-   description: Position of the icon after input.
+   description: If true, sets icon to appear after input.
    default: false
  - name: color
    type: String
@@ -89,7 +104,7 @@ contributors:
  - cristijora
 ---
 
-# Input
+# Input **- update**
 
 <box header>
 

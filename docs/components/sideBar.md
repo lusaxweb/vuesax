@@ -10,6 +10,11 @@ API:
    parameters: null
    description: Add the icon to the item or group label.
    default: none
+ - name: icon-pack
+   type: String
+   parameters: Icon Pack Class Name
+   description: Icon Pack to be used. If not set, icon will default to Material Icons. ex. FA4 uses fa or fas, FA5 uses fas, far, or fal.
+   default: material-icons
  - name: parent
    type: Element (#idx | .classx)
    parameters: #parent | .parent
@@ -87,7 +92,7 @@ API:
    default: null
 ---
 
-# SideBar
+# SideBar **- update**
 
 <box header>
 

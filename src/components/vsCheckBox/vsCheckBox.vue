@@ -15,11 +15,11 @@
       <span
         :style="style_check"
         class="vs-checkbox--check"/>
-      <i
-        translate="no"
-        class="material-icons notranslate vs-checkbox--icon">
-        {{ icon }}
-      </i>
+      <vs-icon
+      :iconPack="text ? '' : iconPack"
+      :icon="text ? '' : icon"
+      class="vs-checkbox--icon "
+    ></vs-icon>
     </span>
     <span class="con-slot-label">
       <slot/>
@@ -40,6 +40,10 @@ export default {
     value:{},
     icon:{
       default:'check',
+      type:String
+    },
+    iconPack:{
+      default:'material-icons',
       type:String
     },
     vsValue:{

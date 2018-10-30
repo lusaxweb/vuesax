@@ -22,6 +22,14 @@
       >
       <vs-select-item :key="index" :disabled="index==2" :value="item.value" :text="item.text" v-for="item,index in options3" />
     </vs-select>
+    <vs-select
+      class="selectExample"
+      label="Figuras"
+      v-model="select4"
+      icon="arrow_downward"
+      >
+      <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="item,index in options4" />
+    </vs-select>
   </div>
 </template>
 
@@ -33,6 +41,7 @@ export default {
       select1:2,
       select2:7,
       select3:2,
+      select4:5,
       options1:[
         {text:'IT',value:0},
         {text:'Blade Runner',value:2},
@@ -57,7 +66,16 @@ export default {
         {text: 'Green', value: 2},
         {text: 'Blue', value: 3},
         {text: 'Purple', value: 4},
-      ]
+      ],
+      options4:[
+        {text: 'Square', value: 1},
+        {text: 'Rectangle', value: 2},
+        {text: 'Rombo', value: 3},
+        {text: 'Romboid', value: 4},
+        {text: 'Trapeze', value: 5},
+        {text: 'Triangle', value: 6},
+        {text: 'Polygon', value: 7},
+      ],
     }
   },
   methods:{

@@ -28,11 +28,11 @@
       class="text-on text-switch vs-switch--text">
       <slot name="on"/>
 
-      <i
-        translate="no"
-        class="material-icons icons-switch notranslate vs-switch--icon">
-        {{ vsIconOn || vsIcon }}
-      </i>
+      <vs-icon
+        class="icons-switch vs-switch--icon"
+        :icon-pack="iconPack"
+        :icon="vsIconOn || vsIcon"
+      ></vs-icon>
     </span>
     <span
       ref="off"
@@ -40,11 +40,11 @@
       class="text-off text-switch vs-switch--text">
       <!-- gato con botas -->
       <slot name="off"/>
-      <i
-        translate="no"
-        class="material-icons icons-switch notranslate vs-switch--icon">
-        {{ vsIconOff || vsIcon }}
-      </i>
+      <vs-icon
+        class="icons-switch vs-switch--icon"
+        :icon-pack="iconPack"
+        :icon="vsIconOff || vsIcon"
+      ></vs-icon>
     </span>
     <span class="vs-circle-switch vs-switch--circle"/>
   </button>
@@ -71,6 +71,10 @@ export default {
     },
     vsIconOff:{
       default:null,
+      type:String
+    },
+    iconPack:{
+      default:'material-icons',
       type:String
     },
     vsValue:{}
