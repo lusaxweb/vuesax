@@ -41,7 +41,7 @@
                   v-if="multiple"
                   class="con-td-check">
                   <vs-checkbox
-                    :vs-icon="isCheckedLine ? 'remove' : 'check'"
+                    :icon="isCheckedLine ? 'remove' : 'check'"
                     :checked="isCheckedMultiple"
                     size="small"
                     @click="changeCheckedMultiple"/>

@@ -16,8 +16,8 @@
         class="x-global con-chips--remove-all"
         @click="removeTotalItems">
         <vs-icon
-          :iconPack="text ? '' : iconPack"
-          :icon="text ? '' : removeIcon"
+          :icon-pack="iconPack"
+          :icon="removeIcon"
         ></vs-icon>
       </div>
     </div>

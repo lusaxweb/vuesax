@@ -23,12 +23,13 @@
     </span>
 
     <vs-icon
+      v-if="icon"
       :style="{
         'order':iconAfter?2:0,
         'margin-right':$slots.default&&!iconAfter?'5px':'0px',
         'margin-left':$slots.default&&iconAfter?'5px':'0px'
       }"
-      :iconPack="iconPack"
+      :icon-pack="iconPack"
       :icon="icon"
       class="vs-button--icon "
     ></vs-icon>
@@ -111,7 +112,7 @@ export default {
     },
     target:{
       default:false,
-      type:Boolean
+      type:[Boolean, String]
     }
   },
   data:()=>({

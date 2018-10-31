@@ -10,6 +10,8 @@
     .vs-checkbox
       width: 15px
       height 15px
+      .vs-icon
+        font-size: .7rem
   &.vs-checkbox-large
     .vs-checkbox
       width: 24px
@@ -36,14 +38,14 @@
     & + .vs-checkbox
       .vs-checkbox--check
         transform: translate(3px)
-      i
+      .vs-icon
         transform: translate(6px)
   &:checked
     & + .vs-checkbox
       transform: rotate(0deg)
       .vs-checkbox--check
         transform: translate(0);
-      i
+      .vs-icon
         opacity: 1;
         transform: translate(0)
         color: rgb(255, 255, 255)

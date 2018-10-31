@@ -15,17 +15,20 @@
         class="vs-popup">
 
         <!-- //header -->
-        <header 
-          :style="styleHeader" 
+        <header
+          :style="styleHeader"
           class="vs-popup--header">
           <div class="vs-popup--title">
             <h3>{{ title }}</h3>
           </div>
-          <span
+          <vs-icon
             v-if="!buttonCloseHidden"
-            translate="no"
-            class="vs-popup--close material-icons notranslate "
-            @click="close">close</span>
+            ref="btnclose"
+            :icon-pack="iconPack"
+            :icon="iconClose"
+            class="vs-popup--close vs-popup--close--icon"
+            @click="close"
+          />
         </header>
 
         <!-- // slots  -->
@@ -80,7 +83,15 @@ export default {
     classContent:{
       default:null,
       type: String
-    }
+    },
+    iconPack:{
+      default:'material-icons',
+      type:String
+    },
+    iconClose:{
+      default:'close',
+      type:String
+    },
   },
   computed:{
     styleHeader(){
@@ -116,9 +127,7 @@ export default {
         if(event.target.className.indexOf('vs-popup--background')!=-1){
           this.$emit('update:active',false)
           this.$emit('close', false)
-        }
-      } else {
-        if(event?event.target.className.indexOf('vs-popup--close')!=-1:false ){
+        } else if(event.toElement == this.$refs.btnclose.$el){
           this.$emit('update:active',false)
           this.$emit('close', false)
         }

@@ -25,12 +25,12 @@
         v-on="listeners">
 
       <vs-icon
-      class="icon-select vs-select--icon"
-      :icon-pack="iconPack"
-      :icon="icon"
+        :icon-pack="iconPack"
+        :icon="icon"
+        class="icon-select vs-select--icon"
       ></vs-icon>
 
-      <transition name="fade-select">
+      <transition name="fadeselect">
         <div
           v-show="active"
           ref="vsSelectOptions"
@@ -222,22 +222,36 @@ export default {
       this.$emit('change',event)
     },
     active(){
-      if(this.active){
-        this.$children[0].focusValue(0)
-        this.$children.forEach((item)=>{
-          if (item.focusValue) {
-            item.focusValue()
-          }
-        })
-        setTimeout( () => {
-          if(this.$refs.ulx.scrollHeight >= 260) this.scrollx = true
-        }, 100);
-      }
+      this.$nextTick(() => {
+        if(this.active){
+          utils.insertBody(this.$refs.vsSelectOptions)
+          setTimeout( () => {
+            this.$children[0].focusValue(0)
+            this.$children.forEach((item)=>{
+              if (item.focusValue) {
+                item.focusValue()
+              }
+            })
+            if(this.$refs.ulx.scrollHeight >= 260) this.scrollx = true
+          }, 100);
+        } else {
+          let [parent] = document.getElementsByTagName('body')
+          parent.removeChild(this.$refs.vsSelectOptions)
+        }
+      })
     },
   },
   mounted(){
+    // this.$refs.inputselect.value = this.value
+    // console.log(this.$refs.inputselect.value ,'==========', this.value)
     this.changeValue()
-    utils.insertBody(this.$refs.vsSelectOptions)
+    if (this.active) {
+      utils.insertBody(this.$refs.vsSelectOptions)
+    }
+  },
+  beforeDestroy() {
+    let [parent] = document.getElementsByTagName('body')
+    parent.removeChild(this.$refs.vsSelectOptions)
   },
   updated(){
     if(!this.active){

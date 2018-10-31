@@ -1,6 +1,6 @@
 <template>
   <vs-row vs-justify="center">
-    <vs-col type="flex" vs-justify="center" vs-align="center" vs-w="6">
+    <vs-col type="flex" vs-w="6">
       <vs-card class="cardx">
         <div slot="header">
           <h3>
@@ -53,5 +53,7 @@ export default {
 </script>
 <style lang="stylus">
 .cardx
-  margin 15px
+  width calc(100% - 10px)
+  margin 5px
+  margin-bottom 20px
 </style>

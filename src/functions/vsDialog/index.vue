@@ -20,13 +20,13 @@
               class="after"/>
             <h3>{{ title || vsTitle }}</h3>
           </div>
-            <vs-icon
-              v-if="type=='alert'"
-              class="vs-dialog-cancel vs-dialog-cancel--icon notranslate"
-              :icon-pack="vsIconPack"
-              :icon="vsCloseIcon"
-              :click="close"
-            ></vs-icon>
+          <vs-icon
+            v-if="type=='alert'"
+            :icon="vsCloseIcon"
+            :click="close"
+            :icon-pack="vsIconPack"
+            class="vs-dialog-cancel vs-dialog-cancel--icon notranslate"
+          />
         </header>
 
         <!-- // slots  -->

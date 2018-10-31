@@ -8,12 +8,12 @@
       v-if="vsCollapse"
       class="span vs-dropdown--group-label">{{ vsLabel }}</span>
     <h3 v-else>{{ vsLabel }}</h3>
-    <i
+    <vs-icon
       v-if="vsCollapse"
-      translate="no"
-      class="material-icons icon-group notranslate vs-dropdown--group-icon">
-      {{ vsIcon }}
-    </i>
+      class="icon-group notranslate vs-dropdown--group-icon"
+      :icon-pack="iconPack"
+      :icon="vsIcon"
+    ></vs-icon>
     <transition
       @before-enter="beforeEnter"
       @enter="enter"
@@ -46,6 +46,10 @@ export default {
     },
     vsIcon: {
       default: 'keyboard_arrow_right',
+      type:String
+    },
+    iconPack:{
+      default:'material-icons',
       type:String
     }
   },

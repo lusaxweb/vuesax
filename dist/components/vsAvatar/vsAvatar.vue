@@ -23,11 +23,11 @@
       v-else
       :title="text"
       :style="textStyle"
-      :class="textClass"
+      :class="[text ? '' : iconPack, text ? '' : icon, textClass]"
       translate="no"
       class="vs-avatar--text notranslate"
     >
-      {{ text ? returnText : icon }}
+      {{ text ? returnText : iconPack == 'material-icons' ? icon : '' }}
     </span>
 
   </div>
@@ -58,6 +58,10 @@ export default {
     icon:{
       type:String,
       default:'person'
+    },
+    iconPack:{
+      type:String,
+      default:'material-icons'
     },
     textColor:{
       type:String,

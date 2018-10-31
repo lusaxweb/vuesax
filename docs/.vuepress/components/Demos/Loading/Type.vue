@@ -29,7 +29,6 @@ export default {
   }),
   mounted(){
     this.types.forEach((type)=>{
-      console.log(type)
       this.$vs.loading({
         container: `#loading-${type}`,
         type,

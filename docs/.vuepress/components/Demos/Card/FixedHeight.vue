@@ -53,6 +53,4 @@ export default {
 }
 </script>
 <style lang="stylus">
-.cardx
-  margin 15px
 </style>

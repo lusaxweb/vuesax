@@ -20,11 +20,13 @@
               class="after"/>
             <h3>{{ title || vsTitle }}</h3>
           </div>
-          <span
+          <vs-icon
             v-if="type=='alert'"
-            translate="no"
-            class="vs-dialog-cancel material-icons notranslate"
-            @click="close">close</span>
+            :icon="vsCloseIcon"
+            :click="close"
+            :icon-pack="vsIconPack"
+            class="vs-dialog-cancel vs-dialog-cancel--icon notranslate"
+          />
         </header>
 
         <!-- // slots  -->
@@ -96,6 +98,14 @@ export default {
     vsCancelText:{
       default:'Cancel',
       type:String
+    },
+    vsIconPack:{
+      default:'material-icons',
+      type:String
+    },
+    vsCloseIcon:{
+      default:'close',
+      type:String
     }
   },
   data:()=>({
@@ -108,7 +118,9 @@ export default {
     buttonAccept:'filled',
     buttonCancel:'flat',
     acceptText:'Accept',
-    cancelText:'Cancel'
+    cancelText:'Cancel',
+    closeIcon:'close',
+    iconPack:'material-icons'
   }),
   computed:{
     styleHeader(){
@@ -173,7 +185,7 @@ export default {
           this.rebound()
         }
       } else {
-        if(event?event.target.className.indexOf('vs-dialog-cancel')!=-1:false ){
+        if(event?event.target.className.indexOf('vs-dialog-cancel')!=-1:event?event.target.className.indexOf('vs-dialog-cancel--icon')!=-1:false ){
           this.active = false
           this.$emit('update:vsActive',false)
         }

@@ -22,16 +22,17 @@
       class="vs-button-backgroundx vs-button--background">
     </span>
 
-    <i
+    <vs-icon
+      v-if="icon"
       :style="{
         'order':iconAfter?2:0,
         'margin-right':$slots.default&&!iconAfter?'5px':'0px',
         'margin-left':$slots.default&&iconAfter?'5px':'0px'
       }"
-      translate="no"
-      class="material-icons vs-button--icon notranslate">
-      {{ icon }}
-    </i>
+      :icon-pack="iconPack"
+      :icon="icon"
+      class="vs-button--icon "
+    ></vs-icon>
 
     <span
       v-if="$slots.default"
@@ -89,6 +90,10 @@ export default {
       type:String,
       default:null
     },
+    iconPack:{
+      type:String,
+      default:'material-icons'
+    },
     iconAfter:{
       default:false,
       type:Boolean
@@ -107,7 +112,7 @@ export default {
     },
     target:{
       default:false,
-      type:Boolean
+      type:[Boolean, String]
     }
   },
   data:()=>({

@@ -19,9 +19,10 @@
       v-if="closable"
       class="btn-close vs-chip--close"
       @click="closeChip">
-      <i class="material-icons">
-        clear
-      </i>
+      <vs-icon
+        :icon-pack="iconPack"
+        :icon="closeIcon"
+      ></vs-icon>
     </button>
   </div>
 </template>
@@ -55,7 +56,15 @@ export default {
     icon:{
       type:String,
       default:null,
-    }
+    },
+    iconPack:{
+      type:String,
+      default:'material-icons'
+    },
+    closeIcon:{
+      type:String,
+      default:'clear',
+    },
   },
   computed:{
     styleChip () {

@@ -191,6 +191,7 @@ module.exports = {
         collapsable: false,
         children: [
           '/theme/',
+          '/theme/icon'
          ]
       },
       {
@@ -227,8 +228,7 @@ module.exports = {
           '/components/table',
           '/components/textarea',
           '/components/collapse',
-          '/components/images',
-          '/components/icon',
+          '/components/images'
           // '/components/timePicker',
           /*New Component*/
         ]
