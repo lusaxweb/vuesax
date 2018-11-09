@@ -16,6 +16,10 @@ export default {
     vsLabel:{
       default:'Label',
       type:String
+    },
+    vsIcon:{
+      default:'',
+      type:String
     }
   },
   data:()=>({
@@ -28,6 +32,7 @@ export default {
     this.id = this.$parent.children.length
     this.$parent.children.push({
       label: this.vsLabel,
+      icon: this.vsIcon,
       id: this.$parent.children.length,
       listeners: this.$listeners,
       attrs: this.$attrs

@@ -40,6 +40,11 @@ API:
    parameters: null
    description: Text on the tab button.
    default: null
+ - name: vs-icon
+   type: String
+   parameters: Same as `vs-icon` component.
+   description: Add a left icon inside the tabs component.
+   default: null
 ---
 
 # Tabs
@@ -70,7 +75,7 @@ For the title of each tab the `vs-tab` property is implemented in the` vs-tab` c
 ```html
 <template lang="html">
   <div class="">
-    <vs-tabs >
+    <vs-tabs>
       <vs-tab vs-label="Home">
         <div class="con-tab-ejemplo">
           Home
@@ -425,6 +430,49 @@ You can change the position of the menu with the property `vs-position` that as 
 
 
   </div>
+</template>
+```
+
+</div>
+</vuecode>
+
+</box>
+
+<box>
+
+## Icons
+
+You can add a left icon inside each tab with the property `vs-icon` that has the same values as the `vs-icon` component.
+
+<vuecode md>
+<div slot="demo">
+  <Demos-Tabs-Icons />
+</div>
+<div slot="code">
+
+```html
+<template lang="html">
+  <div>
+    <vs-tabs :color="colorx">
+      <vs-tab vs-label="Pets" vs-icon="pets" @click="colorx = '#8B0000'">
+      </vs-tab>
+      <vs-tab vs-label="Bank" vs-icon="account_balance" @click="colorx = '#FFA500'">
+      </vs-tab>
+      <vs-tab vs-label="Dashboard" vs-icon="dashboard" @click="colorx = '#551A8B'">
+      </vs-tab>
+      <vs-tab vs-label="Profile" vs-icon="account_circle" @click="colorx = '#0000FF'">
+      </vs-tab>
+    </vs-tabs>
+  </div>
+</template>
+
+<script>
+export default {
+  data:()=>({
+    colorx: '#8B0000'
+  })
+}
+</script>
 </template>
 ```
 

@@ -20,9 +20,9 @@
           <button
             v-bind="child.attrs"
             type="button"
-            :style="styleAlignIcon"
+            :style="styleAlignIcon(child.icon)"
             v-on="child.listeners">
-            <vs-icon :icon="vsIcon" :color="color" style="padding-right:9px"></vs-icon>
+            <vs-icon v-if="child.icon" :icon="child.icon" :color="color" style="padding-right:9px"></vs-icon>
             <span>{{ child.label }}</span>
           </button>
         </li>
@@ -56,10 +56,6 @@ export default {
       default:'left',
       type:String,
     },
-    vsIcon:{
-      default:'pets',
-      type:String,
-    },
     vsPosition:{
       default:'top',
       type:String
@@ -91,9 +87,6 @@ export default {
         boxShadow: `0px 0px 8px 0px ${_color.getColor(this.color,.5)}`,
         transform: `scaleX(${this.these?1.3:1})`
       }
-    },
-    styleAlignIcon(){
-      return this.vsIcon ? 'display:flex;align-items:center' : ''
     }
   },
   watch: {
@@ -110,6 +103,9 @@ export default {
     })
   },
   methods:{
+    styleAlignIcon(icon){
+      return icon ? 'display:flex;align-items:center' : ''
+    },
     parseIndex(index) {
       let activeIndex = this.childActive
       if (index < 0) {
