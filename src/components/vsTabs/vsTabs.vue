@@ -20,8 +20,10 @@
           <button
             v-bind="child.attrs"
             type="button"
+            :style="styleAlignIcon"
             v-on="child.listeners">
-            {{ child.label }}
+            <vs-icon :icon="vsIcon" :color="color" style="padding-right:9px"></vs-icon>
+            <span>{{ child.label }}</span>
           </button>
         </li>
       </ul>
@@ -37,10 +39,10 @@
 
 <script>
 import _color from '../../utils/color.js'
-import vsButton from '../vsButton/vsButton.vue'
+import vsIcon from '../vsIcon/vsIcon.vue'
 export default {
   name:'VsTabs',
-  components:{vsButton},
+  components:{vsIcon},
   props:{
     value: {
       default: 0,
@@ -52,6 +54,10 @@ export default {
     },
     vsAlignment:{
       default:'left',
+      type:String,
+    },
+    vsIcon:{
+      default:'pets',
       type:String,
     },
     vsPosition:{
@@ -85,6 +91,9 @@ export default {
         boxShadow: `0px 0px 8px 0px ${_color.getColor(this.color,.5)}`,
         transform: `scaleX(${this.these?1.3:1})`
       }
+    },
+    styleAlignIcon(){
+      return this.vsIcon ? 'display:flex;align-items:center' : ''
     }
   },
   watch: {
