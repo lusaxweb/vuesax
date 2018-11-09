@@ -37,10 +37,8 @@
 
 <script>
 import _color from '../../utils/color.js'
-import vsButton from '../vsButton/vsButton.vue'
 export default {
   name:'VsTabs',
-  components:{vsButton},
   props:{
     value: {
       default: 0,
