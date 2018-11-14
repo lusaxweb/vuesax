@@ -23,7 +23,7 @@
           <vs-icon
             v-if="type=='alert'"
             :icon="vsCloseIcon"
-            :click="close"
+            @click.native="cancelClose"
             :icon-pack="vsIconPack"
             class="vs-dialog-cancel vs-dialog-cancel--icon notranslate"
           />
