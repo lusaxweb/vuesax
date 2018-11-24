@@ -226,7 +226,6 @@ export default {
         if(this.active){
           utils.insertBody(this.$refs.vsSelectOptions)
           setTimeout( () => {
-            this.$children[0].focusValue(0)
             this.$children.forEach((item)=>{
               if (item.focusValue) {
                 item.focusValue()
@@ -388,7 +387,8 @@ export default {
       if (!this.autocomplete) {
         if(this.multiple?this.value.length == 0:!this.value || this.multiple){
           setTimeout( () => {
-            this.$children[0].$el.querySelector('.vs-select--item').focus()
+            const el = this.$children[0].$el.querySelector('.vs-select--item')
+            if (el) el.focus()
           }, 50);
         }
       }

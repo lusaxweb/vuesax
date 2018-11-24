@@ -22,7 +22,7 @@
     </header>
     <div class="con-tablex vs-table--content">
 
-      <div class="vs-con-table-theade vs-table--thead">
+      <!-- <div class="vs-con-table-theade vs-table--thead">
         <table
           :style="tableHeaderStyle"
           class="vs-table--thead-table">
@@ -51,14 +51,32 @@
             </tr>
           </thead>
         </table>
-      </div>
+      </div> -->
 
       <div
         :style="styleConTbody"
-        class="vs-con-tbody vs-table--tbody">
+        class="vs-con-tbody vs-table--tbody ">
         <table
           ref="table"
           class="vs-table vs-table--tbody-table">
+          <thead
+            ref="thead"
+            class="vs-table--thead">
+            <tr>
+              <th class="td-check">
+                <span
+                  v-if="multiple"
+                  class="con-td-check">
+                  <vs-checkbox
+                    :icon="isCheckedLine ? 'remove' : 'check'"
+                    :checked="isCheckedMultiple"
+                    size="small"
+                    @click="changeCheckedMultiple"/>
+                </span>
+              </th>
+              <slot name="thead"></slot>
+            </tr>
+          </thead>
           <colgroup ref="colgrouptable">
             <col width="20"/>
             <col
