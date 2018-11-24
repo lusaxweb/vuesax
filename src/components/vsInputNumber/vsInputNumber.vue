@@ -24,9 +24,7 @@
     </button>
     <input
       ref="input"
-      :style="{
-        width:`${getLength}px`
-      }"
+      :style="styleInput"
       :value="value"
       v-bind="$attrs"
       type="number"
@@ -117,15 +115,24 @@ export default {
     iconInc:{
       default:'add',
       type:String
+    },
+    step:{
+      default:1,
+      type:[Number,String]
     }
   },
   data:()=>({
     isChangeValue:false
   }),
   computed:{
+    styleInput() {
+      return {
+        width:`${this.getLength}px`
+      }
+    },
     getLength(){
       if(this.value != ''){
-        return this.value.length * 9.1
+        return this.value.toString().length * 9.1
       } else {
         return 0
       }
@@ -137,9 +144,9 @@ export default {
       return {
         ...this.$listeners,
         blur:(evt)=>{
-          if(parseInt(this.value) > parseInt(this.max)) {
+          if(parseFloat(this.value) > parseFloat(this.max)) {
             this.$emit('input',this.max)
-          } else if (parseInt(this.value) < parseInt(this.min)) {
+          } else if (parseFloat(this.value) < parseFloat(this.min)) {
             this.$emit('input',this.min)
             this.$emit('blur',evt)
           }
@@ -164,8 +171,8 @@ export default {
       if(this.value == ''){
         newValue = 0
       }
-      if(this.max?parseInt(this.value)<parseInt(this.max):true){
-        newValue = parseInt(this.value) + 1
+      if(this.max?parseFloat(this.value)<parseFloat(this.max):true){
+        newValue = parseFloat(this.value) + parseFloat(this.step)
         this.$emit('input',newValue)
       }
     },
@@ -174,8 +181,8 @@ export default {
       if(this.value == ''){
         newValue = 0
       }
-      if(this.min?parseInt(this.value)>parseInt(this.min):true){
-        newValue = parseInt(this.value) - 1
+      if(this.min?parseFloat(this.value)>parseFloat(this.min):true){
+        newValue = parseFloat(this.value) - parseFloat(this.step)
         this.$emit('input',newValue)
       }
     },
