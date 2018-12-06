@@ -135,10 +135,16 @@ export default {
         mouseout: (event) => this.mouseoutx(event)
       }
     },
+    getTextColor() {
+      if (this.textColor) {
+        return _color.isColor(this.textColor)?_color.convertVsColorToColor(this.textColor):_color.getColor(this.textColor,1)
+      }
+      return _color.getColor(this.color,1)
+    },
     styles() {
       if(this.is('filled')){
         return {
-          color: _color.getColor(this.textColor,1),
+          color: this.getTextColor,
           background: _color.getColor(this.color,1),
           boxShadow: this.hoverx?`0px 8px 25px -8px ${_color.getColor(this.color,1)}`:null
         }
@@ -146,11 +152,11 @@ export default {
         return {
           border: `${this.is('flat')?0:1}px solid ${_color.getColor(this.color,1)}`,
           background: this.hoverx?_color.getColor(this.color,.1):'transparent',
-          color:_color.getColor(this.textColor,1) || _color.getColor(this.color,1)
+          color:this.getTextColor
         }
       } else if (this.is('line')) {
         return {
-          color:_color.getColor(this.textColor,1) || _color.getColor(this.color,1),
+          color:this.getTextColor,
           borderBottomWidth: this.linePosition=='bottom'?`2px`:null,
           borderColor: `${_color.getColor(this.color,.2)}`,
           borderTopWidth: this.linePosition=='top'?`2px`:null,

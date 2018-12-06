@@ -32,6 +32,17 @@ export default {
     }
     return colorx
   },
+  convertVsColorToColor(colorx) {
+    return {
+      'primary':'rgb(31, 116, 255) !important',
+      'secondary':'rgb(121, 49, 177) !important',
+      'danger':'rgb(255, 71, 87) !important',
+      'success':'rgb(70, 201, 58) !important',
+      'warning':'rgb(255,186,0) !important',
+      'dark':'rgb(30, 30, 30) !important',
+      'light':'rgb(245, 245, 245) !important'
+    }[colorx]
+  },
   isColor(colorx){
     let vscolors = ['primary','secondary','success','danger','warning','dark', 'light']
     return vscolors.includes(colorx)

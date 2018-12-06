@@ -45,8 +45,7 @@
   padding: 9px;
 &.vs-button-border,&.vs-button-flat
   &.isActive
-    .vs-button--text,.vs-button--icon
-      color: rgb(255, 255, 255) !important
+    color: rgb(255, 255, 255)
 
 .vs-button-filled
   &:hover
@@ -107,16 +106,15 @@ for colorx, i in $vs-colors
   .vs-button-{colorx}
     &.vs-button-filled //type filled
       // background: $vs-colors[colorx]
-      background: var(colorx)
+      background: var(colorx) !important
       &:hover
         box-shadow: 0px 8px 25px -8px var(colorx)
     &.vs-button-border,&.vs-button-flat //type border
      border: 1px solid var(colorx)
      background: transparent !important
      color: var(colorx)
-     .vs-button--text
-       &.isActive
-         color: rgb(255, 255, 255) !important
+     &.isActive
+       color: rgb(255, 255, 255)
      &:hover
        background: var(colorx, .08) !important
      .vs-button-backgroundx
