@@ -29,5 +29,5 @@ export default {
 <style lang="stylus">
 .icons-example
   .vs-input
-    margin 6px;
+    margin 15px
 </style>
