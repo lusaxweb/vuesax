@@ -15,6 +15,16 @@ API:
    parameters: null
    description: Determine if the value exceeds the counter.
    default: false
+ - name: width
+   type: String
+   parameters: null
+   description: Set the width of the textarea
+   default: null
+ - name: height
+   type: String
+   parameters: null
+   description: Set the height of the textarea
+   default: null
 ---
 
 # Textarea
@@ -123,6 +133,31 @@ export default {
 
 <style lang="stylus">
 </style>
+```
+
+</div>
+</vuecode>
+</box>
+
+<box>
+
+## Width/Height
+
+You can set the width of the textarea width the `width` property, and the height with the `height` property.
+
+<vuecode md>
+<div slot="demo">
+  <Demos-Height-Counter />
+</div>
+<div slot="code">
+
+```html
+<template lang="html">
+  <div>
+    <vs-textarea label="Width" width="300px" />
+    <vs-textarea label="Height" height="300px" />
+  </div>
+</template>
 ```
 
 </div>
