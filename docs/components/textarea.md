@@ -141,21 +141,44 @@ export default {
 
 <box>
 
-## Width/Height
+## Width
 
-You can set the width of the textarea width the `width` property, and the height with the `height` property.
+You can set the width of the textarea width the `width` property.
 
 <vuecode md>
 <div slot="demo">
-  <Demos-Height-Counter />
+  <Demos-Textarea-Width />
 </div>
 <div slot="code">
 
 ```html
 <template lang="html">
   <div>
-    <vs-textarea label="Width" width="300px" />
-    <vs-textarea label="Height" height="300px" />
+    <vs-textarea label="Width set to 300px" width="300px" />
+  </div>
+</template>
+```
+
+</div>
+</vuecode>
+</box>
+
+<box>
+
+## Height
+
+You can set the height of the textarea with the `height` property.
+
+<vuecode md>
+<div slot="demo">
+  <Demos-Textarea-Height />
+</div>
+<div slot="code">
+
+```html
+<template lang="html">
+  <div>
+    <vs-textarea label="Height set to 200px" height="200px" />
   </div>
 </template>
 ```
