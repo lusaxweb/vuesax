@@ -45,6 +45,11 @@ API:
    parameters: Icon Pack Class Name
    description: Icon Pack to be used. If not set, icon will default to Material Icons. ex. FA4 uses fa or fas, FA5 uses fas, far, or fal.
    default: material-icons
+ - name: val-icon-pack
+   type: String
+   parameters: Validation Icon Pack Class Name
+   description: Icon Pack to be used by the Validation Icons. If not set, icon will default to Material Icons. ex. FA4 uses fa or fas, FA5 uses fas, far, or fal.
+   default: material-icons
  - name: icon-after
    type: Boolean,String
    parameters: null
@@ -251,7 +256,7 @@ The input can have icons. Use the property `icon`. You can also also manipulate 
 ::: tip
 Vuesax uses the **Google Material Icons** font library. For a list of all available icons, visit the official [Material Icons page](https://material.io/icons/).
 
-FontAwesome and other fonts library are supported. Simply use the `icon-pack` with `fa` or `fas`. You still need to include the Font Awesome icons in your project.
+FontAwesome and other fonts library are supported. Simply use the `icon-pack` and `val-icon-pack` parameters with `fa` or `fas`. You still need to include the Font Awesome icons in your project.
 
 :::
 
