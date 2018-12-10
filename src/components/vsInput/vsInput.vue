@@ -63,7 +63,7 @@
           :class="{'icon-before':iconAfter}">
           <vs-icon
             :class="{'icon-before':iconAfter}"
-            :iconPack="iconPack"
+            :valIconPack="valIconPack"
             :icon="getIcon"
           ></vs-icon>
         </span>
@@ -186,6 +186,10 @@ export default {
     },
     size:{
       default:'normal',
+      type:String
+    },
+    valIconPack:{
+      default:'material-icons',
       type:String
     },
     valIconSuccess:{
