@@ -425,7 +425,6 @@ export default {
       this.active = false
       this.setLabelClass(this.$refs.inputSelectLabel, false)
       document.removeEventListener('click',this.clickBlur)
-      this.active = true
     },
     changePosition(){
       let elx = this.$refs.inputselect
