@@ -158,21 +158,20 @@
   padding-top: 5px;
   padding-bottom: 5px;
   position: relative;
-  &::after
-    content: '';
-    position: absolute;
-    right: 10px;
-    top: 0px;
-    width: 10px;
-    height: 10px;
-    display: block;
-    background: rgb(215, 45, 19);
-    transform: rotate(45deg) translate(-7px);
-    background: inherit
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    border-left: 1px solid rgba(0, 0, 0, 0.1);
-    z-index: 10;
-    box-sizing: border-box
+
+.vs-dropdown--menu--after
+  position: absolute;
+  right: 10px;
+  top: 0px;
+  width: 10px;
+  height: 10px;
+  display: block;
+  background: rgb(255, 255, 255);
+  transform: rotate(45deg) translate(-7px);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  box-sizing: border-box
 
 &.notHeight .vs-dropdown-menu
   &::after
