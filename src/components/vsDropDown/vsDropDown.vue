@@ -63,6 +63,17 @@ export default {
     dropdownMenu.vsCustomContent = this.vsCustomContent
     dropdownMenu.vsTriggerClick = this.vsTriggerClick
     this.changeColor()
+    document.addEventListener('click',(el)=>{
+      if ((this.vsTriggerClick || this.vsCustomContent) && this.vsDropdownVisible) {
+        if ((el.target !== this.$refs.dropdown &&
+          el.target.parentNode !== this.$refs.dropdown &&
+          el.target.parentNode.parentNode !== this.$refs.dropdown))
+          dropdownMenu.dropdownVisible = this.vsDropdownVisible = false
+      }
+    })
+  },
+  beforeDestroy(){
+    document.removeEventListener('click')
   },
   methods:{
     changeColor(){
