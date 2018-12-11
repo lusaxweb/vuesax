@@ -66,7 +66,7 @@ export default {
         if (!menuAfter) return
         if(dropdown && menuAfter && dropdown.getBoundingClientRect().top + 300 >= window.innerHeight) {
           const hasGroup = this.$children.find(it=>it.hasOwnProperty('activeGroup'))
-          menuAfter.style.top = hasGroup?'97.58%':'96%'
+          menuAfter.style.bottom = '-5px'
           menuAfter.style.transform = 'rotate(225deg)'
           return
         }
