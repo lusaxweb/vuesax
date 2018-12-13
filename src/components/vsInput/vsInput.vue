@@ -150,7 +150,7 @@ export default {
     },
     iconNoBorder:{
       default:false,
-      type:[Boolean,String]
+      type:Boolean
     },
     iconPack:{
       default:'material-icons',

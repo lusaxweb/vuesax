@@ -47,7 +47,7 @@ API:
    default: material-icons
  - name: icon-no-border
    type: Boolean
-   parameters: null
+   parameters: boolean bind
    description: If true, remove the border-right of the icon (separator between the icon and the input)
    default: false
  - name: val-icon-pack
