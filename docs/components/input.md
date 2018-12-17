@@ -45,6 +45,11 @@ API:
    parameters: Icon Pack Class Name
    description: Icon Pack to be used. If not set, icon will default to Material Icons. ex. FA4 uses fa or fas, FA5 uses fas, far, or fal.
    default: material-icons
+ - name: icon-no-border
+   type: Boolean
+   parameters: boolean bind
+   description: If true, remove the border-right of the icon (separator between the icon and the input)
+   default: false
  - name: val-icon-pack
    type: String
    parameters: Validation Icon Pack Class Name
@@ -275,6 +280,7 @@ FontAwesome and other fonts library are supported. Simply use the `icon-pack` an
     <vs-input icon-after="true"  icon="shopping_cart" label-placeholder="Label-placeholder" v-model="value4"/>
     <vs-input disabled="true" icon="error_outline" label-placeholder="icon-disabled" v-model="value5"/>
     <vs-input icon-after="true" disabled="true" icon="email" label-placeholder="icon-disabled" v-model="value6"/>
+    <vs-input icon-no-border icon="account_circle" label-placeholder="icon-no-border" v-model="value7"/>
   </div>
 </template>
 

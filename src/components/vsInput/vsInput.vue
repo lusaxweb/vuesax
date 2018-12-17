@@ -50,7 +50,7 @@
       <vs-icon
         v-if="icon"
         class="icon-inputx notranslate vs-input--icon"
-        :class="{'icon-after':iconAfter}"
+        :class="{'icon-after':iconAfter, 'icon-no-border':iconNoBorder}"
         :iconPack="iconPack"
         :icon="icon"
         @click="focusInput">
@@ -147,6 +147,10 @@ export default {
     iconAfter:{
       default:false,
       type:[Boolean,String]
+    },
+    iconNoBorder:{
+      default:false,
+      type:Boolean
     },
     iconPack:{
       default:'material-icons',
