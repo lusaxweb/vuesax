@@ -262,7 +262,7 @@ export default {
     if (parent &&
         this.$refs.vsSelectOptions &&
         this.$refs.vsSelectOptions.parentNode === parent) {
-      parent.removeChild(this.$refs.vsSelectOptions)
+      // parent.removeChild(this.$refs.vsSelectOptions)
     }
   },
   updated(){
