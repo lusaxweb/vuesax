@@ -139,7 +139,7 @@ Recent versions of **Firefox**, **Chrome**, **Edge**, **Opera** and **Safari**. 
 - https://cdn.jsdelivr.net/npm/vuesax/dist/vuesax.umd.js
 - https://cdn.jsdelivr.net/npm/vuesax/dist/vuesax.css
 
-# Install inside a NPM project
+# Install inside an NPM project
 ``` bash
 # npm
 npm install vuesax
