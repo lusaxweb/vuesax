@@ -20,6 +20,11 @@ API:
    parameters: null
    description: Label label with placeholder shape for the entry element.
    default: null
+ - name: autofocus
+   type: Boolean,String
+   parameters: null
+   description: Same as `autofocus` in native input
+   default: false
  - name: icon
    type: String
    parameters: icon name
