@@ -6,7 +6,8 @@
       'input-select-validate-success':success,
       'input-select-validate-danger':danger,
       'input-select-validate-warning':warning}"
-    class="con-select">
+    class="con-select"
+    :style="getWidth">
     <label
       v-if="label"
       ref="inputSelectLabel"
@@ -164,6 +165,10 @@ export default {
       default: 'keyboard_arrow_down',
       type:String
     },
+    width:{
+      default: null,
+      type: String,
+    }
   },
   data:()=>({
     valueFilter:'',
@@ -175,6 +180,9 @@ export default {
     filterx:false
   }),
   computed:{
+    getWidth() {
+      return this.width ? `width:${this.width};` : null
+    },
     parent() {
       return this
     },
@@ -250,7 +258,12 @@ export default {
   },
   beforeDestroy() {
     let [parent] = document.getElementsByTagName('body')
-    parent.removeChild(this.$refs.vsSelectOptions)
+
+    if (parent &&
+        this.$refs.vsSelectOptions &&
+        this.$refs.vsSelectOptions.parentNode === parent) {
+      parent.removeChild(this.$refs.vsSelectOptions)
+    }
   },
   updated(){
     if(!this.active){

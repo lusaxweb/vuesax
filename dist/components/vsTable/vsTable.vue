@@ -347,12 +347,6 @@ export default {
         tdsx.push({index: index, widthx: td.offsetWidth})
       });
 
-      let colgroup = this.$refs.colgroup
-      let cols = colgroup.querySelectorAll('.col')
-      cols.forEach((col, index) => {
-        col.setAttribute('width', tdsx[index].widthx)
-      });
-
       let colgrouptable = this.$refs.colgrouptable
       let colsTable = colgrouptable.querySelectorAll('.col')
       colsTable.forEach((col, index) => {

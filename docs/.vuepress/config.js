@@ -159,7 +159,7 @@ module.exports = {
           {
             text: 'Contact',
             items: [
-              { text: 'Lusaxweb', link: 'http://www.lusaxweb.com' },
+              { text: 'Lusaxweb', link: 'http://www.lusaxweb.com.ve' },
               { text: 'Email', link: 'mailto:vuesax@gmail.com' },
               { text: 'Chat', link: 'https://gitter.im/vuesax/Lobby' },
               { text: 'Pull Request', link: 'https://github.com/lusaxweb/vuesax/pulls' },

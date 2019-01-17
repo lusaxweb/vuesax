@@ -43,22 +43,23 @@ export default {
 </script>
 <style lang="stylus">
 #codefund_ad
-  position fixed
-  right 10px;
-  top: 60px;
-  width 150px;
+  position absolute
+  right 0px;
+  bottom: 80px;
+  width 100%;
   z-index 1000
-  border-radius 10px;
+  // border-radius 10px;
   overflow hidden
-  box-shadow 0px 5px 20px 0px rgba(0,0,0,.05)
+  // box-shadow 0px 5px 20px 0px rgba(0,0,0,.05)
   #cf_ad
     border: 0 !important
   .cf-wrapper
     background rgb(255,255,255) !important
-
-    border-radius 10px;
-    padding 10px !important
+    // padding 0px !important
+    // border-radius 10px;
+    padding 7px !important
     .cf-text
+      font-size .8rem
       float left
       width 100%
       // margin-top 5px !important
