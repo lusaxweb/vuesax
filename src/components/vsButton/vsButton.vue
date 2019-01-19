@@ -237,7 +237,11 @@ export default {
         this.routerPush()
       }
       if(this.href){
-        this.target ? window.open(this.href) : window.location.href = this.href
+        if ( typeof(this.href) == 'string') {
+          this.target ? window.open(this.href) : window.location.href = this.href
+        } else {
+          this.target ? window.open(this.href.url) : window.location.href = this.href.url
+        }
       }
       this.isActive = true
       let btn = this.$refs.btn
