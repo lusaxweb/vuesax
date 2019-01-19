@@ -8807,12 +8807,12 @@ vsSidebarGroup_component.options.__file = "vsSidebarGroup.vue"
   Vue.component(vsSidebarItem.name, vsSidebarItem);
   Vue.component(vsSidebarGroup.name, vsSidebarGroup);
 });
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://Users//DELL//Documents//vuesax - 3.x.x//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!C:/Users/DELL/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsDropDown/vsDropDown.vue?vue&type=template&id=27c8269f&lang=html&
-var vsDropDownvue_type_template_id_27c8269f_lang_html_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('button',_vm._g(_vm._b({ref:"dropdown",staticClass:"vs-con-dropdown parent-dropdown"},'button',_vm.$attrs,false),_vm.listeners),[_vm._t("default")],2)}
-var vsDropDownvue_type_template_id_27c8269f_lang_html_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://Users//DELL//Documents//vuesax - 3.x.x//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!C:/Users/DELL/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsDropDown/vsDropDown.vue?vue&type=template&id=50baf9ad&lang=html&
+var vsDropDownvue_type_template_id_50baf9ad_lang_html_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('button',_vm._g(_vm._b({ref:"dropdown",staticClass:"vs-con-dropdown parent-dropdown"},'button',_vm.$attrs,false),_vm.listeners),[_vm._t("default")],2)}
+var vsDropDownvue_type_template_id_50baf9ad_lang_html_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/vsDropDown/vsDropDown.vue?vue&type=template&id=27c8269f&lang=html&
+// CONCATENATED MODULE: ./src/components/vsDropDown/vsDropDown.vue?vue&type=template&id=50baf9ad&lang=html&
 
 // CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib??ref--12-1!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsDropDown/vsDropDown.vue?vue&type=script&lang=js&
 
@@ -8889,6 +8889,8 @@ var vsDropDownvue_type_template_id_27c8269f_lang_html_staticRenderFns = []
     }
   },
   mounted: function mounted() {
+    var _this2 = this;
+
     var _this$$children$filte = this.$children.filter(function (item) {
       return item.hasOwnProperty('dropdownVisible');
     }),
@@ -8898,20 +8900,28 @@ var vsDropDownvue_type_template_id_27c8269f_lang_html_staticRenderFns = []
     dropdownMenu.vsCustomContent = this.vsCustomContent;
     dropdownMenu.vsTriggerClick = this.vsTriggerClick;
     this.changeColor();
+    document.addEventListener('click', function (el) {
+      if ((_this2.vsTriggerClick || _this2.vsCustomContent) && _this2.vsDropdownVisible) {
+        if (el.target !== _this2.$refs.dropdown && el.target.parentNode !== _this2.$refs.dropdown && el.target.parentNode.parentNode !== _this2.$refs.dropdown) dropdownMenu.dropdownVisible = _this2.vsDropdownVisible = false;
+      }
+    });
+  },
+  beforeDestroy: function beforeDestroy() {
+    document.removeEventListener('click');
   },
   methods: {
     changeColor: function changeColor() {
-      var _this2 = this;
+      var _this3 = this;
 
       var child = this.$children;
       child.forEach(function (item) {
         if (item.$vnode.tag.indexOf('dropdown') != -1) {
-          item.color = _this2.color;
+          item.color = _this3.color;
         }
       });
     },
     changePositionMenu: function changePositionMenu() {
-      var _this3 = this;
+      var _this4 = this;
 
       var _this$$children$filte3 = this.$children.filter(function (item) {
         return item.hasOwnProperty('dropdownVisible');
@@ -8923,7 +8933,7 @@ var vsDropDownvue_type_template_id_27c8269f_lang_html_staticRenderFns = []
 
       if (this.$refs.dropdown.getBoundingClientRect().top + 300 >= window.innerHeight) {
         this.$nextTick(function () {
-          dropdownMenu.topx = _this3.$refs.dropdown.getBoundingClientRect().top - dropdownMenu.$el.clientHeight - 10 + scrollTopx;
+          dropdownMenu.topx = _this4.$refs.dropdown.getBoundingClientRect().top - dropdownMenu.$el.clientHeight - 10 + scrollTopx;
           dropdownMenu.notHeight = true;
         });
       } else {
@@ -8934,15 +8944,15 @@ var vsDropDownvue_type_template_id_27c8269f_lang_html_staticRenderFns = []
       this.$nextTick(function () {
         var w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 
-        if (_this3.$refs.dropdown.getBoundingClientRect().left + dropdownMenu.$el.offsetWidth >= w - 20) {
-          _this3.rightx = true;
+        if (_this4.$refs.dropdown.getBoundingClientRect().left + dropdownMenu.$el.offsetWidth >= w - 20) {
+          _this4.rightx = true;
         }
 
-        dropdownMenu.leftx = _this3.$refs.dropdown.getBoundingClientRect().left + _this3.$refs.dropdown.clientWidth;
+        dropdownMenu.leftx = _this4.$refs.dropdown.getBoundingClientRect().left + _this4.$refs.dropdown.clientWidth;
       });
     },
     clickToogleMenu: function clickToogleMenu(evt) {
-      var _this4 = this;
+      var _this5 = this;
 
       if (evt.type == 'contextmenu') {
         evt.preventDefault();
@@ -8961,7 +8971,7 @@ var vsDropDownvue_type_template_id_27c8269f_lang_html_staticRenderFns = []
           dropdownMenu.dropdownVisible = this.vsDropdownVisible = true;
           window.addEventListener('click', function () {
             if (!evt.target.closest('.vs-con-dropdown') && !evt.target.closest('.vs-dropdown--menu')) {
-              dropdownMenu.dropdownVisible = _this4.vsDropdownVisible = false;
+              dropdownMenu.dropdownVisible = _this5.vsDropdownVisible = false;
             }
           });
         }
@@ -8996,8 +9006,8 @@ var vsDropDownvue_type_template_id_27c8269f_lang_html_staticRenderFns = []
 
 var vsDropDown_component = normalizeComponent(
   vsDropDown_vsDropDownvue_type_script_lang_js_,
-  vsDropDownvue_type_template_id_27c8269f_lang_html_render,
-  vsDropDownvue_type_template_id_27c8269f_lang_html_staticRenderFns,
+  vsDropDownvue_type_template_id_50baf9ad_lang_html_render,
+  vsDropDownvue_type_template_id_50baf9ad_lang_html_staticRenderFns,
   false,
   null,
   null,
