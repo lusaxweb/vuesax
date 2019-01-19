@@ -2215,6 +2215,10 @@ var es6_number_constructor = __webpack_require__("C7kS");
   insertBody: function insertBody(elx) {
     document.body.insertBefore(elx, document.body.firstChild);
   },
+  removeBody: function removeBody(element) {
+    var bodyx = document.body;
+    bodyx.removeChild(element);
+  },
   changePosition: function changePosition(elx, content, conditional) {
     var topx = 0;
     var leftx = 0;
@@ -5168,12 +5172,12 @@ vsInputNumber_component.options.__file = "vsInputNumber.vue"
 /* harmony default export */ var components_vsInputNumber = (function (Vue) {
   Vue.component(vsInputNumber.name, vsInputNumber);
 });
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://Users//DELL//Documents//vuesax - 3.x.x//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!C:/Users/DELL/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsTooltip/vsTooltip.vue?vue&type=template&id=287c5ef1&
-var vsTooltipvue_type_template_id_287c5ef1_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"convstooltip",staticClass:"con-vs-tooltip",on:{"mouseout":_vm.mouseoutx,"mouseover":_vm.mouseoverx}},[_c('transition',{attrs:{"name":"tooltip-fade"}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.active),expression:"active"}],ref:"vstooltip",staticClass:"vs-tooltip",class:[("vs-tooltip-" + (_vm.positionx || _vm.position)),("vs-tooltip-" + _vm.color), {'after-none': _vm.noneAfter}],style:(_vm.style)},[(_vm.title)?_c('h4',[_vm._v(_vm._s(_vm.title))]):_vm._e(),_vm._v("\n      "+_vm._s(_vm.text)+"\n    ")])]),_vm._t("default")],2)}
-var vsTooltipvue_type_template_id_287c5ef1_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://Users//DELL//Documents//vuesax - 3.x.x//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!C:/Users/DELL/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsTooltip/vsTooltip.vue?vue&type=template&id=eb729858&
+var vsTooltipvue_type_template_id_eb729858_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"convstooltip",staticClass:"con-vs-tooltip",on:{"mouseout":_vm.mouseoutx,"mouseover":_vm.mouseoverx}},[_c('transition',{attrs:{"name":"tooltip-fade"}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.active),expression:"active"}],ref:"vstooltip",staticClass:"vs-tooltip",class:[("vs-tooltip-" + (_vm.positionx || _vm.position)),("vs-tooltip-" + _vm.color), {'after-none': _vm.noneAfter}],style:(_vm.style)},[(_vm.title)?_c('h4',[_vm._v(_vm._s(_vm.title))]):_vm._e(),_vm._v("\n      "+_vm._s(_vm.text)+"\n    ")])]),_vm._t("default")],2)}
+var vsTooltipvue_type_template_id_eb729858_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/vsTooltip/vsTooltip.vue?vue&type=template&id=287c5ef1&
+// CONCATENATED MODULE: ./src/components/vsTooltip/vsTooltip.vue?vue&type=template&id=eb729858&
 
 // CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib??ref--12-1!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsTooltip/vsTooltip.vue?vue&type=script&lang=js&
 
@@ -5246,8 +5250,14 @@ var vsTooltipvue_type_template_id_287c5ef1_staticRenderFns = []
       };
     }
   },
-  mounted: function mounted() {
-    utils.insertBody(this.$refs.vstooltip);
+  mounted: function mounted() {// utils.insertBody(this.$refs.vstooltip)
+  },
+  updated: function updated() {
+    var nodes = this.$refs.convstooltip.childNodes.length;
+
+    if (nodes == 1) {
+      this.active = false;
+    }
   },
   methods: {
     mouseoverx: function mouseoverx() {
@@ -5255,11 +5265,13 @@ var vsTooltipvue_type_template_id_287c5ef1_staticRenderFns = []
 
       this.active = true;
       this.$nextTick(function () {
+        utils.insertBody(_this.$refs.vstooltip);
+
         _this.changePosition(_this.$refs.convstooltip, _this.$refs.vstooltip);
       });
     },
     mouseoutx: function mouseoutx() {
-      this.active = false;
+      this.active = false; // utils.removeBody(this.$refs.vstooltip)
     },
     changePosition: function changePosition(elxEvent, tooltip) {
       this.noneAfter = false;
@@ -5314,8 +5326,8 @@ var vsTooltipvue_type_template_id_287c5ef1_staticRenderFns = []
 
 var vsTooltip_component = normalizeComponent(
   vsTooltip_vsTooltipvue_type_script_lang_js_,
-  vsTooltipvue_type_template_id_287c5ef1_render,
-  vsTooltipvue_type_template_id_287c5ef1_staticRenderFns,
+  vsTooltipvue_type_template_id_eb729858_render,
+  vsTooltipvue_type_template_id_eb729858_staticRenderFns,
   false,
   null,
   null,

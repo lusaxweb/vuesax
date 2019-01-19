@@ -64,17 +64,25 @@ export default {
     }
   },
   mounted(){
-    utils.insertBody(this.$refs.vstooltip)
+    // utils.insertBody(this.$refs.vstooltip)
+  },
+  updated() {
+    let nodes = this.$refs.convstooltip.childNodes.length
+    if (nodes == 1) {
+      this.active = false
+    }
   },
   methods:{
     mouseoverx(){
       this.active = true
       this.$nextTick(()=>{
+        utils.insertBody(this.$refs.vstooltip)
         this.changePosition(this.$refs.convstooltip,this.$refs.vstooltip)
       })
     },
     mouseoutx(){
       this.active = false
+      // utils.removeBody(this.$refs.vstooltip)
     },
     changePosition(elxEvent, tooltip){
       this.noneAfter = false

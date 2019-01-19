@@ -2,6 +2,10 @@ export default {
   insertBody(elx){
     document.body.insertBefore(elx, document.body.firstChild)
   },
+  removeBody(element) {
+    let bodyx = document.body
+    bodyx.removeChild(element);
+  },
   changePosition(elx,content,conditional){
     let topx = 0
     let leftx = 0
