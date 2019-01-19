@@ -21,6 +21,7 @@
         class="vs-dropdown--custom vs-dropdown--menu">
         <slot/>
       </div>
+      <div class="vs-dropdown--menu--after" ref="menuAfter"></div>
     </div>
   </transition>
 </template>
@@ -37,7 +38,8 @@ export default {
     vsTriggerClick:false,
     widthx:0,
     notHeight:false,
-    vsCustomContent:false
+    vsCustomContent:false,
+    parentNode:null
   }),
   watch:{
     dropdownVisible(){
@@ -47,6 +49,7 @@ export default {
       dropdownGroup.forEach((item_group)=>{
         item_group.activeGroup = false
       })
+      this.setDirection()
     }
   },
   mounted(){
@@ -56,6 +59,20 @@ export default {
     this.$el.parentNode.removeChild(this.$el)
   },
   methods:{
+    setDirection() {
+      setTimeout(() => {
+        const dropdown = this.parentNode
+        const menuAfter = this.$refs.menuAfter
+        if (!menuAfter) return
+        if(dropdown && menuAfter && dropdown.getBoundingClientRect().top + 300 >= window.innerHeight) {
+          const hasGroup = this.$children.find(it=>it.hasOwnProperty('activeGroup'))
+          menuAfter.style.bottom = '-5px'
+          menuAfter.style.transform = 'rotate(225deg)'
+          return
+        }
+        menuAfter.style.top = '10px'
+      }, 100)
+    },
     toggleMenu(event){
       if(event.type == 'mouseover' && !this.vsTriggerClick){
         this.dropdownVisible = true
@@ -66,6 +83,7 @@ export default {
     },
     insertBody(){
       let elp = this.$el
+      this.parentNode = this.$el.parentNode
       document.body.insertBefore(elp, document.body.firstChild)
     },
   }

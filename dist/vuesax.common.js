@@ -346,11 +346,36 @@ module.exports = function (IS_INCLUDES) {
 
 /***/ }),
 
+/***/ "3t5F":
+/***/ (function(module, exports, __webpack_require__) {
+
+// 9.4.2.3 ArraySpeciesCreate(originalArray, length)
+var speciesConstructor = __webpack_require__("biQZ");
+
+module.exports = function (original, length) {
+  return new (speciesConstructor(original))(length);
+};
+
+
+/***/ }),
+
 /***/ "46AW":
 /***/ (function(module, exports) {
 
 var core = module.exports = { version: '2.5.7' };
 if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
+
+
+/***/ }),
+
+/***/ "4sgs":
+/***/ (function(module, exports, __webpack_require__) {
+
+// 7.2.2 IsArray(argument)
+var cof = __webpack_require__("6729");
+module.exports = Array.isArray || function isArray(arg) {
+  return cof(arg) == 'Array';
+};
 
 
 /***/ }),
@@ -1250,6 +1275,29 @@ var store = global[SHARED] || (global[SHARED] = {});
 
 /***/ }),
 
+/***/ "biQZ":
+/***/ (function(module, exports, __webpack_require__) {
+
+var isObject = __webpack_require__("HS8k");
+var isArray = __webpack_require__("4sgs");
+var SPECIES = __webpack_require__("JKqo")('species');
+
+module.exports = function (original) {
+  var C;
+  if (isArray(original)) {
+    C = original.constructor;
+    // cross-realm fallback
+    if (typeof C == 'function' && (C === Array || isArray(C.prototype))) C = undefined;
+    if (isObject(C)) {
+      C = C[SPECIES];
+      if (C === null) C = undefined;
+    }
+  } return C === undefined ? Array : C;
+};
+
+
+/***/ }),
+
 /***/ "dSc3":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1301,6 +1349,57 @@ module.exports = exporter;
 
 /***/ }),
 
+/***/ "e1Mw":
+/***/ (function(module, exports, __webpack_require__) {
+
+// 0 -> Array#forEach
+// 1 -> Array#map
+// 2 -> Array#filter
+// 3 -> Array#some
+// 4 -> Array#every
+// 5 -> Array#find
+// 6 -> Array#findIndex
+var ctx = __webpack_require__("LrQF");
+var IObject = __webpack_require__("sbe1");
+var toObject = __webpack_require__("CZ8J");
+var toLength = __webpack_require__("OP3+");
+var asc = __webpack_require__("3t5F");
+module.exports = function (TYPE, $create) {
+  var IS_MAP = TYPE == 1;
+  var IS_FILTER = TYPE == 2;
+  var IS_SOME = TYPE == 3;
+  var IS_EVERY = TYPE == 4;
+  var IS_FIND_INDEX = TYPE == 6;
+  var NO_HOLES = TYPE == 5 || IS_FIND_INDEX;
+  var create = $create || asc;
+  return function ($this, callbackfn, that) {
+    var O = toObject($this);
+    var self = IObject(O);
+    var f = ctx(callbackfn, that, 3);
+    var length = toLength(self.length);
+    var index = 0;
+    var result = IS_MAP ? create($this, length) : IS_FILTER ? create($this, 0) : undefined;
+    var val, res;
+    for (;length > index; index++) if (NO_HOLES || index in self) {
+      val = self[index];
+      res = f(val, index, O);
+      if (TYPE) {
+        if (IS_MAP) result[index] = res;   // map
+        else if (res) switch (TYPE) {
+          case 3: return true;             // some
+          case 5: return val;              // find
+          case 6: return index;            // findIndex
+          case 2: result.push(val);        // filter
+        } else if (IS_EVERY) return false; // every
+      }
+    }
+    return IS_FIND_INDEX ? -1 : IS_SOME || IS_EVERY ? IS_EVERY : result;
+  };
+};
+
+
+/***/ }),
+
 /***/ "hGUT":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1318,6 +1417,28 @@ module.exports = function (KEY) {
     get: function () { return this; }
   });
 };
+
+
+/***/ }),
+
+/***/ "hUkN":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+// 22.1.3.8 Array.prototype.find(predicate, thisArg = undefined)
+var $export = __webpack_require__("BI7h");
+var $find = __webpack_require__("e1Mw")(5);
+var KEY = 'find';
+var forced = true;
+// Shouldn't skip holes
+if (KEY in []) Array(1)[KEY](function () { forced = false; });
+$export($export.P + $export.F * forced, 'Array', {
+  find: function find(callbackfn /* , that = undefined */) {
+    return $find(this, callbackfn, arguments.length > 1 ? arguments[1] : undefined);
+  }
+});
+__webpack_require__("JYON")(KEY);
 
 
 /***/ }),
@@ -8877,19 +8998,25 @@ var vsDropDown_component = normalizeComponent(
 
 vsDropDown_component.options.__file = "vsDropDown.vue"
 /* harmony default export */ var vsDropDown = (vsDropDown_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://Users//DELL//Documents//vuesax - 3.x.x//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!C:/Users/DELL/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsDropDown/vsDropDownMenu.vue?vue&type=template&id=2d56d763&lang=html&
-var vsDropDownMenuvue_type_template_id_2d56d763_lang_html_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('transition',{attrs:{"name":"dropdownx"}},[(_vm.dropdownVisible)?_c('div',{ref:"options",staticClass:"con-vs-dropdown--menu vs-dropdown-menu",class:{'rightx':_vm.rightx,'notHeight':_vm.notHeight},style:({
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://Users//DELL//Documents//vuesax - 3.x.x//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!C:/Users/DELL/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsDropDown/vsDropDownMenu.vue?vue&type=template&id=f72973f8&lang=html&
+var vsDropDownMenuvue_type_template_id_f72973f8_lang_html_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('transition',{attrs:{"name":"dropdownx"}},[(_vm.dropdownVisible)?_c('div',{ref:"options",staticClass:"con-vs-dropdown--menu vs-dropdown-menu",class:{'rightx':_vm.rightx,'notHeight':_vm.notHeight},style:({
       'left':_vm.leftx+'px',
       'top':_vm.topx+'px'
-    }),on:{"mouseover":function($event){_vm.toggleMenu($event)},"mouseout":function($event){_vm.toggleMenu($event)}}},[(!_vm.vsCustomContent)?_c('ul',{staticClass:"vs-component vs-dropdown--menu"},[_vm._t("default")],2):_c('div',{staticClass:"vs-dropdown--custom vs-dropdown--menu"},[_vm._t("default")],2)]):_vm._e()])}
-var vsDropDownMenuvue_type_template_id_2d56d763_lang_html_staticRenderFns = []
+    }),on:{"mouseover":function($event){_vm.toggleMenu($event)},"mouseout":function($event){_vm.toggleMenu($event)}}},[(!_vm.vsCustomContent)?_c('ul',{staticClass:"vs-component vs-dropdown--menu"},[_vm._t("default")],2):_c('div',{staticClass:"vs-dropdown--custom vs-dropdown--menu"},[_vm._t("default")],2),_c('div',{ref:"menuAfter",staticClass:"vs-dropdown--menu--after"})]):_vm._e()])}
+var vsDropDownMenuvue_type_template_id_f72973f8_lang_html_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/vsDropDown/vsDropDownMenu.vue?vue&type=template&id=2d56d763&lang=html&
+// CONCATENATED MODULE: ./src/components/vsDropDown/vsDropDownMenu.vue?vue&type=template&id=f72973f8&lang=html&
+
+// EXTERNAL MODULE: C:/Users/DELL/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/core-js/modules/es6.array.find.js
+var es6_array_find = __webpack_require__("hUkN");
 
 // CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib??ref--12-1!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsDropDown/vsDropDownMenu.vue?vue&type=script&lang=js&
 
 
+
+
+//
 //
 //
 //
@@ -8929,7 +9056,8 @@ var vsDropDownMenuvue_type_template_id_2d56d763_lang_html_staticRenderFns = []
       vsTriggerClick: false,
       widthx: 0,
       notHeight: false,
-      vsCustomContent: false
+      vsCustomContent: false,
+      parentNode: null
     };
   },
   watch: {
@@ -8940,6 +9068,7 @@ var vsDropDownMenuvue_type_template_id_2d56d763_lang_html_staticRenderFns = []
       dropdownGroup.forEach(function (item_group) {
         item_group.activeGroup = false;
       });
+      this.setDirection();
     }
   },
   mounted: function mounted() {
@@ -8949,6 +9078,27 @@ var vsDropDownMenuvue_type_template_id_2d56d763_lang_html_staticRenderFns = []
     this.$el.parentNode.removeChild(this.$el);
   },
   methods: {
+    setDirection: function setDirection() {
+      var _this = this;
+
+      setTimeout(function () {
+        var dropdown = _this.parentNode;
+        var menuAfter = _this.$refs.menuAfter;
+        if (!menuAfter) return;
+
+        if (dropdown && menuAfter && dropdown.getBoundingClientRect().top + 300 >= window.innerHeight) {
+          var hasGroup = _this.$children.find(function (it) {
+            return it.hasOwnProperty('activeGroup');
+          });
+
+          menuAfter.style.bottom = '-5px';
+          menuAfter.style.transform = 'rotate(225deg)';
+          return;
+        }
+
+        menuAfter.style.top = '10px';
+      }, 100);
+    },
     toggleMenu: function toggleMenu(event) {
       if (event.type == 'mouseover' && !this.vsTriggerClick) {
         this.dropdownVisible = true;
@@ -8960,6 +9110,7 @@ var vsDropDownMenuvue_type_template_id_2d56d763_lang_html_staticRenderFns = []
     },
     insertBody: function insertBody() {
       var elp = this.$el;
+      this.parentNode = this.$el.parentNode;
       document.body.insertBefore(elp, document.body.firstChild);
     }
   }
@@ -8976,8 +9127,8 @@ var vsDropDownMenuvue_type_template_id_2d56d763_lang_html_staticRenderFns = []
 
 var vsDropDownMenu_component = normalizeComponent(
   vsDropDown_vsDropDownMenuvue_type_script_lang_js_,
-  vsDropDownMenuvue_type_template_id_2d56d763_lang_html_render,
-  vsDropDownMenuvue_type_template_id_2d56d763_lang_html_staticRenderFns,
+  vsDropDownMenuvue_type_template_id_f72973f8_lang_html_render,
+  vsDropDownMenuvue_type_template_id_f72973f8_lang_html_staticRenderFns,
   false,
   null,
   null,
