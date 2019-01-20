@@ -51,31 +51,36 @@ export default {
       this.changePositionMenu()
       if(this.vsDropdownVisible){
         this.$emit('focus')
+        document.addEventListener('click', this.clickx)
       } else {
         this.$emit('blur')
       }
     }
   },
   mounted(){
-    let [dropdownMenu] = this.$children.filter((item)=>{
-      return item.hasOwnProperty('dropdownVisible')
-    })
-    dropdownMenu.vsCustomContent = this.vsCustomContent
-    dropdownMenu.vsTriggerClick = this.vsTriggerClick
+
     this.changeColor()
-    document.addEventListener('click',(el)=>{
-      if ((this.vsTriggerClick || this.vsCustomContent) && this.vsDropdownVisible) {
-        if ((el.target !== this.$refs.dropdown &&
-          el.target.parentNode !== this.$refs.dropdown &&
-          el.target.parentNode.parentNode !== this.$refs.dropdown))
-          dropdownMenu.dropdownVisible = this.vsDropdownVisible = false
-      }
-    })
+    document.addEventListener('click', this.clickx)
   },
   beforeDestroy(){
-    document.removeEventListener('click')
+    document.removeEventListener('click', this.clickx)
   },
   methods:{
+    clickx(el) {
+      let [dropdownMenu] = this.$children.filter((item)=>{
+        return item.hasOwnProperty('dropdownVisible')
+      })
+      dropdownMenu.vsCustomContent = this.vsCustomContent
+      dropdownMenu.vsTriggerClick = this.vsTriggerClick
+      if ((this.vsTriggerClick || this.vsCustomContent) && this.vsDropdownVisible) {
+        if ((el.target !== this.$refs.dropdown &&
+        el.target.parentNode !== this.$refs.dropdown &&
+        el.target.parentNode.parentNode !== this.$refs.dropdown)) {
+          dropdownMenu.dropdownVisible = this.vsDropdownVisible = false
+          document.removeEventListener('click', this.clickx)
+        }
+      }
+    },
     changeColor(){
       let child = this.$children
       child.forEach((item)=>{
