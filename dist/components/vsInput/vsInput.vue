@@ -19,6 +19,7 @@
       <input
         ref="vsinput"
         :style="style"
+        :autofocus="autofocus"
         :class="[size,{
           'hasValue':value !== '',
           'hasIcon':icon,
@@ -139,6 +140,10 @@ export default {
     label:{
       default:null,
       type:[String,Number]
+    },
+    autofocus:{
+      default:false,
+      type:[Boolean,String]
     },
     icon:{
       default:null,
