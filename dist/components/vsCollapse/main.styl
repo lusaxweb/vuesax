@@ -6,13 +6,13 @@
   padding: 10px
 
   &.shadow
-  .open-item
-    transform: scale(1.01)
-    box-shadow: 0px 2px 15px 0px rgba(0,0,0,.05)
-    margin-top: 5px
-    border-bottom: 0px solid rgba(0,0,0,.0)
-    margin-bottom: 10px
-    border-radius: 6px
+    .open-item
+      transform: scale(1.01)
+      box-shadow: 0px 2px 15px 0px rgba(0,0,0,.05)
+      margin-top: 5px
+      border-bottom: 0px solid rgba(0,0,0,.0)
+      margin-bottom: 10px
+      border-radius: 6px
     .con-content-item
       opacity 1
     .vs-collapse-item--icon-header
@@ -53,6 +53,9 @@
 .vs-collapse-item
   border-bottom: 1px solid rgba(0,0,0,.04)
   transition: all .25s ease
+  &.open-item
+    .con-content--item
+      opacity 1
   &.disabledx
     opacity: $vs-disabled-opacity
     cursor: default

@@ -32,6 +32,9 @@ import vsicon from '../vsIcon';
 
 export default {
   name:'VsCollapseItem',
+  components: {
+    vsicon
+  },
   props:{
     disabled:{
       default:false,
@@ -53,9 +56,6 @@ export default {
   data:() => ({
     maxHeight: '0px'
   }),
-  components:{
-    vsicon
-  },
   computed:{
     accordion() {
       return this.$parent.accordion
