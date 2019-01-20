@@ -32,7 +32,7 @@ API:
    default: material-icons
 ---
 
-# Collapse **- update**
+# Collapse
 
 <box header>
 

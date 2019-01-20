@@ -37,7 +37,7 @@ API:
    default: material-icons
 ---
 
-# Alert **- update**
+# Alert
 
 <box header>
 

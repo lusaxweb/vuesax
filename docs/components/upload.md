@@ -72,7 +72,7 @@ API:
    default: false
 ---
 
-# Upload **- update**
+# Upload
 
 <box header>
 

@@ -39,7 +39,7 @@ contributors:
  - VicGUTT
 ---
 
-# Pagination **- update**
+# Pagination
 
 <box header>
 

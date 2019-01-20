@@ -42,7 +42,7 @@ API:
    default: 100
 ---
 
-# Slider **- update**
+# Slider
 
 <box header>
 

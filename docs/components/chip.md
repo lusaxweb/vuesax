@@ -40,7 +40,7 @@ contributors:
   - fergardi
 ---
 
- # Chip **- update**
+ # Chip
 
 <box header>
 

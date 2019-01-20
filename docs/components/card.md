@@ -35,7 +35,7 @@ contributors:
   - RodSwanston
 ---
 
-# Card **- update**
+# Card
 
 <box header>
 

@@ -90,7 +90,7 @@ API:
    default: material-icons
 ---
 
-# Select **- update**
+# Select
 
 <box header>
 

@@ -27,7 +27,7 @@ API:
    default: material-icons
 ---
 
-# CheckBox **- update**
+# CheckBox
 
 <box header>
 

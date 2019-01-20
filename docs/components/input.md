@@ -114,7 +114,7 @@ contributors:
  - cristijora
 ---
 
-# Input **- update**
+# Input
 
 <box header>
 
