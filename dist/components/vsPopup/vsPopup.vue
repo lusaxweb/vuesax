@@ -128,7 +128,7 @@ export default {
         if(event.target.className.indexOf('vs-popup--background')!=-1){
           this.$emit('update:active',false)
           this.$emit('close', false)
-        } else if(event.toElement == this.$refs.btnclose.$el){
+        } else if(event.srcElement == this.$refs.btnclose.$el){
           this.$emit('update:active',false)
           this.$emit('close', false)
         }
