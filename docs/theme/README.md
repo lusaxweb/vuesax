@@ -298,12 +298,12 @@ To change the variables we must first import them into a `.styl` file and change
 ```css
 // main.styl
 
-@import '~vuesax/dist/styles/index.styl'
+@import '~vuesax/dist/style/vuesax.styl'
 
 $vs-primary = 50,100,200
 
 :root {
-  --primary: $vs-primary
+  --vs-primary: $vs-primary
 }
 ```
 
@@ -321,11 +321,11 @@ The stylus variables of the main colors are:
 and the css variables are:
 
   ```
-    --primary
-    --success
-    --danger
-    --warning
-    --dark
+    --vs-primary
+    --vs-success
+    --vs-danger
+    --vs-warning
+    --vs-dark
   ```
 :::
 

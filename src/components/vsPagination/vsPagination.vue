@@ -105,8 +105,8 @@ export default {
       let style = {}
       if (!_color.isColor(this.color)) {
         style = {
-          '--color-pagination': _color.getColor(this.color),
-          '--color-pagination-alpha': _color.getColor(this.color,.5)
+          '--vs-color-pagination': _color.getColor(this.color),
+          '--vs-color-pagination-alpha': _color.getColor(this.color,.5)
         }
       }
       return style

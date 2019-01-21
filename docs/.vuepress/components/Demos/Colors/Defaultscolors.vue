@@ -46,24 +46,24 @@ export default {
   cursor: default;
 }
 .primary {
-  background: rgb(var(--primary)) !important;
-  box-shadow: 0px 15px 40px -10px rgba(var(--primary),.9);
+  background: rgb(var(--vs-primary)) !important;
+  box-shadow: 0px 15px 40px -10px rgba(var(--vs-primary),.9);
 }
 .success {
-  background: rgb(var(--success)) !important;
-  box-shadow: 0px 15px 40px -10px rgba(var(--success),.9);
+  background: rgb(var(--vs-success)) !important;
+  box-shadow: 0px 15px 40px -10px rgba(var(--vs-success),.9);
 }
 .danger {
-  background: rgb(var(--danger)) !important;
-  box-shadow: 0px 15px 40px -10px rgba(var(--danger),.9);
+  background: rgb(var(--vs-danger)) !important;
+  box-shadow: 0px 15px 40px -10px rgba(var(--vs-danger),.9);
 }
 .warningx {
-  background: rgb(var(--warning)) !important;
-  box-shadow: 0px 15px 40px -10px rgba(var(--warning),.9);
+  background: rgb(var(--vs-warning)) !important;
+  box-shadow: 0px 15px 40px -10px rgba(var(--vs-warning),.9);
 }
 .dark {
-  background: rgb(var(--dark)) !important;
-  box-shadow: 0px 15px 40px -10px rgba(var(--dark),.9);
+  background: rgb(var(--vs-dark)) !important;
+  box-shadow: 0px 15px 40px -10px rgba(var(--vs-dark),.9);
 }
 @media (max-width: 550px) {
   .con-colors ul {

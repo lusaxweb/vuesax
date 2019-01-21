@@ -15,12 +15,6 @@ You can join them in supporting Vuesax.js by [Patreon](https://www.patreon.com/l
 
 ## $50+
 
-<p align="center">
-  <a href="https://devdojo.com/series/nice-to-meet-vue-2">
-    <img width="20%" src="https://github.com/lusaxweb/vuesax/blob/master/docs/.vuepress/public/devDojo.svg" alt="DevDojo">
-  </a>
-</p>
-
 ## $10+
 
 - [Yatima Kagurazaka](https://www.patreon.com/Yatima_K/creators)

@@ -73,7 +73,8 @@ export default {
       z-index 40000
       position relative
       text-align center
-      padding 10px
+      padding 0px !important
+      margin 5px !important
 
     &.activeLoading
       opacity 0 !important

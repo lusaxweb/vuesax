@@ -1,0 +1,162 @@
+.vs-navbar
+  clear both
+  display: flex
+  align-items: center
+  // padding: 0px 7px
+  box-shadow: 0px 4px 20px 0px rgba(0,0,0,.05)
+  width: 100%
+  z-index: 10000
+  position: relative
+  button
+    margin: 0px
+
+.vs-navbar--item
+  display block
+  position relative
+  transition: all .25s ease
+  z-index: 1000
+  &.is-active-item
+    .vs-navbar-after
+      width: 100%
+  &:hover
+    .vs-navbar-submenu
+      opacity: 1
+      visibility: visible
+
+  a
+    font-size: .8rem
+    padding: 10px 12px
+    display: block
+    color inherit
+    text-decoration: none !important
+    position relative
+    z-index: 100
+    &:hover
+      ~ .vs-navbar-after
+        width: 100%
+  .vs-navbar-after
+    width: 0%
+    height 2px
+    left 50%
+    bottom: 0px
+    transform: translate(-50%)
+    background: $vs-primary
+    position: absolute
+    transition: all .25s ease
+    z-index: 10
+
+
+.vs-navbar--title
+  font-size: 1.1rem
+  padding: 0px
+  padding-left: 10px
+  padding-right: 10px
+  color: inherit
+.vs-navbar--items
+  position relative
+
+.vs-navbar-submenu
+  position: absolute
+  visibility: hidden
+  opacity: 0
+  background: rgb(255,255,255)
+  z-index: 1000
+  padding-left 0px
+  width: 200px
+  .vs-navbar-after
+    display: none
+  .vs-navbar--items
+    a
+      text-align: left
+
+
+// TYPE: FLAT
+
+.vs-navbar-flat
+  box-shadow: none
+  .vs-navbar-after
+    display: none
+
+// TYPE: FUND
+
+.vs-navbar-fund
+  box-shadow: none
+  .vs-navbar-after
+    width 100%
+    height 0%
+    opacity: .1
+  a
+    &:hover
+      ~ .vs-navbar-after
+        height: 100%
+  .vs-navbar--item
+    &.is-active-item
+      .vs-navbar-after
+        height: 100%
+
+// TYPE: BORDER
+
+.vs-navbar-border
+  box-shadow: none
+  border 1px solid rgba(0,0,0,.05)
+  .vs-navbar--item
+    border-left 1px solid rgba(0,0,0,.05)
+  .vs-navbar-after
+    height: 1px
+    bottom: -1px
+
+// TYPE: GRADIENT
+.vs-navbar-gradient
+  .vs-navbar--item
+    margin: 4px 3px
+    a
+      padding: 6px 12px
+  .vs-navbar-after
+    display: none
+
+// TYPE: SHADOW
+.vs-navbar-shadow
+  box-shadow: none
+  .vs-navbar--item
+    background: rgba(0,0,0,.05)
+    &.is-active-item
+      background: rgb(255,255,255)
+      border-radius: 4px
+      box-shadow: 0px 5px 20px 0px rgba(0,0,0,.07)
+  .vs-navbar-after
+    display: none
+
+
+for colorx in $vs-colors
+  .vs-navbar
+    .vs-navbar-item-{colorx}
+      &.is-active-item
+        color: $vs-colors[colorx]
+      &:hover
+        >a
+          color: $vs-colors[colorx]
+
+  .vs-navbar-submenu
+    .vs-navbar-item-{colorx}
+      &.is-active-item
+        color: $vs-colors[colorx]
+      &:hover
+        color: $vs-colors[colorx]
+
+  &.vs-navbar-gradient
+    .vs-navbar-item-{colorx}
+      border-radius: 4px
+      &.is-active-item
+        border-radius: 6px
+        color rgb(255,255,255)
+        background: rgb(100,0,100)
+        if colorx == 'danger' {
+          background-image: linear-gradient(30deg, getColor(colorx, 1) 0%, getColor(colorx, .5) 100%)
+        }
+        else if colorx == 'dark' {
+          background-image: linear-gradient(30deg, getColor(colorx, 1) 0%, getColor(colorx, .5) 100%)
+        }
+        else {
+          background-image: linear-gradient(30deg, getColor(colorx, 1) 0%, getColor(colorx, .5) 100%)
+        }
+        text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3)

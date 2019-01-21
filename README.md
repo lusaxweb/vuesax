@@ -44,14 +44,6 @@ Vuesax is an open source [MIT](https://github.com/lusaxweb/vuesax/blob/master/LI
   </a>
  </p>
 
- <p align="center"><b>Bronze</b></p>
-
-<p align="center">
-  <a href="https://devdojo.com/series/nice-to-meet-vue-2">
-    <img width="20%" src="https://github.com/lusaxweb/vuesax/blob/master/docs/.vuepress/public/devDojo.svg" alt="DevDojo">
-  </a>
-</p>
-
 ## Introduction
 
 [Vuesax](https://lusaxweb.github.io/vuesax/) is a framework of components based on [vue.js](https://vuejs.org/), it is a framework that is designed from scratch to be incrementally adoptable.
@@ -107,7 +99,7 @@ If you feel awesome and want to support us in a small way, please consider starr
 - [Images](https://lusaxweb.github.io/vuesax/components/images.html)
 
 ## Browser Support
-Recent versions of **Firefox**, **Chrome**, **Edge**, **Opera** and **Safari**. **IE10+**
+Recent versions of **Firefox**, **Chrome**, **Edge**, **Opera** and **Safari**. **IE11+**
 
 ## Quick-start CDN
 
@@ -166,7 +158,7 @@ Vue.use(Vuesax)
 
 ```javascript
 import Vue from 'vue'
-import { vsButton, vsSelect, vsPopup } from 'vuesax/dist/components'
+import { vsButton, vsSelect, vsPopup } from 'vuesax'
 import 'vuesax/dist/vuesax.css'
 
 Vue.use(vsButton)
