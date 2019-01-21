@@ -6,7 +6,7 @@
     @mouseover="mouseoverx">
     <transition name="tooltip-fade">
       <div
-        v-show="active"
+        v-show="activeTooltip"
         ref="vstooltip"
         :class="[`vs-tooltip-${positionx || position}`,`vs-tooltip-${color}`, {'after-none': noneAfter}]"
         :style="style"
@@ -43,11 +43,15 @@ export default {
     delay:{
       default:'0s',
       type:[Number,String]
+    },
+    active: {
+      default: true,
+      type: [Boolean]
     }
   },
   data:()=>({
     cords:{},
-    active:false,
+    activeTooltip:false,
     widthx: 'auto',
     positionx: null,
     noneAfter: false
@@ -57,7 +61,7 @@ export default {
       return {
         left:this.cords.left,
         top:this.cords.top,
-        transitionDelay: this.active?this.delay:'0s',
+        transitionDelay: this.activeTooltip?this.delay:'0s',
         background:_color.getColor(this.color,1),
         width: this.widthx
       }
@@ -69,19 +73,21 @@ export default {
   updated() {
     let nodes = this.$refs.convstooltip.childNodes.length
     if (nodes == 1) {
-      this.active = false
+      this.activeTooltip = false
     }
   },
   methods:{
     mouseoverx(){
-      this.active = true
-      this.$nextTick(()=>{
-        utils.insertBody(this.$refs.vstooltip)
-        this.changePosition(this.$refs.convstooltip,this.$refs.vstooltip)
-      })
+      if(this.active) {
+        this.activeTooltip = true
+        this.$nextTick(()=>{
+          utils.insertBody(this.$refs.vstooltip)
+          this.changePosition(this.$refs.convstooltip,this.$refs.vstooltip)
+        })
+      }
     },
     mouseoutx(){
-      this.active = false
+      this.activeTooltip = false
       // utils.removeBody(this.$refs.vstooltip)
     },
     changePosition(elxEvent, tooltip){

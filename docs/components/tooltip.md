@@ -25,6 +25,11 @@ API:
    parameters: null
    description: Add a title to the tooltip.
    default: null
+ - name: active
+   type: Boolean
+   parameters: null
+   description: determines if the tooltip is active.
+   default: true
 ---
 
 # Tooltip **- update**

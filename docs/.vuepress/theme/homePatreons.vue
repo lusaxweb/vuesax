@@ -65,13 +65,7 @@ export default {
         name:null
       },
     ],
-    patreons2: [
-      {
-        name:'devDojo',
-        img:'/devDojo.svg',
-        link:'https://devdojo.com/series/nice-to-meet-vue-2'
-      }
-    ]
+    patreons2: []
   })
 }
 </script>

@@ -5286,12 +5286,12 @@ vsInputNumber_component.options.__file = "vsInputNumber.vue"
 /* harmony default export */ var components_vsInputNumber = (function (Vue) {
   Vue.component(vsInputNumber.name, vsInputNumber);
 });
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://Users//DELL//Documents//vuesax - 3.x.x//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!C:/Users/DELL/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsTooltip/vsTooltip.vue?vue&type=template&id=eb729858&
-var vsTooltipvue_type_template_id_eb729858_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"convstooltip",staticClass:"con-vs-tooltip",on:{"mouseout":_vm.mouseoutx,"mouseover":_vm.mouseoverx}},[_c('transition',{attrs:{"name":"tooltip-fade"}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.active),expression:"active"}],ref:"vstooltip",staticClass:"vs-tooltip",class:[("vs-tooltip-" + (_vm.positionx || _vm.position)),("vs-tooltip-" + _vm.color), {'after-none': _vm.noneAfter}],style:(_vm.style)},[(_vm.title)?_c('h4',[_vm._v(_vm._s(_vm.title))]):_vm._e(),_vm._v("\n      "+_vm._s(_vm.text)+"\n    ")])]),_vm._t("default")],2)}
-var vsTooltipvue_type_template_id_eb729858_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://Users//DELL//Documents//vuesax - 3.x.x//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!C:/Users/DELL/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsTooltip/vsTooltip.vue?vue&type=template&id=41573527&
+var vsTooltipvue_type_template_id_41573527_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"convstooltip",staticClass:"con-vs-tooltip",on:{"mouseout":_vm.mouseoutx,"mouseover":_vm.mouseoverx}},[_c('transition',{attrs:{"name":"tooltip-fade"}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.activeTooltip),expression:"activeTooltip"}],ref:"vstooltip",staticClass:"vs-tooltip",class:[("vs-tooltip-" + (_vm.positionx || _vm.position)),("vs-tooltip-" + _vm.color), {'after-none': _vm.noneAfter}],style:(_vm.style)},[(_vm.title)?_c('h4',[_vm._v(_vm._s(_vm.title))]):_vm._e(),_vm._v("\n      "+_vm._s(_vm.text)+"\n    ")])]),_vm._t("default")],2)}
+var vsTooltipvue_type_template_id_41573527_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/vsTooltip/vsTooltip.vue?vue&type=template&id=eb729858&
+// CONCATENATED MODULE: ./src/components/vsTooltip/vsTooltip.vue?vue&type=template&id=41573527&
 
 // CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib??ref--12-1!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsTooltip/vsTooltip.vue?vue&type=script&lang=js&
 
@@ -5342,12 +5342,16 @@ var vsTooltipvue_type_template_id_eb729858_staticRenderFns = []
     delay: {
       default: '0s',
       type: [Number, String]
+    },
+    active: {
+      default: true,
+      type: [Boolean]
     }
   },
   data: function data() {
     return {
       cords: {},
-      active: false,
+      activeTooltip: false,
       widthx: 'auto',
       positionx: null,
       noneAfter: false
@@ -5358,7 +5362,7 @@ var vsTooltipvue_type_template_id_eb729858_staticRenderFns = []
       return {
         left: this.cords.left,
         top: this.cords.top,
-        transitionDelay: this.active ? this.delay : '0s',
+        transitionDelay: this.activeTooltip ? this.delay : '0s',
         background: utils_color.getColor(this.color, 1),
         width: this.widthx
       };
@@ -5370,22 +5374,24 @@ var vsTooltipvue_type_template_id_eb729858_staticRenderFns = []
     var nodes = this.$refs.convstooltip.childNodes.length;
 
     if (nodes == 1) {
-      this.active = false;
+      this.activeTooltip = false;
     }
   },
   methods: {
     mouseoverx: function mouseoverx() {
       var _this = this;
 
-      this.active = true;
-      this.$nextTick(function () {
-        utils.insertBody(_this.$refs.vstooltip);
+      if (this.active) {
+        this.activeTooltip = true;
+        this.$nextTick(function () {
+          utils.insertBody(_this.$refs.vstooltip);
 
-        _this.changePosition(_this.$refs.convstooltip, _this.$refs.vstooltip);
-      });
+          _this.changePosition(_this.$refs.convstooltip, _this.$refs.vstooltip);
+        });
+      }
     },
     mouseoutx: function mouseoutx() {
-      this.active = false; // utils.removeBody(this.$refs.vstooltip)
+      this.activeTooltip = false; // utils.removeBody(this.$refs.vstooltip)
     },
     changePosition: function changePosition(elxEvent, tooltip) {
       this.noneAfter = false;
@@ -5440,8 +5446,8 @@ var vsTooltipvue_type_template_id_eb729858_staticRenderFns = []
 
 var vsTooltip_component = normalizeComponent(
   vsTooltip_vsTooltipvue_type_script_lang_js_,
-  vsTooltipvue_type_template_id_eb729858_render,
-  vsTooltipvue_type_template_id_eb729858_staticRenderFns,
+  vsTooltipvue_type_template_id_41573527_render,
+  vsTooltipvue_type_template_id_41573527_staticRenderFns,
   false,
   null,
   null,
