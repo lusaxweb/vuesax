@@ -27,7 +27,9 @@
         :style="styleTitle"
         class="titlex vs-alert--title">{{ title }}</h4>
 
-      <div class="vs-alert">
+      <div
+        :class="{'con-icon': icon}"
+        class="vs-alert">
         <vs-icon
           v-if="icon"
           :icon-pack="iconPack"
