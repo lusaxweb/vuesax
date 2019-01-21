@@ -71,6 +71,9 @@ export default {
         ...this.$listeners,
         change: (evt) => {
           this.toggleValue(evt)
+        },
+        input: (evt) => {
+          this.toggleValue(evt)
         }
       }
     },
