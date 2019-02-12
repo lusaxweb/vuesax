@@ -1,12 +1,11 @@
 <template>
   <div>
     <vs-navbar v-model="activeItem" class="nabarx">
-      <vs-button type="flat" icon="menu"></vs-button>
-
-      <vs-navbar-title>
-        Hello world
-      </vs-navbar-title>
-
+      <div slot="title">
+        <vs-navbar-title>
+          Hello world
+        </vs-navbar-title>
+      </div>
       <vs-navbar-item index="0">
         <a href="#">Home</a>
       </vs-navbar-item>
@@ -16,7 +15,6 @@
       <vs-navbar-item index="2">
         <a href="#">Update</a>
       </vs-navbar-item>
-      <vs-spacer></vs-spacer>
       <vs-input icon="search" placeholder="Search" v-model="search"/>
     </vs-navbar>
   </div>

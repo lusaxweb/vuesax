@@ -8,10 +8,11 @@
       text-color="rgba(255,255,255,.6)"
       active-text-color="rgba(255,255,255,1)"
       class="myNavbar">
-
-      <vs-navbar-title>
-        Navbar Color
-      </vs-navbar-title>
+      <div slot="title">
+        <vs-navbar-title>
+          Navbar Color
+        </vs-navbar-title>
+      </div>
 
       <vs-navbar-item index="0" >
         <a href="#">Home</a>

@@ -3,9 +3,11 @@
     <vs-navbar v-model="activeItem" class="nabarx">
       <vs-button type="flat" icon="menu"></vs-button>
 
-      <vs-navbar-title>
-        Hello world
-      </vs-navbar-title>
+      <div slot="title">
+        <vs-navbar-title>
+          Hello world
+        </vs-navbar-title>
+      </div>
 
 
 
@@ -34,7 +36,6 @@
         </div>
       </vs-navbar-item>
 
-      <vs-spacer></vs-spacer>
     </vs-navbar>
   </div>
 </template>

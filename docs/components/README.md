@@ -72,7 +72,6 @@ API:
     default: false
 ---
 
-# Buttons **- update**
 
 <box header>
 
