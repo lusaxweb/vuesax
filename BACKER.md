@@ -15,6 +15,12 @@ You can join them in supporting Vuesax.js by [Patreon](https://www.patreon.com/l
 
 ## $50+
 
+<p align="center">
+  <a href="https://talentplot.com">
+    <img width="10%" src="https://github.com/lusaxweb/vuesax/blob/master/docs/.vuepress/public/talentplot.png" alt="Talentplot">
+  </a>
+</p>
+
 ## $10+
 
 - [Yatima Kagurazaka](https://www.patreon.com/Yatima_K/creators)
