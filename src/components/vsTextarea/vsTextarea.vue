@@ -95,9 +95,11 @@ export default {
   methods:{
     focus() {
       this.focusx = true
+      this.$emit('focus')
     },
     blur() {
       this.focusx = false
+      this.$emit('blur')
     }
   }
 }
