@@ -32,7 +32,7 @@ API:
    default: true
 ---
 
-# Tooltip **- update**
+# Tooltip
 
 <box header>
 

@@ -5023,8 +5023,8 @@ vsSlider_component.options.__file = "vsSlider.vue"
 /* harmony default export */ var components_vsSlider = (function (Vue) {
   Vue.component(vsSlider.name, vsSlider);
 });
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://Users//DELL//Documents//vuesax - 3.x.x//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!C:/Users/DELL/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsInputNumber/vsInputNumber.vue?vue&type=template&id=02ae48db&lang=html&
-var vsInputNumbervue_type_template_id_02ae48db_lang_html_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"vs-input-number",class:[
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://Users//DELL//Documents//vuesax - 3.x.x//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!C:/Users/DELL/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsInputNumber/vsInputNumber.vue?vue&type=template&id=5d010321&lang=html&
+var vsInputNumbervue_type_template_id_5d010321_lang_html_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"vs-input-number",class:[
     ("vs-input-number-size-" + _vm.size),
     ("vs-input-number-" + _vm.color),
     {'isChangeValue':_vm.isChangeValue}
@@ -5032,15 +5032,15 @@ var vsInputNumbervue_type_template_id_02ae48db_lang_html_render = function () {v
       limit:_vm.value <= _vm.min
     },style:({
       background:_vm.getColor
-    }),attrs:{"disabled":_vm.$attrs.disabled,"type":"button"}},[_c('vs-icon',{attrs:{"icon-pack":_vm.iconPack,"icon":_vm.iconDec}})],1),_c('input',_vm._g(_vm._b({ref:"input",staticClass:"vs-input-number--input",style:(_vm.styleInput),attrs:{"type":"number"},domProps:{"value":_vm.value}},'input',_vm.$attrs,false),_vm.listeners)),_c('button',{directives:[{name:"repeat-click",rawName:"v-repeat-click",value:(_vm.plus),expression:"plus"}],staticClass:"btn-plus vs-input-number--button-plus",class:{
+    }),attrs:{"disabled":_vm.$attrs.disabled,"type":"button"}},[_c('vs-icon',{attrs:{"icon-pack":_vm.iconPack,"icon":_vm.iconDec}})],1),(_vm.label)?_c('span',[_vm._v(_vm._s(_vm.label))]):_vm._e(),_c('input',_vm._g(_vm._b({ref:"input",staticClass:"vs-input-number--input",style:(_vm.styleInput),attrs:{"type":"number"},domProps:{"value":_vm.value}},'input',_vm.$attrs,false),_vm.listeners)),_c('button',{directives:[{name:"repeat-click",rawName:"v-repeat-click",value:(_vm.plus),expression:"plus"}],staticClass:"btn-plus vs-input-number--button-plus",class:{
       limit:_vm.value >= _vm.max && _vm.max !== null
     },style:({
       background:_vm.getColor
     }),attrs:{"disabled":_vm.$attrs.disabled,"type":"button"}},[_c('vs-icon',{attrs:{"icon-pack":_vm.iconPack,"icon":_vm.iconInc}})],1)])}
-var vsInputNumbervue_type_template_id_02ae48db_lang_html_staticRenderFns = []
+var vsInputNumbervue_type_template_id_5d010321_lang_html_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/vsInputNumber/vsInputNumber.vue?vue&type=template&id=02ae48db&lang=html&
+// CONCATENATED MODULE: ./src/components/vsInputNumber/vsInputNumber.vue?vue&type=template&id=5d010321&lang=html&
 
 // EXTERNAL MODULE: C:/Users/DELL/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/core-js/modules/es6.regexp.to-string.js
 var es6_regexp_to_string = __webpack_require__("tddq");
@@ -5051,6 +5051,7 @@ var es6_regexp_to_string = __webpack_require__("tddq");
 
 
 
+//
 //
 //
 //
@@ -5151,6 +5152,10 @@ var es6_regexp_to_string = __webpack_require__("tddq");
     value: {},
     color: {
       default: 'primary',
+      type: String
+    },
+    label: {
+      default: null,
       type: String
     },
     max: {
@@ -5271,8 +5276,8 @@ var es6_regexp_to_string = __webpack_require__("tddq");
 
 var vsInputNumber_component = normalizeComponent(
   vsInputNumber_vsInputNumbervue_type_script_lang_js_,
-  vsInputNumbervue_type_template_id_02ae48db_lang_html_render,
-  vsInputNumbervue_type_template_id_02ae48db_lang_html_staticRenderFns,
+  vsInputNumbervue_type_template_id_5d010321_lang_html_render,
+  vsInputNumbervue_type_template_id_5d010321_lang_html_staticRenderFns,
   false,
   null,
   null,

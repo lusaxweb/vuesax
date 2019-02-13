@@ -36,7 +36,7 @@ API:
    description: a function to be executed on click of the icon
 ---
 
-# Icon **- new**
+# Icon
 
 <box header>
 

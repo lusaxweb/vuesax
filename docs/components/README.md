@@ -72,6 +72,7 @@ API:
     default: false
 ---
 
+# Buttons
 
 <box header>
 
