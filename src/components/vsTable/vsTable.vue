@@ -282,7 +282,7 @@ export default {
           obj.forEach((item) => {
             getStrings(item)
           })
-        } else if (typeof obj == 'object') {
+        } else if (typeof obj == 'object' && obj != null) {
           let subObj = Object.values(obj)
           strings = [...strings,...subObj]
           getStrings(subObj)
