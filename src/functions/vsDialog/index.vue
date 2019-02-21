@@ -42,7 +42,7 @@
             :type="isPrompt?vsButtonAccept:buttonAccept"
             @click="acceptDialog">{{ isPrompt?vsAcceptText:acceptText }}</vs-button>
           <vs-button
-            :color="'rgb(0,0,0,.5)'"
+            :text-color="'rgba(0,0,0,.5)'"
             :type="isPrompt?vsButtonCancel:buttonCancel"
             @click="cancelClose">{{ isPrompt?vsCancelText:cancelText }}</vs-button>
         </footer>
