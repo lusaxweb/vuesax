@@ -42,6 +42,7 @@ export default {
     listeners(){
         return {
           ...this.$listeners,
+          input: () => this.$emit('input', this.vsValue),
           click: () => this.$emit('input', this.vsValue)
         }
     },
