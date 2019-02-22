@@ -6,10 +6,9 @@
     <tr
       v-if="!$parent.notSpacer"
       class="tr-spacer"></tr>
-    <tr class="tr-values vs-table--tr">
+    <tr class="tr-values vs-table--tr" @click="clicktd()">
       <td
-        class="td-check"
-        @click="clicktd()">
+        class="td-check">
         <vs-checkbox
           v-if="$parent.multiple"
           :checked="isSelected"
