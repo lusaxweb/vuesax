@@ -5032,8 +5032,8 @@ vsSlider_component.options.__file = "vsSlider.vue"
 /* harmony default export */ var components_vsSlider = (function (Vue) {
   Vue.component(vsSlider.name, vsSlider);
 });
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://Users//DELL//Documents//vuesax - 3.x.x//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!C:/Users/DELL/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsInputNumber/vsInputNumber.vue?vue&type=template&id=5d010321&lang=html&
-var vsInputNumbervue_type_template_id_5d010321_lang_html_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"vs-input-number",class:[
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://Users//DELL//Documents//vuesax - 3.x.x//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!C:/Users/DELL/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsInputNumber/vsInputNumber.vue?vue&type=template&id=178cbbb2&lang=html&
+var vsInputNumbervue_type_template_id_178cbbb2_lang_html_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"vs-input-number",class:[
     ("vs-input-number-size-" + _vm.size),
     ("vs-input-number-" + _vm.color),
     {'isChangeValue':_vm.isChangeValue}
@@ -5046,10 +5046,10 @@ var vsInputNumbervue_type_template_id_5d010321_lang_html_render = function () {v
     },style:({
       background:_vm.getColor
     }),attrs:{"disabled":_vm.$attrs.disabled,"type":"button"}},[_c('vs-icon',{attrs:{"icon-pack":_vm.iconPack,"icon":_vm.iconInc}})],1)])}
-var vsInputNumbervue_type_template_id_5d010321_lang_html_staticRenderFns = []
+var vsInputNumbervue_type_template_id_178cbbb2_lang_html_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/vsInputNumber/vsInputNumber.vue?vue&type=template&id=5d010321&lang=html&
+// CONCATENATED MODULE: ./src/components/vsInputNumber/vsInputNumber.vue?vue&type=template&id=178cbbb2&lang=html&
 
 // EXTERNAL MODULE: C:/Users/DELL/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/core-js/modules/es6.regexp.to-string.js
 var es6_regexp_to_string = __webpack_require__("tddq");
@@ -5208,7 +5208,7 @@ var es6_regexp_to_string = __webpack_require__("tddq");
       };
     },
     getLength: function getLength() {
-      if (this.value != '') {
+      if (this.value != '' && this.value != 0) {
         return this.value.toString().length * 9.1;
       } else {
         return 0;
@@ -5285,8 +5285,8 @@ var es6_regexp_to_string = __webpack_require__("tddq");
 
 var vsInputNumber_component = normalizeComponent(
   vsInputNumber_vsInputNumbervue_type_script_lang_js_,
-  vsInputNumbervue_type_template_id_5d010321_lang_html_render,
-  vsInputNumbervue_type_template_id_5d010321_lang_html_staticRenderFns,
+  vsInputNumbervue_type_template_id_178cbbb2_lang_html_render,
+  vsInputNumbervue_type_template_id_178cbbb2_lang_html_staticRenderFns,
   false,
   null,
   null,

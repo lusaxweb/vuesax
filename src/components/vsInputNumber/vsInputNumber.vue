@@ -136,7 +136,7 @@ export default {
       }
     },
     getLength(){
-      if(this.value != ''){
+      if(this.value != '' && this.value != 0){
         return this.value.toString().length * 9.1
       } else {
         return 0
