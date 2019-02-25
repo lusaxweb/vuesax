@@ -113,7 +113,9 @@ export default {
       this.currentIndex = index
     },
     addEventClick () {
-      window.addEventListener('click', this.closeSidebar)
+      this.$nextTick(() => {
+        window.addEventListener('click', this.closeSidebar)
+      })
     },
     closeSidebar (evt) {
       let parent = evt.target.closest('.vs-sidebar')
