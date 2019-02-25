@@ -116,7 +116,9 @@ export default {
       this.$nextTick(() => {
         let parentx = typeof this.parent == 'string' ? document.querySelector(this.parent) : this.parent
         let element = parentx || window
-        element.addEventListener('click', this.closeSidebar)
+        if(this.value) {
+          element.addEventListener('click', this.closeSidebar)
+        }
       })
     },
     closeSidebar (evt) {
