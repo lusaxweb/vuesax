@@ -114,14 +114,18 @@ export default {
     },
     addEventClick () {
       this.$nextTick(() => {
-        window.addEventListener('click', this.closeSidebar)
+        let parentx = typeof this.parent == 'string' ? document.querySelector(this.parent) : this.parent
+        let element = parentx || window
+        element.addEventListener('click', this.closeSidebar)
       })
     },
     closeSidebar (evt) {
       let parent = evt.target.closest('.vs-sidebar')
       if (!parent) {
         this.$emit('input', false)
-        window.removeEventListener('click', this.closeSidebar)
+        let parentx = typeof this.parent == 'string' ? document.querySelector(this.parent) : this.parent
+        let element = parentx || window
+        element.removeEventListener('click', this.closeSidebar)
       }
     },
     insertBody () {
