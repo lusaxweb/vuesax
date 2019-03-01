@@ -118,41 +118,42 @@ export default {
       return activeIndex;
     },
     activeChild(index, initialAnimation){
-      initialAnimation = !!initialAnimation;
-      const elem = this.$refs.li[index]
-      if(this.childActive == index && !initialAnimation){
-        this.these = true
-        elem.classList.add('isActive')
-        setTimeout(()=>{
-          elem.classList.remove('isActive')
-          this.these = false
-        }, 200);
-      }
-
-      this.$children.map((item,item_index)=>{
-        if(item_index != index) {
-          item.active = false
+      if(this.$children[index]){
+        initialAnimation = !!initialAnimation;
+        const elem = this.$refs.li[index]
+        if(this.childActive == index && !initialAnimation){
+          this.these = true
+          elem.classList.add('isActive')
+          setTimeout(()=>{
+            elem.classList.remove('isActive')
+            this.these = false
+          }, 200);
         }
-      })
 
-      if(this.childActive > index){
-        this.$children[index].invert = true
-        this.$children[this.childActive].invert = false
-      } else {
-        this.$children[this.childActive].invert = true
-        this.$children[index].invert = false
+        this.$children.map((item,item_index)=>{
+          if(item_index != index) {
+            item.active = false
+          }
+        })
+
+        if(this.childActive > index){
+          this.$children[index].invert = true
+          this.$children[this.childActive].invert = false
+        } else {
+          this.$children[this.childActive].invert = true
+          this.$children[index].invert = false
+        }
+
+        this.$children[index].active = true
+        this.childActive = index
+        this.$emit('input', this.childActive)
+
+        if(this.vsPosition == 'left' || this.vsPosition == 'right'){
+          this.$children[index].vertical = true
+        }
+
+        this.changePositionLine(elem, initialAnimation)
       }
-
-      this.$children[index].active = true
-      this.childActive = index
-      this.$emit('input', this.childActive)
-
-      if(this.vsPosition == 'left' || this.vsPosition == 'right'){
-        this.$children[index].vertical = true
-      }
-
-      this.changePositionLine(elem, initialAnimation)
-
     },
     changePositionLine(elem, initialAnimation){
       if(this.vsPosition == 'left' || this.vsPosition == 'right'){
