@@ -15,12 +15,12 @@
           :class="{'activeChild':childActive == index}"
           class="vs-tabs--li"
           @mouseover="hover = true"
-          @mouseout="hover = false"
-          @click="activeChild(index)">
+          @mouseout="hover = false">
           <button
             v-bind="child.attrs"
             type="button"
             :style="styleAlignIcon(child.icon)"
+            @click="activeChild(index)"
             v-on="child.listeners">
             <vs-icon v-if="child.icon" :icon="child.icon" :color="color" style="padding-right:9px"></vs-icon>
             <span>{{ child.label }}</span>

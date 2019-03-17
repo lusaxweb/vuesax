@@ -3,12 +3,55 @@
   display: flex
   align-items: center
   // padding: 0px 7px
+  justify-content: space-between
   box-shadow: 0px 4px 20px 0px rgba(0,0,0,.05)
   width: 100%
   z-index: 10000
   position: relative
-  button
+  .vs-button
     margin: 0px
+
+.vs-navbar--btn-responsive
+  display: none
+  width: 40px
+  height: 40px
+  position: relative
+  border: 0px
+  background: transparent
+  flex-direction: column
+  justify-content: space-around
+  align-items: center
+  padding: 10px 0px
+  margin-left: 5px
+  cursor: pointer
+  transition: all .25s ease
+  overflow: hidden
+  &:hover
+    background: rgba(0,0,0,.08)
+    padding: 12px 0px
+  &.active-menu
+    padding: 10px 0px !important
+    .line--1
+      transform: rotate(45deg) translate(5px, 5px)
+    .line--2
+      opacity: 0
+      transform: translate(-10px)
+    .line--3
+      transform: rotate(-45deg) translate(5px, -5px)
+  .btn-responsive-line
+    width: 20px
+    height: 2px
+    background: rgba(0,0,0, .6)
+    position: relative
+    display: block
+    transition: all .2s ease
+
+
+
+.vs-con-items
+  display flex
+  align-items: center
+  justify-content: center
 
 .vs-navbar--item
   display block
@@ -160,3 +203,26 @@ for colorx in $vs-colors
           background-image: linear-gradient(30deg, getColor(colorx, 1) 0%, getColor(colorx, .5) 100%)
         }
         text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3)
+
+
+
+// RESPONSIVE
+
+@media screen and (max-width: 800px)
+  .vs-navbar--btn-responsive
+    display: flex
+  .vs-navbar
+    display: block
+  .vs-navbar--header
+    display: flex
+    align-items: center
+    justify-content: space-between
+  .vs-con-items
+    display: none
+    width: 100%
+    &.activeMenuResponsive
+      display: block
+    .vs-spacer
+      display: none
+  .vs-navbar--item
+    width: 100%

@@ -40,10 +40,15 @@ API:
    parameters: valid number
    description: Number to be added or decreased each time.
    default: 1
+ - name: lablel
+   type: String
+   parameters:
+   description: Add a descriptive text in the input number.
+   default: null
 ---
 
 
-# Number Input
+# Number Input **- update**
 
 <box header>
 

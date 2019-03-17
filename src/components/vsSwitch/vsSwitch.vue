@@ -12,14 +12,14 @@
     type="button"
     name="button"
     @click="toggleCheckbox($event)">
+      <!-- :checked="value" -->
     <input
       ref="inputCheckbox"
-      :checked="value"
+      v-bind="$attrs"
       :disabled="$attrs.disabled"
       class="input-switch vs-switch--input"
       type="checkbox"
-      name=""
-      value=""
+      :value="value"
       v-on="listeners">
 
     <span
@@ -93,7 +93,7 @@ export default {
     listeners(){
       return {
         ...this.$listeners,
-        change: (evt) => {
+        input: (evt) => {
           this.toggleValue(evt)
         }
       }
@@ -121,7 +121,7 @@ export default {
         this.setArray(evt)
       }
       else {
-        this.$emit('input',evt.target.checked)
+        this.$emit('input', !this.value)
         this.$emit('change',evt)
       }
     },

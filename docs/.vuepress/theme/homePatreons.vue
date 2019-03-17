@@ -65,7 +65,13 @@ export default {
         name:null
       },
     ],
-    patreons2: []
+    patreons2: [
+      {
+        name:'Talentplot',
+        img:'/talentplot.png',
+        link:'https://talentplot.com'
+      },
+    ]
   })
 }
 </script>
