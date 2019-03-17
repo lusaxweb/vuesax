@@ -9574,12 +9574,12 @@ vsDropDownGroup_component.options.__file = "vsDropDownGroup.vue"
   Vue.component(vsDropDownItem.name, vsDropDownItem);
   Vue.component(vsDropDownGroup.name, vsDropDownGroup);
 });
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://Users//DELL//Documents//vuesax - 3.x.x//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!C:/Users/DELL/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsTable/vsTable.vue?vue&type=template&id=6034693e&lang=html&
-var vsTablevue_type_template_id_6034693e_lang_html_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"vs-component vs-con-table",class:[{'stripe': _vm.stripe, 'hoverFlat': _vm.hoverFlat}, ("vs-table-" + _vm.color) ]},[_c('header',{staticClass:"header-table vs-table--header"},[_c('span',[_vm._t("header")],2),(_vm.search)?_c('div',{staticClass:"con-input-search vs-table--search"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.searchx),expression:"searchx"}],staticClass:"input-search vs-table--search-input",attrs:{"type":"text"},domProps:{"value":(_vm.searchx)},on:{"input":function($event){if($event.target.composing){ return; }_vm.searchx=$event.target.value}}}),_c('i',{staticClass:"material-icons"},[_vm._v("\n        search\n      ")])]):_vm._e()]),_c('div',{staticClass:"con-tablex vs-table--content"},[_c('div',{staticClass:"vs-con-tbody vs-table--tbody ",style:(_vm.styleConTbody)},[_c('table',{ref:"table",staticClass:"vs-table vs-table--tbody-table"},[_c('thead',{ref:"thead",staticClass:"vs-table--thead"},[_c('tr',[_c('th',{staticClass:"td-check"},[(_vm.multiple)?_c('span',{staticClass:"con-td-check"},[_c('vs-checkbox',{attrs:{"icon":_vm.isCheckedLine ? 'remove' : 'check',"checked":_vm.isCheckedMultiple,"size":"small"},on:{"click":_vm.changeCheckedMultiple}})],1):_vm._e()]),_vm._t("thead")],2)]),_c('colgroup',{ref:"colgrouptable"},[_c('col',{attrs:{"width":"20"}}),_vm._l((3),function(col,index){return _c('col',{key:index,attrs:{"name":("col-" + index)}})})],2),_vm._t("default",null,{data:_vm.datax})],2)]),(_vm.isNoData)?_c('div',{staticClass:"not-data-table vs-table--not-data"},[_vm._v("\n      No data Available\n    ")]):_vm._e(),(_vm.pagination)?_c('div',{directives:[{name:"show",rawName:"v-show",value:(!_vm.searchx),expression:"!searchx"}],staticClass:"con-pagination-table vs-table--pagination"},[_c('vs-pagination',{attrs:{"total":_vm.getTotalPages},model:{value:(_vm.currentx),callback:function ($$v) {_vm.currentx=$$v},expression:"currentx"}})],1):_vm._e()])])}
-var vsTablevue_type_template_id_6034693e_lang_html_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://Users//DELL//Documents//vuesax - 3.x.x//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!C:/Users/DELL/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsTable/vsTable.vue?vue&type=template&id=f212898e&lang=html&
+var vsTablevue_type_template_id_f212898e_lang_html_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"vs-component vs-con-table",class:[{'stripe': _vm.stripe, 'hoverFlat': _vm.hoverFlat}, ("vs-table-" + _vm.color) ]},[_c('header',{staticClass:"header-table vs-table--header"},[_c('span',[_vm._t("header")],2),(_vm.search)?_c('div',{staticClass:"con-input-search vs-table--search"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.searchx),expression:"searchx"}],staticClass:"input-search vs-table--search-input",attrs:{"type":"text"},domProps:{"value":(_vm.searchx)},on:{"input":function($event){if($event.target.composing){ return; }_vm.searchx=$event.target.value}}}),_c('i',{staticClass:"material-icons"},[_vm._v("\n        search\n      ")])]):_vm._e()]),_c('div',{staticClass:"con-tablex vs-table--content"},[_c('div',{staticClass:"vs-con-tbody vs-table--tbody ",style:(_vm.styleConTbody)},[_c('table',{ref:"table",staticClass:"vs-table vs-table--tbody-table"},[_c('thead',{ref:"thead",staticClass:"vs-table--thead"},[_c('tr',[_c('th',{staticClass:"td-check"},[(_vm.multiple)?_c('span',{staticClass:"con-td-check"},[_c('vs-checkbox',{attrs:{"icon":_vm.isCheckedLine ? 'remove' : 'check',"checked":_vm.isCheckedMultiple,"size":"small"},on:{"click":_vm.changeCheckedMultiple}})],1):_vm._e()]),_vm._t("thead")],2)]),_c('colgroup',{ref:"colgrouptable"},[_c('col',{attrs:{"width":"20"}}),_vm._l((3),function(col,index){return _c('col',{key:index,attrs:{"name":("col-" + index)}})})],2),_vm._t("default",null,{data:_vm.datax})],2)]),(_vm.isNoData)?_c('div',{staticClass:"not-data-table vs-table--not-data"},[_vm._v("\n      No data Available\n    ")]):_vm._e(),(_vm.pagination)?_c('div',{staticClass:"con-pagination-table vs-table--pagination"},[_c('vs-pagination',{attrs:{"total":_vm.searchx ? _vm.getTotalPagesSearch : _vm.getTotalPages},model:{value:(_vm.currentx),callback:function ($$v) {_vm.currentx=$$v},expression:"currentx"}})],1):_vm._e()])])}
+var vsTablevue_type_template_id_f212898e_lang_html_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/vsTable/vsTable.vue?vue&type=template&id=6034693e&lang=html&
+// CONCATENATED MODULE: ./src/components/vsTable/vsTable.vue?vue&type=template&id=f212898e&lang=html&
 
 // CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/builtin/es6/typeof.js
 function _typeof2(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof2 = function _typeof2(obj) { return typeof obj; }; } else { _typeof2 = function _typeof2(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof2(obj); }
@@ -9787,6 +9787,17 @@ var es6_array_sort = __webpack_require__("vKHe");
     getTotalPages: function getTotalPages() {
       return Math.ceil(this.data.length / this.maxItems);
     },
+    getTotalPagesSearch: function getTotalPagesSearch() {
+      var _this = this;
+
+      var dataBase = this.data;
+      var filterx = dataBase.filter(function (tr) {
+        var values = _this.getValues(tr).toString().toLowerCase();
+
+        return values.indexOf(_this.searchx.toLowerCase()) != -1;
+      });
+      return Math.ceil(filterx.length / this.maxItems);
+    },
     isNoData: function isNoData() {
       return this.datax ? this.datax.length == 0 : false && this.search;
     },
@@ -9824,27 +9835,28 @@ var es6_array_sort = __webpack_require__("vKHe");
       this.loadData();
     },
     data: function data() {
-      var _this = this;
+      var _this2 = this;
 
       this.loadData();
       this.$nextTick(function () {
-        if (_this.datax.length > 0) {
-          _this.changeTdsWidth();
+        if (_this2.datax.length > 0) {
+          _this2.changeTdsWidth();
         }
       });
     },
     searchx: function searchx() {
-      this.filterValues();
+      this.loadData();
+      this.currentx = 1;
     }
   },
   mounted: function mounted() {
-    var _this2 = this;
+    var _this3 = this;
 
     window.addEventListener('resize', this.listenerChangeWidth);
     this.loadData();
     this.$nextTick(function () {
-      if (_this2.datax.length > 0) {
-        _this2.changeTdsWidth();
+      if (_this3.datax.length > 0) {
+        _this3.changeTdsWidth();
       }
     });
   },
@@ -9855,11 +9867,36 @@ var es6_array_sort = __webpack_require__("vKHe");
     loadData: function loadData() {
       var max = Math.ceil(this.currentx * this.maxItems);
       var min = max - this.maxItems;
-      this.datax = this.pagination ? this.getItems(min, max) : this.data || [];
+
+      if (!this.searchx) {
+        this.datax = this.pagination ? this.getItems(min, max) : this.data || [];
+      } else {
+        this.datax = this.pagination ? this.getItemsSearch(true, min, max) : this.getItemsSearch(false, min, max) || [];
+      }
     },
     getItems: function getItems(min, max) {
       var items = [];
       this.data.forEach(function (item, index) {
+        if (index >= min && index < max) {
+          items.push(item);
+        }
+      });
+      return items;
+    },
+    getItemsSearch: function getItemsSearch() {
+      var _this4 = this;
+
+      var pagination = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+      var min = arguments.length > 1 ? arguments[1] : undefined;
+      var max = arguments.length > 2 ? arguments[2] : undefined;
+      var dataBase = this.data;
+      var filterx = dataBase.filter(function (tr) {
+        var values = _this4.getValues(tr).toString().toLowerCase();
+
+        return values.indexOf(_this4.searchx.toLowerCase()) != -1;
+      });
+      var items = [];
+      filterx.forEach(function (item, index) {
         if (index >= min && index < max) {
           items.push(item);
         }
@@ -9876,25 +9913,6 @@ var es6_array_sort = __webpack_require__("vKHe");
       }
 
       this.datax = datax.sort(compare);
-    },
-    filterValues: function filterValues() {
-      var _this3 = this;
-
-      var dataBase = this.data;
-      var filterx = dataBase.filter(function (tr) {
-        var values = _this3.getValues(tr).toString().toLowerCase();
-
-        return values.indexOf(_this3.searchx.toLowerCase()) != -1;
-      });
-      var pagex = filterx;
-
-      if (this.pagination) {
-        var max = Math.ceil(this.currentx * this.maxItems);
-        var min = max - this.maxItems;
-        pagex = this.getItems(min, max);
-      }
-
-      this.datax = this.searchx !== '' ? filterx : pagex;
     },
     getValues: function getValues(obj) {
       var valuesx = Object.values(obj);
@@ -9991,8 +10009,8 @@ var es6_array_sort = __webpack_require__("vKHe");
 
 var vsTable_component = normalizeComponent(
   vsTable_vsTablevue_type_script_lang_js_,
-  vsTablevue_type_template_id_6034693e_lang_html_render,
-  vsTablevue_type_template_id_6034693e_lang_html_staticRenderFns,
+  vsTablevue_type_template_id_f212898e_lang_html_render,
+  vsTablevue_type_template_id_f212898e_lang_html_staticRenderFns,
   false,
   null,
   null,
