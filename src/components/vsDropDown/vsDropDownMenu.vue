@@ -9,8 +9,11 @@
         'top':topx+'px'
       }"
       class="con-vs-dropdown--menu vs-dropdown-menu"
-      @mouseover="toggleMenu($event)"
-      @mouseout="toggleMenu($event)">
+      @mouseleave="mouseleavex"
+      @mouseenter="mouseenterx"
+      >
+      <!-- @mouseout="toggleMenu($event)" -->
+      <!-- @mouseover="toggleMenu($event)" -->
       <ul
         v-if="!vsCustomContent"
         class="vs-component vs-dropdown--menu" >
@@ -59,6 +62,19 @@ export default {
     this.$el.parentNode.removeChild(this.$el)
   },
   methods:{
+    mouseenterx() {
+      if (!this.vsTriggerClick) {
+        this.dropdownVisible = true
+        this.widthx = this.$el.clientWidth
+      }
+    },
+    mouseleavex() {
+      console.log('salio')
+      if (!this.vsTriggerClick) {
+        this.dropdownVisible = false
+        this.widthx = this.$el.clientWidth
+      }
+    },
     setDirection() {
       setTimeout(() => {
         const dropdown = this.parentNode
@@ -76,7 +92,8 @@ export default {
     toggleMenu(event){
       if(event.type == 'mouseover' && !this.vsTriggerClick){
         this.dropdownVisible = true
-      } else if (!this.vsTriggerClick) {
+      }
+      else if (!this.vsTriggerClick) {
         this.dropdownVisible = false
       }
       this.widthx = this.$el.clientWidth
