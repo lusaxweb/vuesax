@@ -1,5 +1,5 @@
 <template lang="html">
-  <button
+  <div
     :class="[
       `vs-switch-${color}`,
       {
@@ -8,11 +8,7 @@
     ]"
     :style="style"
     v-bind="$attrs"
-    class="vs-component vs-switch"
-    type="button"
-    name="button"
-    @click="toggleCheckbox($event)">
-      <!-- :checked="value" -->
+    class="vs-component vs-switch">
     <input
       ref="inputCheckbox"
       v-bind="$attrs"
@@ -47,7 +43,7 @@
       ></vs-icon>
     </span>
     <span class="vs-circle-switch vs-switch--circle"/>
-  </button>
+  </div>
 </template>
 
 <script>
@@ -95,7 +91,7 @@ export default {
         ...this.$listeners,
         input: (evt) => {
           this.toggleValue(evt)
-        }
+        },
       }
     },
     isChecked(){
@@ -110,14 +106,8 @@ export default {
 
   },
   methods:{
-    toggleCheckbox() {
-      if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1){
-        this.$refs.inputCheckbox.checked = !this.$refs.inputCheckbox.checked;
-        this.$emit('input', this.$refs.inputCheckbox.checked);
-      }
-    },
     toggleValue(evt){
-      if(this.isArrayx()){
+      if(Array.isArray(this.value)){
         this.setArray(evt)
       }
       else {
