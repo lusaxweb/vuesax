@@ -92,18 +92,16 @@ export default {
   data: () => ({
     currentIndex: 0
   }),
-  watch: {
-    value() {
-      if(this.value && !this.clickNotClose) {
-        this.addEventClick()
-      }
-    }
-  },
   created () {
     this.currentIndex = this.defaultIndex
   },
   mounted () {
     this.insertBody()
+  },
+  watch:{
+    value() {
+      this.addEventClick()
+    }
   },
   methods:{
     getActive () {
@@ -117,13 +115,17 @@ export default {
         let parentx = typeof this.parent == 'string' ? document.querySelector(this.parent) : this.parent
         let element = parentx || window
         if(this.value) {
-          element.addEventListener('click', this.closeSidebar)
+          setTimeout(() => {
+            element.addEventListener('click', this.closeSidebar)
+          }, 300)
+
         }
       })
     },
     closeSidebar (evt) {
       let parent = evt.target.closest('.vs-sidebar')
       if (!parent) {
+        console.log('paso')
         this.$emit('input', false)
         let parentx = typeof this.parent == 'string' ? document.querySelector(this.parent) : this.parent
         let element = parentx || window
