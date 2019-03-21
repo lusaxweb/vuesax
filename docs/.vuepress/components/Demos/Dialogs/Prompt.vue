@@ -33,7 +33,7 @@
          <vs-input placeholder="Name" v-model="valMultipe.value1"/>
          <vs-input placeholder="Last Name" v-model="valMultipe.value2"/>
 
-         <vs-alert :vs-active="!validName" color="danger" vs-icon="new_releases" >
+         <vs-alert :active="!validName" color="danger" icon="new_releases" >
            Fields can not be empty please enter the data
          </vs-alert>
        </div>
