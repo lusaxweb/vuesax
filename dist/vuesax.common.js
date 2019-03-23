@@ -5463,14 +5463,8 @@ vsTooltip_component.options.__file = "vsTooltip.vue"
 /* harmony default export */ var components_vsTooltip = (function (Vue) {
   Vue.component(vsTooltip.name, vsTooltip);
 });
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://Users//DELL//Documents//vuesax - 3.x.x//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!C:/Users/DELL/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsUpload/vsUpload.vue?vue&type=template&id=c16b9cd8&
-var vsUploadvue_type_template_id_c16b9cd8_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"con-upload"},[(_vm.viewActive)?_c('view-upload',{attrs:{"src":_vm.viewSrc}}):_vm._e(),_c('div',{staticClass:"con-input-upload",class:{
-      'on-progress-all-upload':_vm.percent != 0,
-      'is-ready-all-upload':_vm.percent >= 100,
-      'disabled-upload':_vm.$attrs.hasOwnProperty('disabled') || _vm.limit?(_vm.srcs.length - _vm.itemRemove.length) >= Number(_vm.limit):false
-    }},[_c('input',_vm._b({ref:"fileInput",attrs:{"disabled":_vm.$attrs.disabled || _vm.limit?(_vm.srcs.length - _vm.itemRemove.length) >= Number(_vm.limit):false,"type":"file"},on:{"change":_vm.getFiles}},'input',_vm.$attrs,false)),_c('span',{staticClass:"text-input"},[_vm._v("\n      "+_vm._s(_vm.text)+"\n    ")]),_c('span',{staticClass:"input-progress",style:({
-        width:(_vm.percent + "%")
-      })}),(_vm.showUploadButton)?_c('button',{staticClass:"btn-upload-all vs-upload--button-upload",attrs:{"type":"button","title":"Upload"},on:{"click":function($event){_vm.upload('all')}}},[_c('i',{staticClass:"material-icons notranslate",attrs:{"translate":"no"}},[_vm._v("\n        cloud_upload\n      ")])]):_vm._e()]),_c('div',{staticClass:"con-img-upload"},[_c('transition-group',{attrs:{"name":"upload"}},_vm._l((_vm.srcs),function(img,index){return (!img.remove)?_c('div',{key:index,staticClass:"img-upload",class:{
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://Users//DELL//Documents//vuesax - 3.x.x//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!C:/Users/DELL/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsUpload/vsUpload.vue?vue&type=template&id=59815abe&
+var vsUploadvue_type_template_id_59815abe_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"con-upload"},[(_vm.viewActive)?_c('view-upload',{attrs:{"src":_vm.viewSrc}}):_vm._e(),_c('div',{staticClass:"con-img-upload"},[_vm._l((_vm.getFilesFilter),function(img,index){return _c('div',{key:index,staticClass:"img-upload",class:{
           'fileError':img.error,
           'removeItem':_vm.itemRemove.includes(index)
         }},[_c('button',{staticClass:"btn-x-file",on:{"click":function($event){_vm.removeFile(index)}}},[_c('i',{staticClass:"material-icons notranslate",attrs:{"translate":"no"}},[_vm._v("\n            clear\n          ")])]),(_vm.showUploadButton)?_c('button',{staticClass:"btn-upload-file",class:{
@@ -5481,11 +5475,17 @@ var vsUploadvue_type_template_id_c16b9cd8_render = function () {var _vm=this;var
           }),on:{"click":function($event){_vm.upload(index)}}},[_c('i',{staticClass:"material-icons notranslate",attrs:{"translate":"no"}},[_vm._v("\n            "+_vm._s(img.percent >= 100?img.error?'report_problem':'cloud_done':'cloud_upload')+"\n          ")]),_c('span',[_vm._v(_vm._s(img.percent)+" %")])]):_vm._e(),(img.src)?_c('img',{key:index,style:({
             maxWidth:img.orientation == 'h'?'100%':'none',
             maxHeight:img.orientation == 'w'?'100%':'none'
-          }),attrs:{"src":img.src},on:{"touchend":function($event){_vm.viewImage(img.src,$event)},"click":function($event){_vm.viewImage(img.src,$event)}}}):_vm._e(),(!img.src)?_c('h4',{staticClass:"text-archive"},[_c('i',{staticClass:"material-icons notranslate",attrs:{"translate":"no"}},[_vm._v("\n            description\n          ")]),_c('span',[_vm._v("\n            "+_vm._s(img.name)+"\n          ")])]):_vm._e()]):_vm._e()}))],1)],1)}
-var vsUploadvue_type_template_id_c16b9cd8_staticRenderFns = []
+          }),attrs:{"src":img.src},on:{"touchend":function($event){_vm.viewImage(img.src,$event)},"click":function($event){_vm.viewImage(img.src,$event)}}}):_vm._e(),(!img.src)?_c('h4',{staticClass:"text-archive"},[_c('i',{staticClass:"material-icons notranslate",attrs:{"translate":"no"}},[_vm._v("\n            description\n          ")]),_c('span',[_vm._v("\n            "+_vm._s(img.name)+"\n          ")])]):_vm._e()])}),_c('div',{staticClass:"con-input-upload",class:{
+        'on-progress-all-upload':_vm.percent != 0,
+        'is-ready-all-upload':_vm.percent >= 100,
+        'disabled-upload':_vm.$attrs.hasOwnProperty('disabled') || _vm.limit?(_vm.srcs.length - _vm.itemRemove.length) >= Number(_vm.limit):false
+      }},[_c('input',_vm._b({ref:"fileInput",attrs:{"disabled":_vm.$attrs.disabled || _vm.limit?(_vm.srcs.length - _vm.itemRemove.length) >= Number(_vm.limit):false,"type":"file"},on:{"change":_vm.getFiles}},'input',_vm.$attrs,false)),_c('span',{staticClass:"text-input"},[_vm._v("\n        "+_vm._s(_vm.text)+"\n      ")]),_c('span',{staticClass:"input-progress",style:({
+          width:(_vm.percent + "%")
+        })}),(_vm.showUploadButton)?_c('button',{staticClass:"btn-upload-all vs-upload--button-upload",attrs:{"type":"button","title":"Upload"},on:{"click":function($event){_vm.upload('all')}}},[_c('i',{staticClass:"material-icons notranslate",attrs:{"translate":"no"}},[_vm._v("\n          cloud_upload\n        ")])]):_vm._e()])],2)],1)}
+var vsUploadvue_type_template_id_59815abe_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/vsUpload/vsUpload.vue?vue&type=template&id=c16b9cd8&
+// CONCATENATED MODULE: ./src/components/vsUpload/vsUpload.vue?vue&type=template&id=59815abe&
 
 // EXTERNAL MODULE: C:/Users/DELL/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/core-js/modules/es6.math.trunc.js
 var es6_math_trunc = __webpack_require__("ua6U");
@@ -5676,6 +5676,9 @@ viewUpload_component.options.__file = "viewUpload.vue"
 //
 //
 //
+//
+//
+//
 
 var lastTap = 0;
 /* harmony default export */ var vsUploadvue_type_script_lang_js_ = ({
@@ -5691,6 +5694,10 @@ var lastTap = 0;
     },
     text: {
       default: 'Upload File',
+      type: String
+    },
+    textMax: {
+      default: 'Maximum of files reached',
       type: String
     },
     limit: {
@@ -5735,6 +5742,12 @@ var lastTap = 0;
     };
   },
   computed: {
+    getFilesFilter: function getFilesFilter() {
+      var files = this.srcs.filter(function (item) {
+        return !item.remove;
+      });
+      return files;
+    },
     postFiles: function postFiles() {
       var postFiles = Array.prototype.slice.call(this.filesx);
       postFiles = postFiles.filter(function (item) {
@@ -5977,8 +5990,8 @@ var lastTap = 0;
 
 var vsUpload_component = normalizeComponent(
   vsUpload_vsUploadvue_type_script_lang_js_,
-  vsUploadvue_type_template_id_c16b9cd8_render,
-  vsUploadvue_type_template_id_c16b9cd8_staticRenderFns,
+  vsUploadvue_type_template_id_59815abe_render,
+  vsUploadvue_type_template_id_59815abe_staticRenderFns,
   false,
   null,
   null,

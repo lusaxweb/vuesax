@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="centerx">
-    <vs-upload action="https://jsonplaceholder.typicode.com/posts/" @on-success="successUpload" />
+    <vs-upload :limit="1" action="https://jsonplaceholder.typicode.com/posts/" @on-success="successUpload" />
   </div>
 </template>
 

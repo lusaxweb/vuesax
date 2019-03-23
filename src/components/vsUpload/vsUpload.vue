@@ -3,48 +3,12 @@
     <view-upload
       v-if="viewActive"
       :src="viewSrc" />
-    <div
-      :class="{
-        'on-progress-all-upload':percent != 0,
-        'is-ready-all-upload':percent >= 100,
-        'disabled-upload':$attrs.hasOwnProperty('disabled') || limit?(srcs.length - itemRemove.length) >= Number(limit):false
-      }"
-      class="con-input-upload">
-      <input
-        ref="fileInput"
-        v-bind="$attrs"
-        :disabled="$attrs.disabled || limit?(srcs.length - itemRemove.length) >= Number(limit):false"
-        type="file"
-        @change="getFiles">
-      <span class="text-input">
-        {{ text }}
-      </span>
-      <span
-        :style="{
-          width:`${percent}%`
-        }"
-        class="input-progress">
 
-      </span>
-      <button
-        v-if="showUploadButton"
-        type="button"
-        title="Upload"
-        class="btn-upload-all vs-upload--button-upload"
-        @click="upload('all')">
-        <i
-          translate="no"
-          class="material-icons notranslate">
-          cloud_upload
-        </i>
-      </button>
-    </div>
 
     <div class="con-img-upload">
-      <transition-group name="upload">
+      <!-- <transition-group v-for="(img,index) in getFilesFilter" :key="index" name="upload"> -->
         <div
-          v-for="(img,index) in srcs"
-          v-if="!img.remove"
+          v-for="(img,index) in getFilesFilter"
           :class="{
             'fileError':img.error,
             'removeItem':itemRemove.includes(index)
@@ -101,7 +65,46 @@
             </span>
           </h4>
         </div>
-      </transition-group>
+      <!-- </transition-group > -->
+
+
+      <div
+        :class="{
+          'on-progress-all-upload':percent != 0,
+          'is-ready-all-upload':percent >= 100,
+          'disabled-upload':$attrs.hasOwnProperty('disabled') || limit?(srcs.length - itemRemove.length) >= Number(limit):false
+        }"
+        class="con-input-upload">
+        <input
+          ref="fileInput"
+
+          v-bind="$attrs"
+          :disabled="$attrs.disabled || limit?(srcs.length - itemRemove.length) >= Number(limit):false"
+          type="file"
+          @change="getFiles">
+        <span class="text-input">
+          {{ text }}
+        </span>
+        <span
+          :style="{
+            width:`${percent}%`
+          }"
+          class="input-progress">
+
+        </span>
+        <button
+          v-if="showUploadButton"
+          type="button"
+          title="Upload"
+          class="btn-upload-all vs-upload--button-upload"
+          @click="upload('all')">
+          <i
+            translate="no"
+            class="material-icons notranslate">
+            cloud_upload
+          </i>
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -121,6 +124,10 @@
       },
       text:{
         default:'Upload File',
+        type:String
+      },
+      textMax:{
+        default:'Maximum of files reached',
         type:String
       },
       limit:{
@@ -163,6 +170,13 @@
       viewSrc:null,
     }),
     computed:{
+      getFilesFilter() {
+        let files = this.srcs.filter((item) => {
+          return !item.remove
+        })
+
+        return files
+      },
       postFiles(){
         let postFiles = Array.prototype.slice.call(this.filesx);
         postFiles = postFiles.filter((item)=>{
