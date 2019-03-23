@@ -92,8 +92,12 @@ export default {
             e.parentNode.appendChild(i);
         }
     },
-    clicktr () {
+    clicktr (evt) {
       this.$parent.clicktr(this.data, true)
+
+      if (this.$slots.expand) {
+        this.clicktd(evt)
+      }
     },
     clicktd (evt) {
       if(this.$parent.multiple) {
