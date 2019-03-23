@@ -225,11 +225,11 @@ export default {
 
     this.loadData()
 
-    this.$nextTick(() => {
-      if(this.datax.length > 0) {
-        this.changeTdsWidth()
-      }
-    })
+    // this.$nextTick(() => {
+    //   if(this.datax.length > 0) {
+    //     this.changeTdsWidth()
+    //   }
+    // })
   },
   destroyed () {
     window.removeEventListener('resize', this.listenerChangeWidth)
@@ -352,6 +352,8 @@ export default {
       this.changeTdsWidth()
     },
     changeTdsWidth() {
+      if(!this.value) return
+
       let tbody = this.$refs.table.querySelector('tbody')
 
       let tds = tbody.querySelector('.tr-values').querySelectorAll('.td')
