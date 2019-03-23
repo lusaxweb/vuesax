@@ -1,7 +1,7 @@
 <template lang="html">
   <header
     :style="[styleNavbar]"
-    :class="[`vs-navbar-${type}`]"
+    :class="[`vs-navbar-${type}`, `vs-navbar-color-${color}`]"
     class="vs-navbar">
     <div class="vs-navbar--header">
       <button
