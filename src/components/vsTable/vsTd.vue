@@ -17,7 +17,7 @@
       </span>
     </span>
 
-    <transition name="td">
+    <!-- <transition name="td">
       <div
         v-if="activeEdit"
         class="con-edit-td">
@@ -29,10 +29,12 @@
           type="flat"
           @click="close"></vs-button>
       </div>
-    </transition>
+    </transition> -->
   </td>
 </template>
 <script>
+import Vue from 'vue';
+import trExpand from './vsTrExpand.vue'
 export default {
   name: 'VsTd',
   props:{
@@ -49,24 +51,43 @@ export default {
     }
   },
   methods:{
-    clicktd () {
-
+    insertAfter(e,i){
+        if(e.nextSibling){
+            e.parentNode.insertBefore(i,e.nextSibling);
+        } else {
+            e.parentNode.appendChild(i);
+        }
+    },
+    clicktd (evt) {
       if(this.$slots.edit) {
-        if (!this.activeEdit) {
+        let tr = evt.target.closest('tr')
+        if(!this.activeEdit) {
+          let trx = Vue.extend(trExpand);
+          let instance = new trx();
+          instance.$props.colspan = 5
+          instance.$props.close = true
+          instance.$slots.default = this.$slots.edit
+          instance.vm = instance.$mount();
+          instance.$on('click', this.close)
+          var nuevo_parrafo = document.createElement('tr').appendChild(instance.vm.$el);
+          this.insertAfter(tr, nuevo_parrafo)
           this.activeEdit = true
           setTimeout(()=>{
             window.addEventListener('click', this.closeEdit)
-          },10)
+          }, 20)
         }
       }
     },
     closeEdit (evt) {
-      if (!evt.target.closest('.con-edit-td') && !evt.target.closest('.vs-select--options')) {
+      console.log('paso')
+      if (!evt.target.closest('.tr-expand') && !evt.target.closest('.vs-select--options')) {
         this.close()
       }
     },
     close(){
+      let tr = this.$refs.td.closest('tr')
       this.activeEdit = false
+      tr.parentNode.removeChild(tr.nextSibling)
       window.removeEventListener('click', this.closeEdit)
     },
     saveEdit () {

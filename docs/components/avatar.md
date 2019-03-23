@@ -18,7 +18,7 @@ API:
  - name: size
    type: String
    parameters: large, small, Custom measure (70px)
-   description: Url of the image to show in the Avatar.
+   description: Size of the image to show in the Avatar.
    default: 32px
  - name: color
    type: String
