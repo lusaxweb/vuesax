@@ -1,6 +1,6 @@
 {
   "name": "vuesax",
-  "version": "3.8.20",
+  "version": "3.8.36",
   "description": "Framework Components for Vue js",
   "license": "MIT",
   "author": "ldrovira <luisdanielrovira8@gmail.com>",
@@ -45,7 +45,7 @@
     "new:component": "sh scripts/newComponent.sh"
   },
   "dependencies": {
-    "vue": "^2.5.17"
+    "vue": "^2.6.9"
   },
   "devDependencies": {
     "@babel/core": "^7.0.1",
@@ -60,8 +60,7 @@
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "viewcode": "0.0.27",
-    "vue-template-compiler": "^2.5.17",
-    "vuepress": "^0.14.2",
+    "vuepress": "^0.14.10",
     "webpack": "^4.19.0"
   },
   "babel": {

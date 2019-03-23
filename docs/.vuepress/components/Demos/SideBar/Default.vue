@@ -8,7 +8,7 @@
       <div class="header-sidebar" slot="header">
         <vs-avatar  size="70px" src="https://randomuser.me/api/portraits/men/85.jpg"/>
 
-        <h4>
+        <h4 @click="active=!active">
           My Name
           <vs-button color="primary" icon="more_horiz" type="flat"></vs-button>
         </h4>

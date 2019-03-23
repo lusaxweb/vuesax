@@ -1,7 +1,7 @@
 <template lang="html">
   <div
-    :class="{'textarea-danger': counter ? value.length > counter : false, 'focusx': focusx}"
-    :style="getStyle"
+    :style="style"
+    :class="[`vs-textarea-${color}`, {'textarea-danger': counter ? (value && value.length > counter) : false, 'focusx': isFocus}]"
     class="vs-component vs-con-textarea">
 
     <h4 v-if="label">
@@ -19,13 +19,14 @@
     <div
       v-if="counter"
       class="count vs-textarea--count">
-      {{ value.length }} / {{ counter }}
+      {{ value ? value.length : 0 }} / {{ counter }}
     </div>
 
   </div>
 </template>
 
 <script>
+import _color from '../../utils/color.js'
 export default {
   name: "VsTextarea",
   inheritAttrs:false,
@@ -34,6 +35,10 @@ export default {
     label:{
       default:null,
       type: String
+    },
+    color:{
+      default:'primary',
+      type:String
     },
     counter:{
       default: null,
@@ -53,17 +58,24 @@ export default {
     }
   },
   data:()=>({
-    focusx: false
+    isFocus: false
   }),
   computed:{
+    style() {
+      let style = {}
+      console.log(_color.getColor(this.color,1))
+      style.border = `1px solid ${this.isFocus?_color.getColor(this.color,1):'rgba(0, 0, 0,.08)'}`
+
+      return style
+    },
     getStyle() {
-      let style = ''
+      let style = {}
       if (this.height) {
-        style = `height:${this.height};`
+        style.height = `${this.height}px`
       }
 
       if (this.width) {
-        style += `width:${this.width};`
+        style.width = `${this.width}px`
       }
 
       return style
@@ -85,7 +97,7 @@ export default {
   },
   watch:{
     value() {
-      if(this.value.length > this.counter) {
+      if(this.value && this.value.length > this.counter) {
         this.$emit('update:counterDanger', true)
       } else {
         this.$emit('update:counterDanger', false)
@@ -94,11 +106,14 @@ export default {
   },
   methods:{
     focus() {
-      this.focusx = true
+      this.isFocus = true
+      this.$emit('focus')
     },
     blur() {
-      this.focusx = false
+      this.isFocus = false
+      this.$emit('blur')
     }
   }
 }
+
 </script>

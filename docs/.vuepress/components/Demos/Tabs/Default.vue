@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="">
+  <div>
     <vs-tabs >
       <vs-tab vs-label="Home">
         <div class="con-tab-ejemplo">
