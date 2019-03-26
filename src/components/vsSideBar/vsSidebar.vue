@@ -100,7 +100,7 @@ export default {
   },
   watch:{
     value() {
-      this.addEventClick()
+      if(!this.clickNotClose) this.addEventClick()
     }
   },
   methods:{
