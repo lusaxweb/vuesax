@@ -37,7 +37,7 @@ Vuesax is an open source [MIT](https://github.com/lusaxweb/vuesax/blob/master/LI
 
 <p align="center">
   <a href="https://tipe.io/">
-    <img width="20%" src="https://raw.githubusercontent.com/lusaxweb/vuesax/blob/master/docs/.vuepress/public/tipe.png" alt="Tipe" />
+    <img width="20%" src="https://github.com/lusaxweb/vuesax/blob/master/docs/.vuepress/public/tipe.png" alt="Tipe" />
    </a>
   <a href="https://bitsrc.io/">
     <img width="20%" src="https://github.com/lusaxweb/vuesax/blob/master/docs/.vuepress/public/bit-share-code.png" alt="Bit">
