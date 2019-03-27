@@ -214,9 +214,20 @@ export default {
       type:String
     },
   },
+  inject: {
+    elForm: {
+      default: ''
+    },
+    elFormItem: {
+      default: ''
+    }
+  },
   data:()=>({
     isFocus:false
   }),
+  mounted() {
+    console.log(this.$parent.$$)
+  },
   computed:{
     style(){
       return {

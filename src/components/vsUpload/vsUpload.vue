@@ -294,7 +294,7 @@
                 remove:null
               })
             }
-
+            this.$emit('change', e.target.value, this.filesx)
           }
         }
         const input = this.$refs.fileInput
