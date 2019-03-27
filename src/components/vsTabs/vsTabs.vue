@@ -23,12 +23,12 @@
             :style="styleAlignIcon(child.icon)"
             @click="activeChild(index)"
             v-on="child.listeners">
-            <vs-icon v-if="child.icon" :icon="child.icon" :color="color" style="padding-right:9px"></vs-icon>
+            <vs-icon v-if="child.icon" :icon-pack="child.iconPack" :icon="child.icon" :color="color" style="padding-right:9px"></vs-icon>
             <span>{{ child.label }}</span>
           </button>
 
           <button @click="clickTag(child)" v-if="child.tag" class="vs-tabs--btn-tag">
-            <vs-icon :icon="child.tag" :color="child.tagColor"></vs-icon>
+            <vs-icon :icon-pack="child.iconPack" :icon="child.tag" :color="child.tagColor"></vs-icon>
           </button>
         </li>
       </ul>
