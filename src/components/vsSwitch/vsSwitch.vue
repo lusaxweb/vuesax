@@ -1,5 +1,5 @@
 <template lang="html">
-  <div
+  <button
     :class="[
       `vs-switch-${color}`,
       {
@@ -43,7 +43,7 @@
       ></vs-icon>
     </span>
     <span class="vs-circle-switch vs-switch--circle"/>
-  </div>
+  </button>
 </template>
 
 <script>
