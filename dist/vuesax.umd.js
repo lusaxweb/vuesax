@@ -4123,12 +4123,12 @@ vsInput_component.options.__file = "vsInput.vue"
 /* harmony default export */ var components_vsInput = (function (Vue) {
   Vue.component(vsInput.name, vsInput);
 });
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://Users//DELL//Documents//vuesax - 3.x.x//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!C:/Users/DELL/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsTabs/vsTabs.vue?vue&type=template&id=3b06c731&lang=html&
-var vsTabsvue_type_template_id_3b06c731_lang_html_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"con-vs-tabs vs-tabs",class:[("vs-tabs-" + _vm.color),("vs-tabs-position-" + _vm.vsPosition)]},[_c('div',{staticClass:"con-ul-tabs",style:(_vm.styleTabs)},[_c('ul',{ref:"ul",staticClass:"ul-tabs vs-tabs--ul",class:[("ul-tabs-" + _vm.vsAlignment)]},_vm._l((_vm.children),function(child,index){return _c('li',{ref:"li",refInFor:true,staticClass:"vs-tabs--li",class:{'activeChild':_vm.childActive == index},on:{"mouseover":function($event){_vm.hover = true},"mouseout":function($event){_vm.hover = false}}},[_c('button',_vm._g(_vm._b({style:(_vm.styleAlignIcon(child.icon)),attrs:{"type":"button"},on:{"click":function($event){_vm.activeChild(index)}}},'button',child.attrs,false),child.listeners),[(child.icon)?_c('vs-icon',{staticStyle:{"padding-right":"9px"},attrs:{"icon":child.icon,"color":_vm.color}}):_vm._e(),_c('span',[_vm._v(_vm._s(child.label))])],1)])})),_c('span',{staticClass:"line-vs-tabs",style:(_vm.stylex)})]),_c('div',{staticClass:"con-slot-tabs"},[_vm._t("default")],2)])}
-var vsTabsvue_type_template_id_3b06c731_lang_html_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://Users//DELL//Documents//vuesax - 3.x.x//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!C:/Users/DELL/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsTabs/vsTabs.vue?vue&type=template&id=fad92a1c&lang=html&
+var vsTabsvue_type_template_id_fad92a1c_lang_html_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"con-vs-tabs vs-tabs",class:[("vs-tabs-" + _vm.color),("vs-tabs-position-" + _vm.position)]},[_c('div',{staticClass:"con-ul-tabs",style:(_vm.styleTabs)},[_c('ul',{ref:"ul",staticClass:"ul-tabs vs-tabs--ul",class:["ul-tabs-$ alignment}"]},_vm._l((_vm.children),function(child,index){return _c('li',{ref:"li",refInFor:true,staticClass:"vs-tabs--li",class:{'activeChild':_vm.childActive == index},on:{"mouseover":function($event){_vm.hover = true},"mouseout":function($event){_vm.hover = false}}},[_c('button',_vm._g(_vm._b({staticClass:"vs-tabs--btn",style:(_vm.styleAlignIcon(child.icon)),attrs:{"type":"button"},on:{"click":function($event){_vm.activeChild(index)}}},'button',child.attrs,false),child.listeners),[(child.icon)?_c('vs-icon',{staticStyle:{"padding-right":"9px"},attrs:{"icon":child.icon,"color":_vm.color}}):_vm._e(),_c('span',[_vm._v(_vm._s(child.label))])],1),(child.tag)?_c('button',{staticClass:"vs-tabs--btn-tag",on:{"click":function($event){_vm.clickTag(child)}}},[_c('vs-icon',{attrs:{"icon":child.tag,"color":child.tagColor}})],1):_vm._e()])})),_c('span',{staticClass:"line-vs-tabs",style:(_vm.stylex)})]),_c('div',{staticClass:"con-slot-tabs"},[_vm._t("default")],2)])}
+var vsTabsvue_type_template_id_fad92a1c_lang_html_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/vsTabs/vsTabs.vue?vue&type=template&id=3b06c731&lang=html&
+// CONCATENATED MODULE: ./src/components/vsTabs/vsTabs.vue?vue&type=template&id=fad92a1c&lang=html&
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://Users//DELL//Documents//vuesax - 3.x.x//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!C:/Users/DELL/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsIcon/vsIcon.vue?vue&type=template&id=4edb0ce0&
 var vsIconvue_type_template_id_4edb0ce0_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('i',{staticClass:"vs-icon notranslate icon-scale",class:[_vm.iconPack, _vm.iconPack !='material-icons' ? _vm.icon : '',_vm.iconClass,_vm.getBg,_vm.getBgSize,{'round':_vm.round}],style:(_vm.iconStyle)},[_vm._t("default",[_vm._v(_vm._s(_vm.iconPack == 'material-icons' ? _vm.icon : ''))])],2)}
@@ -4292,6 +4292,11 @@ vsIcon_component.options.__file = "vsIcon.vue"
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ var vsTabsvue_type_script_lang_js_ = ({
@@ -4308,11 +4313,15 @@ vsIcon_component.options.__file = "vsIcon.vue"
       default: 'primary',
       type: String
     },
-    vsAlignment: {
+    tagColor: {
+      default: 'primary',
+      type: String
+    },
+    alignment: {
       default: 'left',
       type: String
     },
-    vsPosition: {
+    position: {
       default: 'top',
       type: String
     }
@@ -4363,6 +4372,9 @@ vsIcon_component.options.__file = "vsIcon.vue"
     });
   },
   methods: {
+    clickTag: function clickTag(child) {
+      this.$emit('click-tag', child);
+    },
     styleAlignIcon: function styleAlignIcon(icon) {
       return icon ? 'display:flex;align-items:center' : '';
     },
@@ -4412,7 +4424,7 @@ vsIcon_component.options.__file = "vsIcon.vue"
       this.childActive = index;
       this.$emit('input', this.childActive);
 
-      if (this.vsPosition == 'left' || this.vsPosition == 'right') {
+      if (this.position == 'left' || this.position == 'right') {
         this.$children[index].vertical = true;
       }
 
@@ -4421,7 +4433,7 @@ vsIcon_component.options.__file = "vsIcon.vue"
     changePositionLine: function changePositionLine(elem, initialAnimation) {
       var _this3 = this;
 
-      if (this.vsPosition == 'left' || this.vsPosition == 'right') {
+      if (this.position == 'left' || this.position == 'right') {
         this.topx = elem.offsetTop;
         this.heightx = elem.offsetHeight;
         this.widthx = 2;
@@ -4452,8 +4464,8 @@ vsIcon_component.options.__file = "vsIcon.vue"
 
 var vsTabs_component = normalizeComponent(
   vsTabs_vsTabsvue_type_script_lang_js_,
-  vsTabsvue_type_template_id_3b06c731_lang_html_render,
-  vsTabsvue_type_template_id_3b06c731_lang_html_staticRenderFns,
+  vsTabsvue_type_template_id_fad92a1c_lang_html_render,
+  vsTabsvue_type_template_id_fad92a1c_lang_html_staticRenderFns,
   false,
   null,
   null,
@@ -4463,12 +4475,12 @@ var vsTabs_component = normalizeComponent(
 
 vsTabs_component.options.__file = "vsTabs.vue"
 /* harmony default export */ var vsTabs = (vsTabs_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://Users//DELL//Documents//vuesax - 3.x.x//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!C:/Users/DELL/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsTabs/vsTab.vue?vue&type=template&id=7d8bc0ec&lang=html&
-var vsTabvue_type_template_id_7d8bc0ec_lang_html_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('transition',{attrs:{"name":_vm.invert?_vm.vertical?'fade-tab-vertical-invert':'fade-tab-invert':_vm.vertical?'fade-tab-vertical':'fade-tab'}},[(_vm.active)?_c('div',{staticClass:"con-tab vs-tabs--content"},[_vm._t("default")],2):_vm._e()])}
-var vsTabvue_type_template_id_7d8bc0ec_lang_html_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"C://Users//DELL//Documents//vuesax - 3.x.x//node_modules//.cache//vue-loader","cacheIdentifier":"56491946-vue-loader-template"}!C:/Users/DELL/AppData/Roaming/npm/node_modules/@vue/cli-service-global/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsTabs/vsTab.vue?vue&type=template&id=aca026b0&lang=html&
+var vsTabvue_type_template_id_aca026b0_lang_html_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('transition',{attrs:{"name":_vm.invert?_vm.vertical?'fade-tab-vertical-invert':'fade-tab-invert':_vm.vertical?'fade-tab-vertical':'fade-tab'}},[(_vm.active)?_c('div',{staticClass:"con-tab vs-tabs--content"},[_vm._t("default")],2):_vm._e()])}
+var vsTabvue_type_template_id_aca026b0_lang_html_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/vsTabs/vsTab.vue?vue&type=template&id=7d8bc0ec&lang=html&
+// CONCATENATED MODULE: ./src/components/vsTabs/vsTab.vue?vue&type=template&id=aca026b0&lang=html&
 
 // CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib??ref--12-1!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsTabs/vsTab.vue?vue&type=script&lang=js&
 //
@@ -4485,11 +4497,15 @@ var vsTabvue_type_template_id_7d8bc0ec_lang_html_staticRenderFns = []
   name: 'VsTab',
   inheritAttrs: false,
   props: {
-    vsLabel: {
+    label: {
       default: 'Label',
       type: String
     },
-    vsIcon: {
+    icon: {
+      default: '',
+      type: String
+    },
+    tag: {
       default: '',
       type: String
     }
@@ -4505,8 +4521,9 @@ var vsTabvue_type_template_id_7d8bc0ec_lang_html_staticRenderFns = []
   mounted: function mounted() {
     this.id = this.$parent.children.length;
     this.$parent.children.push({
-      label: this.vsLabel,
-      icon: this.vsIcon,
+      label: this.label,
+      icon: this.icon,
+      tag: this.tag,
       id: this.$parent.children.length,
       listeners: this.$listeners,
       attrs: this.$attrs
@@ -4525,8 +4542,8 @@ var vsTabvue_type_template_id_7d8bc0ec_lang_html_staticRenderFns = []
 
 var vsTab_component = normalizeComponent(
   vsTabs_vsTabvue_type_script_lang_js_,
-  vsTabvue_type_template_id_7d8bc0ec_lang_html_render,
-  vsTabvue_type_template_id_7d8bc0ec_lang_html_staticRenderFns,
+  vsTabvue_type_template_id_aca026b0_lang_html_render,
+  vsTabvue_type_template_id_aca026b0_lang_html_staticRenderFns,
   false,
   null,
   null,

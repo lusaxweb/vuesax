@@ -1,27 +1,27 @@
 <template lang="html">
   <div>
     <vs-tabs >
-      <vs-tab vs-label="Home">
+      <vs-tab label="Home">
         <div class="con-tab-ejemplo">
           Home
         </div>
       </vs-tab>
-      <vs-tab vs-label="Service">
+      <vs-tab label="Service">
         <div class="con-tab-ejemplo">
           Service
         </div>
       </vs-tab>
-      <vs-tab vs-label="login">
+      <vs-tab label="login">
         <div class="con-tab-ejemplo">
           login
         </div>
       </vs-tab>
-      <vs-tab disabled vs-label="Disabled">
+      <vs-tab disabled label="Disabled">
         <div class="con-tab-ejemplo">
           Disabled
         </div>
       </vs-tab>
-      <vs-tab vs-label="Lorem ipsum dolor sit amet">
+      <vs-tab label="Lorem ipsum dolor sit amet">
         <div class="con-tab-ejemplo">
           Lorem ipsum dolor sit amet
         </div>
