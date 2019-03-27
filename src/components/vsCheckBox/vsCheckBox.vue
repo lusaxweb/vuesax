@@ -92,7 +92,7 @@ export default {
         this.setValueString()
       }
       else {
-        this.$emit('input',!this.value)
+        this.$emit('input', evt.target.value)
         this.$emit('change',evt)
       }
     },
