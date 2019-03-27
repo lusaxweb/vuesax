@@ -302,7 +302,7 @@
         input.type = 'file'
 
         if (this.automatic) {
-          this.uploadx('all')
+          this.upload('all')
         }
       },
       upload(index) {
@@ -315,6 +315,7 @@
             return !item.hasOwnProperty('remove')
           })
         }
+
         const data = this.data || {};
         for (var key in data) {
           formData.append(key, data[key]);
