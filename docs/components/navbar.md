@@ -25,6 +25,11 @@ API:
     parameters: null
     description: Space to add the menu title (Functionality for resposive)
     default:
+  - name: collapse
+    type: Boolean
+    parameters: null
+    description: Determines if the component starts in hidden menu mode that can be opened by clicking on the menu
+    default: false
 contributors:
   - fergardi
 ---
@@ -293,6 +298,53 @@ export default {
   color rgb(255,255,255)
 </style>
 
+```
+
+</div>
+</vuecode>
+</box>
+
+<box>
+
+## Collapse
+
+This property determines if the component starts hidden and with the option of clicking on the menu to open or saw the options
+
+<vuecode md>
+<div slot="demo">
+  <Demos-Navbar-Collapse />
+</div>
+<div slot="code">
+
+```html
+<template>
+  <div>
+    <vs-navbar collapse v-model="activeItem" class="nabarx">
+      <div slot="title">
+        <vs-navbar-title>
+          Hello world
+        </vs-navbar-title>
+      </div>
+
+      <vs-navbar-item index="0">
+        <a href="#">Home</a>
+      </vs-navbar-item>
+      <vs-navbar-item index="1">
+        <a href="#">News</a>
+      </vs-navbar-item>
+      <vs-navbar-item index="2">
+        <a href="#">Update</a>
+      </vs-navbar-item>
+    </vs-navbar>
+  </div>
+</template>
+<script>
+export default {
+  data:()=>({
+    activeItem: 0
+  })
+}
+</script>
 ```
 
 </div>

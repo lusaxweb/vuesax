@@ -210,6 +210,23 @@ for colorx in $vs-colors
 
 
 // RESPONSIVE
+.collapse
+  display: block
+  .vs-navbar--btn-responsive
+    display: flex
+  .vs-navbar--header
+    display: flex
+    align-items: center
+    justify-content: space-between
+  .vs-con-items
+    display: none
+    width: 100%
+    &.activeMenuResponsive
+      display: block
+    .vs-spacer
+      display: none
+  .vs-navbar--item
+    width: 100%
 
 @media screen and (max-width: 800px)
   .vs-navbar--btn-responsive
