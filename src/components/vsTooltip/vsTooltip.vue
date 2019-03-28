@@ -1,9 +1,10 @@
 <template>
+    <!-- @mouseout="mouseoutx" -->
   <div
     ref="convstooltip"
     class="con-vs-tooltip"
-    @mouseout="mouseoutx"
-    @mouseover="mouseoverx">
+    @mouseleave.stop="mouseoutx"
+    @mouseover.stop="mouseoverx">
     <transition name="tooltip-fade">
       <div
         v-show="activeTooltip"
@@ -72,7 +73,7 @@ export default {
   },
   updated() {
     let nodes = this.$refs.convstooltip.childNodes.length
-    if (nodes == 1) {
+    if (nodes === 1) {
       this.activeTooltip = false
     }
   },
@@ -88,7 +89,10 @@ export default {
     },
     mouseoutx(){
       this.activeTooltip = false
-      // utils.removeBody(this.$refs.vstooltip)
+      if(this.$refs.vstooltip) {
+        utils.removeBody(this.$refs.vstooltip)
+      }
+
     },
     changePosition(elxEvent, tooltip){
       this.noneAfter = false
@@ -99,18 +103,18 @@ export default {
       let leftx = elx.getBoundingClientRect().left - tooltip.clientWidth / 2 + elx.clientWidth / 2
       let widthx = elx.clientWidth
 
-      if(this.position == 'bottom'){
+      if(this.position === 'bottom'){
         topx = elx.getBoundingClientRect().top + scrollTopx + elx.clientHeight + 4
-      } else if (this.position == 'left') {
+      } else if (this.position === 'left') {
         leftx = elx.getBoundingClientRect().left - tooltip.clientWidth - 4
         topx = elx.getBoundingClientRect().top + scrollTopx + (elx.clientHeight / 2) - (tooltip.clientHeight / 2)
-        if (Math.sign(leftx)==-1) {
+        if (Math.sign(leftx)===-1) {
           leftx = elx.getBoundingClientRect().left
           topx = elx.getBoundingClientRect().top + scrollTopx + elx.clientHeight + 4
           this.positionx = 'bottom'
           this.noneAfter = true
         }
-      } else if (this.position == 'right') {
+      } else if (this.position === 'right') {
         leftx = elx.getBoundingClientRect().left + elx.clientWidth + 4
         topx = elx.getBoundingClientRect().top + scrollTopx + (elx.clientHeight / 2) - (tooltip.clientHeight / 2)
         if( window.innerWidth - (leftx + tooltip.clientWidth) <= 20) {
