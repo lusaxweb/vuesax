@@ -154,7 +154,7 @@ export default {
     },
     acceptDialog(){
       if(!this.isPrompt){
-        this.accept?this.accept():null
+        this.accept?this.accept(this.parameters):null
         this.active = false
         this.$emit('update:vsActive',false)
         this.$emit('vs-accept')
@@ -196,7 +196,9 @@ export default {
       this.active = false
       this.$emit('update:vsActive',false)
       this.$emit('vs-cancel')
-      this.cancel?this.cancel():null
+      // this.$emit('cancel')
+      this.cancel?this.cancel(this.parameters):null
+
     },
     insertBody(){
       let elx = this.$refs.con
