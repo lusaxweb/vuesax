@@ -7,7 +7,7 @@
       class="con-ul-tabs">
       <ul
         ref="ul"
-        :class="[`ul-tabs-$ alignment}`]"
+        :class="[`ul-tabs-${alignment}`]"
         class="ul-tabs vs-tabs--ul">
         <li
           v-for="(child,index) in children"
