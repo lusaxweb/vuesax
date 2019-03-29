@@ -79,7 +79,6 @@ export default {
       }
     },
     closeEdit (evt) {
-      console.log('paso')
       if (!evt.target.closest('.tr-expand') && !evt.target.closest('.vs-select--options')) {
         this.close()
       }

@@ -69,7 +69,6 @@ export default {
       }
     },
     mouseleavex() {
-      console.log('salio')
       if (!this.vsTriggerClick) {
         this.dropdownVisible = false
         this.widthx = this.$el.clientWidth
