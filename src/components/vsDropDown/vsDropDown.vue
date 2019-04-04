@@ -148,8 +148,6 @@ export default {
         if(typex == 'over'){
           dropdownMenu.dropdownVisible = this.vsDropdownVisible = true
         } else {
-          // console.dir()
-          // console.dir(evt.relatedTarget)
             if (!evt.relatedTarget.classList.contains('vs-dropdown-menu')) {
               dropdownMenu.dropdownVisible = this.vsDropdownVisible = false
             }

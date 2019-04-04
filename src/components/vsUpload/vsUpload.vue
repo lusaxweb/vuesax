@@ -94,6 +94,7 @@
         </span>
         <button
           v-if="showUploadButton"
+          :disabled="filesx.length == 0"
           type="button"
           title="Upload"
           class="btn-upload-all vs-upload--button-upload"

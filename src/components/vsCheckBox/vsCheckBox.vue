@@ -69,9 +69,9 @@ export default {
     listeners(){
       return {
         ...this.$listeners,
-        change: (evt) => {
-          this.toggleValue(evt)
-        },
+        // change: (evt) => {
+        //   this.toggleValue(evt)
+        // },
         input: (evt) => {
           this.toggleValue(evt)
         }
@@ -92,7 +92,7 @@ export default {
         this.setValueString()
       }
       else {
-        this.$emit('input', evt.target.value)
+        this.$emit('input', !this.value)
         this.$emit('change',evt)
       }
     },

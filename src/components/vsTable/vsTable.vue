@@ -92,7 +92,7 @@
       <div
         v-if="isNoData"
         class="not-data-table vs-table--not-data">
-        No data Available
+        {{ noDataText }}
       </div>
 
         <!-- v-show="!searchx" -->
@@ -114,6 +114,10 @@ export default {
     value:{},
     color: {
       default:'primary',
+      type: String
+    },
+    noDataText: {
+      default: 'No data Available',
       type: String
     },
     stripe:{

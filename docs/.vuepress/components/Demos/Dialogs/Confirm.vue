@@ -16,13 +16,14 @@ export default {
         color: 'danger',
         title: `Confirm`,
         text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        accept:this.acceptAlert
+        accept:this.acceptAlert,
+        parameters: ['hello']
       })
       },
-      acceptAlert(color){
+      acceptAlert: function(parameters){
         this.$vs.notify({
           color:'danger',
-          title:'Deleted image',
+          title:'Deleted image ' + parameters[0],
           text:'The selected image was successfully deleted'
         })
       },

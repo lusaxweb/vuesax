@@ -19,6 +19,14 @@
        <div class="con-exemple-prompt">
           Enter the security code
          <vs-input placeholder="Code" vs-placeholder="Code" v-model="val"/>
+
+         <vs-select
+            class="selectExample"
+            label="Figuras"
+            v-model="select1"
+            >
+            <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="item,index in options1" />
+          </vs-select>
        </div>
      </vs-prompt>
 
@@ -47,6 +55,12 @@ import Vue from 'vue'
 export default {
   data(){
     return {
+      select1:2,
+      options1:[
+        {text:'IT',value:0},
+        {text:'Blade Runner',value:2},
+        {text:'Thor Ragnarok',value:3},
+      ],
       activePrompt:false,
       activePrompt2:false,
       val:'',

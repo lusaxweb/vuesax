@@ -63,7 +63,6 @@ export default {
   computed:{
     style() {
       let style = {}
-      console.log(_color.getColor(this.color,1))
       style.border = `1px solid ${this.isFocus?_color.getColor(this.color,1):'rgba(0, 0, 0,.08)'}`
 
       return style

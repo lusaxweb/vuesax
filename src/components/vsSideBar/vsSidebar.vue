@@ -125,7 +125,6 @@ export default {
     closeSidebar (evt) {
       let parent = evt.target.closest('.vs-sidebar')
       if (!parent) {
-        console.log('paso')
         this.$emit('input', false)
         let parentx = typeof this.parent == 'string' ? document.querySelector(this.parent) : this.parent
         let element = parentx || window

@@ -91,7 +91,6 @@ export default {
       el.style.opacity = 0
     },
     enter(el, done){
-      console.log(el)
       // let h = this.$refs.ulx.scrollHeight
       // this.$refs.ulx.style.height = h + 'px'
       // el.style.opacity = 1
@@ -124,7 +123,6 @@ export default {
       el.style.opacity = 0
     },
     toggleGroup(evt){
-      console.log()
       if (evt.target == this.$refs.group) {
         this.activeGroup = !this.activeGroup
       }

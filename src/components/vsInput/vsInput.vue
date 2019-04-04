@@ -225,9 +225,6 @@ export default {
   data:()=>({
     isFocus:false
   }),
-  mounted() {
-    console.log(this.$parent.$$)
-  },
   computed:{
     style(){
       return {
