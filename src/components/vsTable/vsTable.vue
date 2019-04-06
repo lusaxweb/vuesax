@@ -4,10 +4,7 @@
     class="vs-component vs-con-table">
     <!-- header -->
     <header class="header-table vs-table--header">
-      <span>
         <slot name="header"></slot>
-      </span>
-
       <div
         v-if="search"
         class="con-input-search vs-table--search">
