@@ -32,7 +32,14 @@ import vsicon from '../vsIcon';
 
 export default {
   name:'VsCollapseItem',
+  components: {
+    vsicon
+  },
   props:{
+    open: {
+      default: false,
+      type: Boolean
+    },
     disabled:{
       default:false,
       type: Boolean
@@ -53,9 +60,6 @@ export default {
   data:() => ({
     maxHeight: '0px'
   }),
-  components:{
-    vsicon
-  },
   computed:{
     accordion() {
       return this.$parent.accordion
@@ -76,6 +80,10 @@ export default {
   },
   mounted () {
     window.addEventListener('resize', this.changeHeight)
+    let maxHeightx = this.$refs.content.scrollHeight
+    if(this.open) {
+      this.maxHeight = `${maxHeightx}px`
+    }
   },
   methods:{
     changeHeight () {

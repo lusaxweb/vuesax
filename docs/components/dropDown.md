@@ -42,7 +42,7 @@ API:
    default: material-icons
 ---
 
-# DropDown **- update**
+# DropDown
 
 <box header>
 

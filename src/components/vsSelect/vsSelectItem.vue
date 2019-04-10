@@ -204,7 +204,7 @@ export default {
         nextElement.querySelector('.vs-select--item').focus()
       } else {
         if (lengthx === children.length) lengthx--
-        getNextLi(children[lengthx].$el,orientationObject).querySelector('.vs-select--item').focus()
+        getNextLi(children[lengthx == 0?1:lengthx].$el,orientationObject).querySelector('.vs-select--item').focus()
       }
     },
     focusValue(index){

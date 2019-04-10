@@ -20,7 +20,7 @@
     </header>
     <div class="con-tablex vs-table--content">
 
-      <div class="vs-con-table-theade vs-table--thead">
+      <!-- <div class="vs-con-table-theade vs-table--thead">
         <table
           :style="tableHeaderStyle"
           class="vs-table--thead-table">
@@ -39,7 +39,7 @@
                   v-if="multiple"
                   class="con-td-check">
                   <vs-checkbox
-                    :vs-icon="isCheckedLine ? 'remove' : 'check'"
+                    :icon="isCheckedLine ? 'remove' : 'check'"
                     :checked="isCheckedMultiple"
                     size="small"
                     @click="changeCheckedMultiple"/>
@@ -49,14 +49,32 @@
             </tr>
           </thead>
         </table>
-      </div>
+      </div> -->
 
       <div
         :style="styleConTbody"
-        class="vs-con-tbody vs-table--tbody">
+        class="vs-con-tbody vs-table--tbody ">
         <table
           ref="table"
           class="vs-table vs-table--tbody-table">
+          <thead
+            ref="thead"
+            class="vs-table--thead">
+            <tr>
+              <th class="td-check">
+                <span
+                  v-if="multiple"
+                  class="con-td-check">
+                  <vs-checkbox
+                    :icon="isCheckedLine ? 'remove' : 'check'"
+                    :checked="isCheckedMultiple"
+                    size="small"
+                    @click="changeCheckedMultiple"/>
+                </span>
+              </th>
+              <slot name="thead"></slot>
+            </tr>
+          </thead>
           <colgroup ref="colgrouptable">
             <col width="20"/>
             <col
@@ -72,15 +90,15 @@
       <div
         v-if="isNoData"
         class="not-data-table vs-table--not-data">
-        No data Available
+        {{ noDataText }}
       </div>
 
+        <!-- v-show="!searchx" -->
       <div
         v-if="pagination"
-        v-show="!searchx"
         class="con-pagination-table vs-table--pagination">
         <vs-pagination
-          :total="getTotalPages"
+          :total="searchx ? getTotalPagesSearch : getTotalPages"
           v-model="currentx"></vs-pagination>
       </div>
     </div>
@@ -94,6 +112,10 @@ export default {
     value:{},
     color: {
       default:'primary',
+      type: String
+    },
+    noDataText: {
+      default: 'No data Available',
       type: String
     },
     stripe:{
@@ -143,6 +165,16 @@ export default {
     getTotalPages() {
       return Math.ceil(this.data.length / this.maxItems)
     },
+    getTotalPagesSearch() {
+      let dataBase = this.data
+
+      let filterx = dataBase.filter((tr)=>{
+        let values = this.getValues(tr).toString().toLowerCase()
+        return values.indexOf(this.searchx.toLowerCase()) != -1
+      })
+
+      return Math.ceil(filterx.length / this.maxItems)
+    },
     isNoData() {
       return this.datax?this.datax.length == 0:false && this.search
     },
@@ -186,7 +218,8 @@ export default {
       })
     },
     searchx() {
-      this.filterValues()
+      this.loadData()
+      this.currentx = 1
     }
   },
   mounted () {
@@ -194,11 +227,11 @@ export default {
 
     this.loadData()
 
-    this.$nextTick(() => {
-      if(this.datax.length > 0) {
-        this.changeTdsWidth()
-      }
-    })
+    // this.$nextTick(() => {
+    //   if(this.datax.length > 0) {
+    //     this.changeTdsWidth()
+    //   }
+    // })
   },
   destroyed () {
     window.removeEventListener('resize', this.listenerChangeWidth)
@@ -207,7 +240,11 @@ export default {
     loadData() {
       let max = Math.ceil(this.currentx * this.maxItems)
       let min = max - this.maxItems
-      this.datax = this.pagination ? this.getItems(min, max) : this.data || []
+      if(!this.searchx) {
+        this.datax = this.pagination ? this.getItems(min, max) : this.data || []
+      } else {
+        this.datax = this.pagination ? this.getItemsSearch(true ,min, max) : this.getItemsSearch(false ,min, max) || []
+      }
     },
     getItems(min, max) {
       let items = []
@@ -217,6 +254,24 @@ export default {
           items.push(item)
         }
       })
+      return items
+    },
+    getItemsSearch(pagination = false,min, max) {
+      let dataBase = this.data
+
+      let filterx = dataBase.filter((tr)=>{
+        let values = this.getValues(tr).toString().toLowerCase()
+        return values.indexOf(this.searchx.toLowerCase()) != -1
+      })
+
+      let items = []
+
+      filterx.forEach((item, index) => {
+        if(index >= min && index < max) {
+          items.push(item)
+        }
+      })
+
       return items
     },
     sort(key, active) {
@@ -232,24 +287,6 @@ export default {
 
       this.datax = datax.sort(compare)
     },
-    filterValues () {
-      let dataBase = this.data
-
-      let filterx = dataBase.filter((tr)=>{
-        let values = this.getValues(tr).toString().toLowerCase()
-        return values.indexOf(this.searchx.toLowerCase()) != -1
-      })
-
-      let pagex = filterx
-
-      if (this.pagination) {
-        let max = Math.ceil(this.currentx * this.maxItems)
-        let min = max - this.maxItems
-        pagex = this.getItems(min, max)
-      }
-
-      this.datax = (this.searchx !== '') ? filterx : pagex
-    },
     getValues(obj) {
       let valuesx = Object.values(obj)
       let strings = []
@@ -262,7 +299,8 @@ export default {
           obj.forEach((item) => {
             getStrings(item)
           })
-        } else if (typeof obj == 'object') {
+
+        } else if (typeof obj == 'object' && obj != null) {
           let subObj = Object.values(obj)
           strings = [...strings,...subObj]
           getStrings(subObj)
@@ -278,7 +316,7 @@ export default {
     getStrings(obj, valuesx) {
       let stringsx = Object.values(obj)
       valuesx.forEach((item) => {
-        if (typeof item == 'object') {
+        if (item && typeof item == 'object') {
           valuesx = [...valuesx,...Object.values(item)]
         }
       })
@@ -317,6 +355,8 @@ export default {
       this.changeTdsWidth()
     },
     changeTdsWidth() {
+      if(!this.value) return
+
       let tbody = this.$refs.table.querySelector('tbody')
 
       let tds = tbody.querySelector('.tr-values').querySelectorAll('.td')
@@ -325,12 +365,6 @@ export default {
 
       tds.forEach((td, index) => {
         tdsx.push({index: index, widthx: td.offsetWidth})
-      });
-
-      let colgroup = this.$refs.colgroup
-      let cols = colgroup.querySelectorAll('.col')
-      cols.forEach((col, index) => {
-        col.setAttribute('width', tdsx[index].widthx)
       });
 
       let colgrouptable = this.$refs.colgrouptable

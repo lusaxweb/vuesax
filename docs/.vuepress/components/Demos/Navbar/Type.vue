@@ -10,13 +10,12 @@
     </vs-select>
 
     <vs-navbar :type="type" v-model="activeItem" class="nabarx">
-      <vs-button type="flat" icon="menu"></vs-button>
 
-      <vs-navbar-title>
-        Type {{type}}
-      </vs-navbar-title>
-
-      <vs-spacer></vs-spacer>
+      <div slot="title">
+        <vs-navbar-title>
+          Type {{type}}
+        </vs-navbar-title>
+      </div>
 
       <vs-navbar-item index="0">
         <a href="#">Home</a>

@@ -39,7 +39,7 @@ contributors:
  - VicGUTT
 ---
 
-# Pagination **- update**
+# Pagination
 
 <box header>
 
@@ -229,6 +229,42 @@ export default {
 .input-color
   margin-right 5px
 </style>
+```
+
+</div>
+</vuecode>
+</box>
+
+
+<box>
+
+## Programmatic Inc/Dec
+
+You can also update page number from outside of pagination component.
+
+<vuecode md>
+<div slot="demo">
+<Demos-Pagination-ProgrammaticChange />
+</div>
+<div slot="code">
+
+```html
+<template>
+  <div>
+    <p>Current: {{ currentx }}</p>
+    <vs-button @click="currentx++">Increment</vs-button>
+    <vs-button @click="currentx--">Decrement</vs-button>
+    <br><br>
+    <vs-pagination :total="20" v-model="currentx"></vs-pagination>
+  </div>
+</template>
+<script>
+export default {
+  data: () => ({
+    currentx: 5
+  })
+}
+</script>
 ```
 
 </div>

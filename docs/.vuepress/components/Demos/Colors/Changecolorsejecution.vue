@@ -76,23 +76,23 @@ export default {
   cursor: pointer;
 }
 .colorprimaryx {
-  background: rgb(var(--primary)) !important;
-  box-shadow: 0px 15px 40px -10px rgba(var(--primary),.9);
+  background: rgb(var(--vs-primary)) !important;
+  box-shadow: 0px 15px 40px -10px rgba(var(--vs-primary),.9);
 }
 .colorsuccessx {
-  background: rgb(var(--success)) !important;
-  box-shadow: 0px 15px 40px -10px rgba(var(--success),.9);
+  background: rgb(var(--vs-success)) !important;
+  box-shadow: 0px 15px 40px -10px rgba(var(--vs-success),.9);
 }
 .colordangerx {
-  background: rgb(var(--danger)) !important;
-  box-shadow: 0px 15px 40px -10px rgba(var(--danger),.9);
+  background: rgb(var(--vs-danger)) !important;
+  box-shadow: 0px 15px 40px -10px rgba(var(--vs-danger),.9);
 }
 .colorwarningx {
-  background: rgb(var(--warning)) !important;
-  box-shadow: 0px 15px 40px -10px rgba(var(--warning),.9);
+  background: rgb(var(--vs-warning)) !important;
+  box-shadow: 0px 15px 40px -10px rgba(var(--vs-warning),.9);
 }
 .colordarkx {
-  background: rgb(var(--dark)) !important;
-  box-shadow: 0px 15px 40px -10px rgba(var(--dark),.9);
+  background: rgb(var(--vs-dark)) !important;
+  box-shadow: 0px 15px 40px -10px rgba(var(--vs-dark),.9);
 }
 </style>

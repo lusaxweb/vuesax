@@ -1,12 +1,13 @@
 <template>
+    <!-- @mouseout="mouseoutx" -->
   <div
     ref="convstooltip"
     class="con-vs-tooltip"
-    @mouseout="mouseoutx"
-    @mouseover="mouseoverx">
+    @mouseleave.stop="mouseoutx"
+    @mouseover.stop="mouseoverx">
     <transition name="tooltip-fade">
       <div
-        v-show="active"
+        v-show="activeTooltip"
         ref="vstooltip"
         :class="[`vs-tooltip-${positionx || position}`,`vs-tooltip-${color}`, {'after-none': noneAfter}]"
         :style="style"
@@ -43,11 +44,15 @@ export default {
     delay:{
       default:'0s',
       type:[Number,String]
+    },
+    active: {
+      default: true,
+      type: [Boolean]
     }
   },
   data:()=>({
     cords:{},
-    active:false,
+    activeTooltip:false,
     widthx: 'auto',
     positionx: null,
     noneAfter: false
@@ -57,24 +62,37 @@ export default {
       return {
         left:this.cords.left,
         top:this.cords.top,
-        transitionDelay: this.active?this.delay:'0s',
+        transitionDelay: this.activeTooltip?this.delay:'0s',
         background:_color.getColor(this.color,1),
         width: this.widthx
       }
     }
   },
   mounted(){
-    utils.insertBody(this.$refs.vstooltip)
+    // utils.insertBody(this.$refs.vstooltip)
+  },
+  updated() {
+    let nodes = this.$refs.convstooltip.childNodes.length
+    if (nodes === 1) {
+      this.activeTooltip = false
+    }
   },
   methods:{
     mouseoverx(){
-      this.active = true
-      this.$nextTick(()=>{
-        this.changePosition(this.$refs.convstooltip,this.$refs.vstooltip)
-      })
+      if(this.active) {
+        this.activeTooltip = true
+        this.$nextTick(()=>{
+          utils.insertBody(this.$refs.vstooltip)
+          this.changePosition(this.$refs.convstooltip,this.$refs.vstooltip)
+        })
+      }
     },
     mouseoutx(){
-      this.active = false
+      this.activeTooltip = false
+      if(this.$refs.vstooltip) {
+        utils.removeBody(this.$refs.vstooltip)
+      }
+
     },
     changePosition(elxEvent, tooltip){
       this.noneAfter = false
@@ -85,18 +103,18 @@ export default {
       let leftx = elx.getBoundingClientRect().left - tooltip.clientWidth / 2 + elx.clientWidth / 2
       let widthx = elx.clientWidth
 
-      if(this.position == 'bottom'){
+      if(this.position === 'bottom'){
         topx = elx.getBoundingClientRect().top + scrollTopx + elx.clientHeight + 4
-      } else if (this.position == 'left') {
+      } else if (this.position === 'left') {
         leftx = elx.getBoundingClientRect().left - tooltip.clientWidth - 4
         topx = elx.getBoundingClientRect().top + scrollTopx + (elx.clientHeight / 2) - (tooltip.clientHeight / 2)
-        if (Math.sign(leftx)==-1) {
+        if (Math.sign(leftx)===-1) {
           leftx = elx.getBoundingClientRect().left
           topx = elx.getBoundingClientRect().top + scrollTopx + elx.clientHeight + 4
           this.positionx = 'bottom'
           this.noneAfter = true
         }
-      } else if (this.position == 'right') {
+      } else if (this.position === 'right') {
         leftx = elx.getBoundingClientRect().left + elx.clientWidth + 4
         topx = elx.getBoundingClientRect().top + scrollTopx + (elx.clientHeight / 2) - (tooltip.clientHeight / 2)
         if( window.innerWidth - (leftx + tooltip.clientWidth) <= 20) {

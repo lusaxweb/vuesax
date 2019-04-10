@@ -19,8 +19,9 @@
       <input
         ref="vsinput"
         :style="style"
+        :autofocus="autofocus"
         :class="[size,{
-          'hasValue':value != '',
+          'hasValue':value !== '',
           'hasIcon':icon,
           'icon-after-input':iconAfter
         }]"
@@ -50,7 +51,7 @@
       <vs-icon
         v-if="icon"
         class="icon-inputx notranslate vs-input--icon"
-        :class="{'icon-after':iconAfter}"
+        :class="{'icon-after':iconAfter, 'icon-no-border':iconNoBorder}"
         :iconPack="iconPack"
         :icon="icon"
         @click="focusInput">
@@ -63,7 +64,7 @@
           :class="{'icon-before':iconAfter}">
           <vs-icon
             :class="{'icon-before':iconAfter}"
-            :iconPack="iconPack"
+            :valIconPack="valIconPack"
             :icon="getIcon"
           ></vs-icon>
         </span>
@@ -128,7 +129,10 @@ export default {
   name:'VsInput',
   inheritAttrs: false,
   props:{
-    value:{},
+    value:{
+      default:'',
+      type:[String,Number]
+    },
     labelPlaceholder:{
       default:null,
       type:[String,Number]
@@ -137,6 +141,10 @@ export default {
       default:null,
       type:[String,Number]
     },
+    autofocus:{
+      default:false,
+      type:[Boolean,String]
+    },
     icon:{
       default:null,
       type:String
@@ -144,6 +152,10 @@ export default {
     iconAfter:{
       default:false,
       type:[Boolean,String]
+    },
+    iconNoBorder:{
+      default:false,
+      type:Boolean
     },
     iconPack:{
       default:'material-icons',
@@ -185,6 +197,10 @@ export default {
       default:'normal',
       type:String
     },
+    valIconPack:{
+      default:'material-icons',
+      type:String
+    },
     valIconSuccess:{
       default: null,
       type:String
@@ -197,6 +213,14 @@ export default {
       default: null,
       type:String
     },
+  },
+  inject: {
+    elForm: {
+      default: ''
+    },
+    elFormItem: {
+      default: ''
+    }
   },
   data:()=>({
     isFocus:false

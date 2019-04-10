@@ -34,7 +34,7 @@ contributors:
   - fergardi
 ---
 
-# List **- update**
+# List
 
 <box header>
 

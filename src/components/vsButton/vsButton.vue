@@ -23,12 +23,13 @@
     </span>
 
     <vs-icon
+      v-if="icon"
       :style="{
         'order':iconAfter?2:0,
         'margin-right':$slots.default&&!iconAfter?'5px':'0px',
         'margin-left':$slots.default&&iconAfter?'5px':'0px'
       }"
-      :iconPack="iconPack"
+      :icon-pack="iconPack"
       :icon="icon"
       class="vs-button--icon "
     ></vs-icon>
@@ -111,7 +112,7 @@ export default {
     },
     target:{
       default:false,
-      type:Boolean
+      type:[Boolean, String]
     }
   },
   data:()=>({
@@ -236,7 +237,11 @@ export default {
         this.routerPush()
       }
       if(this.href){
-        this.target ? window.open(this.href) : window.location.href = this.href
+        if ( typeof(this.href) == 'string') {
+          this.target ? window.open(this.href) : window.location.href = this.href
+        } else {
+          this.target ? window.open(this.href.url) : window.location.href = this.href.url
+        }
       }
       this.isActive = true
       let btn = this.$refs.btn

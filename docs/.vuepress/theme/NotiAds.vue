@@ -23,13 +23,16 @@
 
     </div>
     <Carbon/>
+    <!-- <Codefound /> -->
   </div>
 </template>
 <script>
 import Carbon from "./Carbon";
+import Codefound from "./CodeFound.vue";
 export default {
   components: {
-    Carbon
+    Carbon,
+    Codefound
   },
   data: () => ({
     ramdom: 1

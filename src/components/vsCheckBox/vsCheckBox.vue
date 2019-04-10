@@ -14,13 +14,12 @@
       class="checkbox_x vs-checkbox">
       <span
         :style="style_check"
-        class="vs-checkbox--check"/>
-      <vs-icon
-      :iconPack="iconPack"
-      :icon="icon"
-      class="vs-checkbox--icon "
-    ></vs-icon>
-      <!-- <i class="material-icons vs-checkbox--icon">{{icon}}</i> -->
+        class="vs-checkbox--check">
+        <vs-icon
+          :icon="icon"
+          :icon-pack="iconPack"
+          class="vs-checkbox--icon " />
+      </span>
     </span>
     <span class="con-slot-label">
       <slot/>
@@ -70,7 +69,10 @@ export default {
     listeners(){
       return {
         ...this.$listeners,
-        change: (evt) => {
+        // change: (evt) => {
+        //   this.toggleValue(evt)
+        // },
+        input: (evt) => {
           this.toggleValue(evt)
         }
       }
@@ -90,7 +92,7 @@ export default {
         this.setValueString()
       }
       else {
-        this.$emit('input',!this.value)
+        this.$emit('input', !this.value)
         this.$emit('change',evt)
       }
     },

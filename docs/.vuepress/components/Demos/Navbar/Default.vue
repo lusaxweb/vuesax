@@ -1,13 +1,11 @@
 <template>
   <div>
     <vs-navbar v-model="activeItem" class="nabarx">
-      <vs-button type="flat" icon="menu" icon-pack='material-icons'></vs-button>
-
-      <vs-navbar-title>
-        Hello world
-      </vs-navbar-title>
-
-      <vs-spacer></vs-spacer>
+      <div slot="title">
+        <vs-navbar-title>
+          Hello world
+        </vs-navbar-title>
+      </div>
 
       <vs-navbar-item index="0">
         <a href="#">Home</a>

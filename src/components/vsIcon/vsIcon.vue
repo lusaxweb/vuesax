@@ -1,10 +1,9 @@
 <template>
   <i
-    class="vs-icon notranslate icon-scale"
-    :class="[iconPack, iconPack !='material-icons' ? icon : '',iconClass,getBg,getBgSize,{'round':round}]"
     :style="iconStyle"
-    @click="click">
-    <slot>{{iconPack =='material-icons' ? icon : ''}}</slot>
+    :class="[iconPack, iconPack !='material-icons' ? icon : '',iconClass,getBg,getBgSize,{'round':round}]"
+    class="vs-icon notranslate icon-scale">
+    <slot>{{ iconPack == 'material-icons' ? icon : '' }}</slot>
   </i>
 </template>
 <script>
@@ -37,16 +36,13 @@ export default {
       default: false,
       type: Boolean
     },
-    click: {
-      default: null,
-      type: Function
-    },
+
   },
   computed:{
     iconClass() {
       const classes = {}
       classes[this.size] = true
-       if (_color.isColor(this.color)) {
+      if (_color.isColor(this.color)) {
         classes[`vs-icon-${this.color}`] = true
       }
       return classes

@@ -1,0 +1,45 @@
+.vs-progress--indeterminate
+  position: absolute;
+  width: 0%;
+  height: 100%;
+  left: -100%;
+  top: 0px;
+  border-radius: 2px;
+  animation: indeterminate 1.200s ease infinite;
+  border-radius: 20px;
+
+@keyframes indeterminate {
+    0% {
+      width: 30%;
+      left: -40%;
+    }
+    60% {
+      left: 100%;
+      width:100%;
+    }
+    100% {
+      left: 100%;
+      width:0%;
+    }
+}
+
+.vs-progress--background
+  width: 100%;
+  border-radius: 18px;
+  background-color: rgba(0,0,0,.06)
+  z-index: 50;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+
+.vs-progress--foreground
+  z-index: 100;
+  height: 100%;
+  border-radius: 18px;
+  transition: all .5s ease;
+
+for colorx, i in $vs-colors
+  .vs-progress-{colorx}
+    background: getColor(colorx, .1)
+    .vs-progress--foreground,.vs-progress--indeterminate
+      background: getColor(colorx, 1)

@@ -44,7 +44,7 @@ API:
 
 ---
 
-# Popup **- update**
+# Popup
 
 <box header>
 

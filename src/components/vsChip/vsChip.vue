@@ -20,8 +20,8 @@
       class="btn-close vs-chip--close"
       @click="closeChip">
       <vs-icon
-        :iconPack="text ? '' : iconPack"
-        :icon="text ? '' : closeIcon"
+        :icon-pack="iconPack"
+        :icon="closeIcon"
       ></vs-icon>
     </button>
   </div>

@@ -6,7 +6,8 @@
       'input-select-validate-success':success,
       'input-select-validate-danger':danger,
       'input-select-validate-warning':warning}"
-    class="con-select">
+    class="con-select"
+    :style="getWidth">
     <label
       v-if="label"
       ref="inputSelectLabel"
@@ -24,13 +25,23 @@
         @keydown.esc.stop.prevent="closeOptions"
         v-on="listeners">
 
+      <button
+        :class="{'activeBtnClear': activeBtnClear}"
+        @click="clearValue"
+        class="icon-select-clear vs-select--icon-clear">
+        <i class="material-icons">
+          close
+        </i>
+      </button>
+
       <vs-icon
-      class="icon-select vs-select--icon"
-      :icon-pack="iconPack"
-      :icon="icon"
+        v-if="!activeBtnClear"
+        :icon-pack="iconPack"
+        :icon="icon"
+        class="icon-select vs-select--icon"
       ></vs-icon>
 
-      <transition name="fade-select">
+      <transition name="fadeselect">
         <div
           v-show="active"
           ref="vsSelectOptions"
@@ -164,6 +175,14 @@ export default {
       default: 'keyboard_arrow_down',
       type:String
     },
+    iconClear:{
+      default: 'close',
+      type:String
+    },
+    width:{
+      default: null,
+      type: String,
+    }
   },
   data:()=>({
     valueFilter:'',
@@ -175,6 +194,12 @@ export default {
     filterx:false
   }),
   computed:{
+    activeBtnClear() {
+      return this.autocomplete && this.filterx
+    },
+    getWidth() {
+      return this.width ? `width:${this.width};` : null
+    },
     parent() {
       return this
     },
@@ -219,25 +244,43 @@ export default {
   },
   watch:{
     value(event){
+      this.valuex = this.value;
       this.$emit('change',event)
     },
     active(){
-      if(this.active){
-        this.$children[0].focusValue(0)
-        this.$children.forEach((item)=>{
-          if (item.focusValue) {
-            item.focusValue()
-          }
-        })
-        setTimeout( () => {
-          if(this.$refs.ulx.scrollHeight >= 260) this.scrollx = true
-        }, 100);
-      }
+      this.$nextTick(() => {
+        if(this.active){
+          utils.insertBody(this.$refs.vsSelectOptions)
+          setTimeout( () => {
+            this.$children.forEach((item)=>{
+              if (item.focusValue) {
+                item.focusValue()
+              }
+            })
+            if(this.$refs.ulx.scrollHeight >= 260) this.scrollx = true
+          }, 100);
+        } else {
+          let [parent] = document.getElementsByTagName('body')
+          parent.removeChild(this.$refs.vsSelectOptions)
+        }
+      })
     },
   },
   mounted(){
+    // this.$refs.inputselect.value = this.value
     this.changeValue()
-    utils.insertBody(this.$refs.vsSelectOptions)
+    if (this.active) {
+      utils.insertBody(this.$refs.vsSelectOptions)
+    }
+  },
+  beforeDestroy() {
+    let [parent] = document.getElementsByTagName('body')
+
+    if (parent &&
+        this.$refs.vsSelectOptions &&
+        this.$refs.vsSelectOptions.parentNode === parent) {
+      parent.removeChild(this.$refs.vsSelectOptions)
+    }
   },
   updated(){
     if(!this.active){
@@ -245,6 +288,11 @@ export default {
     }
   },
   methods:{
+    clearValue() {
+      this.focus()
+      this.filterItems('')
+      this.changeValue()
+    },
     addMultiple(value){
       let currentValues = this.value ? this.value : [];
       if(currentValues.includes(value)){
@@ -325,6 +373,7 @@ export default {
       })
     },
     changeValue(){
+      this.filterx = false
       if(this.multiple){
         let values = this.value ? this.value : [];
         let options = this.$children
@@ -374,7 +423,8 @@ export default {
       if (!this.autocomplete) {
         if(this.multiple?this.value.length == 0:!this.value || this.multiple){
           setTimeout( () => {
-            this.$children[0].$el.querySelector('.vs-select--item').focus()
+            const el = this.$children[0].$el.querySelector('.vs-select--item')
+            if (el) el.focus()
           }, 50);
         }
       }
@@ -385,6 +435,7 @@ export default {
     },
     clickBlur(event){
       let closestx = event.target.closest('.vs-select--options')
+
       if(!closestx){
         this.closeOptions()
         if(this.autocomplete){

@@ -12,7 +12,7 @@ export default {
       } else {
         colorx = json[clave]
       }
-      color.setCssVariable('--'+clave,colorx)
+      color.setCssVariable('--vs-'+clave,colorx)
     }
   },
 }

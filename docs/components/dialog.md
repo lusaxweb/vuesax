@@ -73,7 +73,7 @@ API:
 
 ---
 
-# Dialogs **- update**
+# Dialogs
 
 <box header>
 

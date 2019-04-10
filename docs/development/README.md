@@ -50,6 +50,24 @@ Vue.use(Vuesax)
 
 </box>
 
+<box>
+
+### Or use individual components:
+
+```javascript
+
+import Vue from 'vue'
+import { vsButton, vsSelect, vsPopup } from 'vuesax'
+import 'vuesax/dist/vuesax.css'
+
+Vue.use(vsButton)
+Vue.use(vsSelect)
+Vue.use(vsPopup)
+
+```
+
+</box>
+
 
 
 
@@ -76,6 +94,6 @@ Also, please check the available icons from the following.
 
 ## Lusaxweb
 
-This library was created and is supported by [Lusaxweb](http://www.lusaxweb.com/)
+This library was created and is supported by [Lusaxweb](https://lusaxweb.github.io)
 
 </box>

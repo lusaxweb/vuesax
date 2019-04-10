@@ -6,6 +6,7 @@
       v-bind="$attrs"
       :checked="isChecked"
       :value="value"
+      :name="value"
       type="radio"
       class="vs-radio--input"
       v-on="listeners">
@@ -39,10 +40,11 @@ export default {
   },
   computed:{
     listeners(){
-      return {
-        ...this.$listeners,
-        input: () => this.$emit('input', this.vsValue)
-      }
+        return {
+          ...this.$listeners,
+          input: () => this.$emit('input', this.vsValue),
+          click: () => this.$emit('input', this.vsValue)
+        }
     },
     attrs(){
       let attrsx = JSON.parse(JSON.stringify(this.$attrs))
@@ -68,7 +70,7 @@ export default {
   methods:{
     giveColor(color,opacity){
       return _color.rColor(color,opacity)
-    },
+    }
   }
 }
 </script>

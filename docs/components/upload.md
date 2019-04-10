@@ -50,6 +50,11 @@ API:
    parameters: (event)
    description: callback function when successfully uploading the file.
    default: null
+ - name: on-delete
+   type: Function
+   parameters: (event)
+   description: callback function when delete item the file.
+   default: null
  - name: on-error
    type: Function
    parameters: (event)
@@ -72,7 +77,7 @@ API:
    default: false
 ---
 
-# Upload **- update**
+# Upload
 
 <box header>
 

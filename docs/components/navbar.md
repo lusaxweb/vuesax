@@ -20,6 +20,16 @@ API:
     parameters: primary, success, danger, warning, dark, RGB, HEX
     description: Determines the value of each item that is reflected in it when selecting v-model
     default:
+  - name: title
+    type: Slot
+    parameters: null
+    description: Space to add the menu title (Functionality for resposive)
+    default:
+  - name: collapse
+    type: Boolean
+    parameters: null
+    description: Determines if the component starts in hidden menu mode that can be opened by clicking on the menu
+    default: false
 contributors:
   - fergardi
 ---
@@ -35,7 +45,7 @@ contributors:
 
 <box>
 
-## Default
+## Default **- update**
 
 To add a navbar we have the component `vs-navbar`, there is a series of sub components to determine internal elements `vs-navbar-title`, `vs-spacer`.
 
@@ -53,13 +63,11 @@ To add a navbar we have the component `vs-navbar`, there is a series of sub comp
 <template>
   <div>
     <vs-navbar v-model="activeItem" class="nabarx">
-      <vs-button type="flat" radius="50%" icon="menu"></vs-button>
-
-      <vs-navbar-title>
-        Hello world
-      </vs-navbar-title>
-
-      <vs-spacer></vs-spacer>
+      <div slot="title">
+        <vs-navbar-title>
+          Hello world
+        </vs-navbar-title>
+      </div>
 
       <vs-navbar-item index="0">
         <a href="#">Home</a>
@@ -103,12 +111,11 @@ You may need an entry in the menu to simply use the `vs-input` component, for ex
 <template>
   <div>
     <vs-navbar v-model="activeItem" class="nabarx">
-      <vs-button type="flat" radius="50%" icon="menu"></vs-button>
-
-      <vs-navbar-title>
-        Hello world
-      </vs-navbar-title>
-
+      <div slot="title">
+        <vs-navbar-title>
+          Hello world
+        </vs-navbar-title>
+      </div>
       <vs-navbar-item index="0">
         <a href="#">Home</a>
       </vs-navbar-item>
@@ -118,7 +125,6 @@ You may need an entry in the menu to simply use the `vs-input` component, for ex
       <vs-navbar-item index="2">
         <a href="#">Update</a>
       </vs-navbar-item>
-      <vs-spacer></vs-spacer>
       <vs-input icon="search" placeholder="Search" v-model="search"/>
     </vs-navbar>
   </div>
@@ -156,7 +162,7 @@ If you want you can change the style of the buttons and the navbar by changing t
   <div class="con-type-example">
 
     <vs-select
-    class="selectExample"
+      class="selectExample"
       label="Figuras"
       v-model="type"
       >
@@ -164,13 +170,12 @@ If you want you can change the style of the buttons and the navbar by changing t
     </vs-select>
 
     <vs-navbar :type="type" v-model="activeItem" class="nabarx">
-      <vs-button type="flat" radius="50%" icon="menu"></vs-button>
 
-      <vs-navbar-title>
-        Type {{type}}
-      </vs-navbar-title>
-
-      <vs-spacer></vs-spacer>
+      <div slot="title">
+        <vs-navbar-title>
+          Type {{type}}
+        </vs-navbar-title>
+      </div>
 
       <vs-navbar-item index="0">
         <a href="#">Home</a>
@@ -212,6 +217,11 @@ export default {
   })
 }
 </script>
+<style lang="stylus">
+.con-type-example
+  .vs-navbar
+    margin-top 10px
+</style>
 ```
 
 </div>
@@ -237,6 +247,7 @@ You can change the color of the **Topbar** with the property `color`. You are ab
 
 ```html
 
+
 <template>
   <div class="centerx">
     <input class="input-color" v-model="colorx" type="color" name="" value="">
@@ -246,10 +257,11 @@ You can change the color of the **Topbar** with the property `color`. You are ab
       text-color="rgba(255,255,255,.6)"
       active-text-color="rgba(255,255,255,1)"
       class="myNavbar">
-
-      <vs-navbar-title>
-        Navbar Color
-      </vs-navbar-title>
+      <div slot="title">
+        <vs-navbar-title>
+          Navbar Color
+        </vs-navbar-title>
+      </div>
 
       <vs-navbar-item index="0" >
         <a href="#">Home</a>
@@ -263,7 +275,7 @@ You can change the color of the **Topbar** with the property `color`. You are ab
 
       <vs-spacer></vs-spacer>
 
-      <vs-button color-text="rgb(255, 255, 255)" color="rgba(255, 255, 255, 0.3)" type="flat" radius="50%" icon="more_horiz"></vs-button>
+      <vs-button color-text="rgb(255, 255, 255)" color="rgba(255, 255, 255, 0.3)" type="flat" icon="more_horiz"></vs-button>
     </vs-navbar>
   </div>
 </template>
@@ -286,6 +298,53 @@ export default {
   color rgb(255,255,255)
 </style>
 
+```
+
+</div>
+</vuecode>
+</box>
+
+<box>
+
+## Collapse
+
+This property determines if the component starts hidden and with the option of clicking on the menu to open or saw the options
+
+<vuecode md>
+<div slot="demo">
+  <Demos-Navbar-Collapse />
+</div>
+<div slot="code">
+
+```html
+<template>
+  <div>
+    <vs-navbar collapse v-model="activeItem" class="nabarx">
+      <div slot="title">
+        <vs-navbar-title>
+          Hello world
+        </vs-navbar-title>
+      </div>
+
+      <vs-navbar-item index="0">
+        <a href="#">Home</a>
+      </vs-navbar-item>
+      <vs-navbar-item index="1">
+        <a href="#">News</a>
+      </vs-navbar-item>
+      <vs-navbar-item index="2">
+        <a href="#">Update</a>
+      </vs-navbar-item>
+    </vs-navbar>
+  </div>
+</template>
+<script>
+export default {
+  data:()=>({
+    activeItem: 0
+  })
+}
+</script>
 ```
 
 </div>

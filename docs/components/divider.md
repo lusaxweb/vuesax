@@ -27,7 +27,7 @@ API:
    default: material-icons
 ---
 
-# Divider **- update**
+# Divider
 
 <box header>
 

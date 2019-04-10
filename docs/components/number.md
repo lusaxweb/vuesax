@@ -35,6 +35,16 @@ API:
    parameters: icon name
    description: Icon used to indicate increment.
    default: add
+ - name: step
+   type: Number
+   parameters: valid number
+   description: Number to be added or decreased each time.
+   default: 1
+ - name: label
+   type: String
+   parameters:
+   description: Add a descriptive text in the input number.
+   default: null
 ---
 
 
@@ -197,6 +207,108 @@ export default {
       number1:21,
       number2:67,
       number3:2
+    }
+  }
+}
+</script>
+```
+
+</div>
+</vuecode>
+</box>
+
+<box>
+
+## Step
+
+To change the number to be added or decreased of the component, you can use the property `step`.
+
+<vuecode md>
+<div slot="demo">
+  <Demos-Inputnumber-Step />
+</div>
+<div slot="code">
+
+```html
+<template lang="html">
+  <div class="centerx">
+    <vs-input-number v-model="number0" :step="5"/>
+  </div>
+</template>
+
+<script>
+export default {
+  data(){
+    return {
+      number0:5
+    }
+  }
+}
+</script>
+```
+
+</div>
+</vuecode>
+</box>
+
+<box>
+
+## Decimal
+
+Number Input also supports decimal values.
+
+<vuecode md>
+<div slot="demo">
+  <Demos-Inputnumber-Decimal />
+</div>
+<div slot="code">
+
+```html
+<template lang="html">
+  <div class="centerx">
+    <vs-input-number v-model="number0" :step="1.43"/>
+  </div>
+</template>
+
+<script>
+export default {
+  data(){
+    return {
+      number0:1.98
+    }
+  }
+}
+</script>
+```
+
+</div>
+</vuecode>
+</box>
+
+<box>
+
+## Label
+
+Number Input supports adding labels for number inputs.
+
+<vuecode md>
+<div slot="demo">
+  <Demos-Inputnumber-Label />
+</div>
+<div slot="code">
+
+```html
+<template lang="html">
+  <div class="centerx">
+    <vs-input-number v-model="number0" :label="passengers"/>
+  </div>
+</template>
+
+<script>
+export default {
+  data(){
+    return {
+      number0:1
     }
   }
 }

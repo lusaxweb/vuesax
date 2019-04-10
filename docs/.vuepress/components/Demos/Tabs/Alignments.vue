@@ -4,22 +4,22 @@
       Default
     </h3>
     <vs-tabs>
-      <vs-tab vs-label="Home">
+      <vs-tab label="Home">
         <div>
 
         </div>
       </vs-tab>
-      <vs-tab vs-label="Documents">
+      <vs-tab label="Documents">
         <div>
 
         </div>
       </vs-tab>
-      <vs-tab vs-label="Contributors">
+      <vs-tab label="Contributors">
         <div>
 
         </div>
       </vs-tab>
-      <vs-tab vs-label="Ecosistem">
+      <vs-tab label="Ecosistem">
         <div>
 
         </div>
@@ -29,23 +29,23 @@
     <h3>
       Center
     </h3>
-    <vs-tabs vs-alignment="center">
-      <vs-tab vs-label="Home">
+    <vs-tabs alignment="center">
+      <vs-tab label="Home">
         <div>
 
         </div>
       </vs-tab>
-      <vs-tab vs-label="Documents">
+      <vs-tab label="Documents">
         <div>
 
         </div>
       </vs-tab>
-      <vs-tab vs-label="Contributors">
+      <vs-tab label="Contributors">
         <div>
 
         </div>
       </vs-tab>
-      <vs-tab vs-label="Ecosistem">
+      <vs-tab label="Ecosistem">
         <div>
 
         </div>
@@ -55,23 +55,23 @@
     <h3>
       Right
     </h3>
-    <vs-tabs vs-alignment="right">
-      <vs-tab vs-label="Home">
+    <vs-tabs alignment="right">
+      <vs-tab label="Home">
         <div>
 
         </div>
       </vs-tab>
-      <vs-tab vs-label="Documents">
+      <vs-tab label="Documents">
         <div>
 
         </div>
       </vs-tab>
-      <vs-tab vs-label="Contributors">
+      <vs-tab label="Contributors">
         <div>
 
         </div>
       </vs-tab>
-      <vs-tab vs-label="Ecosistem">
+      <vs-tab label="Ecosistem">
         <div>
 
         </div>
@@ -82,23 +82,23 @@
     <h3>
       Fixed
     </h3>
-    <vs-tabs vs-alignment="fixed">
-      <vs-tab vs-label="Home">
+    <vs-tabs alignment="fixed">
+      <vs-tab label="Home">
         <div>
 
         </div>
       </vs-tab>
-      <vs-tab vs-label="Documents">
+      <vs-tab label="Documents">
         <div>
 
         </div>
       </vs-tab>
-      <vs-tab vs-label="Contributors">
+      <vs-tab label="Contributors">
         <div>
 
         </div>
       </vs-tab>
-      <vs-tab vs-label="Ecosistem">
+      <vs-tab label="Ecosistem">
         <div>
 
         </div>

@@ -20,13 +20,13 @@
               class="after"/>
             <h3>{{ title || vsTitle }}</h3>
           </div>
-            <vs-icon
-              v-if="type=='alert'"
-              class="vs-dialog-cancel vs-dialog-cancel--icon notranslate"
-              :icon-pack="vsIconPack"
-              :icon="vsCloseIcon"
-              :click="close"
-            ></vs-icon>
+          <vs-icon
+            v-if="type=='alert'"
+            :icon="vsCloseIcon"
+            :icon-pack="vsIconPack"
+            class="vs-dialog-cancel vs-dialog-cancel--icon notranslate"
+            @click.native="close"
+          />
         </header>
 
         <!-- // slots  -->
@@ -42,7 +42,7 @@
             :type="isPrompt?vsButtonAccept:buttonAccept"
             @click="acceptDialog">{{ isPrompt?vsAcceptText:acceptText }}</vs-button>
           <vs-button
-            :color="'rgb(0,0,0,.5)'"
+            :text-color="'rgba(0,0,0,.5)'"
             :type="isPrompt?vsButtonCancel:buttonCancel"
             @click="cancelClose">{{ isPrompt?vsCancelText:cancelText }}</vs-button>
         </footer>
@@ -154,7 +154,7 @@ export default {
     },
     acceptDialog(){
       if(!this.isPrompt){
-        this.accept?this.accept():null
+        this.accept?this.accept(this.parameters):null
         this.active = false
         this.$emit('update:vsActive',false)
         this.$emit('vs-accept')
@@ -196,7 +196,9 @@ export default {
       this.active = false
       this.$emit('update:vsActive',false)
       this.$emit('vs-cancel')
-      this.cancel?this.cancel():null
+      // this.$emit('cancel')
+      this.cancel?this.cancel(this.parameters):null
+
     },
     insertBody(){
       let elx = this.$refs.con

@@ -1,0 +1,84 @@
+
+
+// animations
+.vs-notifications
+  position: fixed;
+  z-index: 200000;
+  padding: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all .3s ease;
+  cursor: default;
+  max-width: 350px;
+  min-width: 200px;
+  &:active
+    opacity: .8
+  .content-noti
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    .con-text-noti
+      width: 100%;
+    .vs-icon-noti
+      position: relative;
+      display: flex;
+      z-index: 100;
+      display: block;
+      padding: 5px;
+      background: rgba(255, 255, 255,.1)
+      border-radius: 6px;
+      font-size: 20px;
+      animation: openicon .4s ease;
+  h3,p
+    z-index: 100;
+    position: relative;
+    animation: open .4s ease;
+  h3
+    font-size: 16px;
+    padding: 5px;
+    padding-bottom: 0px;
+  p
+    font-size: 14px;
+    padding: 5px;
+    padding-right: 10px;
+  &.vs-noti-active
+    h3,p
+      opacity: 1;
+  .filling
+    display: block;
+    position: absolute;
+    transition: all .45s ease;
+    z-index: 1;
+    transform: translate(0,-50%);
+for colorx, i in $vs-colors
+  .vs-noti-{colorx}
+    .filling
+      background: getColor(colorx, 1);
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+
+@keyframes open {
+  0% {
+    opacity: 0;
+    transform: translate(-30px);
+  }
+  100% {
+    transform: translate(0px);
+    opacity: 1
+  }
+}
+@keyframes openicon {
+  0% {
+    opacity: 0;
+    transform: scale(.4);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1
+  }
+}

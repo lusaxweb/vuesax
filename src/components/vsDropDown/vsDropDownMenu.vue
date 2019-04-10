@@ -9,8 +9,11 @@
         'top':topx+'px'
       }"
       class="con-vs-dropdown--menu vs-dropdown-menu"
-      @mouseover="toggleMenu($event)"
-      @mouseout="toggleMenu($event)">
+      @mouseleave="mouseleavex"
+      @mouseenter="mouseenterx"
+      >
+      <!-- @mouseout="toggleMenu($event)" -->
+      <!-- @mouseover="toggleMenu($event)" -->
       <ul
         v-if="!vsCustomContent"
         class="vs-component vs-dropdown--menu" >
@@ -21,6 +24,7 @@
         class="vs-dropdown--custom vs-dropdown--menu">
         <slot/>
       </div>
+      <div class="vs-dropdown--menu--after" ref="menuAfter"></div>
     </div>
   </transition>
 </template>
@@ -37,7 +41,8 @@ export default {
     vsTriggerClick:false,
     widthx:0,
     notHeight:false,
-    vsCustomContent:false
+    vsCustomContent:false,
+    parentNode:null
   }),
   watch:{
     dropdownVisible(){
@@ -47,6 +52,7 @@ export default {
       dropdownGroup.forEach((item_group)=>{
         item_group.activeGroup = false
       })
+      this.setDirection()
     }
   },
   mounted(){
@@ -56,16 +62,44 @@ export default {
     this.$el.parentNode.removeChild(this.$el)
   },
   methods:{
+    mouseenterx() {
+      if (!this.vsTriggerClick) {
+        this.dropdownVisible = true
+        this.widthx = this.$el.clientWidth
+      }
+    },
+    mouseleavex() {
+      if (!this.vsTriggerClick) {
+        this.dropdownVisible = false
+        this.widthx = this.$el.clientWidth
+      }
+    },
+    setDirection() {
+      setTimeout(() => {
+        const dropdown = this.parentNode
+        const menuAfter = this.$refs.menuAfter
+        if (!menuAfter) return
+        if(dropdown && menuAfter && dropdown.getBoundingClientRect().top + 300 >= window.innerHeight) {
+          const hasGroup = this.$children.find(it=>it.hasOwnProperty('activeGroup'))
+          menuAfter.style.bottom = '-5px'
+          menuAfter.style.transform = 'rotate(225deg)'
+          return
+        }
+        menuAfter.style.top = '10px'
+      }, 100)
+    },
     toggleMenu(event){
       if(event.type == 'mouseover' && !this.vsTriggerClick){
         this.dropdownVisible = true
-      } else if (!this.vsTriggerClick) {
+      }
+      else if (!this.vsTriggerClick) {
         this.dropdownVisible = false
       }
       this.widthx = this.$el.clientWidth
     },
     insertBody(){
       let elp = this.$el
+      this.parentNode = this.$el.parentNode
       document.body.insertBefore(elp, document.body.firstChild)
     },
   }

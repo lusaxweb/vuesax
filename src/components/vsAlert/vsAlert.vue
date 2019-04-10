@@ -17,7 +17,9 @@
         v-if="closable"
         class="con-x vs-alert--close"
         @click="$emit('update:active',false)">
-        <vs-icon icon-pack="iconPack" icon="closeIcon"></vs-icon>
+        <vs-icon
+          :icon-pack="iconPack"
+          :icon="closeIcon"></vs-icon>
       </div>
 
       <h4
@@ -25,7 +27,9 @@
         :style="styleTitle"
         class="titlex vs-alert--title">{{ title }}</h4>
 
-      <div class="vs-alert">
+      <div
+        :class="{'con-icon': icon}"
+        class="vs-alert">
         <vs-icon
           v-if="icon"
           :icon-pack="iconPack"
@@ -77,6 +81,7 @@ export default {
       default:'material-icons'
     }
   },
+
   computed:{
     styleAlert () {
       return {
@@ -90,6 +95,12 @@ export default {
         boxShadow: `0px 6px 15px -7px ${_color.getColor(this.color,.4)}`
       }
     }
+  },
+  mounted () {
+    this.$nextTick(() => {
+      let h = this.$refs.alert.scrollHeight
+      this.$refs.alert.style.height = h + 'px'
+    })
   },
   methods:{
     beforeEnter(el) {

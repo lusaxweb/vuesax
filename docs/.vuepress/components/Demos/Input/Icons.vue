@@ -6,6 +6,7 @@
     <vs-input icon-after="true"  icon="shopping_cart" label-placeholder="Label-placeholder" v-model="value4"/>
     <vs-input disabled="true" icon="error_outline" label-placeholder="icon-disabled" v-model="value5"/>
     <vs-input icon-after="true" disabled="true" icon="email" label-placeholder="icon-disabled" v-model="value6"/>
+    <vs-input icon-no-border icon="account_circle" label-placeholder="icon-no-border" v-model="value7"/>
   </div>
 </template>
 
@@ -29,5 +30,5 @@ export default {
 <style lang="stylus">
 .icons-example
   .vs-input
-    margin 6px;
+    margin 15px
 </style>
