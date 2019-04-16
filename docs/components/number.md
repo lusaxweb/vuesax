@@ -300,7 +300,7 @@ Number Input supports adding labels for number inputs.
 ```html
 <template lang="html">
   <div class="centerx">
-    <vs-input-number v-model="number0" :label="passengers"/>
+    <vs-input-number v-model="number0" label="passengers:"/>
   </div>
 </template>
 
