@@ -44,14 +44,6 @@ Vuesax is an open source [MIT](https://raw.githubusercontent.com/lusaxweb/vuesax
   </a>
  </p>
 
- <p align="center"><b>Bronze</b></p>
-
- <p align="center">
-  <a href="https://talentplot.com">
-    <img width="10%" src="https://raw.githubusercontent.com/lusaxweb/vuesax/master/docs/.vuepress/public/talentplot.png" alt="Talentplot">
-  </a>
-</p>
-
 ## Introduction
 
 [Vuesax](https://lusaxweb.github.io/vuesax/) is a framework of components based on [vue.js](https://vuejs.org/), it is a framework that is designed from scratch to be incrementally adoptable.

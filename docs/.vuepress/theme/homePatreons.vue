@@ -62,11 +62,7 @@ export default {
       },
     ],
     patreons2: [
-      {
-        name:'Talentplot',
-        img:'/talentplot.png',
-        link:'https://talentplot.com'
-      },
+
     ]
   })
 }
