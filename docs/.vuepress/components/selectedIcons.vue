@@ -8,7 +8,7 @@
         vs-type="filled" >
         change icon
        </vs-button>
-       <i class="material-icons icon-final">{{iconx}}</i>
+       <vs-icon class="icon-final" :icon="iconx"></vs-icon>
     </div>
 
     <transition name="fade-icons">
@@ -24,7 +24,7 @@
     class="ulx"
      >
       <li @click="iconx=li,visible=false,removeEventListenerx()" v-for="li in icons">
-        <i  class="material-icons">{{li}}</i>
+        <vs-icon class="" :icon="li"></vs-icon>
       </li>
     </ul>
     <div class="con-btns">

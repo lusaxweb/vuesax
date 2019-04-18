@@ -54,34 +54,22 @@
 
       <vs-dropdown-menu>
         <vs-dropdown-item>
-          <i class="material-icons">
-            mood
-          </i>
+          <vs-icon icon="mood"></vs-icon>
         </vs-dropdown-item>
         <vs-dropdown-item>
-          <i class="material-icons">
-            mood_bad
-          </i>
+          <vs-icon icon="mood_bad"></vs-icon>
         </vs-dropdown-item>
         <vs-dropdown-item>
-          <i class="material-icons">
-            sentiment_dissatisfied
-          </i>
+          <vs-icon icon="sentiment_dissatisfied"></vs-icon>
         </vs-dropdown-item>
         <vs-dropdown-item>
-          <i class="material-icons">
-            sentiment_satisfied
-          </i>
+          <vs-icon icon="sentiment_satisfied"></vs-icon>
         </vs-dropdown-item>
         <vs-dropdown-item>
-          <i class="material-icons">
-            sentiment_very_dissatisfied
-          </i>
+          <vs-icon icon="sentiment_very_dissatisfied"></vs-icon>
         </vs-dropdown-item>
         <vs-dropdown-item>
-          <i class="material-icons">
-            sentiment_very_satisfied
-          </i>
+          <vs-icon icon="sentiment_very_satisfied"></vs-icon>
         </vs-dropdown-item>
       </vs-dropdown-menu>
     </vs-dropdown>
