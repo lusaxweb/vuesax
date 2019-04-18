@@ -24,7 +24,11 @@ export default {
     tag:{
       default:'',
       type:String
-    }
+    },
+    iconPack:{
+      type:String,
+      default:'material-icons'
+    },
   },
   data:()=>({
     vertical:false,
@@ -37,6 +41,7 @@ export default {
     this.$parent.children.push({
       label: this.label,
       icon: this.icon,
+      iconPack: this.iconPack,
       tag: this.tag,
       id: this.$parent.children.length,
       listeners: this.$listeners,
