@@ -39,6 +39,7 @@
         :icon-pack="iconPack"
         :icon="icon"
         class="icon-select vs-select--icon"
+        @click.once
       ></vs-icon>
 
       <transition name="fadeselect">
@@ -214,7 +215,7 @@ export default {
         },
         focus: (event) => {
           this.$emit('focus',event)
-          // document.removeEventListener('click',this.clickBlur)
+          //document.removeEventListener('click',this.clickBlur)
           this.focus(event)
         },
         input: (event) => {

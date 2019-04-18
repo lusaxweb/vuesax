@@ -24,3 +24,5 @@ yarn.lock
 *.ntvs*
 *.njsproj
 *.sln
+
+\.vs/
