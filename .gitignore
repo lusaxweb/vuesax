@@ -20,6 +20,7 @@ yarn.lock
 .bitmap
 .idea
 .vscode
+.vs
 *.suo
 *.ntvs*
 *.njsproj
