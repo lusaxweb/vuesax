@@ -105,7 +105,8 @@
 
 .vs-tabs--li
   display: block
-  button
+  position relative
+  button.vs-tabs--btn
     box-sizing: border-box
     display: block
     position relative
@@ -116,6 +117,7 @@
     border 0px
     cursor pointer
     transition all .2s ease
+    z-index: 100
     &:hover:not(:disabled)
       color inherit
   button:disabled
@@ -125,9 +127,29 @@
 .activeChild
   button:not(:disabled)
     color inherit
-  button
+  button.vs-tabs--btn
     padding-top 8px ;
     padding-bottom 12px ;
+
+.vs-tabs--btn-tag
+  position absolute
+  width: 20px
+  height 20px
+  display: flex
+  align-items: center
+  justify-content: center
+  top -10px
+  right -10px
+  z-index 200
+  border-radius 3px
+  border: 0px
+  background: rgb(255,255,255)
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,.05)
+  cursor pointer
+  z-index: 200
+  i
+    padding-right: 0px !important
+    font-size: .9rem
 
 .vs-tabs-position-top
   .vs-tabs--ul

@@ -1,7 +1,7 @@
 <template lang="html">
   <header
     :style="[styleNavbar]"
-    :class="[`vs-navbar-${type}`]"
+    :class="[`vs-navbar-${type}`, `vs-navbar-color-${color}`, {'collapse':collapse}]"
     class="vs-navbar">
     <div class="vs-navbar--header">
       <button
@@ -35,6 +35,10 @@ export default {
     type:{
       default: null,
       type: String
+    },
+    collapse:{
+      default:false,
+      type: Boolean
     },
     color:{
       type:String,

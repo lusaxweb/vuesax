@@ -31,7 +31,7 @@
             {{data[indextr].name}}
           </vs-td>
 
-          <vs-td :data="data[indextr].id">
+          <vs-td :data="data[indextr].website">
             {{data[indextr].website}}
           </vs-td>
 

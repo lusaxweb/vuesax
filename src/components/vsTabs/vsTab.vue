@@ -13,14 +13,22 @@ export default {
   name:'VsTab',
   inheritAttrs: false,
   props:{
-    vsLabel:{
+    label:{
       default:'Label',
       type:String
     },
-    vsIcon:{
+    icon:{
       default:'',
       type:String
-    }
+    },
+    tag:{
+      default:'',
+      type:String
+    },
+    iconPack:{
+      type:String,
+      default:'material-icons'
+    },
   },
   data:()=>({
     vertical:false,
@@ -31,8 +39,10 @@ export default {
   mounted(){
     this.id = this.$parent.children.length
     this.$parent.children.push({
-      label: this.vsLabel,
-      icon: this.vsIcon,
+      label: this.label,
+      icon: this.icon,
+      iconPack: this.iconPack,
+      tag: this.tag,
       id: this.$parent.children.length,
       listeners: this.$listeners,
       attrs: this.$attrs

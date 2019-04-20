@@ -25,7 +25,7 @@ API:
    parameters: RGB, HEX
    description: Color of the tabs component.
    default: null
- - name: vs-alignment
+ - name: alignment
    type: String
    parameters: top (default), left, bottom, right
    description: Change the alignment of the tabs buttons.
@@ -35,15 +35,30 @@ API:
    parameters: null
    description: component that wraps everything inside.
    default: null
- - name: vs-label
+ - name: label
    type: String
    parameters: null
    description: Text on the tab button.
    default: null
- - name: vs-icon
+ - name: icon
    type: String
    parameters: Same as `vs-icon` component.
    description: Add a left icon inside the tabs component.
+   default: null
+ - name: v-on:click-tag
+   type: Callback
+   parameters: tab
+   description: This function is executed by clicking on the tag.
+   default: null
+ - name: tag
+   type: Icon
+   parameters: material icons
+   description: Determine the icon inside the tag.
+   default: null
+ - name: tagColor
+   type: Colors
+   parameters: Default Colors RGB, HEX
+   description: Determine the color of the icon inside the tag.
    default: null
 ---
 
@@ -76,27 +91,27 @@ For the title of each tab the `vs-tab` property is implemented in the` vs-tab` c
 <template lang="html">
   <div class="">
     <vs-tabs>
-      <vs-tab vs-label="Home">
+      <vs-tab label="Home">
         <div class="con-tab-ejemplo">
           Home
         </div>
       </vs-tab>
-      <vs-tab vs-label="Service">
+      <vs-tab label="Service">
         <div class="con-tab-ejemplo">
           Service
         </div>
       </vs-tab>
-      <vs-tab vs-label="login">
+      <vs-tab label="login">
         <div class="con-tab-ejemplo">
           login
         </div>
       </vs-tab>
-      <vs-tab disabled vs-label="Disabled">
+      <vs-tab disabled label="Disabled">
         <div class="con-tab-ejemplo">
           Disabled
         </div>
       </vs-tab>
-      <vs-tab vs-label="Lorem ipsum dolor sit amet">
+      <vs-tab label="Lorem ipsum dolor sit amet">
         <div class="con-tab-ejemplo">
           Lorem ipsum dolor sit amet
         </div>
@@ -131,27 +146,27 @@ You can change the color of the component with the property `color`, the paramet
 <template lang="html">
   <div>
     <vs-tabs :color="colorx">
-      <vs-tab @click="colorx = 'success'" vs-label="Success">
+      <vs-tab @click="colorx = 'success'" label="Success">
         <div class="con-tab-ejemplo">
           Success
         </div>
       </vs-tab>
-      <vs-tab @click="colorx = 'danger'" vs-label="Danger">
+      <vs-tab @click="colorx = 'danger'" label="Danger">
         <div class="con-tab-ejemplo">
           Danger
         </div>
       </vs-tab>
-      <vs-tab @click="colorx = 'warning'" vs-label="Warning">
+      <vs-tab @click="colorx = 'warning'" label="Warning">
         <div class="con-tab-ejemplo">
           Warning
         </div>
       </vs-tab>
-      <vs-tab @click="colorx = 'dark'" vs-label="Dark">
+      <vs-tab @click="colorx = 'dark'" label="Dark">
         <div class="con-tab-ejemplo">
           Dark
         </div>
       </vs-tab>
-        <vs-tab @click="colorx = 'rgb(16, 233, 179)'" vs-label="RGB | HEX">
+        <vs-tab @click="colorx = 'rgb(16, 233, 179)'" label="RGB | HEX">
         <div class="con-tab-ejemplo">
           RGB | HEX
         </div>
@@ -178,7 +193,7 @@ export default {
 
 ## Alignments
 
-Change the alignment of the buttons with the property `vs-alignments`. The allowed values ​​are:
+Change the alignment of the buttons with the property `alignments`. The allowed values ​​are:
 
 - center
 - right
@@ -197,22 +212,22 @@ Change the alignment of the buttons with the property `vs-alignments`. The allow
       Default
     </h3>
     <vs-tabs>
-      <vs-tab vs-label="Home">
+      <vs-tab label="Home">
         <div>
 
         </div>
       </vs-tab>
-      <vs-tab vs-label="Documents">
+      <vs-tab label="Documents">
         <div>
 
         </div>
       </vs-tab>
-      <vs-tab vs-label="Contributors">
+      <vs-tab label="Contributors">
         <div>
 
         </div>
       </vs-tab>
-      <vs-tab vs-label="Ecosistem">
+      <vs-tab label="Ecosistem">
         <div>
 
         </div>
@@ -222,23 +237,23 @@ Change the alignment of the buttons with the property `vs-alignments`. The allow
     <h3>
       Center
     </h3>
-    <vs-tabs vs-alignment="center">
-      <vs-tab vs-label="Home">
+    <vs-tabs alignment="center">
+      <vs-tab label="Home">
         <div>
 
         </div>
       </vs-tab>
-      <vs-tab vs-label="Documents">
+      <vs-tab label="Documents">
         <div>
 
         </div>
       </vs-tab>
-      <vs-tab vs-label="Contributors">
+      <vs-tab label="Contributors">
         <div>
 
         </div>
       </vs-tab>
-      <vs-tab vs-label="Ecosistem">
+      <vs-tab label="Ecosistem">
         <div>
 
         </div>
@@ -248,23 +263,23 @@ Change the alignment of the buttons with the property `vs-alignments`. The allow
     <h3>
       Right
     </h3>
-    <vs-tabs vs-alignment="right">
-      <vs-tab vs-label="Home">
+    <vs-tabs alignment="right">
+      <vs-tab label="Home">
         <div>
 
         </div>
       </vs-tab>
-      <vs-tab vs-label="Documents">
+      <vs-tab label="Documents">
         <div>
 
         </div>
       </vs-tab>
-      <vs-tab vs-label="Contributors">
+      <vs-tab label="Contributors">
         <div>
 
         </div>
       </vs-tab>
-      <vs-tab vs-label="Ecosistem">
+      <vs-tab label="Ecosistem">
         <div>
 
         </div>
@@ -275,23 +290,23 @@ Change the alignment of the buttons with the property `vs-alignments`. The allow
     <h3>
       Fixed
     </h3>
-    <vs-tabs vs-alignment="fixed">
-      <vs-tab vs-label="Home">
+    <vs-tabs alignment="fixed">
+      <vs-tab label="Home">
         <div>
 
         </div>
       </vs-tab>
-      <vs-tab vs-label="Documents">
+      <vs-tab label="Documents">
         <div>
 
         </div>
       </vs-tab>
-      <vs-tab vs-label="Contributors">
+      <vs-tab label="Contributors">
         <div>
 
         </div>
       </vs-tab>
-      <vs-tab vs-label="Ecosistem">
+      <vs-tab label="Ecosistem">
         <div>
 
         </div>
@@ -327,22 +342,22 @@ You can change the position of the menu with the property `vs-position` that as 
       Default
     </h3>
     <vs-tabs>
-      <vs-tab vs-label="Home">
+      <vs-tab label="Home">
         <div>
 
         </div>
       </vs-tab>
-      <vs-tab vs-label="Documents">
+      <vs-tab label="Documents">
         <div>
 
         </div>
       </vs-tab>
-      <vs-tab vs-label="Contributors">
+      <vs-tab label="Contributors">
         <div>
 
         </div>
       </vs-tab>
-      <vs-tab vs-label="Ecosistem">
+      <vs-tab label="Ecosistem">
         <div>
 
         </div>
@@ -352,23 +367,23 @@ You can change the position of the menu with the property `vs-position` that as 
     <h3>
       Center
     </h3>
-    <vs-tabs vs-alignment="center">
-      <vs-tab vs-label="Home">
+    <vs-tabs alignment="center">
+      <vs-tab label="Home">
         <div>
 
         </div>
       </vs-tab>
-      <vs-tab vs-label="Documents">
+      <vs-tab label="Documents">
         <div>
 
         </div>
       </vs-tab>
-      <vs-tab vs-label="Contributors">
+      <vs-tab label="Contributors">
         <div>
 
         </div>
       </vs-tab>
-      <vs-tab vs-label="Ecosistem">
+      <vs-tab label="Ecosistem">
         <div>
 
         </div>
@@ -378,23 +393,23 @@ You can change the position of the menu with the property `vs-position` that as 
     <h3>
       Right
     </h3>
-    <vs-tabs vs-alignment="right">
-      <vs-tab vs-label="Home">
+    <vs-tabs alignment="right">
+      <vs-tab label="Home">
         <div>
 
         </div>
       </vs-tab>
-      <vs-tab vs-label="Documents">
+      <vs-tab label="Documents">
         <div>
 
         </div>
       </vs-tab>
-      <vs-tab vs-label="Contributors">
+      <vs-tab label="Contributors">
         <div>
 
         </div>
       </vs-tab>
-      <vs-tab vs-label="Ecosistem">
+      <vs-tab label="Ecosistem">
         <div>
 
         </div>
@@ -405,23 +420,23 @@ You can change the position of the menu with the property `vs-position` that as 
     <h3>
       Fixed
     </h3>
-    <vs-tabs vs-alignment="fixed">
-      <vs-tab vs-label="Home">
+    <vs-tabs alignment="fixed">
+      <vs-tab label="Home">
         <div>
 
         </div>
       </vs-tab>
-      <vs-tab vs-label="Documents">
+      <vs-tab label="Documents">
         <div>
 
         </div>
       </vs-tab>
-      <vs-tab vs-label="Contributors">
+      <vs-tab label="Contributors">
         <div>
 
         </div>
       </vs-tab>
-      <vs-tab vs-label="Ecosistem">
+      <vs-tab label="Ecosistem">
         <div>
 
         </div>
@@ -442,7 +457,7 @@ You can change the position of the menu with the property `vs-position` that as 
 
 ## Icons
 
-You can add a left icon inside each tab with the property `vs-icon` that has the same values as the `vs-icon` component.
+You can add a left icon inside each tab with the property `icon` that has the same values as the `icon` component.
 
 <vuecode md>
 <div slot="demo">
@@ -454,13 +469,13 @@ You can add a left icon inside each tab with the property `vs-icon` that has the
 <template lang="html">
   <div>
     <vs-tabs :color="colorx">
-      <vs-tab vs-label="Pets" vs-icon="pets" @click="colorx = '#8B0000'">
+      <vs-tab label="Pets" icon="pets" @click="colorx = '#8B0000'">
       </vs-tab>
-      <vs-tab vs-label="Bank" vs-icon="account_balance" @click="colorx = '#FFA500'">
+      <vs-tab label="Bank" icon="account_balance" @click="colorx = '#FFA500'">
       </vs-tab>
-      <vs-tab vs-label="Dashboard" vs-icon="dashboard" @click="colorx = '#551A8B'">
+      <vs-tab label="Dashboard" icon="dashboard" @click="colorx = '#551A8B'">
       </vs-tab>
-      <vs-tab vs-label="Profile" vs-icon="account_circle" @click="colorx = '#0000FF'">
+      <vs-tab label="Profile" icon="account_circle" @click="colorx = '#0000FF'">
       </vs-tab>
     </vs-tabs>
   </div>

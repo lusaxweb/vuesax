@@ -14,12 +14,16 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 package-lock.json
+yarn.lock
 
 # Editor directories and files
 .bitmap
 .idea
 .vscode
+.vs
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
+
+\.vs/

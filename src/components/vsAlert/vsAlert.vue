@@ -97,8 +97,10 @@ export default {
     }
   },
   mounted () {
-    let h = this.$refs.alert.scrollHeight
-    this.$refs.alert.style.height = h + 'px'
+    this.$nextTick(() => {
+      let h = this.$refs.alert.scrollHeight
+      this.$refs.alert.style.height = h + 'px'
+    })
   },
   methods:{
     beforeEnter(el) {

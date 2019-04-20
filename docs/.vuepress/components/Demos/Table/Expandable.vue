@@ -148,6 +148,7 @@ export default {
 </script>
 <style lang="stylus">
 .con-expand-users
+  width 100%
   .con-btns-user
     display flex
     padding 10px

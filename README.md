@@ -1,7 +1,7 @@
 <p align="center">
   <a href="https://lusaxweb.github.io/vuesax/">
-<img width="40%" src="https://github.com/lusaxweb/vuesax/blob/master/public/vuesax-logo-beta.png" alt="vuesax" />
-<img src="https://github.com/lusaxweb/vuesax/blob/master/public/vuesax-components.gif" alt="vuesax" />
+<img width="40%" src="https://raw.githubusercontent.com/lusaxweb/vuesax/master/public/vuesax-logo-beta.png" alt="vuesax" />
+<img src="https://raw.githubusercontent.com/lusaxweb/vuesax/master/public/vuesax-components.gif" alt="vuesax" />
    </a>
   </p>
 
@@ -25,7 +25,7 @@
 
 <h2 align="center">Supporting through Patreon</h2>
 
-Vuesax is an open source [MIT](https://github.com/lusaxweb/vuesax/blob/master/LICENSE) project if you want to contribute to keep improving, If you are interested in supporting this project, please consider becoming a patron. [Patron](https://www.patreon.com/bePatron?c=1567892)
+Vuesax is an open source [MIT](https://raw.githubusercontent.com/lusaxweb/vuesax/master/LICENSE) project if you want to contribute to keep improving, If you are interested in supporting this project, please consider becoming a patron. [Patron](https://www.patreon.com/bePatron?c=1567892)
 
 <p align="center">
   <a href="https://www.patreon.com/bePatron?c=1567892">
@@ -37,20 +37,12 @@ Vuesax is an open source [MIT](https://github.com/lusaxweb/vuesax/blob/master/LI
 
 <p align="center">
   <a href="https://tipe.io/">
-    <img width="20%" src="https://github.com/lusaxweb/vuesax/blob/master/docs/.vuepress/public/tipe.png" alt="Tipe" />
+    <img width="20%" src="https://raw.githubusercontent.com/lusaxweb/vuesax/master/docs/.vuepress/public/tipe.png" alt="Tipe" />
    </a>
   <a href="https://bitsrc.io/">
-    <img width="20%" src="https://github.com/lusaxweb/vuesax/blob/master/docs/.vuepress/public/bit-share-code.png" alt="Bit">
+    <img width="20%" src="https://raw.githubusercontent.com/lusaxweb/vuesax/master/docs/.vuepress/public/bit-share-code.png" alt="Bit">
   </a>
  </p>
-
- <p align="center"><b>Bronze</b></p>
-
- <p align="center">
-  <a href="https://talentplot.com">
-    <img width="10%" src="https://github.com/lusaxweb/vuesax/blob/master/docs/.vuepress/public/talentplot.png" alt="Talentplot">
-  </a>
-</p>
 
 ## Introduction
 
@@ -62,7 +54,7 @@ The framework is focused on facilitating the development of applications, improv
 
 If you feel awesome and want to support us in a small way, please consider starring and sharing the repo! This helps us getting known and grow the community. 🙏
 
-<img src="https://github.com/lusaxweb/vuesax/blob/master/public/github-vuesax-star.gif" alt="vuesax-star" />
+<img src="https://raw.githubusercontent.com/lusaxweb/vuesax/master/public/github-vuesax-star.gif" alt="vuesax-star" />
 
 ## Links
 
@@ -175,7 +167,7 @@ Vue.use(vsPopup)
 ```
 
 ## Contribution
-Please make sure to read the [Contributing Guide](https://github.com/lusaxweb/vuesax/blob/master/CONTRIBUTING.md) before making a pull request.
+Please make sure to read the [Contributing Guide](https://raw.githubusercontent.com/lusaxweb/vuesax/master/CONTRIBUTING.md) before making a pull request.
 
 ## Lusaxweb
 
@@ -183,4 +175,4 @@ This library was created and is supported by [Lusaxweb](http://www.lusaxweb.com.
 
 ## License
 
-[MIT](https://github.com/lusaxweb/vuesax/blob/master/LICENSE)
+[MIT](https://raw.githubusercontent.com/lusaxweb/vuesax/master/LICENSE)

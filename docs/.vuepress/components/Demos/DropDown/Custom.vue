@@ -4,9 +4,7 @@
     <vs-dropdown vs-custom-content vs-trigger-click >
       <a class="a-icon" href.prevent>
         Click me open login
-        <i class="material-icons">
-        expand_more
-        </i>
+        <vs-icon icon="expand_more"></vs-icon>
       </a>
 
       <vs-dropdown-menu class="loginx">
