@@ -2,7 +2,8 @@
   <li
     v-show="visible"
     :data-text="text"
-    class="vs-component">
+    class="vs-component"
+    v-on="listeners">
     <button
       ref="item"
       :disabled="disabled"
@@ -16,7 +17,6 @@
       class="vs-select--item"
       type="button"
       name="button"
-      v-on="listeners"
       @keydown.backspace.prevent="backspace"
       @keydown.down.prevent="navigateOptions('next')"
       @keydown.up.prevent="navigateOptions('prev')"
