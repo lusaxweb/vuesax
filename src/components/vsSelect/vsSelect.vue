@@ -406,9 +406,9 @@ export default {
       this.active = true
       this.setLabelClass(this.$refs.inputSelectLabel, true)
       let inputx = this.$refs.inputselect
-      setTimeout( ()=> {
-        document.addEventListener('click',this.clickBlur)
-      }, 100);
+      // setTimeout( ()=> {
+      //   document.addEventListener('click',this.clickBlur)
+      // }, 100);
       if(this.autocomplete && this.multiple){
         setTimeout( ()=> {
           if(inputx.value){
