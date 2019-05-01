@@ -112,7 +112,7 @@ export default {
         tr.classList.add('tr-expandedx')
         let trx = Vue.extend(trExpand);
         let instance = new trx();
-        instance.$props.colspan = 5
+        instance.$props.colspan = this.colspan
         instance.$slots.default = this.$slots.expand
         instance.vm = instance.$mount();
         var newTR = document.createElement('tr').appendChild(instance.vm.$el);
