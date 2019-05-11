@@ -80,8 +80,9 @@ export default {
   mounted () {
     this.$nextTick(() => {
       this.colspan = this.$parent.$refs.thead.querySelectorAll('th').length
-      if (this.$slots.expand) {
-        this.colspan ++
+      console.log(this.$parent);
+      if (this.$slots.expand || this.$parent.multiple) {
+        this.colspan++
       }
     })
   },
