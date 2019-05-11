@@ -11,7 +11,6 @@
         :class="[`tr-table-state-${state}`, {'is-selected':isSelected, 'selected': data, 'is-expand': maxHeight != '0px', 'activeEdit': activeEdit, 'hoverFlat': $parent.hoverFlat}]"
         class="tr-values vs-table--tr">
         <td
-          v-if="$slots.expand || $parent.multiple"
           class="td-check"
           :class="{'active-expanded': this.expanded}"
           @click="clicktd($event)">
@@ -80,7 +79,6 @@ export default {
   mounted () {
     this.$nextTick(() => {
       this.colspan = this.$parent.$refs.thead.querySelectorAll('th').length
-      console.log(this.$parent);
       if (this.$slots.expand || this.$parent.multiple) {
         this.colspan++
       }
