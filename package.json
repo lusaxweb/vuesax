@@ -42,9 +42,11 @@
     "docs:deploy": "sh scripts/deploy.sh",
     "deployx": "npm run docs:deploy && npm run deploy",
     "deployx2": "npm run docs:deploy && npm run deploy2",
-    "new:component": "sh scripts/newComponent.sh"
+    "new:component": "sh scripts/newComponent.sh",
+    "postinstall": "node postinstall.js"
   },
   "dependencies": {
+    "chalk": "^2.4.2",
     "vue": "^2.6.9"
   },
   "devDependencies": {

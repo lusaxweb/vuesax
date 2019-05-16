@@ -80,17 +80,17 @@ export default {
     this.$nextTick(() => {
       this.colspan = this.$parent.$refs.thead.querySelectorAll('th').length
       if (this.$slots.expand) {
-        this.colspan ++
+        this.colspan++
       }
     })
   },
   methods:{
     insertAfter(e,i){
-        if(e.nextSibling){
-            e.parentNode.insertBefore(i,e.nextSibling);
-        } else {
-            e.parentNode.appendChild(i);
-        }
+      if(e.nextSibling){
+        e.parentNode.insertBefore(i,e.nextSibling);
+      } else {
+        e.parentNode.appendChild(i);
+      }
     },
     clicktr (evt) {
       this.$parent.clicktr(this.data, true)
@@ -112,7 +112,7 @@ export default {
         tr.classList.add('tr-expandedx')
         let trx = Vue.extend(trExpand);
         let instance = new trx();
-        instance.$props.colspan = 5
+        instance.$props.colspan = this.colspan
         instance.$slots.default = this.$slots.expand
         instance.vm = instance.$mount();
         var newTR = document.createElement('tr').appendChild(instance.vm.$el);

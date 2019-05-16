@@ -2,7 +2,7 @@
   <header :class="{'shadow':true}" class="navbar">
     <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')"/>
     <div class="con-btns-header">
-      <router-link @click.native="changeAds" :to="$localePath" class="home-link">
+      <router-link :to="$localePath" class="home-link">
         <div class="con-logo">
           <img class="logo"
           v-if="$site.themeConfig.logo"
@@ -105,10 +105,6 @@ export default {
 
   },
   methods:{
-    changeAds(){
-      if (!document.querySelector('#carbonads')) return;
-      if (typeof _carbonads !== 'undefined') _carbonads.refresh();
-    },
     changeColor(colorx){
       this.$vs.theme({
         primary:colorx // myColorNew

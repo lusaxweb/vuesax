@@ -1,33 +1,24 @@
-
+<template>
+  <div class="carbon">
+    <div ref="carbon" id="carbon"></div>
+  </div>
+</template>
 
 <script>
 export default {
-  render (h) {
-    return h('div', { class: 'carbon-ads' })
+  mounted() {
+    const script = document.createElement("script");
+    script.setAttribute("type", "text/javascript");
+    script.setAttribute(
+      "src",
+      `//cdn.carbonads.com/carbon.js?serve=CK7DC27J&placement=lusaxwebgithubio`
+    );
+    script.setAttribute(
+      "id",
+      `_carbonads_js`
+    );
+    this.$refs.carbon.appendChild(script);
   },
-  mounted () {
-    this.load()
-  },
-  watch: {
-    '$route' (to, from) {
-      if (
-        // to.path !== from.path
-        // &&
-        this.$el.querySelector('#carbonads')
-      ) {
-        this.$el.innerHTML = ''
-        this.load()
-      }
-    }
-  },
-  methods: {
-    load () {
-      const s = document.createElement('script')
-      s.id = '_carbonads_js'
-      s.src = `//cdn.carbonads.com/carbon.js?serve=CK7DC27J&placement=lusaxwebgithubio`
-      this.$el.appendChild(s)
-    }
-  }
 };
 </script>
 <style lang="css">
@@ -35,28 +26,26 @@ export default {
   display: flex;
   align-items: center;
   width: 100%;
-
+  margin-bottom: 80px
 }
-
 /* #-carbonads */
 div[id*="carbonads"] {
   --width: 320px;
   --font-size: 13px;
-  margin-bottom: 80px
 }
 
 div[id*="carbonads"] {
-  background: rgb(255,255,255);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;
   display: block;
   overflow: hidden;
   /* margin-bottom: 30px; */
+  max-width: calc(100% - 10px);
   width: 100%;
-  border-radius: 10px;
-  /* margin-left: 7px; */
+  border-radius: 4px;
+  margin-left: 7px;
   text-align: center;
   /* box-shadow: 0px 5px 20px 0px rgba(0,0,0,.05); */
-  /* background: rgb(255,255,255) !important; */
+  background: rgb(255,255,255) !important;
   font-size: 13px;
   line-height: 1.5;
   position: relative;
@@ -64,12 +53,12 @@ div[id*="carbonads"] {
   z-index: 1000;
   border: 0px;
   transition: all .3s ease;
-  font-size: .7rem;
-  padding: 5px
+  font-size: .7rem
 }
 div[id*="carbonads"]:hover {
-  transform: translate(-10px,-5px);
-  box-shadow: 0px 5px 20px 0px rgba(0,0,0,.1);
+  transform: translate(0,-5px);
+  /* box-shadow: 0px 0px 0px 0px rgba(0,0,0,.05); */
+  box-shadow: 0px 5px 20px 0px rgba(0,0,0,.05);
 }
 div[id*="carbonads"] a {
   color: inherit;
@@ -104,8 +93,7 @@ div[id*="carbonads"] span {
 
 .carbon-text {
   display: block;
-  /* padding: 0 1em 8px; */
-  padding-bottom: 8px
+  padding: 0 1em 8px;
 }
 
 .carbon-poweredby {

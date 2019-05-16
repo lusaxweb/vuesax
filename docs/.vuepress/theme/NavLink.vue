@@ -1,6 +1,5 @@
 <template>
   <router-link
-    @click.native="changeAds"
     class="nav-link"
     :to="link"
     v-if="!isExternal(link)"
@@ -32,10 +31,6 @@ export default {
   methods: {
     isExternal,
     isMailto,
-    changeAds(){
-      if (!document.querySelector('#carbonads')) return;
-      if (typeof _carbonads !== 'undefined') _carbonads.refresh();
-    }
   }
 }
 </script>
