@@ -44,7 +44,7 @@
             <div class="con-expand-users">
               <div class="con-btns-user">
                 <div class="con-userx">
-                  <vs-avatar :badge="tr.id" size="45px" :src="`https://randomuser.me/api/portraits/women/${indextr}.jpg`"/>
+                  <vs-avatar :badge="tr.id" size="45px" :src="`https://randomuser.me/api/portraits/women/${tr.id}.jpg`"/>
                   <span>
                     {{ tr.name }}
                   </span>

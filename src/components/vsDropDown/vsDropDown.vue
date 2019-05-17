@@ -4,6 +4,7 @@
     ref="dropdown"
     v-bind="$attrs"
     class="vs-con-dropdown parent-dropdown"
+    type="button"
     v-on="listeners">
     <slot/>
   </button>

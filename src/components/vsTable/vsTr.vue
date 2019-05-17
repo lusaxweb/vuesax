@@ -7,6 +7,7 @@
         v-if="!$parent.notSpacer"
         class="tr-spacer"></tr> -->
       <tr
+        ref="tableTr"
         @click="clicktr"
         :class="[`tr-table-state-${state}`, {'is-selected':isSelected, 'selected': data, 'is-expand': maxHeight != '0px', 'activeEdit': activeEdit, 'hoverFlat': $parent.hoverFlat}]"
         class="tr-values vs-table--tr">
@@ -58,6 +59,16 @@ export default {
     maxHeight:'0px',
     activeEdit: false
   }),
+  watch: {
+    '$parent.currentx'() {
+      if(this.expanded){
+        const tr = this.$refs.tableTr
+        tr.parentNode.removeChild(tr.nextSibling)
+        tr.classList.remove('tr-expandedx')
+        this.expanded = false
+      }
+    }
+  },
   computed:{
     styleExpand () {
       return {
