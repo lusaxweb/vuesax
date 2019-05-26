@@ -214,7 +214,6 @@ export default {
       this.loadData()
     },
     data() {
-
       this.loadData()
       this.$nextTick(() => {
         if(this.datax.length > 0) {
@@ -224,7 +223,7 @@ export default {
     },
     searchx() {
       this.loadData()
-
+      this.currentx = 1
     }
   },
   mounted () {
@@ -243,7 +242,6 @@ export default {
   },
   methods:{
     loadData() {
-      this.currentx = 1
       let max = Math.ceil(this.currentx * this.maxItems)
       let min = max - this.maxItems
       if(!this.searchx) {
