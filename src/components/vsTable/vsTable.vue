@@ -214,6 +214,7 @@ export default {
       this.loadData()
     },
     data() {
+      this.currentx = 1
       this.loadData()
       this.$nextTick(() => {
         if(this.datax.length > 0) {
