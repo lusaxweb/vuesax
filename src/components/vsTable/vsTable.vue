@@ -215,7 +215,6 @@ export default {
     },
     data() {
       this.loadData()
-      this.currentx = 1
       this.$nextTick(() => {
         if(this.datax.length > 0) {
           this.changeTdsWidth()
