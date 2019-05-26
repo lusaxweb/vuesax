@@ -149,6 +149,10 @@ export default {
     pagination:{
       default: false,
       type: Boolean
+    },
+    currentPage: {
+      default: 1,
+      type: Number | String
     }
   },
   data:()=>({
@@ -200,6 +204,9 @@ export default {
     }
   },
   watch:{
+    currentPage() {
+      this.currentx = this.currentPage
+    },
     currentx() {
       this.loadData()
     },

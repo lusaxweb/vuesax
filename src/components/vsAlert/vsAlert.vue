@@ -3,6 +3,7 @@
     @before-enter="beforeEnter"
     @enter="enter"
     @leave="leave">
+
     <div
       v-if="active"
       ref="alert"
@@ -50,7 +51,7 @@ export default {
   props:{
     active:{
       type:[Boolean,String],
-      default:false
+      default:true
     },
     title:{
       type:String,
