@@ -90,7 +90,6 @@
         {{ noDataText }}
       </div>
 
-        <!-- v-show="!searchx" -->
       <div
         v-if="pagination"
         class="con-pagination-table vs-table--pagination">
@@ -214,7 +213,9 @@ export default {
       this.loadData()
     },
     data() {
-      this.loadData()
+      // console.log(this.data)
+      // this.loadData()
+      this.currentx = 1
       this.$nextTick(() => {
         if(this.datax.length > 0) {
           this.changeTdsWidth()
