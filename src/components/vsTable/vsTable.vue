@@ -58,7 +58,7 @@
             ref="thead"
             class="vs-table--thead">
             <tr>
-              <th class="td-check">
+              <th v-if="multiple || hasExpadableData" class="td-check">
                 <span
                   v-if="multiple"
                   class="con-td-check">
@@ -159,7 +159,8 @@ export default {
     trs: [],
     datax: [],
     searchx: null,
-    currentx: 1
+    currentx: 1,
+    hasExpadableData: false,
   }),
   computed:{
     getTotalPages() {
