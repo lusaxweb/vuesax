@@ -110,7 +110,7 @@
   tr
     transition: all .3s ease
     background: rgb(255,255,255)
-    border-radius: 5px
+    // border-radius: 5px
   .tr-values
     &.activeEdit
       z-index 500 !important
@@ -122,7 +122,7 @@
     &:not(.activeEdit):not(.tr-expandedx):not(.hoverFlat):hover
 
       z-index 200
-      border-radius: 5px
+      // border-radius: 5px
       transform: translate(0, -4px)
       .tr-values
         box-shadow: 0px 2px 12px 0px rgba(0,0,0,.05)
@@ -197,12 +197,12 @@ td
   i
     position: absolute
     transition: all .25s ease
-    left: 7px
+    left: 10px
     font-size: 1rem
 
 .vs-table--search-input
   padding: 5px 10px
-  padding-left: 23px
+  padding-left: 30px
   border-radius: 20px
   border: 1px solid rgba(0,0,0,.04)
   font-size: .7rem
@@ -210,10 +210,9 @@ td
   color: rgba(0,0,0,.7)
   transition: all .25s ease
   &:focus
-    padding-left 10px
     box-shadow: 0px 4px 10px 0px rgba(0,0,0,.03)
     + i
-      left: -18px
+      color: getColor('primary', 1)
 
 // header table
 
