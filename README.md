@@ -64,6 +64,7 @@ If you feel awesome and want to support us in a small way, please consider starr
 - 💬 Chat: [Discord](https://discord.gg/gd2kAjn)
 - 🎲 template: [Codepen](https://codepen.io/lusaxweb/pen/mxMKYr)
 - 📰 Tutorial Implement: [DevAwesome](https://lusaxweb.github.io/devAwesome/#/article/-LPDgBxyylgg9h194wuE)
+- 🔧[vuesax-helper](https://marketplace.visualstudio.com/items?itemName=vuesax.vscode-vuesax-helper): is a VS Code extension for Vuesax
 
 ## Components
 

@@ -176,7 +176,11 @@ export default {
       return Math.ceil(filterx.length / this.maxItems)
     },
     isNoData() {
-      return this.datax?this.datax.length == 0:false && this.search
+      if(typeof(this.datax) == Object) {
+        return this.datax? Object.keys(this.datax).length == 0:false && this.search
+      } else {
+        return this.datax?this.datax.length == 0:false && this.search
+      }
     },
     isCheckedLine () {
       let lengthx = this.data.length

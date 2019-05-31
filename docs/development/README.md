@@ -16,7 +16,7 @@ Start a project quickly using a CDN and let Vuesax do the magic.
 
 <Scrimba href="https://scrimba.com/c/crEd8hq" text="Try this lesson on Scrimba" />
 
-<iframe width="100%" height="300" src="//jsfiddle.net/luisdanielroviracontreras/txzqp7ny/121/embedded/html,result/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+<iframe width="100%" height="300" src="//jsfiddle.net/luisdanielroviracontreras/txzqp7ny/362/embedded/html,result/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
 
 </box>
 
