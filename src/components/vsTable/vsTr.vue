@@ -1,40 +1,47 @@
 <template>
-  <tbody
+  <!-- <tbody
     :class="[`tr-table-state-${state}`, {'is-selected':isSelected, 'selected': data, 'is-expand': maxHeight != '0px', 'activeEdit': activeEdit, 'hoverFlat': $parent.hoverFlat}]"
     class="tr-table"
-    @click="clicktr">
-    <tr
-      v-if="!$parent.notSpacer"
-      class="tr-spacer"></tr>
-    <tr class="tr-values vs-table--tr">
-      <td
-        class="td-check"
-        @click="clicktd()">
-        <vs-checkbox
-          v-if="$parent.multiple"
-          :checked="isSelected"
-          size="small"/>
+    @click="clicktr"> -->
+      <!-- <tr
+        v-if="!$parent.notSpacer"
+        class="tr-spacer"></tr> -->
+      <tr
+        ref="tableTr"
+        @click="clicktr"
+        :class="[`tr-table-state-${state}`, {'is-selected':isSelected, 'selected': data, 'is-expand': maxHeight != '0px', 'activeEdit': activeEdit, 'hoverFlat': $parent.hoverFlat}]"
+        class="tr-values vs-table--tr">
+        <td
+          class="td-check"
+          :class="{'active-expanded': this.expanded}"
+          @click="clicktd($event)">
+          <vs-checkbox
+            v-if="$parent.multiple"
+            :checked="isSelected"
+            size="small"/>
 
-        <vs-icon v-if="$slots.expand">keyboard_arrow_down</vs-icon>
-      </td>
-      <slot></slot>
-    </tr>
-    <tr
-      v-if="$slots.expand"
-      class="tr-expand">
-      <td
-        ref="td"
-        :colspan="colspan">
-        <div
-          :style="styleExpand"
-          class="con-expand">
-          <slot name="expand"></slot>
-        </div>
-      </td>
-    </tr>
-  </tbody>
+          <vs-icon v-if="$slots.expand">keyboard_arrow_down</vs-icon>
+        </td>
+        <slot></slot>
+      </tr>
+      <!-- <tr
+        v-if="$slots.expand"
+        class="tr-expand">
+        <td
+          ref="td"
+          :colspan="colspan">
+          <div
+            :style="styleExpand"
+            class="con-expand">
+            <slot name="expand"></slot>
+          </div>
+        </td>
+      </tr> -->
+  <!-- </tbody> -->
 </template>
 <script>
+import Vue from 'vue';
+import trExpand from './vsTrExpand.vue'
 export default {
   name: 'VsTr',
   props:{
@@ -52,6 +59,16 @@ export default {
     maxHeight:'0px',
     activeEdit: false
   }),
+  watch: {
+    '$parent.currentx'() {
+      if(this.expanded){
+        const tr = this.$refs.tableTr
+        tr.parentNode.removeChild(tr.nextSibling)
+        tr.classList.remove('tr-expandedx')
+        this.expanded = false
+      }
+    }
+  },
   computed:{
     styleExpand () {
       return {
@@ -74,32 +91,63 @@ export default {
     this.$nextTick(() => {
       this.colspan = this.$parent.$refs.thead.querySelectorAll('th').length
       if (this.$slots.expand) {
-        this.colspan ++
+        this.colspan++
       }
     })
   },
   methods:{
-    clicktr () {
-      this.$parent.clicktr(this.data, true)
+    insertAfter(e,i){
+      if(e.nextSibling){
+        e.parentNode.insertBefore(i,e.nextSibling);
+      } else {
+        e.parentNode.appendChild(i);
+      }
     },
-    clicktd () {
-      this.$parent.clicktr(this.data, false)
+    clicktr (evt) {
+      this.$parent.clicktr(this.data, true)
 
+      if (this.$slots.expand) {
+        this.clicktd(evt)
+      }
+    },
+    clicktd (evt) {
       if(this.$parent.multiple) {
         return
       }
-      let scrollHeight = this.$refs.td.scrollHeight
-      if(this.maxHeight == '0px') {
-        this.maxHeight = `${scrollHeight}px`
-        setTimeout(() => {
-          this.maxHeight = 'none'
-        },300)
+      let tr = evt.target.closest('tr')
+      if(this.expanded) {
+        tr.parentNode.removeChild(tr.nextSibling)
+        tr.classList.remove('tr-expandedx')
+        this.expanded = false
       } else {
-        this.maxHeight = `${scrollHeight}px`
-        setTimeout(() => {
-          this.maxHeight = `${0}px`
-        }, 50)
+        tr.classList.add('tr-expandedx')
+        let trx = Vue.extend(trExpand);
+        let instance = new trx();
+        instance.$props.colspan = this.colspan
+        instance.$slots.default = this.$slots.expand
+        instance.vm = instance.$mount();
+        var newTR = document.createElement('tr').appendChild(instance.vm.$el);
+        this.insertAfter(tr, newTR)
+        this.expanded = true
       }
+
+      // this.$parent.clicktr(this.data, false)
+
+      // if(this.$parent.multiple) {
+      //   return
+      // }
+      // let scrollHeight = this.$refs.td.scrollHeight
+      // if(this.maxHeight == '0px') {
+      //   this.maxHeight = `${scrollHeight}px`
+      //   setTimeout(() => {
+      //     this.maxHeight = 'none'
+      //   },300)
+      // } else {
+      //   this.maxHeight = `${scrollHeight}px`
+      //   setTimeout(() => {
+      //     this.maxHeight = `${0}px`
+      //   }, 50)
+      // }
     }
   }
 }

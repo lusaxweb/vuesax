@@ -84,8 +84,9 @@ module.exports = {
         ]
       },
       {
-        title:'Más',
+        title:'More',
         items:[
+          { text: 'Blog', link: 'https://lusaxweb.github.io/vuesax-blog/' },
           {
             text:'Lusaxweb',
             link:'http://www.lusaxweb.com.ve/'
@@ -130,6 +131,7 @@ module.exports = {
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Documentation', link: '/development/' },
+      { text: 'Blog', link: 'https://lusaxweb.github.io/vuesax-blog/' },
       { text: 'Contributors', link: '/contributors/' },
       {
         text: 'Ecosystem',

@@ -33,7 +33,6 @@
         <ul>
           <li @mouseenter="doc=true" @mouseleave="doc=false" v-for="action in data.vueThemes.actionsLinks">
             <router-link
-              @click.native="changeAds"
               class="nav-link"
               :to="action.link"
               :exact="action.link === '/'"
@@ -166,12 +165,6 @@ export default {
     .then(json => {
       this.star = json.stargazers_count
     })
-  },
-  methods:{
-    changeAds(){
-      if (!document.querySelector('#carbonads')) return;
-      if (typeof _carbonads !== 'undefined') _carbonads.refresh();
-    },
   }
 }
 </script>

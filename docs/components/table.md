@@ -80,6 +80,11 @@ API:
    parameters: null
    description: This property is required if you are going to use the edit slot.
    default: null
+ - name: noDataText
+   type: String
+   parameters: null
+   description: Change the text of the notification when there is no data in the table.
+   default: null
 ---
 
 # Table

@@ -4,10 +4,7 @@
     class="vs-component vs-con-table">
     <!-- header -->
     <header class="header-table vs-table--header">
-      <span>
         <slot name="header"></slot>
-      </span>
-
       <div
         v-if="search"
         class="con-input-search vs-table--search">
@@ -15,9 +12,7 @@
           v-model="searchx"
           class="input-search vs-table--search-input"
           type="text">
-        <i class="material-icons">
-          search
-        </i>
+        <vs-icon icon="search"></vs-icon>
       </div>
     </header>
     <div class="con-tablex vs-table--content">
@@ -92,15 +87,14 @@
       <div
         v-if="isNoData"
         class="not-data-table vs-table--not-data">
-        No data Available
+        {{ noDataText }}
       </div>
 
       <div
         v-if="pagination"
-        v-show="!searchx"
         class="con-pagination-table vs-table--pagination">
         <vs-pagination
-          :total="getTotalPages"
+          :total="searchx ? getTotalPagesSearch : getTotalPages"
           v-model="currentx"></vs-pagination>
       </div>
     </div>
@@ -114,6 +108,10 @@ export default {
     value:{},
     color: {
       default:'primary',
+      type: String
+    },
+    noDataText: {
+      default: 'No data Available',
       type: String
     },
     stripe:{
@@ -150,6 +148,10 @@ export default {
     pagination:{
       default: false,
       type: Boolean
+    },
+    currentPage: {
+      default: 1,
+      type: Number | String
     }
   },
   data:()=>({
@@ -163,8 +165,22 @@ export default {
     getTotalPages() {
       return Math.ceil(this.data.length / this.maxItems)
     },
+    getTotalPagesSearch() {
+      let dataBase = this.data
+
+      let filterx = dataBase.filter((tr)=>{
+        let values = this.getValues(tr).toString().toLowerCase()
+        return values.indexOf(this.searchx.toLowerCase()) != -1
+      })
+
+      return Math.ceil(filterx.length / this.maxItems)
+    },
     isNoData() {
-      return this.datax?this.datax.length == 0:false && this.search
+      if(typeof(this.datax) == Object) {
+        return this.datax? Object.keys(this.datax).length == 0:false && this.search
+      } else {
+        return this.datax?this.datax.length == 0:false && this.search
+      }
     },
     isCheckedLine () {
       let lengthx = this.data.length
@@ -191,6 +207,9 @@ export default {
     }
   },
   watch:{
+    currentPage() {
+      this.currentx = this.currentPage
+    },
     currentx() {
       this.loadData()
     },
@@ -198,7 +217,9 @@ export default {
       this.loadData()
     },
     data() {
-      this.loadData()
+      // console.log(this.data)
+      // this.loadData()
+      this.currentx = 1
       this.$nextTick(() => {
         if(this.datax.length > 0) {
           this.changeTdsWidth()
@@ -206,7 +227,8 @@ export default {
       })
     },
     searchx() {
-      this.filterValues()
+      this.loadData()
+      this.currentx = 1
     }
   },
   mounted () {
@@ -214,11 +236,11 @@ export default {
 
     this.loadData()
 
-    this.$nextTick(() => {
-      if(this.datax.length > 0) {
-        this.changeTdsWidth()
-      }
-    })
+    // this.$nextTick(() => {
+    //   if(this.datax.length > 0) {
+    //     this.changeTdsWidth()
+    //   }
+    // })
   },
   destroyed () {
     window.removeEventListener('resize', this.listenerChangeWidth)
@@ -227,7 +249,11 @@ export default {
     loadData() {
       let max = Math.ceil(this.currentx * this.maxItems)
       let min = max - this.maxItems
-      this.datax = this.pagination ? this.getItems(min, max) : this.data || []
+      if(!this.searchx) {
+        this.datax = this.pagination ? this.getItems(min, max) : this.data || []
+      } else {
+        this.datax = this.pagination ? this.getItemsSearch(true ,min, max) : this.getItemsSearch(false ,min, max) || []
+      }
     },
     getItems(min, max) {
       let items = []
@@ -237,6 +263,24 @@ export default {
           items.push(item)
         }
       })
+      return items
+    },
+    getItemsSearch(pagination = false,min, max) {
+      let dataBase = this.data
+
+      let filterx = dataBase.filter((tr)=>{
+        let values = this.getValues(tr).toString().toLowerCase()
+        return values.indexOf(this.searchx.toLowerCase()) != -1
+      })
+
+      let items = []
+
+      filterx.forEach((item, index) => {
+        if(index >= min && index < max) {
+          items.push(item)
+        }
+      })
+
       return items
     },
     sort(key, active) {
@@ -252,24 +296,6 @@ export default {
 
       this.datax = datax.sort(compare)
     },
-    filterValues () {
-      let dataBase = this.data
-
-      let filterx = dataBase.filter((tr)=>{
-        let values = this.getValues(tr).toString().toLowerCase()
-        return values.indexOf(this.searchx.toLowerCase()) != -1
-      })
-
-      let pagex = filterx
-
-      if (this.pagination) {
-        let max = Math.ceil(this.currentx * this.maxItems)
-        let min = max - this.maxItems
-        pagex = this.getItems(min, max)
-      }
-
-      this.datax = (this.searchx !== '') ? filterx : pagex
-    },
     getValues(obj) {
       let valuesx = Object.values(obj)
       let strings = []
@@ -282,7 +308,8 @@ export default {
           obj.forEach((item) => {
             getStrings(item)
           })
-        } else if (typeof obj == 'object') {
+
+        } else if (typeof obj == 'object' && obj != null) {
           let subObj = Object.values(obj)
           strings = [...strings,...subObj]
           getStrings(subObj)
@@ -298,7 +325,7 @@ export default {
     getStrings(obj, valuesx) {
       let stringsx = Object.values(obj)
       valuesx.forEach((item) => {
-        if (typeof item == 'object') {
+        if (item && typeof item == 'object') {
           valuesx = [...valuesx,...Object.values(item)]
         }
       })
@@ -337,6 +364,8 @@ export default {
       this.changeTdsWidth()
     },
     changeTdsWidth() {
+      if(!this.value) return
+
       let tbody = this.$refs.table.querySelector('tbody')
 
       let tds = tbody.querySelector('.tr-values').querySelectorAll('.td')

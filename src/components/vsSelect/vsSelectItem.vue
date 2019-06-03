@@ -21,11 +21,7 @@
       @keydown.down.prevent="navigateOptions('next')"
       @keydown.up.prevent="navigateOptions('prev')"
       @keydown.enter.prevent="clickOption()">
-      <i
-        v-if="$parent.parent.multiple"
-        class="material-icons icon-item vs-select--item-icon">
-        check_circle
-      </i>
+      <vs-icon v-if="$parent.parent.multiple" class="icon-item vs-select--item-icon" icon="check_circle"></vs-icon>
       <span
         v-html="getText"></span>
     </button>

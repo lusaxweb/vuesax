@@ -25,10 +25,21 @@
         @keydown.esc.stop.prevent="closeOptions"
         v-on="listeners">
 
+      <button
+        :class="{'activeBtnClear': activeBtnClear}"
+        @click="clearValue"
+        class="icon-select-clear vs-select--icon-clear">
+        <i class="material-icons">
+          close
+        </i>
+      </button>
+
       <vs-icon
+        v-if="!activeBtnClear"
         :icon-pack="iconPack"
         :icon="icon"
         class="icon-select vs-select--icon"
+        @click.once
       ></vs-icon>
 
       <transition name="fadeselect">
@@ -165,6 +176,10 @@ export default {
       default: 'keyboard_arrow_down',
       type:String
     },
+    iconClear:{
+      default: 'close',
+      type:String
+    },
     width:{
       default: null,
       type: String,
@@ -180,6 +195,9 @@ export default {
     filterx:false
   }),
   computed:{
+    activeBtnClear() {
+      return this.autocomplete && this.filterx
+    },
     getWidth() {
       return this.width ? `width:${this.width};` : null
     },
@@ -197,7 +215,7 @@ export default {
         },
         focus: (event) => {
           this.$emit('focus',event)
-          // document.removeEventListener('click',this.clickBlur)
+          //document.removeEventListener('click',this.clickBlur)
           this.focus(event)
         },
         input: (event) => {
@@ -227,6 +245,7 @@ export default {
   },
   watch:{
     value(event){
+      this.valuex = this.value;
       this.$emit('change',event)
     },
     active(){
@@ -250,7 +269,6 @@ export default {
   },
   mounted(){
     // this.$refs.inputselect.value = this.value
-    // console.log(this.$refs.inputselect.value ,'==========', this.value)
     this.changeValue()
     if (this.active) {
       utils.insertBody(this.$refs.vsSelectOptions)
@@ -271,6 +289,11 @@ export default {
     }
   },
   methods:{
+    clearValue() {
+      this.focus()
+      this.filterItems('')
+      this.changeValue()
+    },
     addMultiple(value){
       let currentValues = this.value ? this.value : [];
       if(currentValues.includes(value)){
@@ -351,6 +374,7 @@ export default {
       })
     },
     changeValue(){
+      this.filterx = false
       if(this.multiple){
         let values = this.value ? this.value : [];
         let options = this.$children
@@ -382,9 +406,9 @@ export default {
       this.active = true
       this.setLabelClass(this.$refs.inputSelectLabel, true)
       let inputx = this.$refs.inputselect
-      setTimeout( ()=> {
-        document.addEventListener('click',this.clickBlur)
-      }, 100);
+      // setTimeout( ()=> {
+      //   document.addEventListener('click',this.clickBlur)
+      // }, 100);
       if(this.autocomplete && this.multiple){
         setTimeout( ()=> {
           if(inputx.value){
@@ -412,6 +436,7 @@ export default {
     },
     clickBlur(event){
       let closestx = event.target.closest('.vs-select--options')
+
       if(!closestx){
         this.closeOptions()
         if(this.autocomplete){

@@ -1,6 +1,10 @@
 <template lang="html">
   <div>
-    <vs-table hoverFlat search :data="users">
+    <vs-button @click="users = users2">
+      click en mi
+    </vs-button>
+
+    <vs-table max-items="3" pagination hoverFlat search :data="users">
       <template slot="header">
         <h3>
           Users
@@ -42,6 +46,29 @@
 <script>
 export default {
   data:()=>({
+    users2:[
+      {
+        "id": 55,
+        "name": "Leanne Graham",
+        "username": "Bret",
+        "email": "Sincere@april.biz",
+        "website": "hildegard.org",
+      },
+      {
+        "id": 289,
+        "name": "Ervin Howell",
+        "username": "Antonette",
+        "email": "Shanna@melissa.tv",
+        "website": "anastasia.net",
+      },
+      {
+        "id": 3000,
+        "name": "Clementine Bauch",
+        "username": "Samantha",
+        "email": "Nathan@yesenia.net",
+        "website": "ramiro.info",
+      },
+    ],
     users:[
       {
         "id": 1,

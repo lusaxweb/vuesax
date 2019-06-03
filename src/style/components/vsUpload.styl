@@ -3,19 +3,25 @@
   position relative
 .con-input-upload
   background: rgb(245,245,245)
-  width: 100%;
+  width: 200px;
+  height 200px
+  box-sizing: border-box
   border-radius:8px
   position relative
-  padding: 5px;
-  transition: all .3s ease
+  // padding: 5px;
+  transition: all .25s ease
   border: 1px dashed rgba(0,0,0,.1)
   display: flex
   align-items: center
   justify-content: center
+  flex-direction: column
+  margin: 5px
+  // margin-top: 5px
+  float left
   &:hover
     border: 1px dashed getColor(primary,.5)
   &.disabled-upload
-    opacity: $vs-disabled-opacity
+    opacity: 0
     pointer-events: none
     user-select: none
   input
@@ -55,12 +61,13 @@
       transform: translate(-40px)
   &.is-ready-all-upload
     .input-progress
-      background: $vs-colors[success] !important
+      background: getColor(success, 1) !important
 
 .vs-upload--button-upload
+  position absolute
   border: 0px;
   padding: 4px;
-  border-radius: 5px;
+  border-radius: 0px 0px 5px 5px;
   padding-left: 6px;
   padding-right: 6px;
   font-size: .8rem
@@ -69,9 +76,19 @@
   margin: 0px;
   color: getColor('primary')
   transition: all .2s ease
-  box-shadow: 0px 0px 0px 0px rgba(0,0,0,.1)
+  box-shadow: 0px 0px 0px 0px rgba(0,0,0,.05)
+  background: rgba(0,0,0,.03)
+  bottom: 0px
+  width: 100%
+  &:disabled
+    opacity .4
+    pointer-events: none
   &:hover
-    box-shadow: 0px 5px 20px 0px rgba(0,0,0,.1)
+    // box-shadow: 0px 5px 20px 0px rgba(0,0,0,.1)
+    padding-bottom: 10px
+    padding-top: 10px
+    background: getColor('primary')
+    color rgb(255,255,255)
 
 .con-img-upload
   width: 100%
@@ -82,6 +99,7 @@
   padding-right: 5px;
   box-sizing: border-box
   column-gap: 5px;
+  overflow hidden
 
   .img-upload
     backface-visibility: hidden
@@ -102,12 +120,12 @@
     position relative
     cursor pointer
     &.fileError
-      border: 1px solid getColor(danger,,.2)
-      box-shadow: 0px 5px 20px 0px getColor(danger,,.2)
+      border: 1px solid getColor('danger',,.2)
+      box-shadow: 0px 5px 20px 0px getColor('danger',,.2)
       .btn-upload-file
-        background: getColor(danger,,.3) !important
+        background: getColor('danger',.3) !important
         i
-          background: $vs-colors[danger] !important
+          background: getColor('danger') !important
 
 
     &.removeItem
@@ -147,7 +165,7 @@
       transform: translate(20%,-20%)
       background: transparent
       z-index 300
-      // background-image: linear-gradient(45deg, rgba(0,0,0,0) 50%, $vs-colors[danger] 100%);
+      // background-image: linear-gradient(45deg, rgba(0,0,0,0) 50%, getColor('danger') 100%);
       // transform: rotate(45deg)
       opacity 0;
       border: 0px;
@@ -173,17 +191,17 @@
         text-shadow: 0px 3px 10px rgba(0,0,0,.5);
 
       &:hover
-        // background-image: linear-gradient(45deg, rgba(0,0,0,0) 50%, $vs-colors[danger] 90%);
+        // background-image: linear-gradient(45deg, rgba(0,0,0,0) 50%, getColor('danger') 90%);
         i
           // top: 6px;
           // right 6px;
           border-radius: 50%;
-          background: $vs-colors[danger]
+          background: getColor('danger')
         ~ .btn-upload-file:not(.on-progress)
-          background: radial-gradient(ellipse at center, $vs-colors[danger] 0%,rgba(0,0,0,0) 70%);
+          background: radial-gradient(ellipse at center, getColor(danger, 1) 0%,rgba(0,0,0,0) 70%);
           height: 300px;
           &:after
-            border: 1px solid $vs-colors[danger]
+            border: 1px solid getColor('danger')
           i
             opacity 0
         ~ .on-progress
@@ -218,7 +236,7 @@
       height: 200px;
       transform translate(-50%,80%)
       border 0px;
-      background: radial-gradient(ellipse at center, $vs-colors[success] 0%,rgba(0,0,0,0) 70%);
+      background: radial-gradient(ellipse at center, getColor(success, 1) 0%,rgba(0,0,0,0) 70%);
       cursor pointer
       transition: all .3s ease;
       animation: imageRebound .7s ease !important
@@ -233,7 +251,7 @@
         transform: translate(-50%,-50%)
         top: 50%;
         border-radius: 50%;
-        border: 1px solid $vs-colors[success]
+        border: 1px solid getColor(success, 1)
         animation: circle 1.5s ease infinite
       &:not(.on-progress):hover
         width: 200px;
@@ -241,7 +259,7 @@
         transform translate(-50%,70%)
         i
           font-size: 1.4rem
-          background: $vs-colors[success]
+          background: getColor(success, 1)
           top: 6%;
           padding: 10px;
       i
@@ -264,7 +282,7 @@
         width 100%
         height: 20px;
         background: getColor(success,,.3)
-        border-top: 1px solid $vs-colors[success]
+        border-top: 1px solid getColor(success, 1)
         bottom: 0px;
         transform translate(0)
         left: 0px;
@@ -276,7 +294,7 @@
           // opacity: 0
         i
           opacity: .2
-          background: $vs-colors[success]
+          background: getColor(success, 1)
           box-shadow: 0px 5px 17px 0px rgba(0,0,0,.150)
           top: 50%
           transform translate(-50%,-50%) scale(1.2)
@@ -297,8 +315,8 @@
           display: block
           transform: translate(0,-50%)
       &.ready-progress
-        border-top: 0px solid $vs-colors[success]
-        background: getColor(success,,.5)
+        border-top: 0px solid getColor(success, 1)
+        background: getColor(success,.5)
 
         span
           z-index 10
@@ -309,7 +327,7 @@
           opacity: 0
         i
           opacity: 1
-          background: $vs-colors[success]
+          background: getColor(success, 1)
           box-shadow: 0px 5px 17px 0px rgba(0,0,0,.150)
           top: 50%
           transform translate(-50%,-50%) scale(1)

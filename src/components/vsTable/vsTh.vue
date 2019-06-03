@@ -1,19 +1,19 @@
 <template>
-  <th 
-    class="col-0 col" 
-    colspan="1" 
+  <th
+    class="col-0 col"
+    colspan="1"
     rowspan="1">
     <div class="vs-table-text">
-      <span 
-        v-if="sortKey" 
+      <span
+        v-if="sortKey"
         class="sort-th">
-        <i 
-          class="material-icons up-sort" 
+        <i
+          class="material-icons up-sort"
           @click="sortValue(false)">
           expand_less
         </i>
-        <i 
-          class="material-icons down-sort" 
+        <i
+          class="material-icons down-sort"
           @click="sortValue(true)">
           expand_more
         </i>

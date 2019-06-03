@@ -1,6 +1,16 @@
 
 <template>
   <div class="centerx">
+    <div class="content-radius">
+      <h4>
+        Selected Color
+      </h4>
+      <vs-radio v-model="colorx" vs-value="primary">Primary</vs-radio>
+      <vs-radio v-model="colorx" color="danger" vs-value="danger">Danger</vs-radio>
+      <vs-radio v-model="colorx" color="success" vs-value="success">Success</vs-radio>
+      <vs-radio v-model="colorx" color="warning" vs-value="warning">Warning</vs-radio>
+      <vs-radio v-model="colorx" color="dark" vs-value="dark">Dark</vs-radio>
+    </div>
     <input class="input-color" v-model="colorx" type="color" name="" value="">
     <vs-navbar
       v-model="indexActive"
@@ -8,10 +18,11 @@
       text-color="rgba(255,255,255,.6)"
       active-text-color="rgba(255,255,255,1)"
       class="myNavbar">
-
-      <vs-navbar-title>
-        Navbar Color
-      </vs-navbar-title>
+      <div slot="title">
+        <vs-navbar-title>
+          Navbar Color
+        </vs-navbar-title>
+      </div>
 
       <vs-navbar-item index="0" >
         <a href="#">Home</a>
@@ -40,6 +51,11 @@ export default {
 </script>
 
 <style lang="stylus">
+.content-radius
+  display flex
+  align-items flex-start
+  flex-direction column
+  width 100%
 .input-color
   margin-bottom 10px
   position relative

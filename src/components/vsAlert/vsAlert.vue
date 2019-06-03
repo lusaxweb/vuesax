@@ -3,6 +3,7 @@
     @before-enter="beforeEnter"
     @enter="enter"
     @leave="leave">
+
     <div
       v-if="active"
       ref="alert"
@@ -50,7 +51,7 @@ export default {
   props:{
     active:{
       type:[Boolean,String],
-      default:false
+      default:true
     },
     title:{
       type:String,
@@ -97,8 +98,10 @@ export default {
     }
   },
   mounted () {
-    let h = this.$refs.alert.scrollHeight
-    this.$refs.alert.style.height = h + 'px'
+    this.$nextTick(() => {
+      let h = this.$refs.alert.scrollHeight
+      this.$refs.alert.style.height = h + 'px'
+    })
   },
   methods:{
     beforeEnter(el) {

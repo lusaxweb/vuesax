@@ -1,13 +1,13 @@
 <template lang="html">
   <div
-    :class="[`vs-tabs-${color}`,`vs-tabs-position-${vsPosition}`]"
+    :class="[`vs-tabs-${color}`,`vs-tabs-position-${position}`]"
     class="con-vs-tabs vs-tabs" >
     <div
       :style="styleTabs"
       class="con-ul-tabs">
       <ul
         ref="ul"
-        :class="[`ul-tabs-${vsAlignment}`]"
+        :class="[`ul-tabs-${alignment}`]"
         class="ul-tabs vs-tabs--ul">
         <li
           v-for="(child,index) in children"
@@ -15,15 +15,20 @@
           :class="{'activeChild':childActive == index}"
           class="vs-tabs--li"
           @mouseover="hover = true"
-          @mouseout="hover = false"
-          @click="activeChild(index)">
+          @mouseout="hover = false">
           <button
+            class="vs-tabs--btn"
             v-bind="child.attrs"
             type="button"
             :style="styleAlignIcon(child.icon)"
+            @click="activeChild(index)"
             v-on="child.listeners">
-            <vs-icon v-if="child.icon" :icon="child.icon" :color="color" style="padding-right:9px"></vs-icon>
+            <vs-icon v-if="child.icon" :icon-pack="child.iconPack" :icon="child.icon" :color="color" style="padding-right:9px"></vs-icon>
             <span>{{ child.label }}</span>
+          </button>
+
+          <button @click="clickTag(child)" v-if="child.tag" class="vs-tabs--btn-tag">
+            <vs-icon :icon-pack="child.iconPack" :icon="child.tag" :color="child.tagColor"></vs-icon>
           </button>
         </li>
       </ul>
@@ -52,11 +57,15 @@ export default {
       default:'primary',
       type: String
     },
-    vsAlignment:{
+    tagColor:{
+      default:'primary',
+      type: String
+    },
+    alignment:{
       default:'left',
       type:String,
     },
-    vsPosition:{
+    position:{
       default:'top',
       type:String
     }
@@ -103,6 +112,9 @@ export default {
     })
   },
   methods:{
+    clickTag(child) {
+      this.$emit('click-tag', child)
+    },
     styleAlignIcon(icon){
       return icon ? 'display:flex;align-items:center' : ''
     },
@@ -147,7 +159,7 @@ export default {
       this.childActive = index
       this.$emit('input', this.childActive)
 
-      if(this.vsPosition == 'left' || this.vsPosition == 'right'){
+      if(this.position == 'left' || this.position == 'right'){
         this.$children[index].vertical = true
       }
 
@@ -155,7 +167,7 @@ export default {
 
     },
     changePositionLine(elem, initialAnimation){
-      if(this.vsPosition == 'left' || this.vsPosition == 'right'){
+      if(this.position == 'left' || this.position == 'right'){
         this.topx = elem.offsetTop
         this.heightx = elem.offsetHeight
         this.widthx = 2

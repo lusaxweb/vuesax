@@ -3,9 +3,7 @@
     <vs-dropdown>
       <a class="a-icon" href.prevent>
         Dropdown Option Group
-        <i class="material-icons">
-        expand_more
-        </i>
+        <vs-icon icon="expand_more"></vs-icon>
       </a>
 
       <vs-dropdown-menu>
@@ -42,9 +40,7 @@
     <vs-dropdown  >
       <a class="a-icon" href.prevent>
         Dropdown Group Collapse
-        <i class="material-icons">
-        expand_more
-        </i>
+        <vs-icon icon="expand_more"></vs-icon>
       </a>
 
       <vs-dropdown-menu>
