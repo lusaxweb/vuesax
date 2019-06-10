@@ -58,7 +58,7 @@
             ref="thead"
             class="vs-table--thead">
             <tr>
-              <th class="td-check">
+              <th v-if="multiple || hasExpadableData" class="td-check">
                 <span
                   v-if="multiple"
                   class="con-td-check">
@@ -159,7 +159,8 @@ export default {
     trs: [],
     datax: [],
     searchx: null,
-    currentx: 1
+    currentx: 1,
+    hasExpadableData: false,
   }),
   computed:{
     getTotalPages() {
@@ -218,7 +219,7 @@ export default {
     },
     data() {
       // console.log(this.data)
-      // this.loadData()
+      this.loadData()
       this.currentx = 1
       this.$nextTick(() => {
         if(this.datax.length > 0) {
@@ -368,19 +369,23 @@ export default {
 
       let tbody = this.$refs.table.querySelector('tbody')
 
-      let tds = tbody.querySelector('.tr-values').querySelectorAll('.td')
+      // Adding condition removes querySelector none error - if tbody isnot present
+      if(tbody) {
+        let tds = tbody.querySelector('.tr-values').querySelectorAll('.td')
 
-      let tdsx = []
+        let tdsx = []
 
-      tds.forEach((td, index) => {
-        tdsx.push({index: index, widthx: td.offsetWidth})
-      });
+        tds.forEach((td, index) => {
+          tdsx.push({index: index, widthx: td.offsetWidth})
+        });
 
-      let colgrouptable = this.$refs.colgrouptable
-      let colsTable = colgrouptable.querySelectorAll('.col')
-      colsTable.forEach((col, index) => {
-        col.setAttribute('width', tdsx[index].widthx)
-      });
+        let colgrouptable = this.$refs.colgrouptable
+        let colsTable = colgrouptable.querySelectorAll('.col')
+        colsTable.forEach((col, index) => {
+          col.setAttribute('width', tdsx[index].widthx)
+        });
+      }
+
     }
   }
 }
