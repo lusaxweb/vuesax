@@ -31,6 +31,21 @@
     border-collapse: collapse
     tbody
       width: 100%
+  td
+    border: 0px
+    padding: 2px 8px
+    // border-left: 1px solid rgba(0,0,0,.04)
+    &:first-child
+      border-left: 1px solid rgba(0,0,0,.0)
+    &.td-check
+      cursor: pointer
+      padding: 5px !important
+      .con-vs-checkbox
+        margin-left: 0px !important
+        margin-right: 0px !important
+      .vs-icon
+        transition: all .25s ease
+        transform translate(7px) rotate(-90deg)
 
 .td-edit
   text-decoration: underline
@@ -161,22 +176,6 @@
   .vs-icon
     user-select: none
     transform translate(7px) rotate(0deg)
-
-td
-  border: 0px
-  padding: 2px 8px
-  // border-left: 1px solid rgba(0,0,0,.04)
-  &:first-child
-    border-left: 1px solid rgba(0,0,0,.0)
-  &.td-check
-    cursor: pointer
-    padding: 5px !important
-    .con-vs-checkbox
-      margin-left: 0px !important
-      margin-right: 0px !important
-    .vs-icon
-      transition: all .25s ease
-      transform translate(7px) rotate(-90deg)
 
 .vs-table--content
   width: 100%
