@@ -60,13 +60,8 @@ export default {
     activeEdit: false
   }),
   watch: {
-    '$parent.currentx'() {
-      if(this.expanded){
-        const tr = this.$refs.tableTr
-        tr.parentNode.removeChild(tr.nextSibling)
-        tr.classList.remove('tr-expandedx')
-        this.expanded = false
-      }
+    '$parent.datax'() {
+      this.collapseExpandedData()
     }
   },
   computed:{
@@ -149,6 +144,14 @@ export default {
       //     this.maxHeight = `${0}px`
       //   }, 50)
       // }
+    },
+    collapseExpandedData() {
+      if(this.expanded){
+        const tr = this.$refs.tableTr
+        tr.parentNode.removeChild(tr.nextSibling)
+        tr.classList.remove('tr-expandedx')
+        this.expanded = false
+      }
     }
   }
 }
