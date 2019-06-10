@@ -131,7 +131,7 @@ module.exports = {
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Documentation', link: '/development/' },
-      { text: 'Blog', link: 'https://lusaxweb.github.io/vuesax-blog/' },
+      { text: 'Blog', link: 'https://lusaxweb.github.io/vuesax-blog/articles/' },
       { text: 'Contributors', link: '/contributors/' },
       {
         text: 'Ecosystem',
