@@ -30,6 +30,10 @@ export default {
     vsCustomContent:{
       default:false,
       type:Boolean
+    },
+    vsDropRight:{
+      default:false,
+      type:Boolean
     }
   },
   data:()=>({
@@ -73,6 +77,7 @@ export default {
       })
       dropdownMenu.vsCustomContent = this.vsCustomContent
       dropdownMenu.vsTriggerClick = this.vsTriggerClick
+      dropdownMenu.vsDropRight = this.vsDropRight
       if ((this.vsTriggerClick || this.vsCustomContent) && this.vsDropdownVisible) {
         if ((evt.target !== this.$refs.dropdown &&
         evt.target.parentNode !== this.$refs.dropdown &&
@@ -117,7 +122,7 @@ export default {
         if(this.$refs.dropdown.getBoundingClientRect().left + dropdownMenu.$el.offsetWidth >= w - 25){
           this.rightx = true
         }
-        dropdownMenu.leftx = this.$refs.dropdown.getBoundingClientRect().left + this.$refs.dropdown.clientWidth
+        dropdownMenu.leftx = this.$refs.dropdown.getBoundingClientRect().left + (this.vsDropRight ? dropdownMenu.$el.clientWidth : this.$refs.dropdown.clientWidth );
       });
     },
     clickToogleMenu(evt){
