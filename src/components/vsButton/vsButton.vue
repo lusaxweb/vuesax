@@ -13,6 +13,7 @@
       'height':/[px]/.test(size)?`${size}`:null
     }]"
     class="vs-component vs-button"
+    :type="button"
     name="button"
     v-on="listeners">
     <span
@@ -113,6 +114,10 @@ export default {
     target:{
       default:false,
       type:[Boolean, String]
+    },
+    button:{
+      default:'button',
+      type:String
     }
   },
   data:()=>({

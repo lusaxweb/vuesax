@@ -220,7 +220,7 @@ export default {
     data() {
       // console.log(this.data)
       this.loadData()
-      this.currentx = 1
+      // this.currentx = 1
       this.$nextTick(() => {
         if(this.datax.length > 0) {
           this.changeTdsWidth()
