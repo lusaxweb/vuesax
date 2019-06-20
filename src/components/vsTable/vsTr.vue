@@ -12,9 +12,9 @@
         :class="[`tr-table-state-${state}`, {'is-selected':isSelected, 'selected': data, 'is-expand': maxHeight != '0px', 'activeEdit': activeEdit, 'hoverFlat': $parent.hoverFlat}]"
         class="tr-values vs-table--tr">
         <td
+          v-if="$parent.multiple || $slots.expand"
           class="td-check"
-          :class="{'active-expanded': this.expanded}"
-          @click="clicktd($event)">
+          :class="{'active-expanded': this.expanded}">
           <vs-checkbox
             v-if="$parent.multiple"
             :checked="isSelected"
@@ -60,13 +60,8 @@ export default {
     activeEdit: false
   }),
   watch: {
-    '$parent.currentx'() {
-      if(this.expanded){
-        const tr = this.$refs.tableTr
-        tr.parentNode.removeChild(tr.nextSibling)
-        tr.classList.remove('tr-expandedx')
-        this.expanded = false
-      }
+    '$parent.datax'() {
+      this.collapseExpandedData()
     }
   },
   computed:{
@@ -95,6 +90,9 @@ export default {
       }
     })
   },
+  created() {
+    if(this.$slots.expand) this.$parent.hasExpadableData = true
+  },
   methods:{
     insertAfter(e,i){
       if(e.nextSibling){
@@ -111,9 +109,7 @@ export default {
       }
     },
     clicktd (evt) {
-      if(this.$parent.multiple) {
-        return
-      }
+      if(this.$parent.multiple || !this.$slots.expand) return
       let tr = evt.target.closest('tr')
       if(this.expanded) {
         tr.parentNode.removeChild(tr.nextSibling)
@@ -148,6 +144,14 @@ export default {
       //     this.maxHeight = `${0}px`
       //   }, 50)
       // }
+    },
+    collapseExpandedData() {
+      if(this.expanded){
+        const tr = this.$refs.tableTr
+        tr.parentNode.removeChild(tr.nextSibling)
+        tr.classList.remove('tr-expandedx')
+        this.expanded = false
+      }
     }
   }
 }

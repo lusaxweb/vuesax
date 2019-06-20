@@ -8,6 +8,7 @@
         v-if="!hiddenBackground"
         class="vs-sidebar--background"></div>
       <div
+        ref="sidebarContainer"
         :class="[
           `vs-sidebar-${color}`,
           {
