@@ -94,6 +94,6 @@ Also, please check the available icons from the following.
 
 ## Lusaxweb
 
-This library was created and is supported by [Lusaxweb](https://lusaxweb.github.io)
+This library was created and is supported by [Lusaxweb](https://lusaxweb.net)
 
 </box>

@@ -89,7 +89,7 @@ module.exports = {
           { text: 'Blog', link: 'https://lusaxweb.github.io/vuesax-blog/' },
           {
             text:'Lusaxweb',
-            link:'http://www.lusaxweb.com.ve/'
+            link:'http://lusaxweb.net/'
           },
           {
             text:'Email',
@@ -161,7 +161,7 @@ module.exports = {
           {
             text: 'Contact',
             items: [
-              { text: 'Lusaxweb', link: 'http://www.lusaxweb.com.ve' },
+              { text: 'Lusaxweb', link: 'http://lusaxweb.net' },
               { text: 'Email', link: 'mailto:vuesax@gmail.com' },
               { text: 'Chat', link: 'https://gitter.im/vuesax/Lobby' },
               { text: 'Pull Request', link: 'https://github.com/lusaxweb/vuesax/pulls' },

@@ -26,7 +26,7 @@
           </a>
         </li>
         <li>
-          <a title="Lusaxweb" target="_blank" href="https://lusaxweb.com">
+          <a title="Lusaxweb" target="_blank" href="https://lusaxweb.net">
             <img :src="$withBase('/apps/lusaxweb.png')" alt="">
           </a>
         </li>

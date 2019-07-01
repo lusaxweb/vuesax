@@ -48,7 +48,7 @@ API:
 ---
 
 
-# Number Input **- update**
+# Number Input
 
 <box header>
 

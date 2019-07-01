@@ -4,7 +4,7 @@
     class="vs-component vs-con-table">
     <!-- header -->
     <header class="header-table vs-table--header">
-        <slot name="header"></slot>
+      <slot name="header"></slot>
       <div
         v-if="search"
         class="con-input-search vs-table--search">
@@ -58,7 +58,9 @@
             ref="thead"
             class="vs-table--thead">
             <tr>
-              <th v-if="multiple || hasExpadableData" class="td-check">
+              <th
+                v-if="multiple || hasExpadableData"
+                class="td-check">
                 <span
                   v-if="multiple"
                   class="con-td-check">
@@ -72,13 +74,13 @@
               <slot name="thead"></slot>
             </tr>
           </thead>
-          <colgroup ref="colgrouptable">
-            <col width="20"/>
+          <!-- <colgroup ref="colgrouptable">
+            <col v-if="multiple || hasExpadableData" width="20"/>
             <col
               v-for="(col,index) in 3"
               :key="index"
               :name="`col-${index}`" >
-          </colgroup>
+          </colgroup> -->
           <!-- <tbody ref="tbody"> -->
           <slot :data="datax"></slot>
           <!-- </tbody> -->
@@ -94,7 +96,7 @@
         v-if="pagination"
         class="con-pagination-table vs-table--pagination">
         <vs-pagination
-          :total="searchx ? getTotalPagesSearch : getTotalPages"
+          :total="searchx && !sst ? getTotalPagesSearch : getTotalPages"
           v-model="currentx"></vs-pagination>
       </div>
     </div>
@@ -152,6 +154,10 @@ export default {
     currentPage: {
       default: 1,
       type: Number | String
+    },
+    sst:{
+      default: false,
+      type: Boolean
     }
   },
   data:()=>({
@@ -212,7 +218,11 @@ export default {
       this.currentx = this.currentPage
     },
     currentx() {
-      this.loadData()
+      if(this.sst) {
+        this.$emit('change-page', this.currentx)
+      } else {
+        this.loadData()
+      }
     },
     maxItems() {
       this.loadData()
@@ -228,8 +238,12 @@ export default {
       })
     },
     searchx() {
-      this.loadData()
-      this.currentx = 1
+      if(this.sst) {
+        this.$emit('search', this.searchx)
+      } else {
+        this.loadData()
+        this.currentx = 1
+      }
     }
   },
   mounted () {
@@ -285,6 +299,10 @@ export default {
       return items
     },
     sort(key, active) {
+      if(this.sst) {
+        this.$emit('sort', key, active)
+        return
+      }
       let datax = (this.pagination) ? this.data : this.datax
 
       function compare(a,b) {
@@ -385,7 +403,6 @@ export default {
           col.setAttribute('width', tdsx[index].widthx)
         });
       }
-
     }
   }
 }
