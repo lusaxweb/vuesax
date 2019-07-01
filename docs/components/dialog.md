@@ -1,11 +1,11 @@
 ---
 API:
- - name: vs-active.sync
+ - name: active.sync
    type: Boolean
    parameters: null
    description: Define if the dialog is active (visible).
    default: false
- - name: vs-title
+ - name: title
    type: String
    parameters: null
    description: Main title of the dialog.
@@ -15,65 +15,60 @@ API:
    parameters: null
    description: Dialog color and accept buttons.
    default: primary
- - name: vs-accept
+ - name: accept
    type: function
    parameters: null
    description: function that is executed when the user approves the dialog.
    default: null
- - name: vs-cancel
+ - name: cancel
    type: function
    parameters: null
    description: Function that executes the user cancel the dialog.
    default: null
- - name: vs-close
+ - name: close
    type: function
    parameters: null
    description: function that is executed when the dialog as closed.
    default: null
- - name: vs-is-valid
+ - name: is-valid
    type: Boolean
    parameters: null
    description: Determines if it is valid to be able to accept at the prompt.
    default: null
- - name: vs-buttons-hidden
+ - name: buttons-hidden
    type: Boolean
    parameters: null
    description: Determines if the component has hidden or visible buttons.
    default: false
- - name: vs-button-accept
+ - name: button-accept
    type: type buttons
    parameters: null
    description: Change the type of botton for the accept.
    default: false
- - name: vs-button-cancel
+ - name: button-cancel
    type: type buttons
    parameters: null
    description: Change the type of botton for the cancel.
    default: filled
- - name: vs-accept-text
+ - name: accept-text
    type: String
    parameters: null
    description: Change the text of the accept button.
    default: Accept
- - name: vs-cancel-text
+ - name: cancel-text
    type: String
    parameters: null
    description: Change the text of the cancel button.
    default: Cancel
- - name: vs-icon-pack
+ - name: icon-pack
    type: String
    parameters: Icon Pack Class Name
    description: Icon Pack to be used. If not set, icon will default to Material Icons. ex. FA4 uses fa or fas, FA5 uses fas, far, or fal.
    default: material-icons
-#  - name: vs-close-icon
-#    type: String
-#    parameters: null
-#    description: Determines the close icon
-#    default: close
 
 ---
 
-# Dialogs
+# Dialogs **- update**
 
 <box header>
 
@@ -252,28 +247,37 @@ To add a dialog of type prompt we have a global function a completely independen
      <vs-button @click="activePrompt2 = true" color="primary" type="border">Run prompt inputs</vs-button>
 
      <vs-prompt
-      @vs-cancel="val=''"
-      @vs-accept="acceptAlert"
-      @vs-close="close"
-      :vs-active.sync="activePrompt">
+      @cancel="val=''"
+      @accept="acceptAlert"
+      @close="close"
+      :active.sync="activePrompt">
        <div class="con-exemple-prompt">
           Enter the security code
-         <vs-input placeholder="Code" vs-placeholder="Code" v-model="val"/>
+         <vs-input placeholder="Code" placeholder="Code" v-model="val"/>
+
+         <vs-select
+            class="selectExample"
+            label="Figuras"
+            v-model="select1"
+            >
+            <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="item,index in options1" />
+          </vs-select>
        </div>
      </vs-prompt>
 
      <vs-prompt
-      @vs-cancel="valMultipe.value1='',valMultipe.value2=''"
-      @vs-accept="acceptAlert"
-      @vs-close="close"
-      :vs-is-valid="validName"
-      :vs-active.sync="activePrompt2">
+      color="danger"
+      @cancel="valMultipe.value1='',valMultipe.value2=''"
+      @accept="acceptAlert"
+      @close="close"
+      :is-valid="validName"
+      :active.sync="activePrompt2">
        <div class="con-exemple-prompt">
        Enter your first and last name to <b>continue</b>.
          <vs-input placeholder="Name" v-model="valMultipe.value1"/>
          <vs-input placeholder="Last Name" v-model="valMultipe.value2"/>
 
-         <vs-alert :vs-active="!validName" color="danger" vs-icon="new_releases" >
+         <vs-alert :active="!validName" color="danger" icon="new_releases" >
            Fields can not be empty please enter the data
          </vs-alert>
        </div>
@@ -287,6 +291,12 @@ import Vue from 'vue'
 export default {
   data(){
     return {
+      select1:2,
+      options1:[
+        {text:'IT',value:0},
+        {text:'Blade Runner',value:2},
+        {text:'Thor Ragnarok',value:3},
+      ],
       activePrompt:false,
       activePrompt2:false,
       val:'',
@@ -328,6 +338,7 @@ export default {
     width 100%
     margin-top 10px;
 </style>
+
 
 ```
 

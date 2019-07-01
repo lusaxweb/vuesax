@@ -12,13 +12,13 @@
      <vs-button @click="activePrompt2 = true" color="primary" type="border">Run prompt inputs</vs-button>
 
      <vs-prompt
-      @vs-cancel="val=''"
-      @vs-accept="acceptAlert"
-      @vs-close="close"
-      :vs-active.sync="activePrompt">
+      @cancel="val=''"
+      @accept="acceptAlert"
+      @close="close"
+      :active.sync="activePrompt">
        <div class="con-exemple-prompt">
           Enter the security code
-         <vs-input placeholder="Code" vs-placeholder="Code" v-model="val"/>
+         <vs-input placeholder="Code" v-model="val"/>
 
          <vs-select
             class="selectExample"
@@ -31,11 +31,12 @@
      </vs-prompt>
 
      <vs-prompt
-      @vs-cancel="valMultipe.value1='',valMultipe.value2=''"
-      @vs-accept="acceptAlert"
-      @vs-close="close"
-      :vs-is-valid="validName"
-      :vs-active.sync="activePrompt2">
+      color="danger"
+      @cancel="valMultipe.value1='',valMultipe.value2=''"
+      @accept="acceptAlert"
+      @close="close"
+      :is-valid="validName"
+      :active.sync="activePrompt2">
        <div class="con-exemple-prompt">
        Enter your first and last name to <b>continue</b>.
          <vs-input placeholder="Name" v-model="valMultipe.value1"/>
