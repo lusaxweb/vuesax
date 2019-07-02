@@ -264,7 +264,8 @@ export default {
     },
     keydownLeft() {
       if (!Array.isArray(this.value)) {
-        let val = this.value - this.step;
+        let val = parseFloat(this.value) - parseFloat(this.step);
+        val = this.stepDecimals ? this.toDecimal(val) : Math.round(val);
         if (this.value == this.min) {
           val = this.min;
         }
