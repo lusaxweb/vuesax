@@ -274,13 +274,17 @@ export default {
     },
     keydownRight() {
       if (!Array.isArray(this.value)) {
-        let val = this.value + this.step;
+        let val = parseFloat(this.value) + parseFloat(this.step);
+        val = this.stepDecimals ? this.toDecimal(val) : Math.round(val);
         if (this.value >= this.max) {
           val = this.max;
         }
-        this.leftx = Math.round(val);
+        this.leftx = val;
         this.$emit("input", val);
       }
+    },
+    toDecimal(value) {
+      return parseFloat(value.toFixed(1));
     },
     changePosition() {
       if (Array.isArray(this.value)) {
