@@ -286,9 +286,6 @@ export default {
         this.$emit("input", val);
       }
     },
-    toDecimal(value) {
-      return parseFloat(value.toFixed(1));
-    },
     changePosition() {
       if (Array.isArray(this.value)) {
         this.leftx = ((this.value[1] - this.min) / (this.max - this.min)) * 100;
@@ -346,14 +343,11 @@ export default {
       setTimeout(() => {
         this.effect = false;
       }, 200);
-
-      let obtenerPorcentaje = (leftx / slider.clientWidth) * 100;
-      let porcentajex = Math.round(obtenerPorcentaje);
+      let percentX = Math.round((leftx / slider.clientWidth) * 100);
 
       if (Array.isArray(this.value)) {
         if (
-          Math.abs(porcentajex - this.leftx) >
-          Math.abs(porcentajex - this.leftTwo)
+          Math.abs(percentX - this.leftx) > Math.abs(percentX - this.leftTwo)
         ) {
           this.two = true;
         } else {
@@ -365,18 +359,14 @@ export default {
     },
     changeLeft(leftx) {
       let slider = this.$refs.slider;
-      let porcentajex = (leftx / slider.clientWidth) * 100;
-      // let val = Math.round(porcentajex / 100 * (this.max))
+      let percentX = (leftx / slider.clientWidth) * 100;
 
       const lengthPerStep = 100 / ((this.max - this.min) / this.step);
-      const steps = Math.round(porcentajex / lengthPerStep);
+      const steps = Math.round(percentX / lengthPerStep);
       let val = steps * lengthPerStep * (this.max - this.min) * 0.01 + this.min;
-      // val = Math.round(val)
-      val = this.stepDecimals ? val.toFixed(1) : Math.round(val);
+      val = this.stepDecimals ? this.toDecimal(val) : Math.round(val);
 
-      // let val = Math.round(porcentajex * (this.max - this.min) * 0.01 + this.min)
       if (this.ticks) {
-        // val =  Math.round(porcentajex / 100 * (this.max / this.step)) * this.step
         if (val > this.max) {
           val = this.max;
           this[this.two ? "leftTwo" : "leftx"] = 100;
@@ -421,6 +411,9 @@ export default {
       } else {
         this.$emit("input", val);
       }
+    },
+    toDecimal(value) {
+      return parseFloat(value.toFixed(1));
     }
   }
 };
