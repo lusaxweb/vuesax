@@ -52,7 +52,7 @@
         class="text-circle-slider vs-slider--circle-text">
         {{ valueCircle1 }}
         <span v-if="textFixed">
-          {{ textFixed }}
+         {{ textFixed }}
         </span>
         <vs-icon
           :icon-pack="iconPack"
@@ -371,9 +371,7 @@ export default {
           val = this.max;
           this[this.two ? "leftTwo" : "leftx"] = 100;
         } else {
-          this[this.two ? "leftTwo" : "leftx"] = Math.round(
-            steps * lengthPerStep
-          );
+          this[this.two ? "leftTwo" : "leftx"] = steps * lengthPerStep;
         }
       } else {
         this[this.two ? "leftTwo" : "leftx"] = Math.round(
