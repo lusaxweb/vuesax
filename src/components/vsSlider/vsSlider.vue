@@ -246,14 +246,16 @@ export default {
     mousewheelx(evt) {
       if (!Array.isArray(this.value)) {
         if (evt.wheelDelta > 0) {
-          let val = this.value + this.step;
+          let val = parseFloat(this.value) + parseFloat(this.step);
+          val = this.stepDecimals ? this.toDecimal(val) : Math.round(val);
           if (this.value >= this.max) {
             val = this.max;
           }
           this.leftx = val;
           this.$emit("input", val);
         } else {
-          let val = this.value - this.step;
+          let val = parseFloat(this.value) - parseFloat(this.step);
+          val = this.stepDecimals ? this.toDecimal(val) : Math.round(val);
           if (this.value <= this.min) {
             val = this.min;
           }
