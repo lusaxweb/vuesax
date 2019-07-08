@@ -3,8 +3,8 @@
   <div
     ref="convstooltip"
     class="con-vs-tooltip"
-    @mouseleave.stop="mouseoutx"
-    @mouseover.stop="mouseoverx">
+    @mouseleave="mouseleavex"
+    @mouseenter="mouseenterx">
     <transition name="tooltip-fade">
       <div
         v-show="activeTooltip"
@@ -78,7 +78,7 @@ export default {
     }
   },
   methods:{
-    mouseoverx(){
+    mouseenterx(){
       if(this.active) {
         this.activeTooltip = true
         this.$nextTick(()=>{
@@ -87,7 +87,7 @@ export default {
         })
       }
     },
-    mouseoutx(){
+    mouseleavex(){
       this.activeTooltip = false
       if(this.$refs.vstooltip) {
         utils.removeBody(this.$refs.vstooltip)
