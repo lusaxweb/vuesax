@@ -121,6 +121,9 @@ export default {
     total() {
       this.getPages()
     },
+    max() {
+      this.getPages()
+    },
     value(val) {
         const pageNum = val < 1 ? 1 : (val <= this.total ? val : this.total)
         this.goTo(pageNum)
