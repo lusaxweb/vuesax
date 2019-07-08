@@ -5,6 +5,11 @@ API:
    parameters: null
    description: Radius value.
    default: null
+ - name: vs-name
+   type: String
+   parameters: null
+   description: Radius name.
+   default: null  
  - name: color
    type: String
    parameters: primary,success,danger,warning,dark,RGB,HEX
@@ -32,6 +37,8 @@ API:
 
 To implement a radio button you just add the `vs-radio` component and add a `v-model`.
 
+You can give a name to a radio button with `vs-name`
+
 :::warning
 The **Radio Button** is always going to replace the current value.
 :::
@@ -49,16 +56,16 @@ The **Radio Button** is always going to replace the current value.
       {{radios1}}
     </li>
     <li>
-      <vs-radio v-model="radios1" vs-value="luis">Luis</vs-radio>
+      <vs-radio v-model="radios1" vs-name="radios1" vs-value="luis">Luis</vs-radio>
     </li>
     <li>
-      <vs-radio v-model="radios1" vs-value="carols">Carols</vs-radio>
+      <vs-radio v-model="radios1" vs-name="radios1" vs-value="carols">Carols</vs-radio>
     </li>
     <li>
-      <vs-radio v-model="radios1" vs-value="summer">Summer</vs-radio>
+      <vs-radio v-model="radios1" vs-name="radios1" vs-value="summer">Summer</vs-radio>
     </li>
     <li>
-      <vs-radio disabled="true" v-model="radios1" vs-value="lyon">Lyon - disabled</vs-radio>
+      <vs-radio disabled="true" v-model="radios1" vs-name="radios1" vs-value="lyon">Lyon - disabled</vs-radio>
     </li>
   </ul>
 </template>
