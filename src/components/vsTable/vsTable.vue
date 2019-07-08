@@ -389,7 +389,9 @@ export default {
 
       // Adding condition removes querySelector none error - if tbody isnot present
       if(tbody) {
-        let tds = tbody.querySelector('.tr-values').querySelectorAll('.td')
+        let trvs = tbody.querySelector('.tr-values')
+        if (trvs === undefined) return
+        let tds = trvs.querySelectorAll('.td')
 
         let tdsx = []
 
