@@ -137,6 +137,7 @@ Recent versions of **Firefox**, **Chrome**, **Edge**, **Opera** and **Safari**. 
 ``` bash
 # npm
 npm install vuesax
+npm install stylus stylus-loader
 ```
 
 ``` bash
