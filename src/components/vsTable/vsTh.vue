@@ -2,23 +2,18 @@
   <th
     class="col-0 col"
     colspan="1"
-    rowspan="1">
+    rowspan="1"
+    @click="sortValue()">
     <div class="vs-table-text">
-      <span
-        v-if="sortKey"
-        class="sort-th">
-        <i
-          class="material-icons up-sort"
-          @click="sortValue(false)">
-          expand_less
-        </i>
-        <i
-          class="material-icons down-sort"
-          @click="sortValue(true)">
-          expand_more
-        </i>
-      </span>
       <slot></slot>
+      <span
+        v-if="isColumnSelectedForSort && currentSort != 0"
+        class="sort-th">
+        <vs-icon
+          :icon="currentSort == 1 ? 'expand_less' : 'expand_more'"
+          class="th-sort-icon">
+        </vs-icon>
+      </span>
     </div>
   </th>
 </template>
@@ -34,19 +29,39 @@ export default {
   data: () => ({
     thIndex:0,
     thwidth: '100%',
-    sortActive: false
+    currentSort: 0,
+    sortStatuses: [
+      null,
+      'asc',
+      'desc'
+    ]
   }),
   computed: {
     styleth () {
       return {
         width: this.thwidth
       }
+    },
+    isColumnSelectedForSort() {
+      if(!this.sortKey) {
+        return false;
+      }
+      if(this.$parent.currentSortKey != this.sortKey) {
+        this.resetSort();
+      }
+      return this.$parent.currentSortKey == this.sortKey;
+    },
+    parentSortStatus() {
+      return this.$parent.currentSortType;
     }
   },
   methods:{
-    sortValue (direction) {
-      this.$parent.sort(this.sortKey, direction)
-      this.sortActive = direction
+    sortValue () {
+      this.currentSort = this.currentSort !== 2 ? this.currentSort + 1 : 0;
+      this.$parent.sort(this.sortKey, this.sortStatuses[this.currentSort]);
+    },
+    resetSort() {
+      this.currentSort = 0;
     }
   }
 
