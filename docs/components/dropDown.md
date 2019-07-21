@@ -40,6 +40,11 @@ API:
    parameters: Icon Pack Class Name
    description: Icon Pack to be used. If not set, icon will default to Material Icons. ex. FA4 uses fa or fas, FA5 uses fas, far, or fal.
    default: material-icons
+ - name: vs-dropdown-visible.sync
+   type: Boolean
+   parameters: null
+   description: Define if the dropdown is active (visible).
+   default: false
 ---
 
 # DropDown
