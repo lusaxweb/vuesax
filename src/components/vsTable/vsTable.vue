@@ -65,7 +65,7 @@
 
 <script>
 export default {
-  name: "VxTable",
+  name: "VsTable",
   props:{
     value:{},
     color: {
