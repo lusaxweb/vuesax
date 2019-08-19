@@ -20,6 +20,7 @@
         ref="inputselect"
         v-bind="$attrs"
         :readonly="!autocomplete"
+        autocomplete="off"
         class="input-select vs-select--input"
         type="text"
         @click.stop
@@ -375,10 +376,6 @@
         } else {
           this.clear = false
         }
-
-        this.$nextTick(() => {
-          this.cords = this.changePosition()
-        })
       },
       changeValue() {
         this.filterx = false
@@ -436,6 +433,7 @@
         }
 
         this.$nextTick(() => {
+          console.log('focus next tick...') // eslint-disable-line
           this.cords = this.changePosition()
         })
       },
@@ -461,9 +459,11 @@
         let topx = 0
         let leftx = 0
         let widthx = 0
-        let scrollTopx = window.pageYOffset || document.documentElement.scrollTop;
+        let scrollTopx = window.pageYOffset || document.documentElement.scrollTop
+
         if (elx.getBoundingClientRect().top + content.scrollHeight + 20 >= window.innerHeight) {
           topx = (elx.getBoundingClientRect().top + elx.clientHeight) + scrollTopx - content.scrollHeight
+
           if (conditional) {
             topx = topx - elx.clientHeight - 5
           }
@@ -473,6 +473,8 @@
 
         leftx = elx.getBoundingClientRect().left
         widthx = elx.offsetWidth
+
+        console.log(leftx) // eslint-disable-line
 
         let cords = {
           left: `${leftx}px`,
