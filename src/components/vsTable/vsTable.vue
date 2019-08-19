@@ -360,6 +360,13 @@ export default {
         this.$emit('selected', tr)
       }
     },
+    dblclicktr (tr, isTr) {
+
+      if (isTr) {
+        this.$emit('dblSelection',tr)
+      }
+
+    },
     listenerChangeWidth () {
       this.headerWidth = `${this.$refs.table.offsetWidth}px`
       this.changeTdsWidth()

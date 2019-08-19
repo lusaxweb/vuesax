@@ -3,6 +3,7 @@
     <vs-table
       v-model="selected"
       @selected="handleSelected"
+      @dblSelection="doubleSelection"
       :data="users">
       <template slot="header">
         <h3>
@@ -131,6 +132,13 @@ export default {
       this.$vs.notify({
         title:`Selected ${tr.username}`,
         text:`Email: ${tr.email}`
+      })
+    },
+    doubleSelection(tr) {
+      this.$vs.notify({
+        title:`Double Selection ${tr.username}`,
+        text:`Email: ${tr.email}`,
+        color: 'success'
       })
     }
   }

@@ -696,7 +696,7 @@ export default {
 You can add the functionality of select a specific **tr** to do this add the property `data` with the value to be selected, it is usually the triterated
 
 :::tip
-  if you need to execute a certain function to select the user, we have the property `@selected`, as the first parameter the data is returned
+  if you need to execute a certain function to select the user, we have the property `@selected` and `@dblSelection`, as the first parameter the data is returned,one with one click and the other with double click.
 :::
 
 <vuecode md>
@@ -711,6 +711,7 @@ You can add the functionality of select a specific **tr** to do this add the pro
     <vs-table
       v-model="selected"
       @selected="handleSelected"
+      @dblSelection="doubleSelection"
       :data="users">
       <template slot="header">
         <h3>
@@ -839,6 +840,13 @@ export default {
       this.$vs.notify({
         title:`Selected ${tr.username}`,
         text:`Email: ${tr.email}`
+      })
+    },
+    doubleSelection(tr) {
+      this.$vs.notify({
+        title:`Double Selection ${tr.username}`,
+        text:`Email: ${tr.email}`,
+        color: 'success'
       })
     }
   }
