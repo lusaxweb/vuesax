@@ -198,8 +198,10 @@ export default {
     },
   },
 
-  mounted () {
+  async mounted () {
     this.current = this.go = this.value
+    await this.calculateMinMax(this.current)
+    this.indexRows = this.descriptionItems.indexOf(this.maxItems)
     this.getPages()
   },
 
@@ -207,10 +209,10 @@ export default {
     async changeRowMaxItems (index) {
       this.indexRows = index
       await this.$emit('changeMaxItems', index)
-      this.calculateMinMax(this.current)
+      await this.calculateMinMax(this.current)
       this.current = 1
     },
-    calculateMinMax (val) {
+    async calculateMinMax (val) {
       this.maxRows = ( (val * this.maxItems) <= this.sizeArray ) ? val * this.maxItems : this.sizeArray
       this.minRows = ( (val * this.maxItems) <= this.sizeArray ) ? (this.maxRows - this.maxItems) + 1 : ((this.current - 1) * this.maxItems) + 1
     },
