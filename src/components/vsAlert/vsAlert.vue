@@ -98,10 +98,13 @@ export default {
     }
   },
   mounted () {
-    this.$nextTick(() => {
-      let h = this.$refs.alert.scrollHeight
-      this.$refs.alert.style.height = h + 'px'
-    })
+    if(this.$refs.alert) {
+      this.$nextTick(() => {
+        let h = this.$refs.alert.scrollHeight
+        this.$refs.alert.style.height = h + 'px'
+      })
+    }
+
   },
   methods:{
     beforeEnter(el) {

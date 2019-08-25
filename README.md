@@ -173,7 +173,7 @@ Please make sure to read the [Contributing Guide](https://raw.githubusercontent.
 
 ## Lusaxweb
 
-This library was created and is supported by [Lusaxweb](http://www.lusaxweb.com.ve/)
+This library was created and is supported by [Lusaxweb](http://lusaxweb.net/)
 
 ## License
 

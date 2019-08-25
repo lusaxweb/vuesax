@@ -4,7 +4,7 @@
     class="vs-component vs-con-table">
     <!-- header -->
     <header class="header-table vs-table--header">
-        <slot name="header"></slot>
+      <slot name="header"></slot>
       <div
         v-if="search"
         class="con-input-search vs-table--search">
@@ -58,11 +58,14 @@
             ref="thead"
             class="vs-table--thead">
             <tr>
-              <th v-if="multiple || hasExpadableData" class="td-check">
+              <th
+                v-if="multiple || hasExpadableData"
+                class="td-check">
                 <span
                   v-if="multiple"
                   class="con-td-check">
                   <vs-checkbox
+                    :key="isCheckedLine ? 'remove' : 'check'"
                     :icon="isCheckedLine ? 'remove' : 'check'"
                     :checked="isCheckedMultiple"
                     size="small"
@@ -72,13 +75,13 @@
               <slot name="thead"></slot>
             </tr>
           </thead>
-          <colgroup ref="colgrouptable">
-            <col width="20"/>
+          <!-- <colgroup ref="colgrouptable">
+            <col v-if="multiple || hasExpadableData" width="20"/>
             <col
               v-for="(col,index) in 3"
               :key="index"
               :name="`col-${index}`" >
-          </colgroup>
+          </colgroup> -->
           <!-- <tbody ref="tbody"> -->
           <slot :data="datax"></slot>
           <!-- </tbody> -->
@@ -94,7 +97,7 @@
         v-if="pagination"
         class="con-pagination-table vs-table--pagination">
         <vs-pagination
-          :total="searchx ? getTotalPagesSearch : getTotalPages"
+          :total="searchx && !sst ? getTotalPagesSearch : getTotalPages"
           :sizeArray="data.length"
           :maxItems="maxItemsx"
           :description="description"
@@ -165,6 +168,10 @@ export default {
     currentPage: {
       default: 1,
       type: Number | String
+    },
+    sst:{
+      default: false,
+      type: Boolean
     }
   },
   data:()=>({
@@ -226,7 +233,11 @@ export default {
       this.currentx = this.currentPage
     },
     currentx() {
-      this.loadData()
+      if(this.sst) {
+        this.$emit('change-page', this.currentx)
+      } else {
+        this.loadData()
+      }
     },
     maxItems(val) {
       this.maxItemsx = val
@@ -246,8 +257,12 @@ export default {
       })
     },
     searchx() {
-      this.loadData()
-      this.currentx = 1
+      if(this.sst) {
+        this.$emit('search', this.searchx)
+      } else {
+        this.loadData()
+        this.currentx = 1
+      }
     }
   },
   mounted () {
@@ -268,7 +283,7 @@ export default {
     loadData() {
       let max = Math.ceil(this.currentx * this.maxItemsx)
       let min = max - this.maxItemsx
-      if(!this.searchx) {
+      if(!this.searchx || this.sst) {
         this.datax = this.pagination ? this.getItems(min, max) : this.data || []
       } else {
         this.datax = this.pagination ? this.getItemsSearch(true ,min, max) : this.getItemsSearch(false ,min, max) || []
@@ -303,6 +318,10 @@ export default {
       return items
     },
     sort(key, active) {
+      if(this.sst) {
+        this.$emit('sort', key, active)
+        return
+      }
       let datax = (this.pagination) ? this.data : this.datax
 
       function compare(a,b) {
@@ -396,7 +415,9 @@ export default {
 
       // Adding condition removes querySelector none error - if tbody isnot present
       if(tbody) {
-        let tds = tbody.querySelector('.tr-values').querySelectorAll('.td')
+        let trvs = tbody.querySelector('.tr-values')
+        if (trvs === undefined) return
+        let tds = trvs.querySelectorAll('.td')
 
         let tdsx = []
 
@@ -410,7 +431,6 @@ export default {
           col.setAttribute('width', tdsx[index].widthx)
         });
       }
-
     },
     changeMaxItems (index) {
       this.maxItemsx = this.descriptionItems[index]

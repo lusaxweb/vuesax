@@ -62,7 +62,7 @@ API:
    default: null
 ---
 
-# Tabs **- update**
+# Tabs
 
 <box header>
 

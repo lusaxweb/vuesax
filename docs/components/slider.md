@@ -130,7 +130,7 @@ export default {
 
 ## Ticks
 
-With Ticks you can allow the user to select a value inside a range of allowed values. With the property **step** you can change the distance between each Tick.
+With Ticks you can allow the user to select a value inside a range of allowed values. With the property **step** you can change the distance between each Tick. If you want decimal steps, just set the property **step-decimals** to true.
 
 <vuecode md>
 <div slot="demo">
@@ -143,6 +143,7 @@ With Ticks you can allow the user to select a value inside a range of allowed va
   <div class="">
     <vs-slider step=10 v-model="value1"/>
     <vs-slider ticks step=25 v-model="value2"/>
+    <vs-slider ticks step=0.5 :step-decimals="true" v-model="value3"/>
   </div>
 </template>
 
@@ -151,7 +152,8 @@ export default {
   data(){
     return {
       value1:60,
-      value2:25
+      value2:25,
+      value3: 25.5
     }
   }
 }

@@ -1,9 +1,10 @@
 export default {
-  insertBody(elx){
-    document.body.insertBefore(elx, document.body.firstChild)
+  insertBody(elx, parent){
+    let bodyx = parent ? parent : document.body
+    bodyx.insertBefore(elx, bodyx.firstChild)
   },
-  removeBody(element) {
-    let bodyx = document.body
+  removeBody(element, parent) {
+    let bodyx = parent ? parent : document.body
     bodyx.removeChild(element);
   },
   changePosition(elx,content,conditional){

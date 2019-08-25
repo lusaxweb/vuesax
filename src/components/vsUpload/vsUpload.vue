@@ -17,6 +17,7 @@
           class="img-upload">
           <button
             class="btn-x-file"
+            type="button"
             @click="removeFile(index)">
             <i
               translate="no"
