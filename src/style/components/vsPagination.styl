@@ -22,6 +22,18 @@
   padding-left: 5px
   padding-right: 5px
 
+.vs-pagination--array
+  display: inline-block
+  padding: 0
+  li
+    display: inline-block
+
+.vs-pagination--mb
+  margin-bottom: 5px
+
+.vs-pagination--bold
+  font-weight: bold
+
 .vs-pagination--li
   cursor pointer
   width: 35px
@@ -108,3 +120,8 @@ for colorx, i in $vs-colors
     .vs-pagination--buttons
       &:hover
         background: getColor(colorx, 1) !important
+
+for colorx, i in $vs-colors
+  .vs-description-{colorx}
+    color: getColor(colorx, 1) !important
+

@@ -95,6 +95,11 @@
         class="con-pagination-table vs-table--pagination">
         <vs-pagination
           :total="searchx ? getTotalPagesSearch : getTotalPages"
+          :sizeArray="data.length"
+          :maxItems="maxItemsx"
+          :description="description"
+          :descriptionItems="descriptionItems"
+          @changeMaxItems="changeMaxItems"
           v-model="currentx"></vs-pagination>
       </div>
     </div>
@@ -149,6 +154,14 @@ export default {
       default: false,
       type: Boolean
     },
+    description:{
+      default: false,
+      type: Boolean
+    },
+    descriptionItems:{
+      default: () => [],
+      type: Array
+    },
     currentPage: {
       default: 1,
       type: Number | String
@@ -160,11 +173,12 @@ export default {
     datax: [],
     searchx: null,
     currentx: 1,
+    maxItemsx: 5,
     hasExpadableData: false,
   }),
   computed:{
     getTotalPages() {
-      return Math.ceil(this.data.length / this.maxItems)
+      return Math.ceil(this.data.length / this.maxItemsx)
     },
     getTotalPagesSearch() {
       let dataBase = this.data
@@ -174,7 +188,7 @@ export default {
         return values.indexOf(this.searchx.toLowerCase()) != -1
       })
 
-      return Math.ceil(filterx.length / this.maxItems)
+      return Math.ceil(filterx.length / this.maxItemsx)
     },
     isNoData() {
       if(typeof(this.datax) == Object) {
@@ -205,7 +219,7 @@ export default {
       return {
         width: this.headerWidth
       }
-    }
+    },
   },
   watch:{
     currentPage() {
@@ -214,7 +228,11 @@ export default {
     currentx() {
       this.loadData()
     },
-    maxItems() {
+    maxItems(val) {
+      this.maxItemsx = val
+      this.loadData()
+    },
+    maxItemsx() {
       this.loadData()
     },
     data() {
@@ -234,7 +252,7 @@ export default {
   },
   mounted () {
     window.addEventListener('resize', this.listenerChangeWidth)
-
+    this.maxItemsx = this.maxItems
     this.loadData()
 
     // this.$nextTick(() => {
@@ -248,8 +266,8 @@ export default {
   },
   methods:{
     loadData() {
-      let max = Math.ceil(this.currentx * this.maxItems)
-      let min = max - this.maxItems
+      let max = Math.ceil(this.currentx * this.maxItemsx)
+      let min = max - this.maxItemsx
       if(!this.searchx) {
         this.datax = this.pagination ? this.getItems(min, max) : this.data || []
       } else {
@@ -393,6 +411,9 @@ export default {
         });
       }
 
+    },
+    changeMaxItems (index) {
+      this.maxItemsx = this.descriptionItems[index]
     }
   }
 }
