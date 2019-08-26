@@ -16,9 +16,31 @@ const install = (Vue, options) => {
         }
       }
     }
+    /** 
+     * $vuesaxRTL is the global rtl identifier 
+     * if it is true, a 'vuesax-rtl' calss will be injected in the html tag 
+     */ 
+    if (options.hasOwnProperty('rtl')) {
+      Object.defineProperty(Vue.prototype, '$vuesaxRTL', { 
+      get() { 
+        return options.rtl 
+      },
+      set(newVal) { 
+        options.rtl = newVal;
+        if (options.rtl) {
+          document.documentElement.classList.remove('vuesax-app-is-ltr');
+          document.documentElement.classList.add('vuesax-app-is-rtl');
+        }else {
+          document.documentElement.classList.add('vuesax-app-is-ltr');
+          document.documentElement.classList.remove('vuesax-app-is-rtl');
+        }
+      } 
+    }); 
+    Vue.prototype.$vuesaxRTL = options.rtl;
   }
 
   vsFunctions(Vue)
+  } 
 }
 
 if (typeof window !== 'undefined' && window.Vue) {

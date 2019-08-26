@@ -6,3 +6,17 @@ getColor(colorx, alpha = 1)
 
 getVar(var)
     unquote("var(--vs-"+var+")")
+
+
+// Rtl Mixins
+propWithDir(prop, value)
+  .vuesax-app-is-rtl &
+    {prop}-right: value
+  .vuesax-app-is-ltr &
+    {prop}-left: value
+dirValue(prop)
+  .vuesax-app-is-rtl &
+    {prop}: right
+  .vuesax-app-is-ltr &
+    {prop}: left
+
