@@ -179,22 +179,26 @@ export default {
   methods:{
     plus(){
       let newValue
-      if(!this.value){
+      if(this.value === ''){
         newValue = 0
-      }
-      if(this.max?parseFloat(this.value)<parseFloat(this.max):true){
-        newValue = parseFloat(this.value) + parseFloat(this.step)
         this.$emit('input',newValue)
+      } else  {
+        if(this.max?parseFloat(this.value)<parseFloat(this.max):true){
+          newValue = parseFloat(this.value) + parseFloat(this.step)
+          this.$emit('input',newValue)
+        }
       }
     },
     less(){
       let newValue
-      if(!this.value){
+      if(this.value === ''){
         newValue = 0
-      }
-      if(this.min?parseFloat(this.value)>parseFloat(this.min):true){
-        newValue = parseFloat(this.value) - parseFloat(this.step)
         this.$emit('input',newValue)
+      } else  {
+        if(this.min?parseFloat(this.value)>parseFloat(this.min):true){
+          newValue = parseFloat(this.value) - parseFloat(this.step)
+          this.$emit('input',newValue)
+        }
       }
     },
   }
