@@ -400,11 +400,15 @@ export default {
           tdsx.push({index: index, widthx: td.offsetWidth})
         });
 
-        let colgrouptable = this.$refs.colgrouptable
-        let colsTable = colgrouptable.querySelectorAll('.col')
-        colsTable.forEach((col, index) => {
-          col.setAttribute('width', tdsx[index].widthx)
-        });
+        /*
+          "colgrouptable" ref is commented in template code above. Which gives console error in below code.
+          Commented code for later use by other devs.
+        */
+        // let colgrouptable = this.$refs.colgrouptable
+        // let colsTable = colgrouptable.querySelectorAll('.col')
+        // colsTable.forEach((col, index) => {
+        //   col.setAttribute('width', tdsx[index].widthx)
+        // });
       }
     }
   }
