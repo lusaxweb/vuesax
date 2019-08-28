@@ -2,12 +2,16 @@ import * as vsComponents from './components'
 import vsFunctions from './functions'
 import './style/vuesax.styl'
 import vsTheme from './utils/theme.js'
+import { injectDirectionClass } from './utils/rtl';
+import Override from './override';
 
 const install = (Vue, options) => {
+  // Define Vuesax main identifier
+  Vue.prototype.$vs = {}
+  // Use Components
   Object.values(vsComponents).forEach((vsComponent) => {
     Vue.use(vsComponent)
   })
-
   if(options){
     if(options.hasOwnProperty('theme')){
       if(options.theme.hasOwnProperty('colors')){
@@ -16,31 +20,14 @@ const install = (Vue, options) => {
         }
       }
     }
-    /** 
-     * $vuesaxRTL is the global rtl identifier 
-     * if it is true, a 'vuesax-rtl' calss will be injected in the html tag 
-     */ 
+    // if rtl option passed, inject the appropriate class
     if (options.hasOwnProperty('rtl')) {
-      Object.defineProperty(Vue.prototype, '$vuesaxRTL', { 
-      get() { 
-        return options.rtl 
-      },
-      set(newVal) { 
-        options.rtl = newVal;
-        if (options.rtl) {
-          document.documentElement.classList.remove('vuesax-app-is-ltr');
-          document.documentElement.classList.add('vuesax-app-is-rtl');
-        }else {
-          document.documentElement.classList.add('vuesax-app-is-ltr');
-          document.documentElement.classList.remove('vuesax-app-is-rtl');
-        }
-      } 
-    }); 
-    Vue.prototype.$vuesaxRTL = options.rtl;
-  }
-
-  vsFunctions(Vue)
+      injectDirectionClass(options.rtl);
+    }
   } 
+  // Override the the Vue._init function
+  Override(Vue, options);
+  vsFunctions(Vue)
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
