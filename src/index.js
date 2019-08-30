@@ -19,6 +19,12 @@ const install = (Vue, options) => {
   }
 
   vsFunctions(Vue)
+
+  window.addEventListener('scroll', () => {
+    document.querySelectorAll('*[class*="vx-"]').forEach((item) => {
+      item.parentElement.removeChild(item)
+    })
+  })
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
