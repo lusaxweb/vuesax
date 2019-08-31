@@ -18,7 +18,7 @@
             <span
               :style="styleAfter"
               class="after"/>
-            <h3>{{ title }} </h3>
+            <h3 class="dialog-title">{{ title }} </h3>
           </div>
           <vs-icon
             v-if="type=='alert'"
