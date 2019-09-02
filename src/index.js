@@ -2,7 +2,6 @@ import * as vsComponents from './components'
 import vsFunctions from './functions'
 import './style/vuesax.styl'
 import vsTheme from './utils/theme.js'
-import { injectDirectionClass } from './utils/rtl';
 import Override from './override';
 
 const install = (Vue, options) => {
@@ -19,10 +18,6 @@ const install = (Vue, options) => {
           vsTheme.vsfunction(options.theme.colors, options.server)
         }
       }
-    }
-    // if rtl option passed, inject the appropriate class
-    if (options.hasOwnProperty('rtl')) {
-      injectDirectionClass(options.rtl);
     }
   } 
   // Override the the Vue._init function

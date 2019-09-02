@@ -11,9 +11,7 @@ export default ({
   siteData
 }) => {
   // ...apply enhancements to the app
-  Vue.use(Vuesax, {
-    rtl: true
-  })
+  Vue.use(Vuesax)
   Vue.use(Vuecode,{
     theme:'flat'
   })

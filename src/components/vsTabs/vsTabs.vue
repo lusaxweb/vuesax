@@ -23,7 +23,7 @@
             :style="styleAlignIcon(child.icon)"
             @click="activeChild(index)"
             v-on="child.listeners">
-            <vs-icon v-if="child.icon" :icon-pack="child.iconPack" :icon="child.icon" :color="color" style="padding-right:9px"></vs-icon>
+            <vs-icon v-if="child.icon" :icon-pack="child.iconPack" :icon="child.icon" :color="color" class="vs-tabs--btn-icon"></vs-icon>
             <span>{{ child.label }}</span>
           </button>
 
