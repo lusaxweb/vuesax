@@ -14,7 +14,7 @@ export const injectDirectionClass = (dir) => {
 }
 export const DefineRTL = (Vue, options, vm) => {
   // if rtl option passed, inject the appropriate class
-  if (options.rtl) {
+  if (options.hasOwnProperty('rtl')) {
     injectDirectionClass(options.rtl);
   }
   // Define reactive $vs.rtl property
