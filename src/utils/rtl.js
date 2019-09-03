@@ -13,19 +13,21 @@ export const injectDirectionClass = (dir) => {
   }
 }
 export const DefineRTL = (Vue, options, vm) => {
-  // if rtl option passed, inject the appropriate class
-  if (options.rtl) {
-    injectDirectionClass(options.rtl);
-  }
-  // Define reactive $vs.rtl property
-  Vue.util.defineReactive(vm.$vs, 'rtl', options.rtl, () => {
-    vm.$nextTick(() => {
-      if (options.rtl !== vm.$vs.rtl) {
-        options.rtl = vm.$vs.rtl;
-        // if value change
-        injectDirectionClass(vm.$vs.rtl);
-      }
-    })
+  if(options) {
+    // if rtl option passed, inject the appropriate class
+    if (options.rtl) {
+      injectDirectionClass(options.rtl);
+    }
+    // Define reactive $vs.rtl property
+    Vue.util.defineReactive(vm.$vs, 'rtl', options.rtl, () => {
+      vm.$nextTick(() => {
+        if (options.rtl !== vm.$vs.rtl) {
+          options.rtl = vm.$vs.rtl;
+          // if value change
+          injectDirectionClass(vm.$vs.rtl);
+        }
+      })
 
-  })
+    })
+  }
 }
