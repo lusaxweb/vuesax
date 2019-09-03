@@ -4,7 +4,7 @@ import './style/vuesax.styl'
 import vsTheme from './utils/theme.js'
 import Override from './override';
 
-const install = (Vue, options) => {
+const install = (Vue, options={}) => {
   // Define Vuesax main identifier
   Vue.prototype.$vs = {}
   // Use Components
