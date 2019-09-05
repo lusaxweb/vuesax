@@ -174,14 +174,7 @@ export default {
       return Math.ceil(this.data.length / this.maxItems)
     },
     getTotalPagesSearch() {
-      let dataBase = this.data
-
-      let filterx = dataBase.filter((tr)=>{
-        let values = this.getValues(tr).toString().toLowerCase()
-        return values.indexOf(this.searchx.toLowerCase()) != -1
-      })
-
-      return Math.ceil(filterx.length / this.maxItems)
+      return Math.ceil(this.queriedResults.length / this.maxItems)
     },
     isNoData() {
       if(typeof(this.datax) == Object) {
@@ -212,6 +205,19 @@ export default {
       return {
         width: this.headerWidth
       }
+    },
+    queriedResults() {
+      let queriedResults = this.data
+
+      if(this.searchx && this.search) {
+        let dataBase = this.data
+        queriedResults = dataBase.filter((tr)=>{
+          let values = this.getValues(tr).toString().toLowerCase()
+          return values.indexOf(this.searchx.toLowerCase()) != -1
+        })
+      }
+
+      return queriedResults
     }
   },
   watch:{
@@ -400,11 +406,15 @@ export default {
           tdsx.push({index: index, widthx: td.offsetWidth})
         });
 
-        let colgrouptable = this.$refs.colgrouptable
-        let colsTable = colgrouptable.querySelectorAll('.col')
-        colsTable.forEach((col, index) => {
-          col.setAttribute('width', tdsx[index].widthx)
-        });
+        /*
+          "colgrouptable" ref is commented in template code above. Which gives console error in below code.
+          Commented code for later use by other devs.
+        */
+        // let colgrouptable = this.$refs.colgrouptable
+        // let colsTable = colgrouptable.querySelectorAll('.col')
+        // colsTable.forEach((col, index) => {
+        //   col.setAttribute('width', tdsx[index].widthx)
+        // });
       }
     }
   }
