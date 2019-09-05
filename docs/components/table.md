@@ -85,6 +85,11 @@ API:
    parameters: null
    description: Change the text of the notification when there is no data in the table.
    default: null
+ - name: total (total items if sst)
+   type: Number
+   parameters: null
+   description: Total number of items if the data is being loaded through sst (server-site table)
+   default: 0
  - name: sst (server-site table)
    type: Boolean
    parameters: null
@@ -1677,6 +1682,7 @@ The table stops doing its functionalities on the client side and proceeds to iss
       @change-page="handleChangePage"
       @sort="handleSort"
       v-model="selected"
+      :total="totalItems"
       pagination
       max-items="3"
       search
@@ -1730,6 +1736,7 @@ The table stops doing its functionalities on the client side and proceeds to iss
 export default {
   data:()=>({
     selected:[],
+    totalItems:10,
     users:[
       {
         "id": 1,
