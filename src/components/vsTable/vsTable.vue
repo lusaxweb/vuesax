@@ -1,6 +1,6 @@
-<template lang="html">
+<template>
   <div
-    :class="[{'stripe': stripe, 'hoverFlat': hoverFlat}, `vs-table-${color}`,]"
+    :class="[{'stripe': stripe, 'hoverFlat': hoverFlat}, `vs-table-${color}`]"
     class="vs-component vs-con-table">
     <!-- header -->
     <header class="header-table vs-table--header">
@@ -16,38 +16,6 @@
       </div>
     </header>
     <div class="con-tablex vs-table--content">
-
-      <!-- <div class="vs-con-table-theade vs-table--thead">
-        <table
-          :style="tableHeaderStyle"
-          class="vs-table--thead-table">
-          <colgroup ref="colgroup">
-            <col width="20"/>
-            <col
-              v-for="(col,index) in getThs"
-              :key="index"
-              :name="`col-${index}`"
-              class="colx">
-          </colgroup>
-          <thead ref="thead">
-            <tr>
-              <th class="td-check">
-                <span
-                  v-if="multiple"
-                  class="con-td-check">
-                  <vs-checkbox
-                    :icon="isCheckedLine ? 'remove' : 'check'"
-                    :checked="isCheckedMultiple"
-                    size="small"
-                    @click="changeCheckedMultiple"/>
-                </span>
-              </th>
-              <slot name="thead"></slot>
-            </tr>
-          </thead>
-        </table>
-      </div> -->
-
       <div
         :style="styleConTbody"
         class="vs-con-tbody vs-table--tbody ">
@@ -75,16 +43,7 @@
               <slot name="thead"></slot>
             </tr>
           </thead>
-          <!-- <colgroup ref="colgrouptable">
-            <col v-if="multiple || hasExpadableData" width="20"/>
-            <col
-              v-for="(col,index) in 3"
-              :key="index"
-              :name="`col-${index}`" >
-          </colgroup> -->
-          <!-- <tbody ref="tbody"> -->
           <slot :data="datax"></slot>
-          <!-- </tbody> -->
         </table>
       </div>
       <div
@@ -172,6 +131,10 @@ export default {
     sst:{
       default: false,
       type: Boolean
+    },
+    total: {
+      type: Number,
+      default: 0
     }
   },
   data:()=>({
@@ -247,9 +210,7 @@ export default {
       this.loadData()
     },
     data() {
-      // console.log(this.data)
       this.loadData()
-      // this.currentx = 1
       this.$nextTick(() => {
         if(this.datax.length > 0) {
           this.changeTdsWidth()
@@ -283,15 +244,15 @@ export default {
     loadData() {
       let max = Math.ceil(this.currentx * this.maxItemsx)
       let min = max - this.maxItemsx
+
       if(!this.searchx || this.sst) {
-        this.datax = this.pagination ? this.getItems(min, max) : this.data || []
+        this.datax = this.pagination ? this.getItems(min, max) : this.data || [];
       } else {
         this.datax = this.pagination ? this.getItemsSearch(true ,min, max) : this.getItemsSearch(false ,min, max) || []
       }
     },
     getItems(min, max) {
       let items = []
-
       this.data.forEach((item, index) => {
         if(index >= min && index < max) {
           items.push(item)
@@ -416,7 +377,7 @@ export default {
       // Adding condition removes querySelector none error - if tbody isnot present
       if(tbody) {
         let trvs = tbody.querySelector('.tr-values')
-        if (trvs === undefined) return
+        if (trvs === undefined || trvs === null ) return
         let tds = trvs.querySelectorAll('.td')
 
         let tdsx = []
@@ -425,11 +386,15 @@ export default {
           tdsx.push({index: index, widthx: td.offsetWidth})
         });
 
+
         let colgrouptable = this.$refs.colgrouptable
-        let colsTable = colgrouptable.querySelectorAll('.col')
-        colsTable.forEach((col, index) => {
-          col.setAttribute('width', tdsx[index].widthx)
-        });
+        if (colgrouptable !== undefined && colgrouptable !== null ) {
+          let colsTable = colgrouptable.querySelectorAll('.col')
+          colsTable.forEach((col, index) => {
+            col.setAttribute('width', tdsx[index].widthx)
+          });
+        }
+
       }
     },
     changeMaxItems (index) {

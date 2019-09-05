@@ -20,7 +20,7 @@
   display: flex
   flex-direction: column
   box-shadow: 0px 0px 15px 0px rgba(0,0,0,.05)
-  left 0px
+  propWithDir(left, null, 0px)
   transition: all .25s ease
   z-index 40000
   &.vs-sidebar-reduce
@@ -40,7 +40,7 @@
         opacity 0
 
     ul
-      padding-left: 0px !important
+      propWithDir(padding, left, 0px, !important)
     .con-vs-avatar
       width: 40px !important
       height 40px !important
@@ -51,7 +51,7 @@
           ~.vs-sidebar--tooltip
             opacity 1
             visibility visible
-            transform: translate(5px, -110%)
+            propWithDir(transform, null, (5px -110%))
     &:hover:not(.vs-sidebar-reduceNotRebound):not(.vs-sidebar-reduceNotHoverExpand)
       animation: expand .4s ease .15s
     &:hover:not(.vs-sidebar-reduceNotHoverExpand)
@@ -67,16 +67,16 @@
       i
         padding: 10px
   &.vs-sidebar-position-right
-    left auto
-    right 0px
+    propWithDir(left, null, auto);
+    propWithDir(right, null, 0px);
     &.vs-sidebar-reduce
       border-radius: 10px 0px 0px 10px
     .vs-sidebar-tooltip
-      right 70px
-      left auto
+      propWithDir(left, null, auto);
+      propWithDir(right, null, 70px);
       &:after
-        right -5px
-        left auto
+        propWithDir(left, null, auto);
+        propWithDir(right, null, 5px);
         box-shadow: 4px 0px 6px -3px rgba(0,0,0,.07)
   &.vs-sidebar-parent
     position: absolute
@@ -100,7 +100,7 @@
   transition: all .25s ease
 
   i.material-icons
-    margin-right 8px
+    propWithDir(margin, right , 8px)
     transition: border .25s ease
     font-size: 1rem
   a
@@ -140,13 +140,13 @@
     font-size: .7rem
     i
       position: absolute
-      right 10px
+      propWithDir(right, null, 10px)
   .vs-icon
     transition: all .2s ease
     user-select: none
   &.vs-sidebar-group-open
     >ul
-      padding-left: 10px
+      propWithDir(padding, left, 10px)
       opacity: 1
       .vs-sidebar--item:last-child
         border-bottom: 1px solid rgba(0,0,0,.05)
@@ -167,13 +167,13 @@
   border-radius: 4px
   position fixed
   // top: 5px
-  left 60px
+  propWithDir(left, null, 60px)
   pointer-events: none
   visibility hidden
-  transform: translate(15px, -110%)
+  propWithDir(transform, null, (15px -110%))
   &:after
     content: ''
-    left -5px
+    propWithDir(left, null, -5px)
     width: 10px
     height 10px
     background: inherit
@@ -199,6 +199,7 @@ for colorx, i in $vs-colors
     .vs-sidebar-item-active
       font-weight: bold
       background: linear-gradient(90deg, rgba(0,0,0,.0) 0%, rgba(0,0,0,.01) 100%);
+      propWithDir(border, right, 3px solid getColor(colorx, 1), !important)
       border-right: 3px solid getColor(colorx, 1) !important
       a
         color: getColor(colorx, 1) !important
@@ -213,14 +214,14 @@ for colorx, i in $vs-colors
 
 .vs-sidebar-animate-enter:not(.vs-sidebar-position-right), .vs-sidebar-animate-leave-to:not(.vs-sidebar-position-right)
   .vs-sidebar
-    transform translate(-100%)
+    propWithDir(transform, null, (-100%))
 
 .vs-sidebar-animate-enter, .vs-sidebar-animate-leave-to
   .vs-sidebar-background
     opacity 0 !important
   .vs-sidebar
     &.vs-sidebar-position-right
-      transform translate(100%)
+      propWithDir(transform, null, (100%))
 
 
 @keyframes expand

@@ -1,5 +1,4 @@
 <template>
-
     <vs-row vs-type="flex" vs-justify="space-between" vs-w="12">
       <vs-col class="vs-pagination--mb" vs-type="flex" vs-justify="center" vs-align="center" vs-lg="6" vs-sm="12" vs-xs="12" >
         <div v-if="description">
@@ -7,6 +6,7 @@
             style="margin-right:5px"
           >
             {{descriptionTitle}}: {{minRows}} - {{maxRows}} {{descriptionConnector}} {{sizeArray}} | {{descriptionBody}}:
+
           </span>
           <ul class="vs-pagination--array">
             <li
@@ -79,7 +79,6 @@
         </div>
       </vs-col>
     </vs-row>
-
 </template>
 <script>
 import _color from '../../utils/color.js'
@@ -120,11 +119,9 @@ export default {
     },
     prevIcon:{
       type:String,
-      default:'chevron_left'
     },
     nextIcon:{
       type:String,
-      default:'chevron_right'
     },
     iconPack:{
       type:String,
@@ -163,6 +160,15 @@ export default {
     indexRows: 0,
   }),
   computed: {
+    defaultNextIcon() {
+      if(this.$vs.rtl) return 'chevron_left'
+      return 'chevron_right'
+    },
+    defaultPrevIcon() {
+      console.log(this.$vs.rtl, "this.$vs.rtl")
+      if(this.$vs.rtl) return 'chevron_right'
+      return 'chevron_left'
+    },
     stylePagination () {
       let style = {}
       if (!_color.isColor(this.color)) {

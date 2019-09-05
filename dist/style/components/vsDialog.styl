@@ -23,11 +23,11 @@
 // cancel / text
 .dialog-t-enter .vs-dialog-cancel, .dialog-t-leave-to .vs-dialog-cancel {
   border-radius: 50% !important;
-  transform: translate(8px,-8px) scale(.5) !important;
+  propWithDir(transform, null, (8px -8px), scale(.5) !important)
 }
 .dialog-t-enter .vs-dialog-text, .dialog-t-leave-to .vs-dialog-text {
   opacity: 0;
-  transform: translate(-15px) !important;
+  propWithDir(transform, null, (-15px 0px), !important)
 }
 
 // line after
@@ -35,7 +35,7 @@
   height: 0% !important
 }
 .dialog-t-enter header h3, .dialog-t-leave-to header h3 {
-  transform: translate(-50px);
+  propWithDir(transform, null, (-50px 0px), !important)
   opacity: 0;
 }
 
@@ -52,9 +52,7 @@
   width: 100%;
   height: 100%;
   position: fixed;
-  left: 100px;
-  top: 100px;
-  left: 0px;
+  propWithDir(left, null, 0px);
   top: 0px;
   z-index: 30000;
   display: flex;
@@ -65,7 +63,7 @@
     width: 100%;
     background: rgba(0, 0, 0, 0.4);
     position: absolute;
-    left: 0px;
+    propWithDir(left, null, 0px);
     top: 0px;
     height: 100%;
     z-index: 10;
@@ -104,7 +102,7 @@
       span.after
         transition: all .23s ease .1s;
         position: absolute;
-        left: 0px;
+        propWithDir(left, null, 0px);
         top: 50%;
         transform: translate(0,-50%);
         width: 3px;
@@ -113,7 +111,8 @@
       h3
         transition: all .23s ease .1s;
         padding: 8px;
-        padding-left: 12px;
+        propWithDir(padding, left, 12px)
+        // padding-left: 12px;
         font-size: 1.2rem;
         margin: 0px
       .vs-dialog-cancel
@@ -123,19 +122,19 @@
         cursor: pointer;
         box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.1)
         border-radius: 5px;
-        transform: translate(8px,-8px);
+        propWithDir(transform, null, (8px -8px))
         background: rgb(255, 255, 255);
         font-size: 1.25em;
         &:hover
           box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1)
-          transform: translate(5px,-5px);
+          propWithDir(transform, null, (5px -5px))
     footer
       display: flex;
       align-items: center;
       justify-content: flex-end;
       position: relative;
       button
-        margin-left: 0px;
+        propWithDir(margin, left, 0px)
 
       &:before
         content: '';
@@ -143,13 +142,14 @@
         left: 0px;
         position: absolute;
         width: 90%;
-        margin-left: 5%;
+        propWithDir(margin, left, 5%)
         height: 1px;
         background: rgba(0, 0, 0, 0.05);
 
 for colorx, i in $vs-colors
   .vs-dialog-{colorx}
     header
+      .dialog-title
         color: getColor(colorx, 1)
       .after
         background: getColor(colorx, 1)

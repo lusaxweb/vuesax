@@ -18,7 +18,7 @@
             <span
               :style="styleAfter"
               class="after"/>
-            <h3>{{ title }} </h3>
+            <h3 class="dialog-title">{{ title }} </h3>
           </div>
           <vs-icon
             v-if="type=='alert'"
@@ -186,7 +186,7 @@ export default {
     handleClose(event,con){
       if(con){
         if(event.target.className.indexOf('vs-dialog-dark')!=-1 && this.type == 'alert'){
-          this.active = false
+          this.factive = false
           this.$emit('update:active',false)
         } else if (event.target.className.indexOf('vs-dialog-dark')!=-1) {
           this.rebound()
