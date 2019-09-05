@@ -1370,6 +1370,10 @@ You can add the Filter functionality by adding the `search` property
 
 if you need a property to be sorted you just have to add the `sort-key` property and the value you need to be sorted
 
+:::tip
+You can use `queriedResults` property of table component to get queried results by table component.
+:::
+
 <vuecode md>
 <div slot="demo">
   <Demos-Table-Filter />

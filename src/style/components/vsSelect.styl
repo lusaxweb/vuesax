@@ -25,11 +25,11 @@
       transform: scale(1.1);
   &.activeOptions
     .vs-select--icon
-      transform: translate(0,-50%) rotate(-180deg)
+      propWithDir(transform, null, (0 -50%), rotate(-180deg))
 
 .vs-select--icon
   position: absolute;
-  right: 5px;
+  propWithDir(right, null, 5px)
   font-size: 1.0625em;
   top: 50%;
   pointer-events none;
@@ -44,7 +44,7 @@
   border-radius: 5px;
   border: $vs-border
   transition: all .2s ease;
-  padding-right: 20px;
+  propWithDir(padding, right, 20px)
   cursor: pointer;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -58,7 +58,7 @@
     pointer-events: none
 
 .vs-select--label
-  padding-left 5px;
+  propWithDir(padding, left, 5px)
   font-size: .85rem
   color $vs-label-color
 
@@ -78,7 +78,7 @@
 .vs-select--options
   padding: 4px;
   padding-top: 6px;
-  padding-left: 5px;
+  propWithDir(padding, left, 5px)
   padding-bottom: 6px;
   box-shadow: $vs-box-shadow;
   border-radius: 5px;
@@ -88,13 +88,13 @@
   ul
     max-height: 260px;
     overflow: auto;
-    padding-left: 0px
+    propWithDir(padding, left, 0px)
     padding: 0px
     li
       margin: 0px;
 
 .vs-select--item
-  text-align: left;
+  dirValue(text-align, left)
   color: rgba(0,0,0,.8)
   padding: 7px;
   border 0px;
@@ -118,7 +118,7 @@
   position: absolute;
   font-size: 1.0em;
   left: 5px;
-  transform: translate(-100%,-50%);
+  propWithDir(transform, null, (-100% -50%))
   opacity: 0;
   transition: all .2s ease;
   top: 50%;
@@ -164,18 +164,18 @@ for colorx, i in $vs-colors
 
 .vs-select-group
   h4
-    padding-left: 10px
+    propWithDir(padding, left, 10px)
     cursor default
     padding-bottom: 5px
   li
-    border-left: 1px solid rgba(0,0,0,.1)
-    margin-left: 15px !important
+    propWithDir(border, left, 1px solid rgba(0,0,0,.1))
+    propWithDir(margin, left, 15px, !important)
     list-style none
 
 
 .vs-select--icon-clear
   position absolute
-  right 5px
+  propWithDir(right, null, 5px)
   z-index 200
   top 50%
   cursor pointer

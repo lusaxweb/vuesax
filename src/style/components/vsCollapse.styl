@@ -14,7 +14,7 @@
       margin-bottom: 10px
       border-radius: 6px
       .vs-collapse-item--icon-header
-        transform: translate(-50%, -50%) rotate(180deg)
+        propWithDir(transform, null, (-50% -50%), rotate(180deg))
       .con-content-item
         opacity 1
 
@@ -29,7 +29,7 @@
       .con-content-item
         opacity 1
       .vs-collapse-item--icon-header
-        transform: translate(-50%, -50%) rotate(180deg)
+        propWithDir(transform, null, (-50% -50%), rotate(180deg))
 
   &.border
     border: 1px solid rgba(0,0,0,.1)
@@ -40,7 +40,7 @@
       .con-content-item
         opacity 1
       .vs-collapse-item--icon-header
-        transform: translate(-50%, -50%) rotate(180deg)
+        propWithDir(transform, null, (-50% -50%), rotate(180deg))
 
 
   &.default
@@ -48,7 +48,7 @@
       .con-content--item
         opacity 1
       .vs-collapse-item--icon-header
-        transform: translate(-50%, -50%) rotate(180deg)
+        propWithDir(transform, null, (-50% -50%), rotate(180deg))
 
 .vs-collapse-item
   border-bottom: 1px solid rgba(0,0,0,.04)
@@ -72,9 +72,9 @@
 
 .vs-collapse-item--icon-header
   position: absolute
-  right 0px
+  propWithDir(right, null, 0px)
   top: 50%
-  transform translate(-50%, -50%)
+  propWithDir(transform, null, (-50% -50%))
   display block
   transition: all .25s ease
   display: flex
