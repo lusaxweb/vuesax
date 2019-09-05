@@ -27,8 +27,8 @@
       v-if="icon"
       :style="{
         'order':iconAfter?2:0,
-        'margin-right':$slots.default&&!iconAfter?'5px':'0px',
-        'margin-left':$slots.default&&iconAfter?'5px':'0px'
+        ['margin-' + isRTL('left')]:$slots.default&&!iconAfter?'5px':'0px',
+        ['margin-' + isRTL('right')]:$slots.default&&iconAfter?'5px':'0px'
       }"
       :icon-pack="iconPack"
       :icon="icon"
@@ -208,6 +208,18 @@ export default {
     }
   },
   methods:{
+    isRTL(value) {
+      if(this.$vs.rtl) {
+        return value 
+      }else {
+        if(value === 'right') {
+          return 'left'
+        }
+        if(value === 'left') {
+          return 'right'
+        }
+      }
+    },
     routerPush() {
       this.$router.push(this.to)
     },

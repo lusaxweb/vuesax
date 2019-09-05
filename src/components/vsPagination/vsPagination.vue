@@ -11,7 +11,7 @@
         @click="prevPage">
         <vs-icon
           :icon-pack="iconPack"
-          :icon="prevIcon"
+          :icon="prevIcon ? prevIcon : defaultPrevIcon"
         ></vs-icon>
       </button>
       <ul class="vs-pagination--ul">
@@ -36,7 +36,7 @@
         @click="nextPage">
         <vs-icon
           :icon-pack="iconPack"
-          :icon="nextIcon"
+          :icon="nextIcon ? nextIcon : defaultNextIcon"
         ></vs-icon>
       </button>
       <input
@@ -81,11 +81,9 @@ export default {
     },
     prevIcon:{
       type:String,
-      default:'chevron_left'
     },
     nextIcon:{
       type:String,
-      default:'chevron_right'
     },
     iconPack:{
       type:String,
@@ -101,6 +99,15 @@ export default {
     hoverBtn1: false
   }),
   computed: {
+    defaultNextIcon() {
+      if(this.$vs.rtl) return 'chevron_left'
+      return 'chevron_right'
+    },
+    defaultPrevIcon() {
+      console.log(this.$vs.rtl, "this.$vs.rtl")
+      if(this.$vs.rtl) return 'chevron_right'
+      return 'chevron_left'
+    },
     stylePagination () {
       let style = {}
       if (!_color.isColor(this.color)) {
