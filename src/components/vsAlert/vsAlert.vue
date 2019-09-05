@@ -12,7 +12,7 @@
         'con-icon':icon,
       }]"
       :style="styleAlert"
-      class="con-vs-alert"
+      class="con-vs-alert vx-pudrete"
       v-on="$listeners">
       <div
         v-if="closable"
