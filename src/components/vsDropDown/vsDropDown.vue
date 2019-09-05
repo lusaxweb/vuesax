@@ -105,7 +105,7 @@ export default {
       let scrollTopx = window.pageYOffset || document.documentElement.scrollTop;
       if(this.$refs.dropdown.getBoundingClientRect().top + 300 >= window.innerHeight) {
         this.$nextTick(() => {
-          dropdownMenu.topx = (this.$refs.dropdown.getBoundingClientRect().top - dropdownMenu.$el.clientHeight - 15) + scrollTopx
+          dropdownMenu.topx = (this.$refs.dropdown.getBoundingClientRect().top - dropdownMenu.$el.clientHeight - 7) + scrollTopx
           dropdownMenu.notHeight = true
         });
 
