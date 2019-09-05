@@ -106,6 +106,9 @@
 .vs-tabs--li
   display: block
   position relative
+  button
+    color inherit
+    font-family inherit
   button.vs-tabs--btn
     box-sizing: border-box
     display: block
@@ -150,6 +153,9 @@
   i
     padding-right: 0px !important
     font-size: .9rem
+
+.vs-tabs--btn-icon 
+  propWithDir(padding, right, 9px)
 
 .vs-tabs-position-top
   .vs-tabs--ul
@@ -209,16 +215,17 @@
 
 for colorx, i in $vs-colors
   .vs-tabs-{colorx}
-    button:not(:disabled)
-      &:hover
-        color: getColor(colorx, 1) !important
-    .activeChild
-      button
-        color: getColor(colorx, 1) !important
+    .con-ul-tabs
+      button:not(:disabled)
+        &:hover
+          color: getColor(colorx, 1) !important
+      .activeChild
+        button
+          color: getColor(colorx, 1) !important
 
-    .line-vs-tabs
-      background: linear-gradient(30deg, getColor(colorx, 1) 0%, getColor(colorx, .5) 100%) !important
-      box-shadow 0px 0px 8px 0px getColor(colorx, .4) !important
+      .line-vs-tabs
+        background: linear-gradient(30deg, getColor(colorx, 1) 0%, getColor(colorx, .5) 100%) !important
+        box-shadow 0px 0px 8px 0px getColor(colorx, .4) !important
 
 
 // vs-tab

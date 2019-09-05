@@ -51,9 +51,9 @@
 
 
     &.vs-input-number--button-plus
-      transform translate(10px)
+      propWithDir(transform, null, (10px))
       &:active
-        transform scale(.9) translate(10px)
+        propWithDir(transform, null, (10px), scale(.9))
       &:disabled
         opacity: $vs-disabled-opacity;
         cursor: default;
@@ -65,9 +65,9 @@
         pointer-events: none;
         background-color: rgba(0,0,0,$vs-disabled-opacity);
     &.vs-input-number--button-less
-      transform translate(-10px)
+      propWithDir(transform, null, (-10px))
       &:active
-        transform scale(.9) translate(-10px)
+        propWithDir(transform, null, (-10px), scale(.9))
       &:disabled
         opacity: $vs-disabled-opacity;
         cursor: default;
@@ -89,13 +89,13 @@
       i
         font-size: .8rem
       &.vs-input-number--button-plus
-        transform translate(8px)
+        propWithDir(transform, null, (8px))
         &:active
-          transform scale(.9) translate(8px)
+          propWithDir(transform, null, (8px), scale(.9))
       &.vs-input-number--button-less
-        transform translate(-8px)
+        propWithDir(transform, null, (-8px))
         &:active
-          transform scale(.9) translate(-8px)
+          propWithDir(transform, null, (-8px), scale(.9))
   &.vs-input-number-size-small
     .vs-input-number--input
       padding: 2px;
@@ -106,13 +106,13 @@
       i
         font-size: .7rem
       &.vs-input-number--button-plus
-        transform translate(7px)
+        propWithDir(transform, null, (7px))
         &:active
-          transform scale(.9) translate(7px)
+          propWithDir(transform, null, (7px), scale(.9))
       &.vs-input-number--button-less
-        transform translate(-7px)
+        propWithDir(transform, null, (-7px))
         &:active
-          transform scale(.9) translate(-7px)
+          propWithDir(transform, null, (-7px), scale(.9))
   &.vs-input-number-size-mini
     .vs-input-number--input
       padding: 1px;
@@ -123,13 +123,13 @@
       i
         font-size: .6rem
       &.vs-input-number--button-plus
-        transform translate(6px)
+        propWithDir(transform, null, (6px))
         &:active
-          transform scale(.9) translate(6px)
+          propWithDir(transform, null, (6px), scale(.9))
       &.vs-input-number--button-less
-        transform translate(-6px)
+        propWithDir(transform, null, (-6px))
         &:active
-          transform scale(.9) translate(-6px)
+          propWithDir(transform, null, (-6px), scale(.9))
 for colorx, i in $vs-colors
   .vs-input-number-{colorx}
     button
