@@ -104,7 +104,6 @@ export default {
       return 'chevron_right'
     },
     defaultPrevIcon() {
-      console.log(this.$vs.rtl, "this.$vs.rtl")
       if(this.$vs.rtl) return 'chevron_right'
       return 'chevron_left'
     },
