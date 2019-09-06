@@ -1,7 +1,8 @@
 
 .placeholderx-enter, .placeholderx-leave-to {
   opacity: 0;
-  transform: translate(15px) !important
+  propWithDir(transform, null, (15px), !important);
+  // transform: translate(15px) !important
 }
 .icon-validate-enter, .icon-validate-leave-to {
   opacity: 0;
@@ -24,11 +25,11 @@
 
 .vs-input--icon
   position absolute
-  left 5px;
+  propWithDir(left, null, 5px)
   z-index 100
   font-size: 1.1rem
-  border-right: 1px solid rgba(0,0,0,.1)
-  padding-right: 3px;
+  propWithDir(border, right, 1px solid rgba(0,0,0,.1));
+  propWithDir(padding, right, 3px)
   color rgba(0,0,0,.4)
   cursor default
   user-select none
@@ -39,12 +40,12 @@
   &.large
     top: 14px
   &.icon-after
-    left auto
-    right 5px;
-    border-left: 1px solid rgba(0,0,0,.1)
-    border-right: 0px
-    padding-left: 3px;
-    padding-right: 0px;
+    propWithDir(left, null, auto)
+    propWithDir(right, null, 5px)
+    propWithDir(border, left, 1px solid rgba(0,0,0,.1))
+    propWithDir(border, right, 0px)
+    propWithDir(padding, left, 3px)
+    propWithDir(padding, right, 0px)
   &.icon-no-border
     border: 0;
 
@@ -52,9 +53,9 @@
   transition: all .2s ease
   position: absolute
   border-radius 5px
-  left 0px
+  propWithDir(left, null, 0px)
   padding: .4 rem
-  padding-left: .55 rem
+  propWithDir(padding, left, .55rem)
   width: 100%
   box-sizing: border-box
   overflow: hidden
@@ -67,13 +68,13 @@
   pointer-events: none
   &.small
     padding: 0.2rem
-    padding-left: .55rem
+    propWithDir(padding, left, .55rem)
   &.large
     padding-top: 0.8rem
     padding: 0.7rem
 
 .vs-input--label
-  padding-left 5px;
+  propWithDir(padding, left, 5px)
   font-size: .85rem
   color rgba(0,0,0,.7)
 
@@ -90,7 +91,7 @@
 .vs-input--icon-validate
   position: absolute
   top: 0px
-  right: 0px
+  propWithDir(right, null, 0px);
   font-size: 1.1rem
   height: 100%
   display: flex
@@ -100,15 +101,15 @@
   transition: all .2s ease
   &.icon-before
     position absolute
-    left 0rem
+    propWithDir(left, null, 0px);
     right: auto
     z-index 100
     font-size: 1.1rem
-    padding-right: 0.2rem
+    propWithDir(padding, right, 0.2rem)
     cursor default
     user-select none
     top: 0px
-    border-right: 1px
+    propWithDir(border, right, 1px)
 
 .vs-input--input
   color: inherit
@@ -122,7 +123,7 @@
   width: 100%
   &.small
     padding: 0.2rem
-    padding-left: .55rem
+    propWithDir(padding, left, .55rem);
     + .vs-placeholder-label-small
       padding: 0rem 0.4rem
   &.normal
@@ -135,28 +136,28 @@
     box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.150);
   &:focus,&.hasValue
     + .vs-placeholder-label
-      transform: translate(-3px,-90%) !important
+      propWithDir(transform, null, (-3px -90%), !important);
       font-size: .7rem
-      padding-left: .5rem !important
+      propWithDir(padding, left, .5rem, !important)
     + .vs-placeholder-label-small
-      transform: translate(-3px,-120%) !important
+      propWithDir(transform, null, (-3px -120%), !important);
       font-size: .7rem
-      padding-left: .5rem !important
+      propWithDir(padding, left, .5rem, !important)
   &:focus
     + .vs-input--placeholder
-      transform: translate(5px)
+      propWithDir(transform, null, (5px));
   &.hasIcon
-    padding-left: 32px;
+    propWithDir(padding, left, 32px)
     + .vs-input--placeholder
-      padding-left: 32px;
+      propWithDir(padding, left, 32px)
   &.icon-after-input
-    padding-right: 1.75rem
+    propWithDir(padding, right, 1.75rem)
     + .vs-input--placeholder
-      padding-right: 1.75rem
+      propWithDir(padding, right, 1.75rem)
   &.hasIcon.icon-after-input
-    padding-left: .85em;
+    propWithDir(padding, left, .85em)
     + .vs-input--placeholder
-      padding-left: .85em;
+      propWithDir(padding, left, .85em)
   &:disabled
     opacity: $vs-disabled-opacity;
     cursor: default;

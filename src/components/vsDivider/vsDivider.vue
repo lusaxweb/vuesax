@@ -11,6 +11,7 @@
         'color': textColor
       }"
       class="vs-divider--text"
+      :class="textClass"
     >
       <template v-if="!icon">
         <slot/>
@@ -118,9 +119,8 @@ export default {
     },
     borderClass() {
       const classes = {}
-      if (_color.isColor(this.color)) {
-        classes[`vs-divider-border-${this.color}`] = true
-      }
+      let borderColor = _color.isColor(this.color) ? this.color : "default"
+      classes[`vs-divider-border-${borderColor}`] = true
       return classes
     },
     textColor() {
@@ -130,9 +130,9 @@ export default {
     },
     textClass() {
       const classes = {}
-      if (_color.isColor(this.color)) {
-        classes[`vs-divider-text-${this.color}`] = true
-      }
+      let textColor = _color.isColor(this.color) ? this.color : "default"
+      classes[`vs-divider-text-${textColor}`] = true
+
       return classes
     }
   }

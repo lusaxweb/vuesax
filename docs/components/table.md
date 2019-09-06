@@ -85,6 +85,11 @@ API:
    parameters: null
    description: Change the text of the notification when there is no data in the table.
    default: null
+ - name: total (total items if sst)
+   type: Number
+   parameters: null
+   description: Total number of items if the data is being loaded through sst (server-site table)
+   default: 0
  - name: sst (server-site table)
    type: Boolean
    parameters: null
@@ -1365,6 +1370,10 @@ You can add the Filter functionality by adding the `search` property
 
 if you need a property to be sorted you just have to add the `sort-key` property and the value you need to be sorted
 
+:::tip
+You can use `queriedResults` property of table component to get queried results by table component.
+:::
+
 <vuecode md>
 <div slot="demo">
   <Demos-Table-Filter />
@@ -1673,6 +1682,7 @@ The table stops doing its functionalities on the client side and proceeds to iss
       @change-page="handleChangePage"
       @sort="handleSort"
       v-model="selected"
+      :total="totalItems"
       pagination
       max-items="3"
       search
@@ -1726,6 +1736,7 @@ The table stops doing its functionalities on the client side and proceeds to iss
 export default {
   data:()=>({
     selected:[],
+    totalItems:10,
     users:[
       {
         "id": 1,

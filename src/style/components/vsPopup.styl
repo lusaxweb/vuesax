@@ -23,15 +23,15 @@
 // cancel / text
 .popup-t-enter .vs-popup-cancel, .popup-t-leave-to .vs-popup-cancel
   border-radius: 50% !important;
-  transform: translate(8px,-8px) scale(.5) !important;
+  propWithDir(transform, null, (8px -8px), scale(.5) !important)
 
 .popup-t-enter .vs-popup-text, .popup-t-leave-to .vs-popup-text
   opacity: 0;
-  transform: translate(-15px) !important;
+  propWithDir(transform, null, (-15px), !important)
 
 
 .popup-t-enter header h3, .popup-t-leave-to header h3
-  transform: translate(-50px);
+  propWithDir(transform, null, (-50px), !important)
   opacity: 0;
 
 
@@ -41,9 +41,7 @@
   width: 100%;
   height: 100%;
   position: fixed;
-  left: 100px;
-  top: 100px;
-  left: 0px;
+  propWithDir(left, null, 0px)
   top: 0px;
   z-index: 20000;
   display: flex;
@@ -84,7 +82,7 @@
   transition: all .23s ease .1s;
   overflow auto
   max-height: calc(100vh - 100px)
-  margin-right: 5px
+  propWithDir(margin, right, 5px)
   margin-top: 5px
   margin-bottom: 5px
   width: calc(100% - 5px)
@@ -96,13 +94,13 @@
   cursor: pointer;
   box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.1)
   border-radius: 5px;
-  transform: translate(8px,-8px);
+  propWithDir(transform, null, (8px -8px));
   background: rgb(255, 255, 255);
   font-size: 1.25em;
   color: rgba(0,0,0,.6)
   &:hover
     box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1)
-    transform: translate(5px,-5px);
+    propWithDir(transform, null, (5px -5px));
 
 .vs-popup--title
   width: 100%;
@@ -119,7 +117,7 @@
   width: 100%;
   background: rgba(0, 0, 0, 0.4);
   position: absolute;
-  left: 0px;
+  propWithDir(left, null, 0px)
   top: 0px;
   height: 100%;
   z-index: 10;

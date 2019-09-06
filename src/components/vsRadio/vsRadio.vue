@@ -6,7 +6,7 @@
       v-bind="$attrs"
       :checked="isChecked"
       :value="value"
-      :name="value"
+      :name="vsName || value"
       type="radio"
       class="vs-radio--input"
       v-on="listeners">
@@ -33,6 +33,7 @@ export default {
   props:{
     value:{},
     vsValue:{},
+    vsName:{},
     color:{
       default:'primary',
       type:String

@@ -2,12 +2,15 @@ import * as vsComponents from './components'
 import vsFunctions from './functions'
 import './style/vuesax.styl'
 import vsTheme from './utils/theme.js'
+import Override from './override';
 
-const install = (Vue, options) => {
+const install = (Vue, options={ rtl: false }) => {
+  // Define Vuesax main identifier
+  Vue.prototype.$vs = {}
+  // Use Components
   Object.values(vsComponents).forEach((vsComponent) => {
     Vue.use(vsComponent)
   })
-
   if(options){
     if(options.hasOwnProperty('theme')){
       if(options.theme.hasOwnProperty('colors')){
@@ -16,9 +19,16 @@ const install = (Vue, options) => {
         }
       }
     }
-  }
-
+  } 
+  // Override the the Vue._init function
+  Override(Vue, options);
   vsFunctions(Vue)
+
+  window.addEventListener('scroll', () => {
+    document.querySelectorAll('*[class*="vx-"]').forEach((item) => {
+      item.parentElement.removeChild(item)
+    })
+  })
 }
 
 if (typeof window !== 'undefined' && window.Vue) {

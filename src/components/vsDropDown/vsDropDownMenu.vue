@@ -24,7 +24,7 @@
         class="vs-dropdown--custom vs-dropdown--menu">
         <slot/>
       </div>
-      <div class="vs-dropdown--menu--after" ref="menuAfter"></div>
+      <div :class="[ vsDropRight ? 'vs-dropdown-right--menu--after' : 'vs-dropdown--menu--after']" ref="menuAfter"></div>
     </div>
   </transition>
 </template>
@@ -39,6 +39,7 @@ export default {
     topx:0,
     rightx:true,
     vsTriggerClick:false,
+    vsDropRight:false,
     widthx:0,
     notHeight:false,
     vsCustomContent:false,
