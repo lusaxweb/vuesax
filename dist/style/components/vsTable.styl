@@ -8,7 +8,7 @@
     position: absolute
     padding: 6px
     // top: 0px
-    left: 0px
+    propWithDir(left, null, 0)
     transform: translate(0px, 15%)
     border-radius: 5px
     z-index: 300
@@ -192,16 +192,16 @@
   justify-content: center
   max-width: 200px
   position: relative
-  margin-left: auto
+  propWithDir(margin, left, auto)
   i
     position: absolute
     transition: all .25s ease
-    left: 10px
+    propWithDir(left, null, 10px)
     font-size: 1rem
 
 .vs-table--search-input
   padding: 5px 10px
-  padding-left: 30px
+  propWithDir(padding, left, 30px)
   border-radius: 20px
   border: 1px solid rgba(0,0,0,.04)
   font-size: .7rem
@@ -354,3 +354,13 @@ for colorx, i in $vs-colors
         color rgb(255,255,255)
       i
         font-size: 1.1rem
+
+.vuesax-app-is-rtl
+  .vs-con-table
+    td
+      &.td-check
+        .vs-icon
+          transform translate(-7px) rotate(90deg)
+        .vs-checkbox--check
+          .vs-icon
+            transform translate(1px) rotate(0deg)

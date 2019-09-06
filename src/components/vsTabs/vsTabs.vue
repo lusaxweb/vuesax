@@ -3,7 +3,6 @@
     :class="[`vs-tabs-${color}`,`vs-tabs-position-${position}`]"
     class="con-vs-tabs vs-tabs" >
     <div
-      :style="styleTabs"
       class="con-ul-tabs">
       <ul
         ref="ul"
@@ -13,6 +12,7 @@
           v-for="(child,index) in children"
           ref="li"
           :class="{'activeChild':childActive == index}"
+          :style="childActive == index ? styleTab : {}"
           class="vs-tabs--li"
           @mouseover="hover = true"
           @mouseout="hover = false">
@@ -23,7 +23,7 @@
             :style="styleAlignIcon(child.icon)"
             @click="activeChild(index)"
             v-on="child.listeners">
-            <vs-icon v-if="child.icon" :icon-pack="child.iconPack" :icon="child.icon" :color="color" style="padding-right:9px"></vs-icon>
+            <vs-icon v-if="child.icon" :icon-pack="child.iconPack" :icon="child.icon" :color="color" class="vs-tabs--btn-icon"></vs-icon>
             <span>{{ child.label }}</span>
           </button>
 
@@ -81,7 +81,7 @@ export default {
     these:false,
   }),
   computed:{
-    styleTabs(){
+    styleTab(){
       return {
         color: _color.getColor(this.color,1),
       }

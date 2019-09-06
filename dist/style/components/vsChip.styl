@@ -1,19 +1,19 @@
 .con-vs-chip
   background: rgb(240,240,240)
   border-radius: 20px
-  float left
+  dirValue(float, left);
   display: flex
   align-items: center
   font-size .7rem
   justify-content: center
-  margin-right: 2px
+  propWithDir(margin, right, 2px)
   margin-bottom: 3px
   min-height 28px
-  padding-right 10px
+  propWithDir(margin, right, 10px)
   color: rgba(0,0,0,.7)
   position: relative
   &.closable
-    padding-right: 0px
+    propWithDir(padding, right, 0px)
   &.con-color
     .con-vs-avatar
       background: rgba(255,255,255,.2)
@@ -23,7 +23,7 @@
     position relative
     display: block
     margin: 2px 0px
-    transform: translate(-8px)
+    propWithDir(transform, null, (-8px))
     display: flex
     align-items: center
     justify-content: center
@@ -54,7 +54,8 @@
   display: flex
   align-items: center
   justify-content: center
-  margin-left: 10px
+  margin-left: 10px;
+  margin-right: 10px
 
 for colorx, i in $vs-colors
   .vs-chip-{colorx}
@@ -69,7 +70,7 @@ for colorx, i in $vs-colors
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: flex-end;
   flex-wrap: wrap;
   box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
@@ -88,11 +89,11 @@ for colorx, i in $vs-colors
   box-sizing: border-box;
   min-width: 80px;
   border: 0px;
-  padding-left: 2px;
+  propWithDir(margin, left, 2px)
 
 .con-chips--remove-all
   position: absolute;
-  right: 0px;
+  propWithDir(right, null, 0px)
   top: 50%;
   transform: translate(0,-50%);
   height: 100%;
@@ -108,4 +109,4 @@ for colorx, i in $vs-colors
 
 .no-items
   .con-chips--input
-    padding-left: 10px !important;
+    propWithDir(padding, left, 10px, !important)

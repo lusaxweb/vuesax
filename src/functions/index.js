@@ -15,7 +15,6 @@ const vsFunctions = {
 }
 
 export default Vue => {
-  Vue.prototype.$vs = {}
   Object.values(vsFunctions).forEach((vsFunctions) => {
     if(vsFunctions.hasOwnProperty('subName')){
       Vue.prototype.$vs[vsFunctions.name][vsFunctions.subName] = vsFunctions.vsfunction
