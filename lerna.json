@@ -1,0 +1,8 @@
+{
+  "packages": [
+    "packages/@vuesax/*",
+    "packages/vuesax/"
+  ],
+  "version": "independent",
+  "npmClient": "npm"
+}

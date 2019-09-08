@@ -1,88 +1,39 @@
 {
-  "name": "vuesax",
-  "version": "3.8.62",
-  "description": "Framework Components for Vue js",
-  "license": "MIT",
-  "author": "ldrovira <luisdanielrovira8@gmail.com>",
-  "homepage": "https://lusaxweb.github.io/vuesax/#/",
-  "repository": "lusaxweb/vuesax",
-  "bugs": {
-    "url": "https://github.com/lusaxweb/vuesax/issues"
-  },
-  "keywords": [
-    "vuesax",
-    "vue",
-    "vuejs",
-    "vue-components",
-    "components",
-    "component",
-    "javascript",
-    "css",
-    "framework",
-    "ui",
-    "frontend",
-    "responsive",
-    "stylus"
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "packages/@vuesax/*"
   ],
-  "main": "dist/vuesax.common.js",
-  "unpkg": "dist/vuesax.umd.min.js",
-  "jsdelivr": "dist/vuesax.umd.min.js",
-  "private": false,
+  "author": "ldrovira <luisdanielrovira8@gmail.com>",
   "scripts": {
-    "dev": "vuepress dev docs",
-    "serve": "vue-cli-service serve --open",
-    "build": "vue build -t lib src/index.js --name vuesax",
+    "build": "node build/index.js",
+    "publish": "lerna publish --dist-tag next --contents dist",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "vue-cli-service lint",
-    "v": "npm version patch",
-    "v2": "npm version minor",
-    "p": "npm publish",
-    "deploy": "npm run build & git add . & git commit -m 'deploy' & npm run v & npm run p && git push",
-    "deploy2": "npm run build & git add . & git commit -m 'deploy' & npm run v2 & npm run p && git push",
-    "docs:build": "vuepress build docs",
-    "docs:deploy": "sh scripts/deploy.sh",
-    "deployx": "npm run docs:deploy && npm run deploy",
-    "deployx2": "npm run docs:deploy && npm run deploy2",
-    "new:component": "sh scripts/newComponent.sh"
-  },
-  "dependencies": {
-    "vue": "^2.6.9"
+    "docs:build": "vuepress build packages/docs",
+    "dev": "vuepress dev packages/docs"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.1",
-    "@vue/cli-plugin-babel": "^3.0.3",
-    "@vue/cli-plugin-eslint": "^3.0.3",
-    "@vue/cli-service": "^3.0.3",
-    "copy-webpack-plugin": "^4.5.2",
-    "eslint": "^5.1.0",
-    "eslint-plugin-vue": "^4.7.1",
-    "file-loader": "^1.1.11",
-    "prefixfree": "^1.0.0",
+    "@vue/cli-plugin-eslint": "^3.7.0",
+    "@vue/eslint-config-standard": "^4.0.0",
+    "@vuepress/plugin-active-header-links": "^1.0.0-rc.1",
+    "babel-eslint": "^10.0.1",
+    "babel-minify-webpack-plugin": "^0.3.1",
+    "chalk": "^2.4.2",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "fs-extra": "^8.0.1",
+    "lerna": "^3.15.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
-    "viewcode": "0.0.27",
-    "vuepress": "^0.14.10",
-    "webpack": "^4.19.0"
+    "vuepress": "^1.0.0-alpha.47",
+    "vuepress-plugin-container": "^2.0.1",
+    "vuepress-plugin-smooth-scroll": "0.0.3",
+    "webpack": "^4.33.0"
   },
-  "babel": {
-    "presets": [
-      "@vue/app"
-    ]
-  },
-  "eslintConfig": {
-    "root": true,
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ]
-  },
-  "postcss": {
-    "plugins": {
-      "autoprefixer": {}
-    }
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ]
+  "name": "vuesax-next",
+  "dependencies": {
+    "boxicons": "^2.0.2",
+    "color": "^3.1.2"
+  }
 }

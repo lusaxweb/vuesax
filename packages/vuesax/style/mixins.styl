@@ -1,0 +1,7 @@
+
+// get color var css
+vs-color(colorx, alpha = 1)
+    unquote("rgba(var(--vs-"+colorx+"), "+alpha+")")
+
+vs-var(var)
+    unquote("var(--vs-"+var+")")

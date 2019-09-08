@@ -1,0 +1,53 @@
+*
+  box-sizing: border-box
+
+*
+  padding: 0px
+  margin 0px
+  outline: none
+  text-decoration: none
+  transition: color 0s, background 0s
+
+// Effect Riple
+.vs-ripple__effect-content
+  position absolute
+  top 0px
+  left 0px
+  width: 100%
+  height 100%
+  overflow hidden
+  pointer-events: none
+  z-index 1000
+  border-radius: inherit
+
+.vs-ripple__effect
+  --vs-color: 255, 255, 255
+  position absolute
+  top 10px
+  left 10px
+  // box-shadow: inset 0px 0px 60px 0px vs-color('color', .7);
+  width: 0px
+  height 0px
+  opacity 0
+  pointer-events: none
+  transform: translate(-50%,-50%)
+  transition all .6s ease
+  border-radius: 50%
+  background-image:
+    radial-gradient(
+      circle,
+      transparent,
+      vs-color('color', .7)
+    );
+  &--color
+    background: vs-color('color', 1);
+
+
+// vs-clipboard
+
+.vs-clipboard
+  opacity 0
+  position fixed
+  bottom 0px
+  right 0px
+  pointer-events: none

@@ -1,0 +1,38 @@
+{
+  "name": "@vuesax/card",
+  "version": "0.1.1",
+  "publishConfig": {
+    "access": "public"
+  },
+  "description": "Component card of the vuesax framework",
+  "author": "ldrovira <luisdanielrovira8@gmail.com>",
+  "homepage": "https://lusaxweb.github.io/vuesax/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lusaxweb/vuesax.git",
+    "directory": "packages/@vuesax/vsCard"
+  },
+  "bugs": {
+    "url": "https://github.com/lusaxweb/vuesax/issues"
+  },
+  "main": "dist/index.js",
+  "unpkg": "dist/index.umd.js",
+  "jsdelivr": "dist/index.umd.js",
+  "devDependencies": {},
+  "keywords": [
+    "vuesax",
+    "vue",
+    "vuejs",
+    "vue-components",
+    "components",
+    "component",
+    "javascript",
+    "css",
+    "framework",
+    "ui",
+    "frontend",
+    "responsive",
+    "stylus"
+  ],
+  "license": "MIT"
+}

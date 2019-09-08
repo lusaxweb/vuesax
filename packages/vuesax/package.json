@@ -1,0 +1,52 @@
+{
+  "name": "vuesax",
+  "version": "4.0.0-alpha.0",
+  "private": false,
+  "description": "Framework Components for Vue js",
+  "author": "ldrovira <luisdanielrovira8@gmail.com>",
+  "homepage": "https://lusaxweb.github.io/vuesax/",
+  "repository": "lusaxweb/vuesax",
+  "bugs": {
+    "url": "https://github.com/lusaxweb/vuesax/issues"
+  },
+  "scripts": {
+    "build": "node build/index.js",
+    "publish": "npm publish --tag next",
+    "docs:build": "vuepress build docs",
+    "dev": "vuepress dev docs"
+  },
+  "main": "dist/vuesax.common.js",
+  "unpkg": "dist/vuesax.umd.min.js",
+  "jsdelivr": "dist/vuesax.umd.min.js",
+  "devDependencies": {
+    "@vue/cli-plugin-eslint": "^3.7.0",
+    "@vue/eslint-config-standard": "^4.0.0",
+    "babel-eslint": "^10.0.1",
+    "babel-minify-webpack-plugin": "^0.3.1",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "fs-extra": "^8.0.1",
+    "lerna": "^3.15.0",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
+    "vuepress": "^1.0.0-alpha.47",
+    "vuepress-plugin-container": "^2.0.1",
+    "webpack": "^4.33.0"
+  },
+  "keywords": [
+    "vuesax",
+    "vue",
+    "vuejs",
+    "vue-components",
+    "components",
+    "component",
+    "javascript",
+    "css",
+    "framework",
+    "ui",
+    "frontend",
+    "responsive",
+    "stylus"
+  ],
+  "license": "MIT"
+}

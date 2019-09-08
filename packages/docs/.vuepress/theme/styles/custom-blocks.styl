@@ -1,0 +1,49 @@
+.custom-block
+  border-radius: 0px 15px 15px 0px !important
+  .custom-block-title
+    font-weight 600
+    margin-bottom -0.4rem
+
+  &.tip, &.warning, &.danger
+    padding .1rem 1rem
+    border-left-width .1rem
+    border-left-style solid
+    margin 1rem 0
+    position relative
+    // &:before
+    //   position absolute
+    //   right 0px
+    //   top 0px
+    //   width 10%
+    //   background-image: linear-gradient(270deg, #fdfdfd 0%, rgba(255,255,255,0) 100%);
+    //   height 100%
+    //   content ''
+    //   z-index 200
+
+    p
+      padding: 0px !important
+      margin: 1rem 0px !important
+    p, li
+      font-size: .8rem
+  &.tip
+    background-color rgba(70, 201, 58,.04)
+    border-color #42b983
+  &.warning
+    background-color rgba(255, 186, 0,.09)
+    border-color rgb(255, 186, 0)
+    color darken(rgb(255, 186, 0), 20%)
+    .custom-block-title
+      color darken(rgb(255, 186, 0), 30%)
+    a
+      color $textColor
+  &.danger
+    background-color rgba(255, 71, 87,.05)
+    border-color darken(red, 20%)
+    border-color rgb(255, 71, 87)
+    color darken(rgb(255, 71, 87), 20%)
+    .custom-block-title
+      color darken(rgb(255, 71, 87), 30%)
+    a
+      color $textColor
+
+
