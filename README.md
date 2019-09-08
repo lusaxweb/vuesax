@@ -1,7 +1,6 @@
 <p align="center">
   <a href="https://lusaxweb.github.io/vuesax/">
 <img width="40%" src="https://raw.githubusercontent.com/lusaxweb/vuesax/master/public/vuesax-logo-beta.png" alt="vuesax" />
-<img src="https://raw.githubusercontent.com/lusaxweb/vuesax/master/public/vuesax-components.gif" alt="vuesax" />
    </a>
   </p>
 
@@ -22,6 +21,13 @@
     <img src="https://discordapp.com/api/guilds/467198491920433153/widget.png" alt="Chat">
   </a>
 </p>
+
+## Vuesax V4.x
+
+This branch is in development and alpha at the moment, the core of vuesax is working to make a cluster of components and go to beta
+
+After making sure we have all the components and a good structure to continue we will exit the beta and this branch will be passed to master
+
 
 <h2 align="center">Supporting through Patreon</h2>
 
@@ -61,117 +67,17 @@ If you feel awesome and want to support us in a small way, please consider starr
 - 📘 [Documentation](https://lusaxweb.github.io/vuesax/)
 - 🐦 Twitter: [@vuesax](https://twitter.com/vuesax)
 - 💬 Chat: [Discord](https://discord.gg/gd2kAjn)
-- 🎲 template:[Codepen](https://codepen.io/lusaxweb/pen/mxMKYr)
-- 📰 Tutorial Implement: [DevAwesome](https://lusaxweb.github.io/devAwesome/#/article/-LPDgBxyylgg9h194wuE)
 
 ## Components
 
-- [Buttons](https://lusaxweb.github.io/vuesax/components/)
-- [Selects](https://lusaxweb.github.io/vuesax/components/selects.html)
-- [Notifications](https://lusaxweb.github.io/vuesax/components/notifications.html)
-- [Switch](https://lusaxweb.github.io/vuesax/components/switch.html)
-- [CheckBox](https://lusaxweb.github.io/vuesax/components/checkbox.html)
-- [Radio](https://lusaxweb.github.io/vuesax/components/radio.html)
-- [Input](https://lusaxweb.github.io/vuesax/components/input.html)
-- [Dialogs](https://lusaxweb.github.io/vuesax/components/dialog.html)
-- [Tabs](https://lusaxweb.github.io/vuesax/components/tabs.html)
-- [Slider](https://lusaxweb.github.io/vuesax/components/slider.html)
-- [InputNumber](https://lusaxweb.github.io/vuesax/components/number.html)
-- [Tooltip](https://lusaxweb.github.io/vuesax/components/tooltip.html)
-- [Upload](https://lusaxweb.github.io/vuesax/components/upload.html)
-- [Loading](https://lusaxweb.github.io/vuesax/components/loading.html)
-- [Popup](https://lusaxweb.github.io/vuesax/components/popup.html)
-- [Avatar](https://lusaxweb.github.io/vuesax/components/avatar.html)
-- [Breadcrumb](https://lusaxweb.github.io/vuesax/components/breadcrumb.html)
-- [Alert](https://lusaxweb.github.io/vuesax/components/alert.html)
-- [Divider](https://lusaxweb.github.io/vuesax/components/divider.html)
-- [Chip](https://lusaxweb.github.io/vuesax/components/chip.html)
-- [Progress](https://lusaxweb.github.io/vuesax/components/progress.html)
-- [Card](https://lusaxweb.github.io/vuesax/components/card.html)
-- [List](https://lusaxweb.github.io/vuesax/components/list.html)
-- [Pagination](https://lusaxweb.github.io/vuesax/components/pagination.html)
-- [Topbar](https://lusaxweb.github.io/vuesax/components/topbar.html)
-- [SideBar](https://lusaxweb.github.io/vuesax/components/sideBar.html)
-- [DropDown](https://lusaxweb.github.io/vuesax/components/dropDown.html)
-- [Table](https://lusaxweb.github.io/vuesax/components/table.html)
-- [Textarea](https://lusaxweb.github.io/vuesax/components/textarea.html)
-- [Collapse](https://lusaxweb.github.io/vuesax/components/collapse.html)
-- [Images](https://lusaxweb.github.io/vuesax/components/images.html)
-
-## Browser Support
-Recent versions of **Firefox**, **Chrome**, **Edge**, **Opera** and **Safari**. **IE11+**
-
-## Quick-start CDN
-
-```html
-<!DOCTYPE html>
-<html>
-<head>
-  <link href="https://cdn.jsdelivr.net/npm/vuesax/dist/vuesax.css" rel="stylesheet">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
-</head>
-<body>
-  <div id="app">
-    <vs-button vs-type="filled">Hello World</vs-button>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vuesax/dist/vuesax.umd.js"></script>
-  <script>
-    new Vue({
-      el: '#app'
-    })
-  </script>
-</body>
-</html>
-```
-
-## CDN Links
-
-- https://cdn.jsdelivr.net/npm/vuesax/dist/vuesax.umd.js
-- https://cdn.jsdelivr.net/npm/vuesax/dist/vuesax.css
-
-# Install inside a NPM project
-``` bash
-# npm
-npm install vuesax
-```
-
-``` bash
-# yarn
-yarn add vuesax
-```
-
-## Use
-
-### All components
-
-```javascript
-import Vue from 'vue'
-import Vuesax from 'vuesax'
-
-import 'vuesax/dist/vuesax.css'
-Vue.use(Vuesax)
-```
-
-### Or use individual components:
-
-```javascript
-import Vue from 'vue'
-import { vsButton, vsSelect, vsPopup } from 'vuesax'
-import 'vuesax/dist/vuesax.css'
-
-Vue.use(vsButton)
-Vue.use(vsSelect)
-Vue.use(vsPopup)
-```
+For now the components are in development...
 
 ## Contribution
 Please make sure to read the [Contributing Guide](https://raw.githubusercontent.com/lusaxweb/vuesax/master/CONTRIBUTING.md) before making a pull request.
 
 ## Lusaxweb
 
-This library was created and is supported by [Lusaxweb](http://www.lusaxweb.com.ve/)
+This library was created and is supported by [Lusaxweb](http://lusaxweb.net/)
 
 ## License
 
