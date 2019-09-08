@@ -31,7 +31,7 @@ After making sure we have all the components and a good structure to continue we
 
 <h2 align="center">Supporting through Patreon</h2>
 
-Vuesax is an open source [MIT](https://raw.githubusercontent.com/lusaxweb/vuesax/master/LICENSE) project if you want to contribute to keep improving, If you are interested in supporting this project, please consider becoming a patron. [Patron](https://www.patreon.com/bePatron?c=1567892)
+Vuesax is an open source project if you want to contribute to keep improving, If you are interested in supporting this project, please consider becoming a patron. [Patron](https://www.patreon.com/bePatron?c=1567892)
 
 <p align="center">
   <a href="https://www.patreon.com/bePatron?c=1567892">
