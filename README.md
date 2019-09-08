@@ -81,4 +81,4 @@ This library was created and is supported by [Lusaxweb](http://lusaxweb.net/)
 
 ## License
 
-[MIT](https://raw.githubusercontent.com/lusaxweb/vuesax/master/LICENSE)
+[GPLv3](https://www.gnu.org/licenses/gpl-3.0.html)
