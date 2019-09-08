@@ -1,6 +1,6 @@
 {
   "name": "@vuesax/breadcrumb",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "publishConfig": {
     "access": "public"
   },
@@ -18,7 +18,6 @@
   "main": "dist/index.js",
   "unpkg": "dist/index.umd.js",
   "jsdelivr": "dist/index.umd.js",
-  "devDependencies": {},
   "keywords": [
     "vuesax",
     "vue",
