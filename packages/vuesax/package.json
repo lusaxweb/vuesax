@@ -11,7 +11,6 @@
   },
   "scripts": {
     "build": "node build/index.js",
-    "publish": "npm publish --tag next",
     "docs:build": "vuepress build docs",
     "dev": "vuepress dev docs"
   },
@@ -48,5 +47,6 @@
     "responsive",
     "stylus"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "gitHead": "7660d68705c00dcdd517423fcc3ff79fdd54a8fe"
 }

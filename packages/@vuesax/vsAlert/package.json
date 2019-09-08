@@ -33,5 +33,6 @@
     "responsive",
     "stylus"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "gitHead": "7660d68705c00dcdd517423fcc3ff79fdd54a8fe"
 }
