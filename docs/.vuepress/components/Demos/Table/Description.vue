@@ -1,10 +1,6 @@
 <template lang="html">
   <div>
-    <vs-table
-      v-model="selected"
-      @selected="handleSelected"
-      @dblSelection="doubleSelection"
-      :data="users">
+    <vs-table :max-items="descriptionItems[0]" pagination :data="users" description :description-items="descriptionItems" description-title="Registries" description-connector="of" description-body="Pages">
       <template slot="header">
         <h3>
           Users
@@ -26,7 +22,7 @@
       </template>
 
       <template slot-scope="{data}">
-        <vs-tr :data="tr" :key="indextr" v-for="(tr, indextr) in data" >
+        <vs-tr :key="indextr" v-for="(tr, indextr) in data" >
           <vs-td :data="data[indextr].email">
             {{data[indextr].email}}
           </vs-td>
@@ -35,7 +31,7 @@
             {{data[indextr].username}}
           </vs-td>
 
-          <vs-td :data="data[indextr].website">
+          <vs-td :data="data[indextr].id">
             {{data[indextr].website}}
           </vs-td>
 
@@ -45,15 +41,13 @@
         </vs-tr>
       </template>
     </vs-table>
-
-    <pre>{{ selected }}</pre>
   </div>
 </template>
 
 <script>
 export default {
   data:()=>({
-    selected:[],
+    descriptionItems: [3,5,15],
     users:[
       {
         "id": 1,
@@ -124,23 +118,15 @@ export default {
         "username": "Moriah.Stanton",
         "email": "Rey.Padberg@karina.biz",
         "website": "ambrose.net",
+      },
+      {
+        "id": 11,
+        "name": "Kalolo Rich",
+        "username": "Kalolo.Rick",
+        "email": "Kalolo.Rich@jez.io",
+        "website": "kalolo.net",
       }
     ]
   }),
-  methods:{
-    handleSelected(tr) {
-      this.$vs.notify({
-        title:`Selected ${tr.username}`,
-        text:`Email: ${tr.email}`
-      })
-    },
-    doubleSelection(tr) {
-      this.$vs.notify({
-        title:`Double Selection ${tr.username}`,
-        text:`Email: ${tr.email}`,
-        color: 'success'
-      })
-    }
-  }
 }
 </script>

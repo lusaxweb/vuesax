@@ -28,6 +28,7 @@
       :style="styleInput"
       :value="value"
       v-bind="$attrs"
+      :disabled="isDisabled"
       type="number"
       class="vs-input-number--input"
       v-on="listeners">
@@ -52,6 +53,7 @@
 
 <script>
 import _color from '../../utils/color.js'
+import { type } from 'os';
 export default {
   name:'VsInputNumber',
   directives: {
@@ -124,6 +126,10 @@ export default {
     step:{
       default:1,
       type:[Number,String]
+    },
+    isDisabled: {
+      type: Boolean,
+      default: false,
     }
   },
   data:()=>({
@@ -173,22 +179,26 @@ export default {
   methods:{
     plus(){
       let newValue
-      if(!this.value){
+      if(this.value === ''){
         newValue = 0
-      }
-      if(this.max?parseFloat(this.value)<parseFloat(this.max):true){
-        newValue = parseFloat(this.value) + parseFloat(this.step)
         this.$emit('input',newValue)
+      } else  {
+        if(this.max?parseFloat(this.value)<parseFloat(this.max):true){
+          newValue = parseFloat(this.value) + parseFloat(this.step)
+          this.$emit('input',newValue)
+        }
       }
     },
     less(){
       let newValue
-      if(!this.value){
+      if(this.value === ''){
         newValue = 0
-      }
-      if(this.min?parseFloat(this.value)>parseFloat(this.min):true){
-        newValue = parseFloat(this.value) - parseFloat(this.step)
         this.$emit('input',newValue)
+      } else  {
+        if(this.min?parseFloat(this.value)>parseFloat(this.min):true){
+          newValue = parseFloat(this.value) - parseFloat(this.step)
+          this.$emit('input',newValue)
+        }
       }
     },
   }

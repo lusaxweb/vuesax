@@ -36,6 +36,11 @@ export default {
     id:null,
     invert:false
   }),
+  watch: {
+    label(val) {
+      this.$parent.children[this.id].label = val;
+    }
+  },
   mounted(){
     this.id = this.$parent.children.length
     this.$parent.children.push({
