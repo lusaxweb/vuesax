@@ -1,5 +1,5 @@
 /**
- * @injectDirectionClass 
+ * @injectDirectionClass
  * will inject 'vuesax-app-is-ltr' (ltr case) or 'vuexsax-app-is-rtl' (rtl case) in the html tag
  */
 
@@ -14,7 +14,7 @@ export const injectDirectionClass = (dir) => {
 }
 export const DefineRTL = (Vue, options, vm) => {
   // if rtl option passed, inject the appropriate class
-  if (options.hasOwnProperty('rtl')) {
+  if (options.hasOwnProperty('rtl') && typeof document !== 'undefined') {
     injectDirectionClass(options.rtl);
   }
   // Define reactive $vs.rtl property

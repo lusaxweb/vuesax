@@ -1,4 +1,12 @@
-
+---
+API:
+ - title: Options
+   name: rtl
+   type: Boolean
+   parameters: null
+   description: enable or disable RTL
+   default: false
+---
 # Getting Started
 
 <box header>
@@ -45,8 +53,12 @@ import Vue from 'vue'
 import Vuesax from 'vuesax'
 
 import 'vuesax/dist/vuesax.css' //Vuesax styles
-Vue.use(Vuesax)
+Vue.use(Vuesax, {
+  // options here
+})
 ```
+
+[All options](/development/#vs-api)
 
 </box>
 

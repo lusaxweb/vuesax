@@ -9,6 +9,7 @@
       <tr
         ref="tableTr"
         @click="clicktr"
+        @dblclick="dblclicktr"
         :class="[`tr-table-state-${state}`, {'is-selected':isSelected, 'selected': data, 'is-expand': maxHeight != '0px', 'activeEdit': activeEdit, 'hoverFlat': $parent.hoverFlat}]"
         class="tr-values vs-table--tr">
         <td
@@ -107,6 +108,11 @@ export default {
       if (this.$slots.expand) {
         this.clicktd(evt)
       }
+    },
+    dblclicktr (evt) {
+
+      this.$parent.dblclicktr(this.data, true)
+
     },
     clicktd (evt) {
       if(this.$parent.multiple || !this.$slots.expand) return

@@ -1,6 +1,5 @@
 <template>
   <th
-    class="col-0 col"
     colspan="1"
     rowspan="1">
     <div class="vs-table-text">
