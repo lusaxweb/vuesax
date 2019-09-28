@@ -46,6 +46,7 @@
     "postinstall": "node postinstall.js"
   },
   "dependencies": {
+    "autoprefixer": "^9.6.1",
     "chalk": "^2.4.2",
     "vue": "^2.6.9"
   },
