@@ -11,18 +11,20 @@ vs-justify="space-between" vs-w="12">
       vs-xs="12"
     >
       <div v-if="description">
-        <span
-          style="margin-right:5px"
-        >{{ descriptionTitle }}: {{ minRows }} - {{ maxRows }} {{ descriptionConnector }} {{ sizeArray }} | {{ descriptionBody }}:</span>
-        <ul class="vs-pagination--array">
-          <li v-for="(row,index) in descriptionItems" 
-:key="index">
-            <span
-              :style="styleDescription"
-              :class="[`vs-description-${color}`,{ 'vs-pagination--bold': (index==indexRows)}]"
-              @click="changeRowMaxItems(index)"
-            >{{ row }}</span>
-            <span v-if="index != (descriptionItems.length - 1)">,</span>
+        <ul class="vs-pagination--ul">
+          <li class="item-pagination vs-pagination--li vs-description--li">
+            <vs-dropdown vs-trigger-click>
+              {{ descriptionTitle }} : {{ minRows }} - {{ maxRows }} {{ descriptionConnector }} {{ sizeArray }} | {{ descriptionBody }}
+              <vs-icon icon="expand_more"></vs-icon>
+              <vs-dropdown-menu>
+                <vs-dropdown-item
+                  v-for="(row,index) in descriptionItems"
+                  :key="index"
+                  @click="changeRowMaxItems(index)"
+                >{{ row }}</vs-dropdown-item>
+              </vs-dropdown-menu>
+            </vs-dropdown>
+            <div class="effect"></div>
           </li>
         </ul>
       </div>
