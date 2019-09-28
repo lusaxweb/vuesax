@@ -53,6 +53,7 @@ class="con-pagination-table vs-table--pagination">
           :description-items="descriptionItems"
           :description-title="descriptionTitle"
           :description-body="descriptionBody"
+          :description-connector="descriptionConnector"
           v-model="currentx"
           @changeMaxItems="changeMaxItems"
         ></vs-pagination>
@@ -72,7 +73,7 @@ export default {
     },
     descriptionTitle: {
       type: String,
-      default: "qwd22"
+      default: "Registries"
     },
     descriptionConnector: {
       type: String,
