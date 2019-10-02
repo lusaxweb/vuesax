@@ -10,6 +10,11 @@ API:
    parameters: null
    description: Change the color of the line and the text.
    default: rgba(0,0,0.1)
+ - name: background
+   type: String
+   parameters: null
+   description: Change the background color of the text.
+   default: transparent
  - name: icon
    type: String
    parameters: Icon Class
@@ -174,6 +179,47 @@ You can change the color of the component with the property `color`, you can use
   <vs-divider color="dark">Dark</vs-divider>
   <vs-divider color="rgb(29, 222, 194)">RGB</vs-divider>
   <vs-divider color="#ad289f">HEX</vs-divider>
+</div>
+```
+
+</div>
+</vuecode>
+</box>
+
+
+<box>
+
+## Background
+
+You can change the background of the text with the property `background`, you can use the [main](/theme/) colors or **RGB** and **HEX**.
+:::warning
+  Only **RGB** and **HEX** colors are supported.
+:::
+
+<vuecode md>
+<div slot="demo">
+  <vs-divider>Default</vs-divider>
+  <vs-divider background="primary" color="#ade6d4">Primary</vs-divider>
+  <vs-divider background="success" color="#0a540a">Success</vs-divider>
+  <vs-divider background="danger" color="lightred">Danger</vs-divider>
+  <vs-divider background="warning" color="grey">Warning</vs-divider>
+  <vs-divider background="dark" color="lightgrey">Dark</vs-divider>
+  <vs-divider background="rgb(252, 243, 192)" color="rgb(29, 222, 194)">RGB</vs-divider>
+  <vs-divider background="#fffaaa" color="#ad289f">HEX</vs-divider>
+</div>
+<div slot="code">
+
+```html
+<div slot="demo">
+  <vs-divider>Default</vs-divider>
+  <vs-divider background="primary" color="#ade6d4">Primary</vs-divider>
+  <vs-divider background="success" color="#0a540a">Success</vs-divider>
+  <vs-divider background="danger" color="lightred">Danger</vs-divider>
+  <vs-divider background="warning" color="grey">Warning</vs-divider>
+  <vs-divider background="dark" color="lightgrey">Dark</vs-divider>
+  <vs-divider background="rgb(252, 243, 192)" color="rgb(29, 222, 194)">RGB</vs-divider>
+  <vs-divider background="#fffaaa" color="#ad289f">HEX</vs-divider>
+</div>
 ```
 
 </div>

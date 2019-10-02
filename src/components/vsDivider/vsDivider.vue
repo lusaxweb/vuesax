@@ -8,10 +8,11 @@
     <span
       v-if=" icon || $slots.default"
       :style="{
-        'color': textColor
+        'color': textColor,
+        'background':  backgroundColor
       }"
       class="vs-divider--text"
-      :class="textClass"
+      :class="Object.assign(textClass, backgroundClass)"
     >
       <template v-if="!icon">
         <slot/>
@@ -33,14 +34,18 @@
 </template>
 
 <script>
-import _color from '../../utils/color.js'
+    import _color from '../../utils/color.js'
 
-export default {
+    export default {
   name: "VsDivider",
   props:{
     color:{
       type:String,
       default:'rgba(0, 0, 0,.1)'
+    },
+    background:{
+      type:String,
+      default:'transparent'
     },
     icon:{
       default:null,
@@ -132,6 +137,18 @@ export default {
       const classes = {}
       let textColor = _color.isColor(this.color) ? this.color : "default"
       classes[`vs-divider-text-${textColor}`] = true
+
+      return classes
+    },
+    backgroundColor() {
+      if (!_color.isColor(this.background)) {
+        return _color.getColor(this.background)
+      }
+    },
+    backgroundClass() {
+      const classes = {}
+      let backgroundColor = _color.isColor(this.background) ? this.background : "default"
+      classes[`vs-divider-background-${backgroundColor}`] = true
 
       return classes
     }
