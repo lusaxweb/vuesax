@@ -12,7 +12,7 @@
         'background':  backgroundColor
       }"
       class="vs-divider--text"
-      :class="Object.assign(textClass, backgroundClass)"
+      :class="textAndBackgroundClass"
     >
       <template v-if="!icon">
         <slot/>
@@ -133,25 +133,22 @@
         return _color.getColor(this.color === 'rgba(0, 0, 0,.1)' ? 'rgba(0,0,0,0.8)' : this.color)
       }
     },
-    textClass() {
-      const classes = {}
-      let textColor = _color.isColor(this.color) ? this.color : "default"
-      classes[`vs-divider-text-${textColor}`] = true
-
-      return classes
-    },
     backgroundColor() {
       if (!_color.isColor(this.background)) {
         return _color.getColor(this.background)
       }
     },
-    backgroundClass() {
+    textAndBackgroundClass() {
       const classes = {}
+
+      let textColor = _color.isColor(this.color) ? this.color : "default"
+      classes[`vs-divider-text-${textColor}`] = true
+
       let backgroundColor = _color.isColor(this.background) ? this.background : "default"
       classes[`vs-divider-background-${backgroundColor}`] = true
 
       return classes
-    }
+    },
   }
 }
 </script>
