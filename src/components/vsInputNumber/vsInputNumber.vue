@@ -30,6 +30,8 @@
       v-bind="$attrs"
       :disabled="isDisabled"
       type="number"
+      :min="min"
+      :max="max"
       class="vs-input-number--input"
       v-on="listeners">
     <button
