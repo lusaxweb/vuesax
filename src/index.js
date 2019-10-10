@@ -23,13 +23,6 @@ const install = (Vue, options={ rtl: false }) => {
   // Override the the Vue._init function
   Override(Vue, options);
   vsFunctions(Vue)
-  if (typeof window !== 'undefined' && typeof document !== 'undefined' && window.Vue) {
-    window.addEventListener('scroll', () => {
-      document.querySelectorAll('*[class*="vx-"]').forEach((item) => {
-        item.parentElement.removeChild(item)
-      })
-    })
-  }
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
