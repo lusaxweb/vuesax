@@ -1,6 +1,6 @@
 <template>
     <vs-row vs-type="flex" vs-justify="space-between" vs-w="12">
-      <vs-col class="vs-pagination--mb" vs-type="flex" vs-justify="center" vs-align="center" vs-lg="6" vs-sm="12" vs-xs="12" >
+      <vs-col class="vs-pagination--mb" vs-type="flex" vs-justify="flex-start" vs-align="center" vs-lg="6" vs-sm="12" vs-xs="12" >
         <div v-if="description">
           <span
             style="margin-right:5px"
@@ -26,7 +26,7 @@
           </ul>
         </div>
       </vs-col>
-      <vs-col class="vs-pagination--mb" vs-type="flex" vs-justify="center" vs-align="center" vs-lg="6" vs-sm="12" vs-xs="12" >
+      <vs-col class="vs-pagination--mb" vs-type="flex" vs-justify="flex-end" vs-align="center" vs-lg="6" vs-sm="12" vs-xs="12" >
         <div
           :style="stylePagination"
           :class="[`vs-pagination-${color}`]"
@@ -39,7 +39,7 @@
               @click="prevPage">
               <vs-icon
                 :icon-pack="iconPack"
-                :icon="prevIcon"
+                :icon="prevIcon ? prevIcon : defaultPrevIcon"
               ></vs-icon>
             </button>
             <ul class="vs-pagination--ul">
@@ -64,7 +64,7 @@
               @click="nextPage">
               <vs-icon
                 :icon-pack="iconPack"
-                :icon="nextIcon"
+                :icon="nextIcon ? nextIcon : defaultNextIcon"
               ></vs-icon>
             </button>
             <input
@@ -96,11 +96,11 @@ export default {
     },
     sizeArray:{
       type:Number,
-      required:true
+      required:false
     },
     maxItems: {
       type:[Number, String],
-      required:true
+      required:false
     },
     value:{
       type:Number,
