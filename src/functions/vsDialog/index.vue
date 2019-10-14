@@ -13,7 +13,7 @@
         class="vs-dialog">
 
         <!-- //header -->
-        <header :style="styleHeader">
+        <header :style="styleHeader" class="vs-dialog-header">
           <div class="con-title-after">
             <span
               :style="styleAfter"
