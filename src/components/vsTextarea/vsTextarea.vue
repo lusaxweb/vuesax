@@ -11,7 +11,6 @@
     <textarea
       :value="value"
       v-bind="$attrs"
-      :style="getStyle"
       class="vs-textarea"
       v-on="listeners">
     </textarea>
@@ -63,19 +62,10 @@ export default {
   computed:{
     style() {
       let style = {}
+      console.log(this.height);
       style.border = `1px solid ${this.isFocus?_color.getColor(this.color,1):'rgba(0, 0, 0,.08)'}`
-
-      return style
-    },
-    getStyle() {
-      let style = {}
-      if (this.height) {
-        style.height = `${this.height}px`
-      }
-
-      if (this.width) {
-        style.width = `${this.width}px`
-      }
+      style.height = this.height
+      style.width = this.width
 
       return style
     },
