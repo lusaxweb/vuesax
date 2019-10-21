@@ -10195,8 +10195,8 @@ function _typeof(obj) {
     },
     getItems: function getItems(min, max) {
       var items = [];
-      this.data.forEach(function (item, index) {
-        if (index >= min && index < max) {
+      this.data.forEach((item, index) => {
+        if (this.total || index >= min && index < max) {
           items.push(item);
         }
       });
