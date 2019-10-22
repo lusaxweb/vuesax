@@ -24,7 +24,7 @@
             @click="activeChild(index)"
             v-on="child.listeners">
             <vs-icon v-if="child.icon" :icon-pack="child.iconPack" :icon="child.icon" :color="color" class="vs-tabs--btn-icon"></vs-icon>
-            <span>{{ child.label }}</span>
+            <span v-if="child.label">{{ child.label }}</span>
           </button>
 
           <button @click="clickTag(child)" v-if="child.tag" class="vs-tabs--btn-tag">

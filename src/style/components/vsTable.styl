@@ -237,30 +237,18 @@
       display: flex
       align-items: center
       justify-content: flex-start
+      cursor: pointer
     .sort-th
       display: flex
       align-items: center
       justify-content: center
       flex-direction: column
-      padding-right: 6px
-      i
-        font-size: .7rem
-        cursor: pointer
+      padding-left: 6px
+      transform translate(0, 2px)
+      .th-sort-icon
+        font-size: .9rem
         transition: all .25s ease
         border-radius: 2px
-        &.up-sort
-          transform translate(0,2px)
-          &:hover
-            transform translate(0,0)
-            background: rgb(255,255,255)
-            box-shadow: 0px 3px 10px 0px rgba(0,0,0,.05)
-        &.down-sort
-          transform translate(0,-2px)
-          &:hover
-            transform translate(0,0)
-            background: rgb(255,255,255)
-            box-shadow: 0px 3px 10px 0px rgba(0,0,0,.05)
-
     &.td-check
       padding: 0px !important
       .con-td-check

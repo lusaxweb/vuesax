@@ -145,6 +145,8 @@ export default {
     currentx: 1,
     maxItemsx: 5,
     hasExpadableData: false,
+    currentSortKey: null,
+    currentSortType: null
   }),
   computed:{
     getTotalPages() {
@@ -252,16 +254,29 @@ export default {
       }
     },
     getItems(min, max) {
+      let dataBase = this.sortItems(this.data);
+
       let items = []
-      this.data.forEach((item, index) => {
+      dataBase.forEach((item, index) => {
         if(index >= min && index < max) {
           items.push(item)
         }
       })
       return items
     },
+    sortItems(data) {
+      const { currentSortKey, currentSortType } = this;
+      function compare(a,b) {
+        if (a[currentSortKey] < b[currentSortKey])
+          return currentSortType == 'desc'?1:-1;
+        if (a[currentSortKey] > b[currentSortKey])
+          return currentSortType == 'desc'?-1:1;
+        return 0;
+      }
+      return currentSortType !== null ? [...data].sort(compare) : [...data];
+    },
     getItemsSearch(pagination = false,min, max) {
-      let dataBase = this.data
+      let dataBase = this.sortItems(this.data)
 
       let filterx = dataBase.filter((tr)=>{
         let values = this.getValues(tr).toString().toLowerCase()
@@ -278,22 +293,14 @@ export default {
 
       return items
     },
-    sort(key, active) {
+    sort(key, sortType) {
+      this.currentSortKey = key;
+      this.currentSortType = sortType;
       if(this.sst) {
-        this.$emit('sort', key, active)
+        this.$emit('sort', key, sortType)
         return
       }
-      let datax = (this.pagination) ? this.data : this.datax
-
-      function compare(a,b) {
-        if (a[key] < b[key])
-          return active?1:-1
-        if (a[key] > b[key])
-          return active?-1:1;
-        return 0;
-      }
-
-      this.datax = datax.sort(compare)
+      this.loadData();
     },
     getValues(obj) {
       let valuesx = Object.values(obj)
