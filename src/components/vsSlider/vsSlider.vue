@@ -366,17 +366,11 @@ export default {
       let val = steps * lengthPerStep * (this.max - this.min) * 0.01 + this.min;
       val = this.stepDecimals ? this.toDecimal(val) : Math.round(val);
 
-      if (this.ticks) {
-        if (val > this.max) {
-          val = this.max;
-          this[this.two ? "leftTwo" : "leftx"] = 100;
-        } else {
-          this[this.two ? "leftTwo" : "leftx"] = steps * lengthPerStep;
-        }
+      if (val > this.max) {
+        val = this.max;
+        this[this.two ? "leftTwo" : "leftx"] = 100;
       } else {
-        this[this.two ? "leftTwo" : "leftx"] = Math.round(
-          steps * lengthPerStep
-        );
+        this[this.two ? "leftTwo" : "leftx"] = steps * lengthPerStep;
       }
 
       if (Array.isArray(this.value)) {

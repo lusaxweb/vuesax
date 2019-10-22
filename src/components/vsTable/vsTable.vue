@@ -150,7 +150,13 @@ export default {
     searchx: null,
     currentx: 1,
     maxItemsx: 5,
+<<<<<<< HEAD
     hasExpadableData: false
+=======
+    hasExpadableData: false,
+    currentSortKey: null,
+    currentSortType: null
+>>>>>>> pr/3
   }),
   computed: {
     getTotalPages() {
@@ -266,16 +272,41 @@ export default {
       }
     },
     getItems(min, max) {
+<<<<<<< HEAD
       let items = [];
       this.data.forEach((item, index) => {
         if (index >= min && index < max) {
           items.push(item);
+=======
+      let dataBase = this.sortItems(this.data);
+
+      let items = []
+      dataBase.forEach((item, index) => {
+        if(index >= min && index < max) {
+          items.push(item)
+>>>>>>> pr/3
         }
       });
       return items;
     },
+<<<<<<< HEAD
     getItemsSearch(pagination = false, min, max) {
       let dataBase = this.data;
+=======
+    sortItems(data) {
+      const { currentSortKey, currentSortType } = this;
+      function compare(a,b) {
+        if (a[currentSortKey] < b[currentSortKey])
+          return currentSortType == 'desc'?1:-1;
+        if (a[currentSortKey] > b[currentSortKey])
+          return currentSortType == 'desc'?-1:1;
+        return 0;
+      }
+      return currentSortType !== null ? [...data].sort(compare) : [...data];
+    },
+    getItemsSearch(pagination = false,min, max) {
+      let dataBase = this.sortItems(this.data)
+>>>>>>> pr/3
 
       let filterx = dataBase.filter(tr => {
         let values = this.getValues(tr)
@@ -294,6 +325,7 @@ export default {
 
       return items;
     },
+<<<<<<< HEAD
     sort(key, active) {
       if (this.sst) {
         this.$emit("sort", key, active);
@@ -308,6 +340,16 @@ export default {
       }
 
       this.datax = datax.sort(compare);
+=======
+    sort(key, sortType) {
+      this.currentSortKey = key;
+      this.currentSortType = sortType;
+      if(this.sst) {
+        this.$emit('sort', key, sortType)
+        return
+      }
+      this.loadData();
+>>>>>>> pr/3
     },
     getValues(obj) {
       let valuesx = Object.values(obj);

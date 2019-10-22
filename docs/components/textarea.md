@@ -143,7 +143,7 @@ export default {
 
 ## Width
 
-You can set the width of the textarea width the `width` property.
+You can set the width of the textarea width the `width` property. You can also use css values like`10rem` or `50%` as value.
 
 <vuecode md>
 <div slot="demo">
@@ -167,7 +167,7 @@ You can set the width of the textarea width the `width` property.
 
 ## Height
 
-You can set the height of the textarea with the `height` property.
+You can set the height of the textarea with the `height` property. You can also use css values like`10rem` or `50%` as value.
 
 <vuecode md>
 <div slot="demo">

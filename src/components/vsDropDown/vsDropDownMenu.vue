@@ -3,7 +3,7 @@
     <div
       v-if="dropdownVisible"
       ref="options"
-      :class="{'rightx':rightx,'notHeight':notHeight}"
+      :class="{'rightx':$parent.rightx,'notHeight':notHeight}"
       :style="{
         'left':leftx+'px',
         'top':topx+'px'

@@ -125,10 +125,12 @@ export default {
     },
     close(event,con){
       if(con){
-        if(event.target.className.indexOf('vs-popup--background')!=-1){
+        if(event.target.className
+            && event.target.className.indexOf
+            && event.target.className.indexOf('vs-popup--background')!=-1){
           this.$emit('update:active',false)
           this.$emit('close', false)
-        } else if(event.srcElement == this.$refs.btnclose.$el){
+        } else if(!this.buttonCloseHidden && event.srcElement == this.$refs.btnclose.$el){
           this.$emit('update:active',false)
           this.$emit('close', false)
         }

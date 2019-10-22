@@ -11,7 +11,8 @@
 .icon-alert
   height: 100%
   position: absolute
-  left: 0px
+  // left: 0px
+  propWithDir(left, null, 0)
   padding: 10px
   top 0px
   font-size: 1.1rem
@@ -22,7 +23,8 @@
   overflow hidden
   position relative
   &.con-icon
-    padding-left: 40px
+    // padding-left: 40px
+    propWithDir(padding, left, 40px)
 .vs-alert--title
   font-size .9rem
   font-weight: bold

@@ -20,7 +20,7 @@
 
 .vuesax-app-is-rtl
   .vs-con-dropdown
-    .a-icon 
+    .a-icon
       flex-direction: row-reverse
 
 .vs-dropdown--group
@@ -148,6 +148,10 @@
   z-index: 40000
   transform: translate(-100%);
   transition: opacity .25s, transform .25s, width .3s ease;
+  &.rightx
+    .vs-dropdown--menu--after
+      left: 30px
+      right: 0
   &::after
     content: ''
     display block

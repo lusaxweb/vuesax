@@ -119,10 +119,17 @@ export default {
         || document.documentElement.clientWidth
         || document.body.clientWidth;
 
+
         if(this.$refs.dropdown.getBoundingClientRect().left + dropdownMenu.$el.offsetWidth >= w - 25){
           this.rightx = true
         }
+
+        if(this.$refs.dropdown.getBoundingClientRect().right < (dropdownMenu.$el.clientWidth + 25)) {
+          dropdownMenu.leftx = dropdownMenu.$el.clientWidth + 25
+          return
+        }
         dropdownMenu.leftx = this.$refs.dropdown.getBoundingClientRect().left + (this.vsDropRight ? dropdownMenu.$el.clientWidth : this.$refs.dropdown.clientWidth );
+
       });
     },
     clickToogleMenu(evt){

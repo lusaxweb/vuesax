@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <vs-row 
     vs-type="flex" 
     vs-justify="space-between" 
@@ -28,6 +29,15 @@
               {{ descriptionTitle }} {{ minRows }} - {{ maxRows }} {{ descriptionConnector }} {{ sizeArray }}
             </span>
             <vs-icon icon="expand_more"></vs-icon>
+=======
+    <vs-row vs-type="flex" vs-justify="space-between" vs-w="12">
+      <vs-col class="vs-pagination--mb" vs-type="flex" vs-justify="flex-start" vs-align="center" vs-lg="6" vs-sm="12" vs-xs="12" >
+        <div v-if="description">
+          <span
+            style="margin-right:5px"
+          >
+            {{descriptionTitle}}: {{minRows}} - {{maxRows}} {{descriptionConnector}} {{sizeArray}} | {{descriptionBody}}:
+>>>>>>> pr/3
 
 
             <vs-dropdown-menu>
@@ -83,6 +93,7 @@
               <div class="effect"></div>
             </li>
           </ul>
+<<<<<<< HEAD
           <!-- :style="styleBtn" -->
           <button
             :class="{disabled:current === total ? 'disabled' : null}"
@@ -107,6 +118,63 @@
       </div>
     </vs-col>
   </vs-row>
+=======
+        </div>
+      </vs-col>
+      <vs-col class="vs-pagination--mb" vs-type="flex" vs-justify="flex-end" vs-align="center" vs-lg="6" vs-sm="12" vs-xs="12" >
+        <div
+          :style="stylePagination"
+          :class="[`vs-pagination-${color}`]"
+          class="con-vs-pagination">
+          <nav class="vs-pagination--nav">
+            <button
+              :class="{disabled:current <= 1 ? 'disabled' : null}"
+              :disabled="current === 1"
+              class="vs-pagination--buttons btn-prev-pagination vs-pagination--button-prev"
+              @click="prevPage">
+              <vs-icon
+                :icon-pack="iconPack"
+                :icon="prevIcon ? prevIcon : defaultPrevIcon"
+              ></vs-icon>
+            </button>
+            <ul class="vs-pagination--ul">
+              <li
+                v-for="(page, index) in pages"
+                :key="index"
+                :class="{'is-current': page == current}"
+                class="item-pagination vs-pagination--li"
+                @click="goTo(page)">
+                <span>
+                  {{ page }}
+                </span>
+
+                <div class="effect"></div>
+              </li>
+            </ul>
+            <!-- :style="styleBtn" -->
+            <button
+              :class="{disabled:current === total ? 'disabled' : null}"
+              :disabled="current === total"
+              class="vs-pagination--buttons btn-next-pagination vs-pagination--button-next"
+              @click="nextPage">
+              <vs-icon
+                :icon-pack="iconPack"
+                :icon="nextIcon ? nextIcon : defaultNextIcon"
+              ></vs-icon>
+            </button>
+            <input
+              v-if="goto"
+              v-model="go"
+              :max="total"
+              class="vs-pagination--input-goto"
+              min="1"
+              type="number"
+              @change="goTo">
+          </nav>
+        </div>
+      </vs-col>
+    </vs-row>
+>>>>>>> pr/3
 </template>
 <script>
 import _color from "../../utils/color.js";
@@ -122,6 +190,7 @@ export default {
       type: Number,
       required: true
     },
+<<<<<<< HEAD
     sizeArray: {
       type: Number,
       required: true
@@ -129,6 +198,15 @@ export default {
     maxItems: {
       type: [Number, String],
       required: true
+=======
+    sizeArray:{
+      type:Number,
+      required:false
+    },
+    maxItems: {
+      type:[Number, String],
+      required:false
+>>>>>>> pr/3
     },
     value: {
       type: Number,
