@@ -253,7 +253,7 @@ To add a dialog of type prompt we have a global function a completely independen
       :active.sync="activePrompt">
        <div class="con-exemple-prompt">
           Enter the security code
-         <vs-input placeholder="Code" placeholder="Code" v-model="val"/>
+         <vs-input placeholder="Code" v-model="val"/>
 
          <vs-select
             class="selectExample"
