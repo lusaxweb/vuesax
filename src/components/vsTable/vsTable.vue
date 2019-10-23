@@ -153,8 +153,10 @@ export default {
       return Math.ceil(this.data.length / this.maxItemsx)
     },
     getTotalPagesSearch() {
+      const search = this.normalize(this.searchx);
+
       let filterx = this.data.filter((tr)=>{
-        return this.normalize(this.getValues(tr).toString()).indexOf(this.normalize(this.searchx)) != -1
+        return this.normalize(this.getValues(tr).toString()).indexOf(search) != -1
       })
 
       return Math.ceil(filterx.length / this.maxItemsx)
@@ -273,8 +275,10 @@ export default {
       return currentSortType !== null ? [...data].sort(compare) : [...data];
     },
     getItemsSearch(pagination = false,min, max) {
+      const search = this.normalize(this.searchx);
+
       return this.sortItems(this.data).filter((tr)=>{
-        return this.normalize(this.getValues(tr).toString()).indexOf(this.normalize(this.searchx)) != -1
+        return this.normalize(this.getValues(tr).toString()).indexOf(search) != -1
       }).filter((_, index) => {
         return (index >= min && index < max);
       });
