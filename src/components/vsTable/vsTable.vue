@@ -153,11 +153,8 @@ export default {
       return Math.ceil(this.data.length / this.maxItemsx)
     },
     getTotalPagesSearch() {
-      let dataBase = this.data
-
-      let filterx = dataBase.filter((tr)=>{
-        let values = this.getValues(tr).toString().toLowerCase()
-        return values.indexOf(this.searchx.toLowerCase()) != -1
+      let filterx = this.data.filter((tr)=>{
+        return this.normalize(this.getValues(tr).toString()).indexOf(this.normalize(this.searchx)) != -1
       })
 
       return Math.ceil(filterx.length / this.maxItemsx)
@@ -276,22 +273,11 @@ export default {
       return currentSortType !== null ? [...data].sort(compare) : [...data];
     },
     getItemsSearch(pagination = false,min, max) {
-      let dataBase = this.sortItems(this.data)
-
-      let filterx = dataBase.filter((tr)=>{
-        let values = this.getValues(tr).toString().toLowerCase()
-        return values.indexOf(this.searchx.toLowerCase()) != -1
-      })
-
-      let items = []
-
-      filterx.forEach((item, index) => {
-        if(index >= min && index < max) {
-          items.push(item)
-        }
-      })
-
-      return items
+      return this.sortItems(this.data).filter((tr)=>{
+        return this.normalize(this.getValues(tr).toString()).indexOf(this.normalize(this.searchx)) != -1
+      }).filter((_, index) => {
+        return (index >= min && index < max);
+      });
     },
     sort(key, sortType) {
       this.currentSortKey = key;
@@ -301,6 +287,9 @@ export default {
         return
       }
       this.loadData();
+    },
+    normalize(string) {
+      return string.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase();
     },
     getValues(obj) {
       let valuesx = Object.values(obj)
