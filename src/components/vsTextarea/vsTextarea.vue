@@ -25,84 +25,85 @@
 </template>
 
 <script>
-import _color from '../../utils/color.js'
+import _color from "../../utils/color.js";
 export default {
   name: "VsTextarea",
-  inheritAttrs:false,
-  props:{
-    value:{},
-    label:{
-      default:null,
+  inheritAttrs: false,
+  props: {
+    value: {},
+    label: {
+      default: null,
       type: String
     },
-    color:{
-      default:'primary',
-      type:String
+    color: {
+      default: "primary",
+      type: String
     },
-    counter:{
+    counter: {
       default: null,
       type: [Number, String]
     },
-    counterDanger:{
+    counterDanger: {
       default: false,
       type: Boolean
     },
-    height:{
-      default:null,
+    height: {
+      default: null,
       type: String
     },
-    width:{
-      default:null,
+    width: {
+      default: null,
       type: String
     }
   },
-  data:()=>({
+  data: () => ({
     isFocus: false
   }),
-  computed:{
+  computed: {
     style() {
-      let style = {}
-      console.log(this.height);
-      style.border = `1px solid ${this.isFocus?_color.getColor(this.color,1):'rgba(0, 0, 0,.08)'}`
-      style.height = this.height
-      style.width = this.width
+      let style = {};
 
-      return style
+      style.border = `1px solid ${
+        this.isFocus ? _color.getColor(this.color, 1) : "rgba(0, 0, 0,.08)"
+      }`;
+      style.height = this.height;
+      style.width = this.width;
+
+      return style;
     },
     listeners() {
       return {
         ...this.$listeners,
-        input:(evt) => {
-          this.$emit('input', evt.target.value)
+        input: evt => {
+          this.$emit("input", evt.target.value);
         },
-        focus:() => {
-          this.focus()
+        focus: () => {
+          this.focus();
         },
-        blur:() => {
-          this.blur()
+        blur: () => {
+          this.blur();
         }
-      }
+      };
     }
   },
-  watch:{
+  watch: {
     value() {
-      if(this.value && this.value.length > this.counter) {
-        this.$emit('update:counterDanger', true)
+      if (this.value && this.value.length > this.counter) {
+        this.$emit("update:counterDanger", true);
       } else {
-        this.$emit('update:counterDanger', false)
+        this.$emit("update:counterDanger", false);
       }
     }
   },
-  methods:{
+  methods: {
     focus() {
-      this.isFocus = true
-      this.$emit('focus')
+      this.isFocus = true;
+      this.$emit("focus");
     },
     blur() {
-      this.isFocus = false
-      this.$emit('blur')
+      this.isFocus = false;
+      this.$emit("blur");
     }
   }
-}
-
+};
 </script>
