@@ -121,11 +121,12 @@ export default {
 
 
         if(this.$refs.dropdown.getBoundingClientRect().left + dropdownMenu.$el.offsetWidth >= w - 25){
-          this.rightx = true
+          // this.rightx = true
         }
 
         if(this.$refs.dropdown.getBoundingClientRect().right < (dropdownMenu.$el.clientWidth + 25)) {
-          dropdownMenu.leftx = dropdownMenu.$el.clientWidth + 25
+          dropdownMenu.leftx = dropdownMenu.$el.clientWidth + this.$refs.dropdown.getBoundingClientRect().left
+          this.rightx = true
           return
         }
         dropdownMenu.leftx = this.$refs.dropdown.getBoundingClientRect().left + (this.vsDropRight ? dropdownMenu.$el.clientWidth : this.$refs.dropdown.clientWidth );
