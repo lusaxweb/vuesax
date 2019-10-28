@@ -295,41 +295,14 @@ export default {
     normalize(string) {
       return string.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase();
     },
-    getValues(obj) {
-      let valuesx = Object.values(obj)
-      let strings = []
-
-      function getStrings (obj) {
-
-        if(Array.isArray(obj)) {
-
-          strings = [...strings,...obj]
-          obj.forEach((item) => {
-            getStrings(item)
-          })
-
-        } else if (typeof obj == 'object' && obj != null) {
-          let subObj = Object.values(obj)
-          strings = [...strings,...subObj]
-          getStrings(subObj)
-        }
-
+    getValues: function getValues(obj) {
+      function flattenDeep(val) {
+        return Object.values(val || []).reduce((acc, val) => (typeof val === 'object') ? acc.concat(flattenDeep(val)) : acc.concat(val), []);
       }
-      getStrings(valuesx)
 
-      strings = strings.filter(item => typeof item == 'string' || typeof item == 'number')
-
-      return valuesx
-    },
-    getStrings(obj, valuesx) {
-      let stringsx = Object.values(obj)
-      valuesx.forEach((item) => {
-        if (item && typeof item == 'object') {
-          valuesx = [...valuesx,...Object.values(item)]
-        }
-      })
-      // return [...valuesx,...Object.values(item)]
-      return stringsx
+      return flattenDeep(obj).filter(function (item) {
+        return (typeof item === 'string') || (typeof item === 'number');
+      });
     },
     changeCheckedMultiple () {
       let lengthx = this.data.length
