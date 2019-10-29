@@ -14,14 +14,14 @@ const vsFunctions = {
   vsDialog
 }
 
-export default Vue => {
+export default vm => {
   Object.values(vsFunctions).forEach((vsFunctions) => {
     if(vsFunctions.hasOwnProperty('subName')){
-      Vue.prototype.$vs[vsFunctions.name][vsFunctions.subName] = vsFunctions.vsfunction
+      vm.$vs[vsFunctions.name][vsFunctions.subName] = vsFunctions.vsfunction
     } else {
-      Vue.prototype.$vs[vsFunctions.name] = vsFunctions.vsfunction
+      vm.$vs[vsFunctions.name] = vsFunctions.vsfunction
     }
   })
 
-  Vue.prototype.$vs.loading.close = vsLoading.close
+  vm.$vs.loading.close = vsLoading.close
 }
