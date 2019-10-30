@@ -4,11 +4,13 @@
  */
 
 export const injectDirectionClass = dir => {
-  if (dir) {
-    document.documentElement.classList.remove("vuesax-app-is-ltr");
-    document.documentElement.classList.add("vuesax-app-is-rtl");
-  } else {
-    document.documentElement.classList.add("vuesax-app-is-ltr");
-    document.documentElement.classList.remove("vuesax-app-is-rtl");
+  if(document) {
+    if (dir) {
+      document.documentElement.classList.remove("vuesax-app-is-ltr");
+      document.documentElement.classList.add("vuesax-app-is-rtl");
+    } else {
+      document.documentElement.classList.add("vuesax-app-is-ltr");
+      document.documentElement.classList.remove("vuesax-app-is-rtl");
+    }
   }
 };

@@ -7,6 +7,13 @@ import vsFunctions from './functions'
 
 export default (Vue, options) => {
   Vue.mixin({
+    watch: {
+      '$vs.rtl': {
+        handler(val) {
+          injectDirectionClass(val)
+        }
+      }
+    },
     beforeCreate() {
       // create $vs property if not exist
       if(!this.$vs) {
@@ -14,16 +21,11 @@ export default (Vue, options) => {
         this.$vs = Vue.observable(options);
         // define $vs functions
         vsFunctions(this);
-        // inject the direction class for the initial options
-        injectDirectionClass(this.$vs.rtl)
-      } 
-    },
-    watch: {
-      '$vs.rtl': {
-        handler(val) {
-          injectDirectionClass(val)
-        }
       }
+    },
+    mounted() {
+      // inject the direction class for the initial options
+      injectDirectionClass(this.$vs.rtl)
     }
   })
 };
