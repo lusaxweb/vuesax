@@ -57,7 +57,7 @@
         class="con-pagination-table vs-table--pagination">
         <vs-pagination
           :total="searchx && !sst ? getTotalPagesSearch : getTotalPages"
-          :sizeArray="data.length"
+          :sizeArray="queriedResults.length"
           :maxItems="maxItemsx"
           :description="description"
           :descriptionItems="descriptionItems"
@@ -153,14 +153,18 @@ export default {
       return Math.ceil(this.data.length / this.maxItemsx)
     },
     getTotalPagesSearch() {
-      let dataBase = this.data
-
-      let filterx = dataBase.filter((tr)=>{
-        let values = this.getValues(tr).toString().toLowerCase()
-        return values.indexOf(this.searchx.toLowerCase()) != -1
-      })
-
-      return Math.ceil(filterx.length / this.maxItemsx)
+      return Math.ceil(this.queriedResults.length / this.maxItems)
+    },
+    queriedResults() {
+      let queriedResults = this.data
+      if(this.searchx && this.search) {
+        let dataBase = this.data
+        queriedResults = dataBase.filter((tr)=>{
+          let values = this.getValues(tr).toString().toLowerCase()
+          return values.indexOf(this.searchx.toLowerCase()) != -1
+        })
+      }
+      return queriedResults
     },
     isNoData() {
       if(typeof(this.datax) == Object) {

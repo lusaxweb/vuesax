@@ -130,7 +130,7 @@
     },
     textColor() {
       if (!_color.isColor(this.color)) {
-        return _color.getColor(this.color === 'rgba(0, 0, 0,.1)' ? 'rgba(0,0,0,0.8)' : this.color)
+        return _color.getColor(this.color !== 'rgba(0, 0, 0,.1)' ? this.color : null)
       }
     },
     backgroundColor() {

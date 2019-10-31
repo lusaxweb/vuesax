@@ -17,7 +17,7 @@
   flex-direction: column
   margin: 15px
   // margin-top: 5px
-  float left
+  dirValue(float, left)
   &:hover
     border: 1px dashed getColor(primary,.5)
   &.disabled-upload
@@ -103,7 +103,7 @@
 
   .img-upload
     backface-visibility: hidden
-    float left
+    dirValue(float, left)
     overflow hidden
     border-radius: 10px;
     background: rgba(0,80,0,.5)
@@ -153,7 +153,7 @@
       // width: 80px;
       // height 80px;
       padding: 0px;
-      right 5px;
+      propWithDir(right, null, 5px)
       margin: 0px;
       transform: translate(20%,-20%)
       background: transparent
