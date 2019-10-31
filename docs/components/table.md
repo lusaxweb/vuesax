@@ -122,7 +122,7 @@ API:
    default: false
 ---
 
-# Table **- update**
+# Table
 
 <box header>
 
