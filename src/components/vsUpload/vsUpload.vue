@@ -379,7 +379,7 @@
 
         xhr.withCredentials = true;
 
-        xhr.open('POST', this.action);
+        xhr.open('POST', this.action, true);
 
         const headers = this.headers || {};
 
