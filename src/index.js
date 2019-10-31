@@ -1,12 +1,16 @@
 import * as vsComponents from './components'
-import vsFunctions from './functions'
 import './style/vuesax.styl'
 import vsTheme from './utils/theme.js'
-import Override from './override';
+import DefineVuesaxMixin from './defineGlobalMixin'
+import vuesaxOptions from './utils/options'
 
-const install = (Vue, options={ rtl: false }) => {
-  // Define Vuesax main identifier
-  Vue.prototype.$vs = {}
+const install = (Vue, options={}) => {
+  // set default options
+  for(let prop in vuesaxOptions) {
+    if(!options[prop]) {
+      options[prop] = vuesaxOptions[prop]
+    }
+  }
   // Use Components
   Object.values(vsComponents).forEach((vsComponent) => {
     Vue.use(vsComponent)
@@ -20,9 +24,8 @@ const install = (Vue, options={ rtl: false }) => {
       }
     }
   }
-  // Override the the Vue._init function
-  Override(Vue, options);
-  vsFunctions(Vue)
+  // Define vuesax functions and properties ($vs)
+  DefineVuesaxMixin(Vue, options);
 }
 
 if (typeof window !== 'undefined' && window.Vue) {

@@ -9,7 +9,7 @@
   propWithDir(margin, right, 2px)
   margin-bottom: 3px
   min-height 28px
-  propWithDir(margin, right, 10px)
+  propWithDir(padding, right, 10px)
   color: rgba(0,0,0,.7)
   position: relative
   &.closable
@@ -54,8 +54,7 @@
   display: flex
   align-items: center
   justify-content: center
-  margin-left: 10px;
-  margin-right: 10px
+  propWithDir(margin, left, 10px)
 
 for colorx, i in $vs-colors
   .vs-chip-{colorx}
@@ -84,6 +83,7 @@ for colorx, i in $vs-colors
 .con-chips--input
   display: inline-block;
   flex:1;
+  color: inherit
   /* height: 30px; */
   padding: 9px;
   box-sizing: border-box;
