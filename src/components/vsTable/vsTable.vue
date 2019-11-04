@@ -150,7 +150,9 @@ export default {
   }),
   computed:{
     getTotalPages() {
-      return Math.ceil(this.data.length / this.maxItemsx)
+      let dataLength = !this.sst ? this.data.length : this.total;
+
+      return Math.ceil(dataLength / this.maxItemsx)
     },
     getTotalPagesSearch() {
       const search = this.normalize(this.searchx);
