@@ -5,6 +5,11 @@ API:
    parameters: RGB, HEX, primary, success, danger, warning, dark
    description: Component color
    default: primary
+ - name: transparent
+   type: Boolean
+   parameters: true/false
+   description: Create chip with transparent background
+   default: false
  - name: closable
    type: Boolean
    parameters: null
