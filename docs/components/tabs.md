@@ -327,7 +327,7 @@ Change the alignment of the buttons with the property `alignments`. The allowed 
 
 ## Position
 
-You can change the position of the menu with the property `vs-position` that as a value you can have: `top`, `right`,`bottom`, `left`.
+You can change the position of the menu with the property `position` that as a value you can have: `top`, `right`,`bottom`, `left`.
 
 <vuecode md>
 <div slot="demo">
