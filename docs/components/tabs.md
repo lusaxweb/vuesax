@@ -15,7 +15,7 @@ API:
    parameters: null
    description: Index of active tab.
    default: 0
- - name: vs-position
+ - name: position
    type: String
    parameters: top, left, bottom, right
    description: Tabs menu position.
