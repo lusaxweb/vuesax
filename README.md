@@ -43,7 +43,7 @@ Vuesax is an open source [MIT](https://raw.githubusercontent.com/lusaxweb/vuesax
     <img width="20%" src="https://raw.githubusercontent.com/lusaxweb/vuesax/master/docs/.vuepress/public/bit-share-code.png" alt="Bit">
   </a>
   <a href="https://www.wrappixel.com/?ref=102">
-    <img width="20%" src="https://raw.githubusercontent.com/lusaxweb/vuesax/master/docs/.vuepress/public/xtrene-vuesax-admin-template-nw.jpg" alt="Bit">
+    <img width="20%" src="https://raw.githubusercontent.com/lusaxweb/vuesax/master/docs/.vuepress/public/wrappixel-logo.png" alt="Bit">
   </a>
  </p>
 
