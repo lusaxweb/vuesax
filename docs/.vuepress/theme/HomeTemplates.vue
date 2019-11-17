@@ -10,7 +10,7 @@
     </header>
     <ul>
       <li>
-        <a target="_blank" href="https://www.wrappixel.com/?ref=102">
+        <a target="_blank" href="https://www.wrappixel.com/templates/xtreme-vuesax-admin-pro/?ref=102">
           <img src="xtrene-vuesax-admin-template-nw.jpg" alt="">
         </a>
       </li>
