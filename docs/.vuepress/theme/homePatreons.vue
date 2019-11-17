@@ -51,11 +51,13 @@ export default {
         link:'https://bitsrc.io/'
       },
       {
-        name:null,
-        img:'/vuesax-logo.png'
+        name:'WrapPixel',
+        img:'/wrappixel-logo.png',
+        link:'https://www.wrappixel.com/?ref=102'
       },
       {
-        name:null
+        name:null,
+        img:'/vuesax-logo.png'
       },
       {
         name:null
