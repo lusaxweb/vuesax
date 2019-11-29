@@ -1,12 +1,14 @@
 <template lang="html">
+<div>
+  <p v-if="label" class="vs-textarea--label">
+      {{ label }}
+    </p>
   <div
     :style="style"
     :class="[`vs-textarea-${color}`, {'textarea-danger': counter ? (value && value.length > counter) : false, 'focusx': isFocus}]"
     class="vs-component vs-con-textarea">
 
-    <h4 v-if="label">
-      {{ label }}
-    </h4>
+    
 
     <textarea
       :value="value"
@@ -21,6 +23,7 @@
       {{ value ? value.length : 0 }} / {{ counter }}
     </div>
 
+  </div>
   </div>
 </template>
 
