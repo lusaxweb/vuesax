@@ -1,6 +1,8 @@
 <template lang="html">
   <div class="vs-list--item">
-    <div class="vs-list--avatar" v-if="$slots.avatar">
+    <div 
+      v-if="$slots.avatar" 
+      class="vs-list--avatar">
       <slot name="avatar"/>
     </div>
     <div

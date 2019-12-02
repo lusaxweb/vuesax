@@ -1,29 +1,31 @@
 <template lang="html">
-<div>
-  <p v-if="label" class="vs-textarea--label">
+  <div>
+    <p 
+      v-if="label" 
+      class="vs-textarea--label">
       {{ label }}
     </p>
-  <div
-    :style="style"
-    :class="[`vs-textarea-${color}`, {'textarea-danger': counter ? (value && value.length > counter) : false, 'focusx': isFocus}]"
-    class="vs-component vs-con-textarea">
+    <div
+      :style="style"
+      :class="[`vs-textarea-${color}`, {'textarea-danger': counter ? (value && value.length > counter) : false, 'focusx': isFocus}]"
+      class="vs-component vs-con-textarea">
 
     
 
-    <textarea
-      :value="value"
-      v-bind="$attrs"
-      class="vs-textarea"
-      v-on="listeners">
-    </textarea>
+      <textarea
+        :value="value"
+        v-bind="$attrs"
+        class="vs-textarea"
+        v-on="listeners">
+      </textarea>
 
-    <div
-      v-if="counter"
-      class="count vs-textarea--count">
-      {{ value ? value.length : 0 }} / {{ counter }}
+      <div
+        v-if="counter"
+        class="count vs-textarea--count">
+        {{ value ? value.length : 0 }} / {{ counter }}
+      </div>
+
     </div>
-
-  </div>
   </div>
 </template>
 

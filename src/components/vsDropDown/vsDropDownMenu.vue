@@ -11,7 +11,7 @@
       class="con-vs-dropdown--menu vs-dropdown-menu"
       @mouseleave="mouseleavex"
       @mouseenter="mouseenterx"
-      >
+    >
       <!-- @mouseout="toggleMenu($event)" -->
       <!-- @mouseover="toggleMenu($event)" -->
       <ul
@@ -24,7 +24,9 @@
         class="vs-dropdown--custom vs-dropdown--menu">
         <slot/>
       </div>
-      <div :class="[ vsDropRight ? 'vs-dropdown-right--menu--after' : 'vs-dropdown--menu--after']" ref="menuAfter"></div>
+      <div 
+        ref="menuAfter" 
+        :class="[ vsDropRight ? 'vs-dropdown-right--menu--after' : 'vs-dropdown--menu--after']"></div>
     </div>
   </transition>
 </template>

@@ -46,7 +46,6 @@
     "postinstall": "node postinstall.js"
   },
   "dependencies": {
-    "autoprefixer": "^9.6.1",
     "chalk": "^2.4.2",
     "vue": "^2.6.9"
   },
@@ -68,7 +67,12 @@
   },
   "babel": {
     "presets": [
-      "@vue/app"
+      [
+        "@vue/app",
+        {
+          "useBuiltIns": "entry"
+        }
+      ]
     ]
   },
   "eslintConfig": {

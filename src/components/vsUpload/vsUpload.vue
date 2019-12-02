@@ -7,65 +7,65 @@
 
     <div class="con-img-upload">
       <!-- <transition-group v-for="(img,index) in getFilesFilter" :key="index" name="upload"> -->
-        <div
-          v-for="(img,index) in getFilesFilter"
+      <div
+        v-for="(img,index) in getFilesFilter"
+        :class="{
+          'fileError':img.error,
+          'removeItem':itemRemove.includes(index)
+        }"
+        :key="index"
+        class="img-upload">
+        <button
+          class="btn-x-file"
+          type="button"
+          @click="removeFile(index)">
+          <i
+            translate="no"
+            class="material-icons notranslate">
+            clear
+          </i>
+        </button>
+        <button
+          v-if="showUploadButton"
           :class="{
-            'fileError':img.error,
-            'removeItem':itemRemove.includes(index)
+            'on-progress':img.percent,
+            'ready-progress':img.percent >= 100
+          }"
+          :style="{
+            height: `${img.percent}%`
+          }"
+          class="btn-upload-file"
+          @click="upload(index)">
+          <i
+            translate="no"
+            class="material-icons notranslate">
+            {{ img.percent >= 100?img.error?'report_problem':'cloud_done':'cloud_upload' }}
+          </i>
+          <span>{{ img.percent }} %</span>
+        </button>
+        <img
+          v-if="img.src"
+          :style="{
+            maxWidth:img.orientation == 'h'?'100%':'none',
+            maxHeight:img.orientation == 'w'?'100%':'none'
           }"
           :key="index"
-          class="img-upload">
-          <button
-            class="btn-x-file"
-            type="button"
-            @click="removeFile(index)">
-            <i
-              translate="no"
-              class="material-icons notranslate">
-              clear
-            </i>
-          </button>
-          <button
-            v-if="showUploadButton"
-            :class="{
-              'on-progress':img.percent,
-              'ready-progress':img.percent >= 100
-            }"
-            :style="{
-              height: `${img.percent}%`
-            }"
-            class="btn-upload-file"
-            @click="upload(index)">
-            <i
-              translate="no"
-              class="material-icons notranslate">
-              {{ img.percent >= 100?img.error?'report_problem':'cloud_done':'cloud_upload' }}
-            </i>
-            <span>{{ img.percent }} %</span>
-          </button>
-          <img
-            v-if="img.src"
-            :style="{
-              maxWidth:img.orientation == 'h'?'100%':'none',
-              maxHeight:img.orientation == 'w'?'100%':'none'
-            }"
-            :key="index"
-            :src="img.src"
-            @touchend="viewImage(img.src,$event)"
-            @click="viewImage(img.src,$event)">
-          <h4
-            v-if="!img.src"
-            class="text-archive">
-            <i
-              translate="no"
-              class="material-icons notranslate">
-              description
-            </i>
-            <span>
-              {{ img.name }}
-            </span>
-          </h4>
-        </div>
+          :src="img.src"
+          @touchend="viewImage(img.src,$event)"
+          @click="viewImage(img.src,$event)">
+        <h4
+          v-if="!img.src"
+          class="text-archive">
+          <i
+            translate="no"
+            class="material-icons notranslate">
+            description
+          </i>
+          <span>
+            {{ img.name }}
+          </span>
+        </h4>
+      </div>
       <!-- </transition-group > -->
 
 

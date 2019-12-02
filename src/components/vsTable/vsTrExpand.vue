@@ -1,20 +1,23 @@
 <template>
   <transition name="tr-expand">
-  <tr class="tr-expand" v-if="active">
-    <td :colspan="colspan">
-      <div class="content-tr-expand">
-        <slot></slot>
+    <tr 
+      v-if="active" 
+      class="tr-expand">
+      <td :colspan="colspan">
+        <div class="content-tr-expand">
+          <slot></slot>
 
-        <button
-          @click="$emit('click', $event)"
-          v-if="close" class="tr-expand--close">
-          <i class="material-icons">
-            clear
-          </i>
-        </button>
-      </div>
-    </td>
-  </tr>
+          <button
+            v-if="close"
+            class="tr-expand--close" 
+            @click="$emit('click', $event)">
+            <i class="material-icons">
+              clear
+            </i>
+          </button>
+        </div>
+      </td>
+    </tr>
   </transition>
 </template>
 

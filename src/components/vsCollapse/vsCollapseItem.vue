@@ -12,7 +12,9 @@
       <span
         v-if="!notArrow"
         class="icon-header vs-collapse-item--icon-header">
-        <vs-icon :icon-pack="iconPack"  :icon="iconArrow" >
+        <vs-icon 
+          :icon-pack="iconPack" 
+          :icon="iconArrow" >
         </vs-icon>
       </span>
     </header>

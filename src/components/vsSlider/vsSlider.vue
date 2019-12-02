@@ -52,7 +52,7 @@
         class="text-circle-slider vs-slider--circle-text">
         {{ valueCircle1 }}
         <span v-if="textFixed">
-         {{ textFixed }}
+          {{ textFixed }}
         </span>
         <vs-icon
           :icon-pack="iconPack"

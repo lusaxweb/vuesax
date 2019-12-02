@@ -13,9 +13,9 @@
       ref="inputCheckbox"
       v-bind="$attrs"
       :disabled="$attrs.disabled"
+      :value="value"
       class="input-switch vs-switch--input"
       type="checkbox"
-      :value="value"
       v-on="listeners">
 
     <span
@@ -25,9 +25,9 @@
       <slot name="on"/>
 
       <vs-icon
-        class="icons-switch vs-switch--icon"
         :icon-pack="iconPack"
         :icon="vsIconOn || vsIcon"
+        class="icons-switch vs-switch--icon"
       ></vs-icon>
     </span>
     <span
@@ -37,9 +37,9 @@
       <!-- gato con botas -->
       <slot name="off"/>
       <vs-icon
-        class="icons-switch vs-switch--icon"
         :icon-pack="iconPack"
         :icon="vsIconOff || vsIcon"
+        class="icons-switch vs-switch--icon"
       ></vs-icon>
     </span>
     <span class="vs-circle-switch vs-switch--circle"/>
