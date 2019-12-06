@@ -257,7 +257,7 @@ export default {
       let min = max - this.maxItemsx
 
       if(!this.searchx || this.sst) {
-        this.datax = this.pagination ? this.getItems(min, max) : this.data || [];
+        this.datax = this.pagination ? this.getItems(min, max) : this.sortItems(this.data) || [];
       } else {
         this.datax = this.pagination ? this.getItemsSearch(true ,min, max) : this.getItemsSearch(false ,min, max) || []
       }
