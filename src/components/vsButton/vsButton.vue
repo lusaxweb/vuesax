@@ -210,7 +210,7 @@ export default {
   methods:{
     isRTL(value) {
       if(this.$vs.rtl) {
-        return value 
+        return value
       }else {
         if(value === 'right') {
           return 'left'
@@ -221,7 +221,7 @@ export default {
       }
     },
     routerPush() {
-      this.$router.push(this.to)
+      this.$router.push(this.to).catch(err => { this.$emit("routeErr", err) })
     },
     is(which){
       let type = this.type

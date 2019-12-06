@@ -5,7 +5,8 @@
       `vs-chip-${color}`,
       {
         'closable': closable,
-        'con-color': color
+        'con-color': color,
+        'bg-transparent': transparent
       }
     ]"
     class="con-vs-chip">
@@ -65,12 +66,19 @@ export default {
       type:String,
       default:'clear',
     },
+    transparent: {
+      type: Boolean,
+      default: false
+    }
   },
   computed:{
     styleChip () {
+      const background = this.transparent ? _color.getColor(this.color,.15) : _color.getColor(this.color,1)
+      const color = this.transparent ? _color.getColor(this.color,1) : this.color?'rgba(255,255,255,.9)':'rgba(0,0,0,.7)'
+
       return {
-        background: _color.getColor(this.color,1),
-        color: this.color?'rgba(255,255,255,.9)':'rgba(0,0,0,.7)'
+        background: background,
+        color: color
       }
     },
     eliminado(){

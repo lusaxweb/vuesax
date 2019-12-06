@@ -64,7 +64,7 @@
           :class="{'icon-before':iconAfter}">
           <vs-icon
             :class="{'icon-before':iconAfter}"
-            :valIconPack="valIconPack"
+            :iconPack="valIconPack"
             :icon="getIcon"
           ></vs-icon>
         </span>

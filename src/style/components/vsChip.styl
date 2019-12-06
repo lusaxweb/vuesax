@@ -31,6 +31,8 @@
     .material-icons
       margin-top: 0px
       font-size: .8rem
+  &.bg-transparent
+    font-weight: 500
 
 .vs-chip--close
   width: 20px
@@ -57,8 +59,11 @@
   propWithDir(margin, left, 10px)
 
 for colorx, i in $vs-colors
-  .vs-chip-{colorx}
+  .vs-chip-{colorx}:not(.bg-transparent)
     background: getColor(colorx, 1)
+  .vs-chip-{colorx}.bg-transparent
+    background: getColor(colorx, .15)
+    color: getColor(colorx, 1)
 
 
 // con - chips
