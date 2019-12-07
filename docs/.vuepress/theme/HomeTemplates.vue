@@ -12,6 +12,9 @@
       <li>
         <a target="_blank" href="https://www.wrappixel.com/templates/xtreme-vuesax-admin-pro/?ref=102">
           <img src="xtrene-vuesax-admin-template-nw.jpg" alt="">
+          <div class="blackfriday">
+            <img src="wrappixel-homepage-bf-banner.jpg" alt="">
+          </div>
         </a>
       </li>
     </ul>
@@ -23,6 +26,7 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
+
 .home-templates
   width 100%
   background transparent
@@ -47,6 +51,19 @@ export default {
     li
       margin 10px
       transition all .25s ease
+      position relative
+      list-style none
+      .blackfriday
+        position absolute
+        top -25px
+        right -50px
+        font-weight bold
+        box-shadow 0px 0px 20px 0px rgba(0,0,0,.1)
+        border-radius 30px
+        max-width 160px
+        background rgb(255,255,255)
+        img
+          width 100%
       &:hover
         box-shadow 0px 10px 20px -10px rgba(0,0,0,.1)
         transform translate(0,-10px)
