@@ -64,6 +64,18 @@ export default {
       default:'left'
     }
   },
+  created() {
+    this.items = this.items.map(item => {
+      if (typeof item.title === "function") {
+        return {
+          ...item,
+          title: item.title(this.$route.params)
+        }
+      }
+
+      return item
+    })
+  },
   computed: {
     textClass() {
       const classes = {}
