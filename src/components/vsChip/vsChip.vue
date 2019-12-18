@@ -6,7 +6,7 @@
       {
         'closable': closable,
         'con-color': color,
-        'bg-transparent': transparent
+        'bg-chip-transparent': transparent
       }
     ]"
     class="con-vs-chip">
