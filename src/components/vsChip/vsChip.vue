@@ -19,6 +19,7 @@
     <button
       v-if="closable"
       class="btn-close vs-chip--close"
+      type="button"
       @click="closeChip">
       <vs-icon
         :icon-pack="iconPack"
