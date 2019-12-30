@@ -9,10 +9,10 @@
       v-if=" icon || $slots.default"
       :style="{
         'color': textColor,
-        'background':  backgroundColor
+        'background': backgroundColor
       }"
-      class="vs-divider--text"
       :class="textAndBackgroundClass"
+      class="vs-divider--text"
     >
       <template v-if="!icon">
         <slot/>
@@ -20,9 +20,9 @@
 
       <vs-icon
         v-else
-        class="icon-divider notranslate vs-divider--icon"
         :icon-pack="iconPack"
         :icon="icon"
+        class="icon-divider notranslate vs-divider--icon"
       ></vs-icon>
     </span>
     <span
@@ -34,9 +34,9 @@
 </template>
 
 <script>
-    import _color from '../../utils/color.js'
+import _color from '../../utils/color.js'
 
-    export default {
+export default {
   name: "VsDivider",
   props:{
     color:{
@@ -148,7 +148,7 @@
       classes[`vs-divider-background-${backgroundColor}`] = true
 
       return classes
-    },
+    }
   }
 }
 </script>
