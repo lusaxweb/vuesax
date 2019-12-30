@@ -6,7 +6,7 @@
       {
         'closable': closable,
         'con-color': color,
-        'bg-transparent': transparent
+        'bg-chip-transparent': transparent
       }
     ]"
     class="con-vs-chip">
@@ -19,6 +19,7 @@
     <button
       v-if="closable"
       class="btn-close vs-chip--close"
+      type="button"
       @click="closeChip">
       <vs-icon
         :icon-pack="iconPack"
