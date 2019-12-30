@@ -50,8 +50,8 @@
     "vue": "^2.6.9"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.1",
-    "@vue/cli-plugin-babel": "^3.0.3",
+    "@babel/core": "^7.7.7",
+    "@vue/cli-plugin-babel": "^4.1.2",
     "@vue/cli-plugin-eslint": "^3.0.3",
     "@vue/cli-service": "^3.0.3",
     "copy-webpack-plugin": "^4.5.2",
