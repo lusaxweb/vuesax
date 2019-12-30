@@ -12,9 +12,9 @@
       <li>
         <a target="_blank" href="https://www.wrappixel.com/templates/xtreme-vuesax-admin-pro/?ref=102">
           <img src="xtrene-vuesax-admin-template-nw.jpg" alt="">
-          <div class="blackfriday">
+          <!-- <div class="blackfriday">
             <img src="wrappixel-homepage-bf-banner.jpg" alt="">
-          </div>
+          </div> -->
         </a>
       </li>
     </ul>

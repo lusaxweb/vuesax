@@ -64,18 +64,6 @@ export default {
       default:'left'
     }
   },
-  created() {
-    this.items = this.items.map(item => {
-      if (typeof item.title === "function") {
-        return {
-          ...item,
-          title: item.title(this.$route.params)
-        }
-      }
-
-      return item
-    })
-  },
   computed: {
     textClass() {
       const classes = {}
@@ -94,6 +82,20 @@ export default {
     hasSlot () {
       return !!this.$slots.default
     }
-  }
+  },
+  created() {
+    if(this.items) {
+      this.items = this.items.map(item => {
+        if (typeof item.title === "function") {
+          return {
+            ...item,
+            title: item.title(this.$route.params)
+          }
+        }
+
+        return item
+      })
+    }
+  },
 }
 </script>
