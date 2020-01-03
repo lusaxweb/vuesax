@@ -107,6 +107,7 @@ export default {
   padding-left: 35px;
   padding-right: 35px;
   transition: all .3s ease;
+  border-radius 15px !important;
 }
 .con-btns-contribuitors button a:hover {
   box-shadow: 0px 9px 28px -9px #5b3cc4 !important;
@@ -154,7 +155,7 @@ export default {
 }
 .is-see-more
   background: #5b3cc4
-  border-radius: 10px;
+  border-radius: 18px;
   display flex
   cursor pointer
   &:hover

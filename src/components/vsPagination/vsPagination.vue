@@ -1,84 +1,101 @@
 <template>
-    <vs-row vs-type="flex" vs-justify="space-between" vs-w="12">
-      <vs-col class="vs-pagination--mb" vs-type="flex" vs-justify="flex-start" vs-align="center" vs-lg="6" vs-sm="12" vs-xs="12" >
-        <div v-if="description">
-          <span
-            style="margin-right:5px"
-          >
-            {{descriptionTitle}}: {{minRows}} - {{maxRows}} {{descriptionConnector}} {{sizeArray}} | {{descriptionBody}}:
+  <vs-row
+    vs-type="flex"
+    vs-justify="space-between"
+    vs-w="12">
+    <vs-col
+      class="vs-pagination--mb"
+      vs-type="flex"
+      vs-justify="flex-start"
+      vs-align="center"
+      vs-lg="6"
+      vs-sm="12"
+      vs-xs="12" >
+      <div v-if="description">
+        <span
+          style="margin-right:5px"
+        >
+          {{ descriptionTitle }}: {{ minRows }} - {{ maxRows }} {{ descriptionConnector }} {{ sizeArray }} | {{ descriptionBody }}:
 
-          </span>
-          <ul class="vs-pagination--array">
+        </span>
+        <ul class="vs-pagination--array">
+          <li
+            v-for="(row,index) in descriptionItems"
+            :key="index">
+            <span
+              :style="styleDescription"
+              :class="[`vs-description-${color}`,{ 'vs-pagination--bold': (index==indexRows)}]"
+              @click="changeRowMaxItems(index)">
+              {{ row }}
+            </span>
+            <span
+              v-if="index != (descriptionItems.length - 1)">
+              ,
+            </span>
+          </li>
+        </ul>
+      </div>
+    </vs-col>
+    <vs-col
+      class="vs-pagination--mb"
+      vs-type="flex"
+      vs-justify="flex-end"
+      vs-align="center"
+      vs-lg="6"
+      vs-sm="12"
+      vs-xs="12" >
+      <div
+        :style="stylePagination"
+        :class="[`vs-pagination-${color}`]"
+        class="con-vs-pagination">
+        <nav class="vs-pagination--nav">
+          <button
+            :class="{disabled:current <= 1 ? 'disabled' : null}"
+            :disabled="current === 1"
+            class="vs-pagination--buttons btn-prev-pagination vs-pagination--button-prev"
+            @click="prevPage">
+            <vs-icon
+              :icon-pack="iconPack"
+              :icon="prevIcon ? prevIcon : defaultPrevIcon"
+            ></vs-icon>
+          </button>
+          <ul class="vs-pagination--ul">
             <li
-              v-for="(row,index) in descriptionItems"
-              :key="index">
-              <span
-                :style="styleDescription"
-                :class="[`vs-description-${color}`,{ 'vs-pagination--bold': (index==indexRows)}]"
-                @click="changeRowMaxItems(index)">
-                {{row}}
+              v-for="(page, index) in pages"
+              :key="index"
+              :class="{'is-current': page == current}"
+              class="item-pagination vs-pagination--li"
+              @click="goTo(page)">
+              <span>
+                {{ page }}
               </span>
-              <span
-                v-if="index != (descriptionItems.length - 1)">
-                ,
-              </span>
+
+              <div class="effect"></div>
             </li>
           </ul>
-        </div>
-      </vs-col>
-      <vs-col class="vs-pagination--mb" vs-type="flex" vs-justify="flex-end" vs-align="center" vs-lg="6" vs-sm="12" vs-xs="12" >
-        <div
-          :style="stylePagination"
-          :class="[`vs-pagination-${color}`]"
-          class="con-vs-pagination">
-          <nav class="vs-pagination--nav">
-            <button
-              :class="{disabled:current <= 1 ? 'disabled' : null}"
-              :disabled="current === 1"
-              class="vs-pagination--buttons btn-prev-pagination vs-pagination--button-prev"
-              @click="prevPage">
-              <vs-icon
-                :icon-pack="iconPack"
-                :icon="prevIcon ? prevIcon : defaultPrevIcon"
-              ></vs-icon>
-            </button>
-            <ul class="vs-pagination--ul">
-              <li
-                v-for="(page, index) in pages"
-                :key="index"
-                :class="{'is-current': page == current}"
-                class="item-pagination vs-pagination--li"
-                @click="goTo(page)">
-                <span>
-                  {{ page }}
-                </span>
-
-                <div class="effect"></div>
-              </li>
-            </ul>
-            <!-- :style="styleBtn" -->
-            <button
-              :class="{disabled:current === total ? 'disabled' : null}"
-              :disabled="current === total"
-              class="vs-pagination--buttons btn-next-pagination vs-pagination--button-next"
-              @click="nextPage">
-              <vs-icon
-                :icon-pack="iconPack"
-                :icon="nextIcon ? nextIcon : defaultNextIcon"
-              ></vs-icon>
-            </button>
-            <input
-              v-if="goto"
-              v-model="go"
-              :max="total"
-              class="vs-pagination--input-goto"
-              min="1"
-              type="number"
-              @change="goTo">
-          </nav>
-        </div>
-      </vs-col>
-    </vs-row>
+          <!-- :style="styleBtn" -->
+          <button
+            :class="{disabled:current === total ? 'disabled' : null}"
+            :disabled="current === total"
+            class="vs-pagination--buttons btn-next-pagination vs-pagination--button-next"
+            @click="nextPage">
+            <vs-icon
+              :icon-pack="iconPack"
+              :icon="nextIcon ? nextIcon : defaultNextIcon"
+            ></vs-icon>
+          </button>
+          <input
+            v-if="goto"
+            v-model="go"
+            :max="total"
+            class="vs-pagination--input-goto"
+            min="1"
+            type="number"
+            @change="goTo">
+        </nav>
+      </div>
+    </vs-col>
+  </vs-row>
 </template>
 <script>
 import _color from '../../utils/color.js'
@@ -178,7 +195,7 @@ export default {
       }
       return style
     },
-    styleDescription (index) {
+    styleDescription () {
       return {
         'cursor': 'pointer',
       }
@@ -198,8 +215,8 @@ export default {
       this.getPages()
     },
     value(val) {
-        const pageNum = val < 1 ? 1 : (val <= this.total ? val : this.total)
-        this.goTo(pageNum)
+      const pageNum = val < 1 ? 1 : (val <= this.total ? val : this.total)
+      this.goTo(pageNum)
     },
   },
 

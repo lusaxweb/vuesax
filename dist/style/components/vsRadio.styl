@@ -65,6 +65,10 @@
       .vs-radio--borde
         transform: scale(1.1);
   &:disabled
+    + .vs-radio,
+    + .vs-radio + .vs-radio--label
+      pointer-events: none;
+      cursor: default;
     + .vs-radio
       opacity: .4;
       .vs-radio--circle

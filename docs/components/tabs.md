@@ -15,7 +15,7 @@ API:
    parameters: null
    description: Index of active tab.
    default: 0
- - name: vs-position
+ - name: position
    type: String
    parameters: top, left, bottom, right
    description: Tabs menu position.
@@ -327,7 +327,7 @@ Change the alignment of the buttons with the property `alignments`. The allowed 
 
 ## Position
 
-You can change the position of the menu with the property `vs-position` that as a value you can have: `top`, `right`,`bottom`, `left`.
+You can change the position of the menu with the property `position` that as a value you can have: `top`, `right`,`bottom`, `left`.
 
 <vuecode md>
 <div slot="demo">

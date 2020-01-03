@@ -41,11 +41,11 @@ export default {
   },
   computed:{
     listeners(){
-        return {
-          ...this.$listeners,
-          input: () => this.$emit('input', this.vsValue),
-          click: () => this.$emit('input', this.vsValue)
-        }
+      return {
+        ...this.$listeners,
+        input: () => this.$emit('input', this.vsValue),
+        click: () => this.$emit('input', this.vsValue)
+      }
     },
     attrs(){
       let attrsx = JSON.parse(JSON.stringify(this.$attrs))
