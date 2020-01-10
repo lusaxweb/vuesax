@@ -1,30 +1,44 @@
 <template lang="html">
   <div>
-    <p 
-      v-if="label" 
-      class="vs-textarea--label">
-      {{ label }}
-    </p>
+    <div
+      ref="coninput"
+      :class="[
+        `vs-input-${color}`,
+        {
+          isFocus: isFocus,
+          'vs-input-danger': counter ? value && value.length > counter : false
+        }
+      ]"
+      class="vs-component vs-con-input-label vs-input"
+    >
+      <label class="vs-input--label" for="">{{ labelOutside }}</label>
+    </div>
     <div
       :style="style"
-      :class="[`vs-textarea-${color}`, {'textarea-danger': counter ? (value && value.length > counter) : false, 'focusx': isFocus}]"
-      class="vs-component vs-con-textarea">
-
-    
+      :class="[
+        `vs-textarea-${color}`,
+        {
+          'textarea-danger': counter ? value && value.length > counter : false,
+          focusx: isFocus
+        }
+      ]"
+      class="vs-component vs-con-textarea"
+    >
+      <h4 v-if="label">
+        {{ label }}
+      </h4>
 
       <textarea
         :value="value"
         v-bind="$attrs"
         class="vs-textarea"
-        v-on="listeners">
+        v-on="listeners"
+      >
       </textarea>
 
-      <div
-        v-if="counter"
-        class="count vs-textarea--count">
+      <div v-if="counter" class="count vs-textarea--count">
         {{ value ? value.length : 0 }} / {{ counter }}
       </div>
-
     </div>
   </div>
 </template>
@@ -37,6 +51,10 @@ export default {
   props: {
     value: {},
     label: {
+      default: null,
+      type: String
+    },
+    labelOutside: {
       default: null,
       type: String
     },
@@ -66,17 +84,12 @@ export default {
   }),
   computed: {
     style() {
-      let style = {}
-      style.border = `1px solid ${this.isFocus?_color.getColor(this.color,1):'rgba(0, 0, 0,.08)'}`
-      style.height = this.height
-      style.width = this.width
-
+      let style = {};
       style.border = `1px solid ${
         this.isFocus ? _color.getColor(this.color, 1) : "rgba(0, 0, 0,.08)"
       }`;
       style.height = this.height;
       style.width = this.width;
-
       return style;
     },
     listeners() {
