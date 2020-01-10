@@ -1,13 +1,17 @@
 <template>
   <div
-    :class="[{'stripe': stripe, 'hoverFlat': hoverFlat}, `vs-table-${color}`]"
+    :class="[{ stripe: stripe, hoverFlat: hoverFlat }, `vs-table-${color}`]"
     class="vs-component vs-con-table"
   >
     <!-- header -->
     <header class="header-table vs-table--header">
       <slot name="header"></slot>
       <div v-if="search" class="con-input-search vs-table--search">
-        <input v-model="searchx" class="input-search vs-table--search-input" type="text" />
+        <input
+          v-model="searchx"
+          class="input-search vs-table--search-input"
+          type="text"
+        />
         <vs-icon icon="search"></vs-icon>
       </div>
     </header>
@@ -33,7 +37,9 @@
           <slot :data="datax"></slot>
         </table>
       </div>
-      <div v-if="isNoData" class="not-data-table vs-table--not-data">{{ noDataText }}</div>
+      <div v-if="isNoData" class="not-data-table vs-table--not-data">
+        {{ noDataText }}
+      </div>
 
       <div v-if="pagination" class="con-pagination-table vs-table--pagination">
         <vs-pagination

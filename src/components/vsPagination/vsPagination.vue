@@ -208,7 +208,7 @@ export default {
       }
       return style;
     },
-    styleDescription(index) {
+    styleDescription() {
       return {
         cursor: "pointer"
       };

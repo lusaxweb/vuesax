@@ -66,7 +66,10 @@ export default {
   }),
   computed: {
     style() {
-      let style = {};
+      let style = {}
+      style.border = `1px solid ${this.isFocus?_color.getColor(this.color,1):'rgba(0, 0, 0,.08)'}`
+      style.height = this.height
+      style.width = this.width
 
       style.border = `1px solid ${
         this.isFocus ? _color.getColor(this.color, 1) : "rgba(0, 0, 0,.08)"

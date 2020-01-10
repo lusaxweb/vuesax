@@ -58,9 +58,15 @@ export default {
       default: 'material-icons',
       type: String
     },
+    sst: {
+      default: false,
+      type: Boolean
+    }
   },
   data:() => ({
-    maxHeight: '0px'
+    maxHeight: '0px',
+    // only used for sst
+    dataReady: false
   }),
   computed:{
     accordion() {
@@ -78,18 +84,23 @@ export default {
   watch:{
     maxHeight() {
       this.$parent.emitChange()
+    },
+    ready(newVal, oldVal) {
+      if (oldVal != newVal && newVal) {
+        this.initMaxHeight()
+      }
     }
   },
   mounted () {
     window.addEventListener('resize', this.changeHeight)
-    let maxHeightx = this.$refs.content.scrollHeight
+    const maxHeightx = this.$refs.content.scrollHeight
     if(this.open) {
       this.maxHeight = `${maxHeightx}px`
     }
   },
   methods:{
     changeHeight () {
-      let maxHeightx = this.$refs.content.scrollHeight
+      const maxHeightx = this.$refs.content.scrollHeight
       if(this.maxHeight != '0px') {
         this.maxHeight = `${maxHeightx}px`
       }
@@ -103,7 +114,19 @@ export default {
         this.$parent.closeAllItems(this.$el)
       }
 
-      let maxHeightx = this.$refs.content.scrollHeight
+      if (this.sst && !this.dataReady) {
+        this.$emit('fetch', {
+          done: () => {
+            this.initMaxHeight();
+            this.dataReady = true
+          }
+        })
+      } else {
+        this.initMaxHeight()
+      }
+    },
+    initMaxHeight() {
+      const maxHeightx = this.$refs.content.scrollHeight
       if(this.maxHeight == '0px') {
         this.maxHeight = `${maxHeightx}px`
       } else {

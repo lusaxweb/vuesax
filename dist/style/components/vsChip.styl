@@ -9,7 +9,7 @@
   propWithDir(margin, right, 2px)
   margin-bottom: 3px
   min-height 28px
-  propWithDir(margin, right, 10px)
+  propWithDir(padding, right, 10px)
   color: rgba(0,0,0,.7)
   position: relative
   &.closable
@@ -31,6 +31,8 @@
     .material-icons
       margin-top: 0px
       font-size: .8rem
+  &.bg-chip-transparent
+    font-weight: 500
 
 .vs-chip--close
   width: 20px
@@ -54,12 +56,14 @@
   display: flex
   align-items: center
   justify-content: center
-  margin-left: 10px;
-  margin-right: 10px
+  propWithDir(margin, left, 10px)
 
 for colorx, i in $vs-colors
-  .vs-chip-{colorx}
+  .vs-chip-{colorx}:not(.bg-chip-transparent)
     background: getColor(colorx, 1)
+  .vs-chip-{colorx}.bg-chip-transparent
+    background: getColor(colorx, .15)
+    color: getColor(colorx, 1)
 
 
 // con - chips
@@ -84,6 +88,7 @@ for colorx, i in $vs-colors
 .con-chips--input
   display: inline-block;
   flex:1;
+  color: inherit
   /* height: 30px; */
   padding: 9px;
   box-sizing: border-box;

@@ -3,7 +3,7 @@
     <div
       v-if="dropdownVisible"
       ref="options"
-      :class="{'rightx':$parent.rightx,'notHeight':notHeight}"
+      :class="{'rightx':vsDropRight || $parent.rightx,'notHeight':notHeight}"
       :style="{
         'left':leftx+'px',
         'top':topx+'px'
@@ -48,7 +48,7 @@ export default {
     parentNode:null
   }),
   watch:{
-    dropdownVisible(){
+    dropdownVisible(val){
       let dropdownGroup = this.$children.filter((item)=>{
         return item.hasOwnProperty('activeGroup')
       })
@@ -56,6 +56,8 @@ export default {
         item_group.activeGroup = false
       })
       this.setDirection()
+
+      !val ? this.$parent.rightx = false : null
     }
   },
   mounted(){

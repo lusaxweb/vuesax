@@ -8,7 +8,7 @@ Hello! I am very excited that you are interested in contributing with Vuesax. Ho
 
 ## Pull Request Guidelines
 
-- The masterrama is basically a snapshot of the latest stable version. All development must be done in dedicated branches.
+- The `master` branch is basically a snapshot of the latest stable version. All development must be done in dedicated branches.
 - Work in the **src** folder and DO NOT register distlos commits.
 - It is good to have multiple small commits while working on the PR. We'll let GitHub squash it automatically before the merge.
 - If you add a new feature:

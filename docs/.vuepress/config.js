@@ -96,10 +96,6 @@ module.exports = {
             link:'mailto:vuesax@gmail.com'
           },
           {
-            text:'Chat',
-            link:'https://gitter.im/vuesax/Lobby'
-          },
-          {
             text:'Pull request',
             link:'https://github.com/lusaxweb/vuesax/pulls'
           },
@@ -155,7 +151,6 @@ module.exports = {
               { text: 'Issues', link: 'https://github.com/lusaxweb/vuesax/issues' },
               { text: 'Edit Page', link: 'https://github.com/lusaxweb/vuesax' },
               { text: 'Latest Releases', link: 'https://github.com/lusaxweb/vuesax/releases' },
-              { text: 'FAQ', link: 'https://github.com/lusaxweb/vuesax/wiki' }
             ]
           },
           {
@@ -163,7 +158,6 @@ module.exports = {
             items: [
               { text: 'Lusaxweb', link: 'http://lusaxweb.net' },
               { text: 'Email', link: 'mailto:vuesax@gmail.com' },
-              { text: 'Chat', link: 'https://gitter.im/vuesax/Lobby' },
               { text: 'Pull Request', link: 'https://github.com/lusaxweb/vuesax/pulls' },
               { text: 'Codepen Template', link: 'https://codepen.io/lusaxweb/pen/mxMKYr' }
             ]

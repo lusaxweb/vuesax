@@ -88,11 +88,10 @@
 
 for colorx, i in $vs-colors
   .vs-checkbox-{colorx}
-    .vs-checkbox--check
-      background: getColor(colorx, 1)
     .vs-checkbox
       border: 2px solid rgb(180, 180, 180)
     input
       &:checked
         & + .vs-checkbox
           border: 2px solid getColor(colorx, 1) !important
+          background: getColor(colorx, 1)

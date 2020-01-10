@@ -186,6 +186,7 @@ export default {
         const update = () => {
           this.leftx = elem.offsetLeft
           this.widthx = elem.offsetWidth
+          this.topx = (elem.offsetHeight + (elem.getBoundingClientRect().top - this.$refs.ul.getBoundingClientRect().top))
         }
         if (!initialAnimation) {
           update()

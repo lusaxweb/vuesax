@@ -5,6 +5,11 @@ API:
    parameters: RGB, HEX, primary, success, danger, warning, dark
    description: Component color
    default: primary
+ - name: transparent
+   type: Boolean
+   parameters: true/false
+   description: Create chip with transparent background
+   default: false
  - name: closable
    type: Boolean
    parameters: null
@@ -183,6 +188,75 @@ export default {
 </vuecode>
 
 </box>
+
+
+<box>
+
+## Transparent
+
+You can create chip which have transparent background using `transparent` prop.
+
+<vuecode md center>
+<div slot="demo">
+  <vs-chip transparent color="primary">
+    Basic Chip
+  </vs-chip>
+  <vs-chip transparent color="success">
+    <vs-avatar text="LD"/>
+    Avatar Text
+  </vs-chip>
+  <vs-chip transparent color="danger">
+    <vs-avatar />
+    Avatar Icon
+  </vs-chip>
+  <vs-chip transparent color="warning">
+    <vs-avatar src="https://randomuser.me/api/portraits/men/4.jpg"/>
+    Avatar Image
+  </vs-chip >
+  <vs-chip transparent closable color="dark">
+    Closable chip
+  </vs-chip>
+  <vs-chip transparent closable color="#24c1a0" close-icon="close">
+    <vs-avatar src="https://randomuser.me/api/portraits/men/16.jpg"/>
+    Closable chip
+  </vs-chip>
+</div>
+<div slot="code">
+
+```html
+<template lang="html">
+  <div slot="demo">
+    <vs-chip transparent color="primary">
+      Basic Chip
+    </vs-chip>
+    <vs-chip transparent color="success">
+      <vs-avatar text="LD"/>
+      Avatar Text
+    </vs-chip>
+    <vs-chip transparent color="danger">
+      <vs-avatar />
+      Avatar Icon
+    </vs-chip>
+    <vs-chip transparent color="warning">
+      <vs-avatar src="https://randomuser.me/api/portraits/men/4.jpg"/>
+      Avatar Image
+    </vs-chip >
+    <vs-chip transparent closable color="dark">
+      Closable chip
+    </vs-chip>
+    <vs-chip transparent closable color="#24c1a0" close-icon="close">
+      <vs-avatar src="https://randomuser.me/api/portraits/men/16.jpg"/>
+      Closable chip
+    </vs-chip>
+  </div>
+</template>
+```
+
+</div>
+</vuecode>
+
+</box>
+
 
 <box>
 
