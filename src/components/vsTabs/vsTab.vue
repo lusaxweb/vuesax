@@ -41,7 +41,6 @@ export default {
       this.$parent.children[this.id].label = val;
     },
     '$attrs' (val) {
-      console.log('chnaged attr')
       this.$parent.children[this.id].attrs = val;
     }
   },

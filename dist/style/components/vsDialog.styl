@@ -1,0 +1,155 @@
+//animations
+.dialog-t-enter, .dialog-t-leave-to /* .dialog-t-leave-active below version 2.1.8 */ {
+  opacity: 0 !important;
+}
+
+//box dialog
+.dialog-t-enter .vs-dialog/* .fade-leave-active below version 2.1.8 */ {
+  transform: scale(.9) !important;
+
+}
+.dialog-t-leave-to .vs-dialog/* .fade-leave-active below version 2.1.8 */ {
+  transform: scale(.9) !important;
+  // animation: rebound .3s;
+}
+
+@keyframes rebound {
+    0%   {transform: scale(.9)}
+    50%   {transform: scale(1.08)}
+    100% {transform: scale(1)}
+}
+
+
+// cancel / text
+.dialog-t-enter .vs-dialog-cancel, .dialog-t-leave-to .vs-dialog-cancel {
+  border-radius: 50% !important;
+  propWithDir(transform, null, (8px -8px), scale(.5) !important)
+}
+.dialog-t-enter .vs-dialog-text, .dialog-t-leave-to .vs-dialog-text {
+  opacity: 0;
+  propWithDir(transform, null, (-15px 0px), !important)
+}
+
+// line after
+.dialog-t-enter .after, .dialog-t-leave-to .after {
+  height: 0% !important
+}
+.dialog-t-enter header h3, .dialog-t-leave-to header h3 {
+  propWithDir(transform, null, (-50px 0px), !important)
+  opacity: 0;
+}
+
+// buttons
+.dialog-t-enter footer button, .dialog-t-leave-to footer button {
+  transform: translate(0,10px);
+  opacity: 0;
+}
+
+
+
+.con-vs-dialog
+  transition: all .2s;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  propWithDir(left, null, 0px);
+  top: 0px;
+  z-index: 30000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  .vs-dialog-dark
+    width: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    propWithDir(left, null, 0px);
+    top: 0px;
+    height: 100%;
+    z-index: 10;
+    transition: all .250s ease;
+    opacity: 1;
+  .vs-dialog
+    transition: all .2s;
+    z-index: 100;
+    width: calc(100% - 20px);
+    margin: 10px;
+    max-width: 400px;
+    border-radius: 6px;
+    box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.1)
+    background: rgb(255, 255, 255);
+    animation: rebound .3s;
+    &.locked
+      // background: rgb(3, 41, 203) !important;
+      transform: scale(1.02);
+    .vs-dialog-text
+      padding: 10px;
+      font-size: 0.875em;
+      transition: all .23s ease .1s;
+    header
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgb(248, 248, 248)
+      border-radius: 5px 5px;
+      position: relative;
+      .con-title-after
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        border-radius: 5px 5px 0px 0px;
+      span.after
+        transition: all .23s ease .1s;
+        position: absolute;
+        propWithDir(left, null, 0px);
+        top: 50%;
+        transform: translate(0,-50%);
+        width: 3px;
+        height: 100%;
+        display: block;
+      h3
+        transition: all .23s ease .1s;
+        padding: 8px;
+        propWithDir(padding, left, 12px)
+        // padding-left: 12px;
+        font-size: 1.2rem;
+        margin: 0px
+      .vs-dialog-cancel
+        transition: all .23s ease .1s;
+        position: relative;
+        padding: 8px;
+        cursor: pointer;
+        box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.1)
+        border-radius: 5px;
+        propWithDir(transform, null, (8px -8px))
+        background: rgb(255, 255, 255);
+        font-size: 1.25em;
+        &:hover
+          box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1)
+          propWithDir(transform, null, (5px -5px))
+    footer
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      position: relative;
+      button
+        propWithDir(margin, left, 0px)
+
+      &:before
+        content: '';
+        top: 0px;
+        left: 0px;
+        position: absolute;
+        width: 90%;
+        propWithDir(margin, left, 5%)
+        height: 1px;
+        background: rgba(0, 0, 0, 0.05);
+
+for colorx, i in $vs-colors
+  .vs-dialog-{colorx}
+    .vs-dialog
+      .vs-dialog-header
+        color: getColor(colorx, 1)
+      .after
+        background: getColor(colorx, 1)

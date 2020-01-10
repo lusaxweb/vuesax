@@ -1,0 +1,128 @@
+.con-vs-pagination
+  --color-pagination: rgb(240,240,240)
+  --color-pagination-alpha: rgb(240,240,240, .5)
+.vs-pagination--input-goto
+  color: inherit
+  padding: 8px
+  border-radius: 5px
+  border: 0px solid rgba(0,0,0,.2)
+  background: rgb(240,240,240)
+  propWithDir(margin, left, 5px)
+.vs-pagination--nav
+  display: flex
+  align-items: center
+  justify-content: center
+
+.vs-pagination--ul
+  display: flex
+  align-items: center
+  justify-content: center
+  padding: 0px
+  background: rgb(240,240,240)
+  border-radius: 20px
+  padding-left: 5px
+  padding-right: 5px
+
+.vs-pagination--array
+  display: inline-block
+  padding: 0
+  li
+    display: inline-block
+
+.vs-pagination--mb
+  margin-bottom: 5px
+
+.vs-pagination--bold
+  font-weight: bold
+
+.vs-pagination--li
+  cursor pointer
+  width: 35px
+  height 35px
+  display: flex
+  align-items: center
+  justify-content: center
+  border-radius: 8px
+  transition: all .25s ease
+  position relative
+  backface-visibility: visible
+  margin: 0px 2px
+  font-weight: bold
+  color: rgba(0,0,0,.5)
+  span
+    z-index 100
+  .effect
+    z-index 50
+    content: ''
+    position absolute
+    width: 100%
+    height 100%
+    background: getVar('color-pagination')
+    propWithDir(left, null, 0px)
+    top: 0px
+    display: block
+    border-radius: 8px
+    transform: scale(.5)
+    opacity 0
+    transition: all .2s ease
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0)
+  &.is-current
+    transform: scale(1.05)
+    color: rgb(255,255,255)
+    font-weight: bold
+    cursor: default
+    background: getVar('color-pagination')
+    .effect
+      opacity 1
+      transform: scale(1) !important
+      box-shadow: 0px 0px 20px 0px getVar('color-pagination-alpha')
+  &:hover:not(.is-current)
+    color getVar('color-pagination')
+
+
+.vs-pagination--buttons
+  width: 35px
+  height 35px
+  border-radius: 50%
+  border: 0px
+  cursor pointer
+  display: flex
+  align-items: center
+  justify-content: center
+  flex-shrink: 0
+  color: rgba(0,0,0,.6)
+  transition: all .2s ease
+  background: rgb(240,240,240)
+  margin: 0px
+  z-index 200
+  &.vs-pagination--button-prev
+    propWithDir(margin, right, 5px)
+  &.vs-pagination--button-next
+    propWithDir(margin, left, 5px)
+  &.disabled, &:disabled
+    cursor: default
+    pointer-events: none
+    opacity: $vs-disabled-opacity
+  i
+    font-size: 1.2rem
+  &:hover
+    background: getVar('color-pagination')
+    color: rgb(255,255,255)
+
+
+for colorx, i in $vs-colors
+  .vs-pagination-{colorx}
+    li
+      &:hover:not(.is-current)
+        color: getColor(colorx, 1) !important
+    .effect
+      background: getColor(colorx, 1) !important
+      box-shadow: 0px 0px 20px 0px getColor(colorx, .5)
+    .vs-pagination--buttons
+      &:hover
+        background: getColor(colorx, 1) !important
+
+for colorx, i in $vs-colors
+  .vs-description-{colorx}
+    color: getColor(colorx, 1) !important
+
