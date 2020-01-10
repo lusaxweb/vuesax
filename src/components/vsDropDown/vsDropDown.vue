@@ -45,7 +45,15 @@ export default {
       return {
         ...this.$listeners,
         contextmenu: (evt) => this.vsTriggerContextmenu?this.clickToogleMenu(evt,true):{},
-        click: (evt) => this.vsTriggerContextmenu?{}:this.clickToogleMenu(evt),
+        click: (evt) => {
+          if (this.vsTriggerContextmenu) {
+            this.clickToogleMenu(evt)
+          }
+
+          if(this.$el === evt.target) {
+            this.$emit('click')
+          }
+        },
         mouseout: (evt) => this.toggleMenu('out',evt),
         mouseover: (evt) => this.toggleMenu('over',evt),
       }
