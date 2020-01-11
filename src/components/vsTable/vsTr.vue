@@ -3,29 +3,29 @@
     :class="[`tr-table-state-${state}`, {'is-selected':isSelected, 'selected': data, 'is-expand': maxHeight != '0px', 'activeEdit': activeEdit, 'hoverFlat': $parent.hoverFlat}]"
     class="tr-table"
     @click="clicktr"> -->
-      <!-- <tr
+  <!-- <tr
         v-if="!$parent.notSpacer"
         class="tr-spacer"></tr> -->
-      <tr
-        ref="tableTr"
-        @click="clicktr"
-        @dblclick="dblclicktr"
-        :class="[`tr-table-state-${state}`, {'is-selected':isSelected, 'selected': data, 'is-expand': maxHeight != '0px', 'activeEdit': activeEdit, 'hoverFlat': $parent.hoverFlat}]"
-        class="tr-values vs-table--tr">
-        <td
-          v-if="$parent.multiple || $slots.expand"
-          class="td-check"
-          :class="{'active-expanded': this.expanded}">
-          <vs-checkbox
-            v-if="$parent.multiple"
-            :checked="isSelected"
-            size="small"/>
+  <tr
+    ref="tableTr"
+    :class="[`tr-table-state-${state}`, {'is-selected':isSelected, 'selected': data, 'is-expand': maxHeight != '0px', 'activeEdit': activeEdit, 'hoverFlat': $parent.hoverFlat}]"
+    class="tr-values vs-table--tr"
+    @click="clicktr"
+    @dblclick="dblclicktr">
+    <td
+      v-if="$parent.multiple || $slots.expand"
+      :class="{'active-expanded': this.expanded}"
+      class="td-check">
+      <vs-checkbox
+        v-if="$parent.multiple"
+        :checked="isSelected"
+        size="small"/>
 
-          <vs-icon v-if="$slots.expand">keyboard_arrow_down</vs-icon>
-        </td>
-        <slot></slot>
-      </tr>
-      <!-- <tr
+      <vs-icon v-if="$slots.expand">keyboard_arrow_down</vs-icon>
+    </td>
+    <slot></slot>
+  </tr>
+  <!-- <tr
         v-if="$slots.expand"
         class="tr-expand">
         <td
@@ -60,11 +60,6 @@ export default {
     maxHeight:'0px',
     activeEdit: false
   }),
-  watch: {
-    '$parent.datax'() {
-      this.collapseExpandedData()
-    }
-  },
   computed:{
     styleExpand () {
       return {
@@ -81,6 +76,11 @@ export default {
       } else {
         return this.data ? this.$parent.value == this.data : false
       }
+    }
+  },
+  watch: {
+    '$parent.datax'() {
+      this.collapseExpandedData()
     }
   },
   mounted () {
