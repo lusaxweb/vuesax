@@ -11,10 +11,11 @@ export default {
   watch: {
     '$route' (to, from) {
       if (
-        // to.path !== from.path
-        // &&
+        to.path !== from.path
+        &&
         this.$el.querySelector('#carbonads')
       ) {
+        console.log("load")
         this.$el.innerHTML = ''
         this.load()
       }

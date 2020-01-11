@@ -40,7 +40,11 @@ export default {
     label(val) {
       this.$parent.children[this.id].label = val;
     },
+<<<<<<< HEAD
     $attrs(val) {
+=======
+    '$attrs' (val) {
+>>>>>>> 805ecd7576df0373a5ffb65668eee4cb55301349
       this.$parent.children[this.id].attrs = val;
     }
   },
