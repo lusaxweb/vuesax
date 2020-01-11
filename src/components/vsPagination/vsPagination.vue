@@ -1,8 +1,5 @@
 <template>
-  <vs-row 
-    vs-type="flex" 
-    vs-justify="space-between" 
-    vs-w="12">
+  <vs-row vs-type="flex" vs-justify="space-between" vs-w="12">
     <vs-col
       class="vs-pagination--mb"
       vs-type="flex"
@@ -12,38 +9,25 @@
       vs-sm="12"
       vs-xs="12"
     >
-
       <div v-if="description">
-       
-       
         <nav class="vs-pagination--nav">
-
-          <vs-dropdown 
-            vs-trigger-click 
-            class="vs-description--button">
-   
-            <span
-              class="vs-description--span"
-            >
-              {{ descriptionTitle }} {{ minRows }} - {{ maxRows }} {{ descriptionConnector }} {{ sizeArray }}
+          <vs-dropdown vs-trigger-click class="vs-description--button">
+            <span class="vs-description--span">
+              {{ descriptionTitle }} {{ minRows }} - {{ maxRows }}
+              {{ descriptionConnector }} {{ sizeArray }}
             </span>
             <vs-icon icon="expand_more"></vs-icon>
 
-
             <vs-dropdown-menu>
               <vs-dropdown-item
-                v-for="(row,index) in descriptionItems"
+                v-for="(row, index) in descriptionItems"
                 :key="index"
                 @click="changeRowMaxItems(index)"
-              >{{ row }}</vs-dropdown-item>
+                >{{ row }}</vs-dropdown-item
+              >
             </vs-dropdown-menu>
           </vs-dropdown>
-        
-         
         </nav>
-      
-      </div>
-        </div>
       </div>
     </vs-col>
     <vs-col
@@ -55,26 +39,25 @@
       vs-sm="12"
       vs-xs="12"
     >
-      <div 
-        :style="stylePagination" 
-        :class="[`vs-pagination-${color}`]" 
-        class="con-vs-pagination">
+      <div
+        :style="stylePagination"
+        :class="[`vs-pagination-${color}`]"
+        class="con-vs-pagination"
+      >
         <nav class="vs-pagination--nav">
           <button
-            :class="{disabled:current <= 1 ? 'disabled' : null}"
+            :class="{ disabled: current <= 1 ? 'disabled' : null }"
             :disabled="current === 1"
             class="vs-pagination--buttons btn-prev-pagination vs-pagination--button-prev"
             @click="prevPage"
           >
-            <vs-icon 
-              :icon-pack="iconPack" 
-              :icon="prevIcon"></vs-icon>
+            <vs-icon :icon-pack="iconPack" :icon="prevIcon"></vs-icon>
           </button>
           <ul class="vs-pagination--ul">
             <li
               v-for="(page, index) in pages"
               :key="index"
-              :class="{'is-current': page == current}"
+              :class="{ 'is-current': page == current }"
               class="item-pagination vs-pagination--li"
               @click="goTo(page)"
             >
@@ -85,14 +68,12 @@
           </ul>
           <!-- :style="styleBtn" -->
           <button
-            :class="{disabled:current === total ? 'disabled' : null}"
+            :class="{ disabled: current === total ? 'disabled' : null }"
             :disabled="current === total"
             class="vs-pagination--buttons btn-next-pagination vs-pagination--button-next"
             @click="nextPage"
           >
-            <vs-icon 
-              :icon-pack="iconPack" 
-              :icon="nextIcon"></vs-icon>
+            <vs-icon :icon-pack="iconPack" :icon="nextIcon"></vs-icon>
           </button>
           <input
             v-if="goto"
