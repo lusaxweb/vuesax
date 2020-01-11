@@ -1,9 +1,17 @@
 <template lang="html">
-  <transition :name="invert?vertical?'fade-tab-vertical-invert':'fade-tab-invert':vertical?'fade-tab-vertical':'fade-tab'">
-    <div
-      v-if="active"
-      class="con-tab vs-tabs--content">
-      <slot/>
+  <transition
+    :name="
+      invert
+        ? vertical
+          ? 'fade-tab-vertical-invert'
+          : 'fade-tab-invert'
+        : vertical
+        ? 'fade-tab-vertical'
+        : 'fade-tab'
+    "
+  >
+    <div v-if="active" class="con-tab vs-tabs--content">
+      <slot />
     </div>
   </transition>
 </template>
@@ -40,11 +48,7 @@ export default {
     label(val) {
       this.$parent.children[this.id].label = val;
     },
-<<<<<<< HEAD
     $attrs(val) {
-=======
-    '$attrs' (val) {
->>>>>>> 805ecd7576df0373a5ffb65668eee4cb55301349
       this.$parent.children[this.id].attrs = val;
     }
   },
