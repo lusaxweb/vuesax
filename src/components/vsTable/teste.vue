@@ -1,17 +1,13 @@
 <template>
   <div
-    :class="[{ stripe: stripe, hoverFlat: hoverFlat }, `vs-table-${color}`]"
+    :class="[{'stripe': stripe, 'hoverFlat': hoverFlat}, `vs-table-${color}`]"
     class="vs-component vs-con-table"
   >
     <!-- header -->
     <header class="header-table vs-table--header">
       <slot name="header"></slot>
       <div v-if="search" class="con-input-search vs-table--search">
-        <input
-          v-model="searchx"
-          class="input-search vs-table--search-input"
-          type="text"
-        />
+        <input v-model="searchx" class="input-search vs-table--search-input" type="text" />
         <vs-icon icon="search"></vs-icon>
       </div>
     </header>
@@ -37,22 +33,17 @@
           <slot :data="datax"></slot>
         </table>
       </div>
-      <div v-if="isNoData" class="not-data-table vs-table--not-data">
-        {{ noDataText }}
-      </div>
+      <div v-if="isNoData" class="not-data-table vs-table--not-data">{{ noDataText }}</div>
 
       <div v-if="pagination" class="con-pagination-table vs-table--pagination">
         <vs-pagination
           :total="searchx && !sst ? getTotalPagesSearch : getTotalPages"
-          :size-array="data.length"
-          :max-items="maxItemsx"
+          :sizeArray="queriedResults.length"
+          :maxItems="maxItemsx"
           :description="description"
-          :description-items="descriptionItems"
-          :description-title="descriptionTitle"
-          :description-body="descriptionBody"
-          :description-connector="descriptionConnector"
-          v-model="currentx"
+          :descriptionItems="descriptionItems"
           @changeMaxItems="changeMaxItems"
+          v-model="currentx"
         ></vs-pagination>
       </div>
     </div>
@@ -67,18 +58,6 @@ export default {
     color: {
       default: "primary",
       type: String
-    },
-    descriptionTitle: {
-      type: String,
-      default: "Registries"
-    },
-    descriptionConnector: {
-      type: String,
-      default: "of"
-    },
-    descriptionBody: {
-      type: String,
-      default: "Pages"
     },
     noDataText: {
       default: "No data Available",
@@ -249,7 +228,6 @@ export default {
     window.addEventListener("resize", this.listenerChangeWidth);
     this.maxItemsx = this.maxItems;
     this.loadData();
-
     // this.$nextTick(() => {
     //   if(this.datax.length > 0) {
     //     this.changeTdsWidth()
@@ -263,7 +241,6 @@ export default {
     loadData() {
       let max = Math.ceil(this.currentx * this.maxItemsx);
       let min = max - this.maxItemsx;
-
       if (!this.searchx || this.sst) {
         this.datax = this.pagination
           ? this.getItems(min, max)
@@ -336,16 +313,6 @@ export default {
         return typeof item === "string" || typeof item === "number";
       });
     },
-    getStrings(obj, valuesx) {
-      let stringsx = Object.values(obj);
-      valuesx.forEach(item => {
-        if (item && typeof item == "object") {
-          valuesx = [...valuesx, ...Object.values(item)];
-        }
-      });
-      // return [...valuesx,...Object.values(item)]
-      return stringsx;
-    },
     changeCheckedMultiple() {
       let lengthx = this.data.length;
       let lengthSelected = this.value.length;
@@ -364,7 +331,6 @@ export default {
         } else {
           val.push(tr);
         }
-
         this.$emit("input", val);
         this.$emit("selected", tr);
       } else if (isTr) {
@@ -383,21 +349,16 @@ export default {
     },
     changeTdsWidth() {
       if (!this.value) return;
-
       let tbody = this.$refs.table.querySelector("tbody");
-
       // Adding condition removes querySelector none error - if tbody isnot present
       if (tbody) {
         let trvs = tbody.querySelector(".tr-values");
         if (trvs === undefined || trvs === null) return;
         let tds = trvs.querySelectorAll(".td");
-
         let tdsx = [];
-
         tds.forEach((td, index) => {
           tdsx.push({ index: index, widthx: td.offsetWidth });
         });
-
         let colgrouptable = this.$refs.colgrouptable;
         if (colgrouptable !== undefined && colgrouptable !== null) {
           let colsTable = colgrouptable.querySelectorAll(".col");

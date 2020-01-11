@@ -410,7 +410,7 @@ export default {
       let inputx = this.$refs.inputselect;
       setTimeout(() => {
         document.addEventListener("click", this.clickBlur);
-      }, 100);
+      }, 250);
       if (this.autocomplete && this.multiple) {
         setTimeout(() => {
           if (inputx.value) {
