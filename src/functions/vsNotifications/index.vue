@@ -21,9 +21,10 @@
         </div>
         <vs-icon
           v-if="icon"
-          class="vs-icon-noti"
+          :icon="icon"
           :icon-pack="iconPack"
-          :icon="icon"></vs-icon>
+          class="vs-icon-noti"
+        ></vs-icon>
       </div>
       <span
         :style="fillingStyle"
@@ -33,7 +34,11 @@
 </template>
 
 <script>
+import vsIcon from '../../components/vsIcon/vsIcon.vue'
 export default {
+  components: {
+    vsIcon
+  },
   data:()=>({
     fullWidth:false,
     icon:null,
