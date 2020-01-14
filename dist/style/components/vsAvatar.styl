@@ -1,0 +1,56 @@
+.con-vs-avatar
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+
+  display: inline-block;
+  margin: 5px;
+  &.large
+    width: 50px;
+    height: 50px;
+  &.small
+    width: 24px;
+    height: 24px;
+    .vs-avatar-text
+      font-size: 0.9375em;
+.vs-avatar--count
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  z-index: 100;
+  &.badgeNumber
+    width: auto;
+    height: auto;
+    top: -3px;
+    right: 0px;
+    border-radius: 4px;
+    padding-left: 3px;
+    padding-right: 3px
+    font-size: 0.625em;
+    color: rgb(255, 255, 255);
+.vs-avatar--text
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+.vs-avatar--con-img
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 50%;
+  img
+    width 100%
+
+for colorx, i in $vs-colors
+  .con-vs-avatar-{colorx}
+    background: getColor(colorx, 1)
+  .dot-count-{colorx}
+    background: getColor(colorx, 1)
+  .vs-avatar-text-{colorx}
+    color: getColor(colorx, 1)

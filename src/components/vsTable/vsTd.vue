@@ -52,11 +52,11 @@ export default {
   },
   methods:{
     insertAfter(e,i){
-        if(e.nextSibling){
-            e.parentNode.insertBefore(i,e.nextSibling);
-        } else {
-            e.parentNode.appendChild(i);
-        }
+      if(e.nextSibling){
+        e.parentNode.insertBefore(i,e.nextSibling);
+      } else {
+        e.parentNode.appendChild(i);
+      }
     },
     clicktd (evt) {
       if(this.$slots.edit) {

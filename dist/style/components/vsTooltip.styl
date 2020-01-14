@@ -1,0 +1,71 @@
+.vs-tooltip
+  display: block
+  height auto
+  position absolute
+  left 0px;
+  top: 0px;
+  z-index 40000
+  background: rgb(50,50,50)
+  padding: 5px 7px;
+  font-size: 12px
+  border-radius: 6px;
+  max-width 220px
+  color: rgb(255,255,255)
+  &.after-none
+    &:after
+      display: none !important
+  h4
+    font-size: 13px;
+    width: 100%;
+    border-bottom: 1px solid rgba(255,255,255,.1)
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    text-align: center
+  &:after
+    content: ''
+    background: inherit
+    width: 8px;
+    height 8px;
+    position absolute
+    display block
+
+  &.vs-tooltip-top
+    &:after
+      transform: rotate(45deg) translate(-50%)
+      bottom: -6px
+      left 50%;
+  &.vs-tooltip-bottom
+    &:after
+      transform: rotate(45deg) translate(-50%)
+      top: -1px
+      left 50%;
+  &.vs-tooltip-left
+    &:after
+      transform: rotate(45deg) translate(0,-50%)
+      top: 50%;
+      right -1px;
+  &.vs-tooltip-right
+    &:after
+      transform: rotate(45deg) translate(0,-50%)
+      top: 50%;
+      left -6px;
+
+.tooltip-fade-enter-active, .tooltip-fade-leave-active
+  transition: opacity .2s, transform .2s;
+
+.tooltip-fade-enter, .tooltip-fade-leave-to
+  opacity: 0;
+  // transform: scale(.7)
+  &.vs-tooltip-top
+    transform: translate(0,-10px)
+  &.vs-tooltip-bottom
+    transform: translate(0,10px)
+  &.vs-tooltip-left
+    transform: translate(-10px,0%)
+  &.vs-tooltip-right
+    transform: translate(10px,0%)
+
+
+for colorx, i in $vs-colors
+  .vs-tooltip-{colorx}
+    background: getColor(colorx, 1)
