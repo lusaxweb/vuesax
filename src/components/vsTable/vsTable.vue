@@ -156,7 +156,8 @@ export default {
   }),
   computed:{
     getTotalPages() {
-      return Math.ceil(this.data.length / this.maxItemsx)
+      let dataLength = !this.sst ? this.data.length : this.total;
+      return Math.ceil(dataLength / this.maxItemsx)
     },
     getTotalPagesSearch() {
       return Math.ceil(this.queriedResults.length / this.maxItems)
@@ -258,7 +259,7 @@ export default {
       let min = max - this.maxItemsx
 
       if(!this.searchx || this.sst) {
-        this.datax = this.pagination ? this.getItems(min, max) : this.sortItems(this.data) || [];
+        this.datax = this.data || [];
       } else {
         this.datax = this.pagination ? this.getItemsSearch(min, max) : this.getItemsSearch(min, max) || []
       }
