@@ -21,7 +21,10 @@
           }
         ]"
         class="vs-sidebar">
-        <header class="vs-sidebar--header" v-if="$slots.header">
+        <header
+          v-if="$slots.header"
+          class="vs-sidebar--header"
+        >
           <slot name="header"></slot>
         </header>
 
@@ -31,7 +34,10 @@
 
         <vs-spacer v-if="spacer"></vs-spacer>
 
-        <footer class="vs-sidebar--footer" v-if="$slots.footer">
+        <footer
+          v-if="$slots.footer"
+          class="vs-sidebar--footer"
+        >
           <slot name="footer"></slot>
         </footer>
       </div>
@@ -93,16 +99,16 @@ export default {
   data: () => ({
     currentIndex: 0
   }),
+  watch:{
+    value() {
+      if(!this.clickNotClose) this.addEventClick()
+    }
+  },
   created () {
     this.currentIndex = this.defaultIndex
   },
   mounted () {
     this.insertBody()
-  },
-  watch:{
-    value() {
-      if(!this.clickNotClose) this.addEventClick()
-    }
   },
   methods:{
     getActive () {

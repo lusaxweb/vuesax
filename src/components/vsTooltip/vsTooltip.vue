@@ -1,5 +1,4 @@
 <template>
-    <!-- @mouseout="mouseoutx" -->
   <div
     ref="convstooltip"
     class="con-vs-tooltip"
