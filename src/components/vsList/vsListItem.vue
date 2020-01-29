@@ -14,9 +14,11 @@
       <div
         v-if="title"
         class="vs-list--title">{{ title }}</div>
+       <slot v-else name="title"/>
       <div
         v-if="subtitle"
         class="vs-list--subtitle">{{ subtitle }}</div>
+       <slot v-else name="subtitle"/>
     </div>
     <div class="vs-list--slot">
       <slot/>
