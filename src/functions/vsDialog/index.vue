@@ -189,7 +189,7 @@ export default {
     handleClose(event,con){
       if(con){
         if(event.target.className.indexOf('vs-dialog-dark')!=-1 && this.type == 'alert'){
-          this.factive = false
+          this.fActive = false
           this.$emit('update:active',false)
         } else if (event.target.className.indexOf('vs-dialog-dark')!=-1) {
           this.rebound()
