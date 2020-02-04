@@ -212,9 +212,17 @@ export default {
     },
     insertBody(){
       let elx = this.$refs.con
-      let parentx =  this.parent ? this.parent : document.body
+      let parentx = this.parent ? this.parent : document.body
       parentx.insertBefore(elx, parentx.firstChild)
     },
+  },
+  beforeDestroy() {
+    // close the left open prompt
+    let elx = this.$refs.con
+    let parentx = this.parent ? this.parent : document.body
+    if (elx && parentx) {
+      parentx.removeChild(elx)
+    }
   }
 }
 </script>
