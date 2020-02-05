@@ -220,7 +220,7 @@ export default {
     // close the left open prompt
     let elx = this.$refs.con
     let parentx = this.parent ? this.parent : document.body
-    if (elx && parentx) {
+    if (elx) {
       parentx.removeChild(elx)
     }
   }
