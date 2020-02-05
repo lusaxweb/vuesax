@@ -9,9 +9,11 @@
     v-else
     :href="link"
     class="nav-link"
+    :class="{new: item.new}"
     :target="isMailto(link) ? null : '_blank'"
     :rel="isMailto(link) ? null : 'noopener noreferrer'"
-  >{{ item.text }}</a>
+  >{{ item.text }}
+  </a>
 </template>
 
 <script>
@@ -34,3 +36,20 @@ export default {
   }
 }
 </script>
+<style lang="stylus" scoped>
+.new
+  position relative
+  font-weight bold
+  &:before
+    position absolute
+    top 0px
+    content 'New'
+    right -5px
+    background #5b3cc4
+    color rgb(255,255,255)
+    font-size .6rem
+    font-weight normal
+    padding 0px 5px
+    line-height 1rem
+    border-radius 0px 0px 8px 8px
+</style>

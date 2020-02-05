@@ -47,10 +47,8 @@ import Sidebar from './Sidebar.vue'
 import sidebarMap from './SidebarMap.vue'
 import { resolveSidebarItems, pathToComponentName } from './util'
 import './icons/font/flaticon.css'
-import CodeFund from "./CodeFound";
-import Carbon from "./Carbon";
 export default {
-  components: { Home, Page, Sidebar, Navbar, CodeFund, Carbon, sidebarMap },
+  components: { Home, Page, Sidebar, Navbar, sidebarMap },
   data () {
     return {
       isSidebarOpen: false,
