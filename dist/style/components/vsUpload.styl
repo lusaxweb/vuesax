@@ -1,0 +1,416 @@
+.con-upload
+  width: 100%
+  position relative
+.con-input-upload
+  background: rgb(245,245,245)
+  width: 200px;
+  height 200px
+  box-sizing: border-box
+  border-radius:8px
+  position relative
+  // padding: 5px;
+  transition: all .25s ease
+  border: 1px dashed rgba(0,0,0,.1)
+  display: flex
+  align-items: center
+  justify-content: center
+  flex-direction: column
+  margin: 15px
+  // margin-top: 5px
+  dirValue(float, left)
+  &:hover
+    border: 1px dashed getColor(primary,.5)
+  &.disabled-upload
+    opacity: 0
+    pointer-events: none
+    user-select: none
+    display: none
+  input
+    position: absolute
+    width: 100%;
+    height 100%;
+    opacity 0;
+    left 0px
+    top: 0px
+    cursor pointer
+  .text-input
+    min-width: 200px;
+    display block
+    text-align: center
+    margin: 0px !important
+    padding: 0px !important
+    width: 100%;
+    font-weight: bold
+  .input-progress
+    height 100%;
+    position absolute
+    display: block
+    left 0px;
+    top: 0px;
+    width: 29%
+    background: getColor('primary')
+    border-radius: 10px
+
+  &.on-progress-all-upload
+    width: 100%;
+    height 4px;
+    overflow hidden
+    padding: 0px;
+    border: 0px solid rgba(0,0,0,0)
+    .text-input,.vs-upload--button-upload
+      opacity 0
+      transform: translate(-40px)
+  &.is-ready-all-upload
+    .input-progress
+      background: getColor(success, 1) !important
+
+.vs-upload--button-upload
+  position absolute
+  border: 0px;
+  padding: 4px;
+  border-radius: 0px 0px 5px 5px;
+  padding-left: 6px;
+  padding-right: 6px;
+  font-size: .8rem
+  z-index 500
+  cursor pointer
+  margin: 0px;
+  color: getColor('primary')
+  transition: all .2s ease
+  box-shadow: 0px 0px 0px 0px rgba(0,0,0,.05)
+  background: rgba(0,0,0,.03)
+  bottom: 0px
+  width: 100%
+  &:disabled
+    opacity .4
+    pointer-events: none
+  &:hover
+    // box-shadow: 0px 5px 20px 0px rgba(0,0,0,.1)
+    padding-bottom: 10px
+    padding-top: 10px
+    background: getColor('primary')
+    color rgb(255,255,255)
+
+.con-img-upload
+  width: 100%
+  background:rgb(255,255,255)
+  position relative
+  border-radius: 10px;
+  margin-top: 5px;
+  padding-right: 5px;
+  box-sizing: border-box
+  column-gap: 5px;
+  overflow hidden
+
+  .img-upload
+    backface-visibility: hidden
+    dirValue(float, left)
+    overflow hidden
+    border-radius: 10px;
+    background: rgba(0,80,0,.5)
+    background: rgb(255,255,255)
+    box-shadow: 0px 5px 20px 0px rgba(0,0,0,.1)
+    transition: all .3s ease;
+    display flex
+    align-items: center
+    justify-content: center
+    flex-direction: column
+    width: 200px;
+    height 200px;
+    margin: 5px
+    position relative
+    cursor pointer
+    &.fileError
+      border: 1px solid getColor('danger',,.2)
+      box-shadow: 0px 5px 20px 0px getColor('danger',,.2)
+      .btn-upload-file
+        background: getColor('danger',.3) !important
+        i
+          background: getColor('danger') !important
+
+
+    &.removeItem
+      transition: all .3s ease, height .2s ease .2s;
+      opacity 0 !important;
+      width: 0px !important;
+      visibility hidden
+      margin: 0px !important;
+      height 0px !important;
+    img
+      transition: all .3s ease;
+    &:hover
+      transform: scale(.99)
+      box-shadow: 0px 0px 0px 0px rgba(0,0,0,.1)
+      .btn-x-file
+        opacity 1
+        transform: translate(0%,0%)
+      .btn-upload-file
+        opacity 1
+        transform translate(-50%,65%)
+    .btn-x-file
+      display block
+      position absolute
+      top: 5px
+      // width: 80px;
+      // height 80px;
+      padding: 0px;
+      propWithDir(right, null, 5px)
+      margin: 0px;
+      transform: translate(20%,-20%)
+      background: transparent
+      z-index 300
+      // background-image: linear-gradient(45deg, rgba(0,0,0,0) 50%, getColor('danger') 100%);
+      // transform: rotate(45deg)
+      opacity 0;
+      border: 0px;
+      cursor pointer
+      transition: all .2s ease
+      border-radius: 10px;
+      i
+        transition: all .2s ease
+        position relative
+        padding: 4px;
+        font-size: 1.4rem
+        // top: 2px;
+        // right 2px;
+        // width: 30px;
+        // height 30px;
+        display: flex
+        align-items: center
+        justify-content: center
+        border-radius: 5px;
+        background: rgba(0,0,0,.1)
+        // color: getColor(danger,,.8)
+        color: rgba(255,255,255,1)
+        text-shadow: 0px 3px 10px rgba(0,0,0,.5);
+
+      &:hover
+        // background-image: linear-gradient(45deg, rgba(0,0,0,0) 50%, getColor('danger') 90%);
+        i
+          // top: 6px;
+          // right 6px;
+          border-radius: 50%;
+          background: getColor('danger')
+        ~ .btn-upload-file:not(.on-progress)
+          background: radial-gradient(ellipse at center, getColor(danger, 1) 0%,rgba(0,0,0,0) 70%);
+          height: 300px;
+          &:after
+            border: 1px solid getColor('danger')
+          i
+            opacity 0
+        ~ .on-progress
+          background: getColor(danger,.2)
+          i
+            opacity 0
+        ~ img
+          filter: grayscale(80%)
+    .text-archive
+      display: flex
+      align-items: center
+      justify-content: center
+      position relative
+      text-align: center
+      padding: 5px;
+      i
+        position absolute
+        font-size: 7rem;
+        opacity .05
+      span
+        position relative
+        padding: 5px;
+    .btn-upload-file
+      margin: 0px;
+      opacity 0
+      position: absolute
+      bottom: 0px;
+      left: 50%;
+      z-index: 200;
+      border-radius: 50%;
+      width: 300px;
+      height: 200px;
+      transform translate(-50%,80%)
+      border 0px;
+      background: radial-gradient(ellipse at center, getColor(success, 1) 0%,rgba(0,0,0,0) 70%);
+      cursor pointer
+      transition: all .3s ease;
+      animation: imageRebound .7s ease !important
+      &:after
+        content:''
+        width: 200px;
+        height 200px;
+        position: absolute
+        z-index 100;
+        display: block
+        left 50%;
+        transform: translate(-50%,-50%)
+        top: 50%;
+        border-radius: 50%;
+        border: 1px solid getColor(success, 1)
+        animation: circle 1.5s ease infinite
+      &:not(.on-progress):hover
+        width: 200px;
+        height: 200px;
+        transform translate(-50%,70%)
+        i
+          font-size: 1.4rem
+          background: getColor(success, 1)
+          top: 6%;
+          padding: 10px;
+      i
+        z-index 50
+        border-radius: 50%
+        transition: all .2s ease;
+        position: absolute
+        left: 50%;
+        top: 12%;
+        transform translate(-50%)
+        color: rgba(255,255,255,1)
+        text-shadow: 0px 3px 10px rgba(0,0,0,.5);
+        padding: 20px;
+        backface-visibility visible
+      span
+        opacity 0
+        z-index 300
+
+      &.on-progress
+        width 100%
+        height: 20px;
+        background: getColor(success,,.3)
+        border-top: 1px solid getColor(success, 1)
+        bottom: 0px;
+        transform translate(0)
+        left: 0px;
+        opacity: 1 !important
+        overflow hidden
+        border-radius: 0px
+        pointer-events: none
+        // &:after
+          // opacity: 0
+        i
+          opacity: .2
+          background: getColor(success, 1)
+          box-shadow: 0px 5px 17px 0px rgba(0,0,0,.150)
+          top: 50%
+          transform translate(-50%,-50%) scale(1.2)
+          padding: 20px;
+        span
+          transition: all .5s ease
+          opacity: 1
+          color: rgb(255,255,255)
+          font-size: 1rem;
+          position: absolute
+          top: calc(50% + 40px);
+          left: 0px;
+          text-align: center
+          width: 100%;
+          text-shadow: 0px 3px 15px getColor(success,,1);
+          font-weight: bold
+          z-index 300
+          display: block
+          transform: translate(0,-50%)
+      &.ready-progress
+        border-top: 0px solid getColor(success, 1)
+        background: getColor(success,.5)
+
+        span
+          z-index 10
+          transform translate(0,-50%) scale(.5)
+          top: calc(50% + 20px);
+          opacity: 0;
+        &:after
+          opacity: 0
+        i
+          opacity: 1
+          background: getColor(success, 1)
+          box-shadow: 0px 5px 17px 0px rgba(0,0,0,.150)
+          top: 50%
+          transform translate(-50%,-50%) scale(1)
+          padding: 10px;
+.upload-enter-active
+  transition: all .7s ease !important
+  animation: imageRebound .7s ease !important
+
+// .upload-leave-active
+//   transition: all 0s ease !important
+//   width: 0px !important
+  // transition: all .3s !important;
+  // transform scale(.7) !important
+  // opacity: 0 !important
+
+@keyframes imageRebound {
+  0% {
+    transform: scale(.4);
+    border-radius: 30%;
+    pointer-events: none
+  }
+  40% {
+    transform: scale(1.03);
+    border-radius: 14px;
+    pointer-events: none
+  }
+  70% {
+    transform: scale(.98);
+    border-radius: 18px;
+    pointer-events: none
+  }
+  100% {
+    transform: scale(1);
+    border-radius: 10px;
+    pointer-events: none
+  }
+}
+
+@keyframes circle {
+  0% {
+    width: 0px
+    height 0px
+  }
+  100% {
+    width: 230px
+    height 230px
+    opacity 0
+  }
+}
+
+
+
+/*
+* View Upload styles
+*/
+
+.view-upload-enter-active, .view-upload-leave-active {
+  transition: opacity .5s;
+}
+.view-upload-enter, .view-upload-leave-to
+  opacity: 0;
+  img
+    transform: scale(.4)
+
+.view-upload
+  position fixed
+  left 0px;
+  z-index 15000
+  width: 100%
+  height 100%
+  background: rgba(0,0,0,.3)
+  top: 0px;
+  padding: 20px
+  display: flex
+  align-items: center
+  justify-content: center
+  img
+    transition: all .3s ease;
+    border-radius: 10px;
+    position relative
+    display: block
+    left 0
+    top: 0
+    right 0
+    bottom: 0
+    max-width 100%
+    max-height: 100%
+    margin: auto
+    animation: imageRebound .7s ease !important
+    box-shadow: 0px 8px 30px 0px rgba(0,0,0,.25)
+    background: rgb(255,255,255)
+    // background-image: url('../../public/grid.png')

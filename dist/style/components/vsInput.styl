@@ -1,0 +1,189 @@
+
+.placeholderx-enter, .placeholderx-leave-to {
+  opacity: 0;
+  propWithDir(transform, null, (15px), !important);
+  // transform: translate(15px) !important
+}
+.icon-validate-enter, .icon-validate-leave-to {
+  opacity: 0;
+  transform: scale(.5) !important
+}
+
+.vs-con-input-label
+  position relative
+  transition: all .3s ease
+  width: 200px
+  &.is-label-placeholder
+    margin-top: 17px
+  .vs-con-input
+    display flex
+    align-items flex-start
+    flex-direction column
+    position relative
+    justify-content: center
+
+
+.vs-input--icon
+  position absolute
+  propWithDir(left, null, 5px)
+  z-index 100
+  font-size: 1.1rem
+  propWithDir(border, right, 1px solid rgba(0,0,0,.1));
+  propWithDir(padding, right, 3px)
+  color rgba(0,0,0,.4)
+  cursor default
+  user-select none
+  top: 8px
+  &.small
+    top: 4px
+    font-size: 1rem
+  &.large
+    top: 14px
+  &.icon-after
+    propWithDir(left, null, auto)
+    propWithDir(right, null, 5px)
+    propWithDir(border, left, 1px solid rgba(0,0,0,.1))
+    propWithDir(border, right, 0px)
+    propWithDir(padding, left, 3px)
+    propWithDir(padding, right, 0px)
+  &.icon-no-border
+    border: 0;
+
+.vs-input--placeholder
+  transition: all .2s ease
+  position: absolute
+  border-radius 5px
+  propWithDir(left, null, 0px)
+  padding: .4 rem
+  propWithDir(padding, left, .55rem)
+  width: 100%
+  box-sizing: border-box
+  overflow: hidden
+  font-size: .85rem
+  color: rgba(0,0,0,.4)
+  white-space: nowrap
+  cursor text
+  user-select none
+  top: -1px
+  pointer-events: none
+  &.small
+    padding: 0.2rem
+    propWithDir(padding, left, .55rem)
+  &.large
+    padding-top: 0.8rem
+    padding: 0.7rem
+
+.vs-input--label
+  propWithDir(padding, left, 5px)
+  font-size: .85rem
+  color rgba(0,0,0,.7)
+
+.vs-input--text-validation
+  position: relative
+  font-size: .65rem
+  overflow: hidden
+  transition: all .2s ease;
+  .vs-input--text-validation-span
+    padding: 2px 4px;
+    padding-bottom: 4px
+    display: block
+
+.vs-input--icon-validate
+  position: absolute
+  top: 0px
+  propWithDir(right, null, 0px);
+  font-size: 1.1rem
+  height: 100%
+  display: flex
+  align-items: center
+  padding: 0px 4px
+  border-radius 0px 5px 5px 0px
+  transition: all .2s ease
+  &.icon-before
+    position absolute
+    propWithDir(left, null, 0px);
+    right: auto
+    z-index 100
+    font-size: 1.1rem
+    propWithDir(padding, right, 0.2rem)
+    cursor default
+    user-select none
+    top: 0px
+    propWithDir(border, right, 1px)
+
+.vs-input--input
+  color: inherit
+  position relative
+  padding: 0.4 rem
+  border-radius 5px
+  border 1px solid rgba(0, 0, 0,.2)
+  box-sizing: border-box
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.150);
+  transition: all .3s ease
+  width: 100%
+  &.small
+    padding: 0.2rem
+    propWithDir(padding, left, .55rem);
+    + .vs-placeholder-label-small
+      padding: 0rem 0.4rem
+  &.normal
+    padding: 0.4rem
+  &.large
+    padding: 0.8rem
+    + .vs-placeholder-label-large
+      padding: 0.6rem
+  &:focus
+    box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.150);
+  &:focus,&.hasValue
+    + .vs-placeholder-label
+      propWithDir(transform, null, (-3px -90%), !important);
+      font-size: .7rem
+      propWithDir(padding, left, .5rem, !important)
+    + .vs-placeholder-label-small
+      propWithDir(transform, null, (-3px -120%), !important);
+      font-size: .7rem
+      propWithDir(padding, left, .5rem, !important)
+  &:focus
+    + .vs-input--placeholder
+      propWithDir(transform, null, (5px));
+  &.hasIcon
+    propWithDir(padding, left, 32px)
+    + .vs-input--placeholder
+      propWithDir(padding, left, 32px)
+  &.icon-after-input
+    propWithDir(padding, right, 1.75rem)
+    + .vs-input--placeholder
+      propWithDir(padding, right, 1.75rem)
+  &.hasIcon.icon-after-input
+    propWithDir(padding, left, .85em)
+    + .vs-input--placeholder
+      propWithDir(padding, left, .85em)
+  &:disabled
+    opacity: $vs-disabled-opacity;
+    cursor: default;
+    pointer-events: none;
+    + .vs-input--placeholder
+      opacity: $vs-disabled-opacity;
+      cursor: default;
+      pointer-events: none;
+
+for colorx, i in $vs-colors
+  .vs-input-{colorx}
+    .vs-input--input
+      &:focus
+        border: 1px solid getColor(colorx) !important
+        ~ .vs-placeholder-label, ~ .icon-inputx
+          color getColor(colorx)
+    &.isFocus
+      .vs-input--label
+        color: getColor(colorx)
+  &.span-text-validation-{colorx}
+    color: getColor(colorx) !important
+  &.input-icon-validate-{colorx}
+    .vs-input--input
+      border: 1px solid getColor(colorx) !important
+      &:focus
+        border: 1px solid getColor(colorx) !important
+    .input-icon-validate
+      background: getColor(colorx, .2)
+      color getColor(colorx)
