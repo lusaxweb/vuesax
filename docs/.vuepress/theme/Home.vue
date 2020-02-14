@@ -41,7 +41,7 @@
           <li @mouseenter="discord=true" @mouseleave="discord=false">
             <a
               target="_blank"
-              href="https://discord.gg/9dsKtvB"
+              href="https://discord.gg/6AZNXEa"
               class="nav-link discord-link"
               rel="noopener noreferrer"
             >
