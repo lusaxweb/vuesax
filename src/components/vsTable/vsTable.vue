@@ -156,7 +156,7 @@ export default {
   }),
   computed:{
     getTotalPages() {
-      return Math.ceil(this.data.length / this.maxItemsx)
+      return Math.ceil((this.total ? this.total : this.data.length) / this.maxItemsx)
     },
     getTotalPagesSearch() {
       return Math.ceil(this.queriedResults.length / this.maxItems)
@@ -268,7 +268,7 @@ export default {
 
       let items = []
       dataBase.forEach((item, index) => {
-        if(index >= min && index < max) {
+        if(this.total || index >= min && index < max) {
           items.push(item)
         }
       })
