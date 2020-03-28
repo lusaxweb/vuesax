@@ -12,7 +12,8 @@
       :value="value"
       v-bind="$attrs"
       class="vs-textarea"
-      v-on="listeners">
+      v-on="listeners"
+      :style="textareaStyle">
     </textarea>
 
     <div
@@ -54,6 +55,10 @@ export default {
     width:{
       default:null,
       type: String
+    },
+    resize:{
+      default: true,
+      type: Boolean
     }
   },
   data:()=>({
@@ -61,12 +66,20 @@ export default {
   }),
   computed:{
     style() {
-      let style = {}
+      const style = {}
       style.border = `1px solid ${this.isFocus?_color.getColor(this.color,1):'rgba(0, 0, 0,.08)'}`
-      style.height = this.height
+      //style.height = this.height
       style.width = this.width
 
       return style
+    },
+    textareaStyle() {
+      const style = {};
+      style.height = this.height;
+      if (!this.resize) {
+        style.resize = 'none';
+      }
+      return style;
     },
     listeners() {
       return {
