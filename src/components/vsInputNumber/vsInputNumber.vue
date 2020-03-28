@@ -22,18 +22,20 @@
         :icon="iconDec"
       ></vs-icon>
     </button>
-    <span v-if="label">{{ label }}</span>
-    <input
-      ref="input"
-      :style="styleInput"
-      :value="value"
-      v-bind="$attrs"
-      :disabled="isDisabled"
-      type="number"
-      :min="min"
-      :max="max"
-      class="vs-input-number--input"
-      v-on="listeners">
+    <div>
+      <span v-if="label">{{ label }}</span>
+      <input
+        ref="input"
+        :style="styleInput"
+        :value="value"
+        v-bind="$attrs"
+        :disabled="isDisabled"
+        type="number"
+        :min="min"
+        :max="max"
+        class="vs-input-number--input"
+        v-on="listeners">
+    </div>
     <button
       v-repeat-click="plus"
       :disabled="$attrs.disabled"
