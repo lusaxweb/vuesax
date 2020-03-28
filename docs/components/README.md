@@ -97,6 +97,7 @@ To define the type of button the directive is used `type` with the value of some
 <vs-button color="danger" type="filled">Danger</vs-button>
 <vs-button color="warning" type="filled">Warning</vs-button>
 <vs-button color="dark" type="filled">Dark</vs-button>
+<vs-button color="light" type="filled">Light</vs-button>
 <vs-button color="rgb(11, 189, 135)" type="filled">RGB</vs-button>
 <vs-button disabled type="filled">Disabled</vs-button>
 </div>
