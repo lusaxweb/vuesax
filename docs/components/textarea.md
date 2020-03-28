@@ -25,6 +25,11 @@ API:
    parameters: null
    description: Set the height of the textarea
    default: null
+ - name: resize
+   type: Boolean
+   parameters: null
+   description: Determine if textarea is resizable
+   default: true
 ---
 
 # Textarea
