@@ -172,6 +172,7 @@ export default {
   },
   watch:{
     value(){
+      this.$emit('input', this.value);
       this.isChangeValue = true
       setTimeout(()=>{
         this.isChangeValue = false
@@ -180,27 +181,17 @@ export default {
   },
   methods:{
     plus(){
-      let newValue
       if(this.value === ''){
-        newValue = 0
-        this.$emit('input',newValue)
-      } else  {
-        if(this.max?parseFloat(this.value)<parseFloat(this.max):true){
-          newValue = parseFloat(this.value) + parseFloat(this.step)
-          this.$emit('input',newValue)
-        }
+        this.value = 0
+      } else if (this.max ? parseFloat(this.value) < parseFloat(this.max) : true) {
+        this.$emit('input', parseFloat(this.value) + parseFloat(this.step))
       }
     },
     less(){
-      let newValue
       if(this.value === ''){
-        newValue = 0
-        this.$emit('input',newValue)
-      } else  {
-        if(this.min?parseFloat(this.value)>parseFloat(this.min):true){
-          newValue = parseFloat(this.value) - parseFloat(this.step)
-          this.$emit('input',newValue)
-        }
+        this.value = 0
+      } else if (this.min ? parseFloat(this.value) > parseFloat(this.min) : true) {
+        this.$emit('input', parseFloat(this.value) - parseFloat(this.step))
       }
     },
   }
