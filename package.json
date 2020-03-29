@@ -36,7 +36,7 @@
     "v": "npm version patch",
     "v2": "npm version minor",
     "p": "npm publish",
-    "deploy": "CI=false npm run build & git add . & git commit -m 'deploy' & npm run v & npm run p && git push",
+    "deploy": "CI=false npm run build && git add . && git commit -m 'deploy' && npm run v && npm run p && git push",
     "deploy2": "CI=false npm run build & git add . & git commit -m 'deploy' & npm run v2 & npm run p && git push",
     "docs:build": "vuepress build docs",
     "docs:deploy": "sh scripts/deploy.sh",
