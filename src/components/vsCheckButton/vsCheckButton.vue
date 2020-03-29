@@ -5,6 +5,7 @@
         v-bind="$attrs"
         v-on="listeners"
         ref="btn"
+        type="button"
     >
         <span
             ref="backgroundx"
@@ -113,7 +114,6 @@ export default {
         } else {
             cssColor = _color.getColor(this.color, 0)
         }
-        console.log(cssColor)
         if (this.value) {
             return {
                 borderColor: `${cssColor} !important`
