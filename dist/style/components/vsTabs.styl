@@ -1,0 +1,239 @@
+.fade-tab-enter-active, .fade-tab-leave-active {
+  transition: all .3s;
+}
+.fade-tab-enter, .fade-tab-leave-to /* .fade-tab-leave-active below version 2.1.8 */ {
+  top: 0px;
+  opacity: 0;
+  position: absolute !important;
+  transform: translate3d(-100%, 0, 0);
+}
+.fade-tab-leave-to /* .fade-tab-leave-active below version 2.1.8 */ {
+  top: 0px;
+  opacity: 0;
+  position: absolute !important;
+  transform: translate3d(100%, 0, 0);
+}
+
+// invert
+
+.fade-tab-invert-enter-active, .fade-tab-invert-leave-active {
+  transition: all .3s;
+}
+.fade-tab-invert-enter, .fade-tab-invert-leave-to /* .fade-tab-invert-leave-active below version 2.1.8 */ {
+  top: 0px;
+  opacity: 0;
+  position: absolute !important;
+  transform: translate3d(100%, 0, 0);
+}
+.fade-tab-invert-leave-to /* .fade-tab-invert-leave-active below version 2.1.8 */ {
+  top: 0px;
+  opacity: 0;
+  position: absolute !important;
+  transform: translate3d(-100%, 0, 0);
+}
+
+// position
+
+.fade-tab-vertical-enter-active, .fade-tab-vertical-leave-active {
+  transition: all .3s;
+}
+.fade-tab-vertical-enter /* .fade-tab-vertical-leave-active below version 2.1.8 */ {
+  top: 0px;
+  opacity: 0;
+  position: absolute !important;
+  transform: translate3d(0, 100%, 0);
+}
+
+.fade-tab-vertical-leave-to /* .fade-tab-vertical-leave-active below version 2.1.8 */ {
+  top: 0px;
+  opacity: 0;
+  position: absolute !important;
+  transform: translate3d(0, -100%, 0);
+}
+
+.fade-tab-vertical-invert-enter-active, .fade-tab-vertical-invert-leave-active {
+  transition: all .3s;
+}
+.fade-tab-vertical-invert-enter /* .fade-tab-vertical-invert-leave-active below version 2.1.8 */ {
+  top: 0px;
+  opacity: 0;
+  position: absolute !important;
+  transform: translate3d(0, -100%, 0);
+}
+
+.fade-tab-vertical-invert-leave-to /* .fade-tab-vertical-invert-leave-active below version 2.1.8 */ {
+  top: 0px;
+  opacity: 0;
+  position: absolute !important;
+  transform: translate3d(0, 100%, 0) !important;
+}
+
+
+.con-vs-tabs
+  width 100%;
+  overflow hidden
+  position relative
+  .con-slot-tabs
+    position relative
+    display: block
+    overflow hidden
+  .con-ul-tabs
+    position relative
+
+.vs-tabs--ul
+  width 100%
+  padding-left 0px;
+  position relative
+  box-shadow: 0px 0px 25px 0px rgba(0,0,0,.04)
+  &.ul-tabs-center
+    justify-content center
+  &.ul-tabs-right
+    justify-content flex-end
+  &.ul-tabs-fixed
+    justify-content space-between
+    flex-wrap: nowrap !important
+    li
+      width 100%
+
+.line-vs-tabs
+  width 100px
+  height 2px
+  display block
+  position absolute
+  transition all .2s ease
+  transform: translateZ(0);
+  will-change: left,right;
+
+.vs-tabs--li
+  display: block
+  position relative
+  button
+    color inherit
+    font-family inherit
+  button.vs-tabs--btn
+    box-sizing: border-box
+    display: block
+    position relative
+    width 100%;
+    background transparent
+    margin 0px
+    padding 10px
+    border 0px
+    cursor pointer
+    transition all .2s ease
+    z-index: 100
+    &:hover:not(:disabled)
+      color inherit
+  button:disabled
+    opacity .5
+    cursor default !important
+    pointer-events: none
+.activeChild
+  button:not(:disabled)
+    color inherit
+  button.vs-tabs--btn
+    padding-top 8px ;
+    padding-bottom 12px ;
+
+.vs-tabs--btn-tag
+  position absolute
+  width: 20px
+  height 20px
+  display: flex
+  align-items: center
+  justify-content: center
+  top -10px
+  right -10px
+  z-index 200
+  border-radius 3px
+  border: 0px
+  background: rgb(255,255,255)
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,.05)
+  cursor pointer
+  z-index: 200
+  i
+    padding-right: 0px !important
+    font-size: .9rem
+
+.vs-tabs--btn-icon+span
+  propWithDir(padding, left, 9px)
+
+.vs-tabs-position-top
+  .vs-tabs--ul
+    display: flex
+    flex-wrap: wrap
+.vs-tabs-position-bottom
+  .vs-tabs--ul
+    display: flex
+    border-top 1px solid rgba(0,0,0,.05)
+    border-bottom: 0px !important;
+  .con-ul-tabs
+    order: 2;
+  .line-vs-tabs
+    top: 0px;
+
+.vs-tabs-position-left
+  display flex
+  .line-vs-tabs
+    left auto !important
+    right 0px;
+  .con-ul-tabs
+    float left
+    height: 100%;
+    display: block
+  .vs-tabs--ul
+    display block
+    width: auto
+    border-bottom: 0px !important;
+    border-right: 1px solid rgba(0,0,0,.05)
+  .activeChild
+    button
+      padding-top 10px !important;
+      padding-bottom 10px !important;
+      padding-left: 12px !important;
+      padding-right: 8px !important;
+
+
+.vs-tabs-position-right
+  display flex
+  .con-slot-tabs
+    width: 100%;
+  .con-ul-tabs
+    float left
+    height: 100%;
+    display: block
+    order: 2;
+  .vs-tabs--ul
+    display block
+    width: auto
+    border-bottom: 0px !important;
+    border-left: 1px solid rgba(0,0,0,.05)
+  .activeChild
+    button
+      padding-top 10px !important;
+      padding-bottom 10px !important;
+      padding-left: 8px !important;
+      padding-right: 12px !important;
+
+for colorx, i in $vs-colors
+  .vs-tabs-{colorx}
+    .con-ul-tabs
+      button:not(:disabled)
+        &:hover
+          color: getColor(colorx, 1) !important
+      .activeChild
+        button
+          color: getColor(colorx, 1) !important
+
+      .line-vs-tabs
+        background: linear-gradient(30deg, getColor(colorx, 1) 0%, getColor(colorx, .5) 100%) !important
+        box-shadow 0px 0px 8px 0px getColor(colorx, .4) !important
+
+
+// vs-tab
+
+.vs-tabs--content
+  position relative
+  width 100%
+  display block
+  padding 10px

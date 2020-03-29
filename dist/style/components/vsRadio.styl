@@ -1,0 +1,85 @@
+
+.con-vs-radio
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:hover
+    .vs-radio--borde
+      border: 2px solid rgb(160, 160, 160);
+
+.vs-radio--label
+  propWithDir(margin, left, 5px)
+  cursor pointer
+
+.vs-radio
+  width: 18px;
+  height: 18px;
+  position: relative;
+  display: block;
+  border-radius: 50%;
+  cursor: pointer;
+  flex-shrink: 0;
+
+.vs-radio--borde
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0px;
+  transition: all .25s ease;
+  background: transparent;
+  top: 0px;
+  border: 2px solid rgb(200, 200, 200);
+
+.vs-radio--circle
+  transition: all .25s ease;
+  transform: scale(.1);
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+
+.vs-radio--input
+  position: absolute;
+  left: 0px;
+  opacity: 0;
+  width: 20px;
+  width: 20px;
+  &:checked
+    + .vs-radio
+      cursor: default;
+      .vs-radio--circle
+        transform: scale(1);
+        opacity: 1;
+      .vs-radio--borde
+        opacity: 0;
+        transform: scale(.3);
+  &:active
+    + .vs-radio
+      .vs-radio--circle
+        // transform: scale(1.1);
+      .vs-radio--borde
+        transform: scale(1.1);
+  &:disabled
+    + .vs-radio,
+    + .vs-radio + .vs-radio--label
+      pointer-events: none;
+      cursor: default;
+    + .vs-radio
+      opacity: .4;
+      .vs-radio--circle
+        pointer-events: none;
+      .vs-radio--borde
+        border: 2px solid rgb(180, 180, 180)
+        background: rgb(210, 210, 210)
+        pointer-events: none;
+
+for colorx, i in $vs-colors
+  .vs-radio-{colorx}
+    .vs-radio--circle
+      background: getColor(colorx, 1)
+      box-shadow: 0px 3px 12px 0px getColor(colorx, .4)
