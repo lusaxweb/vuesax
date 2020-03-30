@@ -200,6 +200,7 @@ module.exports = {
           '/components/notifications',
           '/components/switch',
           '/components/checkbox',
+          '/components/checkbutton',
           '/components/radio',
           '/components/input',
           '/components/dialog',

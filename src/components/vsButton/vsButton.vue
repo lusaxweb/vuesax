@@ -118,6 +118,10 @@ export default {
     button:{
       default:'button',
       type:String
+    },
+    disableAnimation:{
+      default:false,
+      type:Boolean
     }
   },
   data:()=>({
@@ -247,7 +251,8 @@ export default {
     },
     clickButton(event){
       this.$emit('click',event)
-      if(this.isActive){
+
+      if(this.disableAnimation || this.isActive){
         return
       }
       if(this.to){
