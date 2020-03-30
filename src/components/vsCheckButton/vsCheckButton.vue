@@ -92,7 +92,7 @@ export default {
     leftBackgorund:20,
     topBackgorund:20,
     radio:0,
-    time:0.3,
+    time:0,
     timeOpacity:0.3,
     opacity:1,
     transitioning: false
@@ -103,7 +103,6 @@ export default {
             'vs-component',
             'vs-button',
             'vs-button-border',
-            'vs-button-dark',
             this.value ? 'isActive' : null
         ]
     },
@@ -162,7 +161,7 @@ export default {
       let styles = {
         top: this.linePosition == 'top'?'-2px':'auto',
         bottom: this.linePosition == 'bottom'?'-2px':'auto',
-        background: _color.getColor(this.color,1),
+        background: `rgba(var(--vs-${this.color}), 1)`,
         left: lineOrigin,
         right: lineOrigin == 'auto'?'0px':null,
         transform: lineOrigin=='50%'?'translate(-50%)':null
@@ -183,7 +182,7 @@ export default {
                 }, 200)
             }, 150);
         } else {
-            let btn = this.$refs.btn
+            const btn = this.$refs.btn
             let xEvent = event.offsetX
             let yEvent = event.offsetY
             let radio = btn.clientWidth * 3
@@ -204,6 +203,11 @@ export default {
             }, this.time*1100);
         }
     }
+  },
+  mounted() {
+      if (this.value) {
+          this.radio = this.$refs.btn.clientWidth * 3
+      }
   },
   methods:{
     isRTL(value) {
@@ -230,3 +234,10 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+    .vs-button {
+        color: black;
+        border: 1px solid black;
+    }
+</style>
