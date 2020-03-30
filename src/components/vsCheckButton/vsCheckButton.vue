@@ -111,7 +111,7 @@ export default {
         if (this.isColor(this.color)) {
             cssColor = `rgba(var(--vs-${this.color}), 1)`
         } else {
-            cssColor = _color.getColor(this.color, 0)
+            cssColor = _color.getColor(this.color, 1)
         }
         if (this.value) {
             return {
@@ -140,8 +140,15 @@ export default {
       }
     },
     stylesBackground(){
+        let cssColor
+        if (this.isColor(this.color)) {
+            cssColor = `rgba(var(--vs-${this.color}), 1)`
+        } else {
+            cssColor = _color.getColor(this.color, 1)
+        }
+
       return {
-        background: `rgba(var(--vs-${this.color}), 1)`,
+        background: cssColor,
         opacity: this.opacity,
         left: `${this.leftBackgorund}px`,
         top: `${this.topBackgorund}px`,
