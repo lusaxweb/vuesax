@@ -1,7 +1,7 @@
 ---
 API:
  - name: v-model
-   type: String / boolean / array
+   type: Boolean
    parameters: null
    description: Link values.
    default: null
@@ -10,11 +10,6 @@ API:
    parameters: primary, success, danger, warning, dark, RGB, HEX
    description: Color options for checkBox.
    default: primary
- - name: vs-value
-   type: String
-   parameters: primary, success, danger, warning, dark, RGB, HEX
-   description: Value if different from a boolean.
-   default: null
  - name: icon
    type: String
    parameters: Material Icons
@@ -31,7 +26,7 @@ API:
 
 <box header>
 
-Aggressive and impacting effect and the most important functional
+Looks like a button. Behaves like a checkbox.
 
 </box>
 
