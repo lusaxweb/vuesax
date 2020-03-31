@@ -74,6 +74,10 @@ API:
     type: Event
     parameters: error
     description:  Triggers method when there's error in routing using button component
+  - name: disableAnimation
+    type: Boolean
+    description: Disables animation effect on click
+    default: false
 ---
 
 # Buttons
