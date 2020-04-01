@@ -320,3 +320,37 @@ export default {
 </div>
 </vuecode>
 </box>
+
+<box>
+
+## Validation error
+
+Number Input has a property that can be passed to point out invalidity through styling.
+
+<vuecode md>
+<div slot="demo">
+  <Demos-Inputnumber-Danger />
+</div>
+<div slot="code">
+
+```html
+<template lang="html">
+  <div class="centerx">
+    <vs-input-number v-model="number0" :danger="true" />
+  </div>
+</template>
+
+<script>
+export default {
+  data(){
+    return {
+      number0:1
+    }
+  }
+}
+</script>
+```
+
+</div>
+</vuecode>
+</box>
