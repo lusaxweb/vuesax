@@ -1,5 +1,6 @@
 <template lang="html">
   <div class="centerx icons-example">
+    <vs-input icon="search" placeholder="Search" v-model="value1" icon-after="true" icon-no-border />
     <vs-input icon="search" placeholder="Search" v-model="value1"/>
     <vs-input icon-after="true" label-placeholder="icon-after" icon="mode_edit" vs-placeholder="Nombre" v-model="value2"/>
     <vs-input icon="add" label-placeholder="Label-placeholder" v-model="value3"/>

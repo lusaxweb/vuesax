@@ -54,7 +54,7 @@
         :class="{'icon-after':iconAfter, 'icon-no-border':iconNoBorder}"
         :iconPack="iconPack"
         :icon="icon"
-        @click="focusInput">
+        @click="focusInput(); $emit('iconClick');">
       </vs-icon>
 
       <transition name="icon-validate" >

@@ -115,6 +115,11 @@ API:
    parameters: null
    description: Text that is displayed in the warning state.
    default: null
+ - name: v-on:icon-click
+   type: Function
+   parameters: null
+   description: Event to trigger on click on icon
+   default: null
 contributors:
  - cristijora
 ---
