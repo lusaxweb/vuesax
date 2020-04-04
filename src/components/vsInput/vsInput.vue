@@ -253,7 +253,7 @@ export default {
       }
     },
     isValue(){
-      return this.labelPlaceholder?true:!this.value
+      return !this.value
     },
     getIcon(){
       return this.danger  ? this.valIconDanger
