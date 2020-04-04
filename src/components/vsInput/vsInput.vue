@@ -33,7 +33,7 @@
         v-on="listeners">
       <transition name="placeholderx">
         <span
-          v-if="isValue&&(labelPlaceholder||$attrs.placeholder)"
+          v-if="!isValue&&(labelPlaceholder||$attrs.placeholder)"
           ref="spanplaceholder"
           :style="styleLabel"
           :class="[
@@ -253,7 +253,7 @@ export default {
       }
     },
     isValue(){
-      return !this.value
+      return !!this.value
     },
     getIcon(){
       return this.danger  ? this.valIconDanger
