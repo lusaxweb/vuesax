@@ -1,0 +1,177 @@
+.con-vs-slider
+  width: 100%;
+  position: relative
+  left 0px;
+  margin: 16px 0px
+  display: block
+  min-width 300px;
+  z-index 100
+  &.disabledx
+    opacity .4;
+    cursor default
+    button
+       cursor default !important
+       pointer-events: none
+
+.vs-slider
+  width: 100%;
+  height 4px;
+  border-radius: 4px;
+  background: rgb(240,240,240)
+  position relative
+  cursor pointer
+  border: 0px;
+  margin: 0px;
+  display: block
+  overflow hidden
+
+.vs-slider-line-one
+  width: 20px;
+  height 100%;
+  top: 0px;
+  position absolute
+  left 0px;
+  z-index 1
+  &.hasTransition
+    transition: all .2s ease
+
+.vs-slider-line-efect
+  width: 0px;
+  height 100%;
+  top: 0px;
+  position absolute
+  left 0px;
+  transition: opacity .3s ease, width .3s ease
+  transform: translate(-50%)
+  &:not(.run-effect)
+    opacity 0 !important
+    width: 0% !important;
+
+  &.run-effect
+    width: 100%;
+    animation: example .3s ease
+    animation-iteration-count: 1
+
+.vs-slider--tick
+  position absolute
+  left 100px;
+  background: rgb(210,210,210)
+  width: 4px;
+  height 100%;
+  top: 0px;
+  &.isEnd
+    transform: translate(-100%)
+
+.vs-slider--circles
+  transform: translate(-50%)
+  transition: border .2s ease, transform .2s ease, border-radius .2s ease
+  display block
+  background: rgb(255,255,255)
+  &:active
+      border-width: 7px !important
+  &.isEquals
+    &.vs-circle-slider-two
+      border-radius: 50% 50% 0px 0px
+      transform: translate(-50%,-7px) scale(.9) !important
+    &.vs-circle-slider
+      border-radius: 0px 0px 50% 50%
+      transform: translate(-50%,6px) scale(.9) !important
+  &.changeValue
+    &:active
+      border-width: 6px !important
+      .text-circle-slider
+        transform translate(-50%,calc(-100% + -19px)) !important
+  &.isEndValue
+    border-radius: 50% 0% 0% 50% !important
+  &:hover:not(:active)
+    transform scale(1.2) translate(-50%)
+  &:active
+    .text-circle-slider
+      opacity 1
+      transform: translate(-50%,calc(-100% + -13px)) scale(1) rotate(0deg)
+      visibility visible
+
+
+    // &:active
+    //   .text-circle-slider
+    //     transform: translate(-50%,calc(-100% + -15px)) scale(1) rotate(0deg)
+.vs-slider--circle-text
+  color: rgb(255,255,255)
+  position: absolute
+  padding: 2px 5px;
+  display: block
+  border-radius: 5px;
+  transform: translate(-50%,-20%) scale(.3)
+  top: 0px;
+  left 50%;
+  font-size: .75rem
+  opacity 0;
+  visibility hidden
+  transition: all .2s ease
+  display: flex
+  align-items: center
+  justify-content: center
+  z-index 1000
+  span
+    margin-left: 2px;
+  i
+    font-size: .8rem
+    margin-left: 2px
+  &:after
+    content: ''
+    width: 6px;
+    height 6px;
+    display: block
+    position: absolute
+    background: inherit
+    left 50%;
+    bottom: -3px;
+    transform: translate(-50%) rotate(45deg)
+
+
+.vs-slider--circle
+  width: 16px;
+  height 16px;
+  position: absolute
+  top: -6px;
+  border-radius: 50%;
+  cursor pointer
+  border: 0px;
+  margin: 0px;
+  z-index 200
+  &.hasTransition
+    transition: all .2s ease
+
+.vs-slider--circle-two
+  z-index 100;
+  width: 16px;
+  height 16px;
+  position: absolute
+  top: -6px;
+  border-radius: 50%;
+  cursor pointer
+  border: 0px;
+  margin: 0px;
+  color rgb(255,255,255)
+  &.hasTransition
+    transition: all .2s ease
+
+@keyframes example
+  0%
+    opacity 1
+  100%
+    opacity 0
+
+
+for colorx, i in $vs-colors
+  .vs-slider-{colorx}
+
+    .vs-slider-line-one
+      background: getColor(colorx, 1)
+    .vs-circles-slider
+      border: 2px solid getColor(colorx, 1)
+
+    .text-circle-slider
+      background: getColor(colorx, 1)
+    .vs-slider-line-efect
+      background: getColor(colorx, 1)
