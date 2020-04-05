@@ -191,16 +191,20 @@ export default {
       if(this.value === ''){
         this.value = 0
       } else if (this.max ? parseFloat(this.value) < parseFloat(this.max) : true) {
-        this.$emit('input', parseFloat(this.value) + parseFloat(this.step))
+        this.$emit('input', this.fixPrecision(parseFloat(this.value) + parseFloat(this.step)))
       }
     },
     less(){
       if(this.value === ''){
         this.value = 0
       } else if (this.min ? parseFloat(this.value) > parseFloat(this.min) : true) {
-        this.$emit('input', parseFloat(this.value) - parseFloat(this.step))
+        this.$emit('input', this.fixPrecision(parseFloat(this.value) - parseFloat(this.step)))
       }
     },
+    fixPrecision(n) {
+      const precision = (this.step + '').split('.')[1];
+      return n.toFixed(precision ? precision.length : 0);
+    }
   }
 }
 </script>
