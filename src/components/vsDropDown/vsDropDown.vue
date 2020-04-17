@@ -36,15 +36,15 @@ export default {
       type:Boolean
     }
   },
-  data:()=>({
-    vsDropdownVisible:false,
-    rightx:false
+  data: () => ({
+    vsDropdownVisible: false,
+    rightx: false
   }),
-  computed:{
-    listeners(){
+  computed: {
+    listeners() {
       return {
         ...this.$listeners,
-        contextmenu: (evt) => this.vsTriggerContextmenu?this.clickToogleMenu(evt,true):{},
+        contextmenu: (evt) => this.vsTriggerContextmenu ? this.clickToogleMenu(evt, true) : {},
         click: (evt) => {
           if (!this.vsTriggerContextmenu) {
             this.clickToogleMenu(evt)
@@ -54,15 +54,15 @@ export default {
             this.$emit('click')
           }
         },
-        mouseout: (evt) => this.toggleMenu('out',evt),
-        mouseover: (evt) => this.toggleMenu('over',evt),
+        mouseout: evt => this.toggleMenu('out', evt),
+        mouseover: evt => this.toggleMenu('over', evt),
       }
     }
   },
   watch:{
-    vsDropdownVisible(){
+    vsDropdownVisible() {
       this.changePositionMenu()
-      if(this.vsDropdownVisible){
+      if(this.vsDropdownVisible) {
         this.$emit('focus')
         document.addEventListener('click', this.clickx)
       } else {
@@ -70,18 +70,16 @@ export default {
       }
     }
   },
-  mounted(){
+  mounted() {
     this.changeColor()
     document.addEventListener('click', this.clickx)
   },
-  beforeDestroy(){
+  beforeDestroy() {
     document.removeEventListener('click', this.clickx)
   },
   methods:{
     clickx(evt) {
-      let [dropdownMenu] = this.$children.filter((item)=>{
-        return item.hasOwnProperty('dropdownVisible')
-      })
+      let [dropdownMenu] = this.$children.filter(item => item.hasOwnProperty('dropdownVisible'))
       dropdownMenu.vsCustomContent = this.vsCustomContent
       dropdownMenu.vsTriggerClick = this.vsTriggerClick
       dropdownMenu.vsDropRight = this.vsDropRight
@@ -97,25 +95,22 @@ export default {
         }
       }
     },
-    changeColor(){
+    changeColor() {
       let child = this.$children
-      child.forEach((item)=>{
-        if(item.$vnode.tag.indexOf('dropdown')!=-1){
+      child.forEach(item => {
+        if(item.$vnode.tag.indexOf('dropdown') != -1) {
           item.color = this.color
         }
       })
     },
-    changePositionMenu(){
-      let [dropdownMenu] = this.$children.filter((item)=>{
-        return item.hasOwnProperty('dropdownVisible')
-      })
+    changePositionMenu() {
+      let [dropdownMenu] = this.$children.filter(item => item.hasOwnProperty('dropdownVisible'))
       let scrollTopx = window.pageYOffset || document.documentElement.scrollTop;
       if(this.$refs.dropdown.getBoundingClientRect().top + 300 >= window.innerHeight) {
         this.$nextTick(() => {
           dropdownMenu.topx = (this.$refs.dropdown.getBoundingClientRect().top - dropdownMenu.$el.clientHeight - 7) + scrollTopx
           dropdownMenu.notHeight = true
-        });
-
+        })
       } else {
         dropdownMenu.notHeight = false
         dropdownMenu.topx = (this.$refs.dropdown.getBoundingClientRect().top + this.$refs.dropdown.clientHeight) + scrollTopx - 5
@@ -124,10 +119,10 @@ export default {
       this.$nextTick(() => {
         var w = window.innerWidth
         || document.documentElement.clientWidth
-        || document.body.clientWidth;
+        || document.body.clientWidth
 
 
-        if(this.$refs.dropdown.getBoundingClientRect().left + dropdownMenu.$el.offsetWidth >= w - 25){
+        if(this.$refs.dropdown.getBoundingClientRect().left + dropdownMenu.$el.offsetWidth >= w - 25) {
           // this.rightx = true
         }
 
@@ -137,22 +132,19 @@ export default {
           return
         }
         dropdownMenu.leftx = this.$refs.dropdown.getBoundingClientRect().left + (this.vsDropRight ? dropdownMenu.$el.clientWidth : this.$refs.dropdown.clientWidth );
-
-      });
+      })
     },
-    clickToogleMenu(evt){
-      if(evt.type == 'contextmenu'){
+    clickToogleMenu(evt) {
+      if(evt.type == 'contextmenu') {
         evt.preventDefault()
       }
-      let [dropdownMenu] = this.$children.filter((item)=>{
-        return item.hasOwnProperty('dropdownVisible')
-      })
-      if(this.vsTriggerClick || this.vsTriggerContextmenu){
-        if(this.vsDropdownVisible && !evt.target.closest('.vs-dropdown--menu')){
+      let [dropdownMenu] = this.$children.filter(item => item.hasOwnProperty('dropdownVisible'))
+      if(this.vsTriggerClick || this.vsTriggerContextmenu) {
+        if(this.vsDropdownVisible && !evt.target.closest('.vs-dropdown--menu')) {
           dropdownMenu.dropdownVisible = this.vsDropdownVisible = false
         } else {
           dropdownMenu.dropdownVisible = this.vsDropdownVisible = true
-          window.addEventListener('click',()=>{
+          window.addEventListener('click',() => {
             if(!evt.target.closest('.vs-con-dropdown') && !evt.target.closest('.vs-dropdown--menu')) {
               dropdownMenu.dropdownVisible = this.vsDropdownVisible = false
             }
@@ -162,11 +154,8 @@ export default {
 
       this.$emit('click')
     },
-    toggleMenu(typex, evt){
-
-      let [dropdownMenu] = this.$children.filter((item)=>{
-        return item.hasOwnProperty('dropdownVisible')
-      })
+    toggleMenu(typex, evt) {
+      let [dropdownMenu] = this.$children.filter(item => item.hasOwnProperty('dropdownVisible'))
       if(!this.vsTriggerClick && !this.vsTriggerContextmenu){
         if(typex == 'over'){
           dropdownMenu.dropdownVisible = this.vsDropdownVisible = true

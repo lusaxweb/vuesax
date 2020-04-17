@@ -1,14 +1,20 @@
 <template lang="html">
   <li
     ref="group"
-    :class="{'marginIcon':vsCollapse, 'no-cascading':!vsCollapse, 'group-rightx':rightx}"
+    :class="{
+      'marginIcon': vsCollapse,
+      'no-cascading': !vsCollapse,
+      'group-rightx': rightx
+    }"
     class="vs-component vs-dropdown--group"
     @click="clickGroup">
     <!-- @mouseout="toggleGroup($event)" -->
     <span
       v-if="vsCollapse"
-      class="span vs-dropdown--group-label">{{ vsLabel }}</span>
-    <h3 v-else>{{ vsLabel }}</h3>
+      v-text="vsLabel"
+      class="span vs-dropdown--group-label"
+    />
+    <h3 v-else v-text="vsLabel"/>
     <vs-icon
       v-if="vsCollapse"
       :icon-pack="iconPack"
@@ -55,16 +61,16 @@ export default {
       type:String
     }
   },
-  data:()=>({
-    activeGroup:false,
-    rightx:false,
-    widthx:0,
+  data: () => ({
+    activeGroup: false,
+    rightx: false,
+    widthx: 0,
     maxHeight: '0px',
   }),
   computed:{
     styleItems() {
       return {
-        maxHeight: this.vsCollapse?this.maxHeight:'auto'
+        maxHeight: this.vsCollapse ? this.maxHeight : 'auto'
       }
     }
   },
@@ -90,7 +96,7 @@ export default {
       el.style.height = 0
       el.style.opacity = 0
     },
-    enter(el, done){
+    enter(el, done) {
       // let h = this.$refs.ulx.scrollHeight
       // this.$refs.ulx.style.height = h + 'px'
       // el.style.opacity = 1
@@ -109,20 +115,20 @@ export default {
     leave: function (el) {
       let __this = this
       addParents(this)
-      function addParents(_this){
-        if(_this.$parent.$refs.ulx){
+      function addParents(_this) {
+        if(_this.$parent.$refs.ulx) {
           let hp = _this.$parent.$refs.ulx.scrollHeight - __this.$refs.ulx.scrollHeight
           _this.$parent.$refs.ulx.style.height = hp + 'px'
           addParents(_this.$parent)
         }
       }
-      if(!this.$parent.$refs.ulx){
+      if(!this.$parent.$refs.ulx) {
         this.$refs.ulx.style.height = 0 + 'px'
       }
       this.$refs.ulx.style.height = 0 + 'px'
       el.style.opacity = 0
     },
-    toggleGroup(evt){
+    toggleGroup(evt) {
       if (evt.target == this.$refs.group) {
         this.activeGroup = !this.activeGroup
       }
