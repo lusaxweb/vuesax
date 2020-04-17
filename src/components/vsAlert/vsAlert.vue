@@ -20,13 +20,16 @@
         @click="$emit('update:active',false)">
         <vs-icon
           :icon-pack="iconPack"
-          :icon="closeIcon"></vs-icon>
+          :icon="closeIcon"
+        ></vs-icon>
       </div>
 
       <h4
         v-if="title"
+        v-text="title"
         :style="styleTitle"
-        class="titlex vs-alert--title">{{ title }}</h4>
+        class="titlex vs-alert--title"
+      ></h4>
 
       <div
         :class="{'con-icon': icon}"
@@ -104,7 +107,6 @@ export default {
         this.$refs.alert.style.height = h + 'px'
       })
     }
-
   },
   methods:{
     beforeEnter(el) {
@@ -117,7 +119,7 @@ export default {
       el.style.opacity = 1
       done()
     },
-    leave: function (el) {
+    leave(el) {
       this.$refs.alert.style.height = 0 + 'px'
       el.style.opacity = 0
     }
