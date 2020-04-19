@@ -18,7 +18,7 @@
     <img src="https://img.shields.io/npm/v/vuesax.svg" alt="Version">
   </a>
   <a href="https://www.npmjs.com/package/vuesax"><img src="https://img.shields.io/npm/l/vuesax.svg" /></a>
-  <a href="https://discord.gg/9dsKtvB">
+  <a href="https://discord.gg/6AZNXEa">
     <img src="https://discordapp.com/api/guilds/467198491920433153/widget.png" alt="Chat">
   </a>
 </p>
@@ -53,6 +53,10 @@ Vuesax is an open source [MIT](https://raw.githubusercontent.com/lusaxweb/vuesax
 
 The framework is focused on facilitating the development of applications, improving the design of the same without removing the necessary functionality. we want all the components to be independent in colors, shapes and design for a freedom that we like all front-end but without losing the speed of creation and production.
 
+## Vuesax 4 (alpha)
+
+We are already creating vuesax 4 you can see the progress [here](https://vuesax.com/) and if you want to help in the development you can do it [here](https://github.com/lusaxweb/vuesax-next)
+
 ## Support the project ⭐
 
 If you feel awesome and want to support us in a small way, please consider starring and sharing the repo! This helps us getting known and grow the community. 🙏
@@ -64,31 +68,31 @@ If you feel awesome and want to support us in a small way, please consider starr
 - 📘 [Documentation](https://lusaxweb.github.io/vuesax/)
 - 📚 [Blog](https://lusaxweb.github.io/vuesax-blog/)
 - 🐦 Twitter: [@vuesax](https://twitter.com/vuesax)
-- 💬 Chat: [Discord](https://discord.gg/gd2kAjn)
+- 💬 Chat: [Discord](https://discord.gg/6AZNXEa)
 - 🎲 template: [Codepen](https://codepen.io/lusaxweb/pen/mxMKYr)
 - 📰 Tutorial Implement: [DevAwesome](https://lusaxweb.github.io/devAwesome/#/article/-LPDgBxyylgg9h194wuE)
 - 🔧[vuesax-helper](https://marketplace.visualstudio.com/items?itemName=vuesax.vscode-vuesax-helper): is a VS Code extension for Vuesax
 
 ## Components
 
-- [Buttons](https://lusaxweb.github.io/vuesax/components/)
-- [Selects](https://lusaxweb.github.io/vuesax/components/selects.html)
-- [Notifications](https://lusaxweb.github.io/vuesax/components/notifications.html)
-- [Switch](https://lusaxweb.github.io/vuesax/components/switch.html)
-- [CheckBox](https://lusaxweb.github.io/vuesax/components/checkbox.html)
-- [Radio](https://lusaxweb.github.io/vuesax/components/radio.html)
-- [Input](https://lusaxweb.github.io/vuesax/components/input.html)
+- [Buttons](https://lusaxweb.github.io/vuesax/components/) - [v4](https://vuesax.com/docs/components/)
+- [Selects](https://lusaxweb.github.io/vuesax/components/selects.html) - [v4](https://vuesax.com/docs/components/Select.html)
+- [Notifications](https://lusaxweb.github.io/vuesax/components/notifications.html) - [v4](https://vuesax.com/docs/components/Notification.html)
+- [Switch](https://lusaxweb.github.io/vuesax/components/switch.html) - [v4](https://vuesax.com/docs/components/Switch.html)
+- [CheckBox](https://lusaxweb.github.io/vuesax/components/checkbox.html) - [v4](https://vuesax.com/docs/components/Checkbox.html)
+- [Radio](https://lusaxweb.github.io/vuesax/components/radio.html) - [v4](https://vuesax.com/docs/components/Radio.html)
+- [Input](https://lusaxweb.github.io/vuesax/components/input.html) - [v4](https://vuesax.com/docs/components/Input.html)
 - [Dialogs](https://lusaxweb.github.io/vuesax/components/dialog.html)
 - [Tabs](https://lusaxweb.github.io/vuesax/components/tabs.html)
 - [Slider](https://lusaxweb.github.io/vuesax/components/slider.html)
 - [InputNumber](https://lusaxweb.github.io/vuesax/components/number.html)
-- [Tooltip](https://lusaxweb.github.io/vuesax/components/tooltip.html)
+- [Tooltip](https://lusaxweb.github.io/vuesax/components/tooltip.html) - [v4](https://vuesax.com/docs/components/Tooltip.html)
 - [Upload](https://lusaxweb.github.io/vuesax/components/upload.html)
-- [Loading](https://lusaxweb.github.io/vuesax/components/loading.html)
+- [Loading](https://lusaxweb.github.io/vuesax/components/loading.html) - [v4](https://vuesax.com/docs/components/Loading.html)
 - [Popup](https://lusaxweb.github.io/vuesax/components/popup.html)
-- [Avatar](https://lusaxweb.github.io/vuesax/components/avatar.html)
+- [Avatar](https://lusaxweb.github.io/vuesax/components/avatar.html) - [v4](https://vuesax.com/docs/components/Avatar.html)
 - [Breadcrumb](https://lusaxweb.github.io/vuesax/components/breadcrumb.html)
-- [Alert](https://lusaxweb.github.io/vuesax/components/alert.html)
+- [Alert](https://lusaxweb.github.io/vuesax/components/alert.html) - [v4](https://vuesax.com/docs/components/Alert.html)
 - [Divider](https://lusaxweb.github.io/vuesax/components/divider.html)
 - [Chip](https://lusaxweb.github.io/vuesax/components/chip.html)
 - [Progress](https://lusaxweb.github.io/vuesax/components/progress.html)

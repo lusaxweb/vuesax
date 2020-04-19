@@ -1,9 +1,9 @@
 # These are supported funding model platforms
 
-github: # [luisDanielRoviraContreras]
+github: [luisDanielRoviraContreras]
 patreon: luisdanielroviracontreras
 open_collective: vuesax
 ko_fi: # Replace with a single Ko-fi username
-tidelift: # Replace with a single Tidelift platform-name/package-name e.g., npm/babel
+tidelift: npm/vuesax
 community_bridge: # Replace with a single Community Bridge project-name e.g., cloud-foundry
 custom: # Replace with a single custom sponsorship URL

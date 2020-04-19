@@ -1,58 +1,119 @@
-
-
 <script>
 export default {
   render (h) {
     return h('div', { class: 'carbon-ads' })
   },
-  mounted () {
-    this.load()
-  },
-  watch: {
-    '$route' (to, from) {
-      if (
-        // to.path !== from.path
-        // &&
-        this.$el.querySelector('#carbonads')
-      ) {
-        this.$el.innerHTML = ''
-        this.load()
-      }
-    }
-  },
+  // mounted () {
+  //   this.load()
+  // },
   methods: {
     load () {
       const s = document.createElement('script')
       s.id = '_carbonads_js'
       s.src = `//cdn.carbonads.com/carbon.js?serve=CK7DC27J&placement=lusaxwebgithubio`
       this.$el.appendChild(s)
+    },
+    clean() {
+      this.$el.innerHTML = ''
     }
   }
 };
 </script>
+<style lang="stylus">
+div[id*="carbonads"]
+  + div
+    display none !important
+
+@media (max-width: 600px)
+  .carbon-ads
+    width 100% !important
+    min-height auto !important
+    padding 0px 30px !important
+    bottom 0px !important
+    z-index 1000 !important
+    border-radius 0px !important
+    &:hover
+      transform translate(0px) !important
+      border-radius 0px !important
+    &:before,&:after
+      display none !important
+    .carbon-poweredby
+      display none !important
+    .carbon-wrap
+      display flex
+      align-items center
+      justify-content center
+      .carbon-text
+        padding-bottom 0px
+        text-align left
+      .carbon-img
+        margin-bottom 0px !important
+        img
+          width 60px
+          border-radius 10px
+          margin-right 10px
+
+</style>
 <style lang="css">
+.infoads {
+  font-size: .5rem;
+  font-weight: bold;
+}
 .carbon {
   display: flex;
   align-items: center;
-  width: 100%;
+  width: calc(100% - 10px);
+  margin: 5px;
+  transition: all .25s ease
+}
+.carbon-ads {
+  transition: all .3s ease;
+  opacity: 1;
+  transform: translate(0%);
+  position: relative;
+  display: block;
+  right: 0px;
+  width: 145px;
+  background: var(--vs-theme-layout);
+  padding: 6px;
+  padding-bottom: 0px;
+  border-radius: 25px 0px 0px 0px;
+  box-sizing: border-box;
+  bottom: 0px;
+  z-index: 10000;
+  min-height: 170px
+}
 
+.carbon-ads.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.carbon-ads:hover {
+  transform: translate(-10px,-10px);
+  border-radius: 20px
+}
+.hidden-ads {
+  transition: all .3s ease !important;
+  opacity: 0;
 }
 
 /* #-carbonads */
 div[id*="carbonads"] {
   --width: 320px;
   --font-size: 13px;
-  margin-bottom: 80px
 }
 
 div[id*="carbonads"] {
-  background: rgb(255,255,255);
+  background: var(--vs-theme-layout);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;
   display: block;
   overflow: hidden;
   /* margin-bottom: 30px; */
-  width: 100%;
+  width: calc(100% - 2px);
+  margin: 2px;
   border-radius: 10px;
+  margin-right: 0px;
   /* margin-left: 7px; */
   text-align: center;
   /* box-shadow: 0px 5px 20px 0px rgba(0,0,0,.05); */
@@ -63,14 +124,12 @@ div[id*="carbonads"] {
   /* right: 10px; */
   z-index: 1000;
   border: 0px;
-  transition: all .3s ease;
   font-size: .7rem;
-  padding: 5px
+  /* padding: 5px */
 }
-div[id*="carbonads"]:hover {
-  transform: translate(-10px,-5px);
-  box-shadow: 0px 5px 20px 0px rgba(0,0,0,.1);
-}
+/* div[id*="carbonads"]:hover {
+  transform: translate(-10px,-5px); */
+/* } */
 div[id*="carbonads"] a {
   color: inherit;
   text-decoration: none;
@@ -88,24 +147,25 @@ div[id*="carbonads"] span {
 
 .carbon-img {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   max-width: 160px;
   line-height: 1;
 }
 
 .carbon-img img {
   display: block;
-  margin: 0 auto;
-  max-width: 160px;
+  max-width: none !important;
   width: 100%;
-  height: auto;
-  border-radius: 10px
+  border-radius: 15px 15px 15px 15px;
+  border: 0px;
+  margin: 0px;
 }
 
 .carbon-text {
   display: block;
   /* padding: 0 1em 8px; */
-  padding-bottom: 8px
+  padding-bottom: 4px;
+  opacity: .75;
 }
 
 .carbon-poweredby {
@@ -116,6 +176,8 @@ div[id*="carbonads"] span {
   font-weight: 600;
   font-size: 9px;
   line-height: 0;
+  /* padding-top: 5px */
+  display: none
 }
 
 @media only screen and (max-width: 1100) {

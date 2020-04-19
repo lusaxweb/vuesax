@@ -45,7 +45,15 @@ export default {
       return {
         ...this.$listeners,
         contextmenu: (evt) => this.vsTriggerContextmenu?this.clickToogleMenu(evt,true):{},
-        click: (evt) => this.vsTriggerContextmenu?{}:this.clickToogleMenu(evt),
+        click: (evt) => {
+          if (!this.vsTriggerContextmenu) {
+            this.clickToogleMenu(evt)
+          }
+
+          if(this.$el === evt.target) {
+            this.$emit('click')
+          }
+        },
         mouseout: (evt) => this.toggleMenu('out',evt),
         mouseover: (evt) => this.toggleMenu('over',evt),
       }
@@ -63,7 +71,6 @@ export default {
     }
   },
   mounted(){
-
     this.changeColor()
     document.addEventListener('click', this.clickx)
   },
@@ -152,6 +159,8 @@ export default {
           })
         }
       }
+
+      this.$emit('click')
     },
     toggleMenu(typex, evt){
 
@@ -162,9 +171,9 @@ export default {
         if(typex == 'over'){
           dropdownMenu.dropdownVisible = this.vsDropdownVisible = true
         } else {
-            if (!evt.relatedTarget.classList.contains('vs-dropdown-menu')) {
-              dropdownMenu.dropdownVisible = this.vsDropdownVisible = false
-            }
+          if (!evt.relatedTarget.classList.contains('vs-dropdown-menu')) {
+            dropdownMenu.dropdownVisible = this.vsDropdownVisible = false
+          }
         }
       }
     }

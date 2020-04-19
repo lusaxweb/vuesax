@@ -1,8 +1,8 @@
 <template lang="html">
   <li
+    ref="group"
     :class="{'marginIcon':vsCollapse, 'no-cascading':!vsCollapse, 'group-rightx':rightx}"
     class="vs-component vs-dropdown--group"
-    ref="group"
     @click="clickGroup">
     <!-- @mouseout="toggleGroup($event)" -->
     <span
@@ -11,25 +11,25 @@
     <h3 v-else>{{ vsLabel }}</h3>
     <vs-icon
       v-if="vsCollapse"
-      class="icon-group notranslate vs-dropdown--group-icon"
       :icon-pack="iconPack"
       :icon="vsIcon"
+      class="icon-group notranslate vs-dropdown--group-icon"
     ></vs-icon>
     <!-- <transition
       @before-enter="beforeEnter"
       @enter="enter"
       @leave="leave"
     > -->
-        <!-- v-if="activeGroup||!vsCollapse" -->
-      <div
-        ref="ulx"
-        :style="styleItems"
-        :class="{'con-dropdown-group-no-cascading':!vsCollapse}"
-        class="con-dropdown--group-con-ul">
-        <ul class="con-dropdown--group-ul">
-          <slot/>
-        </ul>
-      </div>
+    <!-- v-if="activeGroup||!vsCollapse" -->
+    <div
+      ref="ulx"
+      :style="styleItems"
+      :class="{'con-dropdown-group-no-cascading':!vsCollapse}"
+      class="con-dropdown--group-con-ul">
+      <ul class="con-dropdown--group-ul">
+        <slot/>
+      </ul>
+    </div>
     <!-- </transition> -->
   </li>
 </template>

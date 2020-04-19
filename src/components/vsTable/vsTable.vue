@@ -56,13 +56,15 @@
         v-if="pagination"
         class="con-pagination-table vs-table--pagination">
         <vs-pagination
+          v-model="currentx"
           :total="searchx && !sst ? getTotalPagesSearch : getTotalPages"
-          :sizeArray="queriedResults.length"
-          :maxItems="maxItemsx"
+          :description-items="descriptionItems"
+          :max-items="maxItemsx"
+          :size-array="queriedResults.length"
           :description="description"
-          :descriptionItems="descriptionItems"
           @changeMaxItems="changeMaxItems"
-          v-model="currentx"></vs-pagination>
+        >
+        </vs-pagination>
       </div>
     </div>
   </div>
@@ -135,6 +137,10 @@ export default {
     total: {
       type: Number,
       default: 0
+    },
+    onlyClickCheckbox: {
+      type: Boolean,
+      default: false
     }
   },
   data:()=>({
@@ -153,11 +159,6 @@ export default {
       return Math.ceil(this.data.length / this.maxItemsx)
     },
     getTotalPagesSearch() {
-      const search = this.normalize(this.searchx);
-
-      let filterx = this.data.filter((tr)=>{
-        return this.normalize(this.getValues(tr).toString()).indexOf(search) != -1
-      })
       return Math.ceil(this.queriedResults.length / this.maxItems)
     },
     queriedResults() {
@@ -259,7 +260,7 @@ export default {
       if(!this.searchx || this.sst) {
         this.datax = this.pagination ? this.getItems(min, max) : this.sortItems(this.data) || [];
       } else {
-        this.datax = this.pagination ? this.getItemsSearch(true ,min, max) : this.getItemsSearch(false ,min, max) || []
+        this.datax = this.pagination ? this.getItemsSearch(min, max) : this.getItemsSearch(min, max) || []
       }
     },
     getItems(min, max) {
@@ -284,7 +285,7 @@ export default {
       }
       return currentSortType !== null ? [...data].sort(compare) : [...data];
     },
-    getItemsSearch(pagination = false,min, max) {
+    getItemsSearch(min, max) {
       const search = this.normalize(this.searchx);
 
       return this.sortItems(this.data).filter((tr)=>{
@@ -324,9 +325,8 @@ export default {
         this.$emit('input', this.data)
       }
     },
-    clicktr (tr, isTr) {
-
-      if(this.multiple && isTr){
+    handleCheckbox(tr) {
+      if(this.multiple && this.onlyClickCheckbox){
         let val = this.value.slice(0)
         if(val.includes(tr)) {
           val.splice(val.indexOf(tr),1)
@@ -336,7 +336,20 @@ export default {
 
         this.$emit('input', val)
         this.$emit('selected', tr)
-      } else if (isTr) {
+      }
+    },
+    clicktr (tr, isTr) {
+      if(this.multiple && isTr && !this.onlyClickCheckbox){
+        let val = this.value.slice(0)
+        if(val.includes(tr)) {
+          val.splice(val.indexOf(tr),1)
+        } else {
+          val.push(tr)
+        }
+
+        this.$emit('input', val)
+        this.$emit('selected', tr)
+      } else if (isTr && !this.onlyClickCheckbox) {
         this.$emit('input', tr)
         this.$emit('selected', tr)
       }

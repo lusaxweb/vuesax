@@ -22,17 +22,17 @@
     <div class="noti">
 
     </div>
-    <Carbon/>
-    <!-- <Codefound /> -->
+    <Carbon ref="carbon" />
+    <codefund ref="codefund" />
   </div>
 </template>
 <script>
 import Carbon from "./Carbon";
-import Codefound from "./CodeFound.vue";
+import Codefund from "./CodeFund.vue";
 export default {
   components: {
     Carbon,
-    Codefound
+    Codefund
   },
   data: () => ({
     ramdom: 1
@@ -56,13 +56,71 @@ export default {
       return titlex
     }
   },
+  watch: {
+    '$route' (to, from) {
+      if (
+        to.path !== from.path
+      ) {
+        this.$refs.carbon.clean()
+        this.$refs.codefund.$el.innerHTML = ''
+        // if (this.$route.path !== '/') {
+        if (!this.noAdvertiser) {
+          this.loadCodeFund()
+        } else {
+          this.$refs.codefund.$el.innerHTML = ''
+          window.removeEventListener('codefund', this.handlerCodefound);
+          const number = Math.round(Math.random() * (4) + 1)
+          if (number == 1) {
+            this.ads = 'vuesax'
+            this.$refs.carbon.$el.innerHTML = ''
+            this.$refs.carbon.$el.classList.add('hidden')
+          } else {
+            this.ads = 'carbon'
+            this.$refs.carbon.load()
+            this.$refs.carbon.$el.classList.remove('hidden')
+          }
+        }
+        // }
+      }
+    }
+  },
   mounted () {
+    this.loadCodeFund()
     this.ramdom = this.numeroAleatorio(1, 7)
   },
   updated () {
     this.ramdom = this.numeroAleatorio(1, 7)
   },
   methods: {
+    handlerCodefound(event) {
+      if (event.detail.status === 'no-advertiser') {
+        this.noAdvertiser = true
+        this.$refs.codefund.$el.innerHTML = ''
+        window.removeEventListener('codefund', this.handlerCodefound)
+        this.ads = 'carbon'
+        this.$refs.carbon.clean()
+        this.$refs.carbon.load()
+        this.$refs.carbon.$el.classList.remove('hidden')
+      } else {
+        this.ads = 'codefund'
+        this.$refs.carbon.$el.innerHTML = ''
+        this.$refs.carbon.$el.classList.add('hidden')
+      }
+    },
+    loadCodeFund() {
+      this.$refs.codefund.$el.innerHTML = ''
+      const script = document.createElement("script");
+      script.setAttribute("type", "text/javascript");
+      script.setAttribute(
+        "src",
+        `https://app.codefund.io/properties/6/funder.js`
+      )
+
+      window.removeEventListener('codefund', this.handlerCodefound);
+
+      window.addEventListener('codefund', this.handlerCodefound);
+      this.$refs.codefund.$el.appendChild(script);
+    },
     numeroAleatorio (min, max) {
       return Math.round(Math.random() * (max - min) + min)
     }

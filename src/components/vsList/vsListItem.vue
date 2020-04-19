@@ -1,6 +1,9 @@
 <template lang="html">
   <div class="vs-list--item">
-    <div class="vs-list--avatar" v-if="$slots.avatar">
+    <div
+      v-if="$slots.avatar"
+      class="vs-list--avatar"
+    >
       <slot name="avatar"/>
     </div>
     <div
@@ -14,9 +17,16 @@
       <div
         v-if="title"
         class="vs-list--title">{{ title }}</div>
+      <slot
+        v-else
+        name="title"
+      />
       <div
         v-if="subtitle"
         class="vs-list--subtitle">{{ subtitle }}</div>
+      <slot
+        v-else
+        name="subtitle"/>
     </div>
     <div class="vs-list--slot">
       <slot/>
