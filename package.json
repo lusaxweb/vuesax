@@ -31,7 +31,7 @@
   "scripts": {
     "dev": "vuepress dev docs",
     "serve": "vue-cli-service serve --open",
-    "build": "vue build -t lib src/index.js --name vuesax",
+    "build": "vue-cli-service build --target lib src/index.js --name vuesax",
     "lint": "vue-cli-service lint",
     "v": "npm version patch",
     "v2": "npm version minor",
