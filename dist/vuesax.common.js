@@ -10195,12 +10195,12 @@ var vsPagination_component = normalizeComponent(
 /* harmony default export */ var components_vsPagination = (function (Vue) {
   Vue.component(vsPagination.name, vsPagination);
 });
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"23df4f88-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@vue/cli-plugin-babel/node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsBreadcrumb/vsBreadcrumb.vue?vue&type=template&id=0795a63c&lang=html&
-var vsBreadcrumbvue_type_template_id_0795a63c_lang_html_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('nav',_vm._g(_vm._b({staticClass:"vs-breadcrumb",class:("vs-align-" + _vm.align),attrs:{"aria-label":"breadcrumb"}},'nav',_vm.$attrs,false),_vm.$listeners),[_c('ol',{staticClass:"vs-breadcrumb--ol"},[_vm._t("default"),_vm._l((_vm.items),function(item){return _c('li',{directives:[{name:"show",rawName:"v-show",value:(!_vm.hasSlot),expression:"!hasSlot"}],key:item.title,class:{'vs-active':item.active,'disabled-link':item.disabled},attrs:{"aria-current":item.active ? 'page' : null}},[(!item.active)?_c('a',{staticClass:"vs-breadcrumb--link",attrs:{"href":item.url ? item.url : '#',"title":item.title}},[_vm._v("\n        "+_vm._s(item.title)+"\n      ")]):[_c('span',{staticClass:"vs-breadcrumb--text",class:_vm.textClass,style:(_vm.textStyle)},[_vm._v("\n          "+_vm._s(item.title)+"\n        ")])],(!item.active)?_c('span',{staticClass:"separator notranslate vs-breadcrum--separator",class:_vm.separator.length > 1 ? 'material-icons' : null,attrs:{"translate":"no","aria-hidden":"true"}},[_vm._v(_vm._s(_vm.separator))]):_vm._e()],2)})],2)])}
-var vsBreadcrumbvue_type_template_id_0795a63c_lang_html_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"23df4f88-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@vue/cli-plugin-babel/node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsBreadcrumb/vsBreadcrumb.vue?vue&type=template&id=eb2323b6&lang=html&
+var vsBreadcrumbvue_type_template_id_eb2323b6_lang_html_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('nav',_vm._g(_vm._b({staticClass:"vs-breadcrumb",class:("vs-align-" + _vm.align),attrs:{"aria-label":"breadcrumb"}},'nav',_vm.$attrs,false),_vm.$listeners),[_c('ol',{staticClass:"vs-breadcrumb--ol"},[_vm._t("default"),_vm._l((_vm.items),function(item){return _c('li',{directives:[{name:"show",rawName:"v-show",value:(!_vm.hasSlot),expression:"!hasSlot"}],key:item.title,class:{'vs-active':item.active,'disabled-link':item.disabled},attrs:{"aria-current":item.active ? 'page' : null}},[(!item.active)?_c('a',{staticClass:"vs-breadcrumb--link",attrs:{"href":item.url ? item.url : '#',"title":item.title}},[_vm._v("\n        "+_vm._s(item.title)+"\n      ")]):[_c('span',{staticClass:"vs-breadcrumb--text",class:_vm.textClass,style:(_vm.textStyle)},[_vm._v("\n          "+_vm._s(item.title)+"\n        ")])],(!item.active)?_c('span',{staticClass:"separator notranslate vs-breadcrum--separator",class:_vm.separator.length > 1 ? 'material-icons' : null,attrs:{"translate":"no","aria-hidden":"true"}},[_vm._v(_vm._s(_vm.separator))]):_vm._e()],2)})],2)])}
+var vsBreadcrumbvue_type_template_id_eb2323b6_lang_html_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/vsBreadcrumb/vsBreadcrumb.vue?vue&type=template&id=0795a63c&lang=html&
+// CONCATENATED MODULE: ./src/components/vsBreadcrumb/vsBreadcrumb.vue?vue&type=template&id=eb2323b6&lang=html&
 
 // CONCATENATED MODULE: ./node_modules/@vue/cli-plugin-babel/node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/@vue/cli-plugin-babel/node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/vsBreadcrumb/vsBreadcrumb.vue?vue&type=script&lang=js&
 
@@ -10290,22 +10290,22 @@ var vsBreadcrumbvue_type_template_id_0795a63c_lang_html_staticRenderFns = []
     hasSlot: function hasSlot() {
       return !!this.$slots.default;
     }
-  },
-  created: function created() {
-    var _this = this;
+  } // PR: https://github.com/lusaxweb/vuesax/commit/5b4b3e7d87337c7e196bccf76efeafaac44b6341
+  // Raises Console Error: Prop mutation
+  // created() {
+  //   if(this.items) {
+  //     this.items = this.items.map(item => {
+  //       if (typeof item.title === "function") {
+  //         return {
+  //           ...item,
+  //           title: item.title(this.$route.params)
+  //         }
+  //       }
+  //       return item
+  //     })
+  //   }
+  // },
 
-    if (this.items) {
-      this.items = this.items.map(function (item) {
-        if (typeof item.title === "function") {
-          return _objectSpread({}, item, {
-            title: item.title(_this.$route.params)
-          });
-        }
-
-        return item;
-      });
-    }
-  }
 });
 // CONCATENATED MODULE: ./src/components/vsBreadcrumb/vsBreadcrumb.vue?vue&type=script&lang=js&
  /* harmony default export */ var vsBreadcrumb_vsBreadcrumbvue_type_script_lang_js_ = (vsBreadcrumbvue_type_script_lang_js_); 
@@ -10319,8 +10319,8 @@ var vsBreadcrumbvue_type_template_id_0795a63c_lang_html_staticRenderFns = []
 
 var vsBreadcrumb_component = normalizeComponent(
   vsBreadcrumb_vsBreadcrumbvue_type_script_lang_js_,
-  vsBreadcrumbvue_type_template_id_0795a63c_lang_html_render,
-  vsBreadcrumbvue_type_template_id_0795a63c_lang_html_staticRenderFns,
+  vsBreadcrumbvue_type_template_id_eb2323b6_lang_html_render,
+  vsBreadcrumbvue_type_template_id_eb2323b6_lang_html_staticRenderFns,
   false,
   null,
   null,
@@ -14020,6 +14020,7 @@ var vsCol_component = normalizeComponent(
 // CONCATENATED MODULE: ./src/layout/vsCol/index.js
 
 
+
 /* harmony default export */ var layout_vsCol = (function (Vue) {
   Vue.component(vsCol.name, vsCol);
 });
@@ -14721,6 +14722,7 @@ var vsFunctions = {
   vm.$vs.loading.close = functions_vsLoading.close;
 });
 // CONCATENATED MODULE: ./src/defineGlobalMixin.js
+
 
 
 /**
