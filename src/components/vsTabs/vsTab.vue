@@ -1,7 +1,7 @@
 <template lang="html">
   <transition :name="invert?vertical?'fade-tab-vertical-invert':'fade-tab-invert':vertical?'fade-tab-vertical':'fade-tab'">
     <div
-      v-if="active"
+      v-show="active"
       class="con-tab vs-tabs--content">
       <slot/>
     </div>
