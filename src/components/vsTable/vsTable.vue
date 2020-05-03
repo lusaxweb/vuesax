@@ -80,7 +80,7 @@ export default {
       type: String
     },
     noDataText: {
-      default: 'No data Available',
+      default: 'No data available',
       type: String
     },
     stripe:{
