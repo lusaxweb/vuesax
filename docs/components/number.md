@@ -45,6 +45,11 @@ API:
    parameters:
    description: Add a descriptive text in the input number.
    default: null
+ - name: maxDecimal
+   type: Number
+   parameters:
+   description: Maximum decimal numbers to show
+   default: 0
 ---
 
 
@@ -259,6 +264,10 @@ export default {
 
 Number Input also supports decimal values.
 
+:::warning
+Make sure to set `max-decimal` value otherwise number will get rounded.
+:::
+
 <vuecode md>
 <div slot="demo">
   <Demos-Inputnumber-Decimal />
@@ -268,7 +277,7 @@ Number Input also supports decimal values.
 ```html
 <template lang="html">
   <div class="centerx">
-    <vs-input-number v-model="number0" :step="1.43"/>
+    <vs-input-number v-model="number0" :step="1.43" :max-decimal="2" />
   </div>
 </template>
 
