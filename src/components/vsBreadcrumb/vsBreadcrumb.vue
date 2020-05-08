@@ -83,19 +83,21 @@ export default {
       return !!this.$slots.default
     }
   },
-  created() {
-    if(this.items) {
-      this.items = this.items.map(item => {
-        if (typeof item.title === "function") {
-          return {
-            ...item,
-            title: item.title(this.$route.params)
-          }
-        }
+  // PR: https://github.com/lusaxweb/vuesax/commit/5b4b3e7d87337c7e196bccf76efeafaac44b6341
+  // Raises Console Error: Prop mutation
+  // created() {
+  //   if(this.items) {
+  //     this.items = this.items.map(item => {
+  //       if (typeof item.title === "function") {
+  //         return {
+  //           ...item,
+  //           title: item.title(this.$route.params)
+  //         }
+  //       }
 
-        return item
-      })
-    }
-  },
+  //       return item
+  //     })
+  //   }
+  // },
 }
 </script>

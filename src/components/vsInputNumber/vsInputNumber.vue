@@ -132,6 +132,10 @@ export default {
     isDisabled: {
       type: Boolean,
       default: false,
+    },
+    maxDecimal: {
+      type: Number,
+      default: 0
     }
   },
   data:()=>({
@@ -186,7 +190,7 @@ export default {
         this.$emit('input',newValue)
       } else  {
         if(this.max?parseFloat(this.value)<parseFloat(this.max):true){
-          newValue = parseFloat(this.value) + parseFloat(this.step)
+          newValue = (parseFloat(this.value) + parseFloat(this.step)).toFixed(this.maxDecimal)
           this.$emit('input',newValue)
         }
       }
@@ -198,7 +202,7 @@ export default {
         this.$emit('input',newValue)
       } else  {
         if(this.min?parseFloat(this.value)>parseFloat(this.min):true){
-          newValue = parseFloat(this.value) - parseFloat(this.step)
+          newValue = (parseFloat(this.value) - parseFloat(this.step)).toFixed(this.maxDecimal)
           this.$emit('input',newValue)
         }
       }

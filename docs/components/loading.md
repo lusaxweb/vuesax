@@ -351,11 +351,11 @@ export default {
       this.$vs.loading({
         background: this.backgroundLoading,
         color: this.colorLoading,
-        container: this.refs.loadableButton,
+        container: "#button-with-loading",
         scale: 0.45
       })
       setTimeout( ()=> {
-        this.$vs.loading.close(this.refs.loadableButton)
+        this.$vs.loading.close("#button-with-loading > .con-vs-loading")
       }, 3000);
     },
     openLoadingInDiv(){
