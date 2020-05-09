@@ -2,15 +2,15 @@
   <button
     ref="btn"
     v-bind="$attrs"
-    :class="[`vs-button-${isColor()?color:null}`,`vs-button-${type}`,{
+    :class="[`vs-button-${isColor() ? color : null}`,`vs-button-${type}`,{
       'isActive':isActive,
       'includeIcon':icon,
       'includeIconOnly':icon && !$slots.default,
       'vs-radius':radius
     }, size]"
     :style="[styles,{
-      'width':/[px]/.test(size)?`${size}`:null,
-      'height':/[px]/.test(size)?`${size}`:null
+      'width':/[px]/.test(size) ? `${size}` : null,
+      'height':/[px]/.test(size) ? `${size}` : null
     }]"
     class="vs-component vs-button"
     :type="button"
@@ -26,13 +26,13 @@
     <vs-icon
       v-if="icon"
       :style="{
-        'order':iconAfter?2:0,
-        ['margin-' + isRTL('left')]:$slots.default&&!iconAfter?'5px':'0px',
-        ['margin-' + isRTL('right')]:$slots.default&&iconAfter?'5px':'0px'
+        'order':iconAfter ? 2 : 0,
+        ['margin-' + isRTL('left')]: $slots.default && !iconAfter ? '5px' : '0px',
+        ['margin-' + isRTL('right')]: $slots.default && iconAfter ? '5px' : '0px'
       }"
       :icon-pack="iconPack"
       :icon="icon"
-      class="vs-button--icon "
+      class="vs-button--icon"
     ></vs-icon>
 
     <span
@@ -44,8 +44,8 @@
     <span
       ref="linex"
       :style="styleLine"
-      class="vs-button-linex"/>
-
+      class="vs-button-linex"
+    />
   </button>
 </template>
 
@@ -143,40 +143,40 @@ export default {
     styles() {
       if(this.is('filled')){
         return {
-          color: _color.getColor(this.textColor,1),
-          background: _color.getColor(this.color,1),
-          boxShadow: this.hoverx?`0px 8px 25px -8px ${_color.getColor(this.color,1)}`:null
+          color: _color.getColor(this.textColor, 1),
+          background: _color.getColor(this.color, 1),
+          boxShadow: this.hoverx ? `0px 8px 25px -8px ${_color.getColor(this.color, 1)}` : null
         }
       } else if (this.is('border') || this.is('flat')){
         return {
-          border: `${this.is('flat')?0:1}px solid ${_color.getColor(this.color,1)}`,
-          background: this.hoverx?_color.getColor(this.color,.1):'transparent',
-          color:_color.getColor(this.textColor,1) || _color.getColor(this.color,1)
+          border: `${this.is('flat') ? 0 : 1}px solid ${_color.getColor(this.color, 1)}`,
+          background: this.hoverx?_color.getColor(this.color, .1) : 'transparent',
+          color:_color.getColor(this.textColor, 1) || _color.getColor(this.color, 1)
         }
       } else if (this.is('line')) {
         return {
-          color:_color.getColor(this.textColor,1) || _color.getColor(this.color,1),
-          borderBottomWidth: this.linePosition=='bottom'?`2px`:null,
-          borderColor: `${_color.getColor(this.color,.2)}`,
-          borderTopWidth: this.linePosition=='top'?`2px`:null,
+          color:_color.getColor(this.textColor, 1) || _color.getColor(this.color, 1),
+          borderBottomWidth: this.linePosition == 'bottom' ? `2px` : null,
+          borderColor: `${_color.getColor(this.color, .2)}`,
+          borderTopWidth: this.linePosition == 'top' ? `2px` : null,
         }
       } else if (this.is('gradient')) {
-        let backgroundx = `linear-gradient(${this.gradientDirection}, ${_color.getColor(this.color)} 0%, ${_color.getColor(this.gradientColorSecondary,1)} 100%)`
+        let backgroundx = `linear-gradient(${this.gradientDirection}, ${_color.getColor(this.color)} 0%, ${_color.getColor(this.gradientColorSecondary, 1)} 100%)`
         return {
           background: backgroundx,
         }
       } else if (this.is('relief')) {
-        let color = _color.getColor(this.color,1)
+        let color = _color.getColor(this.color, 1)
         return {
-          background: _color.getColor(this.color,1),
-          boxShadow: `0 3px 0 0 ${_color.darken(color,-0.4)}`
+          background: _color.getColor(this.color, 1),
+          boxShadow: `0 3px 0 0 ${_color.darken(color, -0.4)}`
         }
       }
     },
     stylesBackGround(){
       let styles = {
-        background: this.is('flat') || this.is('border')?_color.getColor(this.color,1,false):null,
-        opacity:this.opacity,
+        background: this.is('flat') || this.is('border') ? _color.getColor(this.color, 1, false) : null,
+        opacity: this.opacity,
         left: `${this.leftBackgorund}px`,
         top: `${this.topBackgorund}px`,
         width: `${this.radio}px`,
@@ -196,12 +196,12 @@ export default {
       }
 
       let styles = {
-        top: this.linePosition == 'top'?'-2px':'auto',
-        bottom: this.linePosition == 'bottom'?'-2px':'auto',
-        background: _color.getColor(this.color,1),
+        top: this.linePosition == 'top' ? '-2px' : 'auto',
+        bottom: this.linePosition == 'bottom' ? '-2px' : 'auto',
+        background: _color.getColor(this.color, 1),
         left: lineOrigin,
-        right: lineOrigin == 'auto'?'0px':null,
-        transform: lineOrigin=='50%'?'translate(-50%)':null
+        right: lineOrigin == 'auto' ? '0px' : null,
+        transform: lineOrigin == '50%' ? 'translate(-50%)' : null
       }
 
       return styles
@@ -228,11 +228,11 @@ export default {
       return type == which
     },
     mouseoverx(event){
-      this.$emit('mouseover',event)
+      this.$emit('mouseover', event)
       this.hoverx = true
     },
     mouseoutx(event){
-      this.$emit('mouseout',event)
+      this.$emit('mouseout', event)
       this.hoverx = false
     },
     blurButton(event){
@@ -241,12 +241,12 @@ export default {
         this.opacity = 0
         setTimeout( () => {
           this.radio = 0
-        }, 150);
+        }, 150)
         this.isActive = false
       }
     },
     clickButton(event){
-      this.$emit('click',event)
+      this.$emit('click', event)
       if(this.isActive){
         return
       }
@@ -265,12 +265,12 @@ export default {
       let xEvent = event.offsetX
       let yEvent = event.offsetY
       let radio = btn.clientWidth * 3
-      this.time  = btn.clientWidth / (btn.clientWidth + (this.is('border') || this.is('flat')?70:20))
+      this.time  = btn.clientWidth / (btn.clientWidth + (this.is('border') || this.is('flat') ? 70 : 20))
       if(this.is('filled')){
         this.timeOpacity = this.time
       }
 
-      if(event.srcElement?event.srcElement != btn:false) {
+      if(event.srcElement ? event.srcElement != btn : false) {
         xEvent += event.target.offsetLeft
         yEvent += event.target.offsetTop
       }
@@ -288,18 +288,17 @@ export default {
           this.time = this.timeOpacity = this.radio = 0
           this.opacity = 1
           this.isActive = false
-        }, this.time*1100);
+        }, this.time * 1100)
       } else {
         setTimeout( () => {
           this.timeOpacity = .15
-        }, this.time*1100);
+        }, this.time * 1100)
       }
 
     },
     isColor(){
       return _color.isColor(this.color)
-    },
+    }
   }
-
 }
 </script>

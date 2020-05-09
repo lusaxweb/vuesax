@@ -12,8 +12,7 @@
     class="con-vs-chip">
 
     <span class="text-chip vs-chip--text">
-      <slot>
-      </slot>
+      <slot/>
     </span>
 
     <button
@@ -24,7 +23,7 @@
       <vs-icon
         :icon-pack="iconPack"
         :icon="closeIcon"
-      ></vs-icon>
+      />
     </button>
   </div>
 </template>
@@ -74,19 +73,19 @@ export default {
   },
   computed:{
     styleChip () {
-      const background = this.transparent ? _color.getColor(this.color,.15) : _color.getColor(this.color,1)
-      const color = this.transparent ? _color.getColor(this.color,1) : this.color?'rgba(255,255,255,.9)':'rgba(0,0,0,.7)'
+      const background = this.transparent ? _color.getColor(this.color, .15) : _color.getColor(this.color, 1)
+      const color = this.transparent ? _color.getColor(this.color, 1) : this.color ? 'rgba(255,255,255,.9)' : 'rgba(0,0,0,.7)'
 
       return {
         background: background,
         color: color
       }
     },
-    eliminado(){
-      if(this.item){
+    eliminado() {
+      if(this.item) {
         return true
       } else {
-        if(this.vsClosable){
+        if(this.vsClosable) {
           return this.value
         } else {
           return true
@@ -96,7 +95,7 @@ export default {
   },
   methods:{
     closeChip () {
-      this.$emit('input',false)
+      this.$emit('input', false)
       this.$emit('click')
     },
     remove(){
