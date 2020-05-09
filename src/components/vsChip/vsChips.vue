@@ -56,11 +56,9 @@ export default {
   data: () => ({
     newChip:'',
     chip1:true,
-    itemsx:this.items
   }),
   methods:{
     addItem(){
-      // this.itemsx.push(this.newChip)
       let valueOld = this.value
       valueOld.push(this.newChip)
       this.$emit('input', valueOld)

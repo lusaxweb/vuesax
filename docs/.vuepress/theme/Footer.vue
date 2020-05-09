@@ -48,8 +48,6 @@ export default {
       this.lineaActiva = false
     },
     lineaLx(evt){
-      console.log(evt)
-      console.log(evt.target.getBoundingClientRect())
       this.lineaActiva = true
       let cords = evt.target.getBoundingClientRect()
       this.lineaL = cords.left + 23
