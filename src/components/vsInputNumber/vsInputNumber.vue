@@ -183,11 +183,11 @@ export default {
       let newValue
       if(this.value === ''){
         newValue = 0
-        this.$emit('input',newValue)
+        this.$emit('input',this.fixPrecision(newValue))
       } else  {
         if(this.max?parseFloat(this.value)<parseFloat(this.max):true){
           newValue = parseFloat(this.value) + parseFloat(this.step)
-          this.$emit('input',newValue)
+          this.$emit('input',this.fixPrecision(newValue))
         }
       }
     },
@@ -195,14 +195,18 @@ export default {
       let newValue
       if(this.value === ''){
         newValue = 0
-        this.$emit('input',newValue)
+        this.$emit('input',this.fixPrecision(newValue))
       } else  {
         if(this.min?parseFloat(this.value)>parseFloat(this.min):true){
           newValue = parseFloat(this.value) - parseFloat(this.step)
-          this.$emit('input',newValue)
+          this.$emit('input',this.fixPrecision(newValue))
         }
       }
     },
+    fixPrecision(n) {
+      const precision = (this.step + '').split('.')[1];
+      return n.toFixed(precision ? precision.length : 0);
+    }
   }
 }
 </script>
