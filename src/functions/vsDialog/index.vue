@@ -13,7 +13,9 @@
         class="vs-dialog">
 
         <!-- //header -->
-        <header :style="styleHeader" class="vs-dialog-header">
+        <header
+          :style="styleHeader"
+          class="vs-dialog-header">
           <div class="con-title-after">
             <span
               :style="styleAfter"
@@ -35,23 +37,23 @@
         <!-- footer buttons -->
         <footer v-if="buttonsHidden?false:isPrompt||type=='confirm'">
           <vs-button
-            class="vs-dialog-accept-button"
             :disabled="isValid=='none'?false:!isValid"
             :color="color"
             :type="buttonAccept"
+            class="vs-dialog-accept-button"
             @click="acceptDialog">{{ acceptText }}</vs-button>
           <vs-button
-            class="vs-dialog-cancel-button"
             :text-color="'rgba(0,0,0,.5)'"
             :type="buttonCancel"
+            class="vs-dialog-cancel-button"
             @click="cancelClose">{{ cancelText }}</vs-button>
         </footer>
 
         <footer v-if="type=='alert'&&!isPrompt" >
           <vs-button
-            class="vs-dialog-accept-button"
             :color="color"
             :type="buttonAccept"
+            class="vs-dialog-accept-button"
             @click="acceptDialog">{{ acceptText }}</vs-button>
         </footer>
       </div>
@@ -160,11 +162,18 @@ export default {
     this.fActive = this.active
   },
   methods:{
+    beforeDestroy() {
+      // close the left open prompt
+      let elx = this.$refs.con
+      let parentx = this.parent ? this.parent : document.body
+      if (elx) {
+        parentx.removeChild(elx)
+      }
+    },
     giveColor(color){
       return _color.rColor(color)
     },
-    acceptDialog(){
-      let _this = this
+    acceptDialog () {
       if(!this.isPrompt){
         this.accept?this.accept(this.parameters):null
         this.fActive = false
@@ -178,7 +187,6 @@ export default {
           this.$emit('accept', this.parameters)
         }
       }
-
     },
     rebound(){
       this.$refs.dialogx.classList.add('locked')
@@ -216,13 +224,5 @@ export default {
       parentx.insertBefore(elx, parentx.firstChild)
     },
   },
-  beforeDestroy() {
-    // close the left open prompt
-    let elx = this.$refs.con
-    let parentx = this.parent ? this.parent : document.body
-    if (elx) {
-      parentx.removeChild(elx)
-    }
-  }
 }
 </script>
