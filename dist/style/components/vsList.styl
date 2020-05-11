@@ -1,0 +1,39 @@
+.vs-list
+  width: 100%
+  position relative
+  padding: 5px
+.vs-list--icon
+  padding: 6px
+  display: flex
+  align-items: center
+  justify-content: center
+  i
+    font-size: 1.2rem !important
+.vs-list--header
+  padding: 8px 0px
+  font-weight: bold
+  display: flex
+  align-items: center
+  justify-content: flex-start
+  box-shadow: 0px 7px 7px -5px rgba(0,0,0,.08)
+  margin-bottom: 5px
+
+.vs-list--item
+  border-bottom: 1px solid rgba(0,0,0,.08)
+  padding: 5px
+  display flex
+  align-items: center
+  justify-content: flex-start
+  .vs-list--avatar
+    display flex
+    align-items center
+.vs-list--slot
+  propWithDir(margin, left, auto)
+.vs-list--title
+  font-weight: bold
+.vs-list--subtitle
+  font-size: .8rem
+
+for colorx, i in $vs-colors
+  .vs-header-list-{colorx}
+    color getColor(colorx, 1)

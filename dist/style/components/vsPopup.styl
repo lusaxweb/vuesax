@@ -1,0 +1,131 @@
+//animations
+.popup-t-enter, .popup-t-leave-to /* .popup-t-leave-active below version 2.1.8 */
+  opacity: 0 !important;
+//box popup
+.popup-t-enter .vs-popup/* .fade-leave-active below version 2.1.8 */
+  transform: scale(.9) !important;
+
+.popup-t-leave-to .vs-popup/* .fade-leave-active below version 2.1.8 */
+  transform: scale(.9) !important;
+  // animation: rebound .3s;
+
+
+@keyframes rebound
+    0%
+      transform: scale(.9)
+    50%
+      transform: scale(1.08)
+    100%
+      transform: scale(1)
+
+
+
+// cancel / text
+.popup-t-enter .vs-popup-cancel, .popup-t-leave-to .vs-popup-cancel
+  border-radius: 50% !important;
+  propWithDir(transform, null, (8px -8px), scale(.5) !important)
+
+.popup-t-enter .vs-popup-text, .popup-t-leave-to .vs-popup-text
+  opacity: 0;
+  propWithDir(transform, null, (-15px), !important)
+
+
+.popup-t-enter header h3, .popup-t-leave-to header h3
+  propWithDir(transform, null, (-50px), !important)
+  opacity: 0;
+
+
+
+.con-vs-popup
+  transition: all .2s;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  propWithDir(left, null, 0px)
+  top: 0px;
+  z-index: 20000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+
+  &.fullscreen
+    .vs-popup
+      width: 100%
+      height: 100%
+
+  .vs-popup
+    transition: all .2s;
+    z-index: 100;
+    width: 600px
+    margin: 10px;
+    max-width: calc(100% - 30px);
+    max-height: calc(100% - 30px);
+    border-radius: 6px;
+    box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.1)
+    background: rgb(255, 255, 255);
+    animation: rebound .3s;
+
+
+.vs-popup--header
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(0, 0, 0,.05)
+  border-radius: 5px 5px;
+  position: relative;
+
+.vs-popup--content
+  padding: 13px;
+  font-size: 0.9em;
+  transition: all .23s ease .1s;
+  overflow auto
+  max-height: calc(100vh - 100px)
+  propWithDir(margin, right, 5px)
+  margin-top: 5px
+  margin-bottom: 5px
+  width: calc(100% - 5px)
+
+.vs-popup--close
+  transition: all .23s ease .1s;
+  position: relative;
+  padding: 8px;
+  cursor: pointer;
+  box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.1)
+  border-radius: 5px;
+  propWithDir(transform, null, (8px -8px));
+  background: rgb(255, 255, 255);
+  font-size: 1.25em;
+  color: rgba(0,0,0,.6)
+  &:hover
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1)
+    propWithDir(transform, null, (5px -5px));
+
+.vs-popup--title
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px 5px 0px 0px;
+  h3
+    transition: all .23s ease .1s;
+    padding: 8px;
+    padding-left: 12px;
+    font-size: 1.2rem;
+
+.vs-popup--background
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  propWithDir(left, null, 0px)
+  top: 0px;
+  height: 100%;
+  z-index: 10;
+  transition: all .250s ease;
+  opacity: 1;
+
+for colorx, i in $vs-colors
+  .vs-popup-{colorx}
+    header
+      .after
+        background: getColor(colorx, 1)
