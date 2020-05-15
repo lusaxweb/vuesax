@@ -32,6 +32,7 @@
       type="number"
       :min="min"
       :max="max"
+      :step="step"
       class="vs-input-number--input"
       v-on="listeners">
     <button
