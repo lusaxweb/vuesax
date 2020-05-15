@@ -75,6 +75,16 @@ API:
    parameters:
    description: This causes each file to be sent separately on each request. Only used when multiple prop is true
    default: false
+ - name: typeSubmit
+   type: String
+   parameters:
+   description: Set the type of HTTP request.
+   default: POST
+ - name: withCredentials
+   type: Boolean
+   parameters:
+   description: Set the XMLHttpRequest withCredentials property.
+   default: true
 ---
 
 # Upload
