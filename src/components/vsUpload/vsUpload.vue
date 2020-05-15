@@ -120,28 +120,28 @@
     inheritAttrs:false,
     props:{
       fileName:{
-        default:null,
-        type:String
+        default: null,
+        type: String
       },
       text:{
-        default:'Upload File',
-        type:String
+        default: 'Upload File',
+        type: String
       },
       textMax:{
-        default:'Maximum of files reached',
-        type:String
+        default: 'Maximum of files reached',
+        type: String
       },
       limit:{
-        default:null,
-        type:[Number,String]
+        default: null,
+        type: [Number, String]
       },
       action:{
-        default:null,
-        type:String
+        default: null,
+        type: String
       },
       headers:{
-        default:null,
-        type:Object
+        default: null,
+        type: Object
       },
       data: {
         default: null,
@@ -157,6 +157,14 @@
       },
       singleUpload: {
         default: false,
+        type: Boolean
+      },
+      typeSubmit: {
+        default: 'POST',
+        type: String
+      },
+      withCredentials: {
+        default: true,
         type: Boolean
       }
     },
@@ -376,9 +384,9 @@
           };
         }
 
-        xhr.withCredentials = true;
+        xhr.withCredentials = this.withCredentials;
 
-        xhr.open('POST', this.action, true);
+        xhr.open(this.typeSubmit, this.action, true);
 
         const headers = this.headers || {};
 
