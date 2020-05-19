@@ -60,6 +60,11 @@ API:
    parameters: (event)
    description: callback function when an error occurs when trying to upload a file.
    default: null
+ - name: change
+   type: Function
+   parameters: (event)
+   description: callback when file is available for browser but not send to backend.
+   default: null
  - name: automatic
    type: Boolean
    parameters:
