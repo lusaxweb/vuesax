@@ -41,7 +41,7 @@
     <vs-col
       class="vs-pagination--mb"
       vs-type="flex"
-      vs-justify="flex-end"
+      vs-justify="description ? 'flex-end' : 'center'"
       vs-align="center"
       vs-lg="6"
       vs-sm="12"
