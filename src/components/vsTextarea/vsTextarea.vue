@@ -9,6 +9,7 @@
     </h4>
 
     <textarea
+      :style="{height}"
       :value="value"
       v-bind="$attrs"
       class="vs-textarea"
@@ -63,7 +64,6 @@ export default {
     style() {
       let style = {}
       style.border = `1px solid ${this.isFocus?_color.getColor(this.color,1):'rgba(0, 0, 0,.08)'}`
-      style.height = this.height
       style.width = this.width
 
       return style
