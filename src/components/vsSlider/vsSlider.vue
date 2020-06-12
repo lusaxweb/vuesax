@@ -50,7 +50,7 @@
       <span
         :style="styleText"
         class="text-circle-slider vs-slider--circle-text">
-        {{ valueCircle1 }}
+        {{ formatter(valueCircle1) }}
         <span v-if="textFixed">
           {{ textFixed }}
         </span>
@@ -79,7 +79,7 @@
       <span
         :style="styleText"
         class="text-circle-slider vs-slider--circle-text">
-        {{ valueCircle2 }}
+        {{ formatter(valueCircle2) }}
         <span v-if="textFixed">
           {{ textFixed }}
         </span>
@@ -141,6 +141,10 @@ export default {
     textFixed: {
       default: null,
       type: String
+    },
+    formatter: {
+      default: value => value
+      type: Function
     }
   },
   data: () => ({
