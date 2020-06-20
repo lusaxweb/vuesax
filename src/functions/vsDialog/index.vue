@@ -161,15 +161,15 @@ export default {
     }
     this.fActive = this.active
   },
+  beforeDestroy() {
+    // close the left open prompt
+    let elx = this.$refs.con
+    let parentx = this.parent ? this.parent : document.body
+    if (elx) {
+      parentx.removeChild(elx)
+    }
+  },
   methods:{
-    beforeDestroy() {
-      // close the left open prompt
-      let elx = this.$refs.con
-      let parentx = this.parent ? this.parent : document.body
-      if (elx) {
-        parentx.removeChild(elx)
-      }
-    },
     giveColor(color){
       return _color.rColor(color)
     },

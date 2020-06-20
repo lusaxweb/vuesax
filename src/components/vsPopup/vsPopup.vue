@@ -119,6 +119,13 @@ export default {
   mounted(){
     this.insertBody()
   },
+  beforeDestroy() {
+    // close the left open prompt
+    let elx = this.$refs.con
+    if (document.body) {
+      document.body.removeChild(elx)
+    }
+  },
   methods:{
     giveColor(color){
       return _color.rColor(color)
