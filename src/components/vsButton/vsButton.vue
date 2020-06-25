@@ -12,8 +12,8 @@
       'width':/[px]/.test(size) ? `${size}` : null,
       'height':/[px]/.test(size) ? `${size}` : null
     }]"
-    class="vs-component vs-button"
     :type="button"
+    class="vs-component vs-button"
     name="button"
     v-on="listeners">
     <span

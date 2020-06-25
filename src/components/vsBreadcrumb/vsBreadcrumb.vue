@@ -16,26 +16,26 @@
       >
         <a
           v-if="!item.active"
-          v-text="item.title"
           :href="item.url ? item.url : '#'"
           :title="item.title"
           class="vs-breadcrumb--link"
+          v-text="item.title"
         ></a>
         <template v-else>
           <span
-            v-text="item.title"
             :class="textClass"
             :style="textStyle"
             class="vs-breadcrumb--text"
+            v-text="item.title"
           ></span>
         </template>
         <span
           v-if="!item.active"
-          v-text="separator"
           :class="separator.length > 1 ? 'material-icons' : null"
           class="separator notranslate vs-breadcrum--separator"
           translate="no"
           aria-hidden="true"
+          v-text="separator"
         ></span>
       </li>
     </ol>

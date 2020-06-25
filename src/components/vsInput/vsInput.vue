@@ -50,21 +50,21 @@
 
       <vs-icon
         v-if="icon"
-        class="icon-inputx notranslate vs-input--icon"
         :class="{'icon-after':iconAfter, 'icon-no-border':iconNoBorder}"
-        :iconPack="iconPack"
+        :icon-pack="iconPack"
         :icon="icon"
+        class="icon-inputx notranslate vs-input--icon"
         @click="focusInput(); $emit('icon-click');">
       </vs-icon>
 
       <transition name="icon-validate" >
         <span
           v-if="success || danger || warning"
-          class="input-icon-validate vs-input--icon-validate"
-          :class="{'icon-before':iconAfter}">
+          :class="{'icon-before':iconAfter}"
+          class="input-icon-validate vs-input--icon-validate">
           <vs-icon
             :class="{'icon-before':iconAfter}"
-            :iconPack="valIconPack"
+            :icon-pack="valIconPack"
             :icon="getIcon"
           ></vs-icon>
         </span>

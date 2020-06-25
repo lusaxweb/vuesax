@@ -26,9 +26,9 @@
 
       <h4
         v-if="title"
-        v-text="title"
         :style="styleTitle"
         class="titlex vs-alert--title"
+        v-text="title"
       ></h4>
 
       <div

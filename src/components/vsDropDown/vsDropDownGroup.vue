@@ -11,10 +11,12 @@
     <!-- @mouseout="toggleGroup($event)" -->
     <span
       v-if="vsCollapse"
-      v-text="vsLabel"
       class="span vs-dropdown--group-label"
+      v-text="vsLabel"
     />
-    <h3 v-else v-text="vsLabel"/>
+    <h3 
+      v-else 
+      v-text="vsLabel"/>
     <vs-icon
       v-if="vsCollapse"
       :icon-pack="iconPack"

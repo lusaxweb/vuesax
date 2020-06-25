@@ -1,7 +1,7 @@
 <template>
   <vs-row
-    vs-type="flex"
     :vs-justify="description ? 'space-between' : 'center'"
+    vs-type="flex"
     vs-w="12">
     <vs-col
       v-if="description"
@@ -12,7 +12,7 @@
       vs-lg="6"
       vs-sm="12"
       vs-xs="12" 
-      >
+    >
       <div>
         <span
           style="margin-right:5px"
