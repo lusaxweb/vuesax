@@ -437,7 +437,9 @@ export default {
       });
     },
     clickBlur(event) {
-      let closestx = event.target.closest(".vs-select--options");
+      let closestx = event.target == document.body
+        ? event.target.getElementsByClassName("vs-select--options").item(0)
+        : event.target.closest(".vs-select--options");
 
       if (!closestx) {
         this.closeOptions();
