@@ -227,7 +227,7 @@ Change the alignment of the buttons with the property `alignments`. The allowed 
 
         </div>
       </vs-tab>
-      <vs-tab label="Ecosistem">
+      <vs-tab label="Ecosystem">
         <div>
 
         </div>
@@ -253,7 +253,7 @@ Change the alignment of the buttons with the property `alignments`. The allowed 
 
         </div>
       </vs-tab>
-      <vs-tab label="Ecosistem">
+      <vs-tab label="Ecosystem">
         <div>
 
         </div>
@@ -279,7 +279,7 @@ Change the alignment of the buttons with the property `alignments`. The allowed 
 
         </div>
       </vs-tab>
-      <vs-tab label="Ecosistem">
+      <vs-tab label="Ecosystem">
         <div>
 
         </div>
@@ -306,7 +306,7 @@ Change the alignment of the buttons with the property `alignments`. The allowed 
 
         </div>
       </vs-tab>
-      <vs-tab label="Ecosistem">
+      <vs-tab label="Ecosystem">
         <div>
 
         </div>
@@ -357,7 +357,7 @@ You can change the position of the menu with the property `position` that as a v
 
         </div>
       </vs-tab>
-      <vs-tab label="Ecosistem">
+      <vs-tab label="Ecosystem">
         <div>
 
         </div>
@@ -383,7 +383,7 @@ You can change the position of the menu with the property `position` that as a v
 
         </div>
       </vs-tab>
-      <vs-tab label="Ecosistem">
+      <vs-tab label="Ecosystem">
         <div>
 
         </div>
@@ -409,7 +409,7 @@ You can change the position of the menu with the property `position` that as a v
 
         </div>
       </vs-tab>
-      <vs-tab label="Ecosistem">
+      <vs-tab label="Ecosystem">
         <div>
 
         </div>
@@ -436,7 +436,7 @@ You can change the position of the menu with the property `position` that as a v
 
         </div>
       </vs-tab>
-      <vs-tab label="Ecosistem">
+      <vs-tab label="Ecosystem">
         <div>
 
         </div>
