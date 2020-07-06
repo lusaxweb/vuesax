@@ -27,7 +27,7 @@ API:
    default: null
  - name: alignment
    type: String
-   parameters: top (default), left, bottom, right
+   parameters: left (default), right, center, fixed
    description: Change the alignment of the tabs buttons.
    default: top
  - name: vs-tab
