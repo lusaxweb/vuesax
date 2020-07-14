@@ -141,6 +141,10 @@ export default {
     onlyClickCheckbox: {
       type: Boolean,
       default: false
+    },
+    onlyIconExpand: {
+      type: Boolean,
+      default: false
     }
   },
   data:()=>({

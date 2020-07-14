@@ -18,7 +18,7 @@
         @change="handleCheckbox"
       />
 
-      <vs-icon v-if="$slots.expand">keyboard_arrow_down</vs-icon>
+      <vs-icon v-if="$slots.expand" @click="expand_click">keyboard_arrow_down</vs-icon>
     </td>
     <slot></slot>
   </tr>
@@ -88,10 +88,14 @@ export default {
         e.parentNode.appendChild(i);
       }
     },
-    clicktr (evt) {
+    clicktr (evt, expand=false) {
       this.$parent.clicktr(this.data, true)
 
-      if (this.$slots.expand) {
+      if (!this.$slots.expand) return
+
+      if (this.$parent.onlyIconExpand) {
+        if (expand) this.clicktd(evt)
+      } else {
         this.clicktd(evt)
       }
     },
@@ -124,6 +128,9 @@ export default {
         tr.classList.remove('tr-expandedx')
         this.expanded = false
       }
+    },
+    expand_click(evt) {
+      if (this.$parent.onlyIconExpand) this.clicktr(evt, true)
     }
   }
 }
