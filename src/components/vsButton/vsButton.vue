@@ -237,65 +237,71 @@ export default {
     },
     blurButton(event){
       this.$emit('blur',event)
-      if(this.type == 'border' || this.type == 'flat'){
-        this.opacity = 0
-        setTimeout( () => {
-          this.radio = 0
-        }, 150)
-        this.isActive = false
-      }
+      this.$nextTick(() => {
+        if(this.type == 'border' || this.type == 'flat'){
+          this.opacity = 0
+          setTimeout( () => {
+            this.radio = 0
+          }, 150)
+          this.isActive = false
+        }
+      });
+      
     },
     clickButton(event){
       this.$emit('click', event)
-      if(this.isActive){
-        return
-      }
-      if(this.to){
-        this.routerPush()
-      }
-      if(this.href){
-        if ( typeof(this.href) == 'string') {
-          this.target ? window.open(this.href) : window.location.href = this.href
-        } else {
-          this.target ? window.open(this.href.url) : window.location.href = this.href.url
+      this.$nextTick(() => {
+        if(this.isActive){
+          return
         }
-      }
-      if (this.type == 'border' || this.type == 'flat') {
-        this.isActive = true
-      }
-      let btn = this.$refs.btn
-      let xEvent = event.offsetX
-      let yEvent = event.offsetY
-      let radio = btn.clientWidth * 3
-      this.time  = btn.clientWidth / (btn.clientWidth + (this.is('border') || this.is('flat') ? 70 : 20))
-      if(this.is('filled')){
-        this.timeOpacity = this.time
-      }
+        if(this.to){
+          this.routerPush()
+        }
+        if(this.href){
+          if ( typeof(this.href) == 'string') {
+            this.target ? window.open(this.href) : window.location.href = this.href
+          } else {
+            this.target ? window.open(this.href.url) : window.location.href = this.href.url
+          }
+        }
+        if (this.type == 'border' || this.type == 'flat') {
+          this.isActive = true
+        }
+        let btn = this.$refs.btn
+        let xEvent = event.offsetX
+        let yEvent = event.offsetY
+        let radio = btn.clientWidth * 3
+        this.time  = btn.clientWidth / (btn.clientWidth + (this.is('border') || this.is('flat') ? 70 : 20))
+        if(this.is('filled')){
+          this.timeOpacity = this.time
+        }
 
-      if(event.srcElement ? event.srcElement != btn : false) {
-        xEvent += event.target.offsetLeft
-        yEvent += event.target.offsetTop
-      }
-      this.leftBackgorund = xEvent
-      this.topBackgorund = yEvent
-      this.radio = radio
-      if(this.is('filled')){
-        this.opacity = 0
-      } else {
-        this.opacity = 1
-      }
-
-      if(this.is('filled')){
-        setTimeout( () => {
-          this.time = this.timeOpacity = this.radio = 0
+        if(event.srcElement ? event.srcElement != btn : false) {
+          xEvent += event.target.offsetLeft
+          yEvent += event.target.offsetTop
+        }
+        this.leftBackgorund = xEvent
+        this.topBackgorund = yEvent
+        this.radio = radio
+        if(this.is('filled')){
+          this.opacity = 0
+        } else {
           this.opacity = 1
-          this.isActive = false
-        }, this.time * 1100)
-      } else {
-        setTimeout( () => {
-          this.timeOpacity = .15
-        }, this.time * 1100)
-      }
+        }
+
+        if(this.is('filled')){
+          setTimeout( () => {
+            this.time = this.timeOpacity = this.radio = 0
+            this.opacity = 1
+            this.isActive = false
+          }, this.time * 1100)
+        } else {
+          setTimeout( () => {
+            this.timeOpacity = .15
+          }, this.time * 1100)
+        }
+      });
+      
 
     },
     isColor(){
