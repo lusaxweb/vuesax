@@ -260,7 +260,9 @@ export default {
           this.target ? window.open(this.href.url) : window.location.href = this.href.url
         }
       }
-      this.isActive = true
+      if (this.type == 'border' || this.type == 'flat') {
+        this.isActive = true
+      }
       let btn = this.$refs.btn
       let xEvent = event.offsetX
       let yEvent = event.offsetY
