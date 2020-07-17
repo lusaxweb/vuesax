@@ -11,8 +11,8 @@
       <span
         v-if="!notArrow"
         class="icon-header vs-collapse-item--icon-header">
-        <vs-icon 
-          :icon-pack="iconPack" 
+        <vs-icon
+          :icon-pack="iconPack"
           :icon="iconArrow"
         />
       </span>
@@ -94,6 +94,7 @@ export default {
     window.addEventListener('resize', this.changeHeight)
     const maxHeightx = this.$refs.content.scrollHeight
     if(this.open) {
+      this.emitOpen()
       this.maxHeight = `${maxHeightx}px`
     }
   },
@@ -101,10 +102,22 @@ export default {
     changeHeight () {
       const maxHeightx = this.$refs.content.scrollHeight
       if(this.maxHeight != '0px') {
+        this.emitOpen()
         this.maxHeight = `${maxHeightx}px`
       }
     },
+
+    emitOpen() {
+      this.$emit('open')
+    },
+
+    emitClose() {
+      this.$emit('close')
+    },
+
     toggleContent() {
+      this.$emit('click')
+
       if(this.openHover || this.disabled) return
 
       if(this.accordion) {
@@ -125,8 +138,10 @@ export default {
     initMaxHeight() {
       const maxHeightx = this.$refs.content.scrollHeight
       if(this.maxHeight == '0px') {
+        this.emitOpen()
         this.maxHeight = `${maxHeightx}px`
       } else {
+        this.emitClose()
         this.maxHeight = `0px`
       }
     },
@@ -134,11 +149,13 @@ export default {
       if(this.disabled) return
       let maxHeightx = this.$refs.content.scrollHeight
       if(this.openHover) {
+        this.emitOpen()
         this.maxHeight = `${maxHeightx}px`
       }
     },
     mouseout() {
       if(this.openHover) {
+        this.emitClose()
         this.maxHeight = `0px`
       }
     }
