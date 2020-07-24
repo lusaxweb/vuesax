@@ -14687,6 +14687,7 @@ var loadingConstructor = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.
 
 
 
+
 var dialogConstructor = external_commonjs_vue_commonjs2_vue_root_Vue_default.a.extend(vsDialog);
 var vsDialog_instance;
 /* harmony default export */ var functions_vsDialog = ({
@@ -14708,6 +14709,7 @@ var vsDialog_instance;
     vsDialog_instance.vm = vsDialog_instance.$mount();
     props.accept ? vsDialog_instance.vm.$on('accept', props.accept) : null;
     props.cancel ? vsDialog_instance.vm.$on('cancel', props.cancel) : null;
+    props.close ? vsDialog_instance.vm.$on('close', props.close) : null;
     utils.insertBody(vsDialog_instance.vm.$el, props.parent);
     external_commonjs_vue_commonjs2_vue_root_Vue_default.a.nextTick(function () {
       vsDialog_instance.$data.fActive = true;
