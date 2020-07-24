@@ -33,6 +33,7 @@ export default { name:'dialog', vsfunction(props) {
 
   props.accept?instance.vm.$on('accept', props.accept):null
   props.cancel?instance.vm.$on('cancel', props.cancel):null
+  props.close?instance.vm.$on('close', props.close):null
   utils.insertBody(instance.vm.$el, props.parent);
 
   Vue.nextTick(() => {
