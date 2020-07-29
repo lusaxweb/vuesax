@@ -11,8 +11,7 @@
     <label
       v-if="label"
       ref="inputSelectLabel"
-      class="vs-select--label"
-      for="">{{ label }}</label>
+      class="vs-select--label">{{ label }}</label>
     <div class="input-select-con">
       <!-- v-model="valueFilter" -->
       <input
