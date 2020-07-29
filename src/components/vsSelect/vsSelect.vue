@@ -117,7 +117,7 @@ export default {
   props: {
     value: {},
     noData: {
-      default: "data no available",
+      default: "No data available",
       type: String
     },
     maxSelected: {
@@ -219,8 +219,7 @@ export default {
         },
         focus: event => {
           this.$emit("focus", event);
-          //document.removeEventListener('click',this.clickBlur)
-          this.focus(event);
+          this.focus();
         },
         input: event => {
           if (this.autocomplete) {
@@ -277,10 +276,12 @@ export default {
     if (this.active) {
       utils.insertBody(this.$refs.vsSelectOptions);
     }
+    document.addEventListener("click", this.clickBlur);
   },
   beforeDestroy() {
     let [parent] = document.getElementsByTagName("body");
 
+    document.removeEventListener("click", this.clickBlur);
     if (
       parent &&
       this.$refs.vsSelectOptions &&
@@ -408,9 +409,6 @@ export default {
       this.active = true;
       this.setLabelClass(this.$refs.inputSelectLabel, true);
       let inputx = this.$refs.inputselect;
-      setTimeout(() => {
-        document.addEventListener("click", this.clickBlur);
-      }, 100);
       if (this.autocomplete && this.multiple) {
         setTimeout(() => {
           if (inputx.value) {
@@ -437,7 +435,7 @@ export default {
       });
     },
     clickBlur(event) {
-      let closestx = event.target.closest(".vs-select--options");
+      let closestx = event.target.closest(".vs-select--input");
 
       if (!closestx) {
         this.closeOptions();
