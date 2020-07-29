@@ -39,7 +39,6 @@
         :icon-pack="iconPack"
         :icon="icon"
         class="icon-select vs-select--icon"
-        @click.once
       ></vs-icon>
 
       <transition name="fadeselect">
@@ -435,14 +434,16 @@ export default {
       });
     },
     clickBlur(event) {
-      let closestx = event.target.closest(".vs-select--input");
+      if (this.active) {
+        let closestx = event.target.closest(".vs-select--input");
 
-      if (!closestx) {
-        this.closeOptions();
-        if (this.autocomplete) {
-          this.filterItems("");
+        if (!closestx) {
+          this.closeOptions();
+          if (this.autocomplete) {
+            this.filterItems("");
+          }
+          this.changeValue();
         }
-        this.changeValue();
       }
     },
     closeOptions() {
