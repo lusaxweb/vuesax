@@ -20,7 +20,6 @@
         :readonly="!autocomplete"
         class="input-select vs-select--input"
         type="text"
-        @click.stop
         @keydown.esc.stop.prevent="closeOptions"
         v-on="listeners">
 
@@ -217,6 +216,12 @@ export default {
         },
         focus: event => {
           this.$emit("focus", event);
+          let code = code = (event.keyCode ? event.keyCode : event.which);
+          if (code == 9) {
+            this.focus();
+          }
+        },
+        mouseup: () => {
           this.focus();
         },
         input: event => {
@@ -274,12 +279,13 @@ export default {
     if (this.active) {
       utils.insertBody(this.$refs.vsSelectOptions);
     }
-    document.addEventListener("click", this.clickBlur);
   },
   beforeDestroy() {
     let [parent] = document.getElementsByTagName("body");
 
-    document.removeEventListener("click", this.clickBlur);
+    if (this.active) {
+      this.closeOptions();
+    }
     if (
       parent &&
       this.$refs.vsSelectOptions &&
@@ -405,6 +411,7 @@ export default {
     },
     focus() {
       this.active = true;
+      document.addEventListener('click', this.clickBlur);
       this.setLabelClass(this.$refs.inputSelectLabel, true);
       let inputx = this.$refs.inputselect;
       if (this.autocomplete && this.multiple) {
@@ -433,20 +440,20 @@ export default {
       });
     },
     clickBlur(event) {
-      if (this.active) {
-        let closestx = event.target.closest(".vs-select--input");
+      if (event.target === this.$refs.inputselect) {
+          return;
+      }
+      let closestx = event.target.closest(".vs-select--option");
 
-        if (!closestx) {
-          this.closeOptions();
-          if (this.autocomplete) {
-            this.filterItems("");
-          }
-          this.changeValue();
+      if (!closestx) {
+        this.closeOptions();
+        if (this.autocomplete) {
+          this.filterItems("");
         }
+        this.changeValue();
       }
     },
     closeOptions() {
-      // this.$refs.inputselect.blur()
       this.active = false;
       this.setLabelClass(this.$refs.inputSelectLabel, false);
       document.removeEventListener("click", this.clickBlur);
