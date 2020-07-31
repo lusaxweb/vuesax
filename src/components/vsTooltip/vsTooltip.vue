@@ -73,8 +73,7 @@ export default {
     // utils.insertBody(this.$refs.vstooltip)
   },
   updated() {
-    let nodes = this.$refs.convstooltip.childNodes.length
-    if (nodes === 1) {
+    if (!this.$slots.default) {
       this.activeTooltip = false
     }
   },
