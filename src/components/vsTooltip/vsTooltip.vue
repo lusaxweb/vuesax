@@ -11,8 +11,10 @@
         :class="[`vs-tooltip-${positionx || position}`,`vs-tooltip-${color}`, {'after-none': noneAfter}]"
         :style="style"
         class="vs-tooltip">
-        <h4 v-if="title">{{ title }}</h4>
-        {{ text }}
+        <slot name="content">
+          <h4 v-if="title">{{ title }}</h4>
+          {{ text }}
+        </slot>
       </div>
     </transition>
     <slot></slot>
