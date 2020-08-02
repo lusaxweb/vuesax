@@ -88,6 +88,11 @@ export default {
       this.activeTooltip = false
     }
   },
+  beforeDestroy() {
+      if(this.$refs.vstooltip) {
+        utils.removeBody(this.$refs.vstooltip)
+      }
+  },
   methods:{
     mouseenterx(){
       if(this.active) {
