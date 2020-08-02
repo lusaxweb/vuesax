@@ -49,11 +49,12 @@ export default {
     active: {
       default: true,
       type: [Boolean]
-    }
+    },
+    value: Boolean,
   },
   data:()=>({
     cords:{},
-    activeTooltip:false,
+    activeTooltip:this.value,
     widthx: 'auto',
     positionx: null,
     noneAfter: false
@@ -66,6 +67,16 @@ export default {
         transitionDelay: this.activeTooltip?this.delay:'0s',
         background:_color.getColor(this.color,1),
         width: this.widthx
+      }
+    }
+  },
+  watch: {
+    value(val) {
+      this.activeTooltip = val
+    },
+    activeTooltip(val) {
+      if (this.value !== val) {
+        this.$emit('input', val)
       }
     }
   },
