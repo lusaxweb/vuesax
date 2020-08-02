@@ -89,7 +89,7 @@ export default {
     }
   },
   beforeDestroy() {
-      if(this.$refs.vstooltip) {
+      if(this.$refs.vstooltip && this.activeTooltip) {
         utils.removeBody(this.$refs.vstooltip)
       }
   },
