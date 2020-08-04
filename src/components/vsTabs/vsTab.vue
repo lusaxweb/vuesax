@@ -44,7 +44,7 @@ export default {
       this.$parent.children[this.id].attrs = val;
     }
   },
-  mounted(){
+  mounted() {
     this.id = this.$parent.children.length
     this.$parent.children.push({
       label: this.label,
@@ -54,6 +54,14 @@ export default {
       id: this.$parent.children.length,
       listeners: this.$listeners,
       attrs: this.$attrs
+    })
+  },
+  destroyed(){
+    this.$parent.children.forEach(item => {
+      if (item.id === this.id) {
+        const index = this.$parent.children.indexOf(item)
+        this.$parent.children.splice(index, 1)
+      }
     })
   }
 }
