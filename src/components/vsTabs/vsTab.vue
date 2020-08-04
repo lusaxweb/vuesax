@@ -55,6 +55,14 @@ export default {
       listeners: this.$listeners,
       attrs: this.$attrs
     })
+  },
+  destroyed(){
+    this.$parent.children.forEach(item => {
+      if (item.id === this.id) {
+        const index = this.$parent.children.indexOf(item)
+        this.$parent.children.splice(index, 1)
+      }
+    })
   }
 }
 </script>
