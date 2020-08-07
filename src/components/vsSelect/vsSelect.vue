@@ -216,8 +216,7 @@ export default {
         },
         focus: event => {
           this.$emit("focus", event);
-          let code = code = (event.keyCode ? event.keyCode : event.which);
-          if (code == 9) {
+          if (event.keyCode ? event.keyCode : event.which) {
             this.focus();
           }
         },
