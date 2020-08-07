@@ -52,13 +52,15 @@ export default {
     },
     value: Boolean,
   },
-  data:()=>({
-    cords:{},
-    activeTooltip:this.value,
-    widthx: 'auto',
-    positionx: null,
-    noneAfter: false
-  }),
+  data() {
+    return {
+      cords:{},
+      activeTooltip: this.value,
+      widthx: 'auto',
+      positionx: null,
+      noneAfter: false
+    };
+  },
   computed:{
     style(){
       return {
