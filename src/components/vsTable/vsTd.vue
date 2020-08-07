@@ -63,9 +63,7 @@ export default {
         let tr = evt.target.closest('tr')
         if(!this.activeEdit) {
           let trx = Vue.extend(trExpand);
-          let instance = new trx();
-          instance.$props.colspan = 5
-          instance.$props.close = true
+          let instance = new trx({parent: this, propsData: {colspan: this.$parent.colspan, close: true}});
           instance.$slots.default = this.$slots.edit
           instance.vm = instance.$mount();
           instance.$on('click', this.close)
