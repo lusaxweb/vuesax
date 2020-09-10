@@ -20,6 +20,7 @@
           class="vs-popup--header">
           <div class="vs-popup--title">
             <h3>{{ title }}</h3>
+            <slot name="subtitle" />
           </div>
           <vs-icon
             v-if="!buttonCloseHidden"
