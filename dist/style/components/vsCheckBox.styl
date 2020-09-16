@@ -1,0 +1,97 @@
+.con-vs-checkbox
+  position: relative;
+  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5px;
+  margin-right: 5px;
+  &.vs-checkbox-small
+    .vs-checkbox
+      width: 15px
+      height 15px
+      .vs-icon
+        font-size: .7rem
+  &.vs-checkbox-large
+    .vs-checkbox
+      width: 24px
+      height 24px
+.vs-checkbox--input
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 200;
+  cursor: pointer;
+  background: rgb(85, 215, 117);
+  &:disabled
+    cursor: default;
+    pointer-events: none;
+    & + .vs-checkbox
+      opacity $vs-disabled-opacity;
+      cursor: default;
+      pointer-events: none;
+      .vs-checkbox--check
+        cursor: default;
+        pointer-events: none;
+  &:active:checked
+    & + .vs-checkbox
+      .vs-checkbox--check
+        transform: translate(3px)
+      .vs-icon
+        transform: translate(6px)
+  &:checked
+    & + .vs-checkbox
+      transform: rotate(0deg)
+      .vs-checkbox--check
+        transform: translate(0%);
+      .vs-icon
+        opacity: 1;
+        transform: translate(0)
+        color: rgb(255, 255, 255)
+        display: flex
+        align-items: center
+        justify-content: center
+.vs-checkbox
+  transition: all .2s ease;
+  cursor: pointer;
+  position: relative;
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-90deg);
+  overflow: hidden;
+  box-sizing: border-box;
+  propWithDir(margin, right, 5px)
+  // margin-right: 5px;
+.vs-checkbox--check
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0px;
+  transform: translate(100%);
+  transform-origin: right;
+  transition: all .20s ease
+  z-index: 10;
+.vs-checkbox--icon
+  backface-visibility: visible;
+  transition: all .2s ease-out;
+  z-index: 100;
+  font-size: 1.125em;
+  opacity: 0;
+  transform: translate(30px);
+  transform-origin: center;
+
+for colorx, i in $vs-colors
+  .vs-checkbox-{colorx}
+    .vs-checkbox
+      border: 2px solid rgb(180, 180, 180)
+    input
+      &:checked
+        & + .vs-checkbox
+          border: 2px solid getColor(colorx, 1) !important
+          background: getColor(colorx, 1)

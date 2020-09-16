@@ -1,0 +1,52 @@
+.con-vs-card
+  width: 100%
+  height auto
+  background: rgb(255,255,255)
+  border-radius: 8px
+  // overflow hidden
+  margin-bottom: 20px
+  display: block
+  box-shadow: 0px 4px 25px 0px rgba(0,0,0,.1)
+  transition: all .3s ease
+  &.withHover
+    cursor pointer
+    &:hover
+      transform: translate(0, 4px)
+      box-shadow: 0px 0px 5px 0px rgba(0,0,0,.1)
+      img
+        transform: scale(1.1)
+  &.fixedHeight
+     height: 100%
+     position: relative
+.vs-card--header
+  padding: 10px
+  box-shadow: 0px 10px 15px -10px rgba(0,0,0,.05)
+  h3
+    padding: 0px
+.vs-card--footer
+  position relative
+  padding: 10px
+  transform: translate(0,40%)
+  margin-top: -5%
+  padding-top: 0px
+  // overflow hidden
+  &.fixedHeight
+    position: absolute
+    bottom: 0
+    right: 0
+    margin-top: 0%
+    transform: translate(0)
+.vs-card--content
+  padding: 10px
+  font-size: .8rem
+  margin-bottom: 15px
+  &.fixedHeight
+    margin-bottom: 20px
+.vs-card--media
+  width: 100%
+  overflow hidden
+  img
+    width: 100%
+    transition: all .25s ease
+    display: block
+
