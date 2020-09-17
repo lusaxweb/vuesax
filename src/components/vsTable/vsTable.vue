@@ -37,7 +37,7 @@
                     :icon="isCheckedLine ? 'remove' : 'check'"
                     :checked="isCheckedMultiple"
                     size="small"
-                    @click="changeCheckedMultiple"/>
+                    @change="changeCheckedMultiple"/>
                 </span>
               </th>
               <slot name="thead"></slot>
@@ -62,6 +62,9 @@
           :max-items="maxItemsx"
           :size-array="queriedResults.length"
           :description="description"
+          :description-title="descriptionTitle"
+          :description-connector="descriptionConnector"
+          :description-body="descriptionBody"
           @changeMaxItems="changeMaxItems"
         >
         </vs-pagination>
@@ -125,6 +128,15 @@ export default {
     descriptionItems:{
       default: () => [],
       type: Array
+    },
+    descriptionTitle: {
+      type:String,
+    },
+    descriptionConnector: {
+      type:String,
+    },
+    descriptionBody: {
+      type:String,
     },
     currentPage: {
       default: 1,

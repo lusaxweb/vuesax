@@ -55,7 +55,9 @@ export default {
     },
     isSelected(){
       if(this.$parent.multiple && this.$parent.value) {
-        return this.data ? this.$parent.value.includes(this.data) : false
+        return this.data ? this.$parent.value.some(
+              (item) => JSON.stringify(item) === JSON.stringify(this.data)
+            ) : false
       } else {
         return this.data ? this.$parent.value == this.data : false
       }
@@ -108,9 +110,7 @@ export default {
       } else {
         tr.classList.add('tr-expandedx')
         let trx = Vue.extend(trExpand);
-        let instance = new trx();
-        instance.$props.colspan = this.colspan
-        instance.$slots.default = this.$slots.expand
+        let instance = new trx({parent: this, propsData: {colspan: this.colspan}});
         instance.vm = instance.$mount();
         var newTR = document.createElement('tr').appendChild(instance.vm.$el);
         this.insertAfter(tr, newTR)
