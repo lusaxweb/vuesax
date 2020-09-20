@@ -3,7 +3,8 @@
     :class="[
       `vs-input-number-size-${size}`,
       `vs-input-number-${color}`,
-      {'isChangeValue':isChangeValue}
+      {'isChangeValue':isChangeValue},
+      {'vs-input-number-validate-danger':danger}
     ]"
     class="vs-input-number">
     <button
@@ -131,6 +132,10 @@ export default {
     isDisabled: {
       type: Boolean,
       default: false,
+    },
+    danger: {
+      type: Boolean,
+      default: false
     }
   },
   data:()=>({
