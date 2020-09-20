@@ -11,8 +11,8 @@
       <span
         v-if="!notArrow"
         class="icon-header vs-collapse-item--icon-header">
-        <vs-icon 
-          :icon-pack="iconPack" 
+        <vs-icon
+          :icon-pack="iconPack"
           :icon="iconArrow"
         />
       </span>
@@ -96,6 +96,9 @@ export default {
     if(this.open) {
       this.maxHeight = `${maxHeightx}px`
     }
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.changeHeight);
   },
   methods:{
     changeHeight () {
