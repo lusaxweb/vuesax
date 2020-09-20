@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[98],{520:function(i,n,t){"use strict";t.r(n);var e={},s=t(1),r=Object(s.a)(e,(function(){var i=this.$createElement,n=this._self._c||i;return n("div",[n("vs-divider"),this._v(" "),n("vs-divider",[this._v("\n    Text in the divition\n  ")])],1)}),[],!1,null,null,null);n.default=r.exports}}]);
