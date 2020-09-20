@@ -108,6 +108,10 @@ module.exports = {
     ]
   },
   themeConfig: {
+    algolia: {
+      apiKey: '1e7de593e1699e48c6dabbe77da817c6',
+      indexName: 'vuesax'
+    },
     // Assumes GitHub. Can also be a full GitLab url.
     repo: 'lusaxweb/vuesax',
     // Customising the header label
