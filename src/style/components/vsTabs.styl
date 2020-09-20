@@ -73,11 +73,11 @@
   width 100%;
   overflow hidden
   position relative
-  .con-slot-tabs
+  > .con-slot-tabs
     position relative
     display: block
     overflow hidden
-  .con-ul-tabs
+  > .con-ul-tabs
     position relative
 
 .vs-tabs--ul
@@ -159,65 +159,65 @@
   propWithDir(padding, left, 9px)
 
 .vs-tabs-position-top
-  .vs-tabs--ul
+  > .con-ul-tabs > .vs-tabs--ul
     display: flex
     flex-wrap: wrap
 .vs-tabs-position-bottom
-  .vs-tabs--ul
-    display: flex
-    border-top 1px solid rgba(0,0,0,.05)
-    border-bottom: 0px !important;
-  .con-ul-tabs
+  > .con-ul-tabs
     order: 2;
-  .line-vs-tabs
-    top: 0px;
+    > .vs-tabs--ul
+      display: flex
+      border-top 1px solid rgba(0,0,0,.05)
+      border-bottom: 0px !important;
+    > .line-vs-tabs
+      top: 0px;
 
 .vs-tabs-position-left
   display flex
-  .line-vs-tabs
-    left auto !important
-    right 0px;
-  .con-ul-tabs
+  > .con-ul-tabs
     float left
     height: 100%;
     display: block
-  .vs-tabs--ul
-    display block
-    width: auto
-    border-bottom: 0px !important;
-    border-right: 1px solid rgba(0,0,0,.05)
-  .activeChild
-    button
-      padding-top 10px !important;
-      padding-bottom 10px !important;
-      padding-left: 12px !important;
-      padding-right: 8px !important;
+    > .line-vs-tabs
+      left auto !important
+      right 0px;
+    > .vs-tabs--ul
+      display block
+      width: auto
+      border-bottom: 0px !important;
+      border-right: 1px solid rgba(0,0,0,.05)
+    .activeChild
+      button
+        padding-top 10px !important;
+        padding-bottom 10px !important;
+        padding-left: 12px !important;
+        padding-right: 8px !important;
 
 
 .vs-tabs-position-right
   display flex
-  .con-slot-tabs
+  > .con-slot-tabs
     width: 100%;
-  .con-ul-tabs
+  > .con-ul-tabs
     float left
     height: 100%;
     display: block
     order: 2;
-  .vs-tabs--ul
-    display block
-    width: auto
-    border-bottom: 0px !important;
-    border-left: 1px solid rgba(0,0,0,.05)
-  .activeChild
-    button
-      padding-top 10px !important;
-      padding-bottom 10px !important;
-      padding-left: 8px !important;
-      padding-right: 12px !important;
+    > .vs-tabs--ul
+      display block
+      width: auto
+      border-bottom: 0px !important;
+      border-left: 1px solid rgba(0,0,0,.05)
+    .activeChild
+      button
+        padding-top 10px !important;
+        padding-bottom 10px !important;
+        padding-left: 8px !important;
+        padding-right: 12px !important;
 
 for colorx, i in $vs-colors
   .vs-tabs-{colorx}
-    .con-ul-tabs
+    > .con-ul-tabs
       button:not(:disabled)
         &:hover
           color: getColor(colorx, 1) !important
