@@ -440,7 +440,7 @@ export default {
     },
     clickBlur(event) {
       if (event.target === this.$refs.inputselect) {
-          return;
+        return
       }
       let closestx = event.target.closest(".vs-select--option");
 
