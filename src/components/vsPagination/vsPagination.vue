@@ -42,7 +42,7 @@
       :vs-lg="description ? 6 : 12"
       class="vs-pagination--mb"
       vs-type="flex"
-      vs-justify="flex-end"
+      vs-justify="description ? 'flex-end' : 'center'"
       vs-align="center"
       vs-sm="12"
       vs-xs="12" >
