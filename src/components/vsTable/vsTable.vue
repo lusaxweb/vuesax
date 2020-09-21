@@ -224,6 +224,7 @@ export default {
       if(this.sst) {
         this.$emit('change-page', this.currentx)
       } else {
+        this.$emit('change-page', this.currentx)
         this.loadData()
       }
     },
