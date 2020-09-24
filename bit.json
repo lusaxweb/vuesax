@@ -1,0 +1,11 @@
+{
+    "env": {
+        "compiler": "bit.envs/bundlers/vue@0.0.3"
+    },
+    "dependencies": {
+      "stylus": "^0.54.5",
+      "stylus-loader": "^3.0.2"
+    },
+    "componentsDefaultDirectory": "components/{namespace}/{name}",
+    "packageManager": "npm"
+}

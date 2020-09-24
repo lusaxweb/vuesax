@@ -1,0 +1,90 @@
+{
+  "name": "vuesax",
+  "version": "3.11.17",
+  "description": "Framework Components for Vue js",
+  "license": "MIT",
+  "author": "ldrovira <luisdanielrovira8@gmail.com>",
+  "homepage": "https://lusaxweb.github.io/vuesax/#/",
+  "repository": "lusaxweb/vuesax",
+  "bugs": {
+    "url": "https://github.com/lusaxweb/vuesax/issues"
+  },
+  "keywords": [
+    "vuesax",
+    "vue",
+    "vuejs",
+    "vue-components",
+    "components",
+    "component",
+    "javascript",
+    "css",
+    "framework",
+    "ui",
+    "frontend",
+    "responsive",
+    "stylus"
+  ],
+  "main": "dist/vuesax.common.js",
+  "unpkg": "dist/vuesax.umd.min.js",
+  "jsdelivr": "dist/vuesax.umd.min.js",
+  "private": false,
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "serve": "vue-cli-service serve --open",
+    "build": "vue build -t lib src/index.js --name vuesax",
+    "lint": "vue-cli-service lint",
+    "v": "npm version patch",
+    "v2": "npm version minor",
+    "p": "npm publish",
+    "deploy": "npm run build & git add . & git commit -m 'deploy' & npm run v & npm run p && git push",
+    "deploy2": "npm run build & git add . & git commit -m 'deploy' & npm run v2 & npm run p && git push",
+    "docs:build": "vuepress build docs",
+    "docs:deploy": "sh scripts/deploy.sh",
+    "deployx": "npm run docs:deploy && npm run deploy",
+    "deployx2": "npm run docs:deploy && npm run deploy2",
+    "new:component": "sh scripts/newComponent.sh",
+    "postinstall": "node postinstall.js"
+  },
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "vue": "^2.6.9"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@vue/cli-plugin-babel": "^4.1.2",
+    "@vue/cli-plugin-eslint": "^3.0.3",
+    "@vue/cli-service": "^3.0.3",
+    "copy-webpack-plugin": "^4.5.2",
+    "eslint": "^5.1.0",
+    "eslint-plugin-vue": "^4.7.1",
+    "file-loader": "^1.1.11",
+    "prefixfree": "^1.0.0",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
+    "viewcode": "0.0.27",
+    "vuepress": "^0.14.10",
+    "webpack": "^4.19.0"
+  },
+  "babel": {
+    "presets": [
+      "@vue/app"
+    ]
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ]
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}

@@ -1,0 +1,95 @@
+@require './config'
+
+.content
+  code
+    color lighten($textColor, 20%)
+    padding 0.25rem 0.5rem
+    margin 0
+    font-size 0.85em
+    // background-color rgba(27,31,35,0.05)
+    background-color $codeBgColor
+    border-radius 4px
+  .header
+    background: rgb(250,250,250) !important
+    border-radius 0px !important
+.content
+  pre, pre[class*="language-"]
+    background-color $codeBgColor !important
+    line-height 1.4
+    border-radius 6px
+    padding .6rem 1rem !important
+    margin 0.85rem 0
+    white-space pre-wrap
+    word-break break-word
+    overflow auto
+    position relative
+    code
+      color rgba(0,0,0,.65) !important
+      padding 0
+      background-color transparent
+      border-radius 0
+      .punctuation
+        color: rgba(0,0,0,.6)
+    &:before
+      position absolute
+      top 0.8em
+      right 1em
+      font-size 0.75rem
+      color rgba(255, 255, 255, 0.4)
+  .highlighted-line
+    background-color rgba(0, 0, 0, 66%)
+    display block
+    margin 0 -1.5rem
+    padding 0 1.5rem
+
+
+pre[class="language-js"], pre[class="language-javascript"]
+  &:before
+    content "js"
+
+pre[class="language-html"], pre[class="language-markup"]
+  &:before
+    content "html"
+
+pre[class="language-markdown"], pre[class="language-md"]
+  &:before
+    content "md"
+
+pre[class="language-vue"]:before
+  content "vue"
+
+pre[class="language-css"]:before
+  content "css"
+
+pre[class="language-sass"]:before
+  content "sass"
+
+pre[class="language-less"]:before
+  content "less"
+
+pre[class="language-scss"]:before
+  content "scss"
+
+pre[class="language-stylus"]:before
+  content "stylus"
+
+pre[class="language-json"]:before
+  content "json"
+
+pre[class="language-ruby"]:before
+  content "rb"
+
+pre[class="language-python"]:before
+  content "py"
+
+pre[class="language-go"]:before
+  content "go"
+
+pre[class="language-java"]:before
+  content "java"
+
+pre[class="language-c"]:before
+  content "c"
+
+pre[class="language-bash"]:before
+  content "sh"

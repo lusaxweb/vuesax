@@ -1,0 +1,198 @@
+
+// transition
+
+.fadeselect-enter-active
+  transition: transform .2s, opacity .2s;
+
+.fadeselect-leave-active
+  transition: transform .150s, opacity .150s;
+
+.fadeselect-enter, .fadeselect-leave-to /* .fade-leave-active below version 2.1.8 */
+  opacity: 0;
+  transform: translate(0,0px) scale(0.950)
+  box-shadow: 0px 10px 0px -5px rgba(0, 0, 0, 0);
+
+.input-select-con
+  position relative
+
+.con-select
+  position: relative;
+  width: 200px
+  clear both
+  &.activeOptions:not(.autocompletex)
+    .input-select
+      opacity: 0;
+      transform: scale(1.1);
+  &.activeOptions
+    .vs-select--icon
+      propWithDir(transform, null, (0 -50%), rotate(-180deg))
+
+.vs-select--icon
+  position: absolute;
+  propWithDir(right, null, 5px)
+  font-size: 1.0625em;
+  top: 50%;
+  pointer-events none;
+  transform: translate(0,-50%);
+  transition: all .2s ease;
+
+.vs-select--input
+  color: inherit
+  width: 100%
+  position: relative;
+  padding: 7px;
+  border-radius: 5px;
+  border: $vs-border
+  transition: all .2s ease;
+  propWithDir(padding, right, 20px)
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  &:hover
+    border: border 1px solid rgba(0,0,0,.4)
+  &-con
+    position: relative;
+  &:disabled
+    opacity $vs-disabled-opacity
+    cursor: default
+    pointer-events: none
+
+.vs-select--label
+  propWithDir(padding, left, 5px)
+  font-size: .85rem
+  color $vs-label-color
+
+.con-text-validation
+  position: relative
+  font-size: .65rem
+  overflow: hidden
+  transition: $vs-transition;
+  .span-text-validation
+    padding: 2px 4px;
+    padding-bottom: 4px
+    display: block
+
+.scrollx
+  ul
+    padding-right: 4px;
+.vs-select--options
+  padding: 4px;
+  padding-top: 6px;
+  propWithDir(padding, left, 5px)
+  padding-bottom: 6px;
+  box-shadow: $vs-box-shadow;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 40000;
+  background: $vs-background;
+  ul
+    max-height: 260px;
+    overflow: auto;
+    propWithDir(padding, left, 0px)
+    padding: 0px
+    li
+      margin: 0px;
+
+.vs-select--item
+  dirValue(text-align, left)
+  color: rgba(0,0,0,.8)
+  padding: 7px;
+  border 0px;
+  position relative
+  border-top: 1px solid $border-color
+  border-bottom: 1px solid $border-color
+  transition: all .3s ease
+  margin: 0px !important
+  cursor pointer
+  &:hover
+    background: rgb(245, 245, 245)
+  &:focus
+    background: rgb(245, 245, 245)
+  &.con-icon.activex
+    padding-left: 25px;
+    .vs-select--item-icon
+      opacity: 1;
+      transform: translate(0,-50%);
+
+.vs-select--item-icon
+  position: absolute;
+  font-size: 1.0em;
+  left: 5px;
+  propWithDir(transform, null, (-100% -50%))
+  opacity: 0;
+  transition: all .2s ease;
+  top: 50%;
+
+
+for colorx, i in $vs-colors
+  .vs-select-{colorx}
+    .vs-select--item
+      &.activex
+        background: getColor(colorx, .1)
+        color: getColor(colorx);
+        font-weight: bold;
+  .input-select-label-{colorx}--active
+    color: getColor(colorx)
+  .input-select-validate-{colorx}
+    .input-select-con
+      .input-select
+        border-color: getColor(colorx)
+      .vs-select--icon
+        color getColor(colorx)
+
+
+// item style //
+
+.vs-select--item
+  background: transparent
+  padding: 5px;
+  width: 100%;
+  margin: 0px
+  text-transform: capitalize;
+  &.disabledx
+    opacity: $vs-disabled-opacity;
+    cursor: default
+    pointer-events: none
+  span.searchx
+    background: rgba(0, 0, 0, 0.07);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    font-weight: bold;
+    color: inherit;
+
+
+// vs-select-group
+
+.vs-select-group
+  h4
+    propWithDir(padding, left, 10px)
+    cursor default
+    padding-bottom: 5px
+  li
+    propWithDir(border, left, 1px solid rgba(0,0,0,.1))
+    propWithDir(margin, left, 15px, !important)
+    list-style none
+
+
+.vs-select--icon-clear
+  position absolute
+  propWithDir(right, null, 5px)
+  z-index 200
+  top 50%
+  cursor pointer
+  transform: translate(0,-50%) rotate(45deg)
+  border 0px
+  width: 15px
+  height 15px
+  border-radius: 0px 5px 5px 0px
+  background: inherit
+  color: inherit
+  opacity 0
+  visibility: hidden
+  transition: all .2s ease
+  &.activeBtnClear
+    opacity 1 !important
+    visibility visible !important
+    transform: translate(0,-50%) rotate(0deg) !important
+  i
+    font-size: .9rem
+

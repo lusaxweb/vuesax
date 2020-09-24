@@ -1,0 +1,134 @@
+
+// get color ver css
+getColor(colorx, alpha = 1)
+    unquote("rgba(var(--vs-"+colorx+"), "+alpha+")")
+
+
+getVar(var)
+    unquote("var(--vs-"+var+")")
+
+/**
+* dirValue
+* this mixin is for the properties that take "right" or "left" as value
+* it will automatically create two classes:
+* vuesax-app-is-rtl forwared with class in RTL case
+* vuesax-app-is-ltr forwared with class in LTR case
+* the value passed will be used in LTR case and the opposite will be assigned automatically
+* for the RTL 
+* example: 
+  .someClass
+    dirValue(float, left)
+
+    [Compiled]
+
+  .vuesax-app-is-rtl
+    .someClass
+      float: right
+
+  .vuesax-app-is-ltr
+    .someClass
+      float: left
+* 
+*/
+dirValue(prop, value)
+  rtDir=right
+  if value == right 
+    rtDir=left
+  .vuesax-app-is-rtl &
+    {prop}: rtDir
+  .vuesax-app-is-ltr &
+    {prop}: value
+
+
+/**
+* propWithDir
+* this mixin is for the properties that have direction like "margin-left" or "padding-left"
+* as explained above it will automatically create two classes
+* @params:
+*   - prop ==> is the property name [eg: 'margin']
+*   - dir  ==> is the direction of the property [eg: 'left' or 'right']
+*   - value ==> is the value (value will be assigned to LTR class) [eg: '10px']
+*   - otherValues ==> any others value you want to pass [eg: '!important',
+         if the propery is transform you may pass some thing like 'rotate(20deg) skew(10deg)'
+      ]
+* if you want to use the mixin with transform, the mixin work with translate by default
+* when using transform you should pass:
+* transform as your first parameter
+* null as your second parameter (since transform dose not take direction in its definiton)
+* the value you want to pass in the third parameter, but you must pass it as array [eg: (10px 10px)]
+* the mixin will convert the first value (x-asis) to negative [eg: (10px 10px) ==> (-10px 10px)]
+* example using the mixin with transform:
+  .someClass
+    propWithDir(transform, null, (10px))
+
+    [Compiled]
+
+  .vuesax-app-is-rtl
+    .someClass
+      transform: translate(-10px, 10px)
+
+  .vuesax-app-is-ltr
+    .someClass
+      transform: translate(10px, 10px)
+
+* in case of using the mixin with justify-content
+* a class with the opposite value will be assigned to RTL
+* in case of using the mixin with right or left property
+* a class with the oppoiste property will be assigned to RTL
+* eg:
+  .someClass
+    propWithValue(right, null, 0px)
+
+    [Compiled]
+  
+  .vuesax-app-is-rtl
+    .someClass
+      left: 0px
+
+  .vuesax-app-is-ltr
+    .someClass
+      right: 0px
+
+*/
+propWithDir(prop, dir = null, value = null, otherValues = null)
+  if prop == transform
+    rtlTransDir = (0px 0px)
+    rtlTransDir[1] = value[1] || rtlTransDir[1]
+    rtlTransDir[0] = value[0] * -1
+    .vuesax-app-is-rtl &
+      transform: translate(rtlTransDir[0], rtlTransDir[1])  otherValues
+    .vuesax-app-is-ltr &
+      transform: translate(value[0], value[1] || rtlTransDir[1])  otherValues
+  // justify-content case
+  else if prop == justify-content
+    rtlVal = ''
+    if value == flex-start
+      rtlVal = flex-end
+    else 
+      rtlVal = flex-start
+    .vuesax-app-is-rtl & 
+      justify-content: rtlVal otherValues
+    .vuesax-app-is-ltr &
+      justify-content: value otherValues
+
+  // right or left properties case
+  else if prop == right || prop == left 
+    rtlProp = '' 
+    if prop == right 
+      rtlProp = left 
+    else 
+      rtlProp = right 
+    .vuesax-app-is-rtl & 
+      {rtlProp}: value otherValues
+    .vuesax-app-is-ltr &
+      {prop}: value otherValues
+
+  // default case
+  else 
+    rtlDir=right 
+    if dir == right
+      rtlDir=left
+    .vuesax-app-is-rtl &
+      {prop}-{rtlDir}: value otherValues
+    .vuesax-app-is-ltr &
+      {prop}-{dir}: value otherValues

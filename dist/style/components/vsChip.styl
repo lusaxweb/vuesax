@@ -1,0 +1,117 @@
+.con-vs-chip
+  background: rgb(240,240,240)
+  border-radius: 20px
+  dirValue(float, left);
+  display: flex
+  align-items: center
+  font-size .7rem
+  justify-content: center
+  propWithDir(margin, right, 2px)
+  margin-bottom: 3px
+  min-height 28px
+  propWithDir(padding, right, 10px)
+  color: rgba(0,0,0,.7)
+  position: relative
+  &.closable
+    propWithDir(padding, right, 0px)
+  &.con-color
+    .con-vs-avatar
+      background: rgba(255,255,255,.2)
+  .con-vs-avatar
+    width: 24px
+    height 24px
+    position relative
+    display: block
+    margin: 2px 0px
+    propWithDir(transform, null, (-8px))
+    display: flex
+    align-items: center
+    justify-content: center
+    background: rgba(0,0,0,.15)
+    .material-icons
+      margin-top: 0px
+      font-size: .8rem
+  &.bg-chip-transparent
+    font-weight: 500
+
+.vs-chip--close
+  width: 20px
+  height 20px
+  display: flex
+  align-items: center
+  justify-content: center
+  border-radius: 50%
+  border: 0px
+  margin: 0px 4px
+  cursor pointer
+  background: rgba(0,0,0,.15)
+  color: rgb(255,255,255)
+  transition: all .3s ease
+  &:hover
+    background: $vs-colors[danger]
+  i
+    font-size: .9rem
+
+.vs-chip--text
+  display: flex
+  align-items: center
+  justify-content: center
+  propWithDir(margin, left, 10px)
+
+for colorx, i in $vs-colors
+  .vs-chip-{colorx}:not(.bg-chip-transparent)
+    background: getColor(colorx, 1)
+  .vs-chip-{colorx}.bg-chip-transparent
+    background: getColor(colorx, .15)
+    color: getColor(colorx, 1)
+
+
+// con - chips
+
+.con-chips
+  width: 100%;
+  /* background: rgb(136, 231, 39); */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+  padding: 5px;
+
+.con-chips .con-vs-chip
+  margin-top: 0px;
+  margin-bottom: 0px;
+
+.con-chips--input
+  display: inline-block;
+  flex:1;
+  color: inherit
+  /* height: 30px; */
+  padding: 9px;
+  box-sizing: border-box;
+  min-width: 80px;
+  border: 0px;
+  propWithDir(margin, left, 2px)
+
+.con-chips--remove-all
+  position: absolute;
+  propWithDir(right, null, 0px)
+  top: 50%;
+  transform: translate(0,-50%);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  cursor: pointer;
+  transition: all .3s ease;
+
+.con-chips--remove-all:hover
+  color: getColor('danger', 1)
+
+.no-items
+  .con-chips--input
+    propWithDir(padding, left, 10px, !important)
