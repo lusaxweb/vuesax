@@ -8,6 +8,9 @@ node_modules
 *.map
 dist/demo.html
 docs/.vuepress/dist/
+dist/vuesax.common.js
+dist/vuesax.umd.js
+dist/vuesax.umd.min.js
 
 # Log files
 npm-debug.log*
