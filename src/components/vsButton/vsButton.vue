@@ -268,37 +268,39 @@ export default {
           this.isActive = true
         }
         let btn = this.$refs.btn
-        let xEvent = event.offsetX
-        let yEvent = event.offsetY
-        let radio = btn.clientWidth * 3
-        this.time  = btn.clientWidth / (btn.clientWidth + (this.is('border') || this.is('flat') ? 70 : 20))
-        if(this.is('filled')){
-          this.timeOpacity = this.time
-        }
+        if (btn) {
+          let xEvent = event.offsetX
+          let yEvent = event.offsetY
+          let radio = btn.clientWidth * 3
+          this.time  = btn.clientWidth / (btn.clientWidth + (this.is('border') || this.is('flat') ? 70 : 20))
+          if(this.is('filled')){
+            this.timeOpacity = this.time
+          }
 
-        if(event.srcElement ? event.srcElement != btn : false) {
-          xEvent += event.target.offsetLeft
-          yEvent += event.target.offsetTop
-        }
-        this.leftBackgorund = xEvent
-        this.topBackgorund = yEvent
-        this.radio = radio
-        if(this.is('filled')){
-          this.opacity = 0
-        } else {
-          this.opacity = 1
-        }
-
-        if(this.is('filled')){
-          setTimeout( () => {
-            this.time = this.timeOpacity = this.radio = 0
+          if(event.srcElement ? event.srcElement != btn : false) {
+            xEvent += event.target.offsetLeft
+            yEvent += event.target.offsetTop
+          }
+          this.leftBackgorund = xEvent
+          this.topBackgorund = yEvent
+          this.radio = radio
+          if(this.is('filled')){
+            this.opacity = 0
+          } else {
             this.opacity = 1
-            this.isActive = false
-          }, this.time * 1100)
-        } else {
-          setTimeout( () => {
-            this.timeOpacity = .15
-          }, this.time * 1100)
+          }
+
+          if(this.is('filled')){
+            setTimeout( () => {
+              this.time = this.timeOpacity = this.radio = 0
+              this.opacity = 1
+              this.isActive = false
+            }, this.time * 1100)
+          } else {
+            setTimeout( () => {
+              this.timeOpacity = .15
+            }, this.time * 1100)
+          }
         }
       });
       
