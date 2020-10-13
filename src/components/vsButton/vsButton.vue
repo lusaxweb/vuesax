@@ -238,6 +238,10 @@ export default {
     blurButton(event){
       this.$emit('blur',event)
       this.$nextTick(() => {
+        if (this._isBeingDestroyed || this._isDestroyed){
+          return
+        }
+
         if(this.type == 'border' || this.type == 'flat'){
           this.opacity = 0
           setTimeout( () => {
@@ -246,11 +250,14 @@ export default {
           this.isActive = false
         }
       });
-      
+
     },
     clickButton(event){
       this.$emit('click', event)
       this.$nextTick(() => {
+        if (this._isBeingDestroyed || this._isDestroyed){
+          return
+        }
         if(this.isActive){
           return
         }
@@ -301,7 +308,7 @@ export default {
           }, this.time * 1100)
         }
       });
-      
+
 
     },
     isColor(){
