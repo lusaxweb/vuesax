@@ -238,7 +238,7 @@ export default {
     blurButton(event){
       this.$emit('blur',event)
       this.$nextTick(() => {
-        if (this._isBeingDestroyed || this._isDestroyed ) {
+        if (this._isBeingDestroyed || this._isDestroyed){
           return
         }
 
@@ -255,7 +255,7 @@ export default {
     clickButton(event){
       this.$emit('click', event)
       this.$nextTick(() => {
-        if (this._isBeingDestroyed || this._isDestroyed ) {
+        if (this._isBeingDestroyed || this._isDestroyed){
           return
         }
         if(this.isActive){
