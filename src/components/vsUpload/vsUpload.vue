@@ -35,6 +35,7 @@
             height: `${img.percent}%`
           }"
           class="btn-upload-file"
+          type="button"
           @click="upload(index)">
           <i
             translate="no"
