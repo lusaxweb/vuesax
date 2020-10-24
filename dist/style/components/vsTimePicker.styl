@@ -1,0 +1,37 @@
+.vs-timepicker
+  display: inline-block
+  position relative
+  .con-vs-time
+    display: flex
+    align-items: center
+    justify-content: center
+    .time
+      padding: 5px 8px
+      margin: 0px 2px
+      border-radius: 4px
+      box-shadow: 0px 4px 10px 0px rgba(0,0,0,.05)
+      cursor pointer
+      position relative
+
+.con-ul-time
+  overflow: hidden
+  max-height: 180px
+  position: absolute
+  z-index 20000
+.ul-time
+  position relative
+  background: rgb(255,255,255)
+  margin: 0px
+  padding: 0px
+  height auto
+  max-height: 180px
+  overflow: auto
+  border-radius: 4px
+  box-shadow: 0px 4px 10px 0px rgba(0,0,0,.05)
+  li
+    padding: 5px 8px
+    list-style none
+    text-align: center
+    cursor pointer
+    &.active-time
+      background: rgb(0,0,0)

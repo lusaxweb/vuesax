@@ -1,0 +1,139 @@
+.vs-input-number
+  position relative
+  display block
+  display flex
+  align-items: center
+  justify-content: center
+  margin: 5px 10px;
+  background: rgb(245,245,245)
+  padding: 2px;
+  border-radius: 5px;
+  &.isChangeValue
+    .vs-input-number--input
+      transform: translate(0,-2px)
+      opacity .5
+  .vs-input-number--input
+    transition: all .2s ease;
+    width: 40px;
+    min-width 40px;
+    border 0px
+    text-align: center
+    background: transparent
+    padding: 4px;
+    -moz-appearance: textfield;
+
+  .vs-input-number--input[type=number]::-webkit-inner-spin-button,
+  .vs-input-number--input[type=number]::-webkit-outer-spin-button
+    -webkit-appearance: none;
+    margin: 0;
+  button
+    min-width: 22px
+    min-height: 22px
+    padding: 0px
+    margin: 0px
+    display: block
+    position relative
+    border: 0px;
+    border-radius: 5px;
+    cursor pointer
+    display: flex
+    align-items: center
+    justify-content: center
+    transition: all .3s ease;
+    color: rgba(255,255,255,1)
+    backface-visibility hidden
+    &:disabled
+      opacity: $vs-disabled-opacity;
+      cursor: default;
+      pointer-events: none;
+    i
+      font-size: .9rem
+
+
+    &.vs-input-number--button-plus
+      propWithDir(transform, null, (10px))
+      &:active
+        propWithDir(transform, null, (10px), scale(.9))
+      &:disabled
+        opacity: $vs-disabled-opacity;
+        cursor: default;
+        pointer-events: none;
+        background-color: rgba(0,0,0,$vs-disabled-opacity);
+    &.vs-input-number--button-plus.limit
+        opacity: $vs-disabled-opacity;
+        cursor: default;
+        pointer-events: none;
+        background-color: rgba(0,0,0,$vs-disabled-opacity);
+    &.vs-input-number--button-less
+      propWithDir(transform, null, (-10px))
+      &:active
+        propWithDir(transform, null, (-10px), scale(.9))
+      &:disabled
+        opacity: $vs-disabled-opacity;
+        cursor: default;
+        pointer-events: none;
+        background-color: rgba(0,0,0,$vs-disabled-opacity);
+    &.vs-input-number--button-less.limit
+        opacity: $vs-disabled-opacity;
+        cursor: default;
+        pointer-events: none;
+        background-color: rgba(0,0,0,$vs-disabled-opacity);
+
+  &.vs-input-number-size-medium
+    input
+      padding: 3px;
+      font-size: .8rem
+    button
+      min-width: 19px
+      min-height: 19px
+      i
+        font-size: .8rem
+      &.vs-input-number--button-plus
+        propWithDir(transform, null, (8px))
+        &:active
+          propWithDir(transform, null, (8px), scale(.9))
+      &.vs-input-number--button-less
+        propWithDir(transform, null, (-8px))
+        &:active
+          propWithDir(transform, null, (-8px), scale(.9))
+  &.vs-input-number-size-small
+    .vs-input-number--input
+      padding: 2px;
+      font-size: .7rem
+    button
+      min-width: 16px
+      min-height: 16px
+      i
+        font-size: .7rem
+      &.vs-input-number--button-plus
+        propWithDir(transform, null, (7px))
+        &:active
+          propWithDir(transform, null, (7px), scale(.9))
+      &.vs-input-number--button-less
+        propWithDir(transform, null, (-7px))
+        &:active
+          propWithDir(transform, null, (-7px), scale(.9))
+  &.vs-input-number-size-mini
+    .vs-input-number--input
+      padding: 1px;
+      font-size: .6rem
+    button
+      min-width: 14px
+      min-height: 14px
+      i
+        font-size: .6rem
+      &.vs-input-number--button-plus
+        propWithDir(transform, null, (6px))
+        &:active
+          propWithDir(transform, null, (6px), scale(.9))
+      &.vs-input-number--button-less
+        propWithDir(transform, null, (-6px))
+        &:active
+          propWithDir(transform, null, (-6px), scale(.9))
+for colorx, i in $vs-colors
+  .vs-input-number-{colorx}
+    button
+      background: getColor(colorx, 1);
+
+      &:hover
+        box-shadow: 0px 3px 12px 0px getColor(colorx, .4);

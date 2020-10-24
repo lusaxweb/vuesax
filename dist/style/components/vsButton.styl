@@ -1,0 +1,154 @@
+.vs-button
+  transition: all .2s ease;
+  padding: 10px;
+  border: 0px;
+  border-radius: $vs-radio
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  color: rgb(255, 255, 255);
+  box-sizing: border-box;
+  background: transparent
+  &.vs-radius
+    border-radius: 50%
+  &.large
+    padding 12px
+    font-size: 1em;
+  &.small
+    padding 7px
+    font-size: .7em;
+  &:disabled
+    opacity $vs-disabled-opacity
+    cursor: default
+    pointer-events: none
+.vs-button--icon
+  z-index: 100;
+  display: block;
+  position: relative;
+  font-size: 1.125em;
+  transition: all .2s ease;
+.vs-button--background
+  border-radius: 50%;
+  width: 10px;
+  position: absolute;
+  height: 10px;
+  z-index: 0;
+  transform: translate(-50%,-50%);
+  -moz-transform: translate(-50%,-50%);
+  box-shadow:inset 0px 0px 60px 0px rgba(255, 255, 255,.5);
+.vs-button--text
+  position: relative;
+  color: inherit
+  display: inline-block;
+  transition: $vs-transition;
+&.vs-button-border
+  padding: 9px;
+&.vs-button-border,&.vs-button-flat
+  &.isActive
+    .vs-button--text,.vs-button--icon
+      color: rgb(255, 255, 255) !important
+
+.vs-button-filled
+  &:hover
+    box-shadow: 0px 9px 28px -9px
+
+.vs-button-line
+  padding: 9px 10px;
+  border-radius: 0px
+  overflow: visible;
+  border-style: solid;
+  .vs-button-linex
+    transition: all .2s ease;
+    width: 0%;
+    position: absolute;
+    left: 0px;
+    bottom: -2px;
+    height: 2px;
+  &:hover
+    .vs-button--text,.vs-button--icon
+      transform: translate(0,2px);
+    .vs-button-linex
+      width: 100% !important
+
+.vs-button-gradient
+  &:hover
+    transform: translate(0,-2px);
+    box-shadow: 0px 8px 25px -8px rgb(170, 170, 170)
+  &:active
+    transform: translate(0,0px);
+    box-shadow: 0px 8px 0px -8px rgb(170, 170, 170)
+.vs-button-relief
+  padding: 10px;
+  &:active
+    transform: translate(0,3px);
+    box-shadow: none !important;
+
+.includeIcon
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  dirValue(float, left)
+
+.includeIconOnly
+  width: 38px !important
+  height 38px !important
+  &.large
+    width: 44px !important
+    height 44px !important
+    font-size: 0.7em;
+  &.small
+    width: 28px !important
+    height 28px !important
+    .vs-icon
+      font-size: .85rem
+
+for colorx, i in $vs-colors
+
+  .vs-button-{colorx}
+    &.vs-button-filled //type filled
+      // background: $vs-colors[colorx]
+      background: getColor(colorx) !important
+      &:hover
+        box-shadow: 0px 8px 25px -8px getColor(colorx)
+    &.vs-button-border,&.vs-button-flat //type border
+     border: 1px solid getColor(colorx)
+     background: transparent !important
+     color: getColor(colorx)
+     .vs-button--text
+       &.isActive
+         color: rgb(255, 255, 255) !important
+     &:hover
+       background: getColor(colorx, .08) !important
+     .vs-button-backgroundx
+       background: getColor(colorx);
+       box-shadow:inset 0px 0px 60px 0px getColor(colorx);
+    &.vs-button-flat //type flat
+      border: none !important
+    &.vs-button-line // type line
+      color: getColor(colorx)
+      border-color: getColor(colorx, .2)
+      .vs-button-linex
+        background: getColor(colorx)
+    &.vs-button-gradient // type Gradient
+      if colorx == 'success' {
+        background: rgb(0,100,250)
+        background-image: linear-gradient(30deg, getColor(colorx, 1) 0%, getColor(colorx, .6) 100%) !important
+      }
+      else if colorx == 'warning' {
+        background: rgb(250,250,250)
+        background-image: linear-gradient(30deg, getColor(colorx, 1) 0%, getColor(colorx, .5) 100%) !important
+      }
+      else {
+        // background: linear-gradient(30deg, getColor(colorx) 0%, spin($vs-colors[colorx],30deg) 100%) !important
+      background: rgb(100,0,100)
+      background-image: linear-gradient(30deg, getColor(colorx, 1) 0%, getColor(colorx, .5) 100%) !important
+      }
+      text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
+
+    &.vs-button-relief
+      background: getColor(colorx, 1)
+      if colorx == 'dark' {
+        box-shadow: 0 -3px 0 0 rgba(255,255,255,.1) inset
+      } else {
+        box-shadow: 0 -3px 0 0 rgba(0,0,0,.2) inset
+      }

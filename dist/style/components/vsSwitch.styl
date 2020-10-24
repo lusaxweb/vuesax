@@ -1,0 +1,86 @@
+.vs-switch
+  border-radius: 12px
+  border: 0px
+  min-width: 42px
+  height: 22px
+  position: relative
+  cursor: pointer
+  transition: all .2s ease
+  display: flex
+  align-items: center
+  justify-content: center
+  &:disabled
+    opacity $vs-disabled-opacity
+    cursor: default
+    pointer-events: none
+  &:active:not(.vs-switch--circle)
+    .vs-switch--circle
+      width: 24px
+      border-radius: 15px
+  &.vs-switch-active
+    &:active
+      .vs-switch--circle
+        width: 24px
+        margin-left: calc(100% - 29px)
+    .vs-switch--circle
+      margin-left: calc(100% - 22px)
+
+.vs-switch--circle
+  display: block
+  width: 18px
+  height: 18px
+  position: absolute
+  background: rgb(255, 255, 255)
+  left: 2px
+  top: 2px
+  border-radius: 50%
+  transition: all .25s ease
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1)
+
+.vs-switch--text
+  position: absolute
+  display: block
+  font-size: 0.625em
+  opacity: 0
+  transition: all .2s ease
+  display: flex
+  align-items: center
+  justify-content: center
+  white-space: nowrap
+  overflow: hidden
+  &.text-on
+    padding-left: 6px
+    left: 0px
+    color: rgb(255, 255, 255)
+    transform: translate(10px)
+  &.text-off
+    right: 0px
+    padding-right: 5px
+    color: rgb(160, 160, 160)
+    transform: translate(-10px)
+  &.active-text
+    opacity: 1
+    transform: translate(0px)
+
+.vs-switch--icon
+  font-size: 0.8rem
+  display: flex
+  align-items: center
+  justify-content: center
+  overflow: hidden
+  max-width: 16px
+  padding: 0px 2px
+
+.vs-switch--input
+  position: absolute
+  width: 100%
+  height: 100%
+  z-index: 200
+  opacity: 0
+  cursor: pointer
+
+for colorx, i in $vs-colors
+  .vs-switch-{colorx}
+    background: rgb(226, 226, 226)
+    &.vs-switch-active
+      background: getColor(colorx, 1)
