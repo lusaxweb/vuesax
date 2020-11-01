@@ -1,13 +1,13 @@
 {
-  "name": "@mg98/vuesax",
+  "name": "@befoo/vuesax",
   "version": "3.11.40",
   "description": "Framework Components for Vue js",
   "license": "MIT",
   "author": "ldrovira <luisdanielrovira8@gmail.com>",
   "homepage": "https://lusaxweb.github.io/vuesax/#/",
-  "repository": "mg98/vuesax",
-  "bugs": {
-    "url": "https://github.com/lusaxweb/vuesax/issues"
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.org/be-foo/vuesax"
   },
   "keywords": [
     "vuesax",
