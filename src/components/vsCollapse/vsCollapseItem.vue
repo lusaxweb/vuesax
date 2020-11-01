@@ -8,14 +8,13 @@
       class="vs-collapse-item--header"
       @click="toggleContent">
       <slot name="header"></slot>
-
       <span
         v-if="!notArrow"
         class="icon-header vs-collapse-item--icon-header">
-        <vs-icon 
-          :icon-pack="iconPack" 
-          :icon="iconArrow" >
-        </vs-icon>
+        <vs-icon
+          :icon-pack="iconPack"
+          :icon="iconArrow"
+        />
       </span>
     </header>
     <div
@@ -23,7 +22,7 @@
       :style="styleContent"
       class="vs-collapse-item--content">
       <div class="con-content--item">
-        <slot></slot>
+        <slot/>
       </div>
     </div>
   </div>
@@ -98,6 +97,9 @@ export default {
       this.maxHeight = `${maxHeightx}px`
     }
   },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.changeHeight);
+  },
   methods:{
     changeHeight () {
       const maxHeightx = this.$refs.content.scrollHeight
@@ -106,9 +108,7 @@ export default {
       }
     },
     toggleContent() {
-      if(this.openHover || this.disabled) {
-        return
-      }
+      if(this.openHover || this.disabled) return
 
       if(this.accordion) {
         this.$parent.closeAllItems(this.$el)
@@ -134,9 +134,7 @@ export default {
       }
     },
     mouseover() {
-      if(this.disabled) {
-        return
-      }
+      if(this.disabled) return
       let maxHeightx = this.$refs.content.scrollHeight
       if(this.openHover) {
         this.maxHeight = `${maxHeightx}px`

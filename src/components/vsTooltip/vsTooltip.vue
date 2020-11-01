@@ -11,8 +11,10 @@
         :class="[`vs-tooltip-${positionx || position}`,`vs-tooltip-${color}`, {'after-none': noneAfter}]"
         :style="style"
         class="vs-tooltip">
-        <h4 v-if="title">{{ title }}</h4>
-        {{ text }}
+        <slot name="content">
+          <h4 v-if="title">{{ title }}</h4>
+          {{ text }}
+        </slot>
       </div>
     </transition>
     <slot></slot>
@@ -47,15 +49,18 @@ export default {
     active: {
       default: true,
       type: [Boolean]
-    }
+    },
+    value: Boolean,
   },
-  data:()=>({
-    cords:{},
-    activeTooltip:false,
-    widthx: 'auto',
-    positionx: null,
-    noneAfter: false
-  }),
+  data() {
+    return {
+      cords:{},
+      activeTooltip: this.value,
+      widthx: 'auto',
+      positionx: null,
+      noneAfter: false
+    };
+  },
   computed:{
     style(){
       return {
@@ -67,13 +72,27 @@ export default {
       }
     }
   },
+  watch: {
+    value(val) {
+      this.activeTooltip = val
+    },
+    activeTooltip(val) {
+      if (this.value !== val) {
+        this.$emit('input', val)
+      }
+    }
+  },
   mounted(){
     // utils.insertBody(this.$refs.vstooltip)
   },
   updated() {
-    let nodes = this.$refs.convstooltip.childNodes.length
-    if (nodes === 1) {
+    if (!this.$slots.default) {
       this.activeTooltip = false
+    }
+  },
+  beforeDestroy() {
+    if(this.$refs.vstooltip && this.activeTooltip) {
+      utils.removeBody(this.$refs.vstooltip)
     }
   },
   methods:{

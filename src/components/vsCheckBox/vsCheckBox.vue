@@ -18,7 +18,8 @@
         <vs-icon
           :icon="icon"
           :icon-pack="iconPack"
-          class="vs-checkbox--icon " />
+          class="vs-checkbox--icon"
+        />
       </span>
     </span>
     <span class="con-slot-label">
@@ -56,17 +57,17 @@ export default {
     }
   },
   computed:{
-    style_check(){
+    style_check() {
       return {
-        background: this.isChecked?_color.getColor(this.color,1):null,
+        background: this.isChecked ? _color.getColor(this.color, 1) : null,
       }
     },
-    style(){
+    style() {
       return {
-        border: `2px solid ${this.isChecked?_color.getColor(this.color,1):'rgb(180, 180, 180)'}`,
+        border: `2px solid ${this.isChecked ? _color.getColor(this.color, 1) : 'rgb(180, 180, 180)'}`,
       }
     },
-    listeners(){
+    listeners() {
       return {
         // ...this.$listeners,
         change: (evt) => {
@@ -77,30 +78,30 @@ export default {
         // }
       }
     },
-    isChecked(){
+    isChecked() {
       return this.isArrayx() ? this.isArrayIncludes() : this.value
     },
   },
   methods:{
-    giveColor(color){
+    giveColor(color) {
       return _color.rColor(color)
     },
-    toggleValue(evt){
-      if(this.isArrayx()){
+    toggleValue(evt) {
+      if(this.isArrayx()) {
         this.setArray()
-      } else if (typeof(this.vsValue) == 'string' ) {
+      } else if (typeof(this.vsValue) == 'string') {
         this.setValueString()
       }
       else {
         this.$emit('input', !this.value)
-        this.$emit('change',evt)
+        this.$emit('change', evt)
       }
     },
-    setArray(){
+    setArray() {
       // Copy Array
       const value = this.value.slice(0)
-      if(this.isArrayIncludes()){
-        value.splice(value.indexOf(this.vsValue),1)
+      if(this.isArrayIncludes()) {
+        value.splice(value.indexOf(this.vsValue), 1)
         this.$emit('input', value)
         this.$emit('change', value)
       } else {
@@ -109,8 +110,8 @@ export default {
         this.$emit('change', value)
       }
     },
-    setValueString(){
-      if(this.value == this.vsValue){
+    setValueString() {
+      if(this.value == this.vsValue) {
         this.$emit('input', null)
         this.$emit('change', null)
       } else {
@@ -118,12 +119,12 @@ export default {
         this.$emit('change', this.vsValue)
       }
     },
-    isArrayIncludes(){
+    isArrayIncludes() {
       let modelx = this.value
       let value = this.vsValue
       return modelx.includes(value)
     },
-    isArrayx(){
+    isArrayx() {
       return Array.isArray(this.value)
     }
   }

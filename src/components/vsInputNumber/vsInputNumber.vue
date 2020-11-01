@@ -58,7 +58,6 @@
 
 <script>
 import _color from '../../utils/color.js'
-import { type } from 'os';
 export default {
   name:'VsInputNumber',
   directives: {

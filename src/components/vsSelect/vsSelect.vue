@@ -11,8 +11,7 @@
     <label
       v-if="label"
       ref="inputSelectLabel"
-      class="vs-select--label"
-      for="">{{ label }}</label>
+      class="vs-select--label">{{ label }}</label>
     <div class="input-select-con">
       <!-- v-model="valueFilter" -->
       <input
@@ -21,7 +20,6 @@
         :readonly="!autocomplete"
         class="input-select vs-select--input"
         type="text"
-        @click.stop
         @keydown.esc.stop.prevent="closeOptions"
         v-on="listeners">
 
@@ -39,7 +37,6 @@
         :icon-pack="iconPack"
         :icon="icon"
         class="icon-select vs-select--icon"
-        @click.once
       ></vs-icon>
 
       <transition name="fadeselect">
@@ -117,7 +114,7 @@ export default {
   props: {
     value: {},
     noData: {
-      default: "data no available",
+      default: "No data available",
       type: String
     },
     maxSelected: {
@@ -219,8 +216,12 @@ export default {
         },
         focus: event => {
           this.$emit("focus", event);
-          //document.removeEventListener('click',this.clickBlur)
-          this.focus(event);
+          if (event.keyCode ? event.keyCode : event.which) {
+            this.focus();
+          }
+        },
+        mouseup: () => {
+          this.focus();
         },
         input: event => {
           if (this.autocomplete) {
@@ -281,6 +282,9 @@ export default {
   beforeDestroy() {
     let [parent] = document.getElementsByTagName("body");
 
+    if (this.active) {
+      this.closeOptions();
+    }
     if (
       parent &&
       this.$refs.vsSelectOptions &&
@@ -406,11 +410,9 @@ export default {
     },
     focus() {
       this.active = true;
+      document.addEventListener('click', this.clickBlur);
       this.setLabelClass(this.$refs.inputSelectLabel, true);
       let inputx = this.$refs.inputselect;
-      setTimeout(() => {
-        document.addEventListener("click", this.clickBlur);
-      }, 100);
       if (this.autocomplete && this.multiple) {
         setTimeout(() => {
           if (inputx.value) {
@@ -437,7 +439,10 @@ export default {
       });
     },
     clickBlur(event) {
-      let closestx = event.target.closest(".vs-select--options");
+      if (event.target === this.$refs.inputselect) {
+        return
+      }
+      let closestx = event.target.closest(".vs-select--option");
 
       if (!closestx) {
         this.closeOptions();
@@ -448,7 +453,6 @@ export default {
       }
     },
     closeOptions() {
-      // this.$refs.inputselect.blur()
       this.active = false;
       this.setLabelClass(this.$refs.inputSelectLabel, false);
       document.removeEventListener("click", this.clickBlur);

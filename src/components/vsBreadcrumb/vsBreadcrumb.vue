@@ -19,24 +19,24 @@
           :href="item.url ? item.url : '#'"
           :title="item.title"
           class="vs-breadcrumb--link"
-        >
-          {{ item.title }}
-        </a>
+          v-text="item.title"
+        ></a>
         <template v-else>
           <span
             :class="textClass"
             :style="textStyle"
             class="vs-breadcrumb--text"
-          >
-            {{ item.title }}
-          </span>
+            v-text="item.title"
+          ></span>
         </template>
         <span
           v-if="!item.active"
           :class="separator.length > 1 ? 'material-icons' : null"
           class="separator notranslate vs-breadcrum--separator"
           translate="no"
-          aria-hidden="true">{{ separator }}</span>
+          aria-hidden="true"
+          v-text="separator"
+        ></span>
       </li>
     </ol>
   </nav>
@@ -96,6 +96,6 @@ export default {
         return item
       })
     }
-  },
+  }
 }
 </script>

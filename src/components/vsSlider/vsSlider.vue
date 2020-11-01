@@ -13,6 +13,7 @@
       ref="slider"
       :disabled="disabled"
       class="vs-slider"
+      type="button"
       @click="clickSlider($event),actived = true">
       <span
         :style="styleLineOne"
@@ -45,6 +46,7 @@
       }"
       :style="styleCircle"
       class="vs-circle-slider vs-circles-slider vs-slider--circles vs-slider--circle"
+      type="button"
       @touchstart="activeFocus($event),actived = true"
       @mousedown="activeFocus($event),actived = true">
       <span
@@ -73,6 +75,7 @@
       }"
       :style="styleCircleTwo"
       class="vs-circle-slider-two vs-circles-slider vs-slider--circles vs-slider--circle-two"
+      type="button"
       @touchstart="activeFocus($event),two = true,actived = true"
       @mousedown="activeFocus($event),two = true,actived = true">
 

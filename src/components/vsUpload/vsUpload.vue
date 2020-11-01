@@ -78,7 +78,6 @@
         class="con-input-upload">
         <input
           ref="fileInput"
-
           v-bind="$attrs"
           :disabled="$attrs.disabled || limit?(srcs.length - itemRemove.length) >= Number(limit):false"
           type="file"
@@ -182,7 +181,7 @@
       postFiles(){
         let postFiles = Array.prototype.slice.call(this.filesx);
         postFiles = postFiles.filter((item)=>{
-          return !item.hasOwnProperty('remove')
+          return !item.hasOwnProperty('remove') && !item.hasOwnProperty('success');
         })
         return postFiles.length
       },
@@ -314,7 +313,7 @@
           postFiles = [postFiles[index]]
         } else if (index == 'all'){
           postFiles = postFiles.filter((item)=>{
-            return !item.hasOwnProperty('remove')
+            return !item.hasOwnProperty('remove') && !item.hasOwnProperty('success');
           })
         }
 
@@ -359,6 +358,9 @@
               self.srcs[index].error = true
             }
           } else {
+            self.filesx.forEach(function (loaded) {
+              loaded.success = true;
+            });
             self.$emit('on-success',e)
           }
         }

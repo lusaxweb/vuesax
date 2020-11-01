@@ -219,7 +219,7 @@ export default {
 You can change the parent of the sidebar with the property `parent` that as a value requires an element of the DOM (**#idx**, **.classx**) or a reference of Vuejs as `$refs.myrefContent`
 
 :::tip
-  By default the father of the sidebar is the body
+  By default the parent of the sidebar is the body
 :::
 
 <vuecode md>

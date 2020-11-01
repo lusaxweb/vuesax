@@ -17,7 +17,8 @@
       class="con-img vs-avatar--con-img">
       <img
         :src="src"
-        alt="">
+        :alt="text"
+      >
     </div>
     <span
       v-else
@@ -129,25 +130,23 @@ export default {
       }
       return style
     },
-    returnText(){
+    returnText() {
       if(this.text.length <= 5) {
         return this.text
       }
       let exp = /\s/g
       var letras = ''
-      if(exp.test(this.text)){
+      if(exp.test(this.text)) {
         this.text.split(exp).forEach((word)=>{
           letras += word[0].toUpperCase()
         })
       } else {
         letras = this.text[0].toUpperCase()
       }
-      return letras.length>5?letras[0]:letras
+      return letras.length > 5 ? letras[0] : letras
     },
-    returnScale(){
-      if(!this.text){
-        return 1
-      }
+    returnScale() {
+      if(!this.text) return 1
       let lengthx = this.returnText.length
       if(lengthx <= 5 && lengthx > 1) {
         return lengthx / (lengthx * 1.50)

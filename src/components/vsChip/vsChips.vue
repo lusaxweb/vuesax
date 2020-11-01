@@ -1,13 +1,13 @@
 <template lang="html">
   <div class="">
     <div
-      :class="{'no-items':value.length==0}"
+      :class="{'no-items':value.length == 0}"
       class="con-chips">
       <slot>
       </slot>
 
       <input
-        :placeholder="value.length>0?null:placeholder"
+        :placeholder="value.length > 0 ? null : placeholder"
         v-model="newChip"
         type="text"
         class="con-chips--input"
@@ -53,16 +53,12 @@ export default {
       default:'close',
     },
   },
-  data(){
-    return {
-      newChip:'',
-      chip1:true,
-      itemsx:this.items
-    }
-  },
+  data: () => ({
+    newChip:'',
+    chip1:true,
+  }),
   methods:{
     addItem(){
-      // this.itemsx.push(this.newChip)
       let valueOld = this.value
       valueOld.push(this.newChip)
       this.$emit('input', valueOld)

@@ -3,10 +3,10 @@
     <div
       v-if="dropdownVisible"
       ref="options"
-      :class="{'rightx':vsDropRight || $parent.rightx,'notHeight':notHeight}"
+      :class="{'rightx':vsDropRight || $parent.rightx,'notHeight': notHeight}"
       :style="{
-        'left':leftx+'px',
-        'top':topx+'px'
+        'left':`${leftx}px`,
+        'top':`${topx}px`
       }"
       class="con-vs-dropdown--menu vs-dropdown-menu"
       @mouseleave="mouseleavex"
@@ -35,24 +35,22 @@
 <script>
 export default {
   name: "VsDropdownMenu",
-  data:()=>({
-    dropdownVisible:false,
-    leftAfter:20,
-    leftx:0,
-    topx:0,
-    rightx:true,
-    vsTriggerClick:false,
-    vsDropRight:false,
-    widthx:0,
-    notHeight:false,
-    vsCustomContent:false,
-    parentNode:null
+  data: () => ({
+    dropdownVisible: false,
+    leftAfter: 20,
+    leftx: 0,
+    topx: 0,
+    rightx: true,
+    vsTriggerClick: false,
+    vsDropRight: false,
+    widthx: 0,
+    notHeight: false,
+    vsCustomContent: false,
+    parentNode: null
   }),
   watch:{
-    dropdownVisible(val){
-      let dropdownGroup = this.$children.filter((item)=>{
-        return item.hasOwnProperty('activeGroup')
-      })
+    dropdownVisible(val) {
+      let dropdownGroup = this.$children.filter(item => item.hasOwnProperty('activeGroup'))
       dropdownGroup.forEach((item_group)=>{
         item_group.activeGroup = false
       })
@@ -61,7 +59,7 @@ export default {
       !val ? this.$parent.rightx = false : null
     }
   },
-  mounted(){
+  mounted() {
     this.insertBody()
   },
   beforeDestroy() {
@@ -107,8 +105,7 @@ export default {
       let elp = this.$el
       this.parentNode = this.$el.parentNode
       document.body.insertBefore(elp, document.body.firstChild)
-    },
+    }
   }
-
 }
 </script>

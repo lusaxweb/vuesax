@@ -124,7 +124,7 @@ export default {
     },
     borderClass() {
       const classes = {}
-      let borderColor = _color.isColor(this.color) ? this.color : "default"
+      let borderColor = _color.isColor(this.color) ? this.color : 'default'
       classes[`vs-divider-border-${borderColor}`] = true
       return classes
     },
@@ -141,10 +141,10 @@ export default {
     textAndBackgroundClass() {
       const classes = {}
 
-      let textColor = _color.isColor(this.color) ? this.color : "default"
+      let textColor = _color.isColor(this.color) ? this.color : 'default'
       classes[`vs-divider-text-${textColor}`] = true
 
-      let backgroundColor = _color.isColor(this.background) ? this.background : "default"
+      let backgroundColor = _color.isColor(this.background) ? this.background : 'default'
       classes[`vs-divider-background-${backgroundColor}`] = true
 
       return classes

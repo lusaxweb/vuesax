@@ -20,6 +20,7 @@
           class="vs-popup--header">
           <div class="vs-popup--title">
             <h3>{{ title }}</h3>
+            <slot name="subtitle" />
           </div>
           <vs-icon
             v-if="!buttonCloseHidden"
@@ -118,6 +119,13 @@ export default {
   },
   mounted(){
     this.insertBody()
+  },
+  beforeDestroy() {
+    // close the left open prompt
+    let elx = this.$refs.con
+    if (document.body) {
+      document.body.removeChild(elx)
+    }
   },
   methods:{
     giveColor(color){

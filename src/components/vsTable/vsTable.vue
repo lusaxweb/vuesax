@@ -37,7 +37,7 @@
                     :icon="isCheckedLine ? 'remove' : 'check'"
                     :checked="isCheckedMultiple"
                     size="small"
-                    @click="changeCheckedMultiple"/>
+                    @change="changeCheckedMultiple"/>
                 </span>
               </th>
               <slot name="thead"></slot>
@@ -62,6 +62,9 @@
           :max-items="maxItemsx"
           :size-array="queriedResults.length"
           :description="description"
+          :description-title="descriptionTitle"
+          :description-connector="descriptionConnector"
+          :description-body="descriptionBody"
           @changeMaxItems="changeMaxItems"
         >
         </vs-pagination>
@@ -126,6 +129,15 @@ export default {
       default: () => [],
       type: Array
     },
+    descriptionTitle: {
+      type:String,
+    },
+    descriptionConnector: {
+      type:String,
+    },
+    descriptionBody: {
+      type:String,
+    },
     currentPage: {
       default: 1,
       type: Number | String
@@ -156,7 +168,8 @@ export default {
   }),
   computed:{
     getTotalPages() {
-      return Math.ceil(this.data.length / this.maxItemsx)
+      const totalLength = this.sst && this.total ? this.total : this.data.length
+      return Math.ceil(totalLength / this.maxItemsx)
     },
     getTotalPagesSearch() {
       return Math.ceil(this.queriedResults.length / this.maxItems)
