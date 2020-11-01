@@ -279,9 +279,7 @@ export default {
             this.timeOpacity = .15
           }, this.time * 1100)
         }
-      });
-      
-
+      }
     },
     isColor(){
       return _color.isColor(this.color)

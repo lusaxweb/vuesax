@@ -1,5 +1,5 @@
 {
-  "name": "@befoo/vuesax",
+  "name": "@be-foo/vuesax",
   "version": "3.12.2",
   "description": "Framework Components for Vue js",
   "license": "MIT",
@@ -7,7 +7,7 @@
   "homepage": "https://lusaxweb.github.io/vuesax/#/",
   "repository": {
     "type": "git",
-    "url": "https://bitbucket.org/be-foo/vuesax"
+    "url": "https://github.com/be-foo/vuesax"
   },
   "keywords": [
     "vuesax",
@@ -47,11 +47,11 @@
   },
   "dependencies": {
     "chalk": "^2.4.2",
-    "vue": "^2.6.9"
+    "vue": "^2.6.12"
   },
   "devDependencies": {
-    "@babel/core": "^7.7.7",
-    "@vue/cli-plugin-babel": "^4.1.2",
+    "@babel/core": "^7.12.3",
+    "@vue/cli-plugin-babel": "^4.5.8",
     "@vue/cli-plugin-eslint": "^3.0.3",
     "@vue/cli-service": "^3.0.3",
     "copy-webpack-plugin": "^4.5.2",
@@ -59,11 +59,11 @@
     "eslint-plugin-vue": "^4.7.1",
     "file-loader": "^1.1.11",
     "prefixfree": "^1.0.0",
-    "stylus": "^0.54.5",
+    "stylus": "^0.54.8",
     "stylus-loader": "^3.0.2",
     "viewcode": "0.0.27",
     "vuepress": "^0.14.10",
-    "webpack": "^4.19.0"
+    "webpack": "^4.44.2"
   },
   "babel": {
     "presets": [
