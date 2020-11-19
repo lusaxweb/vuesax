@@ -32,7 +32,7 @@
         </header>     <!-- // slots  -->
         <div class="vs-dialog-text">
           <slot/>
-          {{ text }}
+          <span>{{ text }}</span>
         </div>
         <!-- footer buttons -->
         <footer v-if="buttonsHidden?false:isPrompt||type=='confirm'">
