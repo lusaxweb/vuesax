@@ -213,7 +213,7 @@ export default {
     cancelClose(){
       this.fActive = false
       this.$emit('update:active',false)
-      this.$emit('cancel')
+      this.$emit('cancel', this.parameters)
       // this.$emit('cancel')
       this.cancel?this.cancel(this.parameters):null
 
