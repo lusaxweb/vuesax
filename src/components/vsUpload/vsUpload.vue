@@ -298,9 +298,6 @@
             this.$emit('change', e.target.value, this.filesx)
           }
         }
-        const input = this.$refs.fileInput
-        input.type = 'text'
-        input.type = 'file'
 
         if (this.automatic) {
           this.upload('all')
