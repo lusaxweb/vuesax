@@ -270,10 +270,12 @@ export default {
       let max = Math.ceil(this.currentx * this.maxItemsx)
       let min = max - this.maxItemsx
 
-      if(!this.searchx || this.sst) {
-        this.datax = this.pagination ? this.getItems(min, max) : this.sortItems(this.data) || [];
+      if (this.sst) {
+        this.datax = this.getItems(0, this.maxItemsx) || []
+      } else if(!this.searchx) {
+        this.datax = this.pagination ? this.getItems(min, max) : this.sortItems(this.data) || []
       } else {
-        this.datax = this.pagination ? this.getItemsSearch(min, max) : this.getItemsSearch(min, max) || []
+        this.datax = this.getItemsSearch(min, max) || []
       }
     },
     getItems(min, max) {
