@@ -1,58 +1,62 @@
 ---
 API:
- - name: color
-   type: String
-   parameters: RGB, HEX, primary, success, danger, warning, dark
-   description: Component color.
-   default: null
- - name: max
-   type: Number
-   parameters: null
-   description: Maximum number admitted.
-   default: null
- - name: min
-   type: Number
-   parameters: null
-   description: Minimum number admitted.
-   default: null
- - name: size
-   type: String
-   parameters: medium, small, mini
-   description: Component size.
-   default: null
- - name: icon-pack
-   type: String
-   parameters: Icon Pack Class Name
-   description: Icon Pack to be used. If not set, icon will default to Material Icons. ex. FA4 uses fa or fas, FA5 uses fas, far, or fal.
-   default: material-icons
- - name: icon-dec
-   type: String
-   parameters: icon name
-   description: Icon used to indicate decrement.
-   default: remove
- - name: icon-inc
-   type: String
-   parameters: icon name
-   description: Icon used to indicate increment.
-   default: add
- - name: step
-   type: Number
-   parameters: valid number
-   description: Number to be added or decreased each time.
-   default: 1
- - name: label
-   type: String
-   parameters:
-   description: Add a descriptive text in the input number.
-   default: null
+  - name: color
+    type: String
+    parameters: RGB, HEX, primary, success, danger, warning, dark
+    description: Component color.
+    default: null
+  - name: max
+    type: Number
+    parameters: null
+    description: Maximum number admitted.
+    default: null
+  - name: min
+    type: Number
+    parameters: null
+    description: Minimum number admitted.
+    default: null
+  - name: size
+    type: String
+    parameters: medium, small, mini
+    description: Component size.
+    default: null
+  - name: icon-pack
+    type: String
+    parameters: Icon Pack Class Name
+    description: Icon Pack to be used. If not set, icon will default to Material Icons. ex. FA4 uses fa or fas, FA5 uses fas, far, or fal.
+    default: material-icons
+  - name: icon-dec
+    type: String
+    parameters: icon name
+    description: Icon used to indicate decrement.
+    default: remove
+  - name: icon-inc
+    type: String
+    parameters: icon name
+    description: Icon used to indicate increment.
+    default: add
+  - name: step
+    type: Number
+    parameters: valid number
+    description: Number to be added or decreased each time.
+    default: 1
+  - name: label
+    type: String
+    parameters:
+    description: Add a descriptive text in the input number (positioned left).
+    default: null
+  - name: label-right
+    type: String
+    parameters:
+    description: Add a descriptive text in the input number (positioned right).
+    default: null
 ---
-
 
 # Number Input
 
 <box header>
 
-  Input of single numbers pleasant to the user and practical.
+Input of single numbers pleasant to the user and practical.
 
 </box>
 
@@ -71,24 +75,28 @@ If you need to add a component that handles a single number, use the component `
 ```html
 <template lang="html">
   <div class="centerx">
-    <vs-input-number v-model="number"/>
-    <vs-input-number :disabled="true" v-model="number1"/>
-    <vs-input-number :is-disabled="true" v-model="number2"/>
-    <vs-input-number v-model="number3" icon-inc="expand_less" icon-dec="expand_more"/>
+    <vs-input-number v-model="number" />
+    <vs-input-number :disabled="true" v-model="number1" />
+    <vs-input-number :is-disabled="true" v-model="number2" />
+    <vs-input-number
+      v-model="number3"
+      icon-inc="expand_less"
+      icon-dec="expand_more"
+    />
   </div>
 </template>
 
 <script>
-export default {
-  data(){
-    return {
-      number:34,
-      number1:48,
-      number2:50,
-      number3:55,
+  export default {
+    data() {
+      return {
+        number: 34,
+        number1: 48,
+        number2: 50,
+        number3: 55
+      };
     }
-  }
-}
+  };
 </script>
 ```
 
@@ -104,7 +112,7 @@ export default {
 You can change the color of the **Input-Number** with the property `color`. You are able to use the [Main Colors](/theme/) or **RGB** and **HEX** colors.
 
 :::warning
-  Only **RGB** and **HEX** colors are supported.
+Only **RGB** and **HEX** colors are supported.
 :::
 
 <vuecode md>
@@ -116,28 +124,28 @@ You can change the color of the **Input-Number** with the property `color`. You 
 ```html
 <template lang="html">
   <div class="centerx">
-    <vs-input-number color="danger" v-model="number1"/>
-    <vs-input-number color="success" v-model="number2"/>
-    <vs-input-number color="warning" v-model="number3"/>
-    <vs-input-number color="dark" v-model="number4"/>
-    <vs-input-number color="rgb(218, 24, 94)" v-model="number5"/>
-    <vs-input-number color="#ad3af9" v-model="number6"/>
+    <vs-input-number color="danger" v-model="number1" />
+    <vs-input-number color="success" v-model="number2" />
+    <vs-input-number color="warning" v-model="number3" />
+    <vs-input-number color="dark" v-model="number4" />
+    <vs-input-number color="rgb(218, 24, 94)" v-model="number5" />
+    <vs-input-number color="#ad3af9" v-model="number6" />
   </div>
 </template>
 
 <script>
-export default {
-  data(){
-    return {
-      number1:196,
-      number2:88,
-      number3:25,
-      number4:12,
-      number5:590,
-      number6:32,
+  export default {
+    data() {
+      return {
+        number1: 196,
+        number2: 88,
+        number3: 25,
+        number4: 12,
+        number5: 590,
+        number6: 32
+      };
     }
-  }
-}
+  };
 </script>
 ```
 
@@ -160,18 +168,18 @@ You can restrict the maximum number or the minimum with the properties `vs-min`,
 ```html
 <template lang="html">
   <div class="centerx">
-    <vs-input-number min="13" max="21" v-model="number1"/>
+    <vs-input-number min="13" max="21" v-model="number1" />
   </div>
 </template>
 
 <script>
-export default {
-  data(){
-    return {
-      number1:21,
+  export default {
+    data() {
+      return {
+        number1: 21
+      };
     }
-  }
-}
+  };
 </script>
 ```
 
@@ -194,24 +202,24 @@ To change the size of the component, you can use the property `vs-size`. The all
 ```html
 <template lang="html">
   <div class="centerx">
-    <vs-input-number v-model="number0"/>
-    <vs-input-number size="medium" v-model="number1"/>
-    <vs-input-number size="small" v-model="number2"/>
-    <vs-input-number size="mini" v-model="number3"/>
+    <vs-input-number v-model="number0" />
+    <vs-input-number size="medium" v-model="number1" />
+    <vs-input-number size="small" v-model="number2" />
+    <vs-input-number size="mini" v-model="number3" />
   </div>
 </template>
 
 <script>
-export default {
-  data(){
-    return {
-      number0:95,
-      number1:21,
-      number2:67,
-      number3:2
+  export default {
+    data() {
+      return {
+        number0: 95,
+        number1: 21,
+        number2: 67,
+        number3: 2
+      };
     }
-  }
-}
+  };
 </script>
 ```
 
@@ -234,18 +242,18 @@ To change the number to be added or decreased of the component, you can use the 
 ```html
 <template lang="html">
   <div class="centerx">
-    <vs-input-number v-model="number0" :step="5"/>
+    <vs-input-number v-model="number0" :step="5" />
   </div>
 </template>
 
 <script>
-export default {
-  data(){
-    return {
-      number0:5
+  export default {
+    data() {
+      return {
+        number0: 5
+      };
     }
-  }
-}
+  };
 </script>
 ```
 
@@ -268,18 +276,18 @@ Number Input also supports decimal values.
 ```html
 <template lang="html">
   <div class="centerx">
-    <vs-input-number v-model="number0" :step="1.43"/>
+    <vs-input-number v-model="number0" :step="1.43" />
   </div>
 </template>
 
 <script>
-export default {
-  data(){
-    return {
-      number0:1.98
+  export default {
+    data() {
+      return {
+        number0: 1.98
+      };
     }
-  }
-}
+  };
 </script>
 ```
 
@@ -302,18 +310,18 @@ Number Input supports adding labels for number inputs.
 ```html
 <template lang="html">
   <div class="centerx">
-    <vs-input-number v-model="number0" label="passengers:"/>
+    <vs-input-number v-model="number0" label="passengers:" />
   </div>
 </template>
 
 <script>
-export default {
-  data(){
-    return {
-      number0:1
+  export default {
+    data() {
+      return {
+        number0: 1
+      };
     }
-  }
-}
+  };
 </script>
 ```
 
@@ -341,13 +349,13 @@ Number Input has a property that can be passed to point out invalidity through s
 </template>
 
 <script>
-export default {
-  data(){
-    return {
-      number0:1
+  export default {
+    data() {
+      return {
+        number0: 1
+      };
     }
-  }
-}
+  };
 </script>
 ```
 

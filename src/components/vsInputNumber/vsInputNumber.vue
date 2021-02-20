@@ -3,25 +3,24 @@
     :class="[
       `vs-input-number-size-${size}`,
       `vs-input-number-${color}`,
-      {'isChangeValue':isChangeValue},
-      {'vs-input-number-validate-danger':danger}
+      { isChangeValue: isChangeValue },
+      { 'vs-input-number-validate-danger': danger }
     ]"
-    class="vs-input-number">
+    class="vs-input-number"
+  >
     <button
       v-repeat-click="less"
       :disabled="$attrs.disabled"
       :class="{
-        limit:value <= min
+        limit: value <= min
       }"
       :style="{
-        background:getColor
+        background: getColor
       }"
       class="btn-less vs-input-number--button-less"
-      type="button">
-      <vs-icon
-        :icon-pack="iconPack"
-        :icon="iconDec"
-      ></vs-icon>
+      type="button"
+    >
+      <vs-icon :icon-pack="iconPack" :icon="iconDec"></vs-icon>
     </button>
     <div>
       <span v-if="label">{{ label }}</span>
@@ -35,31 +34,31 @@
         :min="min"
         :max="max"
         class="vs-input-number--input"
-        v-on="listeners">
+        v-on="listeners"
+      />
+      <span v-if="labelRight">{{ labelRight }}</span>
     </div>
     <button
       v-repeat-click="plus"
       :disabled="$attrs.disabled"
       :class="{
-        limit:value >= max && max !== null
+        limit: value >= max && max !== null
       }"
       :style="{
-        background:getColor
+        background: getColor
       }"
       class="btn-plus vs-input-number--button-plus"
-      type="button">
-      <vs-icon
-        :icon-pack="iconPack"
-        :icon="iconInc"
-      ></vs-icon>
+      type="button"
+    >
+      <vs-icon :icon-pack="iconPack" :icon="iconInc"></vs-icon>
     </button>
   </div>
 </template>
 
 <script>
-import _color from '../../utils/color.js'
+import _color from "../../utils/color.js";
 export default {
-  name:'VsInputNumber',
+  name: "VsInputNumber",
   directives: {
     repeatClick: {
       bind(el, binding, vnode) {
@@ -73,137 +72,150 @@ export default {
           clearInterval(intervalx);
           intervalx = null;
         };
-        const eventx = (e) => {
+        const eventx = e => {
           if (e.button !== 0) return;
           startT = new Date();
           var escuchando = function() {
             if (bucle) {
               bucle.apply(this, arguments);
             }
-            el.removeEventListener('mouseup', escuchando, false);
+            el.removeEventListener("mouseup", escuchando, false);
           };
-          el.addEventListener('mouseleave', escuchando ,false);
-          el.addEventListener('mouseup', escuchando, false);
+          el.addEventListener("mouseleave", escuchando, false);
+          el.addEventListener("mouseup", escuchando, false);
           clearInterval(intervalx);
           intervalx = setInterval(functionx, 100);
-        }
-        el.addEventListener('mousedown', eventx ,false);
-
+        };
+        el.addEventListener("mousedown", eventx, false);
       }
     }
   },
-  inheritAttrs:false,
-  props:{
-    value:{},
-    color:{
-      default:'primary',
-      type:String
+  inheritAttrs: false,
+  props: {
+    value: {},
+    color: {
+      default: "primary",
+      type: String
     },
     label: {
       default: null,
       type: String
     },
-    max:{
-      default:null,
-      type:[Number,String]
+    labelRight: {
+      default: null,
+      type: String
     },
-    min:{
-      default:0,
-      type:[Number,String]
+    max: {
+      default: null,
+      type: [Number, String]
     },
-    size:{
-      default:null,
-      type:String
+    min: {
+      default: 0,
+      type: [Number, String]
     },
-    iconPack:{
-      default:'material-icons',
-      type:String
+    size: {
+      default: null,
+      type: String
     },
-    iconDec:{
-      default:'remove',
-      type:String
+    iconPack: {
+      default: "material-icons",
+      type: String
     },
-    iconInc:{
-      default:'add',
-      type:String
+    iconDec: {
+      default: "remove",
+      type: String
     },
-    step:{
-      default:1,
-      type:[Number,String]
+    iconInc: {
+      default: "add",
+      type: String
+    },
+    step: {
+      default: 1,
+      type: [Number, String]
     },
     isDisabled: {
       type: Boolean,
-      default: false,
+      default: false
     },
     danger: {
       type: Boolean,
       default: false
     }
   },
-  data:()=>({
-    isChangeValue:false
+  data: () => ({
+    isChangeValue: false
   }),
-  computed:{
+  computed: {
     styleInput() {
       return {
-        width:`${this.getLength}px`
-      }
+        width: `${this.getLength}px`
+      };
     },
-    getLength(){
-      if(this.value){
-        return this.value.toString().length * 9.1
+    getLength() {
+      if (this.value) {
+        return this.value.toString().length * 9.1;
       } else {
-        return 0
+        return 0;
       }
     },
-    getColor(){
-      return _color.getColor(this.color,1)
+    getColor() {
+      return _color.getColor(this.color, 1);
     },
-    listeners(){
+    listeners() {
       return {
         ...this.$listeners,
-        blur:(evt)=>{
-          if(parseFloat(this.value) > parseFloat(this.max)) {
-            this.$emit('input',this.max)
+        blur: evt => {
+          if (parseFloat(this.value) > parseFloat(this.max)) {
+            this.$emit("input", this.max);
           } else if (parseFloat(this.value) < parseFloat(this.min)) {
-            this.$emit('input',this.min)
-            this.$emit('blur',evt)
+            this.$emit("input", this.min);
+            this.$emit("blur", evt);
           }
         },
-        input:(evt)=>{
-          this.$emit('input',evt.target.value)
+        input: evt => {
+          this.$emit("input", evt.target.value);
         }
-      }
+      };
     }
   },
-  watch:{
-    value(){
-      this.$emit('input', this.value);
-      this.isChangeValue = true
-      setTimeout(()=>{
-        this.isChangeValue = false
-      },200)
+  watch: {
+    value() {
+      this.$emit("input", this.value);
+      this.isChangeValue = true;
+      setTimeout(() => {
+        this.isChangeValue = false;
+      }, 200);
     }
   },
-  methods:{
-    plus(){
-      if(this.value === ''){
-        this.value = 0
-      } else if (this.max ? parseFloat(this.value) < parseFloat(this.max) : true) {
-        this.$emit('input', this.fixPrecision(parseFloat(this.value) + parseFloat(this.step)))
+  methods: {
+    plus() {
+      if (this.value === "") {
+        this.value = 0;
+      } else if (
+        this.max ? parseFloat(this.value) < parseFloat(this.max) : true
+      ) {
+        this.$emit(
+          "input",
+          this.fixPrecision(parseFloat(this.value) + parseFloat(this.step))
+        );
       }
     },
-    less(){
-      if(this.value === ''){
-        this.value = 0
-      } else if (this.min ? parseFloat(this.value) > parseFloat(this.min) : true) {
-        this.$emit('input', this.fixPrecision(parseFloat(this.value) - parseFloat(this.step)))
+    less() {
+      if (this.value === "") {
+        this.value = 0;
+      } else if (
+        this.min ? parseFloat(this.value) > parseFloat(this.min) : true
+      ) {
+        this.$emit(
+          "input",
+          this.fixPrecision(parseFloat(this.value) - parseFloat(this.step))
+        );
       }
     },
     fixPrecision(n) {
-      const precision = (this.step + '').split('.')[1];
+      const precision = (this.step + "").split(".")[1];
       return n.toFixed(precision ? precision.length : 0);
     }
   }
-}
+};
 </script>
