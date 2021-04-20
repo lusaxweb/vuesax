@@ -161,7 +161,7 @@ export default {
       return Array.isArray(this.value) ? this.value[0] == this.value[1] : false;
     },
     countTicks() {
-      return this.max + 1;
+      return Math.ceil(this.max / this.step) + 1;
     },
     /*
      * styles component
