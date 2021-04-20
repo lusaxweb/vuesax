@@ -294,6 +294,7 @@ export default {
         this.leftx = ((this.value[1] - this.min) / (this.max - this.min)) * 100;
         this.leftTwo =
           ((this.value[0] - this.min) / (this.max - this.min)) * 100;
+        this.valueCircle2 = this.value[0]
       } else {
         this.leftx = ((this.value - this.min) / (this.max - this.min)) * 100;
       }
