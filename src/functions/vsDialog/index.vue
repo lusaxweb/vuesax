@@ -41,12 +41,12 @@
             :color="color"
             :type="buttonAccept"
             class="vs-dialog-accept-button"
-            @click="acceptDialog">{{ acceptText }}</vs-button>
+            @click.native="acceptDialog">{{ acceptText }}</vs-button>
           <vs-button
             :text-color="'rgba(0,0,0,.5)'"
             :type="buttonCancel"
             class="vs-dialog-cancel-button"
-            @click="cancelClose">{{ cancelText }}</vs-button>
+            @click.native="cancelClose">{{ cancelText }}</vs-button>
         </footer>
 
         <footer v-if="type=='alert'&&!isPrompt" >
@@ -54,7 +54,7 @@
             :color="color"
             :type="buttonAccept"
             class="vs-dialog-accept-button"
-            @click="acceptDialog">{{ acceptText }}</vs-button>
+            @click.native="acceptDialog">{{ acceptText }}</vs-button>
         </footer>
       </div>
     </div>
