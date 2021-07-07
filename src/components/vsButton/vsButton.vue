@@ -246,7 +246,6 @@ export default {
           this.isActive = false
         }
       });
-      
     },
     clickButton(event){
       this.$emit('click', event)
@@ -268,6 +267,9 @@ export default {
           this.isActive = true
         }
         let btn = this.$refs.btn
+        if (!btn) {
+          return
+        }
         let xEvent = event.offsetX
         let yEvent = event.offsetY
         let radio = btn.clientWidth * 3
@@ -301,7 +303,7 @@ export default {
           }, this.time * 1100)
         }
       });
-      
+
 
     },
     isColor(){
