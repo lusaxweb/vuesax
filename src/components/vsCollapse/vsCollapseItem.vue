@@ -97,6 +97,9 @@ export default {
       this.maxHeight = `${maxHeightx}px`
     }
   },
+  updated() {
+    this.changeHeight();
+  },
   beforeDestroy() {
     window.removeEventListener('resize', this.changeHeight);
   },
