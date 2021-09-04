@@ -113,9 +113,9 @@ API:
  - name: total (total items if sst)
    type: Number
    parameters: null
-   description: Total number of items if the data is being loaded through sst (server-site table)
+   description: Total number of items if the data is being loaded through sst (server-side table)
    default: 0
- - name: sst (server-site table)
+ - name: sst (server-side table)
    type: Boolean
    parameters: null
    description: It does not execute the functions of the client side like search, pagination change or sort, now the methods are executed (search, change-page and sort) to be used when making the call to the api of the server.
@@ -1862,7 +1862,7 @@ export default {
 
 <box>
 
-## SST (Server-site Table)
+## SST (Server-side Table)
 
 The table stops doing its functionalities on the client side and proceeds to issue the functions that the user does to capture them and make the requests to the server's api making the change in the data
 
