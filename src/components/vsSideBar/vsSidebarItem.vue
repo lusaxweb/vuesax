@@ -7,6 +7,7 @@
       v-if="to"
       :to="to">
       <vs-icon
+        v-if="icon"
         :icon-pack="iconPack"
         :icon="icon">
       </vs-icon>
@@ -16,6 +17,7 @@
       v-else
       :href="href">
       <vs-icon
+        v-if="icon"
         :icon-pack="iconPack"
         :icon="icon">
       </vs-icon>
