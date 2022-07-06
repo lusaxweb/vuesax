@@ -339,9 +339,9 @@ You can change the position of the menu with the property `position` that as a v
 <template lang="html">
   <div class="">
     <h3>
-      Default
+      bottom
     </h3>
-    <vs-tabs>
+    <vs-tabs position="bottom">
       <vs-tab label="Home">
         <div>
 
@@ -365,9 +365,9 @@ You can change the position of the menu with the property `position` that as a v
     </vs-tabs>
 
     <h3>
-      Center
+      TOP
     </h3>
-    <vs-tabs alignment="center">
+    <vs-tabs position="top">
       <vs-tab label="Home">
         <div>
 
@@ -393,7 +393,7 @@ You can change the position of the menu with the property `position` that as a v
     <h3>
       Right
     </h3>
-    <vs-tabs alignment="right">
+    <vs-tabs position="right">
       <vs-tab label="Home">
         <div>
 
@@ -418,9 +418,9 @@ You can change the position of the menu with the property `position` that as a v
 
 
     <h3>
-      Fixed
+      left
     </h3>
-    <vs-tabs alignment="fixed">
+    <vs-tabs position="left">
       <vs-tab label="Home">
         <div>
 
