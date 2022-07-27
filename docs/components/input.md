@@ -192,7 +192,7 @@ Add a label to the input with the property `label`.
 <template lang="html">
   <div class="centerx labelx">
     <vs-input label="Name" placeholder="Placeholder" v-model="value1"/>
-    <vs-input type="password" label="Password" placeholder="Disabled" v-model="value2"/>
+    <vs-input type="password" label="Password" placeholder="Password" v-model="value2"/>
   </div>
 </template>
 
