@@ -22,37 +22,37 @@
 </template>
 
 <script>
-import _color from '../../utils/color.js'
+import _color from "../../utils/color.js";
 export default {
-  name:'VsListHeader',
+  name: "VsListHeader",
   props: {
     color: {
-      type:String,
-      default:'primary',
+      type: String,
+      default: "primary",
     },
-    title:{
-      type:String,
-      default:null,
+    title: {
+      type: String,
+      default: null,
     },
-    subtitle:{
-      type:String,
-      default:null,
+    subtitle: {
+      type: String,
+      default: null,
     },
-    icon:{
-      type:String,
-      default:null,
+    icon: {
+      type: String,
+      default: null,
     },
-    iconPack:{
-      type:String,
-      default:'material-icons',
+    iconPack: {
+      type: String,
+      default: "material-icons",
     },
   },
   computed: {
-    styleHeader () {
+    styleHeader() {
       return {
-        color: _color.getColor(this.color)
-      }
-    }
-  }
-}
+        color: _color.getColor(this.color),
+      };
+    },
+  },
+};
 </script>

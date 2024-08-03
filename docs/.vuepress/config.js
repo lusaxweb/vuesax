@@ -225,7 +225,8 @@ module.exports = {
           '/components/table',
           '/components/textarea',
           '/components/collapse',
-          '/components/images'
+          '/components/images',
+          '/components/editableList',
           // '/components/timePicker',
           /*New Component*/
         ]

@@ -29,6 +29,7 @@ export { default as vsTable } from './vsTable'
 export { default as vsTextarea } from './vsTextarea'
 export { default as vsCollapse } from './vsCollapse'
 export { default as vsImages } from './vsImages'
+export { default as vsEditableList } from './vsEditableList'
 //New Component import
 
 //layout

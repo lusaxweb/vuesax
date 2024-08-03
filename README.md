@@ -98,6 +98,7 @@ If you feel awesome and want to support us in a small way, please consider starr
 - [Progress](https://lusaxweb.github.io/vuesax/components/progress.html)
 - [Card](https://lusaxweb.github.io/vuesax/components/card.html)
 - [List](https://lusaxweb.github.io/vuesax/components/list.html)
+- [EditableList](https://lusaxweb.github.io/vuesax/components/editableList.html)
 - [Pagination](https://lusaxweb.github.io/vuesax/components/pagination.html)
 - [Topbar](https://lusaxweb.github.io/vuesax/components/topbar.html)
 - [SideBar](https://lusaxweb.github.io/vuesax/components/sideBar.html)
